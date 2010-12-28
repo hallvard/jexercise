@@ -1,0 +1,12 @@
+<contexts>
+	<context id="ExerciseView">
+    	<description>JExercise view</description>
+        	<topic href="help/JExerciseView.html" label="JExercise view"/>
+        	<topic href="help/JExerciseView.html#icons" label="Icons used in the JExercise view"/>
+        	<topic href="help/JExerciseView.html#junit-icons" label="JUnit icons used in the JExercise view"/>
+  	</context>
+	<context id="JexPreferencePage">
+    	<description>JExercise preferences</description>
+        	<topic href="help/JExercisePreferences.html" label="JExercise preferences"/>
+  	</context>
+</contexts>

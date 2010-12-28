@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jex:Exercise xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jex="platform:/plugin/no.hal.jex/model/jex.ecore">
+  <javaElements xsi:type="jex:JavaPack" name="counter">
+    <classes name="Counter" modifiers="public">
+      <members xsi:type="jex:JavaMethod" name="Counter" modifiers="public">
+        <parameters>int</parameters>
+        <parameters>int</parameters>
+      </members>
+      <members xsi:type="jex:JavaMethod" name="count" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethod" name="getCounter" modifiers="public" returnType="int"/>
+    </classes>
+    <classes xsi:type="jex:JavaClassTester" name="CounterTest" modifiers="public" testedElement="//@javaElements.0/@classes.0">
+      <members xsi:type="jex:JavaMethodTester" name="testCounter" modifiers="public" returnType="void" testedElement="//@javaElements.0/@classes.0/@members.0"/>
+      <members xsi:type="jex:JavaMethodTester" name="testGetCounter" modifiers="public" returnType="void"/>
+      <members xsi:type="jex:JavaMethodTester" name="testCount" modifiers="public" returnType="void"/>
+      <superclasses>TestCase</superclasses>
+    </classes>
+  </javaElements>
+  <requirements xsi:type="jex:ExercisePart">
+    <requirements xsi:type="jex:JavaRequirement" text="public class Counter in package counter" javaElement="//@javaElements.0/@classes.0">
+      <requirements xsi:type="jex:JavaRequirement" text="public constructor Counter in public class Counter in package counter" javaElement="//@javaElements.0/@classes.0/@members.0"/>
+      <requirements xsi:type="jex:JavaRequirement" text="public void method count in public class Counter in package counter" javaElement="//@javaElements.0/@classes.0/@members.1"/>
+      <requirements xsi:type="jex:JavaRequirement" text="public int method getCounter in public class Counter in package counter" javaElement="//@javaElements.0/@classes.0/@members.2"/>
+    </requirements>
+    <requirements xsi:type="jex:JUnitTest" text="Test public class Counter in package counter" javaElement="//@javaElements.0/@classes.1">
+      <requirements xsi:type="jex:JUnitTest" text="Test public constructor Counter in public class Counter in package counter" javaElement="//@javaElements.0/@classes.1/@members.0"/>
+      <requirements xsi:type="jex:JUnitTest" text="Test with public void method testGetCounter in public class CounterTest in package counter" javaElement="//@javaElements.0/@classes.1/@members.1"/>
+      <requirements xsi:type="jex:JUnitTest" text="Test with public void method testCount in public class CounterTest in package counter" javaElement="//@javaElements.0/@classes.1/@members.2"/>
+    </requirements>
+  </requirements>
+</jex:Exercise>

@@ -1,0 +1,42 @@
+<h2>JExercise view</h2>
+
+The JExercise view shows the breakdown of an exercise as a tree of requirements for the code to be written.
+The specific exercise to view is selected by the drop-down list above the view. Of no exercise is selected,
+a help message will (re)appear.
+
+<p>Each node in the tree may represent a test of whether a requirement for an aspect of the Java code is satisfied.
+Such a requirement may be the <i>presence</i> of a class or method and/or additional requirements on types and modifiers.
+A node may further contain sub-requirements, that must be satisifed for the sub-tree as a whole to be satisfied.
+When the Java code is edited, the JExercise view tries to keep the nodes updated, so the view always indicates the status
+of the requirements, whether satisfied, undecided or violated.
+
+<p><a name="icons">The following icons are used to indicate the state of a generic requirement:
+
+<dl compact="true">
+<dt><img src="../icons/requirement_default.gif"><dd>The state is currently <i>undecided</i>, presumable because a pre-condition is unsatisfied.
+<dt><img src="../icons/requirement_ok.gif"><dd>The requirement is completely <i>satisfied</i> :-)
+<dt><img src="../icons/requirement_ok_default.gif"><dd>The requirement itself is <i>satisfied</i>, but there are <i>undecided</i> sub-requirements :-|
+<dt><img src="../icons/requirement_ok_error.gif"><dd>The requirement itself is <i>satisfied</i>, but there are sub-requirements that are <i>violated</i> :-|
+<dt><img src="../icons/requirement_error.gif"><dd>The requirement is <i>violated</i> :-(
+</dl>
+
+<p>A JUnit test is a special kind of requirement in two ways. First, it is a <i>functional</i> requirement,
+rather than <i>syntactical</i>, i.e. concerned with the actual <i>logic</i> of the code and not just the code as <i>text</i>.
+Second, JUnit tests require running code for performing the test, which is costly and time-consuming.
+Hence, JUnit test requirements must be explicitly initiated by the user, by double-clicking the node or hitting enter when
+the node is selected. Running the test may take some time, and the progress is first indicated by a progress bar in the
+status bar of Eclipse, and then in the JUnit tab showing details of the success or failure of the test. Depending on the 
+perspective, the JUnit tab is located on the left hand side of Eclipse (Resource or Java perspective) or at the bottom (Debug perspective).
+When the test is completed, the node in the JExercise view is updated to indicate success or failure.
+
+<p><a name="junit-icons">For junit test requirements, the following icons are used. Note that you must double click on a junit requirement to actually run the test.
+<dl compact="true">
+<dt><img src="../icons/junit_default.jpg"><dd>The requirement is a JUnit test that has not been run.
+<dt><img src="../icons/junit_ok.jpg"><dd>The requirement is a JUnit test that has <i>succeded</i> :-)
+<dt><img src="../icons/junit_failure.jpg"><dd>The requirement is a JUnit test that has <i>failed</i> :-(
+<dt><img src="../icons/junit_error.jpg"><dd>The requirement is a JUnit test that <i>couldn't be run</i> :-(
+</dl>
+
+The last of these icons indicates that it was impossible to run the JUnit test, usually because the parts of
+the exercise that are to be tested are incomplete. This is usually indicated by a small red marker on the test's own Java code,
+as well as warnings when launch of the test fails.

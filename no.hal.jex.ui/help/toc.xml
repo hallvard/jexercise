@@ -1,0 +1,7 @@
+<toc label="JExercise">
+    <topic label="JExercise view" href="help/JExerciseView.html">
+        <topic label="Icons" href="help/JExerciseView.html#icons"/>
+        <topic label="JUnit icons" href="help/JExerciseView.html#junit-icons"/>
+    </topic>
+    <topic label="JExercise preferences" href="help/JExercisePreferences.html"/>
+</toc>

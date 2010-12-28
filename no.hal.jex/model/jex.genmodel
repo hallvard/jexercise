@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.jex/src"
+    editorDirectory="/no.hal.jex.ui/src" modelPluginID="no.hal.jex" modelName="Jex"
+    editorPluginClass="no.hal.jex.ui.JexUiPlugin" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" editorPluginID="no.hal.jex.ui">
+  <foreignModel>jex.ecore</foreignModel>
+  <genPackages prefix="Jex" basePackage="no.hal" disposableProviderFactory="true"
+      ecorePackage="jex.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jex.ecore#//ClassKind">
+      <genEnumLiterals ecoreEnumLiteral="jex.ecore#//ClassKind/classKind"/>
+      <genEnumLiterals ecoreEnumLiteral="jex.ecore#//ClassKind/interfaceKind"/>
+      <genEnumLiterals ecoreEnumLiteral="jex.ecore#//ClassKind/enumKind"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jex.ecore#//JUnitTestStatus">
+      <genEnumLiterals ecoreEnumLiteral="jex.ecore#//JUnitTestStatus/undefined"/>
+      <genEnumLiterals ecoreEnumLiteral="jex.ecore#//JUnitTestStatus/ok"/>
+      <genEnumLiterals ecoreEnumLiteral="jex.ecore#//JUnitTestStatus/error"/>
+      <genEnumLiterals ecoreEnumLiteral="jex.ecore#//JUnitTestStatus/failure"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="jex.ecore#//DeclarationType"/>
+    <genDataTypes ecoreDataType="jex.ecore#//Modifiers"/>
+    <genDataTypes ecoreDataType="jex.ecore#//ClassName"/>
+    <genDataTypes ecoreDataType="jex.ecore#//JavaCoreProject"/>
+    <genDataTypes ecoreDataType="jex.ecore#//JavaCoreElement"/>
+    <genDataTypes ecoreDataType="jex.ecore#//Features"/>
+    <genClasses ecoreClass="jex.ecore#//JavaPack">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaPack/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jex.ecore#//JavaPack/classes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaPack/sourceLocation"/>
+    </genClasses>
+    <genClasses ecoreClass="jex.ecore#//JavaClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaClass/classKind"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jex.ecore#//JavaClass/members"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jex.ecore#//JavaClass/pack"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaClass/superclasses"/>
+    </genClasses>
+    <genClasses ecoreClass="jex.ecore#//JavaField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaField/type"/>
+    </genClasses>
+    <genClasses ecoreClass="jex.ecore#//JavaMethod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaMethod/returnType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaMethod/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaMethod/throwables"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jex.ecore#//Member">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//Member/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//Member/modifiers"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jex.ecore#//Member/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//Member/required"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jex.ecore#//JavaElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaElement/present"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaElement/time"/>
+      <genOperations ecoreOperation="jex.ecore#//JavaElement/findJavaCoreElement">
+        <genParameters ecoreParameter="jex.ecore#//JavaElement/findJavaCoreElement/project"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="jex.ecore#//JavaRequirement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jex.ecore#//JavaRequirement/javaElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JavaRequirement/requiredFeatures"/>
+    </genClasses>
+    <genClasses ecoreClass="jex.ecore#//JUnitTest">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jex.ecore#//JUnitTest/testRunnable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JUnitTest/points"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//JUnitTest/testStatus"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jex.ecore#//Requirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//Requirement/satisfied"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//Requirement/time"/>
+      <genOperations ecoreOperation="jex.ecore#//Requirement/validateRequirement">
+        <genParameters ecoreParameter="jex.ecore#//Requirement/validateRequirement/project"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="jex.ecore#//Exercise"/>
+    <genClasses ecoreClass="jex.ecore#//ExercisePart"/>
+    <genClasses image="false" ecoreClass="jex.ecore#//AbstractRequirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//AbstractRequirement/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//AbstractRequirement/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//AbstractRequirement/comment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jex.ecore#//AbstractRequirement/javaElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jex.ecore#//AbstractRequirement/requirements"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jex.ecore#//AbstractRequirement/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jex.ecore#//AbstractRequirement/childrenSatisfied"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jex.ecore#//TestRunnable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jex.ecore#//TestRunnable/testedElement"/>
+      <genOperations ecoreOperation="jex.ecore#//TestRunnable/getTestRuns"/>
+    </genClasses>
+    <genClasses ecoreClass="jex.ecore#//JavaClassTester"/>
+    <genClasses ecoreClass="jex.ecore#//JavaMethodTester"/>
+    <genClasses ecoreClass="jex.ecore#//TestSuite">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jex.ecore#//TestSuite/testRuns"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

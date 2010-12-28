@@ -1,0 +1,29 @@
+package counter;
+
+/*
+class public Counter {
+	method public Counter ( int , int ) ;
+	method public void count ( ) ;
+	method public int getCounter ( ) ;
+}
+
+test Counter with class public CounterTest {
+  	test Counter.Counter with method public void testCounter ( ) ;
+	test method public void testGetCounter ( ) ;
+	test method public void testCount ( ) ;
+}
+*/
+
+/*
+class public Counter {
+	method public Counter ( int , int ) ;
+	method public void count ( ) ;
+	method public int getCounter ( ) ;
+}
+
+test Counter with class public CounterTest {
+  	test Counter.Counter with method public void testCounter ( ) ;
+	test method public void testGetCounter ( ) ;
+	test method public void testCount ( ) ;
+}
+*/

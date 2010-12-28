@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="no.hal.jex.presentation.JexModelWizardID"
+            name="%_UI_JexModelWizard_label"
+            class="no.hal.jex.presentation.JexModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/views/jex.gif">
+         <description>%_UI_JexModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="no.hal.jex.JexEditor"
+            name="%_UI_JexEditor_label"
+            icon="icons/views/jex.gif"
+            extensions="jex"
+            class="no.hal.jex.presentation.JexEditor"
+            contributorClass="no.hal.jex.presentation.JexActionBarContributor">
+      </editor>
+   </extension>
+
+	 <extension
+	       point="org.eclipse.ui.commands">
+	    <command
+	          id="no.hal.jex.commands.CreateChildrenFromJavaModel"
+	          name="CreateChildrenFromJavaModel">
+	       <commandParameter
+	             id="modifiers"
+	             name="modifiers"
+	             optional="true">
+	       </commandParameter>
+	       <commandParameter
+	             id="recursive"
+	             name="recursive"
+	             optional="true">
+	       </commandParameter>
+	    </command>
+	    <command
+	          id="no.hal.jex.commands.CreateRequirementsFromJavaModel"
+	          name="CreateRequirementsFromJavaModel">
+	       <commandParameter
+	             id="recursive"
+	             name="recursive"
+	             optional="true">
+	       </commandParameter>
+	    </command>
+	    <command
+	          id="no.hal.jex.commands.CreateExerciseFromTestAnnotations"
+	          name="CreateExerciseFromTestAnnotations">
+	       <commandParameter
+	             id="folderName"
+	             name="folderName"
+	             optional="true">
+	       </commandParameter>
+	    </command>
+	 </extension>
+
+	<extension
+	       point="org.eclipse.ui.handlers">
+		<handler
+	       	class="no.hal.jex.editor.commands.CreateChildrenFromJavaModelCommandHandler"
+	       	commandId="no.hal.jex.commands.CreateChildrenFromJavaModel">
+			<activeWhen>
+       			<with variable="activeEditorId">
+          			<equals value="no.hal.jex.JexEditor"/>
+       			</with>
+   			</activeWhen>
+    	</handler>
+		<handler
+	       	class="no.hal.jex.editor.commands.CreateRequirementsFromJavaModelCommandHandler"
+	       	commandId="no.hal.jex.commands.CreateRequirementsFromJavaModel">
+			<activeWhen>
+       			<with variable="activeEditorId">
+          			<equals value="no.hal.jex.JexEditor"/>
+       			</with>
+   			</activeWhen>
+    	</handler>
+		<handler
+	       	class="no.hal.jex.editor.commands.CreateExerciseFromTestAnnotationsCommandHandler"
+	       	commandId="no.hal.jex.commands.CreateExerciseFromTestAnnotations">
+			<activeWhen>
+       			<with variable="activeEditorId">
+          			<equals value="no.hal.jex.JexEditor"/>
+       			</with>
+   			</activeWhen>
+    	</handler>
+ 	</extension>
+ 
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           locationURI="toolbar:org.eclipse.ui.main.toolbar">
+        <toolbar
+              id="no.hal.jex.ui.editor.toolbar">
+           <command
+                 commandId="no.hal.jex.commands.CreateChildrenFromJavaModel"
+                 label="CreateChildrenFromJavaModel"
+                 style="push">
+              <parameter
+                    name="modifiers"
+                    value="public">
+              </parameter>
+              <parameter
+                    name="recursive"
+                    value="true">
+              </parameter>
+           </command>
+           <command
+                 commandId="no.hal.jex.commands.CreateRequirementsFromJavaModel"
+                 label="CreateRequirementsFromJavaModel"
+                 style="push">
+              <parameter
+                    name="recursive"
+                    value="true">
+              </parameter>
+           </command>
+           <command
+                 commandId="no.hal.jex.commands.CreateExerciseFromTestAnnotations"
+                 label="CreateExerciseFromTestAnnotations"
+                 style="push">
+              <parameter
+                    name="folderName"
+                    value="tests">
+              </parameter>
+           </command>
+        </toolbar>
+     </menuContribution>
+  </extension>
+
+<!--
+	<extension point="org.eclipse.ui.editorActions"> 
+		<editorContribution 
+      		id="no.hal.jex.editor.editorActions.createJexClientZip" 
+   			targetID="no.hal.jex.ex.presentation.ExEditorID">
+   			<action
+	         	id="no.hal.jex.editor.editorActions.createJexClientZipAction"
+    	     	label="Create jex client zip"
+    	     	icon="icons/jexZip.gif"
+    	     	tooltip="Creates jex zip suitable for the jex client"
+         		toolbarPath="Normal/additions" 
+	      		class="no.hal.jex.actions.CreateJexClientZipAction"> 
+    	  	</action> 
+   		</editorContribution> 
+		<editorContribution 
+      		id="no.hal.jex.editor.editorActions.createJexServerZip" 
+   			targetID="no.hal.jex.ex.presentation.ExEditorID">
+   			<action
+	         	id="no.hal.jex.editor.editorActions.createJexServerZipAction" 
+    	     	label="Create jex server zip"
+    	     	icon="icons/jexServerZip.gif"
+    	     	tooltip="Creates jex zip suitable for the jexserver"
+         		toolbarPath="Normal/additions" 
+	      		class="no.hal.jex.actions.CreateJexServerZipAction"> 
+    	  	</action> 
+   		</editorContribution> 
+	</extension>
+
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution 
+      		id="no.hal.jex.editor.popupMenus.createJexClientZip"
+   			objectClass="org.eclipse.core.resources.IFile"
+   			nameFilter="*.jex"
+   			>
+   			<filter
+         		name="projectNature"
+         		value="org.eclipse.jdt.core.javanature">
+      		</filter>
+      		<action
+	         	id="no.hal.jex.editor.popupMenus.createJexClientZipAction" 
+    	     	label="Create jex client zip"
+    	     	icon="icons/jexZip.gif"
+         		menubarPath="additions" 
+	      		class="no.hal.jex.actions.CreateJexClientZipAction"> 
+    	  	</action> 
+   		</objectContribution> 
+		<objectContribution 
+      		id="no.hal.jex.editor.popupMenus.createJexServerZip"
+   			objectClass="org.eclipse.core.resources.IFile"
+   			nameFilter="*.jex"
+   			>
+   			<filter
+         		name="projectNature"
+         		value="org.eclipse.jdt.core.javanature">
+      		</filter>
+      		<action
+	         	id="no.hal.jex.editor.popupMenus.createJexServerZipAction" 
+    	     	label="Create jex server zip"
+    	     	icon="icons/jexServerZip.gif"
+         		menubarPath="additions" 
+	      		class="no.hal.jex.actions.CreateJexServerZipAction"> 
+    	  	</action> 
+   		</objectContribution>
+	</extension>
+-->
+
+	<extension point="org.eclipse.ui.commands">
+	  <category id="no.hal.jex.editor.tagsField" name="Jex Editor field supporting simple tags"/>
+	  <command id="no.hal.jex.editor.tagsField.b" categoryId="no.hal.jex.editor.tagsField"
+	  	name="b tag"/>
+	  <command id="no.hal.jex.editor.tagsField.i" categoryId="no.hal.jex.editor.tagsField"
+	  	name="i tag"/>
+	  <command id="no.hal.jex.editor.tagsField.code" categoryId="no.hal.jex.editor.tagsField"
+	  	name="code tag"/>
+	</extension>
+	
+	<extension point="org.eclipse.ui.contexts">
+	  <context id="no.hal.jex.editor.tagsField.context" parentId="org.eclipse.ui.contexts.window"
+	    name="In Jex Editor field supporting simple tags"/>
+	</extension>
+
+	<extension point="org.eclipse.ui.bindings">
+	  <key sequence="M1+B" contextId="no.hal.jex.editor.tagsField.context" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+	    commandId="no.hal.jex.editor.tagsField.b"/>
+	  <key sequence="M1+I" contextId="no.hal.jex.editor.tagsField.context" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+	    commandId="no.hal.jex.editor.tagsField.i"/>
+	  <key sequence="M1+T" contextId="no.hal.jex.editor.tagsField.context" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+	    commandId="no.hal.jex.editor.tagsField.code"/>
+	</extension>
+
+	<!-- JExercise view -->
+     <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="JExercise"
+            id="no.hal.jex.ui.JExercise">
+      </category>
+      <view
+            name="JExercise"
+            icon="icons/views/jex.gif"
+            category="no.hal.jex.ui.JExercise"
+            class="no.hal.jex.views.ExerciseView"
+            id="no.hal.jex.views.ExerciseView">
+      </view>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages">
+      <page id="no.hal.jex.ui.JexPreferencePage"
+            class="no.hal.jex.ui.JexPreferencePage"
+            name="JExercise"
+            />
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="no.hal.jex.ui.JexPreferenceInitializer"/>
+   </extension>
+   
+   <extension point="org.eclipse.help.toc">
+      <toc file="help/toc.xml" primary="true" />
+   </extension>
+   <extension point="org.eclipse.help.contexts">
+		<contexts file="help/contexts.xml"/>
+	</extension>
+
+</plugin>

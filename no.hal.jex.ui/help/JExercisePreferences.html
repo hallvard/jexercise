@@ -1,0 +1,26 @@
+<h2>JExercise preferences</h2>
+
+The JExercise view lets the user select and view one of a set of exercises, represented by XML files with the .ex file extension.
+To find these .ex files, JExercise must know where to look for them, i.e. the path, and
+the filename pattern which is used to generate or filter the names.
+Both the path and this pattern must be set in the preferences, which are found in the Window->Preferences...->JExercise section.
+
+<dl compact="true">
+<dt>Server<dd>This preference is currently unused, but may later point to the location of the exercises on a course server.
+<dt>File path<dd>This preference is the path to the folder where the .ex files reside.
+The path is relative to the workspace, must start with a "/" and should contain at least a project name.
+If your exercises are in the project named programming-course and the .ex files are at the top level within this project,
+the path should be /programming-course/. If the .ex files are located in the exercises folder, the path should be /programming-course/exercises/.
+<dt>File pattern<dd>When JExercise needs to locate the .ex files, it uses two different strategies, depending on the
+file pattern preference. If the file pattern contains "{0}" (zero within braces)
+it generates a sequence of filenames from the pattern and a counter. The filenames are the result of using the pattern
+as a <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/text/MessageFormat.html">MessageFormat</a>
+with the counter as the argument.
+E.g. if the .ex files are named ex1.ex, ex2.ex, ex3.ex and so forth, the "ex{0}.ex" file pattern could be used.
+If the file pattern does no contain "{0}", it is interpreted as a
+<a href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/regex/Pattern.html">Pattern</a> and used to filter
+the files found in the project or folder denoted by the file path.
+E.g. if the .ex files are named ex1.ex, ex2.ex, ex3.ex and so forth, the "ex\d+.ex" file pattern could be used.
+To use all .ex files, ".*\.ex" is sufficient.
+</dl>
+When the preferences changes, the list of exercises (in the combo box) will be refreshed.
