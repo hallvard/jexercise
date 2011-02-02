@@ -4,7 +4,6 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import no.hal.jex.AbstractRequirement;
@@ -30,7 +29,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.custom.SashForm;
@@ -51,7 +49,7 @@ import org.eclipse.ui.help.IWorkbenchHelpSystem;
 import org.eclipse.ui.part.ViewPart;
 
 public class ExerciseView extends ViewPart implements ExerciseListener {
-	
+
 	// private TreeViewer exView;
 	private SashForm sash;
 	private Composite leftPane;
@@ -60,15 +58,15 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 	private IExerciseViewer mainExView;
 	private Browser detailsExView;
 	private String detailsExViewResultURL;
-	
+
 	private Text startupMessage;
-	
+
 	private Combo exCombo = null;
 	private Control pointsControl;
 	private String pointsTextFormat = "{0} of {1} points";
 
 	private Button submitZipButton;
-	
+
 	public ExerciseView() {
 	}
 
@@ -77,10 +75,10 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 	// controls when code is auto-submitted
 	// false = never, null = when running all tests and true = also when running individual tests
 	private Boolean autoSubmitMode = false;
-	
-//	public void setAutoSubmitMode(Boolean autoSubmitMode) {
-//		this.autoSubmitMode = autoSubmitMode;
-//	}
+
+	//	public void setAutoSubmitMode(Boolean autoSubmitMode) {
+	//		this.autoSubmitMode = autoSubmitMode;
+	//	}
 
 	public void createPartControl(Composite parent) {
 		display = parent.getDisplay();
@@ -91,10 +89,10 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 		rightPane = new Composite(sash, SWT.NONE);
 		createExercisesCombo(leftPane);
 
-	    TreeExerciseViewer treeViewer = new TreeExerciseViewer(leftPane, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | styles);
+		TreeExerciseViewer treeViewer = new TreeExerciseViewer(leftPane, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | styles);
 		treeViewer.setContentProvider(new ExerciseViewContentProvider());
 		treeViewer.setLabelProvider(new ExerciseViewLabelProvider());
-		
+
 		mainExView = treeViewer;
 		mainExView.setExerciseResource(null);
 		mainExView.addExerciseListener(this);
@@ -109,48 +107,49 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 		gridLayout.verticalSpacing = 0;
 		gridLayout.numColumns = 2;
 		leftPane.setLayout(gridLayout);
-		
+
 		GridData comboData = new GridData();
-	    comboData.grabExcessHorizontalSpace = true;
-	    comboData.horizontalAlignment = SWT.FILL;
-	    comboData.verticalAlignment = SWT.FILL;
-	    comboData.horizontalSpan = 2;
-	    exCombo.setLayoutData(comboData);
+		comboData.grabExcessHorizontalSpace = true;
+		comboData.horizontalAlignment = SWT.FILL;
+		comboData.verticalAlignment = SWT.FILL;
+		comboData.horizontalSpan = 2;
+		exCombo.setLayoutData(comboData);
 
 		GridData treeData = new GridData();
 		treeData.verticalIndent = 1;
-	    treeData.grabExcessHorizontalSpace = true;
-	    treeData.horizontalAlignment = SWT.FILL;
-	    treeData.grabExcessVerticalSpace = true;
-	    treeData.verticalAlignment = SWT.FILL;
-	    treeData.horizontalSpan = 2;
-	    treeViewer.getControl().setLayoutData(treeData);
+		treeData.grabExcessHorizontalSpace = true;
+		treeData.horizontalAlignment = SWT.FILL;
+		treeData.grabExcessVerticalSpace = true;
+		treeData.verticalAlignment = SWT.FILL;
+		treeData.horizontalSpan = 2;
+		treeViewer.getControl().setLayoutData(treeData);
 
-	    pointsControl = createPointsControl();
-	    setPointsText("?", "?", pointsTextFormat, pointsControl);
+		pointsControl = createPointsControl();
+		setPointsText("?", "?", pointsTextFormat, pointsControl);
 		GridData buttonData = new GridData();
-	    buttonData.grabExcessHorizontalSpace = true;
-	    buttonData.horizontalAlignment = SWT.FILL;
-	    buttonData.verticalAlignment = SWT.FILL;
-	    treeData.horizontalSpan = 2;
-	    pointsControl.setLayoutData(buttonData);
+		buttonData.grabExcessHorizontalSpace = true;
+		buttonData.horizontalAlignment = SWT.FILL;
+		buttonData.verticalAlignment = SWT.FILL;
+		treeData.horizontalSpan = 2;
+		pointsControl.setLayoutData(buttonData);
 
-//	    submitZipButton = new Button(leftPane, SWT.NONE);
-//	    submitZipButton.setText(" Submit >> ");
-//	    buttonData = new GridData();
-//	    buttonData.grabExcessHorizontalSpace = false;
-//	    buttonData.horizontalAlignment = SWT.FILL;
-//	    buttonData.verticalAlignment = SWT.FILL;
-//	    submitZipButton.setLayoutData(buttonData);
-//	    submitZipButton.addSelectionListener(new SelectionAdapter() {
-//			public void widgetSelected(SelectionEvent e) {
-//				submitZip(false);
-//			}
-//	    });
-	    
-	    rightLayout = new StackLayout();
+	    submitZipButton = null; // new Button(leftPane, SWT.NONE);
+	    if (submitZipButton != null) {
+		    submitZipButton.setText(" Submit >> ");
+		    buttonData = new GridData();
+		    buttonData.grabExcessHorizontalSpace = false;
+		    buttonData.horizontalAlignment = SWT.FILL;
+		    buttonData.verticalAlignment = SWT.FILL;
+		    submitZipButton.setLayoutData(buttonData);
+		    submitZipButton.addSelectionListener(new SelectionAdapter() {
+				public void widgetSelected(SelectionEvent e) {
+					submitZip(false);
+				}
+		    });
+	    }
+		rightLayout = new StackLayout();
 		rightLayout.topControl = startupMessage;
-	    rightPane.setLayout(rightLayout);
+		rightPane.setLayout(rightLayout);
 		startupMessage = new Text(rightPane, SWT.WRAP);
 		startupMessage.setText(JExerciseViewHelpString);
 		try {
@@ -172,81 +171,79 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 	}
 
 	private void submitZip (boolean automode) {
-		
-	    /*
-	     * Todo: Check for valid server settings first
-	     * 
-	     */
-	    
-	    JexResource res = mainExView.getExerciseResource();
-	    String jobtitle = null;
-	    if (automode) {
-	        jobtitle = "Working";
-	    }
-	    else {
-	        jobtitle = "Submit exercise to server";
-	    }
+
+		/*
+		 * Todo: Check for valid server settings first
+		 * 
+		 */
+
+		JexResource res = mainExView.getExerciseResource();
+		String jobtitle = null;
+		if (automode) {
+			jobtitle = "Working";
+		}
+		else {
+			jobtitle = "Submit exercise to server";
+		}
 		ZipFileSubmitter zipSubmitter = new ZipFileSubmitter(res, jobtitle);
 		zipSubmitter.setAutoSubmitMode (automode);
 		zipSubmitter.addClasses(Boolean.FALSE);
 		zipSubmitter.setJexRelatedFiles(new String[] {
 				"{0}/{1}." + JexResource.JEX_EXTENSION + ".log", null,
 		});
-		
-		IPreferenceStore store = JexUiPlugin.getPlugin().getPreferenceStore();
+
+//		IPreferenceStore store = JexUiPlugin.getPlugin().getPreferenceStore();
 		String submiturl = null; // store.getString(JexPreferencePage.JEX_SERVER);
-		
+
 		if (submiturl == null || submiturl.length () == 0) {
-		    if (automode == false) {
-		        MessageDialog.openError (null, "Error", "Exercise server is not specified. You must enter the address of the server in JExercise preferences (the URL should also include username and password). Please check with the course/exercise website for the correct server address. You specify the address in the 'Server' field in Window -> Preferences -> JExercise.");
-		    }
-		    return;
+			if (automode == false) {
+				MessageDialog.openError (null, "Error", "Exercise server is not specified. You must enter the address of the server in JExercise preferences (the URL should also include username and password). Please check with the course/exercise website for the correct server address. You specify the address in the 'Server' field in Window -> Preferences -> JExercise.");
+			}
+			return;
 		}
-		
+
 		Exercise ex = res.getExercise (true);
 		submiturl += "&" + ex.getComment();
 		zipSubmitter.setSubmitUrl(submiturl);
-		
-//		zipSubmitter.setParameters("courseid", "TST1001");
-//		zipSubmitter.setParameters("exerciseid", res.getURI().lastSegment());
-		
+
+		//		zipSubmitter.setParameters("courseid", "TST1001");
+		//		zipSubmitter.setParameters("exerciseid", res.getURI().lastSegment());
+
 		if (automode == false) {
-    		zipSubmitter.addJobChangeListener (new JobChangeAdapter() {
-    		    public void done (IJobChangeEvent event) {
-    		        if (event.getResult ().isOK ()) {
-    		            ZipFileSubmitter zfs = (ZipFileSubmitter) event.getJob ();
-    		            //detailsExView.setUrl (zfs.getResultURL ());
-    		            detailsExViewResultURL = zfs.getResultURL ();
-    		            display.syncExec (new Runnable() {
-                            public void run (){
-                                detailsExView.setUrl (detailsExViewResultURL);
-                            }
-                        });
-    		        }
-    		    }
-    		});
+			zipSubmitter.addJobChangeListener (new JobChangeAdapter() {
+				public void done (IJobChangeEvent event) {
+					if (event.getResult ().isOK ()) {
+						ZipFileSubmitter zfs = (ZipFileSubmitter) event.getJob ();
+						//detailsExView.setUrl (zfs.getResultURL ());
+						detailsExViewResultURL = zfs.getResultURL ();
+						display.syncExec (new Runnable() {
+							public void run (){
+								detailsExView.setUrl (detailsExViewResultURL);
+							}
+						});
+					}
+				}
+			});
 		}
-		
+
 		if (zipSubmitter.prepare()) {
 			zipSubmitter.setPriority(Job.SHORT);
 			if (automode) {
-			    zipSubmitter.setUser(false);
+				zipSubmitter.setUser(false);
 			}
 			else {
-			    zipSubmitter.setUser(true);
+				zipSubmitter.setUser(true);
 			}
 			zipSubmitter.schedule();
 		}
 	}
 
-	private List findAllTests(JexResource res, List result) {
+	private List<Member> findAllTests(JexResource res, List<Member> result) {
 		if (res != null) {
 			Exercise ex = res.getExercise();
-			for (Iterator elements = ex.getJavaElements().iterator(); elements.hasNext();) {
-				JavaElement element = (JavaElement)elements.next();
+			for (JavaElement element: ex.getJavaElements()) {
 				if (element instanceof JavaPack) {
-					for (Iterator classes = ((JavaPack)element).getClasses().iterator(); classes.hasNext();) {
-						JavaClass javaClass = (JavaClass)classes.next();
+					for (JavaClass javaClass: ((JavaPack)element).getClasses()) {
 						if (CreateChildrenFromJavaModelCommand.ALL_TESTS_TEST_SUITE_NAME.equals(javaClass.getSimpleName())) {
 							result.add(javaClass);
 						}
@@ -258,8 +255,8 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 	}
 
 	private Control createPointsControl() {
-	    Button pointsButton = new Button(leftPane, SWT.NONE);
-	    pointsButton.addSelectionListener(new SelectionAdapter() {
+		Button pointsButton = new Button(leftPane, SWT.NONE);
+		pointsButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				runAllTests();
 				if (autoSubmitMode != Boolean.FALSE) {
@@ -267,24 +264,23 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 					submitZip (true);
 				}
 			}
-	    });
-	    return pointsButton;
+		});
+		return pointsButton;
 	}
 
-	private List allTests = null;
+	private List<Member> allTests = null;
 
 	private void runAllTests() {
 		JexManager manager = JexUiPlugin.getPlugin().getExerciseManager();
-		for (Iterator it = allTests.iterator(); it.hasNext();) {
-			JavaElement element = (JavaElement)it.next();
+		for (JavaElement element: allTests) {
 			manager.validateJUnitTest(element);
 		}
 	}
-	
+
 	public final static String RESOURCE_SELECTED = "resource selected";
-	
+
 	public Integer logResourceSelectedSeverity = new Integer(IStatus.INFO);
-	
+
 	private void exerciseResourceSelected(JexResource res) {
 		if (mainExView != null) {
 			mainExView.setExerciseResource(res);
@@ -302,7 +298,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 	}
 
 	private void refreshAllTests(JexResource res) {
-		allTests = findAllTests(res, new ArrayList());
+		allTests = findAllTests(res, new ArrayList<Member>());
 		if (pointsControl instanceof Button) {
 			String tip = getAllTestsText(allTests);
 			if (tip != null) {
@@ -311,9 +307,9 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 			pointsControl.setToolTipText(tip);
 		}
 		refreshPoints(res);
-        if (pointsControl != null && submitZipButton != null) {
-            submitZipButton.setEnabled (pointsControl.getEnabled ());
-        }
+		if (pointsControl != null && submitZipButton != null) {
+			submitZipButton.setEnabled (pointsControl.getEnabled ());
+		}
 	}
 
 	public static String getPointsText(Object points, Object maxPoints, String format) {
@@ -350,8 +346,6 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 				}
 			}
 			((Button)pointsControl).setEnabled(enabled);
-			
-			
 		} else if (pointsControl instanceof Label) {
 			((Label)pointsControl).setText(pointsText);
 		} else if (pointsControl instanceof Text) {
@@ -359,10 +353,10 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 		}
 		return pointsText;
 	}
-	
+
 	private static String NO_EXERCISE_LABEL = "<no exercise>"; 
 	private static String NAME_PATH_SEPARATOR = " - ";
-	
+
 	public void refreshExercises(final JexResource[] resources) {
 		String[] items = new String[resources.length + 1];
 		// must be first item
@@ -397,7 +391,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 		}
 		exerciseResourceSelected(selection);
 	}
-	
+
 	private Control createExercisesCombo(Composite composite) {
 		exCombo = new Combo(composite, SWT.READ_ONLY);
 		JexManager manager = JexUiPlugin.getPlugin().getExerciseManager();
@@ -421,12 +415,11 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 			}
 			points[1] += test.getPoints();
 		}
-		for (Iterator it = req.getRequirements().iterator(); it.hasNext();) {
-			AbstractRequirement childReq = (AbstractRequirement)it.next();
+		for (AbstractRequirement childReq : req.getRequirements()) {
 			computeRequirementPoints(childReq, points);
 		}
 	}
-	
+
 	public static String refreshPoints(AbstractRequirement req, String format, Control control) {
 		Object points = "?", maxPoints = "?";
 		if (req != null) {
@@ -437,16 +430,16 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 		}
 		return setPointsText(points, maxPoints, format, control);
 	}
-	
+
 	private void refreshPoints(JexResource res) {
 		refreshPoints(res != null ? res.getExercise() : null, pointsTextFormat, pointsControl);
 	}
-	
+
 	public void dispose() {
 		super.dispose();
 		mainExView = null; 
 	}
-	
+
 	public void refreshViewer(final JexResource res) {
 		if (mainExView != null && res == mainExView.getExerciseResource()) {
 			asyncExec(new Runnable() {
@@ -454,9 +447,9 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 					mainExView.setExerciseResource(res);
 					refreshAllTests(res);
 					refreshPoints(res);
-                    if (pointsControl != null && submitZipButton != null) {
-                        submitZipButton.setEnabled (pointsControl.getEnabled ());
-                    }
+					if (pointsControl != null && submitZipButton != null) {
+						submitZipButton.setEnabled (pointsControl.getEnabled ());
+					}
 				}
 			});
 		}
@@ -467,27 +460,26 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 			display.asyncExec(run);
 		}
 	}
-	
-	public void updateViewer(final List changes, boolean async) {
+
+	public void updateViewer(final List<AbstractRequirement> changes, boolean async) {
 		if (async) {
 			asyncExec(new Runnable() {
 				public void run() {
 					updateViewer(changes, false);
-			}});
+				}});
 		} else {
-			for (int i = 0; i < changes.size(); i++) {
-				Object o = changes.get(i);
-				if (o instanceof AbstractRequirement) {
-					mainExView.updateViewer((AbstractRequirement)o);
+			for (AbstractRequirement req: changes) {
+				if (mainExView != null) {
+					mainExView.updateViewer(req);
 					refreshPoints(mainExView.getExerciseResource());
-                    if (pointsControl != null && submitZipButton != null) {
-                        submitZipButton.setEnabled (pointsControl.getEnabled ());
-                    }
+					if (pointsControl != null && submitZipButton != null) {
+						submitZipButton.setEnabled(pointsControl.getEnabled());
+					}
 				}
 			}
 		}
 	}
-	
+
 	private String createLocation(URI uri) {
 		String location = JexResource.getLocation(uri);
 		if (location != null) {
@@ -508,7 +500,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 		String uriString = uri.toString();
 		return (uri.isPlatformResource() ? uriString.substring("platform:/resource".length()) : uriString);
 	}
-	
+
 	private static String JExerciseViewHelpLocation = null; // "/help/JExerciseView.html";
 	private static String JExerciseViewHelpString = "For a description of the JExercise view, see the help system (use F1)";
 
@@ -518,7 +510,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 			rightPane.layout();
 		}
 	}
-	
+
 	private AbstractRequirement findNearestPreviousRequirementWithDescription(AbstractRequirement req) {
 		int pos = -1;
 		AbstractRequirement parent = req.getParent();
@@ -542,7 +534,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 		} while (req != null);
 		return null;
 	}
-	
+
 	private void updateBrowser(AbstractRequirement req) {
 		if (detailsExView == null) {
 			if (req == null) {
@@ -567,8 +559,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 			String location = null;
 			AbstractRequirement descriptionReq = findNearestPreviousRequirementWithDescription(req);
 			if (descriptionReq != null) {
-				URI uri = null;
-				uri = descriptionReq.eResource().getURI().appendFragment(JexXmlHelper.getID(descriptionReq, "description")); // .getDescriptionURI();
+				URI uri = descriptionReq.eResource().getURI().appendFragment(JexXmlHelper.getID(descriptionReq, "description")); // .getDescriptionURI();
 				location = createLocation(uri);
 				if (location != null && (! descriptionReq.eResource().getResourceSet().getURIConverter().exists(URI.createURI(location), Collections.EMPTY_MAP))) {
 					location = null;
@@ -585,7 +576,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 			}
 		}
 	}
-	
+
 	public void requirementSelected(AbstractRequirement req) {
 		if (mainExView.getSelectedRequirement() != req) {
 			mainExView.setSelectedRequirement(req);

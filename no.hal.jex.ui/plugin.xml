@@ -102,7 +102,8 @@
    			</activeWhen>
     	</handler>
  	</extension>
- 
+
+<!--
   <extension
         point="org.eclipse.ui.menus">
      <menuContribution
@@ -143,7 +144,7 @@
         </toolbar>
      </menuContribution>
   </extension>
-
+-->
 <!--
 	<extension point="org.eclipse.ui.editorActions"> 
 		<editorContribution 

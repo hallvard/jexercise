@@ -1,7 +1,6 @@
 package no.hal.jex.views;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import no.hal.jex.AbstractRequirement;
@@ -97,8 +96,7 @@ public class BrowserExerciseViewer implements IExerciseViewer, LocationListener 
 		if (obj instanceof AbstractRequirement) {
 			text += "<p>";
 			AbstractRequirement req = (AbstractRequirement)obj;
-			for (Iterator it = req.getRequirements().iterator(); it.hasNext();) {
-				AbstractRequirement subReq = (AbstractRequirement) it.next();
+			for (AbstractRequirement subReq: req.getRequirements()) {
 				String uri = getResourceURI(subReq.eResource(), subReq);
 				if (uri != null) {
 					text += "<li><a href='" + uri + "'>" + subReq.getText() + "</a></li>";
@@ -114,11 +112,11 @@ public class BrowserExerciseViewer implements IExerciseViewer, LocationListener 
 		browser.setText(req != null ? getBrowserText(req) : "");
 	}
 	
-	private List listeners;
+	private List<ExerciseListener> listeners;
 	
 	public void addExerciseListener(ExerciseListener listener) {
 		if (listeners == null) {
-			listeners = new ArrayList();
+			listeners = new ArrayList<ExerciseListener>();
 		}
 		listeners.add(listener);
 	}
@@ -130,14 +128,12 @@ public class BrowserExerciseViewer implements IExerciseViewer, LocationListener 
 	}
 	
 	private void fireRequirementSelected(AbstractRequirement req) {
-		for (Iterator it = listeners.iterator(); it.hasNext();) {
-			ExerciseListener listener = (ExerciseListener)it.next();
+		for (ExerciseListener listener: listeners) {
 			listener.requirementSelected(req);
 		}
 	}
 	private void fireRequirementValidationRequested(JavaRequirement req) {
-		for (Iterator it = listeners.iterator(); it.hasNext();) {
-			ExerciseListener listener = (ExerciseListener)it.next();
+		for (ExerciseListener listener: listeners) {
 			listener.requirementValidationRequested(req);
 		}
 	}
