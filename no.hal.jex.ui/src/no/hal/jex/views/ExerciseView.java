@@ -305,10 +305,11 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 				tip = "Run " + tip;
 			}
 			pointsControl.setToolTipText(tip);
+			pointsControl.setEnabled(allTests != null && allTests.size() > 0);
 		}
 		refreshPoints(res);
 		if (pointsControl != null && submitZipButton != null) {
-			submitZipButton.setEnabled (pointsControl.getEnabled ());
+			submitZipButton.setEnabled (pointsControl.getEnabled());
 		}
 	}
 
@@ -337,15 +338,16 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 		}
 		String pointsText = getPointsText(points, maxPoints, format);
 		if (pointsControl instanceof Button) {
-			((Button)pointsControl).setText(pointsText);
+			Button pointsButton = (Button)pointsControl;
+			pointsButton.setText(pointsText);
 			boolean enabled = maxPoints instanceof Integer;
 			if (maxPoints instanceof String) {
 				try {
-					enabled = Integer.valueOf((String)maxPoints).intValue() > 0;
+					enabled = Integer.valueOf((String) maxPoints).intValue() > 0;
 				} catch (NumberFormatException e) {
 				}
 			}
-			((Button)pointsControl).setEnabled(enabled);
+			pointsButton.setEnabled(enabled && pointsButton.isEnabled());
 		} else if (pointsControl instanceof Label) {
 			((Label)pointsControl).setText(pointsText);
 		} else if (pointsControl instanceof Text) {
@@ -483,7 +485,9 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 	private String createLocation(URI uri) {
 		String location = JexResource.getLocation(uri);
 		if (location != null) {
-			if (location.indexOf(':') < 0) {
+			// if there is no schema, add a file schema
+			// the test also covers the Windows case where is a drive letter followed by a colon
+			if (location.indexOf(':') < 2) {
 				location = "file:///" + location; 
 			}
 			if (JexManager.isExerciseResourceName(location)) {

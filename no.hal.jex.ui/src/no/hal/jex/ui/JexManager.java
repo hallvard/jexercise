@@ -342,8 +342,12 @@ IElementChangedListener, IResourceChangeListener {
 			command.setPathPattern(pathPattern);
 			try {
 				command.execute();
-				if (ex.getRequirements().size() > 0) {
-					resources.add(testRes);
+				TreeIterator<EObject> it = ex.eAllContents();
+				while (it.hasNext()) {
+					if (it.next() instanceof JUnitTest) {
+						resources.add(testRes);
+						break;
+					}
 				}
 			} catch (Exception e) {
 			}
@@ -544,7 +548,7 @@ IElementChangedListener, IResourceChangeListener {
 				try {
 					return annotation.getMemberValuePairs();
 				} catch (JavaModelException e) {
-					System.err.println("Couldn't get annotation value pairs for " + annotation + " of " + javaElement + ": " + e);
+//					System.err.println("Couldn't get annotation value pairs for " + annotation + " of " + javaElement + ": " + e);
 				}
 			}
 		}
