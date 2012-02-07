@@ -1,7 +1,6 @@
 package no.hal.jex.views;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import no.hal.jex.AbstractRequirement;
@@ -64,7 +63,7 @@ public class TreeExerciseViewer extends TreeViewer implements IExerciseViewer, I
 		}
 	}
 	
-	public Object getSelection(Object o, Class c) {
+	public Object getSelection(Object o, Class<?> c) {
 		if (o instanceof ISelection) {
 			ISelection selection = (ISelection)o;
 			if (! (selection instanceof IStructuredSelection)) {
@@ -90,11 +89,11 @@ public class TreeExerciseViewer extends TreeViewer implements IExerciseViewer, I
 		setSelection(selection != null ? new StructuredSelection(selection) : StructuredSelection.EMPTY);
 	}
 
-	private List listeners;
+	private List<ExerciseListener> listeners;
 	
 	public void addExerciseListener(ExerciseListener listener) {
 		if (listeners == null) {
-			listeners = new ArrayList();
+			listeners = new ArrayList<ExerciseListener>();
 		}
 		listeners.add(listener);
 	}
@@ -106,14 +105,12 @@ public class TreeExerciseViewer extends TreeViewer implements IExerciseViewer, I
 	}
 	
 	private void fireRequirementSelected(AbstractRequirement req) {
-		for (Iterator it = listeners.iterator(); it.hasNext();) {
-			ExerciseListener listener = (ExerciseListener)it.next();
+		for (ExerciseListener listener : listeners) {
 			listener.requirementSelected(req);
 		}
 	}
 	private void fireRequirementValidationRequested(JavaRequirement req) {
-		for (Iterator it = listeners.iterator(); it.hasNext();) {
-			ExerciseListener listener = (ExerciseListener)it.next();
+		for (ExerciseListener listener : listeners) {
 			listener.requirementValidationRequested(req);
 		}
 	}

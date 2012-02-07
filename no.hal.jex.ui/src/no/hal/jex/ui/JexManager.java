@@ -81,7 +81,7 @@ IElementChangedListener, IResourceChangeListener {
 	private JexLogWriter jexLogWriter;
 
 	public JexManager(String jexPathPattern /*, int exCount */) {
-		this.exCount = exCount;
+//		this.exCount = exCount;
 
 		JavaCore.addElementChangedListener(this);
 		JUnitCore.addTestRunListener(this);
@@ -158,7 +158,7 @@ IElementChangedListener, IResourceChangeListener {
 
 	private class ResourceDeltaVisitor implements IResourceDeltaVisitor {
 		public boolean visit(IResourceDelta delta) throws CoreException {
-			return (! resourceChanged(delta.getResource(), delta.getKind()));
+			return (! resourceChanged(delta.getResource(), delta));
 		}
 	}
 	private IResourceDeltaVisitor resourceDeltaVisitor = new ResourceDeltaVisitor();
@@ -166,7 +166,7 @@ IElementChangedListener, IResourceChangeListener {
 	public void resourceChanged(IResourceChangeEvent event) {
 		IResource res = event.getResource();
 		if (res != null) {
-			resourceChanged(res, event.getDelta().getKind());
+			resourceChanged(res, event.getDelta());
 		} else {
 			try {
 				event.getDelta().accept(resourceDeltaVisitor);
@@ -183,12 +183,12 @@ IElementChangedListener, IResourceChangeListener {
 		return name.endsWith(JexResource.JEX_EXTENSION) && name.endsWith("." + JexResource.JEX_EXTENSION);
 	}
 
-	private boolean resourceChanged(IResource res, int kind) {
+	private boolean resourceChanged(IResource res, IResourceDelta delta) {
 		if (! isExerciseResource(res)) {
 			return false;
 		}
 		JexResource ex = getExerciseResource(URI.createPlatformResourceURI(res.getFullPath().toString(), true));
-		if (ex != null && kind != IResourceDelta.REMOVED) {
+		if (ex != null && (delta == null || delta.getKind() != IResourceDelta.REMOVED)) {
 			refreshExerciseResource(ex);
 		} else {
 			refreshExerciseResources(true);
