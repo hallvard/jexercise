@@ -6,8 +6,6 @@
  */
 package no.hal.jex.impl;
 
-import java.util.Iterator;
-
 import no.hal.jex.JavaClassTester;
 import no.hal.jex.JavaMethodTester;
 import no.hal.jex.JexPackage;
@@ -107,12 +105,11 @@ public class JavaClassTesterImpl extends JavaClassImpl implements JavaClassTeste
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	public EList getTestRuns() {
-		BasicEList testRuns = new BasicEList();
-		for (Iterator it = getMembers().iterator(); it.hasNext();) {
-			Object o = it.next();
-			if (o instanceof JavaMethodTester) {
-				testRuns.add(o);
+	public EList<TestRunnable> getTestRuns() {
+		BasicEList<TestRunnable> testRuns = new BasicEList<TestRunnable>();
+		for (Member member : getMembers()) {
+			if (member instanceof JavaMethodTester) {
+				testRuns.add((JavaMethodTester) member);
 			}
 		}
 		return testRuns;

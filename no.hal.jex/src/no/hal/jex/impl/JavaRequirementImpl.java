@@ -6,7 +6,6 @@
  */
 package no.hal.jex.impl;
 
-import no.hal.jex.JexPackage;
 import no.hal.jex.JavaElement;
 import no.hal.jex.JavaRequirement;
 import no.hal.jex.JexPackage;

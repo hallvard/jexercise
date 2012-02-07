@@ -9,6 +9,7 @@ package no.hal.jex.impl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import no.hal.jex.ClassKind;
@@ -386,9 +387,13 @@ public class JavaClassImpl extends MemberImpl implements JavaClass {
 	public static List<IMember> findJavaMembers(IParent parent, String name, int type, Class<? extends IMember> c) {
 		IJavaElement[] members = null;
 		try {
-			members = parent.getChildren();
+			if (parent != null) {
+				members = parent.getChildren();
+			}
 		} catch (JavaModelException e) {
-			return null;
+		}
+		if (members == null || members.length == 0) {
+			return Collections.emptyList();
 		}
 		if (name != null) {
 			int pos = name.lastIndexOf('.');
@@ -455,7 +460,7 @@ public class JavaClassImpl extends MemberImpl implements JavaClass {
 		}
 		String sourcePathName = name.replace('.', Path.SEPARATOR) + ext;
 		try {
-			IJavaElement sourceElement = project.findElement(new Path(sourcePathName));
+			IJavaElement sourceElement = (project != null ? project.findElement(new Path(sourcePathName)) : null);
 			if (sourceElement != null) {
 				return (IType)findJavaMember(sourceElement, getSimpleName(name), IJavaElement.TYPE, IType.class);
 			}

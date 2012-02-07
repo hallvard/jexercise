@@ -8,19 +8,34 @@ package no.hal.jex.util;
 
 import java.util.Map;
 
-import no.hal.jex.*;
+import no.hal.jex.AbstractRequirement;
+import no.hal.jex.ClassKind;
+import no.hal.jex.Exercise;
+import no.hal.jex.ExercisePart;
+import no.hal.jex.JUnitTest;
+import no.hal.jex.JUnitTestStatus;
+import no.hal.jex.JavaClass;
+import no.hal.jex.JavaClassTester;
+import no.hal.jex.JavaElement;
+import no.hal.jex.JavaField;
+import no.hal.jex.JavaMethod;
+import no.hal.jex.JavaMethodTester;
+import no.hal.jex.JavaPack;
+import no.hal.jex.JavaRequirement;
+import no.hal.jex.JexPackage;
+import no.hal.jex.Member;
+import no.hal.jex.Requirement;
+import no.hal.jex.TestRunnable;
+import no.hal.jex.TestSuite;
 import no.hal.jex.resource.JexResource;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
 import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
@@ -246,7 +261,7 @@ public class JexValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean validateMember_JavaMemberExists(Member member, DiagnosticChain diagnostics, Map context) {
+	public boolean validateMember_JavaMemberExists(Member member, DiagnosticChain diagnostics, Map<Object,Object> context) {
 		if (! javaMemberExists(member)) {
 			if (diagnostics != null) {
 				diagnostics.add
@@ -282,7 +297,7 @@ public class JexValidator extends EObjectValidator {
 	
 	public static IJavaElement getJavaMember(Member member) {
 		IJavaProject javaProject = JexResource.getJavaProject(member.eResource());
-		return member.findJavaCoreElement(javaProject);
+		return (javaProject != null ? member.findJavaCoreElement(javaProject) : null);
 	}
 	
 	public static boolean javaMemberExists(Member member) {
@@ -295,7 +310,7 @@ public class JexValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean validateMember_CorrectModifiers(Member member, DiagnosticChain diagnostics, Map context) {
+	public boolean validateMember_CorrectModifiers(Member member, DiagnosticChain diagnostics, Map<Object,Object> context) {
 		if (correctModifiers(member) != Boolean.TRUE) {
 			if (diagnostics != null) {
 				diagnostics.add
@@ -322,7 +337,7 @@ public class JexValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean validateMember_CorrectTypes(Member member, DiagnosticChain diagnostics, Map context) {
+	public boolean validateMember_CorrectTypes(Member member, DiagnosticChain diagnostics, Map<Object,Object> context) {
 		if (correctTypes(member) != Boolean.TRUE) {
 			if (diagnostics != null) {
 				diagnostics.add
@@ -387,7 +402,7 @@ public class JexValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean validateJavaRequirement_NonNullJavaElement(JavaRequirement javaRequirement, DiagnosticChain diagnostics, Map context) {
+	public boolean validateJavaRequirement_NonNullJavaElement(JavaRequirement javaRequirement, DiagnosticChain diagnostics, Map<Object,Object> context) {
 		if (javaRequirement.getJavaElement() == null) {
 			if (diagnostics != null) {
 				diagnostics.add
@@ -409,7 +424,7 @@ public class JexValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean validateJavaRequirement_JavaRequirementSatisfied(JavaRequirement javaRequirement, DiagnosticChain diagnostics, Map context) {
+	public boolean validateJavaRequirement_JavaRequirementSatisfied(JavaRequirement javaRequirement, DiagnosticChain diagnostics, Map<Object,Object> context) {
 		if (javaRequirementSatisfied(javaRequirement, true, true) != Boolean.TRUE) {
 			if (diagnostics != null) {
 				diagnostics.add
@@ -463,14 +478,14 @@ public class JexValidator extends EObjectValidator {
 	 * Validates the PositivePoints constraint of '<em>JUnit Test</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public boolean validateJUnitTest_PositivePoints(JUnitTest jUnitTest, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateJUnitTest_PositivePoints(JUnitTest jUnitTest, DiagnosticChain diagnostics, Map<Object,Object> context) {
 		// TODO implement the constraint
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (jUnitTest.getPoints() < 0) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic

@@ -104,8 +104,8 @@ public class JavaMethodTesterImpl extends JavaMethodImpl implements JavaMethodTe
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	public EList getTestRuns() {
-		return ECollections.EMPTY_ELIST;
+	public EList<TestRunnable> getTestRuns() {
+		return ECollections.emptyEList();
 	}
 
 	/**

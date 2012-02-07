@@ -71,7 +71,7 @@ public class JexResource extends XMIResourceImpl {
 		if (load && (! isLoaded())) {
 			return null;
 		}
-		List content = getContents();
+		List<EObject> content = getContents();
 		if (content.size() == 0) {
 			return null;
 		}
@@ -110,10 +110,10 @@ public class JexResource extends XMIResourceImpl {
 
 	//
 
-	public static EObject findElement(EObject eo, Class c, ElementMatcher matcher, Object featureValue) {
+	public static EObject findElement(EObject eo, Class<?> c, ElementMatcher matcher, Object featureValue) {
 		return findElement(eo.eAllContents(), c, matcher, featureValue);
 	}
-	public static EObject findElement(Resource res, Class c, ElementMatcher matcher, Object featureValue) {
+	public static EObject findElement(Resource res, Class<?> c, ElementMatcher matcher, Object featureValue) {
 		return findElement(res.getAllContents(), c, matcher, featureValue);
 	}
 
@@ -121,7 +121,7 @@ public class JexResource extends XMIResourceImpl {
 		public boolean matchesElement(EObject eo, Object featureValue);
 	}
 
-	public static EObject findElement(TreeIterator contents, Class c, ElementMatcher matcher, Object featureValue) {
+	public static EObject findElement(TreeIterator<EObject> contents, Class<?> c, ElementMatcher matcher, Object featureValue) {
 		while (contents.hasNext()) {
 			EObject eo = (EObject)contents.next();
 			if (c == null || c.isInstance(eo)) {

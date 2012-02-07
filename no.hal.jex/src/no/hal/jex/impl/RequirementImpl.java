@@ -8,7 +8,6 @@ package no.hal.jex.impl;
 
 
 import no.hal.jex.JexPackage;
-import no.hal.jex.JexPackage;
 import no.hal.jex.Requirement;
 
 import org.eclipse.emf.common.notify.Notification;

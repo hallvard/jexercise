@@ -10,8 +10,8 @@ import java.util.Collection;
 
 import no.hal.jex.AbstractRequirement;
 import no.hal.jex.JavaElement;
-
 import no.hal.jex.JexPackage;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -232,9 +232,9 @@ public abstract class AbstractRequirementImpl extends EObjectImpl implements Abs
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	public EList getJavaElements() {
+	public EList<JavaElement> getJavaElements() {
 		if (javaElements == null) {
-			javaElements = new EObjectContainmentEList.Resolving(JavaElement.class, this, JexPackage.ABSTRACT_REQUIREMENT__JAVA_ELEMENTS);
+			javaElements = new EObjectContainmentEList.Resolving<JavaElement>(JavaElement.class, this, JexPackage.ABSTRACT_REQUIREMENT__JAVA_ELEMENTS);
 		}
 		return javaElements;
 	}
@@ -244,9 +244,9 @@ public abstract class AbstractRequirementImpl extends EObjectImpl implements Abs
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	public EList getRequirements() {
+	public EList<AbstractRequirement> getRequirements() {
 		if (requirements == null) {
-			requirements = new EObjectContainmentWithInverseEList.Resolving(AbstractRequirement.class, this, JexPackage.ABSTRACT_REQUIREMENT__REQUIREMENTS, JexPackage.ABSTRACT_REQUIREMENT__PARENT);
+			requirements = new EObjectContainmentWithInverseEList.Resolving<AbstractRequirement>(AbstractRequirement.class, this, JexPackage.ABSTRACT_REQUIREMENT__REQUIREMENTS, JexPackage.ABSTRACT_REQUIREMENT__PARENT);
 		}
 		return requirements;
 	}

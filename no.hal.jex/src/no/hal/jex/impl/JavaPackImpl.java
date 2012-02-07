@@ -136,9 +136,9 @@ public class JavaPackImpl extends JavaElementImpl implements JavaPack {
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
-	public EList getClasses() {
+	public EList<JavaClass> getClasses() {
 		if (classes == null) {
-			classes = new EObjectContainmentWithInverseEList.Resolving(JavaClass.class, this, JexPackage.JAVA_PACK__CLASSES, JexPackage.JAVA_CLASS__PACK);
+			classes = new EObjectContainmentWithInverseEList.Resolving<JavaClass>(JavaClass.class, this, JexPackage.JAVA_PACK__CLASSES, JexPackage.JAVA_CLASS__PACK);
 		}
 		return classes;
 	}

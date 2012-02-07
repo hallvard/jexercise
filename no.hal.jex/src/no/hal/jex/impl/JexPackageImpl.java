@@ -26,7 +26,6 @@ import no.hal.jex.Member;
 import no.hal.jex.Requirement;
 import no.hal.jex.TestRunnable;
 import no.hal.jex.TestSuite;
-
 import no.hal.jex.util.JexValidator;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -37,9 +36,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
 

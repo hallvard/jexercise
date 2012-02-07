@@ -29,6 +29,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl;
 import org.eclipse.jdt.core.IJavaElement;
@@ -44,12 +45,12 @@ public class JexZipFile extends Job {
 	private URIConverter uriConverter = null;
 	protected URI zipUri;
 
-	private List files;
+	private List<Object> files;
 	
     public JexZipFile(JexResource jexRes, String jobtitle) {
         super(jobtitle);
         this.jexRes = jexRes;
-        this.files = new ArrayList();
+        this.files = new ArrayList<Object>();
     }
 
     public JexZipFile(JexResource jexRes) {
@@ -65,7 +66,7 @@ public class JexZipFile extends Job {
 
 	public void addClasses(Boolean testLogic) {
 		IJavaProject javaProject = JexResource.getJavaProject(jexRes);
-		TreeIterator it = jexRes.getAllContents();
+		TreeIterator<EObject> it = jexRes.getAllContents();
 		while (it.hasNext()) {
 			Object o = it.next();
 			if (o instanceof JavaClass) {
@@ -103,7 +104,7 @@ public class JexZipFile extends Job {
 	
 	public void addResources() {
 		IJavaProject javaProject = JexResource.getJavaProject(jexRes);
-		TreeIterator it = jexRes.getAllContents();
+		TreeIterator<EObject> it = jexRes.getAllContents();
 		while (it.hasNext()) {
 			Object o = it.next();
 			if (o instanceof JavaClass) {
@@ -123,7 +124,7 @@ public class JexZipFile extends Job {
 		return uriConverter;
 	}
 
-	protected void prepare(Object file, List files, List iFiles) throws Exception {
+	protected void prepare(Object file, List<Object> files, List<Object> iFiles) throws Exception {
 		if (file instanceof IJavaElement) {
 			prepare((IJavaElement)file, files, iFiles);
 		} else if (file instanceof IResource) {
@@ -143,7 +144,7 @@ public class JexZipFile extends Job {
 		return res;
 	}
 	
-	private Object prepare(IJavaElement file, List files, List iFiles) throws Exception {
+	private Object prepare(IJavaElement file, List<Object> files, List<Object> iFiles) throws Exception {
 		IResource res = getJavaElementResource(file);
 		if (! files.contains(res)) {
 			files.add(res);
@@ -151,14 +152,14 @@ public class JexZipFile extends Job {
 		return file;
 	}
 
-	protected void prepare(IResource file, List files, List iFiles) throws Exception {
+	protected void prepare(IResource file, List<Object> files, List<Object> iFiles) throws Exception {
 		if (file instanceof IParent) {
 			prepare((IParent)file, files, iFiles);
 		} else if (file instanceof IFile) {
 			prepare((IFile)file, files, iFiles);
 		}
 	}
-	protected void prepare(IParent parent, List files, List iFiles) throws Exception {
+	protected void prepare(IParent parent, List<Object> files, List<Object> iFiles) throws Exception {
 		IJavaElement[] children = parent.getChildren();
 		files.addAll(Arrays.asList(children));
 	}
@@ -184,7 +185,7 @@ public class JexZipFile extends Job {
 		return false;
 	}
 	
-	protected void prepare(IFile file, List files, List iFiles) throws Exception {
+	protected void prepare(IFile file, List<Object> files, List<Object> iFiles) throws Exception {
 		if (file.exists() && (! iFiles.contains(file))) {
 			if (findFile(includeFiles, file.getName()) && (! findFile(excludeFiles, file.getName()))) {
 				iFiles.add(file);
@@ -201,7 +202,7 @@ public class JexZipFile extends Job {
 	
 	public boolean prepare() {
 		this.zipUri = jexRes.getURI().trimFileExtension().appendFileExtension("zip");
-		List iFiles = new ArrayList();
+		List<Object> iFiles = new ArrayList<Object>();
 		for (int i = 0; i < files.size(); i++) {
 			try {
 				prepare(files.get(i), files, iFiles);

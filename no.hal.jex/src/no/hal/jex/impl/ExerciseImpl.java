@@ -7,10 +7,9 @@
 package no.hal.jex.impl;
 
 
-import no.hal.jex.JexPackage;
 import no.hal.jex.Exercise;
-
 import no.hal.jex.JexPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**

@@ -8,10 +8,9 @@ package no.hal.jex.impl;
 
 
 import no.hal.jex.AbstractRequirement;
-import no.hal.jex.JexPackage;
 import no.hal.jex.ExercisePart;
-
 import no.hal.jex.JexPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**

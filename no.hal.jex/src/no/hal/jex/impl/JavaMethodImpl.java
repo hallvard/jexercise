@@ -8,7 +8,6 @@ package no.hal.jex.impl;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import no.hal.jex.JavaMethod;
@@ -251,7 +250,7 @@ public class JavaMethodImpl extends MemberImpl implements JavaMethod {
 			return false;
 		}
 		JavaMethod otherMethod = (JavaMethod)other;
-		List params = getParameters(), otherParams = otherMethod.getParameters();
+		List<String> params = getParameters(), otherParams = otherMethod.getParameters();
 		if (params.size() != otherParams.size()) {
 			return false;
 		}
@@ -280,20 +279,18 @@ public class JavaMethodImpl extends MemberImpl implements JavaMethod {
 
 	//
 	
-	private static IMethod findJavaMethod(List methods, String resultType, List parameters) {
-		if (methods == null) {
-			return null;
-		}
-		for (Iterator it = methods.iterator(); it.hasNext();) {
-			IMethod method = (IMethod)it.next();
-			if (validateTypes(resultType, parameters, method) == Boolean.TRUE) {
-				return method;
+	private static IMethod findJavaMethod(List<IMember> members, String resultType, List<String> parameters) {
+		if (members != null) {
+			for (IMember member : members) {
+				if (member instanceof IMethod && validateTypes(resultType, parameters, (IMethod) member) == Boolean.TRUE) {
+					return (IMethod) member;
+				}
 			}
 		}
 		return null;
 	}
 
-	private IMethod findJavaMethod(IJavaElement javaClass, String resultType, List parameters) {
+	private IMethod findJavaMethod(IJavaElement javaClass, String resultType, List<String> parameters) {
 		if (javaClass instanceof IParent) {
 			return findJavaMethod(JavaClassImpl.findJavaMembers((IParent)javaClass, getSimpleName(), IJavaElement.METHOD, IMethod.class), resultType, parameters);
 		}
@@ -304,11 +301,7 @@ public class JavaMethodImpl extends MemberImpl implements JavaMethod {
 		return findJavaMethod(javaClass, getReturnType(), getParameters());
 	}
 
-	public static IMember findJavaMethod(IJavaElement javaClass, String name, String resultType, List parameters) {
-		return findJavaMethod(JavaClassImpl.findJavaMembers((IParent)javaClass, name, IJavaElement.METHOD, IMethod.class), resultType, parameters);
-	}
-
-	private static Boolean validateTypes(List types, String[] types2, boolean isOrdered) {
+	private static Boolean validateTypes(List<String> types, String[] types2, boolean isOrdered) {
 		if (types == null) {
 			return Boolean.TRUE;
 		}
@@ -332,7 +325,7 @@ public class JavaMethodImpl extends MemberImpl implements JavaMethod {
 		return Boolean.TRUE;
 	}
 
-	private static Boolean validateTypes(String returnType, List parameterTypes, IMethod method) {
+	private static Boolean validateTypes(String returnType, List<String> parameterTypes, IMethod method) {
 		if (returnType != null) {
 			try {
 				if (! testTypeString(returnType, method.getReturnType())) {
@@ -345,7 +338,7 @@ public class JavaMethodImpl extends MemberImpl implements JavaMethod {
 		return validateTypes(parameterTypes, method.getParameterTypes(), true);
 	}
 	
-	private static Boolean validateThrowables(List throwables, IMethod method) {
+	private static Boolean validateThrowables(List<String> throwables, IMethod method) {
 		try {
 			return validateTypes(throwables, method.getExceptionTypes(), false);
 		} catch (JavaModelException e) {

@@ -6,7 +6,6 @@
  */
 package no.hal.jex.impl;
 
-import no.hal.jex.*;
 import no.hal.jex.ClassKind;
 import no.hal.jex.Exercise;
 import no.hal.jex.ExercisePart;
