@@ -2,7 +2,7 @@
 <feature
       id="no.hal.jex.feature"
       label="JExercise Feature"
-      version="1.0.2"
+      version="1.0.4"
       provider-name="Hallvard Traetteberg">
 
    <description url="http://www.example.com/description">
