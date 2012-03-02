@@ -5,26 +5,34 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JTree;
+import javax.swing.event.TreeModelEvent;
+import javax.swing.event.TreeModelListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.TreePath;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.runner.BaseTestRunner;
 import no.hal.jex.AbstractRequirement;
 import no.hal.jex.Exercise;
+import no.hal.jex.JUnitTest;
 import no.hal.jex.JexFactory;
 import no.hal.jex.JexPackage;
+import no.hal.jex.Requirement;
 import no.hal.jex.impl.AbstractRequirementImpl;
 import no.hal.jex.java.ReflectiveRequirementChecker;
 import no.hal.jex.java.ReflectiveTestAnnotationsToModelConverter;
@@ -39,13 +47,14 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
 @SuppressWarnings("serial")
-public class JexExercisePanel extends JPanel {
+public class JexExercisePanel extends JPanel implements TreeModelListener, ReflectiveRequirementChecker.BaseTestRunnerProvider {
 	
 	private JTextField fileTextField;
 	private JFileChooser fileChooser;
 	private JTree jexTree;
 	private JTextPane jexText;
 
+	@SuppressWarnings("unused")
 	public JexExercisePanel(String fileText, boolean autoOpen) {
 		setLayout(new BorderLayout());
 		JPanel filePanel = new JPanel();
@@ -55,26 +64,29 @@ public class JexExercisePanel extends JPanel {
 				openJex(fileTextField.getText());
 			}
 		});
+		filePanel.add(new JLabel("Test suite/class: "));
 		filePanel.add(fileTextField);
-		JButton fileChooserButton = new JButton("File...");
-		fileChooserButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if (fileChooser == null) {
-					fileChooser = new JFileChooser();
+		JButton fileChooserButton = null; // new JButton("File...");
+		if (fileChooserButton != null) {
+			fileChooserButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					if (fileChooser == null) {
+						fileChooser = new JFileChooser();
+					}
+					if (fileChooser.showOpenDialog(JexExercisePanel.this) == JFileChooser.APPROVE_OPTION) {
+						File file = fileChooser.getSelectedFile();
+						fileTextField.setText(file.toString());
+						openJex(file.getAbsolutePath());
+					}
 				}
-				if (fileChooser.showOpenDialog(JexExercisePanel.this) == JFileChooser.APPROVE_OPTION) {
-					File file = fileChooser.getSelectedFile();
-					fileTextField.setText(file.toString());
-					openJex(file.getAbsolutePath());
-				}
-			}
-		});
-		filePanel.add(fileChooserButton);
+			});
+			filePanel.add(fileChooserButton);
+		}
 		add(filePanel, BorderLayout.NORTH);
 		jexTree = new JTree();
 		jexTree.setPreferredSize(new Dimension(300, 500));
 		jexTree.setCellRenderer(new JexTreeCellRenderer());
-		jexTree.setRootVisible(true);
+		jexTree.setRootVisible(false);
 		
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		splitPane.setDividerLocation(0.3);
@@ -114,26 +126,39 @@ public class JexExercisePanel extends JPanel {
 				Object selection = selectionEvent.getPath().getLastPathComponent();
 				validateButton.setEnabled(selection instanceof AbstractRequirement);
 				validateAllButton.setEnabled(jexTree.getModel().getRoot() instanceof AbstractRequirement);
-				jexText.setText(selection instanceof AbstractRequirement ? getRequirementText((AbstractRequirement) selection) : "");
+				updateRequirementText(selection);
 			}
+
 		});
+		
+		 requirementChecker = new ReflectiveRequirementChecker();
+		 requirementChecker.setBaseTestRunnerProvider(this);
+		 
 		if (autoOpen) {
 			fileTextField.postActionEvent();
 		}
 	}
 
-	protected String getRequirementText(AbstractRequirement req) {
-		AbstractRequirement descriptionReq = AbstractRequirementImpl.findNearestPreviousRequirementWithDescription(req);
-		if (descriptionReq != null) {
-			String description = descriptionReq.getDescription();
-			if (description != null) {
-				return description;
-			}
-		}
-		return "";
+	private void updateRequirementText(Object selection) {
+		jexText.setText(selection instanceof AbstractRequirement ? getRequirementText((AbstractRequirement) selection) : "");
 	}
 
-	private ReflectiveRequirementChecker requirementChecker = new ReflectiveRequirementChecker();
+	protected String getRequirementText(AbstractRequirement req) {
+		String description = null;
+		AbstractRequirement descriptionReq = AbstractRequirementImpl.findNearestPreviousRequirementWithDescription(req);
+		if (descriptionReq != null) {
+			description = descriptionReq.getDescription();
+		}
+		StringBuilder message = new StringBuilder();
+		if (req instanceof Requirement) {
+			for (String s : ((Requirement) req).getMessages()) {
+				message.append(s);
+			}
+		}
+		return (description != null ? description : "") + "<p>" + (message.length() > 0 ? "<b>Errors/failures</b>:<br/>" + message : "");
+	}
+
+	private ReflectiveRequirementChecker requirementChecker;
 	
 	protected void validate(AbstractRequirement req) {
 		requirementChecker.validate(req, true);
@@ -143,13 +168,17 @@ public class JexExercisePanel extends JPanel {
 	}
 
 	protected void openJex(String name) {
-		Test suite = requirementChecker.createTest(name, null);
-		if (suite instanceof TestSuite) {
-			ReflectiveTestAnnotationsToModelConverter converter = new ReflectiveTestAnnotationsToModelConverter(JexFactory.eINSTANCE.createExercise(), (TestSuite) suite);
-			Exercise ex = converter.convert();
-			openExercise(ex);
-		} else {
+		if (name.endsWith(JexResource.JEX_EXTENSION)) {
 			openJexFile(name);
+		} else {
+			Test suite = requirementChecker.createTest(name, null);
+			if (suite instanceof TestSuite) {
+				ReflectiveTestAnnotationsToModelConverter converter = new ReflectiveTestAnnotationsToModelConverter(JexFactory.eINSTANCE.createExercise(), (TestSuite) suite);
+				Exercise ex = converter.convert();
+				openExercise(ex);
+			} else {
+				throw new IllegalArgumentException("Couldn't find class " + name + ", are you sure the classpath is correctly set?");
+			}
 		}
 	}
 	
@@ -160,11 +189,25 @@ public class JexExercisePanel extends JPanel {
 	}
 	
 	protected void openExercise(Exercise ex) {
-		jexTree.setModel(new JexTreeModel(ex));
+		JexTreeModel treeModel = new JexTreeModel(ex);
+		jexTree.setModel(treeModel);
+		treeModel.addTreeModelListener(this);
 		TreePath exPath = new TreePath(ex);
-		jexTree.expandPath(exPath);
+		expandAbstractRequirement(ex, -1, new ArrayList<AbstractRequirement>());
 		jexTree.setSelectionPath(exPath);
 		jexTree.requestFocusInWindow();
+	}
+
+	private void expandAbstractRequirement(AbstractRequirement req, int depth, Collection<AbstractRequirement> parents) {
+		parents.add(req);
+		if (depth == 0 || req.getRequirements().size() == 0) {
+			jexTree.expandPath(new TreePath(parents.toArray()));
+		} else {
+			for (AbstractRequirement childReq : req.getRequirements()) {
+				expandAbstractRequirement(childReq, depth - 1, parents);
+			}
+		}
+		parents.remove(req);
 	}
 	
 	private static void initEMF() {
@@ -188,5 +231,35 @@ public class JexExercisePanel extends JPanel {
 		frame.setPreferredSize(new Dimension(700, 800));
 		frame.pack();
 		frame.setVisible(true);
+	}
+
+	public void treeNodesChanged(TreeModelEvent e) {
+		Object selection = jexTree.getSelectionPath().getLastPathComponent();
+		if (e.getTreePath().getLastPathComponent() == selection) {
+			updateRequirementText(selection);
+		}
+	}
+
+	public void treeNodesInserted(TreeModelEvent e) {
+	}
+
+	public void treeNodesRemoved(TreeModelEvent e) {
+	}
+
+	public void treeStructureChanged(TreeModelEvent e) {
+	}
+
+	//
+	
+	public BaseTestRunner createBaseTestRunner(final JUnitTest junitTest) {
+		return requirementChecker.new BaseTestRunnerStub() {
+			@Override
+			public void testFailed(int status, Test test, Throwable t) {
+				String message = t.getMessage();
+				if (message != null) {
+					junitTest.getMessages().add(message);
+				}
+			}
+		};
 	}
 }

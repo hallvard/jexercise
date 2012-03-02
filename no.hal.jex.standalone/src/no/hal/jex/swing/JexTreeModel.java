@@ -3,6 +3,7 @@ package no.hal.jex.swing;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.event.TreeModelEvent;
@@ -158,6 +159,7 @@ public class JexTreeModel extends EContentAdapter implements TreeModel {
 			}
 			source = ((EObject) source).eContainer();
 		}
+		Collections.reverse(treePath);
 		fireNodesChanged(new TreePath(treePath.toArray(new Object[treePath.size()])));
 	}
 

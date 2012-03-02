@@ -7,12 +7,15 @@
 package no.hal.jex.impl;
 
 
+import java.util.Collection;
 import no.hal.jex.JexPackage;
 import no.hal.jex.Requirement;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link no.hal.jex.impl.RequirementImpl#getSatisfied <em>Satisfied</em>}</li>
  *   <li>{@link no.hal.jex.impl.RequirementImpl#getTime <em>Time</em>}</li>
+ *   <li>{@link no.hal.jex.impl.RequirementImpl#getMessages <em>Messages</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,6 +72,16 @@ public abstract class RequirementImpl extends AbstractRequirementImpl implements
 	 * @ordered
 	 */
 	protected long time = TIME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMessages() <em>Messages</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessages()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> messages;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,6 +149,18 @@ public abstract class RequirementImpl extends AbstractRequirementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getMessages() {
+		if (messages == null) {
+			messages = new EDataTypeUniqueEList<String>(String.class, this, JexPackage.REQUIREMENT__MESSAGES);
+		}
+		return messages;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -142,6 +168,8 @@ public abstract class RequirementImpl extends AbstractRequirementImpl implements
 				return getSatisfied();
 			case JexPackage.REQUIREMENT__TIME:
 				return getTime();
+			case JexPackage.REQUIREMENT__MESSAGES:
+				return getMessages();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -151,6 +179,7 @@ public abstract class RequirementImpl extends AbstractRequirementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -159,6 +188,10 @@ public abstract class RequirementImpl extends AbstractRequirementImpl implements
 				return;
 			case JexPackage.REQUIREMENT__TIME:
 				setTime((Long)newValue);
+				return;
+			case JexPackage.REQUIREMENT__MESSAGES:
+				getMessages().clear();
+				getMessages().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -178,6 +211,9 @@ public abstract class RequirementImpl extends AbstractRequirementImpl implements
 			case JexPackage.REQUIREMENT__TIME:
 				setTime(TIME_EDEFAULT);
 				return;
+			case JexPackage.REQUIREMENT__MESSAGES:
+				getMessages().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -194,6 +230,8 @@ public abstract class RequirementImpl extends AbstractRequirementImpl implements
 				return SATISFIED_EDEFAULT == null ? satisfied != null : !SATISFIED_EDEFAULT.equals(satisfied);
 			case JexPackage.REQUIREMENT__TIME:
 				return time != TIME_EDEFAULT;
+			case JexPackage.REQUIREMENT__MESSAGES:
+				return messages != null && !messages.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -212,6 +250,8 @@ public abstract class RequirementImpl extends AbstractRequirementImpl implements
 		result.append(satisfied);
 		result.append(", time: ");
 		result.append(time);
+		result.append(", messages: ");
+		result.append(messages);
 		result.append(')');
 		return result.toString();
 	}

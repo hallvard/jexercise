@@ -571,6 +571,15 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRequirement_Messages() {
+		return (EAttribute)requirementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExercise() {
 		return exerciseEClass;
 	}
@@ -833,6 +842,7 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 		requirementEClass = createEClass(REQUIREMENT);
 		createEAttribute(requirementEClass, REQUIREMENT__SATISFIED);
 		createEAttribute(requirementEClass, REQUIREMENT__TIME);
+		createEAttribute(requirementEClass, REQUIREMENT__MESSAGES);
 
 		exerciseEClass = createEClass(EXERCISE);
 
@@ -956,6 +966,7 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 		initEClass(requirementEClass, Requirement.class, "Requirement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRequirement_Satisfied(), ecorePackage.getEBooleanObject(), "satisfied", null, 0, 1, Requirement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRequirement_Time(), ecorePackage.getELong(), "time", null, 0, 1, Requirement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRequirement_Messages(), ecorePackage.getEString(), "messages", null, 0, -1, Requirement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(exerciseEClass, Exercise.class, "Exercise", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

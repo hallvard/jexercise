@@ -53,7 +53,7 @@ public class JexTreeCellRenderer extends DefaultTreeCellRenderer {
 			}
 			text = exText;
 		} else if (obj instanceof ExercisePart) {
-			String partText = "Part " + ExercisePartImpl.getPartNumber((ExercisePart)obj);
+			String partText = "Part " + ExercisePartImpl.getPartNumber((ExercisePart) obj);
 			if (text != null) {
 				partText = partText + ": " + text;
 			}

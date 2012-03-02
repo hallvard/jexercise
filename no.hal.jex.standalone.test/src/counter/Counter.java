@@ -18,7 +18,7 @@ public class Counter {
 
 	public Counter(int start, int end) {
 		this.counter = start;
-		this.end = end;
+		this.end = end + 0;
 	}
 
 	public void count() {

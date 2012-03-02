@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
+import junit.framework.TestSuite;
 import no.hal.jex.AbstractRequirement;
 import no.hal.jex.Exercise;
 import no.hal.jex.JavaClass;
@@ -29,24 +30,9 @@ public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnot
 
 	@Override
 	protected void convert(Exercise ex) {
-		createFromTestAnnotations(junitTestSuite);
+		createFromTestClassAnnotations(junitTestSuite, null);
 	}
 
-	private void createFromTestAnnotations(Test junitTest) {
-		if (junitTest instanceof junit.framework.TestSuite) {
-			junit.framework.TestSuite junitTestSuite = (junit.framework.TestSuite) junitTest;
-			String typeFullName = junitTestSuite.getName();
-			int pos = typeFullName.lastIndexOf('.');
-			String namePrefix = typeFullName.substring(0, pos);
-			String typeName = typeFullName.substring(pos + 1);
-			if (isTestClassName(typeName)) {
-				createFromTestClassAnnotations(junitTestSuite, namePrefix, typeName.substring(0, typeName.length() - AbstractTestAnnotationsToModelConverter.TEST_CLASS_NAME_SUFFIX.length()));
-			} else if (isAllTestsName(typeName)) {
-				ensureJavaClass(namePrefix, typeName, JexPackage.eINSTANCE.getTestSuite());
-			}
-		}
-	}
-	
 	private ReflectionHelper reflectionHelper = new ReflectionHelper();
 	
 	private JavaRequirement createFromTestClassAnnotations(junit.framework.TestSuite junitTestSuite, String packageName, String testedClassName) {
@@ -60,18 +46,34 @@ public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnot
 		JavaRequirement req = ensureJavaRequirement(packageName, type.getSimpleName(), testedClassName, jexAnnotation.tests(), jexAnnotation.description());
 
 		for (int i = 0; i < junitTestSuite.testCount(); i++) {
-			Test junitChildTest = junitTestSuite.testAt(i);
-			if (junitChildTest instanceof TestCase) {
-				String methodName = ((TestCase) junitChildTest).getName();
-				if (isTestMethodName(methodName)) {
-					String namePrefix = AbstractTestAnnotationsToModelConverter.TEST_METHOD_NAME_PREFIX;
-					String testedMethodName = Character.toLowerCase(methodName.charAt(namePrefix.length())) + methodName.substring(namePrefix.length() + 1);
-					JavaClassTester javaClassTester = (JavaClassTester) req.getJavaElement();
-					createFromTestMethodAnnotations((TestCase) junitChildTest, testedMethodName, javaClassTester, (JavaClass) javaClassTester.getTestedElement(), req);
-				}
-			}
+			createFromTestClassAnnotations(junitTestSuite.testAt(i), req);
 		}
 		return req;
+	}
+
+	private void createFromTestClassAnnotations(Test junitTest, JavaRequirement req) {
+		if (junitTest instanceof TestSuite) {
+			junit.framework.TestSuite junitTestSuite = (junit.framework.TestSuite) junitTest;
+			String typeFullName = junitTestSuite.getName();
+			if (isAllTestsName(typeFullName)) {
+				for (int i = 0; i < junitTestSuite.testCount(); i++) {
+					createFromTestClassAnnotations(junitTestSuite.testAt(i), req);
+				}
+			} else if (isTestClassName(typeFullName)) {
+				int pos = typeFullName.lastIndexOf('.');
+				String namePrefix = typeFullName.substring(0, pos);
+				String typeName = typeFullName.substring(pos + 1);
+				createFromTestClassAnnotations(junitTestSuite, namePrefix, typeName.substring(0, typeName.length() - AbstractTestAnnotationsToModelConverter.TEST_CLASS_NAME_SUFFIX.length()));
+			}
+		} else if (junitTest instanceof TestCase) {
+			String methodName = ((TestCase) junitTest).getName();
+			if (isTestMethodName(methodName)) {
+				String namePrefix = AbstractTestAnnotationsToModelConverter.TEST_METHOD_NAME_PREFIX;
+				String testedMethodName = Character.toLowerCase(methodName.charAt(namePrefix.length())) + methodName.substring(namePrefix.length() + 1);
+				JavaClassTester javaClassTester = (JavaClassTester) req.getJavaElement();
+				createFromTestMethodAnnotations((TestCase) junitTest, testedMethodName, javaClassTester, (JavaClass) javaClassTester.getTestedElement(), req);
+			}
+		}
 	}
 
 	private JavaRequirement createFromTestMethodAnnotations(TestCase junitTestCase, String testedMethodName, JavaClassTester methodTesterParent, JavaClass methodParent, AbstractRequirement reqParent) {

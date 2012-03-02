@@ -6,6 +6,8 @@
  */
 package no.hal.jex;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Requirement</b></em>'.
@@ -16,6 +18,7 @@ package no.hal.jex;
  * <ul>
  *   <li>{@link no.hal.jex.Requirement#getSatisfied <em>Satisfied</em>}</li>
  *   <li>{@link no.hal.jex.Requirement#getTime <em>Time</em>}</li>
+ *   <li>{@link no.hal.jex.Requirement#getMessages <em>Messages</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,6 +78,22 @@ public interface Requirement extends AbstractRequirement {
 	 * @generated
 	 */
 	void setTime(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Messages</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Messages</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Messages</em>' attribute list.
+	 * @see no.hal.jex.JexPackage#getRequirement_Messages()
+	 * @model transient="true"
+	 * @generated
+	 */
+	EList<String> getMessages();
 
 	/**
 	 * <!-- begin-user-doc -->

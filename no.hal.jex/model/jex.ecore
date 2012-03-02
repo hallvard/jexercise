@@ -70,6 +70,8 @@
         transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
         transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messages" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Exercise" eSuperTypes="#//AbstractRequirement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExercisePart" eSuperTypes="#//AbstractRequirement"/>

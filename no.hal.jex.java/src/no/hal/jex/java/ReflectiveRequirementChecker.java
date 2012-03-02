@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.Map;
 import junit.framework.Test;
 import junit.framework.TestResult;
 import junit.framework.TestSuite;
+import junit.runner.BaseTestRunner;
 import no.hal.jex.AbstractRequirement;
 import no.hal.jex.ClassKind;
 import no.hal.jex.JUnitTest;
@@ -28,6 +30,35 @@ import no.hal.jex.impl.MemberImpl;
 
 public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 
+	public interface BaseTestRunnerProvider {
+		BaseTestRunner createBaseTestRunner(JUnitTest junitTest);
+	}
+	public class BaseTestRunnerStub extends BaseTestRunner {
+		@Override
+		public void testStarted(String testName) {
+		}
+		@Override
+		public void testEnded(String testName) {
+		}
+		@Override
+		public void testFailed(int status, Test test, Throwable t) {
+		}
+		@Override
+		protected void runFailed(String message) {
+		}
+	}
+	
+	private BaseTestRunnerProvider baseTestRunnerProvider = new BaseTestRunnerProvider() {
+		@Override
+		public BaseTestRunner createBaseTestRunner(JUnitTest junitTest) {
+			return new BaseTestRunnerStub();
+		}
+	};
+	
+	public void setBaseTestRunnerProvider(BaseTestRunnerProvider baseTestRunnerProvider) {
+		this.baseTestRunnerProvider = baseTestRunnerProvider;
+	}
+
 	@Override
 	public Boolean validateRequirement(AbstractRequirement req) {
 		if (req instanceof JUnitTest) {
@@ -42,6 +73,9 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 			Test test = createTest(testRunnable);
 			if (test != null) {
 				TestResult testResult = new TestResult();
+				final Collection<String> messages = junitTest.getMessages();
+				messages.clear();
+				testResult.addListener(baseTestRunnerProvider.createBaseTestRunner(junitTest));
 				test.run(testResult);
 				((JUnitTest) req).setSatisfied(testResult.wasSuccessful());
 			}

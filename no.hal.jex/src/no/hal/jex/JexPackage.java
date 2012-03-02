@@ -700,13 +700,22 @@ public interface JexPackage extends EPackage {
 	int REQUIREMENT__TIME = ABSTRACT_REQUIREMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Messages</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__MESSAGES = ABSTRACT_REQUIREMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Requirement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT_FEATURE_COUNT = ABSTRACT_REQUIREMENT_FEATURE_COUNT + 2;
+	int REQUIREMENT_FEATURE_COUNT = ABSTRACT_REQUIREMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link no.hal.jex.impl.JavaRequirementImpl <em>Java Requirement</em>}' class.
@@ -798,6 +807,15 @@ public interface JexPackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_REQUIREMENT__TIME = REQUIREMENT__TIME;
+
+	/**
+	 * The feature id for the '<em><b>Messages</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_REQUIREMENT__MESSAGES = REQUIREMENT__MESSAGES;
 
 	/**
 	 * The feature id for the '<em><b>Java Element</b></em>' reference.
@@ -916,6 +934,15 @@ public interface JexPackage extends EPackage {
 	 * @ordered
 	 */
 	int JUNIT_TEST__TIME = JAVA_REQUIREMENT__TIME;
+
+	/**
+	 * The feature id for the '<em><b>Messages</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST__MESSAGES = JAVA_REQUIREMENT__MESSAGES;
 
 	/**
 	 * The feature id for the '<em><b>Java Element</b></em>' reference.
@@ -1986,6 +2013,17 @@ public interface JexPackage extends EPackage {
 	EAttribute getRequirement_Time();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.jex.Requirement#getMessages <em>Messages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Messages</em>'.
+	 * @see no.hal.jex.Requirement#getMessages()
+	 * @see #getRequirement()
+	 * @generated
+	 */
+	EAttribute getRequirement_Messages();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.jex.Exercise <em>Exercise</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2520,6 +2558,14 @@ public interface JexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REQUIREMENT__TIME = eINSTANCE.getRequirement_Time();
+
+		/**
+		 * The meta object literal for the '<em><b>Messages</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REQUIREMENT__MESSAGES = eINSTANCE.getRequirement_Messages();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.jex.impl.ExerciseImpl <em>Exercise</em>}' class.
