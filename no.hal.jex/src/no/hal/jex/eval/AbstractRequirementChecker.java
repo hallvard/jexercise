@@ -115,15 +115,11 @@ public abstract class AbstractRequirementChecker {
 
 	protected Boolean javaRequirementSatisfied(JavaRequirement javaRequirement, boolean requireModifiers, boolean requireTypes) {
 		JavaElement jexElement = javaRequirement.getJavaElement();
-		if (! (jexElement instanceof Member)) {
-			return Boolean.FALSE;
-		}
-		return validateJexMember(jexElement, requireModifiers, requireTypes);
+		return (jexElement instanceof Member ? validateJexMember((Member) jexElement, requireModifiers, requireTypes) : Boolean.FALSE);
 	}
 
-	protected Boolean validateJexMember(JavaElement jexElement, boolean requireModifiers, boolean requireTypes) {
-		Object javaElement = getRealJavaElement((Member) jexElement);
-		Member jexMember = (Member) jexElement;
+	protected Boolean validateJexMember(Member jexMember, boolean requireModifiers, boolean requireTypes) {
+		Object javaElement = getRealJavaElement(jexMember);
 		if (jexMember.getRequired() != Boolean.FALSE ? javaElement == null : javaElement != null) {
 			return Boolean.FALSE;
 		}

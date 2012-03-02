@@ -51,7 +51,7 @@ public class ReflectionHelper {
 						}
 					}
 				} else {
-					Method[] javaMethods = javaClass.getMethods();
+					Method[] javaMethods = javaClass.getDeclaredMethods();
 					for (int i = 0; i < javaMethods.length; i++) {
 						Method method = javaMethods[i];
 						String jexMethodName = jexMethod.getSimpleName();

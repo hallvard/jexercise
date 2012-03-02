@@ -10,7 +10,7 @@ import no.hal.jex.java.JExercise;
 
 /**
  *
- * @author bjorncs
+ * @author bjorncs og hal
  * 
  */
 
@@ -62,11 +62,11 @@ public class FractionTest extends TestCase {
 			)
 	public void testAsDouble() {
 		Fraction fraction = new Fraction(1, 8);
-		Assert.assertEquals(1/8d, fraction.asDouble());
+		Assert.assertEquals(1.0/8.0, fraction.asDouble());
 	}
 
 	@JExercise(
-			tests="private void simplify()",
+			tests="private boolean simplify()",
 			description="Når vi utfører en regneoperasjon med 2 brøker, får vi ofte en brøk som kan forenkles." +
 					"For eksempel:  ⅔ + 4/3 == 6/3 == 2/1, Eller 7/10 - ⅕ == 5/10 == ½." +
 					"Lag hjelpemetoden simplify() som forenkler brøken. Den skal endre feltene for teller og nevner slik at brøken blir forenklet mest mulig." +

@@ -138,8 +138,8 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 		if (s1.equals(s2)) {
 			return true;
 		}
-		if (s1.indexOf('.') >= 0 && s2.indexOf('.') < 0) {
-			s1 = MemberImpl.getSimpleName(s1);
+		if (s1.indexOf('.') < 0 && s2.indexOf('.') >= 0) {
+			s2 = MemberImpl.getSimpleName(s1);
 			if (s1.equals(s2)) {
 				return true;
 			}

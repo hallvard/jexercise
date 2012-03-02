@@ -8,10 +8,15 @@ public class Fraction {
 		super();
 		this.numerator = numerator;
 		this.denominator = denominator;
+		simplify();
 	}
 
+	public String toString() {
+		return numerator + "/" + denominator;
+	}
+	
 	public double asDouble() {
-		return numerator / denominator;
+		return (double) numerator / (double) denominator;
 	}
 
 	public int getNumerator() {
@@ -36,5 +41,21 @@ public class Fraction {
 
 	public Fraction divide(Fraction fraction2) {
 		return new Fraction(this.numerator * fraction2.denominator, this.denominator * fraction2.numerator);
+	}
+	
+	private boolean simplify() {
+		int gcd = 1;
+		if (denominator % numerator == 0) {
+			gcd = numerator;
+		}
+		if (denominator < 0) {
+			gcd = -gcd;
+		}
+		if (gcd != 1) {
+			numerator /= gcd;
+			denominator /= gcd;
+			return true;
+		}
+		return false;
 	}
 }
