@@ -540,4 +540,30 @@ public abstract class AbstractRequirementImpl extends EObjectImpl implements Abs
 		}
 		return uri;
 	}
+	
+	//
+	
+	public static AbstractRequirement findNearestPreviousRequirementWithDescription(AbstractRequirement req) {
+		int pos = -1;
+		AbstractRequirement parent = req.getParent();
+		do {
+			String description = req.getDescription();
+			if (description != null && description.length() > 0) {
+				return req;
+			}
+			if (parent == null) {
+				return null;
+			} else if (pos < 0) {
+				pos = parent.getRequirements().indexOf(req);
+			}
+			pos--;
+			if (pos < 0) {
+				req = parent;
+				parent = req.getParent();
+			} else {
+				req = (AbstractRequirement) parent.getRequirements().get(pos);
+			}
+		} while (req != null);
+		return null;
+	}
 } //AbstractRequirementImpl

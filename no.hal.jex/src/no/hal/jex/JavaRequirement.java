@@ -21,7 +21,7 @@ package no.hal.jex;
  * </p>
  *
  * @see no.hal.jex.JexPackage#getJavaRequirement()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NonNullJavaElement JavaRequirementSatisfied'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NonNullJavaElement'"
  * @generated
  */
 public interface JavaRequirement extends Requirement {

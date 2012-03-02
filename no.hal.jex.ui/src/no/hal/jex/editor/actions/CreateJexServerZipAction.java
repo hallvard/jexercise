@@ -1,7 +1,7 @@
 package no.hal.jex.editor.actions;
 
 import no.hal.jex.resource.JexResource;
-import no.hal.jex.resource.JexZipFile;
+import no.hal.jex.views.actions.JexZipFile;
 
 public class CreateJexServerZipAction extends AbstractCreateJexZipAction {
 

@@ -10,6 +10,7 @@ package no.hal.jex.provider;
 import java.util.Collection;
 import java.util.List;
 
+import no.hal.jex.JavaClassTester;
 import no.hal.jex.provider.JexEditPlugin;
 import no.hal.jex.JexPackage;
 import no.hal.jex.provider.JavaClassItemProvider;
@@ -26,7 +27,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link no.hal.jex.junit.JavaClassTester} object.
+ * This is the item provider adapter for a {@link no.hal.jex.JavaClassTester} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -138,17 +139,6 @@ public class JavaClassTesterItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return JexEditPlugin.INSTANCE;
 	}
 
 }

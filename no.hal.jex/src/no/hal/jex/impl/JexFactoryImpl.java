@@ -6,6 +6,10 @@
  */
 package no.hal.jex.impl;
 
+import no.hal.jex.*;
+import java.util.HashMap;
+import java.util.Map;
+
 import no.hal.jex.ClassKind;
 import no.hal.jex.Exercise;
 import no.hal.jex.ExercisePart;
@@ -28,9 +32,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.jdt.core.Flags;
-import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,10 +111,6 @@ public class JexFactoryImpl extends EFactoryImpl implements JexFactory {
 				return createModifiersFromString(eDataType, initialValue);
 			case JexPackage.CLASS_NAME:
 				return createClassNameFromString(eDataType, initialValue);
-			case JexPackage.JAVA_CORE_PROJECT:
-				return createJavaCoreProjectFromString(eDataType, initialValue);
-			case JexPackage.JAVA_CORE_ELEMENT:
-				return createJavaCoreElementFromString(eDataType, initialValue);
 			case JexPackage.FEATURES:
 				return createFeaturesFromString(eDataType, initialValue);
 			default:
@@ -139,10 +136,6 @@ public class JexFactoryImpl extends EFactoryImpl implements JexFactory {
 				return convertModifiersToString(eDataType, instanceValue);
 			case JexPackage.CLASS_NAME:
 				return convertClassNameToString(eDataType, instanceValue);
-			case JexPackage.JAVA_CORE_PROJECT:
-				return convertJavaCoreProjectToString(eDataType, instanceValue);
-			case JexPackage.JAVA_CORE_ELEMENT:
-				return convertJavaCoreElementToString(eDataType, instanceValue);
 			case JexPackage.FEATURES:
 				return convertFeaturesToString(eDataType, instanceValue);
 			default:
@@ -318,44 +311,70 @@ public class JexFactoryImpl extends EFactoryImpl implements JexFactory {
 		return super.convertToString(eDataType, instanceValue);
 	}
 
+	// Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(JexResource.JEX_EXTENSION, new JexResource.Factory());
+
+	private final static Map<String, Integer> MODIFIERS_MAP = new HashMap<String, Integer>();
+	static {
+		MODIFIERS_MAP.put("public", 1);
+		MODIFIERS_MAP.put("private", 2);
+		MODIFIERS_MAP.put("protected", 4);
+		MODIFIERS_MAP.put("final", 16);
+		MODIFIERS_MAP.put("static", 8);
+		MODIFIERS_MAP.put("abstract", 1024);
+	};
+
+	public static int getModifier(String s) {
+		Integer i = MODIFIERS_MAP.get(s);
+		return i != null ? i : 0;
+	}
+	
+	public final static int MODIFIERS_MASK;
+	static {
+		int modifiers = 0;
+		for (Integer mask : MODIFIERS_MAP.values()) {
+			modifiers |= mask;
+		}
+		MODIFIERS_MASK = modifiers;
+	}
+
+	private static String MODIFIERS_SEPARATOR = " ";
+	
+	public static int createModifiersFromString(String s, Map<String, Integer> modifiersMap) {
+		int modifiers = 0;
+		String[] tokens = s.split(MODIFIERS_SEPARATOR);
+		for (int i = 0; i < tokens.length; i++) {
+			Integer modifier = modifiersMap.get(tokens[i]);
+			if (modifier != null) {
+				modifiers |= modifier;
+			}
+		}
+		return modifiers;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @NOT generated
 	 */
 	public Integer createModifiersFromString(EDataType eDataType, String initialValue) {
-		int modifiers = 0;
 		if (initialValue != null && initialValue.length() > 0) {
-			String[] tokens = initialValue.split("\\W");
-			for (int i = 0; i < tokens.length; i++) {
-				for (int j = 0; j < MODIFIERS.length; j++) {
-					if (tokens[i].equals(MODIFIERS[j])) {
-						modifiers |= MODIFIER_MASKS[j];
-						break;
-					}
+			return createModifiersFromString(initialValue, MODIFIERS_MAP);
+		}
+		return 0;
+	}
+
+	public static String convertModifiersToString(int modifiers, Map<String, Integer> modifiersMap) {
+		StringBuffer buffer = new StringBuffer();
+		for (Map.Entry<String, Integer> entry : modifiersMap.entrySet()) {
+			if ((modifiers & entry.getValue()) > 0) {
+				if (buffer.length() > 0) {
+					buffer.append(MODIFIERS_SEPARATOR);
 				}
+				buffer.append(entry.getKey());
 			}
 		}
-		return new Integer(modifiers);
+		return buffer.toString();
 	}
-
-	private final static String[] MODIFIERS = {
-		"public", "protected", "private", "final", "static", "abstract"
-	};
-	private final static int[] MODIFIER_MASKS = {
-		Flags.AccPublic, Flags.AccProtected, Flags.AccPrivate, Flags.AccFinal, Flags.AccStatic, Flags.AccAbstract
-	};
-
-	public final static int MODIFIERS_MASK;
-	static {
-		int modifiers = 0;
-		for (int i = 0; i < MODIFIER_MASKS.length; i++) {
-			modifiers |= MODIFIER_MASKS[i];
-		}
-		MODIFIERS_MASK = modifiers;
-	}
-
-	private static char MODIFIERS_SEPARATOR = ' ';
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -366,17 +385,26 @@ public class JexFactoryImpl extends EFactoryImpl implements JexFactory {
 		if (! (instanceValue instanceof Integer)) {
 			return null;
 		}
-		int modifiers = ((Integer)instanceValue).intValue();
-		StringBuffer buffer = new StringBuffer();
-		for (int j = 0; j < MODIFIER_MASKS.length; j++) {
-			if ((modifiers & MODIFIER_MASKS[j]) > 0) {
-				if (buffer.length() > 0) {
-					buffer.append(MODIFIERS_SEPARATOR);
+		return convertModifiersToString((Integer) instanceValue, MODIFIERS_MAP);
+	}
+
+	public static int convertModifiersToModifiers(int fromModifiers, Map<String, Integer> fromModifiersMap, Map<String, Integer> toModifiersMap) {
+		if (fromModifiersMap == null) {
+			fromModifiersMap = MODIFIERS_MAP;
+		}
+		if (toModifiersMap == null) {
+			toModifiersMap = MODIFIERS_MAP;
+		}
+		int toModifiers = 0;
+		for (Map.Entry<String, Integer> entry : fromModifiersMap.entrySet()) {
+			if ((fromModifiers & entry.getValue()) != 0) {
+				Integer i = toModifiersMap.get(entry.getKey());
+				if (i != null) {
+					toModifiers |= i;
 				}
-				buffer.append(MODIFIERS[j]);
 			}
 		}
-		return buffer.toString();
+		return toModifiers;
 	}
 
 	/**
@@ -394,42 +422,6 @@ public class JexFactoryImpl extends EFactoryImpl implements JexFactory {
 	 * @generated
 	 */
 	public String convertClassNameToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IJavaProject createJavaCoreProjectFromString(EDataType eDataType, String initialValue) {
-		return (IJavaProject)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertJavaCoreProjectToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IJavaElement createJavaCoreElementFromString(EDataType eDataType, String initialValue) {
-		return (IJavaElement)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertJavaCoreElementToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

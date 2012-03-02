@@ -16,21 +16,23 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.zip.ZipOutputStream;
 
+import no.hal.jex.jdt.JdtHelper;
 import no.hal.jex.resource.JexResource;
-import no.hal.jex.resource.JexZipFile;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 
+public class ZipFileSubmitter extends Job {
 
-public class ZipFileSubmitter extends JexZipFile {
-
+	private JexZipFile jexZip;
 	private String submitUrl;
 	private boolean m_autosubmitmode = false;
 	
 	public ZipFileSubmitter(JexResource jexRes, String jobtitle) {
-		super(jexRes, jobtitle);
+		super(jobtitle);
+		jexZip = new JexZipFile(jexRes);
 	}
 	
 	public void setAutoSubmitMode (boolean mode) {
@@ -41,7 +43,7 @@ public class ZipFileSubmitter extends JexZipFile {
 	    
 	    if (m_autosubmitmode) {
 	        try {
-	            super.run (progress);
+	            jexZip.create(progress);
 	        }
 	        catch (Exception e) {
 	        }
@@ -49,7 +51,7 @@ public class ZipFileSubmitter extends JexZipFile {
 	        return Status.OK_STATUS;
 	    }
 	    else {
-	        return super.run (progress);
+	        return jexZip.create(progress);
 	    }
 	}
 	
@@ -58,11 +60,11 @@ public class ZipFileSubmitter extends JexZipFile {
 	}
 
 	protected int getTaskCount() {
-		return super.getTaskCount() + (submitUrl != null ? 1 : 0);
+		return jexZip.getTaskCount() + (submitUrl != null ? 1 : 0);
 	}
 
 	protected void postProcessZipOutputStream(ZipOutputStream zipOutputStream, OutputStream subOutputStream, IProgressMonitor progress) throws Exception {
-		super.postProcessZipOutputStream(zipOutputStream, subOutputStream, progress);
+		jexZip.postProcessZipOutputStream(zipOutputStream, subOutputStream, progress);
 		if (submitUrl != null) {
 			if (m_autosubmitmode == false) {
 			    progress.subTask("Posting zip to " + submitUrl);
@@ -70,7 +72,7 @@ public class ZipFileSubmitter extends JexZipFile {
 			if (m_autosubmitmode) {
 			    submitUrl += "&auto=true";
 			}
-			File file = new File (JexResource.getLocation (zipUri));
+			File file = new File(JdtHelper.getLocation (jexZip.getZipUri()));
 			InputStream in = postData(new URL(submitUrl), file);
 			progress.worked(1);
 			BufferedReader inb = new BufferedReader(new InputStreamReader(in));
@@ -135,7 +137,7 @@ public class ZipFileSubmitter extends JexZipFile {
 	private static final String FILE_PARAMETER_NAME = "submission";
 
 	private void setFileContentHeaders() {
-		fileContentDispositionHeader = MessageFormat.format(fileContentDispositionHeaderFormat, new Object[]{FILE_PARAMETER_NAME, zipUri.lastSegment()});
+		fileContentDispositionHeader = MessageFormat.format(fileContentDispositionHeaderFormat, new Object[]{FILE_PARAMETER_NAME, jexZip.getZipUri().lastSegment()});
 		fileContentTypeHeader = MessageFormat.format(fileContentTypeHeaderFormat, new Object[]{"application/zip"});
 		fileContentTransferEncodingHeader = MessageFormat.format(fileContentTransferEncodingHeaderFormat, new Object[]{});
 	}
@@ -224,7 +226,7 @@ public class ZipFileSubmitter extends JexZipFile {
 				crlf(); 										// <CRLF>
 				postLen += file.length();
 				if (out != null) {
-					copyStream(new FileInputStream(file), out);
+					jexZip.copyStream(new FileInputStream(file), out);
 				}
 				crlf();											// <CRLF>
 			}
@@ -234,5 +236,17 @@ public class ZipFileSubmitter extends JexZipFile {
 			postOut = null;
 		}
 		return postLen;
+	}
+
+	public boolean prepare() {
+		return jexZip.prepare();
+	}
+
+	public void addClasses(Boolean testLogic) {
+		jexZip.addClasses(testLogic);
+	}
+
+	public void setJexRelatedFiles(String[] jexRelatedFiles) {
+		jexZip.setJexRelatedFiles(jexRelatedFiles);
 	}
 }

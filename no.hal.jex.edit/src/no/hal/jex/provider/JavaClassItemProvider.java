@@ -14,6 +14,7 @@ import no.hal.jex.ClassKind;
 import no.hal.jex.JavaClass;
 import no.hal.jex.JexFactory;
 import no.hal.jex.JexPackage;
+import no.hal.jex.impl.JexFactoryImpl;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -27,10 +28,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.jdt.core.Flags;
 
 /**
- * This is the item provider adapter for a {@link no.hal.jex.java.JavaClass} object.
+ * This is the item provider adapter for a {@link no.hal.jex.JavaClass} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -161,7 +161,7 @@ public class JavaClassItemProvider
 		if (javaClass.getClassKind() == ClassKind.INTERFACE_KIND) {
 			return JDT_UI_IMAGE_PREFIX + "int_obj.gif";
 		} else if (javaClass.getClassKind() == ClassKind.ENUM_KIND) {
-			String modifierString = getAccessModifierString(javaClass, Flags.AccPublic, null);
+			String modifierString = getAccessModifierString(javaClass, JexFactoryImpl.getModifier("public"), null);
 			return JDT_UI_IMAGE_PREFIX + "enum_" + (modifierString != null ? modifierString + "_" : "") + "obj.gif";
 		}
 		return JDT_UI_IMAGE_PREFIX + "class_obj.gif";
@@ -191,6 +191,7 @@ public class JavaClassItemProvider
 
 		switch (notification.getFeatureID(JavaClass.class)) {
 			case JexPackage.JAVA_CLASS__CLASS_KIND:
+			case JexPackage.JAVA_CLASS__SUPERCLASSES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JexPackage.JAVA_CLASS__MEMBERS:

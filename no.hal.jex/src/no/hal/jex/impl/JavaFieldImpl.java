@@ -14,12 +14,6 @@ import no.hal.jex.Member;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.jdt.core.IField;
-import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IMember;
-import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.core.Signature;
 
 /**
  * <!-- begin-user-doc -->
@@ -166,30 +160,6 @@ public class JavaFieldImpl extends MemberImpl implements JavaField {
 
 	public boolean overrides(Member other) {
 		return (other instanceof JavaField) && super.overrides(other);
-	}
-
-	public void initFrom(IMember member) throws JavaModelException {
-		if (! (member instanceof IField)) {
-			throw new IllegalArgumentException("Cannot init JavaField from " + member);
-		}
-		super.initFrom(member);
-		setType(Signature.toString(((IField)member).getTypeSignature()));
-	}
-	
-	//
-	
-	public Boolean validateType(IField field) {
-		try {
-			return Boolean.valueOf(testTypeString(getType(), field.getTypeSignature()));
-		} catch (JavaModelException e) {
-		}
-		return null;
-	}
-
-	public IJavaElement findJavaCoreElement(IJavaProject project) {
-		IJavaElement javaClass = getOwner().findJavaCoreElement(project);
-		IField field = (IField)JavaClassImpl.findJavaMember(javaClass, getSimpleName(), IJavaElement.FIELD, IField.class);
-		return field;
 	}
 
 } //JavaFieldImpl

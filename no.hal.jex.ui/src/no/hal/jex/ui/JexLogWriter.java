@@ -2,7 +2,7 @@ package no.hal.jex.ui;
 
 import java.io.StringBufferInputStream;
 
-import no.hal.jex.resource.JexResource;
+import no.hal.jex.jdt.JdtHelper;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -27,7 +27,7 @@ public class JexLogWriter {
 	
 	public void appendToLog(Resource resource, String content) {
 		URI logUri = getLogURI(resource);
-		IResource iRes = JexResource.getIResource(logUri, true);
+		IResource iRes = JdtHelper.getIResource(logUri, true);
 		IFile file = null;
 		if (iRes instanceof IFolder) {
 			file = ((IFolder)iRes).getFile(logUri.lastSegment());

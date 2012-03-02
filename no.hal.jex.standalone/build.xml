@@ -1,0 +1,16 @@
+<project name="jexercise.jar" default="jexercise.jar">
+	
+	<target name="jexercise.jar">
+		<jar destfile="./jexercise.jar" basedir="bin">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}"/>
+				<attribute name="Main-Class" value="no.hal.jex.swing.JexExercisePanel"/>
+				<attribute name="Class-Path" value="."/>
+			</manifest>
+			<include name="**"/>
+		</jar>
+		<jar destfile="./jexercise.jar" basedir="." update="true">
+		</jar>
+	</target>
+
+</project>

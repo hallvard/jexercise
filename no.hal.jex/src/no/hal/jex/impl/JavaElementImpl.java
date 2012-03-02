@@ -14,8 +14,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
 
 /**
  * <!-- begin-user-doc -->
@@ -131,17 +129,6 @@ public abstract class JavaElementImpl extends EObjectImpl implements JavaElement
 		time = newTime;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JexPackage.JAVA_ELEMENT__TIME, oldTime, time));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IJavaElement findJavaCoreElement(IJavaProject project) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

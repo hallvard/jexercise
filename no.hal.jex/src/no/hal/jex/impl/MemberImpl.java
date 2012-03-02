@@ -10,7 +10,6 @@ import no.hal.jex.JavaClass;
 import no.hal.jex.JavaPack;
 import no.hal.jex.JexPackage;
 import no.hal.jex.Member;
-import no.hal.jex.TestRunnable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -18,10 +17,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jdt.core.Flags;
-import org.eclipse.jdt.core.IMember;
-import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.core.Signature;
 
 /**
  * <!-- begin-user-doc -->
@@ -389,59 +384,6 @@ public abstract class MemberImpl extends JavaElementImpl implements Member {
 
 	// Support methods
 
-	public void initFrom(IMember member) throws JavaModelException {
-		setName(member.getElementName());
-		setModifiers(member.getFlags());
-	}
-	
-	//
-	
-	public static boolean testTypeString(String s1, String s2) {
-		if (s1 == null) {
-			return true;
-		}
-		if (s1.equals(s2)) {
-			return true;
-		}
-		if (Signature.createTypeSignature(s1, false).equals(s2) ||
-			Signature.createTypeSignature(s1, true).equals(s2)) {
-			return true;
-		}
-		if (s1.indexOf('.') >= 0 && s2.indexOf('.') < 0) {
-			s1 = MemberImpl.getSimpleName(s1);
-			if (Signature.createTypeSignature(s1, false).equals(s2) ||
-				Signature.createTypeSignature(s1, true).equals(s2)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	//
-
-	public static boolean hasModifiers(int modifiers1, int modifiers2) {
-		return (modifiers1 | modifiers2) == modifiers1;
-	}
-	
-	protected static Boolean validateModifiers(IMember member, int modifiers) {
-		try {
-			int flags = member.getFlags() & JexFactoryImpl.MODIFIERS_MASK;
-			modifiers &= JexFactoryImpl.MODIFIERS_MASK;
-			boolean result = hasModifiers(flags, modifiers) && hasModifiers(modifiers, flags);
-			return Boolean.valueOf(result);
-		} catch (JavaModelException e) {
-			return null;
-		}
-	}
-	public Boolean validateModifiers(IMember member) {
-		int modifiers = getModifiers();
-		if (this instanceof TestRunnable) {
-			// pretend TestRunnables always have the public modifier
-			modifiers |= Flags.AccPublic;
-		}
-		return validateModifiers(member, modifiers);
-	}
-
 	public static String getSimpleName(String name) {
 		if (name == null) {
 			return "";
@@ -466,7 +408,7 @@ public abstract class MemberImpl extends JavaElementImpl implements Member {
 	}
 	
 	public String getFullName() {
-		JavaClass javaClass = (this instanceof JavaClass ? (JavaClass)this : getOwner());
+		JavaClass javaClass = (this instanceof JavaClass ? (JavaClass) this : getOwner());
 		JavaPack pack = (javaClass != null ? javaClass.getPack() : null);
 		String className = (pack != null ? pack.getName() + "." : "") + javaClass.getName();
 		return (javaClass == null ? getName() : (javaClass == this ? className : className + "." + getName()));

@@ -10,14 +10,11 @@ import no.hal.jex.JavaElement;
 import no.hal.jex.JavaRequirement;
 import no.hal.jex.JexPackage;
 import no.hal.jex.Member;
-import no.hal.jex.util.JexValidator;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.jdt.core.IJavaProject;
 
 /**
  * <!-- begin-user-doc -->
@@ -225,32 +222,6 @@ public class JavaRequirementImpl extends RequirementImpl implements JavaRequirem
 		result.append(requiredFeatures);
 		result.append(')');
 		return result.toString();
-	}
-
-	private static Boolean requiresFeature(String features, String feature) {
-		int pos = (features != null ? features.indexOf(feature) : -1);
-		if (pos < 0) {
-			return null;
-		}
-		return Boolean.valueOf(pos == 0 || features.charAt(pos - 1) != '!');
-	}
-	
-	private static String defaultRequiredFeatured = "modifiers types";
-
-	protected boolean requiresFeature(Object feature) {
-		String featureName = feature.toString();
-		if (feature instanceof ENamedElement) {
-			featureName = ((ENamedElement)feature).getName();
-		}
-		Boolean required = requiresFeature(getRequiredFeatures(), featureName);
-		if (required == null) {
-			required = requiresFeature(defaultRequiredFeatured, featureName);
-		}
-		return required != Boolean.FALSE;
-	}
-	
-	public Boolean validateRequirement(IJavaProject project) {
-		return JexValidator.javaRequirementSatisfied(this, requiresFeature("modifiers"), requiresFeature("types"));
 	}
 
 	protected String getDefaultURIFragment() {

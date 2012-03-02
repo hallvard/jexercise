@@ -12,7 +12,6 @@ import no.hal.jex.JavaClass;
 import no.hal.jex.JavaPack;
 import no.hal.jex.JexPackage;
 
-import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -21,9 +20,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.JavaModelException;
 
 /**
  * <!-- begin-user-doc -->
@@ -291,16 +287,6 @@ public class JavaPackImpl extends JavaElementImpl implements JavaPack {
 		result.append(')');
 		return result.toString();
 		*/
-	}
-
-	//
-	
-	public IJavaElement findJavaCoreElement(IJavaProject project) {
-		try {
-			return project.findElement(new Path(getName().replace('.', Path.SEPARATOR)));
-		} catch (JavaModelException e) {
-		}
-		return null;
 	}
 
 } //JavaPackImpl

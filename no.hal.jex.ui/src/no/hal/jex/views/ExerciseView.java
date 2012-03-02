@@ -15,6 +15,9 @@ import no.hal.jex.JavaPack;
 import no.hal.jex.JavaRequirement;
 import no.hal.jex.Member;
 import no.hal.jex.editor.commands.CreateChildrenFromJavaModelCommand;
+import no.hal.jex.eval.AbstractRequirementChecker;
+import no.hal.jex.impl.AbstractRequirementImpl;
+import no.hal.jex.jdt.JdtHelper;
 import no.hal.jex.resource.JexResource;
 import no.hal.jex.resource.JexXmlHelper;
 import no.hal.jex.ui.JexManager;
@@ -409,26 +412,13 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 	/*
 	 * 	 points[0] = points of satisfied requirements, points[1] = max points
 	 */
-	public static void computeRequirementPoints(AbstractRequirement req, int[] points) {
-		if (req instanceof JUnitTest) {
-			JUnitTest test = (JUnitTest)req;
-			if (test.getSatisfied() == Boolean.TRUE) {
-				points[0] += test.getPoints();
-			}
-			points[1] += test.getPoints();
-		}
-		for (AbstractRequirement childReq : req.getRequirements()) {
-			computeRequirementPoints(childReq, points);
-		}
-	}
-
 	public static String refreshPoints(AbstractRequirement req, String format, Control control) {
 		Object points = "?", maxPoints = "?";
 		if (req != null) {
 			int[] pm = new int[2];
-			computeRequirementPoints(req, pm);
-			points = new Integer(pm[0]);
-			maxPoints = new Integer(pm[1]);
+			AbstractRequirementChecker.computeRequirementPoints(req, pm);
+			points = Integer.valueOf(pm[0]);
+			maxPoints = Integer.valueOf(pm[1]);
 		}
 		return setPointsText(points, maxPoints, format, control);
 	}
@@ -483,7 +473,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 	}
 
 	private String createLocation(URI uri) {
-		String location = JexResource.getLocation(uri);
+		String location = JdtHelper.getLocation(uri);
 		if (location != null) {
 			// if there is no schema, add a file schema
 			// the test also covers the Windows case where is a drive letter followed by a colon
@@ -515,30 +505,6 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 		}
 	}
 
-	private AbstractRequirement findNearestPreviousRequirementWithDescription(AbstractRequirement req) {
-		int pos = -1;
-		AbstractRequirement parent = req.getParent();
-		do {
-			String description = req.getDescription();
-			if (description != null && description.length() > 0) {
-				return req;
-			}
-			if (parent == null) {
-				return null;
-			} else if (pos < 0) {
-				pos = parent.getRequirements().indexOf(req);
-			}
-			pos--;
-			if (pos < 0) {
-				req = parent;
-				parent = req.getParent();
-			} else {
-				req = (AbstractRequirement)parent.getRequirements().get(pos);
-			}
-		} while (req != null);
-		return null;
-	}
-
 	private void updateBrowser(AbstractRequirement req) {
 		if (detailsExView == null) {
 			if (req == null) {
@@ -561,7 +527,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 			}
 		} else {
 			String location = null;
-			AbstractRequirement descriptionReq = findNearestPreviousRequirementWithDescription(req);
+			AbstractRequirement descriptionReq = AbstractRequirementImpl.findNearestPreviousRequirementWithDescription(req);
 			if (descriptionReq != null) {
 				URI uri = descriptionReq.eResource().getURI().appendFragment(JexXmlHelper.getID(descriptionReq, "description")); // .getDescriptionURI();
 				location = createLocation(uri);
@@ -595,7 +561,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener {
 				submitZip(true);
 			}
 		} else {
-			IJavaElement javaElement = req.getJavaElement().findJavaCoreElement(JexResource.getJavaProject(req.eResource()));
+			IJavaElement javaElement = JdtHelper.getJdtElement(req.getJavaElement());
 			if (javaElement != null) {
 				try {
 					JavaUI.openInEditor(javaElement);

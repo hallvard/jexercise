@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 
 @JExercise(
 		tests="", // We don't want to test this element as a whole, since we can test the parts.
-		description="A class that counts from a start to an end value." +
+		description="A class that counts from a start to an end value. " +
 				"The counting is limited by the constructor and performed by the count() method."
 )
 public class CounterTest extends TestCase {

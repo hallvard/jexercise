@@ -1,9 +1,11 @@
 package no.hal.jex.editor.actions;
 
 import no.hal.jex.resource.JexResource;
-import no.hal.jex.resource.JexZipFile;
+import no.hal.jex.views.actions.JexZipFile;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -32,13 +34,19 @@ public abstract class AbstractCreateJexZipAction implements IObjectActionDelegat
 	public void run(IAction action) {
 		JexResource res = getExerciseResource();
 		if (res != null) {
-			JexZipFile zipFile = new JexZipFile(res);
+			final JexZipFile zipFile = new JexZipFile(res);
 			configureZipFile(zipFile);
 			zipFile.addClasses(Boolean.TRUE);
 			if (zipFile.prepare()) {
-				zipFile.setPriority(Job.SHORT);
-				zipFile.setUser(true);
-				zipFile.schedule();
+				Job job = new Job(zipFile.getZipUri().toString()) {
+					@Override
+					protected IStatus run(IProgressMonitor monitor) {
+						return zipFile.create(monitor);
+					}
+				};
+				job.setPriority(Job.SHORT);
+				job.setUser(true);
+				job.schedule();
 			}
 		}
 	}

@@ -21,8 +21,8 @@ import java.util.Map;
 
 import no.hal.jex.JavaRequirement;
 import no.hal.jex.Member;
+import no.hal.jex.jdt.JdtHelper;
 import no.hal.jex.provider.JexItemProviderAdapterFactory;
-import no.hal.jex.resource.JexResource;
 import no.hal.jex.ui.JexUiPlugin;
 
 import org.eclipse.core.resources.IFile;
@@ -1003,11 +1003,10 @@ public class JexEditor
 							o = ((JavaRequirement)o).getJavaElement();
 						}
 						if (o instanceof Member) {
-							Member member = (Member)o;
-							IJavaElement javaElement = member.findJavaCoreElement(JexResource.getJavaProject(member.eResource()));
+							IJavaElement javaElement = JdtHelper.getJdtElement((Member) o);
 							if (javaElement != null) {
 								try {
-								JavaUI.openInEditor(javaElement);
+									JavaUI.openInEditor(javaElement);
 								} catch (Exception e) {
 								}
 							}

@@ -2,18 +2,16 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: no.hal.jex;singleton:=true
-Bundle-Version: 1.0.2
+Bundle-Version: 1.1.0
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: no.hal.jex,
+ no.hal.jex.eval,
  no.hal.jex.impl,
  no.hal.jex.resource,
  no.hal.jex.util
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.core.resources,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.jdt.core;visibility:=reexport
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy

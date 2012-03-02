@@ -1136,10 +1136,10 @@ public interface JexPackage extends EPackage {
 	int EXERCISE_PART_FEATURE_COUNT = ABSTRACT_REQUIREMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link no.hal.jex.impl.TestRunnableImpl <em>Test Runnable</em>}' class.
+	 * The meta object id for the '{@link no.hal.jex.TestRunnable <em>Test Runnable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.jex.impl.TestRunnableImpl
+	 * @see no.hal.jex.TestRunnable
 	 * @see no.hal.jex.impl.JexPackageImpl#getTestRunnable()
 	 * @generated
 	 */
@@ -1621,26 +1621,6 @@ public interface JexPackage extends EPackage {
 	int CLASS_NAME = 20;
 
 	/**
-	 * The meta object id for the '<em>Java Core Project</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.jdt.core.IJavaProject
-	 * @see no.hal.jex.impl.JexPackageImpl#getJavaCoreProject()
-	 * @generated
-	 */
-	int JAVA_CORE_PROJECT = 21;
-
-	/**
-	 * The meta object id for the '<em>Java Core Element</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.jdt.core.IJavaElement
-	 * @see no.hal.jex.impl.JexPackageImpl#getJavaCoreElement()
-	 * @generated
-	 */
-	int JAVA_CORE_ELEMENT = 22;
-
-	/**
 	 * The meta object id for the '<em>Features</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1648,7 +1628,7 @@ public interface JexPackage extends EPackage {
 	 * @see no.hal.jex.impl.JexPackageImpl#getFeatures()
 	 * @generated
 	 */
-	int FEATURES = 23;
+	int FEATURES = 21;
 
 
 	/**
@@ -2227,28 +2207,6 @@ public interface JexPackage extends EPackage {
 	EDataType getClassName();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.jdt.core.IJavaProject <em>Java Core Project</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Java Core Project</em>'.
-	 * @see org.eclipse.jdt.core.IJavaProject
-	 * @model instanceClass="org.eclipse.jdt.core.IJavaProject"
-	 * @generated
-	 */
-	EDataType getJavaCoreProject();
-
-	/**
-	 * Returns the meta object for data type '{@link org.eclipse.jdt.core.IJavaElement <em>Java Core Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Java Core Element</em>'.
-	 * @see org.eclipse.jdt.core.IJavaElement
-	 * @model instanceClass="org.eclipse.jdt.core.IJavaElement"
-	 * @generated
-	 */
-	EDataType getJavaCoreElement();
-
-	/**
 	 * Returns the meta object for data type '{@link java.lang.String <em>Features</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2650,10 +2608,10 @@ public interface JexPackage extends EPackage {
 		EAttribute ABSTRACT_REQUIREMENT__CHILDREN_SATISFIED = eINSTANCE.getAbstractRequirement_ChildrenSatisfied();
 
 		/**
-		 * The meta object literal for the '{@link no.hal.jex.impl.TestRunnableImpl <em>Test Runnable</em>}' class.
+		 * The meta object literal for the '{@link no.hal.jex.TestRunnable <em>Test Runnable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see no.hal.jex.impl.TestRunnableImpl
+		 * @see no.hal.jex.TestRunnable
 		 * @see no.hal.jex.impl.JexPackageImpl#getTestRunnable()
 		 * @generated
 		 */
@@ -2753,26 +2711,6 @@ public interface JexPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType CLASS_NAME = eINSTANCE.getClassName();
-
-		/**
-		 * The meta object literal for the '<em>Java Core Project</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.jdt.core.IJavaProject
-		 * @see no.hal.jex.impl.JexPackageImpl#getJavaCoreProject()
-		 * @generated
-		 */
-		EDataType JAVA_CORE_PROJECT = eINSTANCE.getJavaCoreProject();
-
-		/**
-		 * The meta object literal for the '<em>Java Core Element</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.jdt.core.IJavaElement
-		 * @see no.hal.jex.impl.JexPackageImpl#getJavaCoreElement()
-		 * @generated
-		 */
-		EDataType JAVA_CORE_ELEMENT = eINSTANCE.getJavaCoreElement();
 
 		/**
 		 * The meta object literal for the '<em>Features</em>' data type.

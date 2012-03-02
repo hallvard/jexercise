@@ -14,8 +14,8 @@ import no.hal.jex.JavaRequirement;
 import no.hal.jex.JexFactory;
 import no.hal.jex.JexPackage;
 import no.hal.jex.TestSuite;
-import no.hal.jex.resource.JexResource;
-import no.hal.jex.ui.JexManager;
+import no.hal.jex.eval.AbstractTestAnnotationsToModelConverter;
+import no.hal.jex.jdt.JdtHelper;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.command.AbstractCommand;
@@ -48,12 +48,12 @@ implements CommandActionDelegate {
 
 	public CreateExerciseFromTestAnnotationsCommand(Exercise ex, IResource folder) {
 		this.ex = ex;
-		IJavaProject javaProject = JexResource.getJavaProject(ex.eResource());
+		IJavaProject javaProject = JdtHelper.getJavaProject(ex.eResource());
 		IPackageFragmentRoot packageFragmentRoot = javaProject.getPackageFragmentRoot(folder);
 		this.javaElement = packageFragmentRoot;
 	}
 	public CreateExerciseFromTestAnnotationsCommand(Exercise ex, String packageFragmentRootName) {
-		this(ex, JexResource.getProject(ex.eResource()).findMember("tests"));
+		this(ex, JdtHelper.getProject(ex.eResource()).findMember("tests"));
 	}
 
 	public void setPathPattern(String pathPattern) {
@@ -123,8 +123,8 @@ implements CommandActionDelegate {
 	}
 
 	private JavaRequirement createFromTestClassAnnotations(IType type, String packageName, String testedClassName) {
-		IMemberValuePair[] valuePairs = JexManager.getAnnotationValuePairs(type);
-		String tests = (String) JexManager.getAnnotationValue(valuePairs, "tests", IMemberValuePair.K_STRING);
+		IMemberValuePair[] valuePairs = JdtHelper.getAnnotationValuePairs(type, AbstractTestAnnotationsToModelConverter.JEX_ANNOTATION_NAME);
+		String tests = (String) JdtHelper.getAnnotationValue(valuePairs, "tests", IMemberValuePair.K_STRING);
 		JavaRequirement req = null;
 		if (tests != null && tests.length() > 0) {
 			req = JexFactory.eINSTANCE.createJUnitTest();
@@ -146,7 +146,7 @@ implements CommandActionDelegate {
 			((JUnitTest) req).setTestRunnable(javaClassTester);
 		}
 		req.setJavaElement(javaClassTester); // redundant?
-		String description = (String) JexManager.getAnnotationValue(valuePairs, "description", IMemberValuePair.K_STRING);
+		String description = (String) JdtHelper.getAnnotationValue(valuePairs, "description", IMemberValuePair.K_STRING);
 		req.setDescription(description);
 		part.getRequirements().add(req);
 		IJavaElement[] children = null;
@@ -168,8 +168,8 @@ implements CommandActionDelegate {
 	}
 
 	private JavaRequirement createFromTestMethodAnnotations(IMethod method, String testedMethodName, JavaClassTester methodTesterParent, JavaClass methodParent, AbstractRequirement reqParent) {
-		IMemberValuePair[] valuePairs = JexManager.getAnnotationValuePairs(method);
-		String tests = (String) JexManager.getAnnotationValue(valuePairs, "tests", IMemberValuePair.K_STRING);
+		IMemberValuePair[] valuePairs = JdtHelper.getAnnotationValuePairs(method, AbstractTestAnnotationsToModelConverter.JEX_ANNOTATION_NAME);
+		String tests = (String) JdtHelper.getAnnotationValue(valuePairs, "tests", IMemberValuePair.K_STRING);
 		if (tests == null) {
 			tests = testedMethodName;
 		}
@@ -212,7 +212,7 @@ implements CommandActionDelegate {
 		testReq.setJavaElement(javaMethodTester);
 		testReq.setTestRunnable(javaMethodTester);
 		
-		String description = (String) JexManager.getAnnotationValue(valuePairs, "description", IMemberValuePair.K_STRING);
+		String description = (String) JdtHelper.getAnnotationValue(valuePairs, "description", IMemberValuePair.K_STRING);
 		testReq.setDescription(description);
 		
 		reqParent.getRequirements().add(testReq);

@@ -1,8 +1,10 @@
 package no.hal.jex.editor.commands;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import no.hal.jex.ClassKind;
 import no.hal.jex.JavaClass;
 import no.hal.jex.JavaClassTester;
 import no.hal.jex.JavaElement;
@@ -13,9 +15,9 @@ import no.hal.jex.JavaPack;
 import no.hal.jex.JexPackage;
 import no.hal.jex.Member;
 import no.hal.jex.TestRunnable;
-import no.hal.jex.impl.JavaClassImpl;
 import no.hal.jex.impl.MemberImpl;
-import no.hal.jex.resource.JexResource;
+import no.hal.jex.jdt.JdtRequirementChecker;
+import no.hal.jex.jdt.JdtHelper;
 
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.ecore.EClass;
@@ -23,7 +25,6 @@ import org.eclipse.emf.edit.command.CommandActionDelegate;
 import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IPackageFragment;
@@ -55,7 +56,7 @@ public class CreateChildrenFromJavaModelCommand extends AbstractCommand
 
 	private boolean matchesModifiers(IMember member) {
 		try {
-			return MemberImpl.hasModifiers(member.getFlags(), modifiers);
+			return JdtRequirementChecker.hasModifiers(member.getFlags(), modifiers);
 		} catch (JavaModelException e) {
 		}
 		return false;
@@ -66,24 +67,24 @@ public class CreateChildrenFromJavaModelCommand extends AbstractCommand
 	private void createChildrenFromJavaModel(JavaElement parent, IJavaElement javaElement, int depth) throws Exception {
 		if (parent instanceof JavaPack && javaElement instanceof IPackageFragment) {
 			JavaPack pack = (JavaPack)parent;
-			List<IMember> classes = JavaClassImpl.findJavaMembers((IPackageFragment)javaElement, null, IJavaElement.TYPE, IType.class);
-			createJavaClasses(classes, depth, pack.getClasses());
+			List<IMember> classes = JdtHelper.findJavaMembers((IPackageFragment) javaElement, null, IJavaElement.TYPE, IType.class);
+			createJexClasses(classes, depth, pack.getClasses());
 			createNamedClass(pack.getName() + "." + ALL_TESTS_TEST_SUITE_NAME, JexPackage.eINSTANCE.getTestSuite(), null, depth, pack.getClasses());
 		} else if (parent instanceof JavaClass && javaElement instanceof IType) {
 			JavaClass javaClass = (JavaClass)parent;
 			IType type = (IType)javaElement;
-			List<IMember> fields = JavaClassImpl.findJavaMembers(type, null, IJavaElement.FIELD, IField.class);
-			for (Iterator it = fields.iterator(); it.hasNext();) {
-				IField field = (IField)it.next();
+			List<IMember> fields = JdtHelper.findJavaMembers(type, null, IJavaElement.FIELD, IField.class);
+			for (Iterator<IMember> it = fields.iterator(); it.hasNext();) {
+				IField field = (IField) it.next();
 				if (matchesModifiers(field)) {
 					if (parent instanceof TestRunnable) {
 						continue;
 					}
-					JavaField newField = (JavaField)ensureMember(JexPackage.eINSTANCE.getJavaField(), field, javaClass.getMembers());
+					ensureJexMember(JexPackage.eINSTANCE.getJavaField(), field, javaClass.getMembers());
 				}
 			}
-			List<IMember> methods = JavaClassImpl.findJavaMembers(type, null, IJavaElement.METHOD, IMethod.class);
-			for (Iterator it = methods.iterator(); it.hasNext();) {
+			List<IMember> methods = JdtHelper.findJavaMembers(type, null, IJavaElement.METHOD, IMethod.class);
+			for (Iterator<IMember> it = methods.iterator(); it.hasNext();) {
 				IMethod method = (IMethod)it.next();
 				if (matchesModifiers(method)) {
 					EClass methodClass = JexPackage.eINSTANCE.getJavaMethod();
@@ -93,7 +94,7 @@ public class CreateChildrenFromJavaModelCommand extends AbstractCommand
 						}
 						methodClass = JexPackage.eINSTANCE.getJavaMethodTester();
 					}
-					JavaMethod newMethod = (JavaMethod)ensureMember(methodClass, method, javaClass.getMembers());
+					JavaMethod newMethod = (JavaMethod)ensureJexMember(methodClass, method, javaClass.getMembers());
 					// clear type if method is a constructor
 					if (newMethod.getSimpleName().equals(javaClass.getSimpleName())) {
 						newMethod.setReturnType(null);
@@ -104,18 +105,17 @@ public class CreateChildrenFromJavaModelCommand extends AbstractCommand
 					}
 				}
 			}
-			List classes = JavaClassImpl.findJavaMembers(type, null, IJavaElement.TYPE, IType.class);
-			createJavaClasses(classes, depth, javaClass.getMembers());
+			List<IMember> classes = JdtHelper.findJavaMembers(type, null, IJavaElement.TYPE, IType.class);
+			createJexClasses(classes, depth, javaClass.getMembers());
 		}
 	}
 
-	private Member findTestedMethod(String methodName, List members) {
+	private Member findTestedMethod(String methodName, List<? extends Member> members) {
 		String testMethodNamePrefix = "test";
 		if (methodName.startsWith(testMethodNamePrefix)) {
 			methodName = methodName.substring(testMethodNamePrefix.length());
 		}
-		for (Iterator it = members.iterator(); it.hasNext();) {
-			Member member = (Member)it.next();
+		for (Member member : members) {
 			if (methodName.equals(member.getSimpleName())) {
 				return member;
 			}
@@ -138,26 +138,26 @@ public class CreateChildrenFromJavaModelCommand extends AbstractCommand
 
 	public final static String TEST_CLASS_NAME_SUFFIX = "Test";
 
-	private List createJavaClasses(List classes, int depth, List results) throws JavaModelException, Exception {
-		for (Iterator it = classes.iterator(); it.hasNext();) {
+	private List<? extends Member> createJexClasses(List<IMember> classes, int depth, List<? extends Member> results) throws JavaModelException, Exception {
+		for (Iterator<IMember> it = classes.iterator(); it.hasNext();) {
 			IType type = (IType) it.next();
 			if (matchesModifiers(type)) {
-				JavaClass newClass = (JavaClass)ensureMember(JexPackage.eINSTANCE.getJavaClass(), type, results);
+				JavaClass newClass = (JavaClass) ensureJexMember(JexPackage.eINSTANCE.getJavaClass(), type, results);
 				if (depth != 0) {
 					createChildrenFromJavaModel(newClass, type, depth - 1);
 				}
-				JavaClassTester testClass = (JavaClassTester)createNamedClass(newClass.getFullName() + TEST_CLASS_NAME_SUFFIX, JexPackage.eINSTANCE.getJavaClassTester(), newClass, depth, results);
+				createNamedClass(newClass.getFullName() + TEST_CLASS_NAME_SUFFIX, JexPackage.eINSTANCE.getJavaClassTester(), newClass, depth, results);
 			}
 		}
 		return results;
 	}
 
-	private JavaClass createNamedClass(String name, EClass eClass, Member testedElement, int depth, List results) throws JavaModelException, Exception {
-		IType type = JavaClassImpl.findJavaClassCoreElement(JexResource.getJavaProject(parent.eResource()), name);
+	private JavaClass createNamedClass(String name, EClass eClass, Member testedElement, int depth, List<? extends Member> results) throws JavaModelException, Exception {
+		IType type = JdtHelper.findJdtClass(name, JdtHelper.getJavaProject(testedElement.eResource()));
 		if (type != null && matchesModifiers(type)) {
-			JavaClass newClass = (JavaClass)ensureMember(eClass, type, results);
+			JavaClass newClass = (JavaClass) ensureJexMember(eClass, type, results);
 			if (newClass instanceof TestRunnable) {
-				((TestRunnable)newClass).setTestedElement(testedElement);
+				((TestRunnable) newClass).setTestedElement(testedElement);
 			}
 			if (depth != 0) {
 				createChildrenFromJavaModel(newClass, type, depth - 1);
@@ -167,15 +167,58 @@ public class CreateChildrenFromJavaModelCommand extends AbstractCommand
 		return null;
 	}
 
-	private Member ensureMember(EClass eClass, IMember member, List otherMembers) throws JavaModelException {
-		Member newMember = (Member)eClass.getEPackage().getEFactoryInstance().create(eClass);
-		newMember.initFrom(member);
+	public static void initFrom(Member jexMember, IMember jdtMember) throws JavaModelException {
+		jexMember.setName(jdtMember.getElementName());
+		jexMember.setModifiers(jdtMember.getFlags());
+		if (jexMember instanceof JavaClass) {
+			if (! (jdtMember instanceof IType)) {
+				throw new IllegalArgumentException("Cannot init JavaClass from " + jdtMember);
+			}
+			JavaClass jexClass = (JavaClass) jexMember;
+			IType jdtType = (IType) jdtMember;
+			ClassKind kind = ClassKind.CLASS_KIND;
+			if (jdtType.isInterface()) {
+				kind = ClassKind.INTERFACE_KIND;
+			} else if (jdtType.isEnum()) {
+				kind = ClassKind.ENUM_KIND;
+			}
+			jexClass.setClassKind(kind);
+			String superclassName = jdtType.getSuperclassName();
+			if (superclassName != null && (! "Object".equals(superclassName))) {
+				jexClass.getSuperclasses().add(superclassName);
+			}
+			jexClass.getSuperclasses().addAll(Arrays.asList(jdtType.getSuperInterfaceNames()));
+		} else if (jexMember instanceof JavaMethod) {
+			if (! (jdtMember instanceof IMethod)) {
+				throw new IllegalArgumentException("Cannot init JavaMethod from " + jdtMember);
+			}
+			JavaMethod javaMethod = (JavaMethod) jexMember;
+			javaMethod.getParameters().clear();
+			IMethod method = (IMethod)jdtMember;
+			String[] types = method.getParameterTypes();
+			for (int i = 0; i < types.length; i++) {
+				javaMethod.getParameters().add(Signature.toString(types[i]));
+			}
+			javaMethod.setReturnType(Signature.toString(method.getReturnType()));
+			javaMethod.getThrowables().addAll(Arrays.asList(method.getExceptionTypes()));
+		} else if (jexMember instanceof JavaField) {
+			if (! (jdtMember instanceof IField)) {
+				throw new IllegalArgumentException("Cannot init JavaField from " + jdtMember);
+			}
+			JavaField javaField = (JavaField) jexMember;
+			javaField.setType(Signature.toString(((IField) jdtMember).getTypeSignature()));
+		}
+	}
+	
+	private <T extends Member> Member ensureJexMember(EClass eClass, IMember member, List<T> otherMembers) throws JavaModelException {
+		T newMember = (T) eClass.getEPackage().getEFactoryInstance().create(eClass);
+		initFrom(newMember, member);
 		// reuse existing element, if it exists
 		if (otherMembers != null) {
 			for (int i = 0; i < otherMembers.size(); i++) {
 				Member otherMember = (Member)otherMembers.get(i);
 				if (newMember.overrides(otherMember)) {
-					otherMember.initFrom(member);
+					initFrom(otherMember, member);
 					return otherMember;
 				}
 			}
@@ -191,8 +234,7 @@ public class CreateChildrenFromJavaModelCommand extends AbstractCommand
 	protected boolean prepare() {
 		javaElement = null;
 		try {
-			IJavaProject javaProject = JexResource.getJavaProject(parent.eResource());
-			javaElement = parent.findJavaCoreElement(javaProject);
+			javaElement = JdtHelper.getJdtElement(parent);
 		} catch (RuntimeException e) {
 		}
 		if (javaElement instanceof IPackageFragment) {

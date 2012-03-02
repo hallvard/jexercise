@@ -12,6 +12,7 @@ import java.util.List;
 
 import no.hal.jex.JexPackage;
 import no.hal.jex.Member;
+import no.hal.jex.impl.JexFactoryImpl;
 import no.hal.jex.impl.MemberImpl;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -25,10 +26,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.jdt.core.Flags;
 
 /**
- * This is the item provider adapter for a {@link no.hal.jex.java.Member} object.
+ * This is the item provider adapter for a {@link no.hal.jex.Member} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -154,7 +154,7 @@ public class MemberItemProvider
 	}
 
 	protected static String getAccessModifierString(Member member, int except, String exceptString) {
-		int modifiers = member.getModifiers() & (Flags.AccPublic | Flags.AccProtected | Flags.AccPrivate);
+		int modifiers = member.getModifiers() & (JexFactoryImpl.getModifier("public") | JexFactoryImpl.getModifier("protected") | JexFactoryImpl.getModifier("private"));
 		return (modifiers == 0 ? "default" : (modifiers == except ? exceptString : MemberImpl.getModifierString(modifiers)));
 	}
 	

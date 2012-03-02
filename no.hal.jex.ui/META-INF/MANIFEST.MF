@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: no.hal.jex.ui;singleton:=true
-Bundle-Version: 1.0.4
+Bundle-Version: 1.1.0
 Bundle-ClassPath: .
 Bundle-Activator: no.hal.jex.ui.JexUiPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -16,6 +16,8 @@ Require-Bundle: org.eclipse.core.runtime,
  no.hal.jex.edit;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
+ org.eclipse.jdt.core;bundle-version="3.7.1",
+ no.hal.jex.jdt;bundle-version="1.0.0",
  org.eclipse.jdt.ui;bundle-version="3.6.0",
  org.eclipse.jdt.junit;bundle-version="3.6.0"
 Bundle-ActivationPolicy: lazy

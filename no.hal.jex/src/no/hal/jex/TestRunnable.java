@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see no.hal.jex.JexPackage#getTestRunnable()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface TestRunnable extends Member {

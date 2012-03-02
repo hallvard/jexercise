@@ -28,7 +28,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link no.hal.jex.java.JavaPack} object.
+ * This is the item provider adapter for a {@link no.hal.jex.JavaPack} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -63,6 +63,7 @@ public class JavaPackItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addSourceLocationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,6 +82,28 @@ public class JavaPackItemProvider
 				 getString("_UI_JavaPack_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_JavaPack_name_feature", "_UI_JavaPack_type"),
 				 JexPackage.Literals.JAVA_PACK__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Source Location feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourceLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaPack_sourceLocation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaPack_sourceLocation_feature", "_UI_JavaPack_type"),
+				 JexPackage.Literals.JAVA_PACK__SOURCE_LOCATION,
 				 true,
 				 false,
 				 false,

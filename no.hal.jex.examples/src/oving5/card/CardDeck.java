@@ -5,12 +5,13 @@ package oving5.card;
  * @author Erik Wendel, undass TDT4100/4102
  * 
  * @startuml
- * CardDeck: Card[] cards
- * CardDeck: int topCard
- * CardDeck: CardDeck()
- * CardDeck: int getCardCount()
- * CardDeck: Card getCard(int cardNum)
- * CardDeck: Card[] deal(int handSize)
+ * class CardDeck {
+ * 	-Card[] cards
+ * 	+CardDeck()
+ * 	+int getCardCount()
+ * 	+Card getCard(int cardNum)
+ * 	+Card[] deal(int handSize)
+ * }
  * @enduml
  */
 

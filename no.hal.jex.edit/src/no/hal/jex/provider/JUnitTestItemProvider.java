@@ -26,7 +26,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link no.hal.jex.ex.JUnitTest} object.
+ * This is the item provider adapter for a {@link no.hal.jex.JUnitTest} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

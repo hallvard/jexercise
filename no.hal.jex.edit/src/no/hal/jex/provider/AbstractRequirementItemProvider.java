@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link no.hal.jex.ex.AbstractRequirement} object.
+ * This is the item provider adapter for a {@link no.hal.jex.AbstractRequirement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -72,6 +72,7 @@ public class AbstractRequirementItemProvider
 			addTextPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addCommentPropertyDescriptor(object);
+			addChildrenSatisfiedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -113,7 +114,7 @@ public class AbstractRequirementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractRequirement_description_feature", "_UI_AbstractRequirement_type"),
 				 JexPackage.Literals.ABSTRACT_REQUIREMENT__DESCRIPTION,
 				 true,
-				 true,
+				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -135,7 +136,29 @@ public class AbstractRequirementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractRequirement_comment_feature", "_UI_AbstractRequirement_type"),
 				 JexPackage.Literals.ABSTRACT_REQUIREMENT__COMMENT,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Children Satisfied feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addChildrenSatisfiedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractRequirement_childrenSatisfied_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractRequirement_childrenSatisfied_feature", "_UI_AbstractRequirement_type"),
+				 JexPackage.Literals.ABSTRACT_REQUIREMENT__CHILDREN_SATISFIED,
 				 true,
+				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -294,34 +317,6 @@ public class AbstractRequirementItemProvider
 			(createChildParameter
 				(JexPackage.Literals.ABSTRACT_REQUIREMENT__REQUIREMENTS,
 				 JexFactory.eINSTANCE.createExercisePart()));
-	}
-
-	/**
-	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
-		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)child;
-			feature = entry.getEStructuralFeature();
-			child = entry.getValue();
-		}
-
-		if (feature instanceof EReference && child instanceof EObject) {
-			String name = "full/obj16/" + ((EObject)child).eClass().getName();
-
-			try {
-				return getResourceLocator().getImage(name);
-			}
-			catch (Exception e) {
-				JexEditPlugin.INSTANCE.log(e);
-			}
-		}
-
-		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

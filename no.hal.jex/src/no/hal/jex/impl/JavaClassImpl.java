@@ -6,11 +6,7 @@
  */
 package no.hal.jex.impl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 import no.hal.jex.ClassKind;
 import no.hal.jex.JavaClass;
@@ -18,7 +14,6 @@ import no.hal.jex.JavaPack;
 import no.hal.jex.JexPackage;
 import no.hal.jex.Member;
 
-import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -29,14 +24,6 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.jdt.core.ICompilationUnit;
-import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IMember;
-import org.eclipse.jdt.core.IParent;
-import org.eclipse.jdt.core.ISourceReference;
-import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.JavaModelException;
 
 /**
  * <!-- begin-user-doc -->
@@ -360,116 +347,5 @@ public class JavaClassImpl extends MemberImpl implements JavaClass {
 
 	public boolean overrides(Member other) {
 		return (other instanceof JavaClass) && super.overrides(other);
-	}
-	
-	public void initFrom(IMember member) throws JavaModelException {
-		if (! (member instanceof IType)) {
-			throw new IllegalArgumentException("Cannot init JavaClass from " + member);
-		}
-		super.initFrom(member);
-		IType type = (IType)member;
-		ClassKind kind = ClassKind.CLASS_KIND;
-		if (type.isInterface()) {
-			kind = ClassKind.INTERFACE_KIND;
-		} else if (type.isEnum()) {
-			kind = ClassKind.ENUM_KIND;
-		}
-		setClassKind(kind);
-		String superclassName = type.getSuperclassName();
-		if (superclassName != null && (! "Object".equals(superclassName))) {
-			getSuperclasses().add(superclassName);
-		}
-		getSuperclasses().addAll(Arrays.asList(type.getSuperInterfaceNames()));
-	}
-	
-	//
-
-	public static List<IMember> findJavaMembers(IParent parent, String name, int type, Class<? extends IMember> c) {
-		IJavaElement[] members = null;
-		try {
-			if (parent != null) {
-				members = parent.getChildren();
-			}
-		} catch (JavaModelException e) {
-		}
-		if (members == null || members.length == 0) {
-			return Collections.emptyList();
-		}
-		if (name != null) {
-			int pos = name.lastIndexOf('.');
-			if (pos >= 0) {
-				name = name.substring(pos + 1);
-			}
-		}
-		List<IMember> result = new ArrayList<IMember>();
-		for (int i = 0; i < members.length; i++) {
-			IMember member = null;
-			if (members[i] instanceof ICompilationUnit) {
-				member = ((ICompilationUnit)members[i]).findPrimaryType();
-			} else if (members[i] instanceof IMember) {
-				member = (IMember)members[i];
-			}
-			if (member == null) {
-				continue;
-			}
-			if (c != null && (! c.isInstance(member))) {
-				continue;
-			}
-			if (type == member.getElementType() && (name == null || name.equals(member.getElementName()))) {
-				result.add(member);
-			}
-		}
-		return result;
-	}
-	public static IMember findJavaMember(IJavaElement javaClass, String name, int type, Class<? extends IMember> c) {
-		if (javaClass instanceof ISourceReference && javaClass instanceof IParent) {
-			List<IMember> members = findJavaMembers((IParent)javaClass, name, type, c);
-			return (members != null && members.size() > 0 ? (IMember)members.get(0) : null);
-		}
-		return null;
-	}
-
-	// Support methods
-	
-	public Boolean validateSuperclasses(IType type) {
-		outer: for (String superClass: getSuperclasses()) {
-			try {
-				if (superClass.equals(type.getSuperclassName())) {
-					continue;
-				}
-				String[] interfaceNames = type.getSuperInterfaceNames();
-				for (int j = 0; j < interfaceNames.length; j++) {
-					if (superClass.equals(interfaceNames[j])) {
-						continue outer;
-					}
-				}
-				return Boolean.FALSE;
-			} catch (JavaModelException e) {
-				return null;
-			}
-		}
-		return Boolean.TRUE;
-	}
-	
-	public static IType findJavaClassCoreElement(IJavaProject project, String name) {
-		String ext = ".java";
-		int pos = name.lastIndexOf('.');
-		if (pos >= 0 && Character.isLowerCase(name.charAt(pos + 1))) {
-			ext = name.substring(pos);
-			name = name.substring(0, pos);
-		}
-		String sourcePathName = name.replace('.', Path.SEPARATOR) + ext;
-		try {
-			IJavaElement sourceElement = (project != null ? project.findElement(new Path(sourcePathName)) : null);
-			if (sourceElement != null) {
-				return (IType)findJavaMember(sourceElement, getSimpleName(name), IJavaElement.TYPE, IType.class);
-			}
-		} catch (JavaModelException e) {
-		}
-		return null;
-	}
-	
-	public IJavaElement findJavaCoreElement(IJavaProject project) {
-		return findJavaClassCoreElement(project, getFullName());
 	}
 } //JavaClassImpl

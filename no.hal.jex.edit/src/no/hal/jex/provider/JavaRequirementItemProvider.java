@@ -27,7 +27,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link no.hal.jex.ex.JavaRequirement} object.
+ * This is the item provider adapter for a {@link no.hal.jex.JavaRequirement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -83,7 +83,7 @@ public class JavaRequirementItemProvider
 				 JexPackage.Literals.JAVA_REQUIREMENT__JAVA_ELEMENT,
 				 true,
 				 false,
-				 false,
+				 true,
 				 null,
 				 null,
 				 null));

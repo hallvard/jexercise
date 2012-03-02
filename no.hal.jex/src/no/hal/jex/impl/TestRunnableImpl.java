@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class TestRunnableImpl extends MemberImpl implements TestRunnable {
+public class TestRunnableImpl extends MemberImpl implements TestRunnable {
 	/**
 	 * The cached value of the '{@link #getTestedElement() <em>Tested Element</em>}' reference.
 	 * <!-- begin-user-doc -->

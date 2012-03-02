@@ -22,8 +22,8 @@ import no.hal.jex.JavaPack;
 import no.hal.jex.JexFactory;
 import no.hal.jex.JexPackage;
 import no.hal.jex.editor.commands.CreateChildrenFromJavaModelCommand;
+import no.hal.jex.jdt.JdtHelper;
 import no.hal.jex.provider.JexEditPlugin;
-import no.hal.jex.resource.JexResource;
 import no.hal.jex.ui.JexUiPlugin;
 
 import org.eclipse.core.resources.IContainer;
@@ -371,7 +371,7 @@ public class JexModelWizard extends Wizard implements INewWizard {
 			URI uri = URI.createPlatformResourceURI(getModelFile().getFullPath().toString());
 			IJavaElement[] packages = null;
 			try {
-				IPackageFragmentRoot roots[] = JexResource.getJavaProject(uri).getPackageFragmentRoots(), root = null;
+				IPackageFragmentRoot roots[] = JdtHelper.getJavaProject(uri).getPackageFragmentRoots(), root = null;
 				for (int i= 0; i < roots.length; i++) {
 					if (roots[i].getKind() == IPackageFragmentRoot.K_SOURCE) {
 						root = roots[i];

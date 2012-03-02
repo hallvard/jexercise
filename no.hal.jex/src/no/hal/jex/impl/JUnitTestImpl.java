@@ -14,7 +14,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.jdt.core.IJavaProject;
 
 /**
  * <!-- begin-user-doc -->
@@ -278,13 +277,4 @@ public class JUnitTestImpl extends JavaRequirementImpl implements JUnitTest {
 		return result.toString();
 	}
 
-	//
-
-	public Boolean validateRequirement(IJavaProject project) {
-		Boolean result = super.validateRequirement(project);
-		if (result != Boolean.TRUE) {
-			return result;
-		}
-		return getSatisfied();
-	}
 } //JUnitTestImpl

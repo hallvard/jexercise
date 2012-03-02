@@ -6,9 +6,6 @@
  */
 package no.hal.jex;
 
-
-import org.eclipse.jdt.core.IJavaProject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Requirement</b></em>'.
@@ -85,6 +82,5 @@ public interface Requirement extends AbstractRequirement {
 	 * @model projectDataType="no.hal.jex.JavaCoreProject"
 	 * @generated
 	 */
-	Boolean validateRequirement(IJavaProject project);
 
 } // Requirement

@@ -6,8 +6,6 @@
  */
 package no.hal.jex;
 
-import org.eclipse.jdt.core.IMember;
-import org.eclipse.jdt.core.JavaModelException;
 
 
 /**
@@ -27,7 +25,6 @@ import org.eclipse.jdt.core.JavaModelException;
  *
  * @see no.hal.jex.JexPackage#getMember()
  * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='JavaMemberExists CorrectModifiers CorrectTypes'"
  * @generated
  */
 public interface Member extends JavaElement {
@@ -145,9 +142,5 @@ public interface Member extends JavaElement {
 
 	// test if object will override, based on simple checking of name etc.
 	public boolean overrides(Member member);
-	// at least initialises the parts that are needed for equality checking
-	public void initFrom(IMember member) throws JavaModelException;
-
-	public Boolean validateModifiers(IMember member);
 
 } // Member

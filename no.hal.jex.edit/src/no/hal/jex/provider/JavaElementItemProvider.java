@@ -16,6 +16,7 @@ import no.hal.jex.JexPackage;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -27,11 +28,12 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link no.hal.jex.java.JavaElement} object.
+ * This is the item provider adapter for a {@link no.hal.jex.JavaElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -65,8 +67,54 @@ public class JavaElementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPresentPropertyDescriptor(object);
+			addTimePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Present feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPresentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaElement_present_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaElement_present_feature", "_UI_JavaElement_type"),
+				 JexPackage.Literals.JAVA_ELEMENT__PRESENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaElement_time_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaElement_time_feature", "_UI_JavaElement_type"),
+				 JexPackage.Literals.JAVA_ELEMENT__TIME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -137,34 +185,6 @@ public class JavaElementItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * This returns the icon image for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getCreateChildImage(Object owner, Object feature, Object child, Collection<?> selection) {
-		if (feature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)feature)) {
-			FeatureMap.Entry entry = (FeatureMap.Entry)child;
-			feature = entry.getEStructuralFeature();
-			child = entry.getValue();
-		}
-
-		if (feature instanceof EReference && child instanceof EObject) {
-			String name = "full/obj16/" + ((EObject)child).eClass().getName();
-
-			try {
-				return getResourceLocator().getImage(name);
-			}
-			catch (Exception e) {
-				JexEditPlugin.INSTANCE.log(e);
-			}
-		}
-
-		return super.getCreateChildImage(owner, feature, child, selection);
 	}
 
 	/**

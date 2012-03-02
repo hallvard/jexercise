@@ -5,11 +5,13 @@ package oving5.card;
  * @author Erik Wendel, undass TDT4100/4102
  * 
  * @startuml
- * Card: String suit
- * Card: int face
- * Card: Card(String suit, int face)
- * Card: String getSuit()
- * Card: int getFace()
+ * class Card {
+ * 	-String suit
+ * 	-int face
+ * 	+Card(String suit, int face)
+ * 	+String getSuit()
+ * 	+int getFace()
+ * }
  * @enduml
  */
 

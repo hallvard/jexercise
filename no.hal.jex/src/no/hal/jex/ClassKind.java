@@ -11,8 +11,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.util.Enumerator;
-import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.JavaModelException;
 
 /**
  * <!-- begin-user-doc -->
@@ -237,19 +235,4 @@ public enum ClassKind implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-
-	//
-	
-	public boolean isKind(IType coreElement) {
-		try {
-			switch (this) {
-			case CLASS_KIND: return coreElement.isClass();
-			case INTERFACE_KIND: return coreElement.isInterface();
-			case ENUM_KIND: return coreElement.isEnum();
-			}
-		} catch (JavaModelException e) {
-		}
-		return false;
-	}
-	
 } //ClassKind

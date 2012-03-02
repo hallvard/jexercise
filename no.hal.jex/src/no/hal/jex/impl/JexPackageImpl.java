@@ -37,8 +37,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
 
 /**
  * <!-- begin-user-doc -->
@@ -193,20 +191,6 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 	 * @generated
 	 */
 	private EDataType classNameEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType javaCoreProjectEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType javaCoreElementEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -776,24 +760,6 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getJavaCoreProject() {
-		return javaCoreProjectEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getJavaCoreElement() {
-		return javaCoreElementEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getFeatures() {
 		return featuresEDataType;
 	}
@@ -899,8 +865,6 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 		declarationTypeEDataType = createEDataType(DECLARATION_TYPE);
 		modifiersEDataType = createEDataType(MODIFIERS);
 		classNameEDataType = createEDataType(CLASS_NAME);
-		javaCoreProjectEDataType = createEDataType(JAVA_CORE_PROJECT);
-		javaCoreElementEDataType = createEDataType(JAVA_CORE_ELEMENT);
 		featuresEDataType = createEDataType(FEATURES);
 	}
 
@@ -980,9 +944,6 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 		initEAttribute(getJavaElement_Present(), ecorePackage.getEBooleanObject(), "present", null, 0, 1, JavaElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaElement_Time(), ecorePackage.getELong(), "time", null, 0, 1, JavaElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = addEOperation(javaElementEClass, this.getJavaCoreElement(), "findJavaCoreElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getJavaCoreProject(), "project", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(javaRequirementEClass, JavaRequirement.class, "JavaRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJavaRequirement_JavaElement(), this.getJavaElement(), null, "javaElement", null, 0, 1, JavaRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaRequirement_RequiredFeatures(), this.getFeatures(), "requiredFeatures", null, 0, 1, JavaRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -995,9 +956,6 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 		initEClass(requirementEClass, Requirement.class, "Requirement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRequirement_Satisfied(), ecorePackage.getEBooleanObject(), "satisfied", null, 0, 1, Requirement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRequirement_Time(), ecorePackage.getELong(), "time", null, 0, 1, Requirement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = addEOperation(requirementEClass, ecorePackage.getEBooleanObject(), "validateRequirement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getJavaCoreProject(), "project", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(exerciseEClass, Exercise.class, "Exercise", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1012,7 +970,7 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 		initEReference(getAbstractRequirement_Parent(), this.getAbstractRequirement(), this.getAbstractRequirement_Requirements(), "parent", null, 0, 1, AbstractRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractRequirement_ChildrenSatisfied(), ecorePackage.getEBooleanObject(), "childrenSatisfied", null, 0, 1, AbstractRequirement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(testRunnableEClass, TestRunnable.class, "TestRunnable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(testRunnableEClass, TestRunnable.class, "TestRunnable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTestRunnable_TestedElement(), this.getMember(), null, "testedElement", null, 0, 1, TestRunnable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(testRunnableEClass, this.getTestRunnable(), "getTestRuns", 0, -1, IS_UNIQUE, IS_ORDERED);
@@ -1040,8 +998,6 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 		initEDataType(declarationTypeEDataType, String.class, "DeclarationType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(modifiersEDataType, int.class, "Modifiers", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(classNameEDataType, String.class, "ClassName", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(javaCoreProjectEDataType, IJavaProject.class, "JavaCoreProject", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(javaCoreElementEDataType, IJavaElement.class, "JavaCoreElement", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(featuresEDataType, String.class, "Features", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
@@ -1065,16 +1021,10 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";		
 		addAnnotation
-		  (memberEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "JavaMemberExists CorrectModifiers CorrectTypes"
-		   });		
-		addAnnotation
 		  (javaRequirementEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "NonNullJavaElement JavaRequirementSatisfied"
+			 "constraints", "NonNullJavaElement"
 		   });		
 		addAnnotation
 		  (jUnitTestEClass, 
@@ -1091,7 +1041,7 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";					
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";				
 		addAnnotation
 		  (getAbstractRequirement_Description(), 
 		   source, 
@@ -1113,7 +1063,7 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 	 * @generated
 	 */
 	protected void createJexMetaDataAnnotations() {
-		String source = "http:///no/hal/jex/JexMetaData";						
+		String source = "http:///no/hal/jex/JexMetaData";					
 		addAnnotation
 		  (getAbstractRequirement_Description(), 
 		   source, 

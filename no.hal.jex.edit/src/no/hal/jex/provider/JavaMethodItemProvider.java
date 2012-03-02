@@ -26,7 +26,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link no.hal.jex.java.JavaMethod} object.
+ * This is the item provider adapter for a {@link no.hal.jex.JavaMethod} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -173,6 +173,8 @@ public class JavaMethodItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JavaMethod.class)) {
+			case JexPackage.JAVA_METHOD__RETURN_TYPE:
+			case JexPackage.JAVA_METHOD__PARAMETERS:
 			case JexPackage.JAVA_METHOD__THROWABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

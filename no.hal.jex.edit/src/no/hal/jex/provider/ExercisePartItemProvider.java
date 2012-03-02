@@ -23,7 +23,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link no.hal.jex.ex.ExercisePart} object.
+ * This is the item provider adapter for a {@link no.hal.jex.ExercisePart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

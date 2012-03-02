@@ -6,7 +6,6 @@
  */
 package no.hal.jex.impl;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,13 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IMember;
-import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.IParent;
-import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.core.Signature;
 
 /**
  * <!-- begin-user-doc -->
@@ -245,6 +237,7 @@ public class JavaMethodImpl extends MemberImpl implements JavaMethod {
 		return toString(type + kind + " " + super.toString());
 	}
 
+	@Override
 	public boolean overrides(Member other) {
 		if (! (other instanceof JavaMethod && super.overrides(other))) {
 			return false;
@@ -262,101 +255,6 @@ public class JavaMethodImpl extends MemberImpl implements JavaMethod {
 		return true;
 	}
 
-	public void initFrom(IMember member) throws JavaModelException {
-		if (! (member instanceof IMethod)) {
-			throw new IllegalArgumentException("Cannot init JavaMethod from " + member);
-		}
-		super.initFrom(member);
-		getParameters().clear();
-		IMethod method = (IMethod)member;
-		String[] types = method.getParameterTypes();
-		for (int i = 0; i < types.length; i++) {
-			getParameters().add(Signature.toString(types[i]));
-		}
-		setReturnType(Signature.toString(method.getReturnType()));
-		getThrowables().addAll(Arrays.asList(method.getExceptionTypes()));
-	}
-
 	//
-	
-	private static IMethod findJavaMethod(List<IMember> members, String resultType, List<String> parameters) {
-		if (members != null) {
-			for (IMember member : members) {
-				if (member instanceof IMethod && validateTypes(resultType, parameters, (IMethod) member) == Boolean.TRUE) {
-					return (IMethod) member;
-				}
-			}
-		}
-		return null;
-	}
-
-	private IMethod findJavaMethod(IJavaElement javaClass, String resultType, List<String> parameters) {
-		if (javaClass instanceof IParent) {
-			return findJavaMethod(JavaClassImpl.findJavaMembers((IParent)javaClass, getSimpleName(), IJavaElement.METHOD, IMethod.class), resultType, parameters);
-		}
-		return null;
-	}
-	
-	private IMethod findJavaMethod(IJavaElement javaClass) {
-		return findJavaMethod(javaClass, getReturnType(), getParameters());
-	}
-
-	private static Boolean validateTypes(List<String> types, String[] types2, boolean isOrdered) {
-		if (types == null) {
-			return Boolean.TRUE;
-		}
-		if (isOrdered && types2.length != types.size()) {
-			return Boolean.FALSE;
-		}
-		for (int i = 0; i < types.size(); i++) {
-			String type = (String)types.get(i);
-			if (isOrdered) {
-				if (! testTypeString(type, types2[i])) {
-					return Boolean.FALSE;
-				}
-			} else {
-				for (int j = 0; j < types2.length; j++) {
-					if (! testTypeString(type, types2[j])) {
-						return Boolean.FALSE;
-					}
-				}
-			}
-		}
-		return Boolean.TRUE;
-	}
-
-	private static Boolean validateTypes(String returnType, List<String> parameterTypes, IMethod method) {
-		if (returnType != null) {
-			try {
-				if (! testTypeString(returnType, method.getReturnType())) {
-					return Boolean.FALSE;
-				}
-			} catch (JavaModelException e) {
-				return null;
-			}
-		}
-		return validateTypes(parameterTypes, method.getParameterTypes(), true);
-	}
-	
-	private static Boolean validateThrowables(List<String> throwables, IMethod method) {
-		try {
-			return validateTypes(throwables, method.getExceptionTypes(), false);
-		} catch (JavaModelException e) {
-			return null;
-		}
-	}
-
-	public Boolean validateTypes(IMethod method) {
-		Boolean result = validateTypes(getReturnType(), getParameters(), method);
-		if (result != Boolean.TRUE) {
-			return result;
-		}
-		return validateThrowables(getThrowables(), method);
-	}
-
-	public IJavaElement findJavaCoreElement(IJavaProject project) {
-		IJavaElement javaClass = getOwner().findJavaCoreElement(project);
-		return findJavaMethod(javaClass);
-	}
 
 } //JavaMethodImpl

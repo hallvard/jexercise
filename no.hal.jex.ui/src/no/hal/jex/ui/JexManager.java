@@ -23,8 +23,10 @@ import no.hal.jex.JexFactory;
 import no.hal.jex.Requirement;
 import no.hal.jex.TestRunnable;
 import no.hal.jex.editor.commands.CreateExerciseFromTestAnnotationsCommand;
+import no.hal.jex.eval.AbstractRequirementChecker;
+import no.hal.jex.jdt.JdtHelper;
+import no.hal.jex.jdt.JdtRequirementChecker;
 import no.hal.jex.resource.JexResource;
-import no.hal.jex.util.JexValidator;
 import no.hal.jex.views.ExerciseView;
 
 import org.eclipse.core.resources.IFolder;
@@ -50,12 +52,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jdt.core.ElementChangedEvent;
-import org.eclipse.jdt.core.IAnnotatable;
-import org.eclipse.jdt.core.IAnnotation;
 import org.eclipse.jdt.core.IElementChangedListener;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IMemberValuePair;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
@@ -312,7 +311,7 @@ IElementChangedListener, IResourceChangeListener {
 			return;
 		}
 		String projectPath = "/" + segments[0];
-		IJavaProject javaProject = JexResource.getJavaProject(URI.createPlatformResourceURI(projectPath, true));
+		IJavaProject javaProject = JdtHelper.getJavaProject(URI.createPlatformResourceURI(projectPath, true));
 		if (javaProject == null) {
 			return;
 		}
@@ -476,8 +475,9 @@ IElementChangedListener, IResourceChangeListener {
 		}
 	}
 
+	private AbstractRequirementChecker requirementChecker = new JdtRequirementChecker();
+	
 	public Boolean validateChildrenRequirements(AbstractRequirement req, List<AbstractRequirement> changes) {
-		IJavaProject javaProject = JexResource.getJavaProject(req.eResource());
 		Boolean oldResult = req.getChildrenSatisfied();
 		Boolean childrenResult = Boolean.TRUE;
 		for (AbstractRequirement childReq : req.getRequirements()) {
@@ -485,12 +485,12 @@ IElementChangedListener, IResourceChangeListener {
 			if (childReq instanceof Requirement) {
 				if (req instanceof Requirement && ((Requirement)req).getSatisfied() != Boolean.TRUE) {
 				} else if (childReq instanceof JavaRequirement) {
-					childResult = ((JavaRequirement)childReq).validateRequirement(javaProject);
+					childResult = requirementChecker.validateRequirement((JavaRequirement)childReq);
 				}
 				setRequirementSatisfied((Requirement)childReq, childResult, changes);
 			}
-			childResult = JexValidator.satisfiedAnd(childResult, validateChildrenRequirements(childReq, changes));
-			childrenResult = JexValidator.satisfiedAnd(childrenResult, childResult);
+			childResult = JdtRequirementChecker.satisfiedAnd(childResult, validateChildrenRequirements(childReq, changes));
+			childrenResult = JdtRequirementChecker.satisfiedAnd(childrenResult, childResult);
 		}
 		req.setChildrenSatisfied(childrenResult);
 		if (childrenResult != oldResult && changes != null) {
@@ -535,34 +535,6 @@ IElementChangedListener, IResourceChangeListener {
 				resolveContainmentProxies(child);
 			}
 		}
-	}
-
-	//
-
-	private final static String JEX_ANNOTATION_NAME = "JExercise";
-
-	public static IMemberValuePair[] getAnnotationValuePairs(IJavaElement javaElement) {
-		if (javaElement instanceof IAnnotatable) {
-			IAnnotation annotation = ((IAnnotatable) javaElement).getAnnotation(JEX_ANNOTATION_NAME);
-			if (annotation != null) {
-				try {
-					return annotation.getMemberValuePairs();
-				} catch (JavaModelException e) {
-//					System.err.println("Couldn't get annotation value pairs for " + annotation + " of " + javaElement + ": " + e);
-				}
-			}
-		}
-		return null;
-	}
-
-	public static Object getAnnotationValue(IMemberValuePair[] valuePairs, String name, int kind) {
-		for (int i = 0; valuePairs != null && i < valuePairs.length; i++) {
-			IMemberValuePair valuePair = valuePairs[i];
-			if (valuePair.getValueKind() == kind && name.equals(valuePair.getMemberName())) {
-				return valuePair.getValue();
-			}
-		}
-		return null;
 	}
 
 	//
@@ -612,7 +584,7 @@ IElementChangedListener, IResourceChangeListener {
 	public Integer logJunitTestLaunch = new Integer(IStatus.INFO);
 
 	private Boolean validateJUnitTest(JavaElement javaElement, EObject owner) {
-		IJavaElement testElement = javaElement.findJavaCoreElement(JexResource.getJavaProject(javaElement.eResource()));
+		IJavaElement testElement = JdtHelper.getJdtElement(javaElement);
 		if (testElement != null) {
 			jexLog(owner, LAUNCH_JUNIT_TEST, testElement.getElementName(), logJunitTestLaunch);
 			launchJUnitTest(testElement);

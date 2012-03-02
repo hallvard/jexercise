@@ -7,8 +7,6 @@
 package no.hal.jex;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,13 +77,5 @@ public interface JavaElement extends EObject {
 	 * @generated
 	 */
 	void setTime(long value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model dataType="no.hal.jex.JavaCoreElement" projectDataType="no.hal.jex.JavaCoreProject"
-	 * @generated
-	 */
-	IJavaElement findJavaCoreElement(IJavaProject project);
 
 } // JavaElement

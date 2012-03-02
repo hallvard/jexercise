@@ -13,7 +13,6 @@ import no.hal.jex.Requirement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.jdt.core.IJavaProject;
 
 /**
  * <!-- begin-user-doc -->
@@ -129,17 +128,6 @@ public abstract class RequirementImpl extends AbstractRequirementImpl implements
 		time = newTime;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JexPackage.REQUIREMENT__TIME, oldTime, time));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean validateRequirement(IJavaProject project) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

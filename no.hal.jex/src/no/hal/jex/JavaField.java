@@ -6,9 +6,6 @@
  */
 package no.hal.jex;
 
-import org.eclipse.jdt.core.IField;
-
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Field</b></em>'.
@@ -51,9 +48,5 @@ public interface JavaField extends Member {
 	 * @generated
 	 */
 	void setType(String value);
-
-	// support methods
-	
-	public Boolean validateType(IField field);
 
 } // JavaField

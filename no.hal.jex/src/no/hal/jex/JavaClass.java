@@ -7,7 +7,6 @@
 package no.hal.jex;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.jdt.core.IType;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,9 +118,5 @@ public interface JavaClass extends Member {
 	 * @generated
 	 */
 	void setPack(JavaPack value);
-
-	// Support methods
-	
-	public Boolean validateSuperclasses(IType type);
 
 } // JavaClass

@@ -1,5 +1,49 @@
 package oving5.person;
 
+/*
+ * @startuml
+ * class Person {
+ * 	-String name
+ * 	-Person* children
+ * 	+String getName()
+ * 	+int getChildCount()
+ * 	+Person getChild(int)
+ * }
+ * @enduml
+ */
+
+/*
+ * @startuml
+ * object Harald
+ * object Sonja
+ * object Martha
+ * object Ari
+ * object Haakon
+ * object "Mette-Marit" as MetteMarit
+ * object "Ingrid Alexandra" as IngridAlexandra
+ * object "Sverre Magnus" as SverreMagnus
+ * object "Maud Angelica" as MaudAngelica
+ * object "Leah Isadora" as LeahIsadora
+ * object "Emma Tallulah" as EmmaTallulah
+ * 
+ * Harald-- "children" Haakon
+ * Harald-- "children" Martha
+ * Sonja-- "children" Haakon
+ * Sonja-- "children" Martha
+ * 
+ * Haakon-- "children" IngridAlexandra
+ * Haakon-- "children" SverreMagnus
+ * MetteMarit-- "children" IngridAlexandra
+ * MetteMarit-- "children" SverreMagnus
+ * 
+ * Martha-- "children" MaudAngelica
+ * Martha-- "children" LeahIsadora
+ * Martha-- "children" EmmaTallulah
+ * Ari-- "children" MaudAngelica
+ * Ari-- "children" LeahIsadora
+ * Ari-- "children" EmmaTallulah
+ * @enduml
+ */
 public class Person {
 
 	public final static char MALE_GENDER = 'm';

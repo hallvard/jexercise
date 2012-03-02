@@ -8,7 +8,6 @@ package no.hal.jex;
 
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.jdt.core.IMethod;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,9 +85,5 @@ public interface JavaMethod extends Member {
 	 * @generated
 	 */
 	EList<String> getThrowables();
-
-	// Support methods
-	
-	public Boolean validateTypes(IMethod method);
 
 } // JavaMethod
