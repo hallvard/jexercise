@@ -2,7 +2,7 @@ package tdt4100.kollokvie3;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import no.hal.jex.swing.JexExercisePanel;
+import no.hal.jex.standalone.JexStandalone;
 
 public class AllTests extends TestSuite {
    
@@ -13,6 +13,6 @@ public class AllTests extends TestSuite {
    }
    
 	public static void main(String[] args) {
-		JexExercisePanel.main(new String[]{AllTests.class.getName()});
+		JexStandalone.main(AllTests.class);
 	}
 }

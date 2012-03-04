@@ -5,7 +5,11 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.swing.JButton;
@@ -34,6 +38,7 @@ import no.hal.jex.JexFactory;
 import no.hal.jex.JexPackage;
 import no.hal.jex.Requirement;
 import no.hal.jex.impl.AbstractRequirementImpl;
+import no.hal.jex.java.ReflectionHelper;
 import no.hal.jex.java.ReflectiveRequirementChecker;
 import no.hal.jex.java.ReflectiveTestAnnotationsToModelConverter;
 import no.hal.jex.resource.JexResource;
@@ -48,34 +53,43 @@ import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
 @SuppressWarnings("serial")
 public class JexExercisePanel extends JPanel implements TreeModelListener, ReflectiveRequirementChecker.BaseTestRunnerProvider {
-	
-	private JTextField fileTextField;
-	private JFileChooser fileChooser;
+
+	private Options options;
+
+	private JTextField testClassText;
 	private JTree jexTree;
-	private JTextPane jexText;
+	private JTextPane jexSelectionText;
+
+	static class Options {
+		String testClassName;
+		boolean autoOpen, autoValidate;
+		URL[] classPath;
+	}
 
 	@SuppressWarnings("unused")
-	public JexExercisePanel(String fileText, boolean autoOpen) {
+	public JexExercisePanel(Options options) {
+		this.options = options;
 		setLayout(new BorderLayout());
 		JPanel filePanel = new JPanel();
-		fileTextField = new JTextField(fileText);
-		fileTextField.addActionListener(new ActionListener() {
+		testClassText = new JTextField(options.testClassName);
+		testClassText.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				openJex(fileTextField.getText());
+				openJex(testClassText.getText());
 			}
 		});
 		filePanel.add(new JLabel("Test suite/class: "));
-		filePanel.add(fileTextField);
+		filePanel.add(testClassText);
 		JButton fileChooserButton = null; // new JButton("File...");
 		if (fileChooserButton != null) {
 			fileChooserButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
+				private JFileChooser fileChooser;
+				public void actionPerformed(ActionEvent event) {
 					if (fileChooser == null) {
 						fileChooser = new JFileChooser();
 					}
 					if (fileChooser.showOpenDialog(JexExercisePanel.this) == JFileChooser.APPROVE_OPTION) {
 						File file = fileChooser.getSelectedFile();
-						fileTextField.setText(file.toString());
+						testClassText.setText(file.toString());
 						openJex(file.getAbsolutePath());
 					}
 				}
@@ -87,14 +101,14 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 		jexTree.setPreferredSize(new Dimension(300, 500));
 		jexTree.setCellRenderer(new JexTreeCellRenderer());
 		jexTree.setRootVisible(false);
-		
+
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		splitPane.setDividerLocation(0.3);
 		splitPane.add(new JScrollPane(jexTree), JSplitPane.LEFT);
-		jexText = new JTextPane();
-		jexText.setContentType("text/html");
-		jexText.setEditable(false);
-		splitPane.add(jexText, JSplitPane.RIGHT);
+		jexSelectionText = new JTextPane();
+		jexSelectionText.setContentType("text/html");
+		jexSelectionText.setEditable(false);
+		splitPane.add(jexSelectionText, JSplitPane.RIGHT);
 		add(splitPane, BorderLayout.CENTER);
 		JPanel buttonPanel = new JPanel();
 		final JButton validateButton = new JButton("Validate");
@@ -130,17 +144,20 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 			}
 
 		});
-		
-		 requirementChecker = new ReflectiveRequirementChecker();
-		 requirementChecker.setBaseTestRunnerProvider(this);
-		 
-		if (autoOpen) {
-			fileTextField.postActionEvent();
+
+		requirementChecker = new ReflectiveRequirementChecker();
+		requirementChecker.setBaseTestRunnerProvider(this);
+
+		if (this.options.autoOpen) {
+			testClassText.postActionEvent();
+		}
+		if (this.options.autoValidate) {
+			validateAllButton.doClick();
 		}
 	}
 
 	private void updateRequirementText(Object selection) {
-		jexText.setText(selection instanceof AbstractRequirement ? getRequirementText((AbstractRequirement) selection) : "");
+		jexSelectionText.setText(selection instanceof AbstractRequirement ? getRequirementText((AbstractRequirement) selection) : "");
 	}
 
 	protected String getRequirementText(AbstractRequirement req) {
@@ -159,21 +176,40 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 	}
 
 	private ReflectiveRequirementChecker requirementChecker;
+
+	private ClassLoader reflectionClassLoader;
+
+	private void setReflectionClassLoader(ReflectionHelper reflectionHelper) {
+		if (reflectionClassLoader == null && options.classPath != null) {
+			reflectionClassLoader = new URLClassLoader(options.classPath) {
+				public String toString() {
+					return "URLClassLoader" + Arrays.asList(this.getURLs());
+				}
+			};
+		}
+		if (reflectionClassLoader != null) {
+			reflectionHelper.setClassLoader(reflectionClassLoader);
+		}
+	}
+	private void clearRequirementCheckerClassLoader() {
+		this.reflectionClassLoader = null;
+	}
 	
 	protected void validate(AbstractRequirement req) {
+		setReflectionClassLoader(requirementChecker.getReflectionHelper());
 		requirementChecker.validate(req, true);
-	}
-
-	protected void validate(TreePath selectionPath) {
+		clearRequirementCheckerClassLoader();
 	}
 
 	protected void openJex(String name) {
 		if (name.endsWith(JexResource.JEX_EXTENSION)) {
 			openJexFile(name);
 		} else {
+			setReflectionClassLoader(requirementChecker.getReflectionHelper());
 			Test suite = requirementChecker.createTest(name, null);
 			if (suite instanceof TestSuite) {
 				ReflectiveTestAnnotationsToModelConverter converter = new ReflectiveTestAnnotationsToModelConverter(JexFactory.eINSTANCE.createExercise(), (TestSuite) suite);
+				setReflectionClassLoader(converter.getReflectionHelper());
 				Exercise ex = converter.convert();
 				openExercise(ex);
 			} else {
@@ -181,13 +217,13 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 			}
 		}
 	}
-	
+
 	protected void openJexFile(String name) {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		JexResource resource = (JexResource) resourceSet.getResource(URI.createFileURI(name), true);
 		openExercise(resource.getExercise());
 	}
-	
+
 	protected void openExercise(Exercise ex) {
 		JexTreeModel treeModel = new JexTreeModel(ex);
 		jexTree.setModel(treeModel);
@@ -209,28 +245,14 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 		}
 		parents.remove(req);
 	}
-	
+
 	private static void initEMF() {
 		EPackage.Registry.INSTANCE.put(EcorePackage.eNS_URI, EcorePackage.eINSTANCE);
 		EPackage.Registry.INSTANCE.put(JexPackage.eNS_URI, JexPackage.eINSTANCE);
-		
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
-//		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("jex", new JexResource.Factory());
-	}
-	
-	private static String defaultTest = "counter.CounterTest";
 
-	public static void main(String[] args) {
-		initEMF();
-		
-		JFrame frame = new JFrame("JExercise");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JexExercisePanel panel = new JexExercisePanel(args.length > 0 ? args[0] : defaultTest, true);
-		frame.setContentPane(panel);
-		frame.setPreferredSize(new Dimension(700, 800));
-		frame.pack();
-		frame.setVisible(true);
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
+		//		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("jex", new JexResource.Factory());
 	}
 
 	public void treeNodesChanged(TreeModelEvent e) {
@@ -250,7 +272,7 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 	}
 
 	//
-	
+
 	public BaseTestRunner createBaseTestRunner(final JUnitTest junitTest) {
 		return requirementChecker.new BaseTestRunnerStub() {
 			@Override
@@ -261,5 +283,32 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 				}
 			}
 		};
+	}
+
+	//
+
+	public static void main(String[] args) {
+		initEMF();
+
+		JFrame frame = new JFrame("JExercise");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Options options = new Options();
+		if (args.length >= 1 && args[0] != null) {
+			options.testClassName = args[0];
+			options.autoOpen = true;
+		}
+		if (args.length >= 2 && args[1] != null) {
+			try {
+				String classPathString = args[1];
+				URL classPathURL = (classPathString.indexOf(':') < 4 ? new File(classPathString).toURI().toURL() : new URL(classPathString));
+				options.classPath = new URL[]{classPathURL};
+			} catch (MalformedURLException e) {
+			}
+		}
+		JexExercisePanel panel = new JexExercisePanel(options);
+		frame.setContentPane(panel);
+		frame.setPreferredSize(new Dimension(700, 800));
+		frame.pack();
+		frame.setVisible(true);
 	}
 }

@@ -15,25 +15,32 @@ import no.hal.jex.JavaPack;
 
 public class ReflectionHelper {
 	
-	private ClassLoader classLoader;
+	private ClassLoader reflectiveClassLoader;
 	
-	private ClassLoader getClassLoader() {
-		return (classLoader != null ? classLoader : this.getClass().getClassLoader());
+	private ClassLoader getReflectiveClassLoader() {
+		return (reflectiveClassLoader != null ? reflectiveClassLoader : this.getClass().getClassLoader());
 	}
 	
 	public void setClassLoader(ClassLoader classLoader) {
-		this.classLoader = classLoader;
+		this.reflectiveClassLoader = classLoader;
 	}
 
-	public Class<?> getClass(String superClass) throws ClassNotFoundException {
-		return getClassLoader().loadClass(superClass);
+	public Class<?> getReflectiveClass(String className) throws ClassNotFoundException {
+		ClassLoader classLoader = getReflectiveClassLoader();
+//		try {
+			return classLoader.loadClass(className);
+//		} catch (ClassNotFoundException e) {
+//			System.err.println("ReflectionHelper: Couldn't load " + className + " with " + classLoader);
+//			e.printStackTrace();
+//			throw new ClassNotFoundException(className);
+//		}
 	}
 
 	public Object getReflectiveElement(JavaElement jexElement) {
 		if (jexElement instanceof JavaClass) {
 			String name = ((JavaClass) jexElement).getFullName();
 			try {
-				return Class.forName(name);
+				return getReflectiveClass(name);
 			} catch (ClassNotFoundException e) {
 			}
 		} else if (jexElement instanceof JavaPack) {

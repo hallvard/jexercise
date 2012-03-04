@@ -85,6 +85,10 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 
 	private ReflectionHelper reflectionHelper = new ReflectionHelper();
 
+	public ReflectionHelper getReflectionHelper() {
+		return reflectionHelper;
+	}
+	
 	private Test createTest(TestRunnable testRunnable) {
 		if (testRunnable instanceof JavaMethodTester) {
 			return createTest(testRunnable.getOwner().getFullName(), testRunnable.getSimpleName());
@@ -97,7 +101,7 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 	public Test createTest(String className, String methodName) {
 		Class<?> c = null;
 		try {
-			c = reflectionHelper.getClass(className);
+			c = reflectionHelper.getReflectiveClass(className);
 		} catch (ClassNotFoundException e) {
 			return null;
 		}
@@ -166,7 +170,7 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 			Class<?>[] interfaces = javaType.getInterfaces();
 			for (int j = 0; j < interfaces.length; j++) {
 				try {
-					if (interfaces[j].equals(reflectionHelper.getClass(superClass))) {
+					if (interfaces[j].equals(reflectionHelper.getReflectiveClass(superClass))) {
 						continue outer;
 					}
 				} catch (ClassNotFoundException e) {

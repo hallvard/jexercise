@@ -35,10 +35,14 @@ public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnot
 
 	private ReflectionHelper reflectionHelper = new ReflectionHelper();
 	
+	public ReflectionHelper getReflectionHelper() {
+		return reflectionHelper;
+	}
+	
 	private JavaRequirement createFromTestClassAnnotations(junit.framework.TestSuite junitTestSuite, String packageName, String testedClassName) {
 		Class<?> type = null;
 		try {
-			type = reflectionHelper.getClass(junitTestSuite.getName());
+			type = reflectionHelper.getReflectiveClass(junitTestSuite.getName());
 		} catch (ClassNotFoundException e) {
 			return null;
 		}
