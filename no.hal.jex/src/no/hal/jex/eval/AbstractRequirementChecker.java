@@ -8,7 +8,6 @@ import no.hal.jex.JavaElement;
 import no.hal.jex.JavaRequirement;
 import no.hal.jex.Member;
 import no.hal.jex.Requirement;
-import no.hal.jex.TestRunnable;
 import no.hal.jex.impl.JexFactoryImpl;
 
 import org.eclipse.emf.ecore.ENamedElement;
@@ -137,11 +136,8 @@ public abstract class AbstractRequirementChecker {
 		int realModifiers = getRealModifiers(jexMember);
 		if (realModifiers >= 0) {
 			int modifiers = jexMember.getModifiers();
-			if (jexMember instanceof TestRunnable) {
-				// pretend TestRunnables always have the public modifier
+			if ((modifiers & JexFactoryImpl.getVisibilityModifiers()) == 0) {
 				modifiers |= JexFactoryImpl.getModifier("public");
-			} else if (modifiers == 0) {
-				modifiers = JexFactoryImpl.getModifier("public");
 			}
 			return validateModifiers(realModifiers, getRealModifiersMap(), modifiers);
 		}

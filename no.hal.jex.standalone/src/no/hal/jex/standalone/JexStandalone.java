@@ -1,11 +1,10 @@
 package no.hal.jex.standalone;
 
-import junit.framework.Test;
 import no.hal.jex.swing.JexExercisePanel;
 
 public class JexStandalone {
 
-	public static void main(Class<? extends Test> testClass) {
+	public static void main(Class<?> testClass) {
 		main(testClass.getName());
 	}
 	public static void main(String testClassName) {

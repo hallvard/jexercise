@@ -6,7 +6,6 @@
  */
 package no.hal.jex.impl;
 
-import no.hal.jex.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -323,6 +322,10 @@ public class JexFactoryImpl extends EFactoryImpl implements JexFactory {
 		MODIFIERS_MAP.put("abstract", 1024);
 	};
 
+	public static int getVisibilityModifiers() {
+		return getModifier("public") | getModifier("protected") | getModifier("private");
+	}
+	
 	public static int getModifier(String s) {
 		Integer i = MODIFIERS_MAP.get(s);
 		return i != null ? i : 0;

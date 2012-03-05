@@ -138,12 +138,12 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 		if (s1 == null) {
 			return true;
 		}
-		String s2 = javaClass.getName();
+		String s2 = (javaClass.isArray() ? javaClass.getComponentType().getName() + "[]" : javaClass.getName());
 		if (s1.equals(s2)) {
 			return true;
 		}
 		if (s1.indexOf('.') < 0 && s2.indexOf('.') >= 0) {
-			s2 = MemberImpl.getSimpleName(s1);
+			s2 = MemberImpl.getSimpleName(s2);
 			if (s1.equals(s2)) {
 				return true;
 			}
