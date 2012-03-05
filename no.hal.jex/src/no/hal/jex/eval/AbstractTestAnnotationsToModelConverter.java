@@ -22,8 +22,9 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 public abstract class AbstractTestAnnotationsToModelConverter {
 
 	public final static String JEX_ANNOTATION_NAME = "JExercise";
-	public static final String JEX_DESCRIPTION_ANNOTATION_KEY = "description";
 	public static final String JEX_TESTS_ANNOTATION_KEY = "tests";
+	public static final String JEX_DESCRIPTION_ANNOTATION_KEY = "description";
+	public static final String JEX_COMMENT_ANNOTATION_KEY = "comment";
 
 	public final static String ALL_TESTS_TEST_SUITE_NAME = "AllTests";
 	public final static String TEST_CLASS_NAME_SUFFIX = "Test";
@@ -133,7 +134,7 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 		return exercisePart;
 	}
 	
-	protected JavaRequirement ensureJavaRequirement(String packageName, String testClassName, String testedClassName, String testsAnnotation, String descriptionAnnotation) {
+	protected JavaRequirement ensureJavaRequirement(String packageName, String testClassName, String testedClassName, String testsAnnotation) {
 		JavaRequirement req = null;
 		if (testsAnnotation != null && testsAnnotation.length() > 0) {
 			req = JexFactory.eINSTANCE.createJUnitTest();
@@ -155,12 +156,11 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 			((JUnitTest) req).setTestRunnable(javaClassTester);
 		}
 		req.setJavaElement(javaClassTester); // redundant?
-		req.setDescription(descriptionAnnotation);
 		part.getRequirements().add(req);
 		return req;
 	}
 	
-	protected JUnitTest ensureJunitTest(JavaMethodTester javaMethodTester, String testsAnnotation, String descriptionAnnotation, JavaClass methodParent, AbstractRequirement reqParent) {
+	protected JUnitTest ensureJunitTest(JavaMethodTester javaMethodTester, String testsAnnotation, JavaClass methodParent, AbstractRequirement reqParent) {
 
 		// create and initialize JUnit test
 		JUnitTest testReq = JexFactory.eINSTANCE.createJUnitTest();
@@ -168,7 +168,6 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 		javaMethodTester.setReturnType("void");
 		testReq.setJavaElement(javaMethodTester);
 		testReq.setTestRunnable(javaMethodTester);
-		testReq.setDescription(descriptionAnnotation);
 		
 		reqParent.getRequirements().add(testReq);
 

@@ -7,12 +7,14 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import no.hal.jex.AbstractRequirement;
 import no.hal.jex.Exercise;
+import no.hal.jex.JUnitTest;
 import no.hal.jex.JavaClass;
 import no.hal.jex.JavaClassTester;
 import no.hal.jex.JavaMethodTester;
 import no.hal.jex.JavaRequirement;
 import no.hal.jex.JexPackage;
 import no.hal.jex.eval.AbstractTestAnnotationsToModelConverter;
+import no.hal.jex.eval.JExercise;
 
 public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnotationsToModelConverter {
 
@@ -47,12 +49,17 @@ public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnot
 			return null;
 		}
 		JExercise jexAnnotation = (JExercise) type.getAnnotation(JExercise.class);
-		JavaRequirement req = ensureJavaRequirement(packageName, type.getSimpleName(), testedClassName, jexAnnotation.tests(), jexAnnotation.description());
-
+		JavaRequirement req = ensureJavaRequirement(packageName, type.getSimpleName(), testedClassName, jexAnnotation.tests());
+		setAnnotationFeatures(req, jexAnnotation);
 		for (int i = 0; i < junitTestSuite.testCount(); i++) {
 			createFromTestClassAnnotations(junitTestSuite.testAt(i), req);
 		}
 		return req;
+	}
+
+	private void setAnnotationFeatures(AbstractRequirement req, JExercise jexAnnotation) {
+		req.setDescription(jexAnnotation.description());
+		req.setComment(jexAnnotation.comment());
 	}
 
 	private void createFromTestClassAnnotations(Test junitTest, JavaRequirement req) {
@@ -95,6 +102,8 @@ public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnot
 			tests = testedMethodName;
 		}
 		JavaMethodTester javaMethodTester = (JavaMethodTester) ensureJavaMethod(methodTesterParent, testMethodName, JexPackage.eINSTANCE.getJavaMethodTester());
-		return ensureJunitTest(javaMethodTester, tests, jexAnnotation.description(), methodParent, reqParent);
+		JUnitTest testReq = ensureJunitTest(javaMethodTester, tests, methodParent, reqParent);
+		setAnnotationFeatures(testReq, jexAnnotation);
+		return testReq;
 	}
 }

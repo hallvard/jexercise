@@ -161,20 +161,28 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 	}
 
 	protected String getRequirementText(AbstractRequirement req) {
-		String description = null;
+		StringBuilder builder = new StringBuilder();
 		AbstractRequirement descriptionReq = AbstractRequirementImpl.findNearestPreviousRequirementWithDescription(req);
 		if (descriptionReq != null) {
-			description = descriptionReq.getDescription();
+			appendText(builder, descriptionReq.getDescription(), null);
 		}
+		appendText(builder, req.getComment(), "<p>%s");
 		StringBuilder message = new StringBuilder();
 		if (req instanceof Requirement) {
 			for (String s : ((Requirement) req).getMessages()) {
-				message.append(s);
+				appendText(message, s, null);
 			}
 		}
-		return (description != null ? description : "") + "<p>" + (message.length() > 0 ? "<b>Errors/failures</b>:<br/>" + message : "");
+		appendText(builder, message, "<p><b>Errors/failures</b>:<br/>%s");
+		return builder.toString();
 	}
 
+	private void appendText(StringBuilder builder, CharSequence text, String format) {
+		if (text != null && text.length() > 0) {
+			builder.append(format != null ? String.format(format, text) : text);
+		}
+	}
+	
 	private ReflectiveRequirementChecker requirementChecker;
 
 	private ClassLoader reflectionClassLoader;

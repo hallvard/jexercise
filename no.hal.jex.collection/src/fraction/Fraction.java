@@ -1,4 +1,4 @@
-package tdt4100.kollokvie3;
+package fraction;
 
 public class Fraction {
 

@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package tdt4100.kollokvie3;
+package fraction;
 
+import fraction.Fraction;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 import no.hal.jex.eval.JExercise;

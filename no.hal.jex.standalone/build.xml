@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project no.hal.jex.standalone">
+<project default="create_standalone_jar" name="Create Runnable Jar for Project no.hal.jex.standalone">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
-    <target name="create_run_jar">
-        <jar destfile="/Users/hal/java/git/jexercise/no.hal.jex.standalone.test/libs/jexercise-standalone.jar" filesetmanifest="mergewithoutmain">
+    <property name="standalone-project" value="${basedir}"/>
+    <property name="collection-project" value="${basedir}/../no.hal.jex.collection"/>
+	<target name="create_standalone_jar">
+        <jar destfile="${standalone-project}/jexercise-standalone.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Main-Class" value="no.hal.jex.swing.JexExercisePanel"/>
                 <attribute name="Class-Path" value="."/>
@@ -16,5 +18,6 @@
             <fileset dir="/Users/hal/java/git/jexercise/no.hal.jex.java/bin"/>
             <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse Indigo Modeling/plugins/org.junit_3.8.2.v3_8_2_v20100427-1100/junit.jar"/>
         </jar>
+    	<copy file="${standalone-project}/jexercise-standalone.jar" todir="${collection-project}/libs/" overwrite="true"/>
     </target>
 </project>
