@@ -2,8 +2,11 @@ package no.hal.jex.java;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -134,21 +137,52 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 
 	//
 
-	static boolean testTypeString(String s1, Class<?> javaClass) {
+	static boolean testTypeString(String s1, Type javaType) {
 		if (s1 == null) {
 			return true;
 		}
-		String s2 = (javaClass.isArray() ? javaClass.getComponentType().getName() + "[]" : javaClass.getName());
-		if (s1.equals(s2)) {
-			return true;
+		if (javaType instanceof ParameterizedType) {
+			Type[] typeArgs2 = ((ParameterizedType) javaType).getActualTypeArguments();
+			javaType = ((ParameterizedType) javaType).getRawType();
+			int pos1 = s1.indexOf('<'), pos2 = s1.lastIndexOf('>');
+			if (pos1 < 0 || pos2 < 0 || pos1 >= pos2) {
+				return false;
+			}
+			String[] typeArgs1 = s1.substring(pos1 + 1, pos2).split(",");
+			s1 = s1.substring(0, pos1);
+			if (typeArgs1.length != typeArgs2.length) {
+				return false;
+			}
+			for (int i = 0; i < typeArgs1.length; i++) {
+				if (! testTypeString(typeArgs1[i], typeArgs2[i])) {
+					return false;
+				}
+			}
+		} else if (javaType instanceof GenericArrayType) {
+			if (! s1.endsWith("[]")) {
+				return false;
+			}
+			javaType = ((GenericArrayType) javaType).getGenericComponentType();
+			s1 = s1.substring(0, s1.length() - "[]".length());
 		}
-		if (s1.indexOf('.') < 0 && s2.indexOf('.') >= 0) {
-			s2 = MemberImpl.getSimpleName(s2);
+		if (javaType instanceof Class) {
+			Class<?> javaClass = (Class<?>) javaType;
+			String s2 = javaClass.getName();
+//			if (javaClass.isArray()) {
+//				s2 = javaClass.getComponentType().getName() + "[]";
+//			}
 			if (s1.equals(s2)) {
 				return true;
 			}
+			if (s1.indexOf('.') < 0 && s2.indexOf('.') >= 0) {
+				s2 = MemberImpl.getSimpleName(s2);
+				if (s1.equals(s2)) {
+					return true;
+				}
+			}
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	//
@@ -182,7 +216,7 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 		return Boolean.TRUE;
 	}
 
-	private static Boolean validateTypes(List<String> types, Class<?>[] types2, boolean isOrdered) {
+	private static Boolean validateTypes(List<String> types, Type[] types2, boolean isOrdered) {
 		if (types == null) {
 			return Boolean.TRUE;
 		}
@@ -206,7 +240,7 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 		return Boolean.TRUE;
 	}
 
-	static Boolean validateTypes(String jexReturnType, List<String> jexParameterTypes, Class<?> javaReturnType, Class<?>[] javaParameterTypes) {
+	static Boolean validateTypes(String jexReturnType, List<String> jexParameterTypes, Type javaReturnType, Type[] javaParameterTypes) {
 		if (jexReturnType != null && javaReturnType != null) {
 			if (! testTypeString(jexReturnType, javaReturnType)) {
 				return Boolean.FALSE;
@@ -225,16 +259,16 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 			typesResult = satisfiedAnd(typesResult, validateSuperclasses(((JavaClass) jexMember), ((Class<?>) javaElement)));
 		} else if (jexMember instanceof JavaMethod) {
 			JavaMethod jexMethod = (JavaMethod) jexMember;
-			Class<?> javaReturnType = null, javaParameterTypes[] = null, javaExceptionTypes[] = null;
+			Type javaReturnType = null, javaParameterTypes[] = null, javaExceptionTypes[] = null;
 			if (javaElement instanceof Method) {
 				Method javaMethod = (Method) javaElement;
 				javaReturnType = javaMethod.getReturnType();
-				javaParameterTypes = javaMethod.getParameterTypes();
+				javaParameterTypes = javaMethod.getGenericParameterTypes();
 				javaExceptionTypes = javaMethod.getExceptionTypes();
 			} else if (javaElement instanceof Constructor<?>) {
 				Constructor<?> javaConstructor = (Constructor<?>) javaElement;
 				javaReturnType = null;
-				javaParameterTypes = javaConstructor.getParameterTypes();
+				javaParameterTypes = javaConstructor.getGenericParameterTypes();
 				javaExceptionTypes = javaConstructor.getExceptionTypes();
 			}
 			Boolean result = validateTypes(jexMethod.getReturnType(), jexMethod.getParameters(), javaReturnType, javaParameterTypes);

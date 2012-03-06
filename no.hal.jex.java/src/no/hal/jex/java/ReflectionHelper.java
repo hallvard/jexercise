@@ -53,7 +53,7 @@ public class ReflectionHelper {
 					Constructor<?>[] javaConstructors = javaClass.getConstructors();
 					for (int i = 0; i < javaConstructors.length; i++) {
 						Constructor<?> cons = javaConstructors[i];
-						if (ReflectiveRequirementChecker.validateTypes(null, jexMethod.getParameters(), null, cons.getParameterTypes()) == Boolean.TRUE) {
+						if (ReflectiveRequirementChecker.validateTypes(null, jexMethod.getParameters(), null, cons.getGenericParameterTypes()) == Boolean.TRUE) {
 							return cons;
 						}
 					}
@@ -63,7 +63,7 @@ public class ReflectionHelper {
 						Method method = javaMethods[i];
 						String jexMethodName = jexMethod.getSimpleName();
 						if (method.getName().equals(jexMethodName)) {
-							if (ReflectiveRequirementChecker.validateTypes(jexMethod.getReturnType(), jexMethod.getParameters(), method.getReturnType(), method.getParameterTypes()) == Boolean.TRUE) {
+							if (ReflectiveRequirementChecker.validateTypes(jexMethod.getReturnType(), jexMethod.getParameters(), method.getGenericReturnType(), method.getGenericParameterTypes()) == Boolean.TRUE) {
 								return method;
 							}
 						}
