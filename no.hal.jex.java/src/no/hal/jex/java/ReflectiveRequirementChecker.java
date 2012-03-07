@@ -220,7 +220,7 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 		if (types == null) {
 			return Boolean.TRUE;
 		}
-		if (isOrdered && types2.length != types.size()) {
+		if (types2.length != types.size()) {
 			return Boolean.FALSE;
 		}
 		for (int i = 0; i < types.size(); i++) {

@@ -1,13 +1,15 @@
-package arrays;
+package lists;
 
-public class ArrayMethods1 {
+import java.util.List;
+
+public class ListMethods1 {
 
 	// find the smallest index of value in array
-    public static int indexOf(int[] array, int value) {
+    public static int indexOf(List<Integer> list, int value) {
     	// start i at 0, stop when the length is reached
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < list.size(); i++) {
         	// is the current element the same as the value?
-            if (array[i] == value) {
+            if (list.get(i) == value) {
             	// return the index
                 return i;
             }
@@ -17,12 +19,12 @@ public class ArrayMethods1 {
     }
     
 	// find the largest index of value in array
-    public static int lastIndexOf(String[] array, String value) {
+    public static int lastIndexOf(List<String> list, String value) {
     	// start i at highest possible index, continue as long as it is valid, reducing it with 1 in each iteration
-    	for (int i = array.length - 1; i >= 0; i--) {
+    	for (int i = list.size() - 1; i >= 0; i--) {
         	// is the current element equal to the value?
     		// equals is used to test for String equality
-    		if (array[i].equals(value)) {
+    		if (list.get(i).equals(value)) {
             	// return the index
     			return i;
     		}
@@ -31,21 +33,18 @@ public class ArrayMethods1 {
     }
 
 	// find the index of the smallest value in array, starting at start
-    public static int indexOfSmallest(int[] array, int start) {
+    public static int indexOfSmallest(List<Integer> list, int start) {
     	// test if start is out of range
-    	if (start < 0 || start >= array.length) {
+    	if (start < 0 || start >= list.size()) {
     		return -1;
     	}
-    	// initialise the current smallest value to first element
-        int smallest = array[start];
-        // remember its position, too
+        // remember the position of the smallest element found, so far
         int pos = start;
     	// stop when the length is reached
-        for (int i = start + 1; i < array.length; i++) {
+        for (int i = start + 1; i < list.size(); i++) {
         	// is the new current element a new smallest value?
-            if (array[i] < smallest) {
+            if (list.get(i) < list.get(pos)) {
             	// update the current smallest value and the position
-                smallest = array[i];
                 pos = i;
             }
         }

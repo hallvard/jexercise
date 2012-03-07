@@ -49,7 +49,7 @@ public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnot
 			return null;
 		}
 		JExercise jexAnnotation = (JExercise) type.getAnnotation(JExercise.class);
-		JavaRequirement req = ensureJavaRequirement(packageName, type.getSimpleName(), testedClassName, jexAnnotation.tests());
+		JavaRequirement req = ensureJavaRequirement(packageName, type.getSimpleName(), testedClassName, jexAnnotation.tests(), false);
 		setAnnotationFeatures(req, jexAnnotation);
 		for (int i = 0; i < junitTestSuite.testCount(); i++) {
 			createFromTestClassAnnotations(junitTestSuite.testAt(i), req);
@@ -101,7 +101,7 @@ public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnot
 		if (tests == null) {
 			tests = testedMethodName;
 		}
-		JavaMethodTester javaMethodTester = (JavaMethodTester) ensureJavaMethod(methodTesterParent, testMethodName, JexPackage.eINSTANCE.getJavaMethodTester());
+		JavaMethodTester javaMethodTester = (JavaMethodTester) ensureJavaElement(testMethodName, methodTesterParent.getMembers(), JexPackage.eINSTANCE.getJavaMethodTester());
 		JUnitTest testReq = ensureJunitTest(javaMethodTester, tests, methodParent, reqParent);
 		setAnnotationFeatures(testReq, jexAnnotation);
 		return testReq;

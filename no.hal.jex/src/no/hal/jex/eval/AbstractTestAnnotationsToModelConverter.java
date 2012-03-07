@@ -7,12 +7,14 @@ import no.hal.jex.JUnitTest;
 import no.hal.jex.JavaClass;
 import no.hal.jex.JavaClassTester;
 import no.hal.jex.JavaElement;
+import no.hal.jex.JavaField;
 import no.hal.jex.JavaMethod;
 import no.hal.jex.JavaMethodTester;
 import no.hal.jex.JavaPack;
 import no.hal.jex.JavaRequirement;
 import no.hal.jex.JexFactory;
 import no.hal.jex.JexPackage;
+import no.hal.jex.Member;
 import no.hal.jex.TestSuite;
 
 import org.eclipse.emf.common.util.EList;
@@ -21,6 +23,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 public abstract class AbstractTestAnnotationsToModelConverter {
 
+	private static final String TYPE_LIST_SEPARATOR = ",";
 	public final static String JEX_ANNOTATION_NAME = "JExercise";
 	public static final String JEX_TESTS_ANNOTATION_KEY = "tests";
 	public static final String JEX_DESCRIPTION_ANNOTATION_KEY = "description";
@@ -91,10 +94,6 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 		return (JavaClass) ensureJavaElement(elementName, javaPack.getClasses(), eClass);
 	}
 
-	protected JavaMethod ensureJavaMethod(JavaClass javaClass, String elementName, EClass eClass) {
-		return (JavaMethod) ensureJavaElement(elementName, javaClass.getMembers(), eClass);
-	}
-
 	protected JavaElement findJavaElement(String name, EList<? extends JavaElement> javaElements, EClass eClass) {
 		for (JavaElement javaElement : javaElements) {
 			if (eClass.isSuperTypeOf(javaElement.eClass())) {
@@ -134,22 +133,47 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 		return exercisePart;
 	}
 	
-	protected JavaRequirement ensureJavaRequirement(String packageName, String testClassName, String testedClassName, String testsAnnotation) {
+	protected JavaRequirement ensureJavaRequirement(String packageName, String testClassName, String testedClassName, String testsAnnotation, boolean preferJunitTest) {
 		JavaRequirement req = null;
-		if (testsAnnotation != null && testsAnnotation.length() > 0) {
+		boolean hasTestsAnnotation = testsAnnotation != null && testsAnnotation.length() > 0;
+		if (hasTestsAnnotation && preferJunitTest) {
 			req = JexFactory.eINSTANCE.createJUnitTest();
 		} else {
-			testsAnnotation = testedClassName;
+			if (! hasTestsAnnotation) {
+				testsAnnotation = testedClassName;
+			}
 			req = JexFactory.eINSTANCE.createJavaRequirement();
 		}
 		req.setText((req instanceof JUnitTest ? "Test " : "") + packageName + "." + testsAnnotation);
-		JavaClassTester javaClassTester = (JavaClassTester) ensureJavaClass(packageName,testClassName, JexPackage.eINSTANCE.getJavaClassTester());
-		int pos = testsAnnotation.lastIndexOf('.');
+		JavaClassTester javaClassTester = (JavaClassTester) ensureJavaClass(packageName, testClassName, JexPackage.eINSTANCE.getJavaClassTester());
+		String[] superClasses = {},  superInterfaces = {};
+		int pos = testsAnnotation.indexOf(' ');
 		if (pos >= 0) {
-			packageName = testsAnnotation.substring(0, pos);
+			testedClassName = testsAnnotation.substring(0, pos);
 			testsAnnotation = testsAnnotation.substring(pos + 1);
+			String EXTENDS_KEYWORD = "extends ", IMPLEMENTS_KEYWORD = "implements ";
+			int extendsPos = testsAnnotation.indexOf(EXTENDS_KEYWORD), implementsPos = testsAnnotation.indexOf(IMPLEMENTS_KEYWORD);
+			if (extendsPos >= 0) {
+				superClasses = testsAnnotation.substring(extendsPos + EXTENDS_KEYWORD.length(), implementsPos > extendsPos ? implementsPos : testsAnnotation.length()).split(TYPE_LIST_SEPARATOR);
+			}
+			if (implementsPos >= 0) {
+				superInterfaces = testsAnnotation.substring(implementsPos + IMPLEMENTS_KEYWORD.length(), extendsPos > implementsPos ? extendsPos : testsAnnotation.length()).split(TYPE_LIST_SEPARATOR);
+			}
+		} else {
+			testedClassName = testsAnnotation;
 		}
-		JavaClass javaClass = ensureJavaClass(packageName, testsAnnotation, JexPackage.eINSTANCE.getJavaClass());
+		int pos3 = testedClassName.lastIndexOf('.');
+		if (pos3 >= 0) {
+			packageName = testedClassName.substring(0, pos3);
+			testedClassName = testedClassName.substring(pos3 + 1);
+		}
+		JavaClass javaClass = ensureJavaClass(packageName, testedClassName, JexPackage.eINSTANCE.getJavaClass());
+		for (int j = 0; j < superClasses.length; j++) {
+			javaClass.getSuperclasses().add(superClasses[j]);
+		}
+		for (int j = 0; j < superInterfaces.length; j++) {
+			javaClass.getSuperclasses().add(superInterfaces[j]);
+		}
 		javaClassTester.setTestedElement(javaClass);
 		ExercisePart part = ensureExercisePart(ex, packageName);
 		if (req instanceof JUnitTest) {
@@ -176,7 +200,7 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 		for (int i = 0; i < testedElements.length; i++) {
 			String testedElementName = testedElements[i].trim();
 			String returnType = null, modifiers = "public";
-			int pos = testedElementName.lastIndexOf(' ');
+			int pos1 = testedElementName.indexOf('('), pos = testedElementName.lastIndexOf(' ', pos1 >= 0 ? pos1 : testedElementName.length());
 			if (pos >= 0) {
 				int pos2 = testedElementName.lastIndexOf(' ', pos - 1);
 				if (pos2 >= 0) {
@@ -185,32 +209,49 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 				} else {
 					returnType = testedElementName.substring(0, pos);
 				}
+				pos1 -= pos + 1;
 				testedElementName = testedElementName.substring(pos + 1);
 			}
-			int pos1 = testedElementName.indexOf('('), pos2 = testedElementName.lastIndexOf(')');
-			String[] params = {};
+			int pos2 = testedElementName.lastIndexOf(')');
+			Member testedElement = null;
 			if (pos1 >= 0 && pos2 >= 0) {
+				String[] params = {}, exceptions = {};
 				if (pos2 > pos1 + 2) {
-					params = testedElementName.substring(pos1 + 1, pos2).split(",");
+					params = testedElementName.substring(pos1 + 1, pos2).split(TYPE_LIST_SEPARATOR);
+				}
+				String THROWS_KEYWORD = "throws ";
+				int pos3 = testedElementName.indexOf(THROWS_KEYWORD, pos2);
+				if (pos3 >= pos2) {
+					exceptions = testedElementName.substring(pos3 + THROWS_KEYWORD.length()).split(TYPE_LIST_SEPARATOR);
 				}
 				testedElementName = testedElementName.substring(0, pos1);
+				JavaMethod javaMethod = (JavaMethod) ensureJavaElement(testedElementName, methodParent.getMembers(), JexPackage.eINSTANCE.getJavaMethod());
+				if (testedElementName != methodParent.getName() && returnType == null) {
+					returnType = "void";
+				}
+				javaMethod.setReturnType(returnType);
+				for (int j = 0; j < params.length; j++) {
+					javaMethod.getParameters().add(params[j]);
+				}
+				for (int j = 0; j < exceptions.length; j++) {
+					javaMethod.getThrowables().add(exceptions[j]);
+				}
+				testedElement = javaMethod;
+			} else {
+				JavaField javaField = (JavaField) ensureJavaElement(testedElementName, methodParent.getMembers(), JexPackage.eINSTANCE.getJavaField());
+				javaField.setType(returnType);
+				testedElement = javaField;
 			}
-			JavaMethod javaMethod = ensureJavaMethod(methodParent, testedElementName, JexPackage.eINSTANCE.getJavaMethod());
 			if (modifiers != null) {
-				javaMethod.setModifiers((Integer) JexFactory.eINSTANCE.createFromString(JexPackage.eINSTANCE.getModifiers(), modifiers));
+				testedElement.setModifiers((Integer) JexFactory.eINSTANCE.createFromString(JexPackage.eINSTANCE.getModifiers(), modifiers));
 			}
-			if (testedElementName != methodParent.getName() && returnType == null) {
-				returnType = "void";
+			// set it to the first element
+			if (javaMethodTester.getTestedElement() == null) {
+				javaMethodTester.setTestedElement(testedElement);
 			}
-			javaMethod.setReturnType(returnType);
-			for (int j = 0; params != null && j < params.length; j++) {
-				javaMethod.getParameters().add(params[j]);
-			}
-			javaMethodTester.setTestedElement(javaMethodTester.getTestedElement() != null ? null : javaMethod);
-	
 			JavaRequirement javaReq = JexFactory.eINSTANCE.createJavaRequirement();
 			javaReq.setText("Create " + testedElementName);
-			javaReq.setJavaElement(javaMethod);
+			javaReq.setJavaElement(testedElement);
 	
 			testReq.getRequirements().add(javaReq);
 		}

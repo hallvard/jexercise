@@ -110,7 +110,7 @@ public class JdtTestAnnotationsToModelConverter extends AbstractTestAnnotationsT
 	private JavaRequirement createFromTestClassAnnotations(IType type, String packageName, String testedClassName) {
 		IMemberValuePair[] valuePairs = JdtHelper.getAnnotationValuePairs(type, AbstractTestAnnotationsToModelConverter.JEX_ANNOTATION_NAME);
 		String tests = (String) JdtHelper.getAnnotationValue(valuePairs, JEX_TESTS_ANNOTATION_KEY, IMemberValuePair.K_STRING);
-		JavaRequirement req = ensureJavaRequirement(packageName, type.getElementName(), testedClassName, tests);
+		JavaRequirement req = ensureJavaRequirement(packageName, type.getElementName(), testedClassName, tests, false);
 		setAnnotationFeatures(req, valuePairs);
 		IJavaElement[] children = null;
 		try {
@@ -142,7 +142,7 @@ public class JdtTestAnnotationsToModelConverter extends AbstractTestAnnotationsT
 		if (tests == null) {
 			tests = testedMethodName;
 		}
-		JavaMethodTester javaMethodTester = (JavaMethodTester) ensureJavaMethod(methodTesterParent, method.getElementName(), JexPackage.eINSTANCE.getJavaMethodTester());
+		JavaMethodTester javaMethodTester = (JavaMethodTester) ensureJavaElement(method.getElementName(), methodTesterParent.getMembers(), JexPackage.eINSTANCE.getJavaMethodTester());
 		JUnitTest testReq = ensureJunitTest(javaMethodTester, tests, methodParent, reqParent);
 		setAnnotationFeatures(testReq, valuePairs);
 		return testReq;

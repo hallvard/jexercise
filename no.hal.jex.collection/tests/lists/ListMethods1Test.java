@@ -1,6 +1,8 @@
-package arrays;
+package lists;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import junit.framework.TestCase;
 import no.hal.jex.eval.JExercise;
@@ -10,7 +12,7 @@ import no.hal.jex.eval.JExercise;
 		comment="Helper methods usually have a specific modifier, which one?",
 		tags={"array", "iteration"}
 		)
-public class ArrayMethods1Test extends TestCase {
+public class ListMethods1Test extends TestCase {
 
 	@JExercise(
 			tests="static int indexOf(int[],int)",
@@ -27,7 +29,14 @@ public class ArrayMethods1Test extends TestCase {
 		testIndexOf(-1, new int[]{5, 4, 3, 2, 1, 0}, -1);
 	}
 	private void testIndexOf(int expected, int array[], int value) {
-		assertEquals(String.format("Testing ArrayMethod1.indexOf(%s,%s)", Arrays.asList(array), value), expected, ArrayMethods1.indexOf(array, value));
+		assertEquals(String.format("Testing ArrayMethod1.indexOf(%s,%s)", Arrays.asList(array), value), expected, ListMethods1.indexOf(asList(array), value));
+	}
+	private List<Integer> asList(int[] array) {
+		List<Integer> list = new ArrayList<Integer>(array.length);
+		for (int i = 0; i < array.length; i++) {
+			list.add(Integer.valueOf(array[i]));
+		}
+		return list;
 	}
 
 	@JExercise(
@@ -45,9 +54,9 @@ public class ArrayMethods1Test extends TestCase {
 		testLastIndexOf(-1, "10", new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"});
 	}
 	private void testLastIndexOf(int expected, String value, String array[]) {
-		assertEquals(String.format("Testing ArrayMethod1.lastIndexOf(%s,%s)", Arrays.asList(array), value), expected, ArrayMethods1.lastIndexOf(array, value));
+		assertEquals(String.format("Testing ArrayMethod1.lastIndexOf(%s,%s)", Arrays.asList(array), value), expected, ListMethods1.lastIndexOf(Arrays.asList(array), value));
 	}
-	
+
 	@JExercise(
 			tests="static int indexOfSmallest(int[],int)",
 			description="The indexOfSmallest method should take an int array and an index (into the same array) as arguments." +
@@ -64,6 +73,6 @@ public class ArrayMethods1Test extends TestCase {
 		testIndexOfSmallest(-1, new int[]{}, 3);
 	}
 	private void testIndexOfSmallest(int expected, int array[], int start) {
-		assertEquals(String.format("Testing ArrayMethod1.indexOfSmallest(%s,%s)", Arrays.asList(array), start), expected, ArrayMethods1.indexOfSmallest(array, start));
+		assertEquals(String.format("Testing ArrayMethod1.indexOfSmallest(%s,%s)", Arrays.asList(array), start), expected, ListMethods1.indexOfSmallest(asList(array), start));
 	}
 }
