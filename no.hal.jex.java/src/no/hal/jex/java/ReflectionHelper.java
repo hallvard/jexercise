@@ -58,15 +58,9 @@ public class ReflectionHelper {
 						}
 					}
 				} else {
-					Method[] javaMethods = javaClass.getDeclaredMethods();
-					for (int i = 0; i < javaMethods.length; i++) {
-						Method method = javaMethods[i];
-						String jexMethodName = jexMethod.getSimpleName();
-						if (method.getName().equals(jexMethodName)) {
-							if (ReflectiveRequirementChecker.validateTypes(jexMethod.getReturnType(), jexMethod.getParameters(), method.getGenericReturnType(), method.getGenericParameterTypes()) == Boolean.TRUE) {
-								return method;
-							}
-						}
+					Method method = findMethod(javaClass, jexMethod);
+					if (method != null) {
+						return method;
 					}
 				}
 			}
@@ -85,5 +79,22 @@ public class ReflectionHelper {
 			}
 		}
 		return null;
+	}
+
+	public Method findMethod(Class<?> javaClass, JavaMethod jexMethod) {
+		if (javaClass == null || javaClass == Object.class) {
+			return null;
+		}
+		Method[] javaMethods = javaClass.getDeclaredMethods();
+		for (int i = 0; i < javaMethods.length; i++) {
+			Method method = javaMethods[i];
+			String jexMethodName = jexMethod.getSimpleName();
+			if (method.getName().equals(jexMethodName)) {
+				if (ReflectiveRequirementChecker.validateTypes(jexMethod.getReturnType(), jexMethod.getParameters(), method.getGenericReturnType(), method.getGenericParameterTypes()) == Boolean.TRUE) {
+					return method;
+				}
+			}
+		}
+		return findMethod(javaClass.getSuperclass(), jexMethod);
 	}
 }
