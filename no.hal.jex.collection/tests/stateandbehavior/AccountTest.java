@@ -20,13 +20,20 @@ public class AccountTest extends TestCase {
 
 	@JExercise(
 		tests="void deposit(double)",
-		description="The deposit(double) method takes an amount as its only argument, and adds it to the balance. The method should ignore negative amounts."
+		description="The deposit(double) method takes an amount as its only argument, and adds it to the balance."
 	)
 	public void testDeposit() {
 		account.deposit(100);
 		assertEquals(100.0d, account.balance);
+	}
+	
+	@JExercise(
+			tests="void deposit(double)",
+			description="The deposit(double) method should ignore negative amounts."
+			)
+	public void testDepositNegativeAmount() {
 		account.deposit(-50);
-		assertEquals(100.0d, account.balance);
+		assertEquals(0.0d, account.balance);
 	}
 	
 	@JExercise(
