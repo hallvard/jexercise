@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Confluence JExercise support
+Bundle-SymbolicName: no.hal.confluence.jexercise;singleton:=true
+Bundle-Version: 0.9.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ no.hal.jex.ui;bundle-version="1.1.1",
+ no.hal.confluence.ui;bundle-version="0.9.0",
+ org.eclipse.jdt.core;bundle-version="3.9.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

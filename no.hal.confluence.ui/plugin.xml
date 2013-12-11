@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="wikiAction" name="Wiki action" schema="schema/wikiAction.exsd"/>
+
+   <extension point="org.eclipse.ui.preferencePages">
+      <page id="no.hal.confluence.ui.WikiPreferencePage"
+            class="no.hal.confluence.ui.preferences.WikiPreferencePage"
+            name="Programming Wiki"
+            />
+   </extension>
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="no.hal.confluence.ui.preferences.WikiPreferenceInitializer"/>
+   </extension>
+
+     <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Confluence Wiki"
+            category="no.hal.jex.ui.JExercise"
+            class="no.hal.confluence.ui.views.ConfluenceWikiView"
+            id="no.hal.confluence.ui.views.ConfluenceWikiView">
+      </view>
+   </extension>
+
+     <extension
+           point="no.hal.confluence.ui.wikiAction">
+        <wikiAction
+			id="no.hal.confluence.ui.actions.PasteLinkedSourceIntoPackageExporerAction"
+            wikiActionClass="no.hal.confluence.ui.actions.PasteLinkedSourceIntoPackageExporerAction"
+			name="Paste Linked Source into Package Explorer"
+            urlPattern="^\Qhttps://raw.github.com/\E.*\Q.java\E$"
+         >
+        </wikiAction>
+     </extension>
+
+     <extension
+           point="no.hal.confluence.ui.wikiAction">
+        <wikiAction
+			id="no.hal.confluence.ui.actions.PasteCodeBlocksIntoPackageExporerAction"
+	        wikiActionClass="no.hal.confluence.ui.actions.PasteCodeBlocksIntoPackageExporerAction"
+			name="Paste Code Blocks into Package Explorer"
+          	urlPattern="^\Qhttps://raw.github.com/\E.*\Q.java\E$"
+	    >
+        </wikiAction>
+     </extension>
+
+</plugin>

@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Confluence support
+Bundle-SymbolicName: no.hal.confluence.ui;singleton:=true
+Bundle-Version: 0.9.0.qualifier
+Bundle-Activator: no.hal.confluence.ui.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.browser;bundle-version="3.4.100",
+ org.eclipse.jdt.core;bundle-version="3.9.1",
+ org.eclipse.jdt.ui;bundle-version="3.9.1",
+ org.eclipse.core.resources,
+ org.eclipse.jface.text;bundle-version="3.8.100"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: no.hal.confluence.ui.actions,
+ no.hal.confluence.ui.actions.util,
+ no.hal.confluence.ui.views

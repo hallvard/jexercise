@@ -1,4 +1,5 @@
-package no.hal.jex.eval;
+package no.hal.jex.runtime;
+
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,6 +11,7 @@ import java.lang.annotation.Target;
 
 public @interface JExercise {
 	String tests()		default "";
+	String markupLanguage() default "";
 	String description();
 	String comment()	default "";
 	int points() 		default 0;

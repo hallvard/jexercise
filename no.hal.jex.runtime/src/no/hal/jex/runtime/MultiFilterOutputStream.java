@@ -1,4 +1,4 @@
-package jexutil;
+package no.hal.jex.runtime;
 
 import java.io.FilterOutputStream;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.io.OutputStream;
  * Output stream that writes/copies its contents onto a set of underlying OutputStreams.
  * It may be used for capturing output to Standard.out, without removing it.
  * 
- * @author Hallvard Trætteberg
+ * @author Hallvard TrÃ¦tteberg
  *
  */
 public class MultiFilterOutputStream extends FilterOutputStream {

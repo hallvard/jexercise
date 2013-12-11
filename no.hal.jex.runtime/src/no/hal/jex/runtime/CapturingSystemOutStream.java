@@ -1,4 +1,4 @@
-package jexutil;
+package no.hal.jex.runtime;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
