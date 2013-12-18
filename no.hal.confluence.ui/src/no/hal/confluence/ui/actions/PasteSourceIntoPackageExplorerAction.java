@@ -23,10 +23,14 @@ public abstract class PasteSourceIntoPackageExplorerAction<T> extends CopySource
 		return "src";
 	}
 	
+	private PasteSourceIntoPackageExplorerHelper pasteHelper = null;
+
 	@Override
 	public void run() {
 		super.run();
-		PasteSourceIntoPackageExplorerHelper pasteHelper = new PasteSourceIntoPackageExplorerHelper(getSourceFolderString(), getDefaultSourceFolderName(), getPostActionHook(), browserView.getControl().getDisplay());
+		if (pasteHelper == null) {
+			pasteHelper = new PasteSourceIntoPackageExplorerHelper(getSourceFolderString(), getDefaultSourceFolderName(), getPostActionHook(), browserView);
+		}
 		pasteHelper.run(new NullProgressMonitor());
 	}
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import no.hal.confluence.ui.actions.PostActionHook;
+import no.hal.confluence.ui.views.BrowserView;
 
 import org.eclipse.core.resources.IWorkspaceRunnable;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -26,27 +27,26 @@ import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.jdt.internal.ui.refactoring.reorg.PasteAction;
 
 public class PasteSourceIntoPackageExplorerHelper implements IElementChangedListener, IWorkspaceRunnable {
 
-	private static final String PACKAGE_EXPLORER_VIEW_ID = "org.eclipse.jdt.ui.PackageExplorer";
-
 	private PostActionHook<IJavaElement> postActionHook;
-	private Display display;
+	private BrowserView browserView;
 	private String sourceFolderPath;
 	private String defaultSourceFolderName;
 	
 	protected Display getDisplay() {
-		return display;
+		return browserView.getControl().getDisplay();
 	}
 	
 	protected Collection<IJavaElement> pastedJavaElements = null;
 
-	public PasteSourceIntoPackageExplorerHelper(String sourceFolderPath, String defaultSourceFolderName, PostActionHook<IJavaElement> postActionHook, Display display) {
+	public PasteSourceIntoPackageExplorerHelper(String sourceFolderPath, String defaultSourceFolderName, PostActionHook<IJavaElement> postActionHook, BrowserView browserView) {
 		this.sourceFolderPath = sourceFolderPath;
 		this.defaultSourceFolderName = defaultSourceFolderName;
 		this.postActionHook = postActionHook;
-		this.display = display;
+		this.browserView = browserView;
 	}
 
 	private IProgressMonitor progressMonitor;
@@ -164,12 +164,19 @@ public class PasteSourceIntoPackageExplorerHelper implements IElementChangedList
 		return null;
 	}
 
+//	private static final String PACKAGE_EXPLORER_VIEW_ID = "org.eclipse.jdt.ui.PackageExplorer";
+	private PasteAction pasteAction = null;
+	
 	public SelectionDispatchAction getPasteAction() {
-		IViewPart javaView = showView(PACKAGE_EXPLORER_VIEW_ID, true);
-		if (javaView != null) {
-			IActionBars actionBars = javaView.getViewSite().getActionBars();
-			return (SelectionDispatchAction) actionBars.getGlobalActionHandler("paste");
+		if (pasteAction == null) {
+			pasteAction = new PasteAction(browserView.getSite());
 		}
-		return null;
+		return pasteAction;
+//		IViewPart javaView = showView(PACKAGE_EXPLORER_VIEW_ID, true);
+//		if (javaView != null) {
+//			IActionBars actionBars = javaView.getViewSite().getActionBars();
+//			return (SelectionDispatchAction) actionBars.getGlobalActionHandler("paste");
+//		}
+//		return null;
 	}
 }
