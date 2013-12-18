@@ -679,7 +679,7 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTestRunnable_TestedElement() {
+	public EReference getTestRunnable_TestedElements() {
 		return (EReference)testRunnableEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -858,7 +858,7 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 		createEAttribute(abstractRequirementEClass, ABSTRACT_REQUIREMENT__CHILDREN_SATISFIED);
 
 		testRunnableEClass = createEClass(TEST_RUNNABLE);
-		createEReference(testRunnableEClass, TEST_RUNNABLE__TESTED_ELEMENT);
+		createEReference(testRunnableEClass, TEST_RUNNABLE__TESTED_ELEMENTS);
 
 		javaClassTesterEClass = createEClass(JAVA_CLASS_TESTER);
 
@@ -982,7 +982,7 @@ public class JexPackageImpl extends EPackageImpl implements JexPackage {
 		initEAttribute(getAbstractRequirement_ChildrenSatisfied(), ecorePackage.getEBooleanObject(), "childrenSatisfied", null, 0, 1, AbstractRequirement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testRunnableEClass, TestRunnable.class, "TestRunnable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTestRunnable_TestedElement(), this.getMember(), null, "testedElement", null, 0, 1, TestRunnable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTestRunnable_TestedElements(), this.getMember(), null, "testedElements", null, 0, -1, TestRunnable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(testRunnableEClass, this.getTestRunnable(), "getTestRuns", 0, -1, IS_UNIQUE, IS_ORDERED);
 

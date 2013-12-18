@@ -62,6 +62,7 @@ public class RequirementItemProvider
 
 			addSatisfiedPropertyDescriptor(object);
 			addTimePropertyDescriptor(object);
+			addMessagesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +112,28 @@ public class RequirementItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Messages feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMessagesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Requirement_messages_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_messages_feature", "_UI_Requirement_type"),
+				 JexPackage.Literals.REQUIREMENT__MESSAGES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Requirement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,6 +169,7 @@ public class RequirementItemProvider
 		switch (notification.getFeatureID(Requirement.class)) {
 			case JexPackage.REQUIREMENT__SATISFIED:
 			case JexPackage.REQUIREMENT__TIME:
+			case JexPackage.REQUIREMENT__MESSAGES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

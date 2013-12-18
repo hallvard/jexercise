@@ -17,8 +17,6 @@ public class JexPreferenceInitializer extends AbstractPreferenceInitializer {
 	 */
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store = JexUiPlugin.getPlugin().getPreferenceStore();
-//		store.setDefault(JexPreferencePage.JEX_SERVER, "tdt4100.idi.ntnu.no");
-		store.setDefault(JexPreferencePage.JEX_PATH_PATTERN, "/ovinger/" + JexResource.JEX_EXTENSION + "/");
-//		store.setDefault(JexPreferencePage.JEX_FILE_PATTERN, ".+\\." + JexResource.JEX_EXTENSION);
+		store.setDefault(JexPreferencePage.JEX_TESTS_PATH, "/tdt4100/tests");
 	}
 }

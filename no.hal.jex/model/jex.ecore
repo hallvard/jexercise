@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jex"
-    nsURI="platform:/plugin/no.hal.jex/model/jex.ecore" nsPrefix="jex">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jex" nsURI="platform:/plugin/no.hal.jex/model/jex.ecore" nsPrefix="jex">
   <eClassifiers xsi:type="ecore:EClass" name="JavaPack" eSuperTypes="#//JavaElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
@@ -112,7 +110,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="TestRunnable" abstract="true" interface="true"
       eSuperTypes="#//Member">
     <eOperations name="getTestRuns" upperBound="-1" eType="#//TestRunnable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="testedElement" eType="#//Member"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testedElements" upperBound="-1"
+        eType="#//Member"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaClassTester" eSuperTypes="#//JavaClass #//TestRunnable"/>
   <eClassifiers xsi:type="ecore:EClass" name="JavaMethodTester" eSuperTypes="#//JavaMethod #//TestRunnable"/>

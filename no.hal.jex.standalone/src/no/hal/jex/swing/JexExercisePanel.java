@@ -311,6 +311,7 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 				URL classPathURL = (classPathString.indexOf(':') < 4 ? new File(classPathString).toURI().toURL() : new URL(classPathString));
 				options.classPath = new URL[]{classPathURL};
 			} catch (MalformedURLException e) {
+				System.err.println(e);
 			}
 		}
 		JexExercisePanel panel = new JexExercisePanel(options);

@@ -37,42 +37,48 @@ public class JexResource extends XMIResourceImpl {
 		}
 	}
 
-	public void refreshUri() {
-		boolean loaded = isLoaded();
-		URI uri = getURI();
-		if (loaded) {
-			unload();
-		}
-		setURI(uri);
-		if (loaded) {
-			try {
-				load(Collections.EMPTY_MAP);
-			} catch (IOException e) {
-				System.err.println("Exception when loading " + getURI() + ": " + e);
-			}
-		}
-	}
-
-	public Exercise getExercise(boolean load) {
-		if (load && (! isLoaded())) {
-			try {
-				load(Collections.EMPTY_MAP);
-			} catch (IOException e) {
-				System.err.println("Exception when loading " + getURI() + ": " + e);
-			}
-		}
-		if (load && (! isLoaded())) {
-			return null;
-		}
-		List<EObject> content = getContents();
-		if (content.size() == 0) {
-			return null;
-		}
-		Exercise ex = (Exercise)getContents().get(0);
-		return ex;
-	}
+//	public void refreshUri() {
+//		boolean loaded = isLoaded();
+//		URI uri = getURI();
+//		if (loaded) {
+//			unload();
+//		}
+//		setURI(uri);
+//		if (loaded) {
+//			try {
+//				load(Collections.EMPTY_MAP);
+//			} catch (IOException e) {
+//				System.err.println("Exception when loading " + getURI() + ": " + e);
+//			}
+//		}
+//	}
+//
+//	public Exercise getExercise(boolean load) {
+//		if (load && (! isLoaded())) {
+//			try {
+//				load(Collections.EMPTY_MAP);
+//			} catch (IOException e) {
+//				System.err.println("Exception when loading " + getURI() + ": " + e);
+//			}
+//		}
+//		if (load && (! isLoaded())) {
+//			return null;
+//		}
+//		List<EObject> content = getContents();
+//		if (content.size() == 0) {
+//			return null;
+//		}
+//		Exercise ex = (Exercise)getContents().get(0);
+//		return ex;
+//	}
+	
 	public Exercise getExercise() {
-		return getExercise(getContents().size() == 0);
+		for (EObject ex : getContents()) {
+			if (ex instanceof Exercise) {
+				return (Exercise) ex;
+			}
+		}
+		return null;
 	}
 
 	//

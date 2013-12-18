@@ -61,14 +61,21 @@ public class CreateRequirementsFromJavaModelCommand extends AbstractCommand
 			// must add to parent before searching hierarchy
 			reqParent.getRequirements().add(req);
 			if (req instanceof JUnitTest) {
-				JUnitTest testReq = (JUnitTest)req;
+				JUnitTest testReq = (JUnitTest) req;
 				if (member instanceof TestRunnable) {
-					Member testElement = ((TestRunnable)member).getTestedElement();
-					testReq.setText(testElement != null ? "Test " + testElement.toString() : "Test with " + javaElement.toString());
+					String text = null;
+					for (Member testElement : ((TestRunnable) member).getTestedElements()) {
+						if (text == null) {
+							text = "Test " + testElement.toString();
+						} else {
+							text += "; Test " + testElement.toString();
+						}
+					}
+					testReq.setText(text != null ? text : "Test with " + javaElement.toString());
 				}
 			}
 			if (javaElement instanceof JavaClass && depth != 0) {
-				createRequirementsFromJavaModel(((JavaClass)javaElement).getMembers(), req, depth - 1);
+				createRequirementsFromJavaModel(((JavaClass) javaElement).getMembers(), req, depth - 1);
 			}
 		}
 	}

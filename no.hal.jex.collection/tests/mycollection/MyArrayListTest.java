@@ -1,7 +1,7 @@
 package mycollection;
 
 import junit.framework.TestCase;
-import no.hal.jex.eval.JExercise;
+import no.hal.jex.runtime.JExercise;
 
 @JExercise(
 		tests="MyArrayList implements MyList",

@@ -18,6 +18,8 @@ import no.hal.jex.impl.ExercisePartImpl;
 import no.hal.jex.resource.JexResource;
 import no.hal.jex.ui.JexUiPlugin;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.ISharedImages;
@@ -28,21 +30,28 @@ import org.eclipse.ui.ISharedImages;
  */
 public class ExerciseViewLabelProvider extends LabelProvider {
 	
+	private static String NO_EXERCISE_LABEL = "<no exercise>"; 
+	private static String NAME_PATH_SEPARATOR = " - ";
+
 	public String getText(Object obj) {
 		String text = (obj instanceof AbstractRequirement ? ((AbstractRequirement)obj).getText() : null);
-		if (obj instanceof JexResource) {
-			JexResource res = (JexResource)obj;
-			Exercise ex = res.getExercise();
-			text = (ex != null ? getText(ex) : res.getURI().toString());
+		if (obj == null) {
+			text = NO_EXERCISE_LABEL;
+		} else if (obj instanceof Resource) {
+			Resource res = (Resource) obj;
+			URI uri = res.getURI();
+			text = uri.lastSegment() + NAME_PATH_SEPARATOR + toPath(uri.trimSegments(1));
+//			Exercise ex = res.getExercise();
+//			text = (ex != null ? getText(ex) : res.getURI().toString());
 		} else if (obj instanceof Exercise) {
-			JexResource res = JexUiPlugin.getPlugin().getExerciseManager().getExerciseResource((Exercise)obj);
-			String exText = (res != null ? res.getURI().toString() : null);
-			if (text != null && exText != null) {
-				exText = exText + ": " + text;
-			}
-			text = exText;
+//			JexResource res = JexUiPlugin.getPlugin().getExerciseManager().getExerciseResource((Exercise)obj);
+//			String exText = (res != null ? res.getURI().toString() : null);
+//			if (text != null && exText != null) {
+//				exText = exText + ": " + text;
+//			}
+//			text = exText;
 		} else if (obj instanceof ExercisePart) {
-			String partText = "Part " + ExercisePartImpl.getPartNumber((ExercisePart)obj);
+			String partText = "Part " + ExercisePartImpl.getPartNumber((ExercisePart) obj);
 			if (text != null) {
 				partText = partText + ": " + text;
 			}
@@ -56,6 +65,11 @@ public class ExerciseViewLabelProvider extends LabelProvider {
 			}
 		}
 		return (text != null ? text : "");
+	}
+
+	private String toPath(URI uri) {
+		String uriString = uri.toString();
+		return (uri.isPlatformResource() ? uriString.substring("platform:/resource".length()) : uriString);
 	}
 
 	public final static String PART_OK_IMAGE = "part_ok.png";
@@ -88,7 +102,7 @@ public class ExerciseViewLabelProvider extends LabelProvider {
 			Requirement req = (Requirement)obj;
 			Boolean satisfied = req.getSatisfied();
 			if (req instanceof JUnitTest) {
-				int testStatus = ((JUnitTest)req).getTestStatus();
+				int testStatus = ((JUnitTest) req).getTestStatus();
 				if (testStatus == JUnitTestStatus.ERROR_VALUE || testStatus == JUnitTestStatus.FAILURE_VALUE) {
 					imageKey = JUNIT_ERROR_IMAGE;
 				} else {

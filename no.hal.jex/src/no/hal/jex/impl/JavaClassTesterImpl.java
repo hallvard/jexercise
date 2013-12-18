@@ -6,6 +6,7 @@
  */
 package no.hal.jex.impl;
 
+import java.util.Collection;
 import no.hal.jex.JavaClassTester;
 import no.hal.jex.JavaMethodTester;
 import no.hal.jex.JexPackage;
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -26,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link no.hal.jex.impl.JavaClassTesterImpl#getTestedElement <em>Tested Element</em>}</li>
+ *   <li>{@link no.hal.jex.impl.JavaClassTesterImpl#getTestedElements <em>Tested Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,15 +36,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class JavaClassTesterImpl extends JavaClassImpl implements JavaClassTester {
 	/**
-	 * The cached value of the '{@link #getTestedElement() <em>Tested Element</em>}' reference.
+	 * The cached value of the '{@link #getTestedElements() <em>Tested Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTestedElement()
+	 * @see #getTestedElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected Member testedElement;
-
+	protected EList<Member> testedElements;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,37 +68,11 @@ public class JavaClassTesterImpl extends JavaClassImpl implements JavaClassTeste
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Member getTestedElement() {
-		if (testedElement != null && testedElement.eIsProxy()) {
-			InternalEObject oldTestedElement = (InternalEObject)testedElement;
-			testedElement = (Member)eResolveProxy(oldTestedElement);
-			if (testedElement != oldTestedElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENT, oldTestedElement, testedElement));
-			}
+	public EList<Member> getTestedElements() {
+		if (testedElements == null) {
+			testedElements = new EObjectResolvingEList<Member>(Member.class, this, JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENTS);
 		}
-		return testedElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Member basicGetTestedElement() {
-		return testedElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTestedElement(Member newTestedElement) {
-		Member oldTestedElement = testedElement;
-		testedElement = newTestedElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENT, oldTestedElement, testedElement));
+		return testedElements;
 	}
 
 	/**
@@ -123,9 +98,8 @@ public class JavaClassTesterImpl extends JavaClassImpl implements JavaClassTeste
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENT:
-				if (resolve) return getTestedElement();
-				return basicGetTestedElement();
+			case JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENTS:
+				return getTestedElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -135,11 +109,13 @@ public class JavaClassTesterImpl extends JavaClassImpl implements JavaClassTeste
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENT:
-				setTestedElement((Member)newValue);
+			case JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENTS:
+				getTestedElements().clear();
+				getTestedElements().addAll((Collection<? extends Member>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -153,8 +129,8 @@ public class JavaClassTesterImpl extends JavaClassImpl implements JavaClassTeste
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENT:
-				setTestedElement((Member)null);
+			case JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENTS:
+				getTestedElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -168,8 +144,8 @@ public class JavaClassTesterImpl extends JavaClassImpl implements JavaClassTeste
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENT:
-				return testedElement != null;
+			case JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENTS:
+				return testedElements != null && !testedElements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -183,7 +159,7 @@ public class JavaClassTesterImpl extends JavaClassImpl implements JavaClassTeste
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == TestRunnable.class) {
 			switch (derivedFeatureID) {
-				case JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENT: return JexPackage.TEST_RUNNABLE__TESTED_ELEMENT;
+				case JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENTS: return JexPackage.TEST_RUNNABLE__TESTED_ELEMENTS;
 				default: return -1;
 			}
 		}
@@ -199,7 +175,7 @@ public class JavaClassTesterImpl extends JavaClassImpl implements JavaClassTeste
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == TestRunnable.class) {
 			switch (baseFeatureID) {
-				case JexPackage.TEST_RUNNABLE__TESTED_ELEMENT: return JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENT;
+				case JexPackage.TEST_RUNNABLE__TESTED_ELEMENTS: return JexPackage.JAVA_CLASS_TESTER__TESTED_ELEMENTS;
 				default: return -1;
 			}
 		}

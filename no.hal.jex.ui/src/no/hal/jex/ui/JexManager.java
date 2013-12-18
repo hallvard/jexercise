@@ -6,47 +6,31 @@
  */
 package no.hal.jex.ui;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import no.hal.jex.AbstractRequirement;
 import no.hal.jex.Exercise;
 import no.hal.jex.JUnitTest;
 import no.hal.jex.JUnitTestStatus;
-import no.hal.jex.JavaClass;
 import no.hal.jex.JavaElement;
 import no.hal.jex.JavaMethodTester;
-import no.hal.jex.JavaPack;
 import no.hal.jex.JavaRequirement;
-import no.hal.jex.JexFactory;
 import no.hal.jex.Requirement;
 import no.hal.jex.TestRunnable;
-import no.hal.jex.editor.commands.CreateExerciseFromTestAnnotationsCommand;
 import no.hal.jex.eval.AbstractRequirementChecker;
 import no.hal.jex.jdt.JdtHelper;
 import no.hal.jex.jdt.JdtRequirementChecker;
 import no.hal.jex.resource.JexResource;
 import no.hal.jex.views.ExerciseView;
 
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.IResourceDelta;
-import org.eclipse.core.resources.IResourceDeltaVisitor;
-import org.eclipse.core.resources.IResourceVisitor;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -54,11 +38,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jdt.core.ElementChangedEvent;
 import org.eclipse.jdt.core.IElementChangedListener;
 import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IPackageFragment;
-import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.junit.JUnitCore;
 import org.eclipse.jdt.junit.TestRunListener;
 import org.eclipse.jdt.junit.launcher.JUnitLaunchShortcut;
@@ -72,45 +52,37 @@ import org.osgi.framework.Bundle;
  * @author hal
  */
 public class JexManager extends TestRunListener implements
-IElementChangedListener, IResourceChangeListener {
-
-	private String jexPathPattern;
-	private int exCount;
+IElementChangedListener, // IResourceChangeListener,
+JexResourceProvider.Listener {
 
 	private JexLogWriter jexLogWriter;
 
-	public JexManager(String jexPathPattern /*, int exCount */) {
-//		this.exCount = exCount;
-
+	public JexManager(String jexPathPattern) {
 		JavaCore.addElementChangedListener(this);
 		JUnitCore.addTestRunListener(this);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
+//		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
 		jexLogWriter = new JexLogWriter();
 	}
 
 	public void dispose() {
+//		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
 		JUnitCore.removeTestRunListener(this);
 		JavaCore.removeElementChangedListener(this);
 	}
 
 	public void setJexPathPattern(String jexPathPattern) {
-		this.jexPathPattern = jexPathPattern;
+		if (jexResourceProvider instanceof JexWorkspaceResourcesProvider) {
+			((JexWorkspaceResourcesProvider) jexResourceProvider).setJexPathPattern(jexPathPattern);
+		}
 		refreshExerciseResources(true);
 	}
 
-	private void refreshExerciseResources(boolean force) {
-		final JexResource[] resources = getExerciseResources(force);
-		exView.asyncExec(new Runnable() {
-			public void run() {
-				exView.refreshExercises(resources);
-			}
-		});
-	}
-
-	private ExerciseView exView;
+	private ExerciseView exerciseView;
 
 	public void setViewer(ExerciseView view) {
-		this.exView = view;
+		this.exerciseView = view;
+		refreshExerciseResources(false);
+		view.setInput(exercises);
 	}
 
 	public void log(String message, int severity, Throwable e) {
@@ -149,317 +121,169 @@ IElementChangedListener, IResourceChangeListener {
 		}
 	}
 
+	private JexResourceProvider jexResourceProvider;
+
+	public JexResourceProvider getJexResourceProvider() {
+		if (jexResourceProvider == null) {
+			setJexResourceProvider(new JexWorkspaceResourcesProvider());
+		}
+		return jexResourceProvider;
+	}
+
+	public void setJexResourceProvider(JexResourceProvider jexResourceProvider) {
+		if (this.jexResourceProvider != null) {
+			this.jexResourceProvider.removeListener(this);
+		}
+		this.jexResourceProvider = jexResourceProvider;
+		if (this.jexResourceProvider != null) {
+			this.jexResourceProvider.addListener(this);
+		}
+	}
+
+	public void setRootResources(IResource... resources) {
+		if (! (jexResourceProvider instanceof JexWorkspaceResourcesProvider)) {
+			setJexResourceProvider(new JexWorkspaceResourcesProvider());
+		}
+		((JexWorkspaceResourcesProvider) jexResourceProvider).setRootResources(resources);
+	}
+	
 	private boolean validateRequirementsOnLoad = true;
 
 	public void setValidateRequirementsOnLoad(boolean validateRequirementsOnLoad) {
 		this.validateRequirementsOnLoad = validateRequirementsOnLoad;
 	}
 
-	private class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-		public boolean visit(IResourceDelta delta) throws CoreException {
-			return (! resourceChanged(delta.getResource(), delta));
-		}
-	}
-	private IResourceDeltaVisitor resourceDeltaVisitor = new ResourceDeltaVisitor();
+	private ResourceSet exercises = null; 
 
-	public void resourceChanged(IResourceChangeEvent event) {
-		IResource res = event.getResource();
-		if (res != null) {
-			resourceChanged(res, event.getDelta());
-		} else {
-			try {
-				event.getDelta().accept(resourceDeltaVisitor);
-			} catch (CoreException e) {
-			}
-		}
-	}
-
-	private static boolean isExerciseResource(IResource res) {
-		return res != null && isExerciseResourceName(res.getName());
-	}
-
-	public static boolean isExerciseResourceName(String name) {
-		return name.endsWith(JexResource.JEX_EXTENSION) && name.endsWith("." + JexResource.JEX_EXTENSION);
-	}
-
-	private boolean resourceChanged(IResource res, IResourceDelta delta) {
-		if (! isExerciseResource(res)) {
-			return false;
-		}
-		JexResource ex = getExerciseResource(URI.createPlatformResourceURI(res.getFullPath().toString(), true));
-		if (ex != null && (delta == null || delta.getKind() != IResourceDelta.REMOVED)) {
-			refreshExerciseResource(ex);
-		} else {
-			refreshExerciseResources(true);
-		}
-		return ex != null;
-	}
-
-	public void refreshExerciseResource(JexResource res) {
-		if (res == null || indexOfExerciseResource(res) < 0) {
-			return;
-		}
-		res.refreshUri();
-		if (exView != null) {
-			exView.refreshViewer(res);
-		}
-	}
-
-	private JexResource[] exercises = null; 
-
-	public int getExerciseCount() {
-		return exCount;
-	}
-
-	private String classifyResourceException(Exception e) {
-		if (e instanceof WrappedException) {
-			e = ((WrappedException)e).exception();
-		}
-		String s = e.getClass().getName();
-		if (s.startsWith("org.eclipse.emf.ecore.xmi")) { 
-			return "XMI";
-		} else if (s.startsWith("org.xml.sax")) {
-			return "XML";
-		}
-		return null;
-	}
-
-	public JexResource createExerciseResource(URI uri) {
-		ResourceSet resSet = new ResourceSetImpl();
-		JexResource res;
-		try {
-			res = (JexResource)resSet.getResource(uri, true);
-		} catch (RuntimeException e) {
-			String problem = classifyResourceException(e);
-			if (problem != null) {
-				log(problem + " problem with " + uri + ", consider fixing or removing it", Status.WARNING, e);
-			}
-			return null;
-		}
-		resolveContainmentProxies(res);
-		if (validateRequirementsOnLoad) {
-			validateRequirements(res, null);
-		}
-		return res;
-	}
-
-	private JexResource createTestsExerciseResource(URI uri, Exercise ex) {
-		ResourceSet resSet = new ResourceSetImpl();
-		JexResource res = (JexResource)resSet.createResource(uri);
-		res.getContents().add(ex);
-		if (validateRequirementsOnLoad) {
-			validateRequirements(res, null);
-		}
-		return res;
-	}
-
-	protected JexResource[] getExerciseResources(boolean reload) {
-		if (exercises == null || reload) {
-			List<JexResource> resources = new ArrayList<JexResource>();
-			addExercises(resources);
-			exercises = (JexResource[])resources.toArray(new JexResource[resources.size()]);
-		}
-		return exercises;
-	}
-
-	private String getRegexForPathPattern(String[] segments) {
-		String regex = Pattern.quote(segments[0]);
-		for (int i = 1; i < segments.length; i++) {
-			regex += ".*" + Pattern.quote(segments[i]);
-		}
-		return regex;
-	}
-
-	private void addExercises(final List<JexResource> resources) {
-		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		String wildcard = Pattern.quote("*");
-		String[] segments = (jexPathPattern != null ? jexPathPattern.split(wildcard) : new String[0]);
-		final String pathPattern = (segments.length == 0 ? null : getRegexForPathPattern(segments));
-		final String pathPrefix = (segments.length == 0 ? null : segments[0]);
-		try {
-			root.accept(new IResourceVisitor() {
-				public boolean visit(IResource resource) throws CoreException {
-					IPath path = resource.getFullPath();
-					String pathString = path.toString();
-					if (pathPrefix != null && (! pathString.startsWith(pathPrefix))) {
-						return false;
-					}
-					if (resource instanceof IFolder && path.segmentCount() == 3) {
-						addTestsExerciseResources(resource, pathPattern, resources);
-					}
-					if (pathString.endsWith(JexResource.JEX_EXTENSION) && (pathPattern == null || pathString.matches(pathPattern))) {
-						addExerciseResources(resource, resources);
-					}
-					return true;
-				}
-			});
-		} catch (CoreException e) {
-		}
-	}
+	// JexResourceProvider.Listener
 	
-	private void addExerciseResources(IResource resource, List<JexResource> resources) {
-		URI uri = URI.createPlatformResourceURI(resource.getFullPath().toString(), true);
-		JexResource ex = createExerciseResource(uri);
-		if (ex != null) {
-			resources.add(ex);
+	public void resourceChanged(URI uri) {
+		if (uri == null) {
+			refreshExerciseResources(true);
+		} else {
+			Resource exerciseResource = getExerciseResource(uri);
+			boolean exists = exercises.getURIConverter().exists(uri, null);
+			if (exerciseResource == null && exists) {
+				exercises.getResources().add(exerciseResource);
+			} else if (exerciseResource != null && (! exists)) {
+				exercises.getResources().remove(exerciseResource);
+			} else if (exerciseResource != null && exists) {
+				if (exerciseResource.isLoaded()) {
+					exerciseResource.unload();
+				}
+				try {
+					exerciseResource.load(null);
+				} catch (IOException e) {
+					exercises.getResources().remove(exerciseResource);
+				}
+			}
 		}
 	}
 
-	private void addTestsExerciseResources(IResource resource, String pathPattern, List<JexResource> resources) {
-		String[] segments = resource.getFullPath().segments();
-		if (segments.length < 2) {
-			return;
-		}
-		String projectPath = "/" + segments[0];
-		IJavaProject javaProject = JdtHelper.getJavaProject(URI.createPlatformResourceURI(projectPath, true));
-		if (javaProject == null) {
-			return;
-		}
-		try {
-			IPackageFragmentRoot packageFragmentRoot = javaProject.findPackageFragmentRoot(new Path(projectPath + "/" + segments[1]));
-			if (packageFragmentRoot == null) {
-				return;
-			}
-			String packageName = null;
-			IPackageFragment packageFragment = null;
-			for (int i = 2; i < segments.length; i++) {
-				packageName = (packageName == null ? segments[i] : "." + segments[i]);
-				IPackageFragment fragment = packageFragmentRoot.getPackageFragment(packageName);
-				if (fragment != null) {
-					packageFragment = fragment;
-				}
-			}
-			IJavaElement javaElement = packageFragment != null ? packageFragment : packageFragmentRoot;
-			IResource uriResource = javaElement.getCorrespondingResource();
-			if (uriResource == null) {
-				uriResource = resource;
-			}
-			URI testsResourceUri = URI.createPlatformResourceURI(uriResource.getFullPath() + "." + JexResource.JEX_EXTENSION, true);
-			Exercise ex = JexFactory.eINSTANCE.createExercise();
-			JexResource testRes = createTestsExerciseResource(testsResourceUri, ex);
-			CreateExerciseFromTestAnnotationsCommand command = new CreateExerciseFromTestAnnotationsCommand(ex, javaElement);
-			command.setPathPattern(pathPattern);
-			try {
-				command.execute();
-				TreeIterator<EObject> it = ex.eAllContents();
-				while (it.hasNext()) {
-					if (it.next() instanceof JUnitTest) {
-						resources.add(testRes);
-						break;
-					}
-				}
-			} catch (Exception e) {
-			}
-		} catch (JavaModelException e) {
-		}
-	}
-
-	//	private void addExercisesResources(IContainer container, String pattern, List<JexResource> resources) {
-	//		Pattern pat = (jexFilePattern != null && jexFilePattern.length() > 0 ? Pattern.compile(pattern) : null);
-	//		IResource[] children = null;
-	//		try {
-	//			children = ((IContainer)container).members();
-	//		} catch (CoreException e) {
-	//		}
-	//		for (int i = 0; children != null && i < children.length; i++) {
-	//			IResource res = children[i];
-	//			if (pat == null || pat.matcher(res.getName()).matches()) {
-	//				URI uri = getResourceURI(res.getFullPath().toString());
-	//				JexResource ex = createExerciseResource(uri);
-	//				if (ex != null) {
-	//					resources.add(ex);
-	//				}
-	//			}
-	//		}
-	//	}
-
-	//	private void addNumberedExercises(List<JexResource> resources) {
-	//		int consecutive = 0;
-	//		for (int i = 0; i < exCount; i++) {
-	//			URI uri = getResourceURI(i);
-	//			JexResource res = createExerciseResource(uri);
-	//			if (res != null) {
-	//				resources.add(res);
-	//				consecutive = 0;
-	//			} else if (consecutive++ >= 10) {
-	//				break;
-	//			}
-	//		}
-	//	}
-
-	//	private void addAllExercises(List<JexResource> resources) {
-	//		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
-	//		for (int i = 0; i < projects.length; i++) {
-	//			IProject project = projects[i];
-	//			if (JexResource.isJavaProject(project)) {
-	//				addTestsExerciseResource(project, resources);
-	//				addExerciseResources(project, 1, jexFilePattern, resources);
-	//			}
-	//		}
-	//	}
-
-//	private void addTestsExerciseResource(IProject project, List<JexResource> resources) {
-//		Exercise ex = JexFactory.eINSTANCE.createExercise();
-//		URI testsResourceUri = URI.createPlatformResourceURI(project.getName() + "/" + jexTestsFolderName + "/" + project.getName() + "." + JexResource.JEX_EXTENSION, true);
-//		JexResource testRes = createTestsExerciseResource(testsResourceUri, ex);
-//		Command command = new CreateExerciseFromTestAnnotationsCommand(ex, jexTestsFolderName);
-//		try {
-//			command.execute();
-//			resources.add(testRes);
-//		} catch (Exception e) {
+//	private class ResourceDeltaVisitor implements IResourceDeltaVisitor {
+//		public boolean visit(IResourceDelta delta) throws CoreException {
+//			return (! resourceChanged(delta.getResource(), delta));
 //		}
 //	}
+//
+//	private IResourceDeltaVisitor resourceDeltaVisitor = new ResourceDeltaVisitor();
+//
+//	public void resourceChanged(IResourceChangeEvent event) {
+//		IResource res = event.getResource();
+//		if (res != null) {
+//			resourceChanged(res, event.getDelta());
+//		} else {
+//			try {
+//				event.getDelta().accept(resourceDeltaVisitor);
+//			} catch (CoreException e) {
+//			}
+//		}
+//	}
+//
+//	private static boolean isExerciseResource(IResource res) {
+//		return res != null && isExerciseResourceName(res.getName());
+//	}
 
-	//	private void addExerciseResources(IContainer cont, int depth, String pattern, List<JexResource> resources) {
-	//		IResource[] members = null;
-	//		try {
-	//			members = cont.members();
-	//		} catch (CoreException e) {
-	//		}
-	//		for (int i = 0; members != null && i < members.length; i++) {
-	//			if (! (members[i] instanceof IFolder)) {
-	//				continue;
-	//			}
-	//			IFolder folder = (IFolder)members[i];
-	//			if (depth > 1) {
-	//				addExerciseResources(folder, depth - 1, pattern, resources);
-	//			} else {
-	//				addExercisesResources(folder, pattern, resources);
-	//			}
-	//		}
-	//	}
+//	public static boolean isExerciseResourceName(String name) {
+//		return name.endsWith(JexResource.JEX_EXTENSION) && name.endsWith("." + JexResource.JEX_EXTENSION);
+//	}
 
-	public JexResource[] getExerciseResources() {
-		return getExerciseResources(false);
+//	private boolean resourceChanged(IResource res, IResourceDelta delta) {
+//		if (! isExerciseResource(res)) {
+//			return false;
+//		}
+//		JexResource ex = getExerciseResource(URI.createPlatformResourceURI(res.getFullPath().toString(), true));
+//		if (ex != null && (delta == null || delta.getKind() != IResourceDelta.REMOVED)) {
+//			refreshExerciseResource(ex);
+//		} else {
+//			refreshExerciseResources(true);
+//		}
+//		return ex != null;
+//	}
+
+//	private String classifyResourceException(Exception e) {
+//		if (e instanceof WrappedException) {
+//			e = ((WrappedException)e).exception();
+//		}
+//		String s = e.getClass().getName();
+//		if (s.startsWith("org.eclipse.emf.ecore.xmi")) { 
+//			return "XMI";
+//		} else if (s.startsWith("org.xml.sax")) {
+//			return "XML";
+//		}
+//		return null;
+//	}
+
+//	public JexResource createExerciseResource(URI uri) {
+//		ResourceSet resSet = new ResourceSetImpl();
+//		JexResource res;
+//		try {
+//			res = (JexResource)resSet.getResource(uri, true);
+//		} catch (RuntimeException e) {
+//			String problem = classifyResourceException(e);
+//			if (problem != null) {
+//				log(problem + " problem with " + uri + ", consider fixing or removing it", Status.WARNING, e);
+//			}
+//			return null;
+//		}
+//		resolveContainmentProxies(res);
+//		if (validateRequirementsOnLoad) {
+//			validateRequirements(res, null);
+//		}
+//		return res;
+//	}
+
+	protected void refreshExerciseResources(boolean reload) {
+		if (exercises == null) {
+			exercises = new ResourceSetImpl();
+			reload = true;
+		}
+		if (reload) {
+			exercises.getResources().clear();
+			getJexResourceProvider().getJexResources(exercises);
+		}
 	}
 
-	public JexResource getExerciseResource(Exercise ex) {
-		for (int i = 0; i < exercises.length; i++) {
-			JexResource res = exercises[i];
-			if (res != null && ex == res.getExercise()) {
-				return res;
+	public Resource getExerciseResource(Exercise ex) {
+		for (Resource resource : exercises.getResources()) {
+			if (resource.getContents().contains(ex)) {
+				return resource;
 			}
 		}
 		return null;
 	}
-	public JexResource getExerciseResource(URI uri) {
-		for (int i = 0; i < exercises.length; i++) {
-			JexResource res = exercises[i];
-			if (res != null && uri.equals(res.getURI())) {
-				return res;
+	public Resource getExerciseResource(URI uri) {
+		for (Resource resource : exercises.getResources()) {
+			if (uri.equals(resource.getURI())) {
+				return resource;
 			}
 		}
 		return null;
 	}
 
-	public int indexOfExerciseResource(JexResource res) {
-		for (int i = 0; i < exercises.length; i++) {
-			if (exercises[i] == res) {
-				return i;
-			}
-		}
-		return -1;
-	}
+//	public int indexOfExerciseResource(JexResource res) {
+//		return exercises.getResources().indexOf(res);
+//	}
 
 	public final static String REQUIREMENT_SATISFIED = "requirement satisfied";
 
@@ -483,11 +307,12 @@ IElementChangedListener, IResourceChangeListener {
 		for (AbstractRequirement childReq : req.getRequirements()) {
 			Boolean childResult = null;
 			if (childReq instanceof Requirement) {
-				if (req instanceof Requirement && ((Requirement)req).getSatisfied() != Boolean.TRUE) {
-				} else if (childReq instanceof JavaRequirement) {
-					childResult = requirementChecker.validateRequirement((JavaRequirement)childReq);
+//				if (req instanceof Requirement && ((Requirement) req).getSatisfied() != Boolean.TRUE) {
+//				} else
+				if (childReq instanceof JavaRequirement) {
+					childResult = requirementChecker.validateRequirement((JavaRequirement) childReq);
 				}
-				setRequirementSatisfied((Requirement)childReq, childResult, changes);
+				setRequirementSatisfied((Requirement) childReq, childResult, changes);
 			}
 			childResult = JdtRequirementChecker.satisfiedAnd(childResult, validateChildrenRequirements(childReq, changes));
 			childrenResult = JdtRequirementChecker.satisfiedAnd(childrenResult, childResult);
@@ -499,43 +324,43 @@ IElementChangedListener, IResourceChangeListener {
 		return childrenResult;
 	}
 
-	void resolveContainmentProxies(JexResource res) {
-		Exercise ex = res.getExercise();
-		if (ex != null) {
-			resolveContainmentProxies(ex);
-		}
-	}
-	private void resolveContainmentProxies(AbstractRequirement req) {
-		List<AbstractRequirement> reqs = req.getRequirements();
-		for (AbstractRequirement aReq : reqs) {
-			resolveContainmentProxies(aReq);
-		}
-		List<JavaElement> javaElements = req.getJavaElements();
-		for (JavaElement javaElement : javaElements) {
-			resolveContainmentProxies(javaElement);
-		}
-	}
-	private void resolveContainmentProxies(JavaElement javaElement) {
-		List<JavaClass> children = null;
-		if (javaElement instanceof JavaPack) {
-			children = ((JavaPack)javaElement).getClasses();
-		}
-		if (children != null) {
-			for (int i = 0; i < children.size(); i++) {
-				JavaElement child = (JavaElement)children.get(i);
-				if (child.eContainer() != javaElement && javaElement instanceof JavaPack && child instanceof JavaClass) {
-					JavaPack pack = (JavaPack)javaElement;
-					JavaClass c = (JavaClass)child;
-					String prefix = pack.getName() + ".";
-					if (! c.getName().startsWith(prefix)) {
-						c.setName(prefix + c.getName());
-					}
-					// System.out.println("Fixed class name: " + c.getFullName());
-				}
-				resolveContainmentProxies(child);
-			}
-		}
-	}
+//	void resolveContainmentProxies(JexResource res) {
+//		Exercise ex = res.getExercise();
+//		if (ex != null) {
+//			resolveContainmentProxies(ex);
+//		}
+//	}
+//	private void resolveContainmentProxies(AbstractRequirement req) {
+//		List<AbstractRequirement> reqs = req.getRequirements();
+//		for (AbstractRequirement aReq : reqs) {
+//			resolveContainmentProxies(aReq);
+//		}
+//		List<JavaElement> javaElements = req.getJavaElements();
+//		for (JavaElement javaElement : javaElements) {
+//			resolveContainmentProxies(javaElement);
+//		}
+//	}
+//	private void resolveContainmentProxies(JavaElement javaElement) {
+//		List<JavaClass> children = null;
+//		if (javaElement instanceof JavaPack) {
+//			children = ((JavaPack)javaElement).getClasses();
+//		}
+//		if (children != null) {
+//			for (int i = 0; i < children.size(); i++) {
+//				JavaElement child = (JavaElement)children.get(i);
+//				if (child.eContainer() != javaElement && javaElement instanceof JavaPack && child instanceof JavaClass) {
+//					JavaPack pack = (JavaPack)javaElement;
+//					JavaClass c = (JavaClass)child;
+//					String prefix = pack.getName() + ".";
+//					if (! c.getName().startsWith(prefix)) {
+//						c.setName(prefix + c.getName());
+//					}
+//					// System.out.println("Fixed class name: " + c.getFullName());
+//				}
+//				resolveContainmentProxies(child);
+//			}
+//		}
+//	}
 
 	//
 
@@ -550,11 +375,13 @@ IElementChangedListener, IResourceChangeListener {
 
 	public void validateExerciseRequirements(List<AbstractRequirement> changes) {
 		validationTime = System.currentTimeMillis();
-		JexResource[] resources = getExerciseResources();
-		for (int i = 0; i < resources.length; i++) {
-			validateRequirements(resources[i], changes);
+		for (Resource resource : exercises.getResources()) {
+			if (resource instanceof JexResource) {
+				validateRequirements((JexResource) resource, changes);
+			}
 		}
 	}
+	
 	public List<AbstractRequirement> validateExerciseRequirements() {
 		List<AbstractRequirement> changed = new ArrayList<AbstractRequirement>();
 		validateExerciseRequirements(changed);
@@ -565,8 +392,8 @@ IElementChangedListener, IResourceChangeListener {
 
 	public void elementChanged(ElementChangedEvent event) {
 		// System.out.println("Java Model Event " + event.getType() + ": " + event.getDelta());
-		if (exView != null && (! jexLogWriter.isWriting())) {
-			exView.updateViewer(validateExerciseRequirements(), true);
+		if (exerciseView != null && (! jexLogWriter.isWriting())) {
+			exerciseView.updateViewer(validateExerciseRequirements(), true);
 		}
 	}
 
@@ -619,7 +446,7 @@ IElementChangedListener, IResourceChangeListener {
 		}
 		req.setSatisfied(satisfied);
 		List<AbstractRequirement> changes = new ArrayList<AbstractRequirement>();
-		validateRequirements((JexResource)req.eResource(), changes);
+		validateRequirements((JexResource) req.eResource(), changes);
 		AbstractRequirement childReq = req;
 		while (childReq != null) {
 			if (changes.indexOf(childReq) < 0) {
@@ -627,7 +454,7 @@ IElementChangedListener, IResourceChangeListener {
 			}
 			childReq = childReq.getParent();
 		}
-		exView.updateViewer(changes, true);
+		exerciseView.updateViewer(changes, true);
 		jexLog(req, TEST_RUN_STATUS, satisfied, logValidateTestRunSeverity);
 	}
 
@@ -712,9 +539,10 @@ IElementChangedListener, IResourceChangeListener {
 		if (runResults == null) {
 			return;
 		}
-		JexResource[] resources = getExerciseResources();
-		for (int i = 0; i < resources.length; i++) {
-			validateTestRunRequirements(resources[i].getExercise(), runResults);
+		for (Resource resource : exercises.getResources()) {
+			if (resource instanceof JexResource) {
+				validateTestRunRequirements(((JexResource) resource).getExercise(), runResults);
+			}
 		}
 		runResults = null;
 	}

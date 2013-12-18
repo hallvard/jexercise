@@ -3,8 +3,9 @@ package no.hal.confluence.ui.actions.util;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import no.hal.confluence.ui.actions.PostPasteHook;
+import no.hal.confluence.ui.actions.PostActionHook;
 
+import org.eclipse.core.resources.IWorkspaceRunnable;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.ElementChangedEvent;
@@ -26,13 +27,14 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
-public class PasteSourceIntoPackageExplorerHelper implements IElementChangedListener {
+public class PasteSourceIntoPackageExplorerHelper implements IElementChangedListener, IWorkspaceRunnable {
 
 	private static final String PACKAGE_EXPLORER_VIEW_ID = "org.eclipse.jdt.ui.PackageExplorer";
 
-	private PostPasteHook postPasteHook;
+	private PostActionHook<IJavaElement> postActionHook;
 	private Display display;
-	private IProgressMonitor progressMonitor;
+	private String sourceFolderPath;
+	private String defaultSourceFolderName;
 	
 	protected Display getDisplay() {
 		return display;
@@ -40,9 +42,16 @@ public class PasteSourceIntoPackageExplorerHelper implements IElementChangedList
 	
 	protected Collection<IJavaElement> pastedJavaElements = null;
 
-	public void run(String sourceFolderPath, String defaultSourceFolderName, PostPasteHook postPasteHook, Display display, IProgressMonitor progressMonitor) {
-		this.postPasteHook = postPasteHook;
+	public PasteSourceIntoPackageExplorerHelper(String sourceFolderPath, String defaultSourceFolderName, PostActionHook<IJavaElement> postActionHook, Display display) {
+		this.sourceFolderPath = sourceFolderPath;
+		this.defaultSourceFolderName = defaultSourceFolderName;
+		this.postActionHook = postActionHook;
 		this.display = display;
+	}
+
+	private IProgressMonitor progressMonitor;
+	
+	public void run(IProgressMonitor progressMonitor) {
 		this.progressMonitor = progressMonitor;
 
 		StructuredSelection selection = null;
@@ -91,11 +100,11 @@ public class PasteSourceIntoPackageExplorerHelper implements IElementChangedList
 //				System.out.println("Pasted " + element.getElementName());
 			}
 		}
-		if (wasEmpty && pastedJavaElements.size() > 0 && postPasteHook != null) {
+		if (wasEmpty && pastedJavaElements.size() > 0 && postActionHook != null) {
 			getDisplay().asyncExec(new Runnable() {
 				@Override
 				public void run() {
-					postPasteHook.javaElementsPasted(pastedJavaElements);
+					postActionHook.postActionHook(pastedJavaElements);
 				}
 			});
 		}

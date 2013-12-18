@@ -1,7 +1,7 @@
 package counter;
 
 import junit.framework.TestCase;
-import no.hal.jex.eval.JExercise;
+import no.hal.jex.runtime.JExercise;
 
 @JExercise(
 		description="A class that counts from a <b>start</b> to an <b>end</b> value. " +

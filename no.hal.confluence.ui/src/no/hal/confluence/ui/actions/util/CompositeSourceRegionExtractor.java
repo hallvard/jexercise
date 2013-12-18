@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import no.hal.confluence.ui.actions.SourceRegionExtractor;
+import no.hal.confluence.ui.actions.ContentRegionExtractor;
 
 public class CompositeSourceRegionExtractor<T> {
 	
-	private Collection<SourceRegionExtractor<T>> sourceRegionExtractors;
+	private Collection<ContentRegionExtractor<T>> sourceRegionExtractors;
 	
-	public CompositeSourceRegionExtractor(SourceRegionExtractor<T>... sourceRegionExtractors) {
+	public CompositeSourceRegionExtractor(ContentRegionExtractor<T>... sourceRegionExtractors) {
 		this.sourceRegionExtractors = Arrays.asList(sourceRegionExtractors);
 	}
 	
 	public Collection<T> getSourceRegions(String browserContent) {
 		Collection<T> regions = new ArrayList<T>();
-		for (SourceRegionExtractor<T> sourceRegionExtractor : sourceRegionExtractors) {
-			regions.addAll(sourceRegionExtractor.getSourceRegions(browserContent));
+		for (ContentRegionExtractor<T> sourceRegionExtractor : sourceRegionExtractors) {
+			regions.addAll(sourceRegionExtractor.getContentRegions(browserContent));
 		}
 		return regions;
 	}

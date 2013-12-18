@@ -1,8 +1,13 @@
 package oving5.card;
 
+import no.hal.jex.runtime.JExercise;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
+@JExercise(
+		tests="CardDeckTest; CardTest",
+		description="Runs CardDeckTest and CardTest"
+		)
 public class AllTests {
 
 	public static Test suite() {
@@ -13,5 +18,4 @@ public class AllTests {
 		//$JUnit-END$
 		return suite;
 	}
-
 }

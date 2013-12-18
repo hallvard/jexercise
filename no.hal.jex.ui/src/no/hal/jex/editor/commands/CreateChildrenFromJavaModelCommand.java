@@ -100,8 +100,12 @@ public class CreateChildrenFromJavaModelCommand extends AbstractCommand
 						newMethod.setReturnType(null);
 					}
 					if (newMethod instanceof JavaMethodTester && parent instanceof JavaClassTester) {
-						Member testedMethod = findTestedMethod(newMethod.getSimpleName(), ((JavaClass)((JavaClassTester)parent).getTestedElement()).getMembers());
-						((JavaMethodTester)newMethod).setTestedElement(testedMethod);
+						for (Member member : ((JavaClassTester) parent).getTestedElements()) {
+							Member testedMethod = findTestedMethod(newMethod.getSimpleName(), ((JavaClass) member).getMembers());
+							if (testedMethod != null) {
+								((JavaMethodTester) newMethod).getTestedElements().add(testedMethod);
+							}
+						}
 					}
 				}
 			}
@@ -153,11 +157,11 @@ public class CreateChildrenFromJavaModelCommand extends AbstractCommand
 	}
 
 	private JavaClass createNamedClass(String name, EClass eClass, Member testedElement, int depth, List<? extends Member> results) throws JavaModelException, Exception {
-		IType type = JdtHelper.findJdtClass(name, JdtHelper.getJavaProject(testedElement.eResource()));
+		IType type = JdtHelper.findJdtClass(name, JdtHelper.getJavaProject(testedElement.eResource().getURI()));
 		if (type != null && matchesModifiers(type)) {
 			JavaClass newClass = (JavaClass) ensureJexMember(eClass, type, results);
 			if (newClass instanceof TestRunnable) {
-				((TestRunnable) newClass).setTestedElement(testedElement);
+				((TestRunnable) newClass).getTestedElements().add(testedElement);
 			}
 			if (depth != 0) {
 				createChildrenFromJavaModel(newClass, type, depth - 1);

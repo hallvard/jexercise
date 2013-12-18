@@ -29,20 +29,12 @@ public class JdtRequirementChecker extends AbstractRequirementChecker {
 	//
 
 	private static boolean testTypeString(String s1, String s2) {
-		if (s1 == null) {
-			return true;
-		}
-		if (s1.equals(s2)) {
-			return true;
-		}
-		if (Signature.createTypeSignature(s1, false).equals(s2) ||
-			Signature.createTypeSignature(s1, true).equals(s2)) {
+		if (s1 == null || s1.equals(s2) || Signature.createTypeSignature(s1, false).equals(s2) || Signature.createTypeSignature(s1, true).equals(s2)) {
 			return true;
 		}
 		if (s1.indexOf('.') >= 0 && s2.indexOf('.') < 0) {
 			s1 = MemberImpl.getSimpleName(s1);
-			if (Signature.createTypeSignature(s1, false).equals(s2) ||
-				Signature.createTypeSignature(s1, true).equals(s2)) {
+			if (Signature.createTypeSignature(s1, false).equals(s2) || Signature.createTypeSignature(s1, true).equals(s2)) {
 				return true;
 			}
 		}
@@ -91,7 +83,10 @@ public class JdtRequirementChecker extends AbstractRequirementChecker {
 			return Boolean.FALSE;
 		}
 		for (int i = 0; i < types.size(); i++) {
-			String type = (String)types.get(i);
+			String type = (String) types.get(i);
+			if (type == null || type.length() == 0) {
+				continue;
+			}
 			if (isOrdered) {
 				if (! testTypeString(type, types2[i])) {
 					return Boolean.FALSE;

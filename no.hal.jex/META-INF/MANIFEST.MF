@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Jex Model
 Bundle-SymbolicName: no.hal.jex;singleton:=true
-Bundle-Version: 1.1.0
+Bundle-Version: 1.1.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: %providerName
+Bundle-Vendor: Hallvard Traetteberg
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: no.hal.jex,

@@ -31,9 +31,7 @@ public class JexPreferencePage extends FieldEditorPreferencePage
 		setDescription("Preference page for JExercise");
 	}
 	
-//	public static final String JEX_SERVER = "jexServerPreference";
-	public static final String JEX_PATH_PATTERN = "jexFilePathPreference";
-//	public static final String JEX_FILE_PATTERN = "jexFilePatternPreference";
+	public static final String JEX_TESTS_PATH = "jexTestsPathPreference";
 
 	/**
 	 * Creates the field editors. Field editors are abstractions of
@@ -46,17 +44,7 @@ public class JexPreferencePage extends FieldEditorPreferencePage
 		IWorkbenchHelpSystem help = PlatformUI.getWorkbench().getHelpSystem();
 		String helpContext = JexUiPlugin.getPlugin().getBundle().getSymbolicName() + ".JexPreferencePage";
 		help.setHelp(parent, helpContext);
-//		addField(new StringFieldEditor(JEX_SERVER, "Server:", parent));
-		addField(new StringFieldEditor(JEX_PATH_PATTERN, "Path pattern:", parent));
-		/*
-		addField(new DirectoryFieldEditor(JEX_FILE_PATH, "File path:", parent) {
-		    protected boolean doCheckState() {
-		        String filename = getTextControl().getText();
-		    	return filename.startsWith("/") || super.doCheckState();
-		    }
-		});
-		addField(new StringFieldEditor(JEX_FILE_PATTERN, "File pattern:", parent));
-		*/
+		addField(new StringFieldEditor(JEX_TESTS_PATH, "Tests folder path (e.g. /tdt4100/tests/):", parent));
 	}
 
 	public void init(IWorkbench workbench) {

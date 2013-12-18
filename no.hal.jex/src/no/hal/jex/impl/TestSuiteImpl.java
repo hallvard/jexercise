@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link no.hal.jex.impl.TestSuiteImpl#getTestedElement <em>Tested Element</em>}</li>
+ *   <li>{@link no.hal.jex.impl.TestSuiteImpl#getTestedElements <em>Tested Elements</em>}</li>
  *   <li>{@link no.hal.jex.impl.TestSuiteImpl#getTestRuns <em>Test Runs</em>}</li>
  * </ul>
  * </p>
@@ -36,14 +36,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class TestSuiteImpl extends JavaClassImpl implements TestSuite {
 	/**
-	 * The cached value of the '{@link #getTestedElement() <em>Tested Element</em>}' reference.
+	 * The cached value of the '{@link #getTestedElements() <em>Tested Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTestedElement()
+	 * @see #getTestedElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected Member testedElement;
+	protected EList<Member> testedElements;
 
 	/**
 	 * The cached value of the '{@link #getTestRuns() <em>Test Runs</em>}' reference list.
@@ -79,37 +79,11 @@ public class TestSuiteImpl extends JavaClassImpl implements TestSuite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Member getTestedElement() {
-		if (testedElement != null && testedElement.eIsProxy()) {
-			InternalEObject oldTestedElement = (InternalEObject)testedElement;
-			testedElement = (Member)eResolveProxy(oldTestedElement);
-			if (testedElement != oldTestedElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JexPackage.TEST_SUITE__TESTED_ELEMENT, oldTestedElement, testedElement));
-			}
+	public EList<Member> getTestedElements() {
+		if (testedElements == null) {
+			testedElements = new EObjectResolvingEList<Member>(Member.class, this, JexPackage.TEST_SUITE__TESTED_ELEMENTS);
 		}
-		return testedElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Member basicGetTestedElement() {
-		return testedElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTestedElement(Member newTestedElement) {
-		Member oldTestedElement = testedElement;
-		testedElement = newTestedElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JexPackage.TEST_SUITE__TESTED_ELEMENT, oldTestedElement, testedElement));
+		return testedElements;
 	}
 
 	/**
@@ -132,9 +106,8 @@ public class TestSuiteImpl extends JavaClassImpl implements TestSuite {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JexPackage.TEST_SUITE__TESTED_ELEMENT:
-				if (resolve) return getTestedElement();
-				return basicGetTestedElement();
+			case JexPackage.TEST_SUITE__TESTED_ELEMENTS:
+				return getTestedElements();
 			case JexPackage.TEST_SUITE__TEST_RUNS:
 				return getTestRuns();
 		}
@@ -150,8 +123,9 @@ public class TestSuiteImpl extends JavaClassImpl implements TestSuite {
 		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JexPackage.TEST_SUITE__TESTED_ELEMENT:
-				setTestedElement((Member)newValue);
+			case JexPackage.TEST_SUITE__TESTED_ELEMENTS:
+				getTestedElements().clear();
+				getTestedElements().addAll((Collection<? extends Member>)newValue);
 				return;
 			case JexPackage.TEST_SUITE__TEST_RUNS:
 				getTestRuns().clear();
@@ -169,8 +143,8 @@ public class TestSuiteImpl extends JavaClassImpl implements TestSuite {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JexPackage.TEST_SUITE__TESTED_ELEMENT:
-				setTestedElement((Member)null);
+			case JexPackage.TEST_SUITE__TESTED_ELEMENTS:
+				getTestedElements().clear();
 				return;
 			case JexPackage.TEST_SUITE__TEST_RUNS:
 				getTestRuns().clear();
@@ -187,8 +161,8 @@ public class TestSuiteImpl extends JavaClassImpl implements TestSuite {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JexPackage.TEST_SUITE__TESTED_ELEMENT:
-				return testedElement != null;
+			case JexPackage.TEST_SUITE__TESTED_ELEMENTS:
+				return testedElements != null && !testedElements.isEmpty();
 			case JexPackage.TEST_SUITE__TEST_RUNS:
 				return testRuns != null && !testRuns.isEmpty();
 		}
@@ -204,7 +178,7 @@ public class TestSuiteImpl extends JavaClassImpl implements TestSuite {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == TestRunnable.class) {
 			switch (derivedFeatureID) {
-				case JexPackage.TEST_SUITE__TESTED_ELEMENT: return JexPackage.TEST_RUNNABLE__TESTED_ELEMENT;
+				case JexPackage.TEST_SUITE__TESTED_ELEMENTS: return JexPackage.TEST_RUNNABLE__TESTED_ELEMENTS;
 				default: return -1;
 			}
 		}
@@ -220,7 +194,7 @@ public class TestSuiteImpl extends JavaClassImpl implements TestSuite {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == TestRunnable.class) {
 			switch (baseFeatureID) {
-				case JexPackage.TEST_RUNNABLE__TESTED_ELEMENT: return JexPackage.TEST_SUITE__TESTED_ELEMENT;
+				case JexPackage.TEST_RUNNABLE__TESTED_ELEMENTS: return JexPackage.TEST_SUITE__TESTED_ELEMENTS;
 				default: return -1;
 			}
 		}

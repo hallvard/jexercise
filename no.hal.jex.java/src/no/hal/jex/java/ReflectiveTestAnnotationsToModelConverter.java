@@ -8,13 +8,13 @@ import junit.framework.TestSuite;
 import no.hal.jex.AbstractRequirement;
 import no.hal.jex.Exercise;
 import no.hal.jex.JUnitTest;
-import no.hal.jex.JavaClass;
 import no.hal.jex.JavaClassTester;
 import no.hal.jex.JavaMethodTester;
 import no.hal.jex.JavaRequirement;
 import no.hal.jex.JexPackage;
+import no.hal.jex.Member;
 import no.hal.jex.eval.AbstractTestAnnotationsToModelConverter;
-import no.hal.jex.eval.JExercise;
+import no.hal.jex.runtime.JExercise;
 
 public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnotationsToModelConverter {
 
@@ -82,12 +82,12 @@ public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnot
 				String namePrefix = AbstractTestAnnotationsToModelConverter.TEST_METHOD_NAME_PREFIX;
 				String testedMethodName = Character.toLowerCase(methodName.charAt(namePrefix.length())) + methodName.substring(namePrefix.length() + 1);
 				JavaClassTester javaClassTester = (JavaClassTester) req.getJavaElement();
-				createFromTestMethodAnnotations((TestCase) junitTest, testedMethodName, javaClassTester, (JavaClass) javaClassTester.getTestedElement(), req);
+				createFromTestMethodAnnotations((TestCase) junitTest, testedMethodName, javaClassTester, javaClassTester.getTestedElements(), req);
 			}
 		}
 	}
 
-	private JavaRequirement createFromTestMethodAnnotations(TestCase junitTestCase, String testedMethodName, JavaClassTester methodTesterParent, JavaClass methodParent, AbstractRequirement reqParent) {
+	private JavaRequirement createFromTestMethodAnnotations(TestCase junitTestCase, String testedMethodName, JavaClassTester methodTesterParent, Iterable<Member> methodParent, AbstractRequirement reqParent) {
 		Class<?> type = junitTestCase.getClass();
 		String testMethodName = junitTestCase.getName();
 		Method javaMethod = null;

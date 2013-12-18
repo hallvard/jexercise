@@ -257,7 +257,6 @@
             name="JExercise"
             />
    </extension>
-
    <extension point="org.eclipse.core.runtime.preferences">
       <initializer class="no.hal.jex.ui.JexPreferenceInitializer"/>
    </extension>

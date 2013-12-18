@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import junit.framework.TestCase;
-import no.hal.jex.eval.JExercise;
+import no.hal.jex.runtime.JExercise;
 
 @JExercise(
 		description="The ArrayMethods1 class should contain a set of helper methods for querying arrays.",

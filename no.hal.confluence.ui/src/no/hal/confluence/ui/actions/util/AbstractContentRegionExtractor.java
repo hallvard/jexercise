@@ -3,9 +3,9 @@ package no.hal.confluence.ui.actions.util;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import no.hal.confluence.ui.actions.SourceRegionExtractor;
+import no.hal.confluence.ui.actions.ContentRegionExtractor;
 
-public abstract class AbstractSourceRegionExtractor<T> implements SourceRegionExtractor<T> {
+public abstract class AbstractContentRegionExtractor<T> implements ContentRegionExtractor<T> {
 	
 	protected abstract int skipRegionPrefixes(String browserContent, int pos);
 	
@@ -16,7 +16,7 @@ public abstract class AbstractSourceRegionExtractor<T> implements SourceRegionEx
 	protected abstract int skipRegionSuffixes(String browserContent, int end);
 	
 	@Override
-	public Collection<T> getSourceRegions(String browserContent) {
+	public Collection<T> getContentRegions(String browserContent) {
 		Collection<T> sourceRegions = new ArrayList<T>();
 		int start = 0;
 		while (start >= 0) {

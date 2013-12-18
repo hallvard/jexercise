@@ -3,7 +3,7 @@ package no.hal.confluence.ui.actions.util;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class SourceUrlExtractor extends AbstractSourceRegionExtractor<URL> {
+public class ContentUrlExtractor extends AbstractContentRegionExtractor<URL> {
 	
 	@Override
 	protected int skipRegionPrefixes(String browserContent, int pos) {
@@ -15,10 +15,17 @@ public class SourceUrlExtractor extends AbstractSourceRegionExtractor<URL> {
 		return browserContent.indexOf("\"", pos);
 	}
 
+	protected boolean acceptUrl(String urlString) {
+		return true;
+	}
+	
 	@Override
 	protected URL createSourceRegion(String browserContent, int start, int end) {
 		try {
-			return new URL(browserContent.substring(start, end));
+			String urlString = browserContent.substring(start, end);
+			if (acceptUrl(urlString)) {
+				return new URL(urlString);
+			}
 		} catch (MalformedURLException e) {
 		}
 		return null;

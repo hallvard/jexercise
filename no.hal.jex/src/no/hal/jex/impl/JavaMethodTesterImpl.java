@@ -6,6 +6,7 @@
  */
 package no.hal.jex.impl;
 
+import java.util.Collection;
 import no.hal.jex.JavaMethodTester;
 import no.hal.jex.JexPackage;
 import no.hal.jex.Member;
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -25,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link no.hal.jex.impl.JavaMethodTesterImpl#getTestedElement <em>Tested Element</em>}</li>
+ *   <li>{@link no.hal.jex.impl.JavaMethodTesterImpl#getTestedElements <em>Tested Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,15 +35,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class JavaMethodTesterImpl extends JavaMethodImpl implements JavaMethodTester {
 	/**
-	 * The cached value of the '{@link #getTestedElement() <em>Tested Element</em>}' reference.
+	 * The cached value of the '{@link #getTestedElements() <em>Tested Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTestedElement()
+	 * @see #getTestedElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected Member testedElement;
-
+	protected EList<Member> testedElements;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,37 +67,11 @@ public class JavaMethodTesterImpl extends JavaMethodImpl implements JavaMethodTe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Member getTestedElement() {
-		if (testedElement != null && testedElement.eIsProxy()) {
-			InternalEObject oldTestedElement = (InternalEObject)testedElement;
-			testedElement = (Member)eResolveProxy(oldTestedElement);
-			if (testedElement != oldTestedElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENT, oldTestedElement, testedElement));
-			}
+	public EList<Member> getTestedElements() {
+		if (testedElements == null) {
+			testedElements = new EObjectResolvingEList<Member>(Member.class, this, JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENTS);
 		}
-		return testedElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Member basicGetTestedElement() {
-		return testedElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTestedElement(Member newTestedElement) {
-		Member oldTestedElement = testedElement;
-		testedElement = newTestedElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENT, oldTestedElement, testedElement));
+		return testedElements;
 	}
 
 	/**
@@ -116,9 +91,8 @@ public class JavaMethodTesterImpl extends JavaMethodImpl implements JavaMethodTe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENT:
-				if (resolve) return getTestedElement();
-				return basicGetTestedElement();
+			case JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENTS:
+				return getTestedElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -128,11 +102,13 @@ public class JavaMethodTesterImpl extends JavaMethodImpl implements JavaMethodTe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENT:
-				setTestedElement((Member)newValue);
+			case JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENTS:
+				getTestedElements().clear();
+				getTestedElements().addAll((Collection<? extends Member>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -146,8 +122,8 @@ public class JavaMethodTesterImpl extends JavaMethodImpl implements JavaMethodTe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENT:
-				setTestedElement((Member)null);
+			case JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENTS:
+				getTestedElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -161,8 +137,8 @@ public class JavaMethodTesterImpl extends JavaMethodImpl implements JavaMethodTe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENT:
-				return testedElement != null;
+			case JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENTS:
+				return testedElements != null && !testedElements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -176,7 +152,7 @@ public class JavaMethodTesterImpl extends JavaMethodImpl implements JavaMethodTe
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == TestRunnable.class) {
 			switch (derivedFeatureID) {
-				case JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENT: return JexPackage.TEST_RUNNABLE__TESTED_ELEMENT;
+				case JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENTS: return JexPackage.TEST_RUNNABLE__TESTED_ELEMENTS;
 				default: return -1;
 			}
 		}
@@ -192,7 +168,7 @@ public class JavaMethodTesterImpl extends JavaMethodImpl implements JavaMethodTe
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == TestRunnable.class) {
 			switch (baseFeatureID) {
-				case JexPackage.TEST_RUNNABLE__TESTED_ELEMENT: return JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENT;
+				case JexPackage.TEST_RUNNABLE__TESTED_ELEMENTS: return JexPackage.JAVA_METHOD_TESTER__TESTED_ELEMENTS;
 				default: return -1;
 			}
 		}

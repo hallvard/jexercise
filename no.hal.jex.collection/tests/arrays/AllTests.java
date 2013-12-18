@@ -2,7 +2,6 @@ package arrays;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import no.hal.jex.standalone.JexStandalone;
 
 public class AllTests {
 
@@ -12,7 +11,7 @@ public class AllTests {
 		return suite;
 	}
 	
-	public static void main(String[] args) {
-		JexStandalone.main(AllTests.class);
-	}
+//	public static void main(String[] args) {
+//		no.hal.jex.standalone.JexStandalone.main(AllTests.class);
+//	}
 }

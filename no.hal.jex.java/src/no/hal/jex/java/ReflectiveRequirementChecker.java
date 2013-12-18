@@ -67,10 +67,11 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 		if (req instanceof JUnitTest) {
 			JUnitTest junitTest = (JUnitTest) req;
 			TestRunnable testRunnable = junitTest.getTestRunnable();
-			Member jexMember = testRunnable.getTestedElement();
-			if (jexMember != null) {
-				if (validateJexMember(jexMember, true, true) == Boolean.FALSE) {
-					return Boolean.FALSE;
+			for (Member jexMember : testRunnable.getTestedElements()) {
+				if (jexMember != null) {
+					if (validateJexMember(jexMember, true, true) == Boolean.FALSE) {
+						return Boolean.FALSE;
+					}
 				}
 			}
 			Test test = createTest(testRunnable);

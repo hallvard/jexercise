@@ -1,7 +1,7 @@
 package no.hal.confluence.ui.actions.util;
 
 
-public class CodeBlockSourceExtractor extends AbstractSourceRegionExtractor<String> {
+public class CodeBlockSourceExtractor extends AbstractContentRegionExtractor<String> {
 	
 	@Override
 	protected int skipRegionPrefixes(String browserContent, int pos) {

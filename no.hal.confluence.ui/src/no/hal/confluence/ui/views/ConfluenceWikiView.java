@@ -1,6 +1,7 @@
 package no.hal.confluence.ui.views;
 
 import no.hal.confluence.ui.Activator;
+import no.hal.confluence.ui.actions.WikiAction;
 import no.hal.confluence.ui.preferences.WikiPreferencePage;
 
 import org.eclipse.core.runtime.Preferences;

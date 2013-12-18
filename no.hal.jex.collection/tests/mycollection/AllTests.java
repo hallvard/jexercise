@@ -14,7 +14,7 @@ public class AllTests {
 		return suite;
 	}
 
-	public static void main(String[] args) {
-		no.hal.jex.standalone.JexStandalone.main(AllTests.class);
-	}
+//	public static void main(String[] args) {
+//		no.hal.jex.standalone.JexStandalone.main(AllTests.class);
+//	}
 }

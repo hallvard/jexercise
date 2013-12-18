@@ -1,6 +1,6 @@
 package stateandbehavior;
 
-import no.hal.jex.eval.JExercise;
+import no.hal.jex.runtime.JExercise;
 import junit.framework.TestCase;
 
 @JExercise(

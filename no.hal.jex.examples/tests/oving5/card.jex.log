@@ -1,0 +1,12 @@
+<eResourceEntry  timestamp='1368038213894' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' key='resource selected' value='null'/>
+<eResourceEntry  timestamp='1368038238929' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' key='resource selected' value='null'/>
+<eResourceEntry  timestamp='1368038241516' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' key='resource selected' value='null'/>
+<eResourceEntry  timestamp='1368038324524' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' key='resource selected' value='null'/>
+<eResourceEntry  timestamp='1368042043083' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' key='resource selected' value='null'/>
+<eResourceEntry  timestamp='1368042219394' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' key='resource selected' value='null'/>
+<eObjectEntry  timestamp='1368042235935' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' fragmentId='//@javaElements.0/@classes.4' key='junit test launch' value='AllTests'/>
+<eObjectEntry  timestamp='1368042237899' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' fragmentId='//@requirements.0/@requirements.0' key='test run status' value='true'/>
+<eObjectEntry  timestamp='1368042237927' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' fragmentId='//@requirements.0/@requirements.1' key='test run status' value='true'/>
+<eObjectEntry  timestamp='1368042237948' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' fragmentId='//@requirements.0/@requirements.2' key='test run status' value='true'/>
+<eObjectEntry  timestamp='1368042237956' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' fragmentId='//@requirements.1/@requirements.0' key='test run status' value='true'/>
+<eObjectEntry  timestamp='1368042237986' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/card.jex' fragmentId='//@requirements.1/@requirements.1' key='test run status' value='true'/>

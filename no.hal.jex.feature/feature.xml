@@ -2,7 +2,7 @@
 <feature
       id="no.hal.jex.feature"
       label="JExercise Feature"
-      version="1.0.4"
+      version="1.1.0.qualifier"
       provider-name="Hallvard Traetteberg">
 
    <description url="http://www.example.com/description">
@@ -16,6 +16,17 @@
    <license url="http://www.example.com/license">
       [Enter License Description here.]
    </license>
+
+   <requires>
+      <import plugin="org.eclipse.mylyn.wikitext.core"/>
+   </requires>
+
+   <plugin
+         id="no.hal.jex.runtime"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
    <plugin
          id="no.hal.jex"
@@ -33,6 +44,13 @@
 
    <plugin
          id="no.hal.jex.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="no.hal.jex.jdt"
          download-size="0"
          install-size="0"
          version="0.0.0"

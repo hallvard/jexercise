@@ -1,6 +1,6 @@
 package oving5.card;
 
-import jexutil.JExercise;
+import no.hal.jex.runtime.JExercise;
 import junit.framework.TestCase;
 
 @JExercise(

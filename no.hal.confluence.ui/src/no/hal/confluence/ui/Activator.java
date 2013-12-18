@@ -3,7 +3,7 @@ package no.hal.confluence.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import no.hal.confluence.ui.views.WikiAction;
+import no.hal.confluence.ui.actions.WikiAction;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;

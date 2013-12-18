@@ -32,6 +32,8 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMemberValuePair;
 import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.IParent;
 import org.eclipse.jdt.core.ISourceReference;
 import org.eclipse.jdt.core.IType;
@@ -40,22 +42,28 @@ import org.eclipse.jdt.core.JavaModelException;
 
 public class JdtHelper {
 
-	public static IJavaProject getJavaProject(Resource res) {
-		return getJavaProject(res.getURI());
+	private static IProject getProject(String name) {
+		return ResourcesPlugin.getWorkspace().getRoot().getProject(name);
 	}
+
+	private static IJavaProject getJavaProject(IProject project) {
+		return project != null && isJavaProject(project) ? JavaCore.create(project) : null;
+	}
+	
+	public static IJavaProject getJavaProject(String name) {
+		return getJavaProject(getProject(name));
+	}
+
 	public static IJavaProject getJavaProject(URI uri) {
-		IProject project = getProject(uri);
-		return (isJavaProject(project) ? JavaCore.create(project) : null);
+		return getJavaProject(getProject(uri));
 	}
+
 	public static IProject getProject(URI uri) {
 		boolean isPlatformURI = uri.isPlatformResource();
 		if (uri.segmentCount() <= (isPlatformURI ? 1 : 0)) {
 			return null;
 		}
-		return ResourcesPlugin.getWorkspace().getRoot().getProject(uri.segment(isPlatformURI ? 1 : 0));
-	}
-	public static IProject getProject(Resource res) {
-		return getProject(res.getURI());
+		return getProject(uri.segment(isPlatformURI ? 1 : 0));
 	}
 
 	public static boolean isJavaProject(IProject project) {
@@ -85,13 +93,55 @@ public class JdtHelper {
 		return (res == null && useFolder ? folder : res);
 	}
 
+	public static IJavaElement[] getJavaElementChildren(IParent parent) {
+		IJavaElement[] children = null;
+		try {
+			children = parent.getChildren();
+		} catch (JavaModelException e) {
+		}
+		return (children != null ? children : new IJavaElement[0]);
+	}
+
+	public static IJavaElement findIJavaElement(IJavaElement parent, String[] segments, int start) {
+		IPackageFragmentRoot packageFragmentRoot = null;
+		String packageName = null;
+		outer: for (int i = start; i < segments.length; i++) {
+			if (! (parent instanceof IParent)) {
+				return null;
+			}
+			String segment = segments[i];
+			if (parent instanceof IPackageFragmentRoot) {
+				packageFragmentRoot = (IPackageFragmentRoot) parent;
+				packageName = segment;
+			} else if (packageFragmentRoot != null && parent instanceof IPackageFragment) {
+				packageName = packageName + "." + segment;
+			}
+			IJavaElement[] children = getJavaElementChildren((IParent) parent);
+			for (IJavaElement child : children) {
+				if (segment.equals(child.getElementName())) {
+					parent = child;
+					continue outer;
+				}
+			}
+			if (packageFragmentRoot != null) {
+				IPackageFragment packageFragment = packageFragmentRoot.getPackageFragment(packageName);
+				if (packageFragment.exists()) {
+					parent = packageFragment;
+					continue outer;
+				}
+			}
+			return null;
+		}
+		return parent;
+	}
+
 	public static String getLocation(URI uri) {
 		IResource res = getIResource(uri, false);
 		return (res != null ? res.getLocation().toString() : null);
 	}
 	
 	public static IJavaElement getJdtElement(JavaElement jexElement) {
-		IJavaProject javaProject = getJavaProject(jexElement.eResource());
+		IJavaProject javaProject = getJavaProject(jexElement.eResource().getURI());
 		return (javaProject != null ? JdtHelper.findJdtElement(jexElement, javaProject) : null);
 	}
 	
@@ -198,7 +248,7 @@ public class JdtHelper {
 				try {
 					return annotation.getMemberValuePairs();
 				} catch (JavaModelException e) {
-//					System.err.println("Couldn't get annotation value pairs for " + annotation + " of " + javaElement + ": " + e);
+					System.err.println("Couldn't get annotation value pairs for " + annotation + " of " + javaElement + ": " + e);
 				}
 			}
 		}

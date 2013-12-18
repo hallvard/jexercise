@@ -79,7 +79,7 @@ public class TestRunnableItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TestRunnable_testedElement_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TestRunnable_testedElement_feature", "_UI_TestRunnable_type"),
-				 JexPackage.Literals.TEST_RUNNABLE__TESTED_ELEMENT,
+				 JexPackage.Literals.TEST_RUNNABLE__TESTED_ELEMENTS,
 				 true,
 				 false,
 				 true,

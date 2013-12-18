@@ -100,25 +100,16 @@ public final class JexUiPlugin extends EMFPlugin {
 			if (manager == null) {
 				final IPreferenceStore store = getPlugin().getPreferenceStore();
 				store.addPropertyChangeListener(new IPropertyChangeListener() {
-					
 					public void propertyChange(PropertyChangeEvent event) {
 						if (manager == null) {
 							return;
 						}
-						if (JexPreferencePage.JEX_PATH_PATTERN.equals(event.getProperty())) {
-							manager.setJexPathPattern(store.getString(JexPreferencePage.JEX_PATH_PATTERN));
+						if (JexPreferencePage.JEX_TESTS_PATH.equals(event.getProperty())) {
+							manager.setJexPathPattern(store.getString(JexPreferencePage.JEX_TESTS_PATH));
 						}
-//						if (JexPreferencePage.JEX_FILE_PATTERN.equals(event.getProperty())) {
-//							manager.setJexFilePattern(store.getString(JexPreferencePage.JEX_FILE_PATTERN));
-//						}
 					}
 				});
-				manager = new JexManager(
-//						store.getString(JexPreferencePage.JEX_FILE_PATH),
-						store.getString(JexPreferencePage.JEX_PATH_PATTERN)
-//						, 20
-						);
-//				Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(JexResource.JEX_EXTENSION, manager);
+				manager = new JexManager(store.getString(JexPreferencePage.JEX_TESTS_PATH));
 			}
 			return manager;
 		}

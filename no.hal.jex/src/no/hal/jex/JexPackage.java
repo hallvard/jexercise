@@ -1227,13 +1227,13 @@ public interface JexPackage extends EPackage {
 	int TEST_RUNNABLE__REQUIRED = MEMBER__REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Tested Element</b></em>' reference.
+	 * The feature id for the '<em><b>Tested Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_RUNNABLE__TESTED_ELEMENT = MEMBER_FEATURE_COUNT + 0;
+	int TEST_RUNNABLE__TESTED_ELEMENTS = MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Test Runnable</em>' class.
@@ -1345,13 +1345,13 @@ public interface JexPackage extends EPackage {
 	int JAVA_CLASS_TESTER__SUPERCLASSES = JAVA_CLASS__SUPERCLASSES;
 
 	/**
-	 * The feature id for the '<em><b>Tested Element</b></em>' reference.
+	 * The feature id for the '<em><b>Tested Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_CLASS_TESTER__TESTED_ELEMENT = JAVA_CLASS_FEATURE_COUNT + 0;
+	int JAVA_CLASS_TESTER__TESTED_ELEMENTS = JAVA_CLASS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Java Class Tester</em>' class.
@@ -1454,13 +1454,13 @@ public interface JexPackage extends EPackage {
 	int JAVA_METHOD_TESTER__THROWABLES = JAVA_METHOD__THROWABLES;
 
 	/**
-	 * The feature id for the '<em><b>Tested Element</b></em>' reference.
+	 * The feature id for the '<em><b>Tested Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_METHOD_TESTER__TESTED_ELEMENT = JAVA_METHOD_FEATURE_COUNT + 0;
+	int JAVA_METHOD_TESTER__TESTED_ELEMENTS = JAVA_METHOD_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Java Method Tester</em>' class.
@@ -1572,13 +1572,13 @@ public interface JexPackage extends EPackage {
 	int TEST_SUITE__SUPERCLASSES = JAVA_CLASS__SUPERCLASSES;
 
 	/**
-	 * The feature id for the '<em><b>Tested Element</b></em>' reference.
+	 * The feature id for the '<em><b>Tested Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_SUITE__TESTED_ELEMENT = JAVA_CLASS_FEATURE_COUNT + 0;
+	int TEST_SUITE__TESTED_ELEMENTS = JAVA_CLASS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Test Runs</b></em>' reference list.
@@ -2141,15 +2141,15 @@ public interface JexPackage extends EPackage {
 	EClass getTestRunnable();
 
 	/**
-	 * Returns the meta object for the reference '{@link no.hal.jex.TestRunnable#getTestedElement <em>Tested Element</em>}'.
+	 * Returns the meta object for the reference list '{@link no.hal.jex.TestRunnable#getTestedElements <em>Tested Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Tested Element</em>'.
-	 * @see no.hal.jex.TestRunnable#getTestedElement()
+	 * @return the meta object for the reference list '<em>Tested Elements</em>'.
+	 * @see no.hal.jex.TestRunnable#getTestedElements()
 	 * @see #getTestRunnable()
 	 * @generated
 	 */
-	EReference getTestRunnable_TestedElement();
+	EReference getTestRunnable_TestedElements();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.jex.JavaClassTester <em>Java Class Tester</em>}'.
@@ -2664,12 +2664,12 @@ public interface JexPackage extends EPackage {
 		EClass TEST_RUNNABLE = eINSTANCE.getTestRunnable();
 
 		/**
-		 * The meta object literal for the '<em><b>Tested Element</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Tested Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEST_RUNNABLE__TESTED_ELEMENT = eINSTANCE.getTestRunnable_TestedElement();
+		EReference TEST_RUNNABLE__TESTED_ELEMENTS = eINSTANCE.getTestRunnable_TestedElements();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.jex.impl.JavaClassTesterImpl <em>Java Class Tester</em>}' class.

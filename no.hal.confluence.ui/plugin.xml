@@ -53,4 +53,26 @@
         </wikiAction>
      </extension>
 
+     <extension
+           point="no.hal.confluence.ui.wikiAction">
+        <wikiAction
+			id="no.hal.confluence.ui.actions.AddIconResourceToProjectAction"
+	        wikiActionClass="no.hal.confluence.ui.actions.AddResourceToProjectAction"
+			name="Add Icons to Project"
+          	urlPattern="^.*(\Q.png\E|\Q.jpeg\E)$"
+	    >
+        </wikiAction>
+     </extension>
+
+     <extension
+           point="no.hal.confluence.ui.wikiAction">
+        <wikiAction
+			id="no.hal.confluence.ui.actions.AddJarToProjectAndBuildPathAction"
+	        wikiActionClass="no.hal.confluence.ui.actions.AddJarToProjectAndBuildPathAction"
+			name="Add Jar File to Project and Build Path"
+          	urlPattern="^.*\Q.jar\E$"
+	    >
+        </wikiAction>
+     </extension>
+
 </plugin>

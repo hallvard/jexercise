@@ -6,6 +6,7 @@
  */
 package no.hal.jex.impl;
 
+import no.hal.jex.*;
 import java.util.HashMap;
 import java.util.Map;
 

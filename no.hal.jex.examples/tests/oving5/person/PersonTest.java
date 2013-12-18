@@ -1,12 +1,12 @@
 package oving5.person;
 
 import oving5.person.Person;
-import jexutil.JExercise;
+import no.hal.jex.runtime.JExercise;
 import junit.framework.TestCase;
 
 /**
  * 
- * @author Alexander Høst, Indøk, Undass TDT4100/TDT4102, Spring 2009
+ * @author Alexander Hï¿½st, Indï¿½k, Undass TDT4100/TDT4102, Spring 2009
  * 
  */
 
@@ -44,7 +44,7 @@ public class PersonTest extends TestCase {
 	}
 
 	@JExercise(
-			tests="Person()",
+			tests="Person(char)",
 			description="Create a constructor that takes one argument; the gender, represented as 'm' for male and 'f' for female. The constructor should initialize the new Person appropriately." +
 					" If other values than 'm' or 'f' are given, the gender should not be set." +
 					" Also, the number of children for this Person should initially be 0."
@@ -221,7 +221,7 @@ public class PersonTest extends TestCase {
 	}
 
 	@JExercise(
-			tests="",
+			tests="void setMother(Person); void setFather(Person)",
 			description="Setting the mother/father should result in appropriate add/removeChild calls."
 	)
 	public void testSetAsAddChild() {
@@ -302,7 +302,7 @@ public class PersonTest extends TestCase {
 	}
 	
 	@JExercise(
-			tests="",
+			tests="void setMother(Person); void setFather(Person)",
 			description="Setting the mother/father to null should result in appropriate removeChild call."
 	)
 	public void testSetAsRemoveChild() {
