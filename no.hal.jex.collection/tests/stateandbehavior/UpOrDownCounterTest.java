@@ -1,6 +1,7 @@
 package stateandbehavior;
 
 import no.hal.jex.runtime.JExercise;
+import no.hal.jex.standalone.JexStandalone;
 import junit.framework.TestCase;
 
 @JExercise(
@@ -76,5 +77,11 @@ public class UpOrDownCounterTest extends TestCase {
 	public void testCountDown() {
 		UpOrDownCounter counter31 = new UpOrDownCounter(3, 1);
 		testCount(counter31, 1, -1);
+	}
+
+	//
+
+	public static void main(String[] args) {
+		JexStandalone.main(UpOrDownCounterTest.class);
 	}
 }

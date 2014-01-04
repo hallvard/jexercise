@@ -10,16 +10,15 @@ public class DigitProgram {
 	
 	void run() {
 		for (int base = 2; base <= 16; base++) {
+			System.out.println("Base = " + base);
 			lower = new Digit(base);
 			higher = new Digit(base);
-			System.out.println("Base = " + base);
 			for (int i = 0; i < base * base; i++) {
 				System.out.print(this + " + 1 = ");
-				if (lower.increment() && higher.increment()) {
-					System.out.println(this);
+				boolean overflow = lower.increment() && higher.increment();
+				System.out.println(this);
+				if (overflow) {
 					System.out.println("Overflow!");
-				} else {
-					System.out.println(this);
 				}
 			}
 		}

@@ -1,6 +1,7 @@
 package stateandbehavior;
 
 import no.hal.jex.runtime.JExercise;
+import no.hal.jex.standalone.JexStandalone;
 import junit.framework.TestCase;
 
 @JExercise(
@@ -111,5 +112,11 @@ public class LineEditorTest extends TestCase {
 		setLineEditor("er gøy!", 0);
 		lineEditor.insertString("Java ");
 		testLineEditor("Java er gøy!",  5);
+	}
+
+	//
+
+	public static void main(String[] args) {
+		JexStandalone.main(LineEditorTest.class);
 	}
 }
