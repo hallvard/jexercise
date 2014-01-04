@@ -410,7 +410,8 @@ public abstract class MemberImpl extends JavaElementImpl implements Member {
 	public String getFullName() {
 		JavaClass javaClass = (this instanceof JavaClass ? (JavaClass) this : getOwner());
 		JavaPack pack = (javaClass != null ? javaClass.getPack() : null);
-		String className = (pack != null ? pack.getName() + "." : "") + javaClass.getName();
+		String packageName = (pack != null ? pack.getName() : null);
+		String className = (packageName != null && packageName.length() > 0 ? packageName + "." : "") + javaClass.getName();
 		return (javaClass == null ? getName() : (javaClass == this ? className : className + "." + getName()));
 	}
 	
