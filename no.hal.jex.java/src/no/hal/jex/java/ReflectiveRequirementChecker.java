@@ -69,7 +69,7 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 			TestRunnable testRunnable = junitTest.getTestRunnable();
 			for (Member jexMember : testRunnable.getTestedElements()) {
 				if (jexMember != null) {
-					if (validateJexMember(jexMember, true, true) == Boolean.FALSE) {
+					if (validateJexMember(jexMember, false, true) == Boolean.FALSE) {
 						return Boolean.FALSE;
 					}
 				}
@@ -159,19 +159,17 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 					return false;
 				}
 			}
-		} else if (javaType instanceof GenericArrayType) {
+		}
+		while (isArrayType(javaType)) {
 			if (! s1.endsWith("[]")) {
 				return false;
 			}
-			javaType = ((GenericArrayType) javaType).getGenericComponentType();
+			javaType = arrayComponentType(javaType);
 			s1 = s1.substring(0, s1.length() - "[]".length());
 		}
 		if (javaType instanceof Class) {
 			Class<?> javaClass = (Class<?>) javaType;
 			String s2 = javaClass.getName();
-//			if (javaClass.isArray()) {
-//				s2 = javaClass.getComponentType().getName() + "[]";
-//			}
 			if (s1.equals(s2)) {
 				return true;
 			}
@@ -186,6 +184,20 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 		return true;
 	}
 
+	private static boolean isArrayType(Type javaType) {
+		return javaType instanceof GenericArrayType || javaType instanceof Class && ((Class<?>) javaType).isArray();
+	}
+
+	private static Type arrayComponentType(Type javaType) {
+		if (javaType instanceof GenericArrayType) {
+			return ((GenericArrayType) javaType).getGenericComponentType();
+		}
+		if (javaType instanceof Class && ((Class<?>) javaType).isArray()) {
+			return ((Class<?>) javaType).getComponentType();
+		}
+		return null;
+	}
+	
 	//
 
 	private static boolean isClassKind(ClassKind kind, Class<?> javaElement) {

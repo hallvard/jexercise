@@ -72,7 +72,7 @@ public class BrowserExerciseViewer implements IExerciseViewer, LocationListener 
 		String fragment = res.getURIFragment(eo);
 		return fragment != null ? RESOURCE_URI_PROTOCOL_PREFIX + fragment : null;
 	}
-	
+
 	private String getBrowserText(Object obj) {
 		String text = (obj instanceof AbstractRequirement ? ((AbstractRequirement)obj).getText() : null);
 		if (obj instanceof JexResource) {

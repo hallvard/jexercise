@@ -71,10 +71,13 @@ public class ReflectiveTestAnnotationsToModelConverter extends AbstractTestAnnot
 					createFromTestClassAnnotations(junitTestSuite.testAt(i), req);
 				}
 			} else if (isTestClassName(typeFullName)) {
+				String packageName = null, testedTypeName = typeFullName.substring(0, typeFullName.length() - AbstractTestAnnotationsToModelConverter.TEST_CLASS_NAME_SUFFIX.length());
 				int pos = typeFullName.lastIndexOf('.');
-				String namePrefix = typeFullName.substring(0, pos);
-				String typeName = typeFullName.substring(pos + 1);
-				createFromTestClassAnnotations(junitTestSuite, namePrefix, typeName.substring(0, typeName.length() - AbstractTestAnnotationsToModelConverter.TEST_CLASS_NAME_SUFFIX.length()));
+				if (pos >= 0) {
+					packageName = testedTypeName.substring(0, pos);
+					testedTypeName = testedTypeName.substring(pos + 1);
+				}
+				createFromTestClassAnnotations(junitTestSuite, packageName, testedTypeName);
 			}
 		} else if (junitTest instanceof TestCase) {
 			String methodName = ((TestCase) junitTest).getName();

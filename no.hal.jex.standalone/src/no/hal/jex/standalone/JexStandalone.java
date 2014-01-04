@@ -12,7 +12,7 @@ public class JexStandalone {
 	}
 	public static void main(String[] args) {
 		String testClassName = (args.length >= 1 ? args[0] : null);
-		String classPath = (args.length >= 2 ? args[1] : null);
+		String classPath = (args.length >= 2 ? args[1] : ".");
 		JexExercisePanel.main(new String[]{testClassName, classPath});
 	}
 }

@@ -170,11 +170,19 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 		StringBuilder message = new StringBuilder();
 		if (req instanceof Requirement) {
 			for (String s : ((Requirement) req).getMessages()) {
-				appendText(message, s, null);
+				appendText(message, escapeHtml(s), null);
 			}
 		}
 		appendText(builder, message, "<p><b>Errors/failures</b>:<br/>%s");
 		return builder.toString();
+	}
+
+	private static String escapeHtml(String s) {
+		return s.
+			replace("&", "&amp;").
+			replace("<", "&lt;").
+			replace(">", "&gt;")
+			;
 	}
 
 	private void appendText(StringBuilder builder, CharSequence text, String format) {
@@ -182,7 +190,7 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 			builder.append(format != null ? String.format(format, text) : text);
 		}
 	}
-	
+
 	private ReflectiveRequirementChecker requirementChecker;
 
 	private ClassLoader reflectionClassLoader;
@@ -191,7 +199,13 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 		if (reflectionClassLoader == null && options.classPath != null) {
 			reflectionClassLoader = new URLClassLoader(options.classPath) {
 				public String toString() {
-					return "URLClassLoader" + Arrays.asList(this.getURLs());
+					return "URLClassLoader" + Arrays.asList(this.getURLs()) + super.toString();
+				}
+				@Override
+				public Class<?> loadClass(String name) throws ClassNotFoundException {
+					Class<?> clazz = super.loadClass(name);
+					System.out.println(name + "->" + clazz + " by " + this + " (" + clazz.getClassLoader() + ")");
+					return clazz;
 				}
 			};
 		}

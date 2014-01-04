@@ -590,7 +590,7 @@ public class ExerciseView extends ViewPart implements ExerciseListener, DropTarg
 			} else {
 				String description = (descriptionReq != null ? descriptionReq.getDescription() : null);
 				if (description != null) {
-					exerciseDetailsView.setText(description != null ? description : "");
+					exerciseDetailsView.setText(description);
 				}
 			}
 		}

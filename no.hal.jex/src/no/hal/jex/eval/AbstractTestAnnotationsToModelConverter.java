@@ -102,8 +102,11 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 		for (JavaElement javaElement : javaElements) {
 			if (eClass.isSuperTypeOf(javaElement.eClass())) {
 				EStructuralFeature nameFeature = eClass.getEStructuralFeature("name");
-				if (nameFeature != null && name.equals(javaElement.eGet(nameFeature))) {
-					return (JavaElement) javaElement;
+				if (nameFeature != null) {
+					Object javaElementName = javaElement.eGet(nameFeature);
+					if (name == javaElementName || (name != null && name.equals(javaElementName))) {
+						return (JavaElement) javaElement;
+					}
 				}
 			}
 		}
@@ -184,7 +187,8 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 			}
 			req = JexFactory.eINSTANCE.createJavaRequirement();
 		}
-		req.setText((req instanceof JUnitTest ? "Test " : "") + packageName + "." + testsAnnotation);
+		String packagePrefix = packageName != null && packageName.length() > 0 ? packageName + "." : "";
+		req.setText((req instanceof JUnitTest ? "Test " : "") + packagePrefix + testsAnnotation);
 		JavaClassTester javaClassTester = (JavaClassTester) ensureJavaClass(packageName, testClassName, JexPackage.eINSTANCE.getJavaClassTester());
 		String[] superClasses = {},  superInterfaces = {};
 		int pos = testsAnnotation.indexOf(' ');
@@ -306,7 +310,7 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 					break;
 				}
 			}
-			testReq.setText(testReq.getText() + " " + testedElementName);
+			testReq.setText(testReq.getText() + (i == 0 ? " " : ", ") + testedElementName);
 			int pos1 = testedElementName.indexOf('('), pos = testedElementName.lastIndexOf(' ', pos1 >= 0 ? pos1 : testedElementName.length());
 			if (pos >= 0) {
 				returnType = testedElementName.substring(0, pos);
@@ -341,7 +345,7 @@ public abstract class AbstractTestAnnotationsToModelConverter {
 			}
 			javaMethodTester.getTestedElements().add(testedElement);
 			JavaRequirement javaReq = JexFactory.eINSTANCE.createJavaRequirement();
-			javaReq.setText("Requires " + testedElementName);
+			javaReq.setText("Requires " + testedElements[i].trim());
 			javaReq.setJavaElement(testedElement);
 
 			if (modifiers != null) {

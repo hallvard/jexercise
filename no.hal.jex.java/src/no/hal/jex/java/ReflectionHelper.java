@@ -17,7 +17,7 @@ public class ReflectionHelper {
 	
 	private ClassLoader reflectiveClassLoader;
 	
-	private ClassLoader getReflectiveClassLoader() {
+	ClassLoader getReflectiveClassLoader() {
 		return (reflectiveClassLoader != null ? reflectiveClassLoader : this.getClass().getClassLoader());
 	}
 	
@@ -27,13 +27,7 @@ public class ReflectionHelper {
 
 	public Class<?> getReflectiveClass(String className) throws ClassNotFoundException {
 		ClassLoader classLoader = getReflectiveClassLoader();
-//		try {
-			return classLoader.loadClass(className);
-//		} catch (ClassNotFoundException e) {
-//			System.err.println("ReflectionHelper: Couldn't load " + className + " with " + classLoader);
-//			e.printStackTrace();
-//			throw new ClassNotFoundException(className);
-//		}
+		return classLoader.loadClass(className);
 	}
 
 	public Object getReflectiveElement(JavaElement jexElement) {
