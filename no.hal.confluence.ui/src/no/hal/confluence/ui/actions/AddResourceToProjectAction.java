@@ -27,7 +27,8 @@ public class AddResourceToProjectAction extends AbstractContentRegionAction<URL>
 		Collection<URL> urlRegions = selectContentRegions();
 		for (URL url : urlRegions) {
 			String fileName = new Path(url.getPath()).lastSegment();
-			for (int i = 0; i < WikiPreferencePage.WIKI_PATH_KEYS.length; i++) {
+			// iterate backwards, so the general (default) ones don't shaddow the more spesialized ones
+			for (int i = WikiPreferencePage.WIKI_PATH_KEYS.length - 1; i >= 0; i--) {
 				String[] keys = WikiPreferencePage.WIKI_PATH_KEYS[i];
 				for (int j = 1; j < keys.length; j++) {
 					if (fileName.endsWith(keys[j])) {
