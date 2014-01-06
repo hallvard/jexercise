@@ -81,7 +81,7 @@ public class WikiPreferencePage extends FieldEditorPreferencePage
 			for (int j = 1; j < keys.length; j++) {
 				label += (j == 1 ? " (" : ", ");
 				label += keys[j];
-				if (j == keys.length) {
+				if (j + 1 == keys.length) {
 					label += ")";
 				}
 			}

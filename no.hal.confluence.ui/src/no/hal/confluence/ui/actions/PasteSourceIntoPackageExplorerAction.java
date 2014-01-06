@@ -16,7 +16,7 @@ public abstract class PasteSourceIntoPackageExplorerAction<T> extends CopySource
 	}
 
 	protected String getSourceFolderString() {
-		return getFolderPathString(WikiPreferencePage.WIKI_SOURCE_PATH, IFolder.class, IPackageFragmentRoot.class);
+		return getFolderPathString(WikiPreferencePage.WIKI_SOURCE_PATH, IFolder.class, IPackageFragmentRoot.class, null);
 	}
 	
 	protected String getDefaultSourceFolderName() {

@@ -21,6 +21,7 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.ui.refactoring.reorg.PasteAction;
 import org.eclipse.jdt.ui.actions.SelectionDispatchAction;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IViewPart;
@@ -58,6 +59,9 @@ public class PasteSourceIntoPackageExplorerHelper implements IElementChangedList
 			IJavaElement srcFolder = getSourceFolder(sourceFolderPath, defaultSourceFolderName);
 			if (srcFolder != null) {
 				selection = new StructuredSelection(srcFolder);
+			} else {
+				String message = "Couldn't find source folder named " + sourceFolderPath + " or " + defaultSourceFolderName + ". Perhaps the Programming Wiki preferences are wrong or a source folder is missing in your project?";
+				MessageDialog.openError(browserView.getControl().getShell(), "Missing source folder", message);
 			}
 		} catch (JavaModelException e) {
 		}

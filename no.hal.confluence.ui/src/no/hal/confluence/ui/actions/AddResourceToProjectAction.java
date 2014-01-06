@@ -13,6 +13,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.MessageDialog;
 
 public class AddResourceToProjectAction extends AbstractContentRegionAction<URL> {
 
@@ -28,19 +29,26 @@ public class AddResourceToProjectAction extends AbstractContentRegionAction<URL>
 		for (URL url : urlRegions) {
 			String fileName = new Path(url.getPath()).lastSegment();
 			// iterate backwards, so the general (default) ones don't shaddow the more spesialized ones
-			for (int i = WikiPreferencePage.WIKI_PATH_KEYS.length - 1; i >= 0; i--) {
+			String folderPath = null;
+			outer: for (int i = WikiPreferencePage.WIKI_PATH_KEYS.length - 1; i >= 0; i--) {
 				String[] keys = WikiPreferencePage.WIKI_PATH_KEYS[i];
 				for (int j = 1; j < keys.length; j++) {
 					if (fileName.endsWith(keys[j])) {
-						String folderPath = getFolderPathString(WikiPreferencePage.keyPathPreference(keys), IFolder.class, null);
+						folderPath = getFolderPathString(WikiPreferencePage.keyPathPreference(keys), IFolder.class, null, null);
 						if (folderPath != null) {
-							IResource newResource = copyLinkedResource(url, folderPath, fileName);
-							if (newResource != null) {
-								newResources.add(newResource);
-							}
+							break outer;
 						}
 					}
 				}
+			}
+			if (folderPath != null) {
+				IResource newResource = copyLinkedResource(url, folderPath, fileName);
+				if (newResource != null) {
+					newResources.add(newResource);
+				}
+			} else {
+				String message = "Couldn't find target folder for " + fileName + ". Perhaps the Programming Wiki preferences are wrong or a folder is missing in your project?";
+				MessageDialog.openError(browserView.getControl().getShell(), "Missing folder", message);
 			}
 		}
 		PostActionHook<IResource> postActionHook = getPostActionHook();

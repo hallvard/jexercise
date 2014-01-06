@@ -22,6 +22,7 @@ import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.dialogs.MessageDialog;
 
 public abstract class WikiAction extends Action {
 
@@ -52,7 +53,7 @@ public abstract class WikiAction extends Action {
 		return urlString != null && urlString.matches(urlPattern);
 	}
 	
-	protected <RT extends IResource, JT extends IJavaElement> String getFolderPathString(String key, Class<RT> resourceClass, Class<JT> javaElementClass) {
+	protected <RT extends IResource, JT extends IJavaElement> String getFolderPathString(String key, Class<RT> resourceClass, Class<JT> javaElementClass, String errorMessage) {
 		String pathString = null;
 		if (key != null) {
 			Preferences pluginPreferences = Activator.getDefault().getPluginPreferences();
@@ -66,7 +67,10 @@ public abstract class WikiAction extends Action {
 				return pathString;
 			}
 		}
-		// TODO Should open SelectResourceDialog and allow the user to select a resource, with appropriate filter 
+		if (errorMessage != null) {
+			String message = "Couldn't find target folder for " + key + ". Perhaps the Programming Wiki preferences are wrong or a folder is missing in your project?";
+			MessageDialog.openError(browserView.getControl().getShell(), "Missing folder", message);
+		}
 		return null;
 	}
 
