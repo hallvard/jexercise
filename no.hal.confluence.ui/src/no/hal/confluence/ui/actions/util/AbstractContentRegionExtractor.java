@@ -50,4 +50,14 @@ public abstract class AbstractContentRegionExtractor<T> implements ContentRegion
 		}
 		return skipRegionSuffixes(browserContent, end);
 	}
+	
+	
+	protected String unescapeEntities(String s) {
+		return s.replace("&quot;", "\"")
+				.replace("&amp;", "&")
+				.replace("&lt;", "<")
+				.replace("&gt;", ">")
+				.replace("&slash;", "/")
+				;
+	}
 }

@@ -15,7 +15,7 @@ public class CodeBlockSourceExtractor extends AbstractContentRegionExtractor<Str
 
 	@Override
 	protected String createSourceRegion(String browserContent, int start, int end) {
-		return browserContent.substring(start, end);
+		return unescapeEntities(browserContent.substring(start, end));
 	}
 	
 	@Override
