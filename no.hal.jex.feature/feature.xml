@@ -19,14 +19,8 @@
 
    <requires>
       <import plugin="org.eclipse.mylyn.wikitext.core"/>
+      <import feature="org.eclipse.mylyn.wikitext_feature" version="1.8.1.v20130917-0100"/>
    </requires>
-
-   <plugin
-         id="no.hal.jex.runtime"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
          id="no.hal.jex"
@@ -65,6 +59,13 @@
 
    <plugin
          id="no.hal.confluence.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="no.hal.jex.runtime"
          download-size="0"
          install-size="0"
          version="0.0.0"
