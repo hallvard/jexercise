@@ -179,9 +179,9 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 
 	private static String escapeHtml(String s) {
 		return s.
-			replace("&", "&amp;").
-			replace("<", "&lt;").
-			replace(">", "&gt;")
+			replace("&", "&amp;")
+			.replace("<", "&lt;")
+			.replace(">", "&gt;")
 			;
 	}
 
