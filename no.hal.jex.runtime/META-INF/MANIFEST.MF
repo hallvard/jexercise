@@ -3,5 +3,5 @@ Bundle-ManifestVersion: 2
 Bundle-Name: JExercise Runtime
 Bundle-SymbolicName: no.hal.jex.runtime
 Bundle-Version: 0.9.0.qualifier
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.jex.runtime
