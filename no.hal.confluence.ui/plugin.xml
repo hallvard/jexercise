@@ -23,9 +23,13 @@
 
      <extension
          point="org.eclipse.ui.views">
+      <category
+            name="Programming Wiki"
+            id="no.hal.confluence.ui.ConfluenceWiki">
+      </category>
       <view
-            name="Confluence Wiki"
-            category="no.hal.jex.ui.JExercise"
+            name="Programming Wiki"
+            category="no.hal.confluence.ui.ConfluenceWiki"
             class="no.hal.confluence.ui.views.ConfluenceWikiView"
             id="no.hal.confluence.ui.views.ConfluenceWikiView">
       </view>
