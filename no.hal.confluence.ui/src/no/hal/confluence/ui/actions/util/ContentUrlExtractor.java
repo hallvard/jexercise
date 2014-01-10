@@ -7,7 +7,7 @@ public class ContentUrlExtractor extends AbstractContentRegionExtractor<URL> {
 	
 	@Override
 	protected int skipRegionPrefixes(String browserContent, int pos) {
-		return skip(browserContent, pos, "<a href=\"");
+		return skip(browserContent, pos, "<a ", "href=\"");
 	}
 
 	@Override
