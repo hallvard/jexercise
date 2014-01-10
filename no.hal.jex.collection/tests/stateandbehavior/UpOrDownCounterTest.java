@@ -19,15 +19,15 @@ public class UpOrDownCounterTest extends TestCase {
 	private void testCount(UpOrDownCounter counter, int end, int delta) {
 		boolean result = true;
 		while (delta > 0 ? counter.getCounter() < end : counter.getCounter() > end) {
-			assertTrue("Before reaching the end value, the count() method should return false. ", result);
+			assertTrue("Before reaching the end value, the count() method should return true. ", result);
 			int i = counter.getCounter();
 			result = counter.count();
 			int expected = i + delta;
 			assertEquals("When counting from " + i + " the result should be " + expected + ". ", expected, counter.getCounter());
 		}
-		assertFalse("When reaching the end value, the count method should return true. ", result);
+		assertFalse("When reaching the end value, the count method should return false. ", result);
 		assertEquals("After reaching the end value, the counter should not change. ", end, counter.getCounter());
-		assertFalse("After reaching the end value, the count() method should return true. ", counter.count());
+		assertFalse("After reaching the end value, the count() method should return false. ", counter.count());
 		assertEquals("After reaching the end value, the counter should not change. ", end, counter.getCounter());
 	}
 	
