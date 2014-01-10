@@ -27,6 +27,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jdt.core.IJavaElement;
@@ -658,13 +659,14 @@ public class ExerciseView extends ViewPart implements ExerciseListener, DropTarg
 			IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 			Collection<IResource> rootResources = new ArrayList<IResource>();
 			for (int i = 0; i < files.length; i++) {
-				String fileString = files[i];
+				String fileString = new Path(files[i]).toPortableString();
 				for (IProject project : projects) {
 					String projectFileString = project.getLocation().toString();
 					if (fileString.startsWith(projectFileString)) {
 						IResource res = project.findMember(fileString.substring(projectFileString.length()));
 						if (res != null) {
 							rootResources.add(res);
+							break;
 						}
 					}
 				}
