@@ -9,6 +9,8 @@ import junit.framework.TestCase;
 )
 public class AccountTest extends TestCase {
 
+	private double epsilon = 0.000001d;
+	
 	Account account;
 
 	@Override
@@ -25,7 +27,7 @@ public class AccountTest extends TestCase {
 	)
 	public void testDeposit() {
 		account.deposit(100);
-		assertEquals(100.0d, account.balance);
+		assertEquals(100.0d, account.balance, epsilon);
 	}
 	
 	@JExercise(
@@ -34,7 +36,7 @@ public class AccountTest extends TestCase {
 			)
 	public void testDepositNegativeAmount() {
 		account.deposit(-50);
-		assertEquals(0.0d, account.balance);
+		assertEquals(0.0d, account.balance, epsilon);
 	}
 	
 	@JExercise(
@@ -43,9 +45,9 @@ public class AccountTest extends TestCase {
 	)
 	public void testAddInterest() {
 		account.deposit(100);
-		assertEquals(100.0d, account.balance);
+		assertEquals(100.0d, account.balance, epsilon);
 		account.addInterest();
-		assertEquals(105.0d, account.balance);
+		assertEquals(105.0d, account.balance, epsilon);
 	}
 
 	//
