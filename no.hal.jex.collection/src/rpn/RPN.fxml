@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.textfield.*?>
+ 
+<GridPane xmlns:fx="http://javafx.com/fxml"
+    prefHeight="200" prefWidth="320"
+    alignment="center" hgap="10" vgap="10">
+ 
+        <TextField id="valueTextNode" text="" prefColumnCount="8" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="3"/>
+
+        <Button text="push" GridPane.rowIndex="0" GridPane.columnIndex="3">
+        	<styleClass><String fx:value="actionButton"/></styleClass>
+        </Button>
+        <Button text="7" GridPane.rowIndex="1" GridPane.columnIndex="0">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="8" GridPane.rowIndex="1" GridPane.columnIndex="1">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="9" GridPane.rowIndex="1" GridPane.columnIndex="2">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="+" GridPane.rowIndex="1" GridPane.columnIndex="3">
+        	<styleClass><String fx:value="opButton"/></styleClass>
+        </Button>
+
+        <Button text="4" GridPane.rowIndex="2" GridPane.columnIndex="0">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="5" GridPane.rowIndex="2" GridPane.columnIndex="1">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="6" GridPane.rowIndex="2" GridPane.columnIndex="2">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="-" GridPane.rowIndex="2" GridPane.columnIndex="3">
+        	<styleClass><String fx:value="opButton"/></styleClass>
+        </Button>
+
+        <Button text="1" GridPane.rowIndex="3" GridPane.columnIndex="0">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="2" GridPane.rowIndex="3" GridPane.columnIndex="1">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="3" GridPane.rowIndex="3" GridPane.columnIndex="2">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="*" GridPane.rowIndex="3" GridPane.columnIndex="3">
+        	<styleClass><String fx:value="opButton"/></styleClass>
+        </Button>
+
+        <Button text="~" GridPane.rowIndex="4" GridPane.columnIndex="0">
+        	<styleClass><String fx:value="opButton"/></styleClass>
+        </Button>
+        <Button text="0" GridPane.rowIndex="4" GridPane.columnIndex="1">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="=" GridPane.rowIndex="4" GridPane.columnIndex="2">
+        	<styleClass><String fx:value="opButton"/></styleClass>
+        </Button>
+        <Button text="/" GridPane.rowIndex="4" GridPane.columnIndex="3">
+        	<styleClass><String fx:value="opButton"/></styleClass>
+        </Button>
+
+        <Button text="\%" GridPane.rowIndex="5" GridPane.columnIndex="0">
+        	<styleClass><String fx:value="opButton"/></styleClass>
+        </Button>
+        <Button text="π" GridPane.rowIndex="5" GridPane.columnIndex="1">
+        	<styleClass><String fx:value="opButton"/></styleClass>
+        </Button>
+        <Button text="." GridPane.rowIndex="4" GridPane.columnIndex="2">
+        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+        </Button>
+        <Button text="backspace" GridPane.rowIndex="5" GridPane.columnIndex="3">
+        	<styleClass><String fx:value="inputTextEditButton"/></styleClass>
+        </Button>
+</GridPane>
