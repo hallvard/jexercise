@@ -23,7 +23,7 @@ public class PersonTest extends TestCase {
 	}
 	
 	private void testExceptionAndValue(Exception e, Class<? extends Exception> c, Object expected, Object actual) {
-		assertTrue(c.isAssignableFrom(e.getClass()));
+		assertTrue(e + " should be assignable to " + c, c.isAssignableFrom(e.getClass()));
 		assertEquals(expected, actual);
 	}
 	
