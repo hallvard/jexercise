@@ -176,8 +176,8 @@ public class LineEditorTest extends TestCase {
 		testLineEditor("Java er gøy!",  5);
 	}
 
-	//
-
+	// optional
+	
 	public static void main(String[] args) {
 		JexStandalone.main(LineEditorTest.class);
 	}

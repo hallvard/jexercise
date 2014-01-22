@@ -80,7 +80,7 @@ public class LineEditor {
 		insertString(o.toString());
 	}
 	
-	private String wordCharacters = null;
+	private String wordCharacters = "qwertyuiopåasdfghjkløæzxcvbnmQWERTYUIOPÅASDFGHJKLØÆZXCVBNM";
 	
 	public void setWordCharacters(String wordCharacters) {
 		this.wordCharacters = wordCharacters;
@@ -92,6 +92,12 @@ public class LineEditor {
 
 	public void leftWord() {
 		while (insertionIndex > 0) {
+			if (isWordChar(text.charAt(insertionIndex - 1))) {
+				break;
+			}
+			insertionIndex--;
+		}
+		while (insertionIndex > 0) {
 			if (! isWordChar(text.charAt(insertionIndex - 1))) {
 				break;
 			}
@@ -100,6 +106,12 @@ public class LineEditor {
 	}
 	
 	public void rightWord() {
+		while (insertionIndex < text.length()) {
+			if (isWordChar(text.charAt(insertionIndex))) {
+				break;
+			}
+			insertionIndex++;
+		}
 		while (insertionIndex < text.length()) {
 			if (! isWordChar(text.charAt(insertionIndex))) {
 				break;
