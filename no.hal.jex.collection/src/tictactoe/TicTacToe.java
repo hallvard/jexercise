@@ -36,14 +36,15 @@ public class TicTacToe {
 	}
 	
 	public String toString() {
-		String str = "";
+		String result = "-------\n";
 		for (int y = 0; y <= 2; y++) {
+			result += "|";
 			for (int x = 0; x <= 2; x++) {
-				str += " " + gridString.charAt(indexAt(x, y)) + " |";
+				result += gridString.charAt(indexAt(x, y)) + "|";
 			}
-			str = str.substring(0,str.length()-2) + "\n-----------\n";
+			result = result + "\n-------\n";
 		}
-		return str.substring(0, str.length()-12);
+		return result;
 	}
 	
 	/* 

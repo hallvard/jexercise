@@ -14,7 +14,7 @@ public class TicTacToeProgram {
 	 * PART 3
 	 */
 	
-	private String instructions = "Enter x and y coordinate of next placement (separated by whitespace) corresponding to board positions:\n 0 0 | 1 0 | 2 0 \n-----------------\n 0 1 | 1 1 | 2 1 \n-----------------\n 0 2 | 1 2 | 2 2 \n###########\n";
+	private String instructions = "Enter x and y coordinate of next placement (separated by whitespace) corresponding to board positions:\n0 0|1 0|2 0\n-----------\n0 1|1 1|2 1\n-----------\n0 2|1 2|2 2\n###########\n";
 
 	public void run() {
 		System.out.println(instructions);
