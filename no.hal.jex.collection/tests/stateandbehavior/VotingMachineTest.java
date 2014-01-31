@@ -1,8 +1,11 @@
 package stateandbehavior;
-import no.hal.jex.runtime.JExercise;
-import java.util.*;
 
-@JExercise(description="Create a VotingMachine class that can be used for a simple election. The VotingMachine should have methods to clear the machine state ('clear'), to register one vote for a Democrat ('voteDemocrat'), to register one vote for a Republican ('voteRepublican') and to get the tallies for both parties ('getDemocratTally' and 'getRepublicanTally'). (Exercise 8.10 in Cay Horstmanns Big Java Late Objects.)")
+import no.hal.jex.runtime.JExercise;
+import java.util.Random;
+
+@JExercise(
+	description="Create a VotingMachine class that can be used for a simple election. The VotingMachine should have methods to clear the machine state ('clear'), to register one vote for a Democrat ('voteDemocrat'), to register one vote for a Republican ('voteRepublican') and to get the tallies for both parties ('getDemocratTally' and 'getRepublicanTally'). (Exercise 8.10 in Cay Horstmanns Big Java Late Objects.)"
+)
 
 public class VotingMachineTest extends junit.framework.TestCase {
 
@@ -13,17 +16,19 @@ public class VotingMachineTest extends junit.framework.TestCase {
 		vm = new VotingMachine();
 	}
 
-	@JExercise(tests="int getDemocratTally()",description="Tests that the inital number of votes are 0 for the Democrats.")
-	public void testInitialDemocratVotes() {
+	@JExercise(
+			tests="VotingMaching(); int getDemocratTally(); int getRepublicanTally()",
+			description="Tests that the inital number of votes are 0 for Democrats and Republicans."
+			)
+	public void testVotingMachine() {
 		assertEquals("The democrats should have an initial number of 0 votes.", 0,vm.getDemocratTally());
-	}
-
-	@JExercise(tests="int getRepublicanTally()",description="Tests that the inital number of votes are 0 for the Republicans.")
-	public void testInitialRepublicanVotes() {
 		assertEquals("The republicans should have an initial number of 0 votes.", 0, vm.getRepublicanTally());
 	}
 
-	@JExercise(tests="void clear(); int getDemocratTally(); int getRepublicanTally()",description="Tests that after clearing, the number of votes are 0 for both Democrats and Republicans.")
+	@JExercise(
+			tests="void clear(); int getDemocratTally(); int getRepublicanTally()",
+			description="Tests that after clearing, the number of votes are 0 for both Democrats and Republicans."
+			)
 	public void testClear() {
 		randomVotes(true);
 		randomVotes(false);
@@ -32,11 +37,14 @@ public class VotingMachineTest extends junit.framework.TestCase {
 		assertEquals("The republicans should have 0 votes after clearing.", 0, vm.getRepublicanTally());
 	}
 
-	@JExercise(tests="void voteDemocrat(); int getDemocratTally();",description="Tests that the number of Democrat votes are registered correctly.")
+	@JExercise(
+			tests="void voteDemocrat(); int getDemocratTally();",
+			description="Tests that the number of Democrat votes are registered correctly."
+			)
 	public void testVoteDemocrat() {
 		int number = randomVotes(true);
 		int votes = vm.getDemocratTally();
-		assertEquals("voteDemocrat has been called " + number + "times, while getDemocratTally returns " + votes, number, votes);
+		assertEquals("voteDemocrat has been called " + number + " times, while getDemocratTally returns " + votes, number, votes);
 	}
 
 	private int randomVotes(boolean democrat) {
@@ -52,11 +60,14 @@ public class VotingMachineTest extends junit.framework.TestCase {
 		return number;
 	}
 
-	@JExercise(tests="void voteRepublican(); int getRepublicanTally();",description="Tests that the number of Republican votes are registered correctly.")
+	@JExercise(
+			tests="void voteRepublican(); int getRepublicanTally();",
+			description="Tests that the number of Republican votes are registered correctly."
+			)
 	public void testVoteRepublican() {
 		int number = randomVotes(false);
 		int votes = vm.getRepublicanTally();
-		assertEquals("voteRepublican has been called " + number + "times, while getRepubllicanTally returns " + votes, number, votes);
+		assertEquals("voteRepublican has been called " + number + " times, while getRepubllicanTally returns " + votes, number, votes);
 	}
 
 	public static void main(String[] args) {
