@@ -1,8 +1,6 @@
 /*
  * Created on 18.mai.2005
  *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
 package no.hal.jex.ui;
 
@@ -55,13 +53,13 @@ public class JexManager extends TestRunListener implements
 IElementChangedListener, // IResourceChangeListener,
 JexResourceProvider.Listener {
 
-	private JexLogWriter jexLogWriter;
+	private JexLogWriter jexLogWriter = null;
 
 	public JexManager(String jexPathPattern) {
 		JavaCore.addElementChangedListener(this);
 		JUnitCore.addTestRunListener(this);
 //		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
-		jexLogWriter = new JexLogWriter();
+//		jexLogWriter = new JexLogWriter();
 	}
 
 	public void dispose() {
@@ -98,7 +96,7 @@ JexResourceProvider.Listener {
 	}
 
 	public void jexLog(EObject eo, String key, Object value, Integer severity) {
-		if (severity != null) {
+		if (severity != null && jexLogWriter != null) {
 			if (matchSeverity(severity.intValue(), jexLogMask)) {
 				jexLogWriter.log(eo, key, value, severity.intValue());
 			}
@@ -111,7 +109,7 @@ JexResourceProvider.Listener {
 	}
 
 	public void jexLog(Resource res, String key, Object value, Integer severity) {
-		if (severity != null) {
+		if (severity != null && jexLogWriter != null) {
 			if (matchSeverity(severity.intValue(), jexLogMask)) {
 				jexLogWriter.log(res, key, value, severity.intValue());
 			}
@@ -392,7 +390,7 @@ JexResourceProvider.Listener {
 
 	public void elementChanged(ElementChangedEvent event) {
 		// System.out.println("Java Model Event " + event.getType() + ": " + event.getDelta());
-		if (exerciseView != null && (! jexLogWriter.isWriting())) {
+		if (exerciseView != null && (jexLogWriter == null || (! jexLogWriter.isWriting()))) {
 			exerciseView.updateViewer(validateExerciseRequirements(), true);
 		}
 	}
