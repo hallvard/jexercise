@@ -1,0 +1,43 @@
+test objectstructures.CardDeck
+
+import java.util.Collection
+
+instances deck = new CardDeck(2)
+
+sequence constructor {
+	-->
+	state {
+		deck == #["S1", "S2", "H1", "H2", "D1", "D2", "C1", "C2"];
+	}
+}
+
+sequence shufflePerfectly {
+	-- shufflePerfectly -->
+	state {
+		deck == #["S1", "D1", "S2", "D2", "H1", "C1", "H2", "C2"];
+	}
+}
+
+sequence deal {
+	
+	instances CardHand hand
+	
+	-- deal(hand, 3) -->
+	state {
+		deck == #["S1", "S2", "H1", "H2", "D1"];
+	}
+}
+
+method boolean == (CardDeck cardDeck, Collection<String> toStrings) {
+	if (cardDeck.cardCount != toStrings.size) {
+		return false
+	}
+	var i = 0
+	for (toString : toStrings) {
+		if (cardDeck.getCard(i).toString != toString) {
+			return false
+		}
+		i = i + 1
+	}
+	true
+}

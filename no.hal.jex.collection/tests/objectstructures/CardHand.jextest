@@ -1,0 +1,47 @@
+test objectstructures.CardHand
+
+import java.util.Collection
+
+sequence constructor {
+	-->
+	state {
+		cardCount == 0;
+	}
+}
+
+sequence deal {
+	
+	instances CardDeck deck = new CardDeck(2)
+	
+	-- deck.deal(cardHand, 3) -->
+	state {
+		it == #["C2", "C1", "D2"];
+	}
+}
+
+sequence dealPlay {
+	
+	instances CardDeck deck = new CardDeck(2)
+
+	-- deck.deal(cardHand, 3) -->
+	state {
+		it == #["C2", "C1", "D2"];
+	}
+	-- play(1) --> state { it == #["C2", "D2"]; }
+	-- play(0) --> state { it == #["D2"]; }
+	-- play(0) --> state { cardCount == 0; }
+}
+
+method boolean == (CardHand cardHand, Collection<String> toStrings) {
+	if (cardHand.cardCount != toStrings.size) {
+		return false
+	}
+	var i = 0
+	for (toString : toStrings) {
+		if (cardHand.getCard(i).toString != toString) {
+			return false
+		}
+		i = i + 1
+	}
+	true
+}
