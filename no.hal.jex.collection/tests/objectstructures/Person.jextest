@@ -1,0 +1,105 @@
+test objectstructures.Person
+
+import java.util.List
+
+instances
+	hallvard = new Person("Hallvard", 'M'),
+	marit = new Person("Marit", 'F'),
+	jens = new Person("Jens", 'M'),
+	anne = new Person("Anne", 'F')
+
+sequence constructor "Personer uten foreldre og barn" {
+	-->
+	state {
+		hallvard { it == null -> null -> #[]; }
+		marit 	 { it == null -> null -> #[]; }
+		jens 	 { it == null -> null -> #[]; }
+		anne 	 { it == null -> null -> #[]; }
+	}
+}
+
+sequence farskapIllegalArgumentException "Marit kan ikke være far" {
+	-- jens.father = marit throws IllegalArgumentException
+	-- anne.father = marit throws IllegalArgumentException
+}
+
+sequence morskapIllegalArgumentException "Hallvard kan ikke være mor" {
+	-- jens.mother = hallvard throws IllegalArgumentException
+	-- anne.mother = hallvard throws IllegalArgumentException
+}
+
+sequence farskapSetFather "Hallvard er far til Jens og Anne" {
+	-- jens.father = hallvard -->
+	state {
+		hallvard { it == null -> null -> #[jens]; }
+		jens 	 { it == hallvard -> null -> #[]; }
+	}
+	-- anne.father = hallvard -->
+	state {
+		hallvard { it == null -> null -> #[jens, anne]; }
+		jens 	 { it == hallvard -> null -> #[]; }
+		anne 	 { it == hallvard -> null -> #[]; }
+	}
+}
+
+sequence farskapAddChild "Hallvard er far til Jens og Anne" {
+	-- hallvard.addChild(jens) -->
+	state {
+		hallvard { it == null -> null -> #[jens]; }
+		jens 	 { it == hallvard -> null -> #[]; }
+	}
+	-- hallvard.addChild(anne) -->
+	state {
+		hallvard { it == null -> null -> #[jens, anne]; }
+		jens 	 { it == hallvard -> null -> #[]; }
+		anne 	 { it == hallvard -> null -> #[]; }
+	}
+}
+
+sequence morskapSetMother "Marit er mor til Jens og Anne" {
+	-- jens.mother = marit -->
+	state {
+		marit { it == null -> null -> #[jens]; }
+		jens  { it == null -> marit -> #[]; }
+	}
+	-- anne.mother = marit -->
+	state {
+		marit { it == null -> null -> #[jens, anne]; }
+		jens  { it == null -> marit -> #[]; }
+		anne  { it == null -> marit -> #[]; }
+	}
+}
+
+sequence morskapAddChild "Marit er mor til Jens og Anne" {
+	-- marit.addChild(jens) -->
+	state {
+		marit { it == null -> null -> #[jens]; }
+		jens  { it == null -> marit -> #[]; }
+	}
+	-- marit.addChild(anne) -->
+	state {
+		marit { it == null -> null -> #[jens, anne]; }
+		jens  { it == null -> marit -> #[]; }
+		anne  { it == null -> marit -> #[]; }
+	}
+}
+
+method boolean == (Person person, Pair<Pair<?, ?>, List<?>> fatherMotherChildren) {
+	if (! (person.father == fatherMotherChildren.key.key &&
+			person.mother == fatherMotherChildren.key.value &&
+			person == fatherMotherChildren.value)) {
+				return false
+	}
+	val children = fatherMotherChildren.value
+	if (person.childCount != children.size) {
+		return false;
+	}
+	var i = 0;
+	for (child : children) {
+		if (child != person.getChild(i)) {
+			return false;
+		}
+		i = i + 1;
+	}
+	return true;
+}
