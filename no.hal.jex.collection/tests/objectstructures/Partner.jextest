@@ -1,0 +1,63 @@
+test objectstructures.Partner
+
+instances
+	p1 = new Partner("1"),
+	p2 = new Partner("2")
+
+sequence constructor "Ingen partnerskap" {
+	-->
+	state {
+		p1 { partner == null; }
+		p2 { partner == null; }
+	}
+}
+
+sequence partner "Enkelt partnerskap" {
+	state {
+		p1 { partner == null; }
+		p2 { partner == null; }
+	}
+	"Partnerskap inngås" -- p1.setPartner(p2) -->
+	state {
+		p1 { partner == p2; }
+		p2 { partner == p1; }
+	}
+}
+
+sequence divorce "Partnerskap med etterfølgende brudd" {
+	"Partnerskap inngås" -- p1.setPartner(p2) -->
+	state {
+		p1 { partner == p2; }
+		p2 { partner == p1; }
+	}
+	"Partnerskap brytes" -- p1.setPartner(null) -->
+	state divorced {
+		p1 { partner == null; }
+		p2 { partner == null; }
+	}
+}
+
+sequence swinger "Partnerskap med etterfølgende kombinert brudd og nytt partnerskap" {
+
+	instances
+		p3 = new Partner("3"),
+		p4 = new Partner("4")
+
+	"Partnerskap inngås" -- p1.setPartner(p2) -->
+	state {
+		p1 { partner == p2; }
+		p2 { partner == p1; }
+	}
+	"Partnerskap inngås" -- p3.setPartner(p4) -->
+	state {
+		p3 { partner == p4; }
+		p4 { partner == p3; }
+	}
+	"Kombinert brudd og nytt partnerskap" -- p1.setPartner(p4) -->
+	state {
+		p1 { partner == p4; }
+		p4 { partner == p1; }
+		p2 { partner == null; }
+		p3 { partner == null; }
+	}
+}
