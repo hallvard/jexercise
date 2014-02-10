@@ -2,8 +2,8 @@ package stateandbehavior;
 
 public class LineEditor {
 
-	String text;
-	int insertionIndex;
+	String text = "";
+	int insertionIndex = 0;
 	
 	@Override
 	public String toString() {
