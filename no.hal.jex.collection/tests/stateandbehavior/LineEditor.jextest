@@ -1,0 +1,49 @@
+test stateandbehavior.LineEditor
+
+sequence constructor "Konstruktør" {
+	-->
+	state { it =="|"; }
+}
+
+sequence left "Venstre" {
+	-- left -->				state { it == "|"; }
+	-- set("J|"), left -->	state { it == "|J";	}
+}
+
+sequence right "Høyre" {
+	-- right -->			state { it == "|"; }
+	-- set("|J"), right -->	state { it == "J|";	}
+}
+
+sequence deleteLeft "Slett mot venstre" {
+	-- deleteLeft -->				state { it == "|"; }
+	-- set("J|"), deleteLeft -->	state { it == "|"; }
+	-- set("Ja|va"), deleteLeft -->	state { it == "J|va"; }
+}
+
+sequence deleteRight "Slett mot høyre" {
+	-- deleteRight -->					state { it == "|"; }
+	-- set("|J"), deleteRight -->		state { it == "|"; }
+	-- set("J|ava"), deleteRight -->	state { it == "J|va"; }
+}
+
+sequence insertString "Sett inn tekst" {
+	-- insertString("") -->							state { it == "|"; }
+	-- insertString("Java") -->						state { it == "Java|"; }
+	-- insertString(" er gøy!") -->					state { it == "Java er gøy!|"; }
+	-- set("Java|gøy!"), insertString(" er ") -->	state { it == "Java er |gøy!"; }
+	-- set("|er gøy!"), insertString("Java ") -->	state { it == "Java |er gøy!"; }
+}
+
+method void set(String s) {
+	val pos = s.indexOf('|')
+	lineEditor.text = s.substring(0, pos) + s.substring(pos + 1)
+	lineEditor.insertionIndex = pos;
+}
+
+method boolean == (LineEditor lineEditor, String s) {
+	val pos = s.indexOf('|')
+	val head = s.substring(0, pos)
+	val tail = if (pos + 1 < s.length) s.substring(pos + 1) else ""
+	lineEditor.text == (head + tail) && lineEditor.insertionIndex == pos
+}

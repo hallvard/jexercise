@@ -1,0 +1,49 @@
+test stateandbehavior.VotingMachine
+"Stemme-maskin" @ "https://www.ntnu.no/wiki/display/tdt4100/java.util.ArrayList"
+
+sequence constructor "Konstruktør" {
+	-->
+	state {
+		democratTally == 0;
+		republicanTally == 0;
+	}
+}
+
+sequence domacratVotes "Demokrat-stemmer" {
+	instances int votes = 10 + (Math.random * 100000) as int
+	"2 demokrat-stemmer." -- voteDemocrat # votes -->
+	state {
+		democratTally == votes;
+		republicanTally == 0;
+	}
+}
+
+sequence republicanVotes "Replikaner-stemmer" {
+	instances int votes = 10 + (Math.random * 100000) as int
+	"3 replikaner-stemmer." -- voteRepublican # votes -->
+	state {
+		democratTally == 0;
+		republicanTally == votes;
+	}
+}
+
+sequence clearVotes "Stemmer og nullstill" {
+	instances
+		int democratVotes = 10 + (Math.random * 100000) as int,
+		int republicanVotes = 10 + (Math.random * 100000) as int
+	"3 demokrat-stemmer." -- voteDemocrat # democratVotes -->
+	state {
+		democratTally == democratVotes;
+		republicanTally == 0;
+	}
+	"2 replikaner-stemmer." -- voteRepublican # republicanVotes -->
+	state {
+		democratTally == democratVotes;
+		republicanTally == republicanVotes;
+	}
+	"Nullstill" -- clear --> 
+	state {
+		democratTally == 0;
+		republicanTally == 0;
+	}
+}
