@@ -30,7 +30,7 @@ public class RPN {
 		operandStack.push(value);
 	}
 
-	int getOperandCount() {
+	int getSize() {
 		return operandStack.size();
 	}
 	
@@ -38,11 +38,15 @@ public class RPN {
 		return operandStack.get(operandStack.size() - n - 1);
 	}
 
+	double pop() {
+		return operandStack.pop();
+	}
+	
 	double pop(double def) {
 		if (operandStack.isEmpty()) {
 			return def;
 		}
-		return operandStack.pop();
+		return pop();
 	}
 
 	// perform the operation denoted by op
