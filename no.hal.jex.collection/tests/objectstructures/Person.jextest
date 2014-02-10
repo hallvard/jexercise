@@ -86,8 +86,7 @@ sequence morskapAddChild "Marit er mor til Jens og Anne" {
 
 method boolean == (Person person, Pair<Pair<?, ?>, List<?>> fatherMotherChildren) {
 	if (! (person.father == fatherMotherChildren.key.key &&
-			person.mother == fatherMotherChildren.key.value &&
-			person == fatherMotherChildren.value)) {
+			person.mother == fatherMotherChildren.key.value)) {
 				return false
 	}
 	val children = fatherMotherChildren.value
