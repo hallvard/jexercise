@@ -28,6 +28,14 @@ sequence morskapIllegalArgumentException "Hallvard kan ikke være mor" {
 	-- anne.mother = hallvard throws IllegalArgumentException
 }
 
+sequence selvfarskapIllegalArgumentException "Jens kan ikke være sin egen far" {
+	-- jens.father = jens throws IllegalArgumentException
+}
+
+sequence selvmorskapIllegalArgumentException "Anne kan ikke være sin egen mor" {
+	-- anne.mother = anne throws IllegalArgumentException
+}
+
 sequence farskapSetFather "Hallvard er far til Jens og Anne" {
 	-- jens.father = hallvard -->
 	state {
@@ -85,10 +93,10 @@ sequence morskapAddChild "Marit er mor til Jens og Anne" {
 }
 
 method boolean == (Person person, Pair<Pair<?, ?>, List<?>> fatherMotherChildren) {
-	if (! (person.father == fatherMotherChildren.key.key &&
-			person.mother == fatherMotherChildren.key.value &&
-			person == fatherMotherChildren.value)) {
-				return false
+	val expectedFather = fatherMotherChildren.key.key
+	val expectedMother = fatherMotherChildren.key.value
+	if (! (person.father == expectedFather && person.mother == expectedMother)) {
+		return false
 	}
 	val children = fatherMotherChildren.value
 	if (person.childCount != children.size) {

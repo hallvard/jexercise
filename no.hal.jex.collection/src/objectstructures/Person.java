@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Person {
 
-	public final static char MALE_GENDER = 'm';
-	public final static char FEMALE_GENDER = 'f';
+	public final static char MALE_GENDER = 'M';
+	public final static char FEMALE_GENDER = 'F';
 	
 	private final char gender;
 	private String name;
@@ -19,10 +19,10 @@ public class Person {
 	public Person(String name, char gender) {
 		this.name = name;
 		if (! isValidGender(gender)) {
-			throw new IllegalArgumentException(gender + " is not av valid gender");
+			throw new IllegalArgumentException(gender + " is not a valid gender");
 		}			
 		this.gender = gender;
-		children = new ArrayList<Person>();
+		this.children = new ArrayList<Person>();
 	}
 
 	public String getName() {
@@ -73,8 +73,22 @@ public class Person {
 		return mother;
 	}
 
+
+	private void checkGender(Person person, char gender) {
+		if (person.gender != gender) {
+			throw new IllegalArgumentException("The gender is " + person.gender + " but should have been " + gender);
+		}
+	}
+	private void checkOwnParent(Person person, Person parent) {
+		if (person == parent) {
+			throw new IllegalArgumentException("A person cannot be its own parent");
+		}
+	}
+
 	public void setMother(Person mother) {
-		if (mother != null && (mother == this || mother == this.mother || (mother.gender != FEMALE_GENDER))) {
+		checkGender(mother, FEMALE_GENDER);
+		checkOwnParent(this, mother);
+		if (mother == this.mother) {
 			return;
 		}
 		// detach from previous mother, if needed
@@ -93,7 +107,9 @@ public class Person {
 	}
 
 	public void setFather(Person father) {
-		if (father != null && (father == this || father == this.father || (father.gender != MALE_GENDER))) {
+		checkGender(father, MALE_GENDER);
+//		checkOwnParent(this, father);
+		if (father == this.father) {
 			return;
 		}
 		// detach from previous father, if needed
@@ -106,7 +122,7 @@ public class Person {
 			this.father.addChild(this);
 		}
 	}
-	
+
 	private static boolean isAncestorOf(Person ancestor, Person person) {
 		if (person == null) {
 			return false;
