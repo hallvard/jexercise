@@ -3,38 +3,30 @@ test objectstructures.Card
 instances c = null
 
 sequence constructor {
-	-- c = new Card('S', 1)  --> state { it == 'S' -> 1; }
-	-- c = new Card('S', 13) --> state { it == 'S' -> 13; }
-	-- c = new Card('H', 1)  --> state { it == 'H' -> 1; }
-	-- c = new Card('H', 13) --> state { it == 'H' -> 13; }
-	-- c = new Card('D', 1)  --> state { it == 'D' -> 1; }
-	-- c = new Card('D', 13) --> state { it == 'D' -> 13; }
-	-- c = new Card('C', 1)  --> state { it == 'C' -> 1; }
-	-- c = new Card('C', 13) --> state { it == 'C' -> 13; }
+	-- c = new Card('S', 1)  --> state { suit == 'S'; face == 1; }
+	-- c = new Card('S', 13) --> state { suit == 'S'; face == 13; }
+	-- c = new Card('H', 1)  --> state { suit == 'H'; face == 1; }
+	-- c = new Card('H', 13) --> state { suit == 'H'; face == 13; }
+	-- c = new Card('D', 1)  --> state { suit == 'D'; face == 1; }
+	-- c = new Card('D', 13) --> state { suit == 'D'; face == 13; }
+	-- c = new Card('C', 1)  --> state { suit == 'C'; face == 1; }
+	-- c = new Card('C', 13) --> state { suit == 'C'; face == 13; }
 	-- c = new Card('X', 1)  throws IllegalArgumentException
 	-- c = new Card('S', 0)  throws IllegalArgumentException
 	-- c = new Card('C', 14) throws IllegalArgumentException
 }
 
 sequence toString {
-	-- c = new Card('S', 1)  --> state { it == 'S1'; }
-	-- c = new Card('S', 13) --> state { it == 'S13'; }
-	-- c = new Card('H', 1)  --> state { it == 'H1'; }
-	-- c = new Card('H', 13) --> state { it == 'H13'; }
-	-- c = new Card('D', 1)  --> state { it == 'D1'; }
-	-- c = new Card('D', 13) --> state { it == 'D13'; }
-	-- c = new Card('C', 1)  --> state { it == 'C1'; }
-	-- c = new Card('C', 13) --> state { it == 'C13'; }
+	-- c = new Card('S', 1)  --> state { toString == 'S1'; }
+	-- c = new Card('S', 13) --> state { toString == 'S13'; }
+	-- c = new Card('H', 1)  --> state { toString == 'H1'; }
+	-- c = new Card('H', 13) --> state { toString == 'H13'; }
+	-- c = new Card('D', 1)  --> state { toString == 'D1'; }
+	-- c = new Card('D', 13) --> state { toString == 'D13'; }
+	-- c = new Card('C', 1)  --> state { toString == 'C1'; }
+	-- c = new Card('C', 13) --> state { toString == 'C13'; }
 }
 
 method boolean == (Character c, String s) {
 	s.length == 1 && c == s.charAt(0);
-}
-
-method boolean == (Card card, String s) {
-	card.toString == s
-}
-
-method boolean == (Card card, Pair<String,Integer> suitFace) {
-	card.suit == suitFace.key && card.face == suitFace.value.intValue
 }

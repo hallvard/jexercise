@@ -1,6 +1,6 @@
 test objectstructures.Person
 
-import java.util.List
+import java.util.Collection
 
 instances
 	hallvard = new Person("Hallvard", 'M'),
@@ -11,10 +11,26 @@ instances
 sequence constructor "Personer uten foreldre og barn" {
 	-->
 	state {
-		hallvard { it == null -> null -> #[]; }
-		marit 	 { it == null -> null -> #[]; }
-		jens 	 { it == null -> null -> #[]; }
-		anne 	 { it == null -> null -> #[]; }
+		hallvard {
+			father == null;
+			mother == null;
+			testChildren(#[]);
+		}
+		marit {
+			father == null;
+			mother == null;
+			testChildren(#[]);
+		}
+		jens {
+			father == null;
+			mother == null;
+			testChildren(#[]);
+		}
+		anne {
+			father == null;
+			mother == null;
+			testChildren(#[]);
+		}
 	}
 }
 
@@ -39,75 +55,142 @@ sequence selvmorskapIllegalArgumentException "Anne kan ikke være sin egen mor" 
 sequence farskapSetFather "Hallvard er far til Jens og Anne" {
 	-- jens.father = hallvard -->
 	state {
-		hallvard { it == null -> null -> #[jens]; }
-		jens 	 { it == hallvard -> null -> #[]; }
+		hallvard {
+			father == null;
+			mother == null;
+			testChildren(#[jens]);
+		}
+		jens {
+			father == hallvard;
+			mother == null; testChildren(#[]);
+		}
 	}
 	-- anne.father = hallvard -->
 	state {
-		hallvard { it == null -> null -> #[jens, anne]; }
-		jens 	 { it == hallvard -> null -> #[]; }
-		anne 	 { it == hallvard -> null -> #[]; }
+		hallvard {
+			father == null;
+			mother == null;
+			testChildren(#[jens, anne]);
+		}
+		jens {
+			father == hallvard;
+			mother == null;
+			testChildren(#[]);
+		}
+		anne {
+			father == hallvard;
+			mother == null;
+			testChildren(#[]);
+		}
 	}
 }
 
 sequence farskapAddChild "Hallvard er far til Jens og Anne" {
 	-- hallvard.addChild(jens) -->
 	state {
-		hallvard { it == null -> null -> #[jens]; }
-		jens 	 { it == hallvard -> null -> #[]; }
+		hallvard {
+			father == null;
+			mother == null;
+			testChildren(#[jens]);
+		}
+		jens {
+			father == hallvard;
+			mother == null;
+			testChildren(#[]);
+		}
 	}
 	-- hallvard.addChild(anne) -->
 	state {
-		hallvard { it == null -> null -> #[jens, anne]; }
-		jens 	 { it == hallvard -> null -> #[]; }
-		anne 	 { it == hallvard -> null -> #[]; }
+		hallvard {
+			father == null;
+			mother == null;
+			testChildren(#[jens, anne]);
+		}
+		jens {
+			father == hallvard;
+			mother == null;
+			testChildren(#[]);
+		}
+		anne {
+			father == hallvard;
+			mother == null;
+			testChildren(#[]);
+		}
 	}
 }
 
 sequence morskapSetMother "Marit er mor til Jens og Anne" {
 	-- jens.mother = marit -->
 	state {
-		marit { it == null -> null -> #[jens]; }
-		jens  { it == null -> marit -> #[]; }
+		marit {
+			father == null;
+			mother == null;
+			testChildren(#[jens]); }
+		jens {
+			father == null;
+			mother == marit;
+			testChildren(#[]);
+		}
 	}
 	-- anne.mother = marit -->
 	state {
-		marit { it == null -> null -> #[jens, anne]; }
-		jens  { it == null -> marit -> #[]; }
-		anne  { it == null -> marit -> #[]; }
+		marit {
+			father == null;
+			mother == null;
+			testChildren(#[jens, anne]);
+		}
+		jens {
+			father == null;
+			mother == marit;
+			testChildren(#[]);
+		}
+		anne  {
+			father == null;
+			mother == marit;
+			testChildren(#[]);
+		}
 	}
 }
 
 sequence morskapAddChild "Marit er mor til Jens og Anne" {
 	-- marit.addChild(jens) -->
 	state {
-		marit { it == null -> null -> #[jens]; }
-		jens  { it == null -> marit -> #[]; }
+		marit {
+			father == null;
+			mother == null;
+			testChildren(#[jens]);
+		}
+		jens {
+			father == null;
+			mother == marit;
+			testChildren(#[]);
+		}
 	}
 	-- marit.addChild(anne) -->
 	state {
-		marit { it == null -> null -> #[jens, anne]; }
-		jens  { it == null -> marit -> #[]; }
-		anne  { it == null -> marit -> #[]; }
+		marit {
+			father == null;
+			mother == null;
+			testChildren(#[jens, anne]);
+		}
+		jens {
+			father == null;
+			mother == marit;
+			testChildren(#[]);
+		}
+		anne {
+			father == null;
+			mother == marit;
+			testChildren(#[]);
+		}
 	}
 }
 
-method boolean == (Person person, Pair<Pair<?, ?>, List<?>> fatherMotherChildren) {
-	val expectedFather = fatherMotherChildren.key.key
-	val expectedMother = fatherMotherChildren.key.value
-	if (! (person.father == expectedFather && person.mother == expectedMother)) {
-		return false
-	}
-	val children = fatherMotherChildren.value
-	if (person.childCount != children.size) {
-		return false;
-	}
+method void testChildren(Person person, Collection<?> children) {
+	assertEquals(children.size, person.childCount);
 	var i = 0;
 	for (child : children) {
-		if (child != person.getChild(i)) {
-			return false;
-		}
+		assertEquals(child, person.getChild(i));
 		i = i + 1;
 	}
-	return true;
 }

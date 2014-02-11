@@ -15,7 +15,7 @@ sequence deal {
 	
 	-- deck.deal(cardHand, 3) -->
 	state {
-		it == #["C2", "C1", "D2"];
+		testCards(it, #["C2", "C1", "D2"]);
 	}
 }
 
@@ -25,23 +25,19 @@ sequence dealPlay {
 
 	-- deck.deal(cardHand, 3) -->
 	state {
-		it == #["C2", "C1", "D2"];
+		testCards(it, #["C2", "C1", "D2"]);
 	}
-	-- play(1) --> state { it == #["C2", "D2"]; }
-	-- play(0) --> state { it == #["D2"]; }
+	-- play(1) --> state { testCards(it, #["C2", "D2"]); }
+	-- play(0) --> state { testCards(it, #["D2"]); }
 	-- play(0) --> state { cardCount == 0; }
 }
 
-method boolean == (CardHand cardHand, Collection<String> toStrings) {
-	if (cardHand.cardCount != toStrings.size) {
-		return false
-	}
+method void testCards(CardHand it, Collection<String> toStrings) {
+	assertEquals(toStrings.size, cardCount)
 	var i = 0
 	for (toString : toStrings) {
-		if (cardHand.getCard(i).toString != toString) {
-			return false
-		}
+		val card = getCard(i)
+		assertEquals(toString, String.valueOf(card.suit) + card.face)
 		i = i + 1
 	}
-	true
 }

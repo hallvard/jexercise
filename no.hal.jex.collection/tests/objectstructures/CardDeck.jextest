@@ -7,14 +7,14 @@ instances deck = new CardDeck(2)
 sequence constructor {
 	-->
 	state {
-		deck == #["S1", "S2", "H1", "H2", "D1", "D2", "C1", "C2"];
+		testCards(deck, #["S1", "S2", "H1", "H2", "D1", "D2", "C1", "C2"]);
 	}
 }
 
 sequence shufflePerfectly {
 	-- shufflePerfectly -->
 	state {
-		deck == #["S1", "D1", "S2", "D2", "H1", "C1", "H2", "C2"];
+		testCards(deck, #["S1", "D1", "S2", "D2", "H1", "C1", "H2", "C2"]);
 	}
 }
 
@@ -24,20 +24,16 @@ sequence deal {
 	
 	-- deal(hand, 3) -->
 	state {
-		deck == #["S1", "S2", "H1", "H2", "D1"];
+		testCards(deck, #["S1", "S2", "H1", "H2", "D1"]);
 	}
 }
 
-method boolean == (CardDeck cardDeck, Collection<String> toStrings) {
-	if (cardDeck.cardCount != toStrings.size) {
-		return false
-	}
+method void testCards(CardDeck it, Collection<String> toStrings) {
+	assertEquals(toStrings.size, cardCount)
 	var i = 0
 	for (toString : toStrings) {
-		if (cardDeck.getCard(i).toString != toString) {
-			return false
-		}
+		val card = getCard(i)
+		assertEquals(toString, String.valueOf(card.suit) + card.face)
 		i = i + 1
 	}
-	true
 }

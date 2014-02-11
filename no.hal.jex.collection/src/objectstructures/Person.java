@@ -108,7 +108,7 @@ public class Person {
 
 	public void setFather(Person father) {
 		checkGender(father, MALE_GENDER);
-//		checkOwnParent(this, father);
+		checkOwnParent(this, father);
 		if (father == this.father) {
 			return;
 		}
