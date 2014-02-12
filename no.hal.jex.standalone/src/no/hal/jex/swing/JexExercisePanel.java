@@ -204,7 +204,7 @@ public class JexExercisePanel extends JPanel implements TreeModelListener, Refle
 				@Override
 				public Class<?> loadClass(String name) throws ClassNotFoundException {
 					Class<?> clazz = super.loadClass(name);
-					System.out.println(name + "->" + clazz + " by " + this + " (" + clazz.getClassLoader() + ")");
+//					System.out.println(name + "->" + clazz + " by " + this + " (" + clazz.getClassLoader() + ")");
 					return clazz;
 				}
 			};
