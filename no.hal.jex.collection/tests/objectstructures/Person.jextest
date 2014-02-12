@@ -62,7 +62,8 @@ sequence farskapSetFather "Hallvard er far til Jens og Anne" {
 		}
 		jens {
 			father == hallvard;
-			mother == null; testChildren(#[]);
+			mother == null;
+			testChildren(#[]);
 		}
 	}
 	-- anne.father = hallvard -->

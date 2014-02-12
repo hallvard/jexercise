@@ -27,7 +27,7 @@ public class PersonTest extends TestCase {
   }
   
   private Person jens;
-  
+
   private Person _init_jens() {
     Person _person = new Person("Jens", 'M');
     return _person;
