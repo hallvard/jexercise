@@ -1,9 +1,0 @@
-<eResourceEntry  timestamp='1368043785445' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/person/PersonTest.java.jex' key='resource selected' value='null'/>
-<eResourceEntry  timestamp='1368045792048' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/person/PersonTest.java.jex' key='resource selected' value='null'/>
-<eResourceEntry  timestamp='1368046092722' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/person/PersonTest.java.jex' key='resource selected' value='null'/>
-<eResourceEntry  timestamp='1368048481556' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/person/PersonTest.java.jex' key='resource selected' value='null'/>
-<eObjectEntry  timestamp='1368048496830' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/person/PersonTest.java.jex' fragmentId='//@requirements.0/@requirements.7' key='junit test launch' value='testSetAsRemoveChild'/>
-<eObjectEntry  timestamp='1368048498957' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/person/PersonTest.java.jex' fragmentId='//@requirements.0/@requirements.7' key='test run status' value='true'/>
-<eResourceEntry  timestamp='1378900525221' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/person/PersonTest.java.jex' key='resource selected' value='null'/>
-<eObjectEntry  timestamp='1378900527139' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/person/PersonTest.java.jex' fragmentId='//@requirements.0/@requirements.0' key='junit test launch' value='testPerson'/>
-<eObjectEntry  timestamp='1378900527689' resUri='platform:/resource/no.hal.jex.examples/tests/oving5/person/PersonTest.java.jex' fragmentId='//@requirements.0/@requirements.0' key='test run status' value='true'/>
