@@ -1,4 +1,4 @@
-package grensesnitt;
+package interfaces;
 
 import java.util.ArrayList;
 import java.util.Collection;

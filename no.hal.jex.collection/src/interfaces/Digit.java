@@ -1,4 +1,4 @@
-package grensesnitt;
+package interfaces;
 
 public class Digit implements Incrementable {
 

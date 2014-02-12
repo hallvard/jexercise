@@ -1,4 +1,4 @@
-package grensesnitt;
+package interfaces;
 
 public interface Incrementable {
 
