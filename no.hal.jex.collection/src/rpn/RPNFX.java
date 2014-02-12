@@ -92,7 +92,7 @@ public class RPNFX extends Application {
 
 	private void updateValueText() {
 		String label = "";
-		for (int i = 0; i < rpn.getOperandCount(); i++) {
+		for (int i = 0; i < rpn.getSize(); i++) {
 			label = rpn.peek(i) + " " + label;
 		}
 		if (input != null) {
