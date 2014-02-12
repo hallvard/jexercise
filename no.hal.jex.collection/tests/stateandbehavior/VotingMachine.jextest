@@ -1,5 +1,5 @@
 test stateandbehavior.VotingMachine
-"Stemme-maskin" @ "https://www.ntnu.no/wiki/display/tdt4100/java.util.ArrayList"
+"Stemme-maskin" @ "https://www.ntnu.no/wiki/display/tdt4100/State+and+behavior+-+Voting+machine+exercise"
 
 sequence constructor "Konstruktør" {
 	-->
