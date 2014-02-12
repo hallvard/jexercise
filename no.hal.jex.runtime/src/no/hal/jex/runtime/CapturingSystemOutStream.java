@@ -10,7 +10,7 @@ public class CapturingSystemOutStream extends MultiFilterOutputStream {
 	
 	public CapturingSystemOutStream(boolean startCapturing) {
 		super(new ByteArrayOutputStream(), null);
-		capturingOut = (ByteArrayOutputStream)outs[0];
+		capturingOut = (ByteArrayOutputStream) outs[0];
 		oldSystemOut = null;
 		if (startCapturing) {
 			startCapturing();
@@ -23,7 +23,7 @@ public class CapturingSystemOutStream extends MultiFilterOutputStream {
 			System.setOut(new PrintStream(this));
 		}
 	}
-		
+
 	public String stopCapturing() {
 		String capturedOutput = null;
 		if (oldSystemOut != null) {
