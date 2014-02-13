@@ -1,6 +1,5 @@
 package objectstructures;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import java.util.Collection;
 import java.util.Collections;
@@ -27,7 +26,7 @@ public class PersonTest extends TestCase {
   }
   
   private Person jens;
-
+  
   private Person _init_jens() {
     Person _person = new Person("Jens", 'M');
     return _person;
@@ -163,38 +162,20 @@ public class PersonTest extends TestCase {
   }
   
   private void _test__constructor_transitions0_effect_state() {
-    _test__constructor_transitions0_effect_state_objectTests0_propertyTests0(hallvard);
-    _test__constructor_transitions0_effect_state_objectTests0_propertyTests1(hallvard);
-    _test__constructor_transitions0_effect_state_objectTests0_propertyTests2(hallvard);
-    _test__constructor_transitions0_effect_state_objectTests1_propertyTests0(marit);
-    _test__constructor_transitions0_effect_state_objectTests1_propertyTests1(marit);
-    _test__constructor_transitions0_effect_state_objectTests1_propertyTests2(marit);
-    _test__constructor_transitions0_effect_state_objectTests2_propertyTests0(jens);
-    _test__constructor_transitions0_effect_state_objectTests2_propertyTests1(jens);
-    _test__constructor_transitions0_effect_state_objectTests2_propertyTests2(jens);
-    _test__constructor_transitions0_effect_state_objectTests3_propertyTests0(anne);
-    _test__constructor_transitions0_effect_state_objectTests3_propertyTests1(anne);
-    _test__constructor_transitions0_effect_state_objectTests3_propertyTests2(anne);
+    _test__constructor_transitions0_effect_state_objectTests0_test(hallvard);
+    _test__constructor_transitions0_effect_state_objectTests1_test(marit);
+    _test__constructor_transitions0_effect_state_objectTests2_test(jens);
+    _test__constructor_transitions0_effect_state_objectTests3_test(anne);
     
   }
   
-  private boolean _test__constructor_transitions0_effect_state_objectTests0_propertyTests0(final Person it) {
+  private void _test__constructor_transitions0_effect_state_objectTests0_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__constructor_transitions0_effect_state_objectTests0_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__constructor_transitions0_effect_state_objectTests0_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -204,23 +185,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__constructor_transitions0_effect_state_objectTests1_propertyTests0(final Person it) {
+  private void _test__constructor_transitions0_effect_state_objectTests1_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__constructor_transitions0_effect_state_objectTests1_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__constructor_transitions0_effect_state_objectTests1_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -230,23 +201,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__constructor_transitions0_effect_state_objectTests2_propertyTests0(final Person it) {
+  private void _test__constructor_transitions0_effect_state_objectTests2_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__constructor_transitions0_effect_state_objectTests2_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__constructor_transitions0_effect_state_objectTests2_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -256,23 +217,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__constructor_transitions0_effect_state_objectTests3_propertyTests0(final Person it) {
+  private void _test__constructor_transitions0_effect_state_objectTests3_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__constructor_transitions0_effect_state_objectTests3_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__constructor_transitions0_effect_state_objectTests3_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -353,12 +304,40 @@ public class PersonTest extends TestCase {
   }
   
   private void _test__farskapSetFather_transitions0_effect_state() {
-    _test__farskapSetFather_transitions0_effect_state_objectTests0_propertyTests0(hallvard);
-    _test__farskapSetFather_transitions0_effect_state_objectTests0_propertyTests1(hallvard);
-    _test__farskapSetFather_transitions0_effect_state_objectTests0_propertyTests2(hallvard);
-    _test__farskapSetFather_transitions0_effect_state_objectTests1_propertyTests0(jens);
-    _test__farskapSetFather_transitions0_effect_state_objectTests1_propertyTests1(jens);
-    _test__farskapSetFather_transitions0_effect_state_objectTests1_propertyTests2(jens);
+    _test__farskapSetFather_transitions0_effect_state_objectTests0_test(hallvard);
+    _test__farskapSetFather_transitions0_effect_state_objectTests1_test(jens);
+    
+  }
+  
+  private void _test__farskapSetFather_transitions0_effect_state_objectTests0_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == null failed after jens.father = hallvard", null, _father);
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == null failed after jens.father = hallvard", null, _mother);
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[jens]) failed after jens.father = hallvard: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__farskapSetFather_transitions0_effect_state_objectTests1_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == hallvard failed after jens.father = hallvard", this.hallvard, _father);
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == null failed after jens.father = hallvard", null, _mother);
+    try {
+      
+      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[]) failed after jens.father = hallvard: " + error.getMessage());
+    }
     
   }
   
@@ -373,87 +352,19 @@ public class PersonTest extends TestCase {
   }
   
   private void _test__farskapSetFather_transitions1_effect_state() {
-    _test__farskapSetFather_transitions1_effect_state_objectTests0_propertyTests0(hallvard);
-    _test__farskapSetFather_transitions1_effect_state_objectTests0_propertyTests1(hallvard);
-    _test__farskapSetFather_transitions1_effect_state_objectTests0_propertyTests2(hallvard);
-    _test__farskapSetFather_transitions1_effect_state_objectTests1_propertyTests0(jens);
-    _test__farskapSetFather_transitions1_effect_state_objectTests1_propertyTests1(jens);
-    _test__farskapSetFather_transitions1_effect_state_objectTests1_propertyTests2(jens);
-    _test__farskapSetFather_transitions1_effect_state_objectTests2_propertyTests0(anne);
-    _test__farskapSetFather_transitions1_effect_state_objectTests2_propertyTests1(anne);
-    _test__farskapSetFather_transitions1_effect_state_objectTests2_propertyTests2(anne);
+    _test__farskapSetFather_transitions1_effect_state_objectTests0_test(hallvard);
+    _test__farskapSetFather_transitions1_effect_state_objectTests1_test(jens);
+    _test__farskapSetFather_transitions1_effect_state_objectTests2_test(anne);
     
   }
   
-  private boolean _test__farskapSetFather_transitions0_effect_state_objectTests0_propertyTests0(final Person it) {
-    
-    Person _father = it.getFather();
-    assertEquals("father == null failed after jens.father = hallvard", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__farskapSetFather_transitions0_effect_state_objectTests0_propertyTests1(final Person it) {
-    
-    Person _mother = it.getMother();
-    assertEquals("mother == null failed after jens.father = hallvard", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__farskapSetFather_transitions0_effect_state_objectTests0_propertyTests2(final Person it) {
-    try {
-      
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testChildren(#[jens]) failed after jens.father = hallvard: " + error.getMessage());
-    }
-    
-  }
-  
-  private boolean _test__farskapSetFather_transitions0_effect_state_objectTests1_propertyTests0(final Person it) {
-    
-    Person _father = it.getFather();
-    assertEquals("father == hallvard failed after jens.father = hallvard", this.hallvard, _father);
-    return Objects.equal(_father, this.hallvard);
-    
-  }
-  
-  private boolean _test__farskapSetFather_transitions0_effect_state_objectTests1_propertyTests1(final Person it) {
-    
-    Person _mother = it.getMother();
-    assertEquals("mother == null failed after jens.father = hallvard", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__farskapSetFather_transitions0_effect_state_objectTests1_propertyTests2(final Person it) {
-    try {
-      
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testChildren(#[]) failed after jens.father = hallvard: " + error.getMessage());
-    }
-    
-  }
-  
-  private boolean _test__farskapSetFather_transitions1_effect_state_objectTests0_propertyTests0(final Person it) {
+  private void _test__farskapSetFather_transitions1_effect_state_objectTests0_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed after anne.father = hallvard", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__farskapSetFather_transitions1_effect_state_objectTests0_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed after anne.father = hallvard", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__farskapSetFather_transitions1_effect_state_objectTests0_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens, this.anne)));
@@ -463,23 +374,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__farskapSetFather_transitions1_effect_state_objectTests1_propertyTests0(final Person it) {
+  private void _test__farskapSetFather_transitions1_effect_state_objectTests1_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == hallvard failed after anne.father = hallvard", this.hallvard, _father);
-    return Objects.equal(_father, this.hallvard);
-    
-  }
-  
-  private boolean _test__farskapSetFather_transitions1_effect_state_objectTests1_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed after anne.father = hallvard", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__farskapSetFather_transitions1_effect_state_objectTests1_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -489,23 +390,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__farskapSetFather_transitions1_effect_state_objectTests2_propertyTests0(final Person it) {
+  private void _test__farskapSetFather_transitions1_effect_state_objectTests2_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == hallvard failed after anne.father = hallvard", this.hallvard, _father);
-    return Objects.equal(_father, this.hallvard);
-    
-  }
-  
-  private boolean _test__farskapSetFather_transitions1_effect_state_objectTests2_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed after anne.father = hallvard", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__farskapSetFather_transitions1_effect_state_objectTests2_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -526,12 +417,40 @@ public class PersonTest extends TestCase {
   }
   
   private void _test__farskapAddChild_transitions0_effect_state() {
-    _test__farskapAddChild_transitions0_effect_state_objectTests0_propertyTests0(hallvard);
-    _test__farskapAddChild_transitions0_effect_state_objectTests0_propertyTests1(hallvard);
-    _test__farskapAddChild_transitions0_effect_state_objectTests0_propertyTests2(hallvard);
-    _test__farskapAddChild_transitions0_effect_state_objectTests1_propertyTests0(jens);
-    _test__farskapAddChild_transitions0_effect_state_objectTests1_propertyTests1(jens);
-    _test__farskapAddChild_transitions0_effect_state_objectTests1_propertyTests2(jens);
+    _test__farskapAddChild_transitions0_effect_state_objectTests0_test(hallvard);
+    _test__farskapAddChild_transitions0_effect_state_objectTests1_test(jens);
+    
+  }
+  
+  private void _test__farskapAddChild_transitions0_effect_state_objectTests0_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == null failed after hallvard.addChild(jens)", null, _father);
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == null failed after hallvard.addChild(jens)", null, _mother);
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[jens]) failed after hallvard.addChild(jens): " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__farskapAddChild_transitions0_effect_state_objectTests1_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == hallvard failed after hallvard.addChild(jens)", this.hallvard, _father);
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == null failed after hallvard.addChild(jens)", null, _mother);
+    try {
+      
+      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[]) failed after hallvard.addChild(jens): " + error.getMessage());
+    }
     
   }
   
@@ -546,87 +465,19 @@ public class PersonTest extends TestCase {
   }
   
   private void _test__farskapAddChild_transitions1_effect_state() {
-    _test__farskapAddChild_transitions1_effect_state_objectTests0_propertyTests0(hallvard);
-    _test__farskapAddChild_transitions1_effect_state_objectTests0_propertyTests1(hallvard);
-    _test__farskapAddChild_transitions1_effect_state_objectTests0_propertyTests2(hallvard);
-    _test__farskapAddChild_transitions1_effect_state_objectTests1_propertyTests0(jens);
-    _test__farskapAddChild_transitions1_effect_state_objectTests1_propertyTests1(jens);
-    _test__farskapAddChild_transitions1_effect_state_objectTests1_propertyTests2(jens);
-    _test__farskapAddChild_transitions1_effect_state_objectTests2_propertyTests0(anne);
-    _test__farskapAddChild_transitions1_effect_state_objectTests2_propertyTests1(anne);
-    _test__farskapAddChild_transitions1_effect_state_objectTests2_propertyTests2(anne);
+    _test__farskapAddChild_transitions1_effect_state_objectTests0_test(hallvard);
+    _test__farskapAddChild_transitions1_effect_state_objectTests1_test(jens);
+    _test__farskapAddChild_transitions1_effect_state_objectTests2_test(anne);
     
   }
   
-  private boolean _test__farskapAddChild_transitions0_effect_state_objectTests0_propertyTests0(final Person it) {
-    
-    Person _father = it.getFather();
-    assertEquals("father == null failed after hallvard.addChild(jens)", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__farskapAddChild_transitions0_effect_state_objectTests0_propertyTests1(final Person it) {
-    
-    Person _mother = it.getMother();
-    assertEquals("mother == null failed after hallvard.addChild(jens)", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__farskapAddChild_transitions0_effect_state_objectTests0_propertyTests2(final Person it) {
-    try {
-      
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testChildren(#[jens]) failed after hallvard.addChild(jens): " + error.getMessage());
-    }
-    
-  }
-  
-  private boolean _test__farskapAddChild_transitions0_effect_state_objectTests1_propertyTests0(final Person it) {
-    
-    Person _father = it.getFather();
-    assertEquals("father == hallvard failed after hallvard.addChild(jens)", this.hallvard, _father);
-    return Objects.equal(_father, this.hallvard);
-    
-  }
-  
-  private boolean _test__farskapAddChild_transitions0_effect_state_objectTests1_propertyTests1(final Person it) {
-    
-    Person _mother = it.getMother();
-    assertEquals("mother == null failed after hallvard.addChild(jens)", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__farskapAddChild_transitions0_effect_state_objectTests1_propertyTests2(final Person it) {
-    try {
-      
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testChildren(#[]) failed after hallvard.addChild(jens): " + error.getMessage());
-    }
-    
-  }
-  
-  private boolean _test__farskapAddChild_transitions1_effect_state_objectTests0_propertyTests0(final Person it) {
+  private void _test__farskapAddChild_transitions1_effect_state_objectTests0_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed after hallvard.addChild(anne)", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__farskapAddChild_transitions1_effect_state_objectTests0_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed after hallvard.addChild(anne)", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__farskapAddChild_transitions1_effect_state_objectTests0_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens, this.anne)));
@@ -636,23 +487,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__farskapAddChild_transitions1_effect_state_objectTests1_propertyTests0(final Person it) {
+  private void _test__farskapAddChild_transitions1_effect_state_objectTests1_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == hallvard failed after hallvard.addChild(anne)", this.hallvard, _father);
-    return Objects.equal(_father, this.hallvard);
-    
-  }
-  
-  private boolean _test__farskapAddChild_transitions1_effect_state_objectTests1_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed after hallvard.addChild(anne)", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__farskapAddChild_transitions1_effect_state_objectTests1_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -662,23 +503,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__farskapAddChild_transitions1_effect_state_objectTests2_propertyTests0(final Person it) {
+  private void _test__farskapAddChild_transitions1_effect_state_objectTests2_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == hallvard failed after hallvard.addChild(anne)", this.hallvard, _father);
-    return Objects.equal(_father, this.hallvard);
-    
-  }
-  
-  private boolean _test__farskapAddChild_transitions1_effect_state_objectTests2_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed after hallvard.addChild(anne)", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__farskapAddChild_transitions1_effect_state_objectTests2_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -699,12 +530,40 @@ public class PersonTest extends TestCase {
   }
   
   private void _test__morskapSetMother_transitions0_effect_state() {
-    _test__morskapSetMother_transitions0_effect_state_objectTests0_propertyTests0(marit);
-    _test__morskapSetMother_transitions0_effect_state_objectTests0_propertyTests1(marit);
-    _test__morskapSetMother_transitions0_effect_state_objectTests0_propertyTests2(marit);
-    _test__morskapSetMother_transitions0_effect_state_objectTests1_propertyTests0(jens);
-    _test__morskapSetMother_transitions0_effect_state_objectTests1_propertyTests1(jens);
-    _test__morskapSetMother_transitions0_effect_state_objectTests1_propertyTests2(jens);
+    _test__morskapSetMother_transitions0_effect_state_objectTests0_test(marit);
+    _test__morskapSetMother_transitions0_effect_state_objectTests1_test(jens);
+    
+  }
+  
+  private void _test__morskapSetMother_transitions0_effect_state_objectTests0_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == null failed after jens.mother = marit", null, _father);
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == null failed after jens.mother = marit", null, _mother);
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[jens]) failed after jens.mother = marit: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__morskapSetMother_transitions0_effect_state_objectTests1_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == null failed after jens.mother = marit", null, _father);
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == marit failed after jens.mother = marit", this.marit, _mother);
+    try {
+      
+      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[]) failed after jens.mother = marit: " + error.getMessage());
+    }
     
   }
   
@@ -719,87 +578,19 @@ public class PersonTest extends TestCase {
   }
   
   private void _test__morskapSetMother_transitions1_effect_state() {
-    _test__morskapSetMother_transitions1_effect_state_objectTests0_propertyTests0(marit);
-    _test__morskapSetMother_transitions1_effect_state_objectTests0_propertyTests1(marit);
-    _test__morskapSetMother_transitions1_effect_state_objectTests0_propertyTests2(marit);
-    _test__morskapSetMother_transitions1_effect_state_objectTests1_propertyTests0(jens);
-    _test__morskapSetMother_transitions1_effect_state_objectTests1_propertyTests1(jens);
-    _test__morskapSetMother_transitions1_effect_state_objectTests1_propertyTests2(jens);
-    _test__morskapSetMother_transitions1_effect_state_objectTests2_propertyTests0(anne);
-    _test__morskapSetMother_transitions1_effect_state_objectTests2_propertyTests1(anne);
-    _test__morskapSetMother_transitions1_effect_state_objectTests2_propertyTests2(anne);
+    _test__morskapSetMother_transitions1_effect_state_objectTests0_test(marit);
+    _test__morskapSetMother_transitions1_effect_state_objectTests1_test(jens);
+    _test__morskapSetMother_transitions1_effect_state_objectTests2_test(anne);
     
   }
   
-  private boolean _test__morskapSetMother_transitions0_effect_state_objectTests0_propertyTests0(final Person it) {
-    
-    Person _father = it.getFather();
-    assertEquals("father == null failed after jens.mother = marit", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__morskapSetMother_transitions0_effect_state_objectTests0_propertyTests1(final Person it) {
-    
-    Person _mother = it.getMother();
-    assertEquals("mother == null failed after jens.mother = marit", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__morskapSetMother_transitions0_effect_state_objectTests0_propertyTests2(final Person it) {
-    try {
-      
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testChildren(#[jens]) failed after jens.mother = marit: " + error.getMessage());
-    }
-    
-  }
-  
-  private boolean _test__morskapSetMother_transitions0_effect_state_objectTests1_propertyTests0(final Person it) {
-    
-    Person _father = it.getFather();
-    assertEquals("father == null failed after jens.mother = marit", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__morskapSetMother_transitions0_effect_state_objectTests1_propertyTests1(final Person it) {
-    
-    Person _mother = it.getMother();
-    assertEquals("mother == marit failed after jens.mother = marit", this.marit, _mother);
-    return Objects.equal(_mother, this.marit);
-    
-  }
-  
-  private void _test__morskapSetMother_transitions0_effect_state_objectTests1_propertyTests2(final Person it) {
-    try {
-      
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testChildren(#[]) failed after jens.mother = marit: " + error.getMessage());
-    }
-    
-  }
-  
-  private boolean _test__morskapSetMother_transitions1_effect_state_objectTests0_propertyTests0(final Person it) {
+  private void _test__morskapSetMother_transitions1_effect_state_objectTests0_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed after anne.mother = marit", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__morskapSetMother_transitions1_effect_state_objectTests0_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed after anne.mother = marit", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__morskapSetMother_transitions1_effect_state_objectTests0_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens, this.anne)));
@@ -809,23 +600,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__morskapSetMother_transitions1_effect_state_objectTests1_propertyTests0(final Person it) {
+  private void _test__morskapSetMother_transitions1_effect_state_objectTests1_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed after anne.mother = marit", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__morskapSetMother_transitions1_effect_state_objectTests1_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == marit failed after anne.mother = marit", this.marit, _mother);
-    return Objects.equal(_mother, this.marit);
-    
-  }
-  
-  private void _test__morskapSetMother_transitions1_effect_state_objectTests1_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -835,23 +616,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__morskapSetMother_transitions1_effect_state_objectTests2_propertyTests0(final Person it) {
+  private void _test__morskapSetMother_transitions1_effect_state_objectTests2_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed after anne.mother = marit", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__morskapSetMother_transitions1_effect_state_objectTests2_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == marit failed after anne.mother = marit", this.marit, _mother);
-    return Objects.equal(_mother, this.marit);
-    
-  }
-  
-  private void _test__morskapSetMother_transitions1_effect_state_objectTests2_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -872,12 +643,40 @@ public class PersonTest extends TestCase {
   }
   
   private void _test__morskapAddChild_transitions0_effect_state() {
-    _test__morskapAddChild_transitions0_effect_state_objectTests0_propertyTests0(marit);
-    _test__morskapAddChild_transitions0_effect_state_objectTests0_propertyTests1(marit);
-    _test__morskapAddChild_transitions0_effect_state_objectTests0_propertyTests2(marit);
-    _test__morskapAddChild_transitions0_effect_state_objectTests1_propertyTests0(jens);
-    _test__morskapAddChild_transitions0_effect_state_objectTests1_propertyTests1(jens);
-    _test__morskapAddChild_transitions0_effect_state_objectTests1_propertyTests2(jens);
+    _test__morskapAddChild_transitions0_effect_state_objectTests0_test(marit);
+    _test__morskapAddChild_transitions0_effect_state_objectTests1_test(jens);
+    
+  }
+  
+  private void _test__morskapAddChild_transitions0_effect_state_objectTests0_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == null failed after marit.addChild(jens)", null, _father);
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == null failed after marit.addChild(jens)", null, _mother);
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[jens]) failed after marit.addChild(jens): " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__morskapAddChild_transitions0_effect_state_objectTests1_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == null failed after marit.addChild(jens)", null, _father);
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == marit failed after marit.addChild(jens)", this.marit, _mother);
+    try {
+      
+      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[]) failed after marit.addChild(jens): " + error.getMessage());
+    }
     
   }
   
@@ -892,87 +691,19 @@ public class PersonTest extends TestCase {
   }
   
   private void _test__morskapAddChild_transitions1_effect_state() {
-    _test__morskapAddChild_transitions1_effect_state_objectTests0_propertyTests0(marit);
-    _test__morskapAddChild_transitions1_effect_state_objectTests0_propertyTests1(marit);
-    _test__morskapAddChild_transitions1_effect_state_objectTests0_propertyTests2(marit);
-    _test__morskapAddChild_transitions1_effect_state_objectTests1_propertyTests0(jens);
-    _test__morskapAddChild_transitions1_effect_state_objectTests1_propertyTests1(jens);
-    _test__morskapAddChild_transitions1_effect_state_objectTests1_propertyTests2(jens);
-    _test__morskapAddChild_transitions1_effect_state_objectTests2_propertyTests0(anne);
-    _test__morskapAddChild_transitions1_effect_state_objectTests2_propertyTests1(anne);
-    _test__morskapAddChild_transitions1_effect_state_objectTests2_propertyTests2(anne);
+    _test__morskapAddChild_transitions1_effect_state_objectTests0_test(marit);
+    _test__morskapAddChild_transitions1_effect_state_objectTests1_test(jens);
+    _test__morskapAddChild_transitions1_effect_state_objectTests2_test(anne);
     
   }
   
-  private boolean _test__morskapAddChild_transitions0_effect_state_objectTests0_propertyTests0(final Person it) {
-    
-    Person _father = it.getFather();
-    assertEquals("father == null failed after marit.addChild(jens)", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__morskapAddChild_transitions0_effect_state_objectTests0_propertyTests1(final Person it) {
-    
-    Person _mother = it.getMother();
-    assertEquals("mother == null failed after marit.addChild(jens)", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__morskapAddChild_transitions0_effect_state_objectTests0_propertyTests2(final Person it) {
-    try {
-      
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testChildren(#[jens]) failed after marit.addChild(jens): " + error.getMessage());
-    }
-    
-  }
-  
-  private boolean _test__morskapAddChild_transitions0_effect_state_objectTests1_propertyTests0(final Person it) {
-    
-    Person _father = it.getFather();
-    assertEquals("father == null failed after marit.addChild(jens)", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__morskapAddChild_transitions0_effect_state_objectTests1_propertyTests1(final Person it) {
-    
-    Person _mother = it.getMother();
-    assertEquals("mother == marit failed after marit.addChild(jens)", this.marit, _mother);
-    return Objects.equal(_mother, this.marit);
-    
-  }
-  
-  private void _test__morskapAddChild_transitions0_effect_state_objectTests1_propertyTests2(final Person it) {
-    try {
-      
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testChildren(#[]) failed after marit.addChild(jens): " + error.getMessage());
-    }
-    
-  }
-  
-  private boolean _test__morskapAddChild_transitions1_effect_state_objectTests0_propertyTests0(final Person it) {
+  private void _test__morskapAddChild_transitions1_effect_state_objectTests0_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed after marit.addChild(anne)", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__morskapAddChild_transitions1_effect_state_objectTests0_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == null failed after marit.addChild(anne)", null, _mother);
-    return Objects.equal(_mother, null);
-    
-  }
-  
-  private void _test__morskapAddChild_transitions1_effect_state_objectTests0_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens, this.anne)));
@@ -982,23 +713,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__morskapAddChild_transitions1_effect_state_objectTests1_propertyTests0(final Person it) {
+  private void _test__morskapAddChild_transitions1_effect_state_objectTests1_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed after marit.addChild(anne)", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__morskapAddChild_transitions1_effect_state_objectTests1_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == marit failed after marit.addChild(anne)", this.marit, _mother);
-    return Objects.equal(_mother, this.marit);
-    
-  }
-  
-  private void _test__morskapAddChild_transitions1_effect_state_objectTests1_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
@@ -1008,23 +729,13 @@ public class PersonTest extends TestCase {
     
   }
   
-  private boolean _test__morskapAddChild_transitions1_effect_state_objectTests2_propertyTests0(final Person it) {
+  private void _test__morskapAddChild_transitions1_effect_state_objectTests2_test(final Person it) {
     
     Person _father = it.getFather();
     assertEquals("father == null failed after marit.addChild(anne)", null, _father);
-    return Objects.equal(_father, null);
-    
-  }
-  
-  private boolean _test__morskapAddChild_transitions1_effect_state_objectTests2_propertyTests1(final Person it) {
     
     Person _mother = it.getMother();
     assertEquals("mother == marit failed after marit.addChild(anne)", this.marit, _mother);
-    return Objects.equal(_mother, this.marit);
-    
-  }
-  
-  private void _test__morskapAddChild_transitions1_effect_state_objectTests2_propertyTests2(final Person it) {
     try {
       
       this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
