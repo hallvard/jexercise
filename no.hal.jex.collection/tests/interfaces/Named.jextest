@@ -1,0 +1,44 @@
+test interfaces.Named
+
+instance String h = "Hallvard", String t = "Trætteberg", String j = "Jens" 
+
+state Named ht() {
+	givenName == h
+	familyName == t
+	fullName = h + " " + t
+}
+
+state Named jt() {
+	givenName == j
+	familyName == t
+	fullName = j + " " + t
+}
+
+sequence person1 {
+	instance Person1 person1 = new Person1(h, t)
+	-->
+	state person1 { ht }
+	-- person1.givenName = j -->
+	state person1 { jt }
+}
+
+sequence person2 {
+	instance Person2 person2 = new Person2(h + " " + t)
+	-->
+	state person2 { ht }
+	-- person2.givenName = j -->
+	state person2 { jt }
+}
+
+sequence namedComparator {
+	instance NamedComparator namedComparator
+	instance Person1 ht = new Person1(h, t)
+	instance Person2 jt = new Person2(j + " " + t)
+	-->
+	state namedComparator {
+		compare(ht, ht) == 0
+		compare(jt, ht) > 0
+		compare(ht, jt) < 0
+		compare(jt, jt) == 0
+	}
+}

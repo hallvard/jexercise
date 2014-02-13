@@ -18,7 +18,7 @@ public class GridIterator<T> implements Iterator<T> {
 
 	@Override
 	public boolean hasNext() {
-		return row * column < grid.getRowCount() * grid.getColumnCount();
+		return row < grid.getRowCount() && column < grid.getColumnCount();
 	}
 
 	@Override

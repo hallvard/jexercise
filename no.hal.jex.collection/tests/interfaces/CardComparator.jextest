@@ -1,0 +1,28 @@
+test interfaces.CardComparator
+
+import java.util.List
+import java.util.Collections
+
+instance
+	Card s1 = new Card('S', 1), Card s13 = new Card('S', 13),
+	Card h1 = new Card('H', 1), Card h13 = new Card('H', 13),
+	Card d1 = new Card('D', 1), Card d13 = new Card('D', 13),
+	Card c1 = new Card('C', 1), Card c13 = new Card('C', 13)
+
+instance 
+	List<Card> cards = newArrayList(s1, s13, h1, h13, d1, d13, c1, c13)
+
+sequence normal {
+	-- Collections.sort(cards, new CardComparator(false, ' ')) -->
+	state cards { it == #[c1, c13, d1, d13, h1, h13, s1, s13] }
+}
+
+sequence aceIsHighest {
+	-- Collections.sort(cards, new CardComparator(true, ' ')) -->
+	state cards { it == #[c13, c1, d13, d1, h13, h1, s13, s1]; }
+}
+
+sequence diamondIsTrumph {
+	-- Collections.sort(cards, new CardComparator(false, 'D')) -->
+	state cards { it == #[c1, c13, h1, h13, s1, s13, d1, d13]; }
+}
