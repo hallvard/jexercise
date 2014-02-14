@@ -1,0 +1,42 @@
+test generics.Grid
+
+instance GridImpl<String> gridImpl = new GridImpl<String>(2, 3)
+
+sequence grid {
+	--
+	gridImpl.setElement(0, 0, "0, 0"), gridImpl.setElement(0, 1, "0, 1"), gridImpl.setElement(0, 2, "0, 2"),
+	gridImpl.setElement(1, 0, "1, 0"), gridImpl.setElement(1, 1, "1, 1"), gridImpl.setElement(1, 2, "1, 2")
+	-->
+	state gridImpl {
+		getElement(0, 0) == "0, 0" getElement(0, 1) == "0, 1" getElement(0, 2) == "0, 2"
+		getElement(1, 0) == "1, 0" getElement(1, 1) == "1, 1" getElement(1, 2) == "1, 2"
+	}
+}
+
+sequence gridIteratorRowMajor {
+	instance GridIterator<String> gridIterator = new GridIterator<String>(gridImpl, true)
+	--
+	gridImpl.setElement(0, 0, "0, 0"), gridImpl.setElement(0, 1, "0, 1"), gridImpl.setElement(0, 2, "0, 2"),
+	gridImpl.setElement(1, 0, "1, 0"), gridImpl.setElement(1, 1, "1, 1"), gridImpl.setElement(1, 2, "1, 2")
+	-->									state gridIterator { hasNext == true }
+	-- gridIterator.next == "0, 0" --> 	state gridIterator { hasNext == true }
+	-- gridIterator.next == "0, 1" --> 	state gridIterator { hasNext == true }
+	-- gridIterator.next == "0, 2" --> 	state gridIterator { hasNext == true }
+	-- gridIterator.next == "1, 0" --> 	state gridIterator { hasNext == true }
+	-- gridIterator.next == "1, 1" --> 	state gridIterator { hasNext == true }
+	-- gridIterator.next == "1, 2" -->	state gridIterator { hasNext == false }
+}
+
+sequence gridIteratorColumnMajor {
+	instance GridIterator<String> gridIterator = new GridIterator<String>(gridImpl, false)
+	--
+	gridImpl.setElement(0, 0, "0, 0"), gridImpl.setElement(0, 1, "0, 1"), gridImpl.setElement(0, 2, "0, 2"),
+	gridImpl.setElement(1, 0, "1, 0"), gridImpl.setElement(1, 1, "1, 1"), gridImpl.setElement(1, 2, "1, 2")
+	-->									state gridIterator { hasNext == true }
+	-- gridIterator.next == "0, 0" --> 	state gridIterator { hasNext == true }
+	-- gridIterator.next == "1, 0" --> 	state gridIterator { hasNext == true }
+	-- gridIterator.next == "0, 1" --> 	state gridIterator { hasNext == true }
+	-- gridIterator.next == "1, 1" --> 	state gridIterator { hasNext == true }
+	-- gridIterator.next == "0, 2" --> 	state gridIterator { hasNext == true }
+	-- gridIterator.next == "1, 2" -->	state gridIterator { hasNext == false }
+}
