@@ -1,6 +1,6 @@
-test interfaces.Grid
+test interfaces.StringGrid
 
-instance GridImpl<String> gridImpl = new GridImpl<String>(2, 3)
+instance StringGridImpl gridImpl = new StringGridImpl(2, 3)
 
 sequence grid {
 	--
@@ -14,7 +14,7 @@ sequence grid {
 }
 
 sequence gridIteratorRowMajor {
-	instance GridIterator<String> gridIterator = new GridIterator(gridImpl, true)
+	instance StringGridIterator gridIterator = new StringGridIterator(gridImpl, true)
 	--
 	gridImpl.setElement(0, 0, "0, 0"), gridImpl.setElement(0, 1, "0, 1"), gridImpl.setElement(0, 2, "0, 2"),
 	gridImpl.setElement(1, 0, "1, 0"), gridImpl.setElement(1, 1, "1, 1"), gridImpl.setElement(1, 2, "1, 2")
@@ -28,7 +28,7 @@ sequence gridIteratorRowMajor {
 }
 
 sequence gridIteratorColumnMajor {
-	instance GridIterator<String> gridIterator = new GridIterator(gridImpl, false)
+	instance StringGridIterator gridIterator = new StringGridIterator(gridImpl, false)
 	--
 	gridImpl.setElement(0, 0, "0, 0"), gridImpl.setElement(0, 1, "0, 1"), gridImpl.setElement(0, 2, "0, 2"),
 	gridImpl.setElement(1, 0, "1, 0"), gridImpl.setElement(1, 1, "1, 1"), gridImpl.setElement(1, 2, "1, 2")

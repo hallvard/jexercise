@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class GridImpl<T> implements Grid<T> {
+public class StringGridImpl implements StringGrid {
 
 	private int columnCount;
-	private List<T> elements;
+	private List<String> elements;
 	
-	public GridImpl(int rows, int columnCount) {
-		elements = new ArrayList<T>(rows * columnCount);
+	public StringGridImpl(int rows, int columnCount) {
+		elements = new ArrayList<String>(rows * columnCount);
 		for (int count = 0; count < rows * columnCount; count++) {
 			elements.add(null);
 		}
@@ -38,19 +38,19 @@ public class GridImpl<T> implements Grid<T> {
 	}
 
 	@Override
-	public T getElement(int row, int column) {
+	public String getElement(int row, int column) {
 		checkValidElement(row, column);
 		return elements.get(getIndex(row, column));
 	}
 
 	@Override
-	public T setElement(int row, int column, T element) {
+	public void setElement(int row, int column, String element) {
 		checkValidElement(row, column);
-		return elements.set(getIndex(row, column), element);
+		elements.set(getIndex(row, column), element);
 	}
 
 	@Override
-	public Iterator<T> iterator() {
+	public Iterator<String> iterator() {
 		return elements.iterator();
 	}
 }

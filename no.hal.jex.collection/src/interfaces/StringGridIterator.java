@@ -2,14 +2,14 @@ package interfaces;
 
 import java.util.Iterator;
 
-public class GridIterator<T> implements Iterator<T> {
+public class StringGridIterator implements Iterator<String> {
 
-	private Grid<T> grid;
+	private StringGrid grid;
 	private boolean rowMajor;
 
 	private int row, column;
 	
-	public GridIterator(Grid<T> grid, boolean rowMajor) {
+	public StringGridIterator(StringGrid grid, boolean rowMajor) {
 		this.grid = grid;
 		this.rowMajor = rowMajor;
 		this.row = 0;
@@ -22,8 +22,8 @@ public class GridIterator<T> implements Iterator<T> {
 	}
 
 	@Override
-	public T next() {
-		T element = grid.getElement(row, column);
+	public String next() {
+		String element = grid.getElement(row, column);
 		if (rowMajor) {
 			column = column + 1;
 			if (column >= grid.getColumnCount()) {
