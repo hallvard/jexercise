@@ -85,45 +85,33 @@ public class CardContainerTest extends TestCase {
     
   }
   
-  private void testCards(final CardContainer it, final Collection<Card> cards) {
-    int _size = cards.size();
+  private void testCards(final CardContainer it, final Collection<Card> expected) {
+    int _size = expected.size();
     int _cardCount = it.getCardCount();
     Assert.assertEquals(_size, _cardCount);
     Iterator<Card> _iterator = it.iterator();
-    this.testCards(_iterator, cards);
+    this.testCards(_iterator, expected);
   }
   
-  private void testCards(final Iterator<Card> iterator, final Collection<Card> cards) {
-    final Iterator<Card> iterator2 = cards.iterator();
-    boolean _and = false;
-    boolean _hasNext = iterator.hasNext();
-    if (!_hasNext) {
-      _and = false;
-    } else {
-      boolean _hasNext_1 = iterator2.hasNext();
-      _and = (_hasNext && _hasNext_1);
-    }
-    boolean _while = _and;
+  private void testCards(final Iterator<Card> actual, final Collection<Card> expected) {
+    final Iterator<Card> expectedIt = expected.iterator();
+    boolean _hasNext = expectedIt.hasNext();
+    boolean _while = _hasNext;
     while (_while) {
       {
-        final Card expected = iterator.next();
-        final Card actual = iterator2.next();
-        char _suit = expected.getSuit();
-        char _suit_1 = actual.getSuit();
+        boolean _hasNext_1 = actual.hasNext();
+        Assert.assertTrue(_hasNext_1);
+        final Card expectedCard = expectedIt.next();
+        final Card actualCard = actual.next();
+        char _suit = expectedCard.getSuit();
+        char _suit_1 = actualCard.getSuit();
         Assert.assertEquals(_suit, _suit_1);
-        int _face = expected.getFace();
-        int _face_1 = actual.getFace();
+        int _face = expectedCard.getFace();
+        int _face_1 = actualCard.getFace();
         Assert.assertEquals(_face, _face_1);
       }
-      boolean _and_1 = false;
-      boolean _hasNext_2 = iterator.hasNext();
-      if (!_hasNext_2) {
-        _and_1 = false;
-      } else {
-        boolean _hasNext_3 = iterator2.hasNext();
-        _and_1 = (_hasNext_2 && _hasNext_3);
-      }
-      _while = _and_1;
+      boolean _hasNext_1 = expectedIt.hasNext();
+      _while = _hasNext_1;
     }
   }
   
@@ -229,5 +217,9 @@ public class CardContainerTest extends TestCase {
       fail("testCards(#[s1, s2, h1, h2, d1, d2, c1, c2]) failed: " + error.getMessage());
     }
     
+  }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(CardContainerTest.class);
   }
 }

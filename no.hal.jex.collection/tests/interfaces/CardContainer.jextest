@@ -25,17 +25,18 @@ sequence cardContainerIterator {
 	--> state cardContainerIterator { testCards(#[s1, s2, h1, h2, d1, d2, c1, c2]) }
 }
 
-method void testCards(CardContainer it, Collection<Card> cards) {
-	assertEquals(cards.size, cardCount)
-	testCards(iterator, cards)
+method void testCards(CardContainer it, Collection<Card> expected) {
+	assertEquals(expected.size, cardCount)
+	testCards(iterator, expected)
 }
 
-method void testCards(Iterator<Card> iterator, Collection<Card> cards) {
-	val iterator2 = cards.iterator
-	while (iterator.hasNext && iterator2.hasNext) {
-		val expected = iterator.next
-		val actual = iterator2.next
-		assertEquals(expected.suit, actual.suit)
-		assertEquals(expected.face, actual.face)
+method void testCards(Iterator<Card> actual, Collection<Card> expected) {
+	val expectedIt = expected.iterator
+	while (expectedIt.hasNext) {
+		assertTrue(actual.hasNext)
+		val expectedCard = expectedIt.next
+		val actualCard = actual.next
+		assertEquals(expectedCard.suit, actualCard.suit)
+		assertEquals(expectedCard.face, actualCard.face)
 	}
 }
