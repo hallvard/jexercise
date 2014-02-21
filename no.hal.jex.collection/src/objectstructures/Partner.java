@@ -29,11 +29,11 @@ public class Partner {
 		}
 		Partner oldPartner = this.partner;
 		this.partner = partner;
-		if (oldPartner != null) {
+		if (oldPartner != null && oldPartner.getPartner() == this) {
 			oldPartner.setPartner(null);
 		}
-		if (partner != null) {
-			partner.setPartner(this);
+		if (this.partner != null) {
+			this.partner.setPartner(this);
 		}
 	}
 }
