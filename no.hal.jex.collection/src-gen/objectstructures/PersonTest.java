@@ -161,6 +161,42 @@ public class PersonTest extends TestCase {
     
   }
   
+  @JExercise(tests = "Person(String,char);void setFather(objectstructures.Person)", description = "<h3>Jens er ikke far til Anne likevel, Hallvard er</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Angir Jens som Annes far: anne.father = jens</li>\n\t\t<li>Bytter til Hallvard: anne.father = hallvard</li>\n\t\t</ul>\n")
+  public void testFarbytteSetFather() {
+    _transition_exprAction__farbytteSetFather_transitions0_actions0();
+    _test__farbytteSetFather_transitions0_effect_state();
+    _transition_exprAction__farbytteSetFather_transitions1_actions0();
+    _test__farbytteSetFather_transitions1_effect_state();
+    
+  }
+  
+  @JExercise(tests = "Person(String,char);void addChild(objectstructures.Person)", description = "<h3>Jens er ikke far til Anne likevel, Hallvard er</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Angir Jens som Annes far: jens.addChild(anne)</li>\n\t\t<li>Bytter til Hallvard: hallvard.addChild(anne)</li>\n\t\t</ul>\n")
+  public void testFarbytteAddChild() {
+    _transition_exprAction__farbytteAddChild_transitions0_actions0();
+    _test__farbytteAddChild_transitions0_effect_state();
+    _transition_exprAction__farbytteAddChild_transitions1_actions0();
+    _test__farbytteAddChild_transitions1_effect_state();
+    
+  }
+  
+  @JExercise(tests = "Person(String,char);void setMother(objectstructures.Person)", description = "<h3>Anne er ikke mor til Jens likevel, Marit er</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Angir Anne som Jens\' mor: jens.mother = anne</li>\n\t\t<li>Bytter til Marit: jens.mother = marit</li>\n\t\t</ul>\n")
+  public void testMorbytteSetFather() {
+    _transition_exprAction__morbytteSetFather_transitions0_actions0();
+    _test__morbytteSetFather_transitions0_effect_state();
+    _transition_exprAction__morbytteSetFather_transitions1_actions0();
+    _test__morbytteSetFather_transitions1_effect_state();
+    
+  }
+  
+  @JExercise(tests = "Person(String,char);void addChild(objectstructures.Person)", description = "<h3>Anne er ikke mor til Jens likevel, Marit er</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Angir Anne som Jens\' mor: anne.addChild(jens)</li>\n\t\t<li>Bytter til Marit: marit.addChild(jens)</li>\n\t\t</ul>\n")
+  public void testMorbytteAddChild() {
+    _transition_exprAction__morbytteAddChild_transitions0_actions0();
+    _test__morbytteAddChild_transitions0_effect_state();
+    _transition_exprAction__morbytteAddChild_transitions1_actions0();
+    _test__morbytteAddChild_transitions1_effect_state();
+    
+  }
+  
   private void _test__constructor_transitions0_effect_state() {
     _test__constructor_transitions0_effect_state_objectTests0_test(hallvard);
     _test__constructor_transitions0_effect_state_objectTests1_test(marit);
@@ -743,5 +779,317 @@ public class PersonTest extends TestCase {
       fail("testChildren(#[]) failed after marit.addChild(anne): " + error.getMessage());
     }
     
+  }
+  
+  private void _transition_exprAction__farbytteSetFather_transitions0_actions0() {
+    try {
+      
+      this.anne.setFather(this.jens);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("anne.father = jens failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__farbytteSetFather_transitions0_effect_state() {
+    _test__farbytteSetFather_transitions0_effect_state_objectTests0_test(anne);
+    _test__farbytteSetFather_transitions0_effect_state_objectTests1_test(jens);
+    
+  }
+  
+  private void _test__farbytteSetFather_transitions0_effect_state_objectTests0_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == jens failed after anne.father = jens", this.jens, _father);
+    
+  }
+  
+  private void _test__farbytteSetFather_transitions0_effect_state_objectTests1_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.anne)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[anne]) failed after anne.father = jens: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _transition_exprAction__farbytteSetFather_transitions1_actions0() {
+    try {
+      
+      this.anne.setFather(this.hallvard);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("anne.father = hallvard failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__farbytteSetFather_transitions1_effect_state() {
+    _test__farbytteSetFather_transitions1_effect_state_objectTests0_test(anne);
+    _test__farbytteSetFather_transitions1_effect_state_objectTests1_test(jens);
+    _test__farbytteSetFather_transitions1_effect_state_objectTests2_test(hallvard);
+    
+  }
+  
+  private void _test__farbytteSetFather_transitions1_effect_state_objectTests0_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == hallvard failed after anne.father = hallvard", this.hallvard, _father);
+    
+  }
+  
+  private void _test__farbytteSetFather_transitions1_effect_state_objectTests1_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[]) failed after anne.father = hallvard: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__farbytteSetFather_transitions1_effect_state_objectTests2_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.anne)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[anne]) failed after anne.father = hallvard: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _transition_exprAction__farbytteAddChild_transitions0_actions0() {
+    try {
+      
+      this.jens.addChild(this.anne);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("jens.addChild(anne) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__farbytteAddChild_transitions0_effect_state() {
+    _test__farbytteAddChild_transitions0_effect_state_objectTests0_test(anne);
+    _test__farbytteAddChild_transitions0_effect_state_objectTests1_test(jens);
+    
+  }
+  
+  private void _test__farbytteAddChild_transitions0_effect_state_objectTests0_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == jens failed after jens.addChild(anne)", this.jens, _father);
+    
+  }
+  
+  private void _test__farbytteAddChild_transitions0_effect_state_objectTests1_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.anne)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[anne]) failed after jens.addChild(anne): " + error.getMessage());
+    }
+    
+  }
+  
+  private void _transition_exprAction__farbytteAddChild_transitions1_actions0() {
+    try {
+      
+      this.hallvard.addChild(this.anne);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("hallvard.addChild(anne) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__farbytteAddChild_transitions1_effect_state() {
+    _test__farbytteAddChild_transitions1_effect_state_objectTests0_test(anne);
+    _test__farbytteAddChild_transitions1_effect_state_objectTests1_test(jens);
+    _test__farbytteAddChild_transitions1_effect_state_objectTests2_test(hallvard);
+    
+  }
+  
+  private void _test__farbytteAddChild_transitions1_effect_state_objectTests0_test(final Person it) {
+    
+    Person _father = it.getFather();
+    assertEquals("father == hallvard failed after hallvard.addChild(anne)", this.hallvard, _father);
+    
+  }
+  
+  private void _test__farbytteAddChild_transitions1_effect_state_objectTests1_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[]) failed after hallvard.addChild(anne): " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__farbytteAddChild_transitions1_effect_state_objectTests2_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.anne)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[anne]) failed after hallvard.addChild(anne): " + error.getMessage());
+    }
+    
+  }
+  
+  private void _transition_exprAction__morbytteSetFather_transitions0_actions0() {
+    try {
+      
+      this.jens.setMother(this.anne);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("jens.mother = anne failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__morbytteSetFather_transitions0_effect_state() {
+    _test__morbytteSetFather_transitions0_effect_state_objectTests0_test(jens);
+    _test__morbytteSetFather_transitions0_effect_state_objectTests1_test(anne);
+    
+  }
+  
+  private void _test__morbytteSetFather_transitions0_effect_state_objectTests0_test(final Person it) {
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == anne failed after jens.mother = anne", this.anne, _mother);
+    
+  }
+  
+  private void _test__morbytteSetFather_transitions0_effect_state_objectTests1_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[jens]) failed after jens.mother = anne: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _transition_exprAction__morbytteSetFather_transitions1_actions0() {
+    try {
+      
+      this.jens.setMother(this.marit);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("jens.mother = marit failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__morbytteSetFather_transitions1_effect_state() {
+    _test__morbytteSetFather_transitions1_effect_state_objectTests0_test(jens);
+    _test__morbytteSetFather_transitions1_effect_state_objectTests1_test(anne);
+    _test__morbytteSetFather_transitions1_effect_state_objectTests2_test(marit);
+    
+  }
+  
+  private void _test__morbytteSetFather_transitions1_effect_state_objectTests0_test(final Person it) {
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == marit failed after jens.mother = marit", this.marit, _mother);
+    
+  }
+  
+  private void _test__morbytteSetFather_transitions1_effect_state_objectTests1_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[]) failed after jens.mother = marit: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__morbytteSetFather_transitions1_effect_state_objectTests2_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[jens]) failed after jens.mother = marit: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _transition_exprAction__morbytteAddChild_transitions0_actions0() {
+    try {
+      
+      this.anne.addChild(this.jens);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("anne.addChild(jens) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__morbytteAddChild_transitions0_effect_state() {
+    _test__morbytteAddChild_transitions0_effect_state_objectTests0_test(jens);
+    _test__morbytteAddChild_transitions0_effect_state_objectTests1_test(anne);
+    
+  }
+  
+  private void _test__morbytteAddChild_transitions0_effect_state_objectTests0_test(final Person it) {
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == anne failed after anne.addChild(jens)", this.anne, _mother);
+    
+  }
+  
+  private void _test__morbytteAddChild_transitions0_effect_state_objectTests1_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[jens]) failed after anne.addChild(jens): " + error.getMessage());
+    }
+    
+  }
+  
+  private void _transition_exprAction__morbytteAddChild_transitions1_actions0() {
+    try {
+      
+      this.marit.addChild(this.jens);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("marit.addChild(jens) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__morbytteAddChild_transitions1_effect_state() {
+    _test__morbytteAddChild_transitions1_effect_state_objectTests0_test(jens);
+    _test__morbytteAddChild_transitions1_effect_state_objectTests1_test(anne);
+    _test__morbytteAddChild_transitions1_effect_state_objectTests2_test(marit);
+    
+  }
+  
+  private void _test__morbytteAddChild_transitions1_effect_state_objectTests0_test(final Person it) {
+    
+    Person _mother = it.getMother();
+    assertEquals("mother == marit failed after marit.addChild(jens)", this.marit, _mother);
+    
+  }
+  
+  private void _test__morbytteAddChild_transitions1_effect_state_objectTests1_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[]) failed after marit.addChild(jens): " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__morbytteAddChild_transitions1_effect_state_objectTests2_test(final Person it) {
+    try {
+      
+      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("testChildren(#[jens]) failed after marit.addChild(jens): " + error.getMessage());
+    }
+    
+  }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(PersonTest.class);
   }
 }
