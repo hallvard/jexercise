@@ -1,0 +1,117 @@
+grammar no.hal.jex.jextest.JexTest with org.eclipse.xtext.xbase.Xbase
+
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
+import "http://www.eclipse.org/xtext/xbase/Xtype" as xtype
+import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
+
+generate jexTest "http://www.hal.no/jex/jextest/JexTest"
+
+JexTestCase:
+	'test' testedClass = JvmParameterizedTypeReference ('with' testClassName = QName)?
+	(description = STRING)? ('@' url = STRING)?
+
+	(importSection = XImportSection)?
+
+	(
+	(('instance' | 'val') (instances += Instance) (',' instances += Instance)*) |
+	(stateFunctions += StateFunction) |
+	(testSequences += JexTestSequence) |
+	(methods += Method)
+	)*
+	;
+
+Instance:
+	(type = JvmParameterizedTypeReference)? name = ID ('=' expr = XExpression)?
+;
+
+StateTestContext: StateFunction | JexTestSequence;
+
+PropertiesTestOwner: StateFunction | ObjectTest;
+
+StateFunction:
+	'state' 'method' (type = JvmParameterizedTypeReference)? name = ID (description = STRING)? '(' (parameters += Parameter (',' parameters += Parameter)*)? ')'
+	test = PropertiesTest
+;
+
+JexTestSequence:
+	'sequence' name = ID (description = STRING)?
+	'{'
+		(('instance' | 'val') (instances += Instance) (',' instances += Instance)*)*
+		(transitions += Transition)*
+	'}'
+;
+
+QName: ID + ('.' ID)*;
+
+State: {State}
+	'state' ('#' name = ID)? (description = STRING)?
+	(objectTests += ObjectTest)+
+;
+
+ObjectTest:
+	(instance = [Instance | ID])?
+	test = PropertiesTest
+;
+
+PropertiesTest returns xbase::XBlockExpression:
+	{PropertiesTest}
+	(
+//	('=' stateFunctionCall = StateFunctionCall (';' | ('{' (expressions += XExpression ';')* '}'))) |
+	('{' (expressions += XExpression ';'?)* '}')
+	)
+	;
+
+//StateFunctionCall returns xbase::XBlockExpression:
+//	{StateFunctionCall}
+//	stateFunction = [StateFunction | ID]
+//	('(' (expressions += XExpression (',' expressions += XExpression)*)? ')')?
+//;
+
+Transition:
+	(
+		// optional source
+		(source = TransitionSource)?
+		// action part
+		(description = STRING)? '--'
+		(actions += TransitionAction) (',' actions += TransitionAction)*
+		// effect part
+		(effect = TransitionEffect)
+	) |
+	// initial state
+	effect = TransitionTargetEffect
+	;
+
+TransitionSource:
+	state = State | ('#' stateRef = [State | ID])	
+;
+
+TransitionAction: TransitionExpressionAction | TransitionInputAction;
+
+TransitionExpressionAction:
+	expr = XExpression ('#' times = XExpression)?
+;
+TransitionInputAction:
+	'input' input = STRING
+;
+
+TransitionEffect: TransitionTargetEffect | TransitionExceptionEffect | TransitionOutputEffect;
+
+TransitionTargetEffect:
+	'-->' (state = State | ('#' stateRef = [State | ID]))
+;
+TransitionExceptionEffect:
+ 	'throws' exceptionClass = JvmParameterizedTypeReference
+;
+TransitionOutputEffect:
+ 	'outputs' pattern = STRING
+;
+
+Method:
+	(static?='static')? 'method' (returnType = JvmParameterizedTypeReference)? name = (ID | OpEquality | OpCompare)
+	'(' (parameters += Parameter (',' parameters += Parameter)*)? ')'
+	body = XExpression	
+;
+
+Parameter:
+	type = JvmParameterizedTypeReference name = ID
+;

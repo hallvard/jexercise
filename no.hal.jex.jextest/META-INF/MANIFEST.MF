@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: no.hal.jex.jextest
+Bundle-Vendor: My Company
+Bundle-Version: 0.9.0.qualifier
+Bundle-SymbolicName: no.hal.jex.jextest; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.eclipse.xtext.xbase.lib
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: no.hal.jex.jextest,
+ no.hal.jex.jextest.services,
+ no.hal.jex.jextest.jexTest,
+ no.hal.jex.jextest.jexTest.impl,
+ no.hal.jex.jextest.jexTest.util,
+ no.hal.jex.jextest.serializer,
+ no.hal.jex.jextest.parser.antlr,
+ no.hal.jex.jextest.parser.antlr.internal,
+ no.hal.jex.jextest.validation,
+ no.hal.jex.jextest.formatting,
+ no.hal.jex.jextest.jvmmodel
