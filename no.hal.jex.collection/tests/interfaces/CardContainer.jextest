@@ -27,7 +27,15 @@ sequence cardContainerIterator {
 
 method void testCards(CardContainer it, Collection<Card> expected) {
 	assertEquals(expected.size, cardCount)
-	testCards(iterator, expected)
+	val expectedIt = expected.iterator
+	var i = 0
+	while (expectedIt.hasNext) {
+		val expectedCard = expectedIt.next
+		val actualCard = getCard(i)
+		assertEquals(expectedCard.suit, actualCard.suit)
+		assertEquals(expectedCard.face, actualCard.face)
+		i = i + 1
+	}
 }
 
 method void testCards(Iterator<Card> actual, Collection<Card> expected) {

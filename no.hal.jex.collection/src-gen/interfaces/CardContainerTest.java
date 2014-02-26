@@ -89,8 +89,26 @@ public class CardContainerTest extends TestCase {
     int _size = expected.size();
     int _cardCount = it.getCardCount();
     Assert.assertEquals(_size, _cardCount);
-    Iterator<Card> _iterator = it.iterator();
-    this.testCards(_iterator, expected);
+    final Iterator<Card> expectedIt = expected.iterator();
+    int i = 0;
+    boolean _hasNext = expectedIt.hasNext();
+    boolean _while = _hasNext;
+    while (_while) {
+      {
+        final Card expectedCard = expectedIt.next();
+        final Card actualCard = it.getCard(i);
+        char _suit = expectedCard.getSuit();
+        char _suit_1 = actualCard.getSuit();
+        Assert.assertEquals(_suit, _suit_1);
+        int _face = expectedCard.getFace();
+        int _face_1 = actualCard.getFace();
+        Assert.assertEquals(_face, _face_1);
+        int _plus = (i + 1);
+        i = _plus;
+      }
+      boolean _hasNext_1 = expectedIt.hasNext();
+      _while = _hasNext_1;
+    }
   }
   
   private void testCards(final Iterator<Card> actual, final Collection<Card> expected) {
