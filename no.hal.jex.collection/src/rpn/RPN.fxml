@@ -26,7 +26,7 @@
         	<styleClass><String fx:value="inputTextButton"/></styleClass>
         </Button>
         <Button text="+" GridPane.rowIndex="1" GridPane.columnIndex="3">
-        	<styleClass><String fx:value="opButton"/></styleClass>
+        	<styleClass><String fx:value="operatorButton"/></styleClass>
         </Button>
 
         <Button text="4" GridPane.rowIndex="2" GridPane.columnIndex="0">
@@ -39,7 +39,7 @@
         	<styleClass><String fx:value="inputTextButton"/></styleClass>
         </Button>
         <Button text="-" GridPane.rowIndex="2" GridPane.columnIndex="3">
-        	<styleClass><String fx:value="opButton"/></styleClass>
+        	<styleClass><String fx:value="operatorButton"/></styleClass>
         </Button>
 
         <Button text="1" GridPane.rowIndex="3" GridPane.columnIndex="0">
@@ -52,27 +52,27 @@
         	<styleClass><String fx:value="inputTextButton"/></styleClass>
         </Button>
         <Button text="*" GridPane.rowIndex="3" GridPane.columnIndex="3">
-        	<styleClass><String fx:value="opButton"/></styleClass>
+        	<styleClass><String fx:value="operatorButton"/></styleClass>
         </Button>
 
         <Button text="~" GridPane.rowIndex="4" GridPane.columnIndex="0">
-        	<styleClass><String fx:value="opButton"/></styleClass>
+        	<styleClass><String fx:value="operatorButton"/></styleClass>
         </Button>
         <Button text="0" GridPane.rowIndex="4" GridPane.columnIndex="1">
         	<styleClass><String fx:value="inputTextButton"/></styleClass>
         </Button>
         <Button text="=" GridPane.rowIndex="4" GridPane.columnIndex="2">
-        	<styleClass><String fx:value="opButton"/></styleClass>
+        	<styleClass><String fx:value="operatorButton"/></styleClass>
         </Button>
         <Button text="/" GridPane.rowIndex="4" GridPane.columnIndex="3">
-        	<styleClass><String fx:value="opButton"/></styleClass>
+        	<styleClass><String fx:value="operatorButton"/></styleClass>
         </Button>
 
         <Button text="\%" GridPane.rowIndex="5" GridPane.columnIndex="0">
-        	<styleClass><String fx:value="opButton"/></styleClass>
+        	<styleClass><String fx:value="operatorButton"/></styleClass>
         </Button>
         <Button text="π" GridPane.rowIndex="5" GridPane.columnIndex="1">
-        	<styleClass><String fx:value="opButton"/></styleClass>
+        	<styleClass><String fx:value="operatorButton"/></styleClass>
         </Button>
         <Button text="." GridPane.rowIndex="4" GridPane.columnIndex="2">
         	<styleClass><String fx:value="inputTextButton"/></styleClass>

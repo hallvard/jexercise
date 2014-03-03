@@ -1,10 +1,8 @@
 package rpn;
 
 import java.lang.reflect.Field;
-import java.util.List;
 
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.TextInputControl;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class RPNFX extends Application {
@@ -70,19 +65,24 @@ public class RPNFX extends Application {
 		}
 		Number number = null;
 		try {
+			// try commmand as double value
 			number = Double.valueOf(command);
 		} catch (NumberFormatException nfe) {
-			String constantName = command.toUpperCase().replace(' ', '_');
+			// try command as named double field in either the Math class or this class
 			for (Class<?> constantClass: constantClasses) {
 				try {
+					// change to constant naming convention
+					String constantName = command.toUpperCase().replace(' ', '_');
 					Field constantField = constantClass.getField(constantName);
+					// check correct type
 					if (constantField.getType() == double.class) {
-						number = (Number) constantField.get(null);
+						number = (Number) constantField.get(this);
 					}
 				} catch (Exception e) {
 				}
 			}
 		}
+		// check if command could (somehow) be interpreted as a number
 		if (number != null) {
 			rpn.push(number.doubleValue());
 		} else if (command.equals("push")) {
@@ -127,7 +127,7 @@ public class RPNFX extends Application {
 		}
 	};
 
-	private EventHandler<ActionEvent> opEventHandler = new EventHandler<ActionEvent>() {
+	private EventHandler<ActionEvent> operatorEventHandler = new EventHandler<ActionEvent>() {
 		
 		@Override
 		public void handle(ActionEvent event) {
@@ -149,24 +149,6 @@ public class RPNFX extends Application {
 		}
 	};
 
-	private EventHandler<KeyEvent> keyEventHandler = new EventHandler<KeyEvent>() {
-		
-		@Override
-		public void handle(KeyEvent event) {
-			String command = null;
-			if (event.getCode() == KeyCode.BACK_SPACE) {
-				command = "backspace";
-			} else if (event.getCode() == KeyCode.ENTER) {
-				command = "push";
-			} else if ("0123456789.+-*/".contains(event.getCharacter())) {
-				command = event.getCharacter();
-			} 
-			if (command != null) {
-				performAction(command);
-			}
-		}
-	};
-	
 	private String fxmlFile = "RPN.fxml";
 
 	@Override
@@ -176,31 +158,28 @@ public class RPNFX extends Application {
 		fxmlLoader.load(getClass().getResourceAsStream(fxmlFile));
 		Parent root = fxmlLoader.<Parent>getRoot();
 		
-		addListeners(root.getChildrenUnmodifiable());
+		// select on CSS styles, see RPN.fxml
+		// the inputTextButton style is for buttons that append text to the input text field, e.g. digits
+		for (Node node : root.lookupAll(".inputTextButton")) {
+			node.addEventHandler(ActionEvent.ACTION, inputTextEventHandler);
+		}
+		// the inputTextEditButton style is for buttons that (somehow) edit the input text field, e.g. backspace
+		for (Node node : root.lookupAll(".inputTextEditButton")) {
+			node.addEventHandler(ActionEvent.ACTION, inputTextEditEventHandler);
+		}
+		// the operatorButton style is for operator buttons, e.g. +
+		for (Node node : root.lookupAll(".operatorButton")) {
+			node.addEventHandler(ActionEvent.ACTION, operatorEventHandler);
+		}
+		// the actionButton style is for buttons that otherwise modify the calculator stack, e.g. push
+		for (Node node : root.lookupAll(".actionButton")) {
+			node.addEventHandler(ActionEvent.ACTION, actionEventHandler);
+		}
+		// the node holding the current value, using id lookup
+		valueText = (TextInputControl) root.lookup("#valueTextNode");
 		
 		stage.setScene(new Scene(root));
 		stage.show();
-	}
-
-	private void addListeners(List<Node> children) {
-		for (Node child : children) {
-			ObservableList<String> styles = child.getStyleClass();
-			if (styles.contains("inputTextButton")) {
-				child.addEventHandler(ActionEvent.ACTION, inputTextEventHandler);
-			} else if (styles.contains("inputTextEditButton")) {
-				child.addEventHandler(ActionEvent.ACTION, inputTextEditEventHandler);
-			} else if (styles.contains("opButton")) {
-				child.addEventHandler(ActionEvent.ACTION, opEventHandler);
-			} else if (styles.contains("actionButton")) {
-				child.addEventHandler(ActionEvent.ACTION, actionEventHandler);
-			}
-			if ("valueTextNode".equals(child.getId())) {
-				valueText = (TextInputControl) child;
-			}
-			if (child instanceof Pane) {
-				addListeners(((Parent) child).getChildrenUnmodifiable());
-			}
-		}
 	}
 
 	public static void main(String[] args) {
