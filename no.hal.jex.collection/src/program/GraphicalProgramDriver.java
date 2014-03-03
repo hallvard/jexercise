@@ -243,11 +243,11 @@ public class GraphicalProgramDriver extends Application implements GraphicalOutp
 		gridPane.getChildren().clear();
 		String[] lines = s.split("\n");
 		int imageHeight = -1, imageWidth = -1;
-		for (int row = 0; row < lines.length / cellHeight; row++) {
-			for (int column = 0; column < lines[row * cellHeight].length() / cellWidth; column++) {
+		for (int row = 0; row < lines.length; row += cellHeight) {
+			for (int column = 0; column < lines[row].length(); column += cellWidth) {
 				String key = "";
 				for (int i = 0; i < cellHeight; i++) {
-					key += lines[row * cellHeight + i].substring(column * cellWidth, (column + 1) * cellWidth);
+					key += lines[row + i].substring(column, column + cellWidth);
 				}
 				String key2 = mapping.get(key);
 				Image image = createImage(key2 != null ? key2 : key);
@@ -259,7 +259,7 @@ public class GraphicalProgramDriver extends Application implements GraphicalOutp
 						imageHeight = (int) image.getHeight();
 					}
 					ImageView node = new ImageView(image);
-					gridPane.add(node, column, row);
+					gridPane.add(node, column / cellWidth, row / cellHeight);
 				}
 			}
 		}
