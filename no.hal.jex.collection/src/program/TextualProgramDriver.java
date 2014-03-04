@@ -33,7 +33,7 @@ public class TextualProgramDriver implements TextualOutput {
 					result = false;
 				}
 			}
-			message("Game over, you " + (result ? "won" : "lost"));
+			message("Game over" + (result ? "" : ", no result") + "!");
 			if (result) {
 				level = null;
 			}

@@ -7,49 +7,57 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 import program.GraphicalOutput;
 import program.TextualOutput;
 import program.TextualProgram;
+import program.TextualProgramDriver;
 
 public class SokobanProgram implements TextualProgram {
 
 	private SokobanGrid grid = null;
 	
-	private List<Character> moves = new ArrayList<Character>();
-	
+	private Stack<Character> undo = new Stack<Character>();
+	private Stack<Character> redo = new Stack<Character>();
+
 	private Direction direction(char c) {
 		switch (Character.toLowerCase(c)) {
-		case 'u': return Direction.UP;
-		case 'd': return Direction.DOWN;
-		case 'l': return Direction.LEFT;
-		case 'r': return Direction.RIGHT;
+		case 'w': return Direction.UP;
+		case 's': return Direction.DOWN;
+		case 'a': return Direction.LEFT;
+		case 'd': return Direction.RIGHT;
 		}
 		return null;
 	}
 	
-	public boolean doMove(char move) {
+	public boolean doMove(char move, boolean isRedo) {
 		Direction direction = direction(move);
 		if (direction != null) {
 			Boolean wasPush = grid.doMove(direction);
 			if (wasPush != null) {
 				move = wasPush ? Character.toUpperCase(move) : move;
-				moves.add(move);
+				undo.push(move);
+				if (! isRedo) {
+					redo.clear();
+				}
 				return true;
 			}
 		}
 		return false;
 	}
+	
+	public boolean doMove(char move) {
+		return doMove(move, false);
+	}
 
 	public boolean undoMove() {
-		if (moves.size() == 0) {
+		if (undo.isEmpty()) {
 			return false;
 		}
-		char move = moves.remove(moves.size() - 1);
+		char move = undo.pop();
 		boolean wasPush = Character.isUpperCase(move);
 		move = Character.toLowerCase(move);
 		Direction direction = direction(move);
@@ -57,7 +65,15 @@ public class SokobanProgram implements TextualProgram {
 			return false;
 		}
 		grid.undoMove(direction, wasPush);
+		redo.push(move);
 		return true;
+	}
+
+	public boolean redoMove() {
+		if (redo.isEmpty()) {
+			return false;
+		}
+		return doMove(redo.pop(), true);
 	}
 
 	private LevelFormat levelFormat = new StandardLevelFormat();
@@ -65,7 +81,7 @@ public class SokobanProgram implements TextualProgram {
 	public void init(String level) {
 		if (level.indexOf('|') >= 0) {
 			grid = new SokobanGrid(level.split("\\|"));
-			moves.clear();
+			undo.clear();
 		} else {
 			Exception exception = null;
 			InputStream input = null;
@@ -83,7 +99,7 @@ public class SokobanProgram implements TextualProgram {
 			if (input != null) {
 				try {
 					grid = levelFormat.readLevel(input);
-					moves.clear();
+					undo.clear();
 				} catch (IOException e) {
 					exception = e;
 				}
@@ -142,8 +158,10 @@ public class SokobanProgram implements TextualProgram {
 					i++;
 				}
 				// space == undo
-				else if (command == ' ') {
+				else if (command == 'u') {
 					undoMove();
+				} else if (command == 'r') {
+					redoMove();
 				}
 				// command is move in specific direction
 				else if (direction(command) != null) {
@@ -161,13 +179,19 @@ public class SokobanProgram implements TextualProgram {
 			if (output instanceof GraphicalOutput) {
 				((GraphicalOutput) output).imageGrid(grid.toString(), cellImageMapping);
 			} else {
-				output.message(grid + "\n" + this.moves.size() + " moves/pushes: " + moves);
+				output.message(grid + "\n" + this.undo.size() + " moves/pushes: " + moves);
 			}
 		}
 		if (grid.countRemainingTargets() == 0) {
-			output.message("Finished using " + this.moves.size() + " moves/pushes!");
+			output.message("Finished using " + this.undo.size() + " moves/pushes!");
 			return true;
 		}
 		return null;
+	}
+	
+	//
+	
+	public static void main(String[] args) throws Exception {
+		TextualProgramDriver.main(new String[]{SokobanProgram.class.getName(), "#######|#.@ # #|#$* $ #|#   $ #|# ..  #|#  *  #|#######"});
 	}
 }

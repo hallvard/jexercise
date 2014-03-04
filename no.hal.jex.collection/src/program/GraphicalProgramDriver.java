@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCharacterCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -92,9 +93,16 @@ public class GraphicalProgramDriver extends Application implements GraphicalOutp
 			graphicsNode.setFocusTraversable(true);
 			keyCombinationNodes = new HashMap<KeyCombination, Node>();
 			for (Node node : root.lookupAll(".keyCombinationId")) {
-				String id = node.getId();
-				keyCombinationNodes.put(KeyCombination.valueOf(id.replace('_', '+')), node);
+				keyCombinationNodes.put(KeyCombination.valueOf(node.getId().replace('_', '+')), node);
 			}
+			for (Node node : root.lookupAll(".inputTextButton")) {
+				if (node instanceof Labeled) {
+					char firstChar = ((Labeled) node).getText().charAt(0);
+					KeyCharacterCombination kc = new KeyCharacterCombination(String.valueOf(firstChar));
+					keyCombinationNodes.put(kc, node);
+				}
+			}
+			graphicsNode.setOnKeyTyped(keyCombinationHandler);
 			graphicsNode.setOnKeyPressed(keyCombinationHandler);
 			graphicsNode.setOnMouseClicked(graphicsNodeMouseHandler);
 		}
@@ -145,9 +153,20 @@ public class GraphicalProgramDriver extends Application implements GraphicalOutp
 		}
 	};
 
+	private boolean match(KeyCombination kc, KeyEvent keyEvent) {
+		if (keyEvent.getEventType() == KeyEvent.KEY_TYPED) {
+			if (kc instanceof KeyCharacterCombination) {
+				return ((KeyCharacterCombination) kc).getCharacter().equals(keyEvent.getCharacter());
+			}
+		} else  {
+			return kc.match(keyEvent);
+		}
+		return false;
+	}
+	
 	private Node getKeyCombinationNode(KeyEvent keyEvent) {
 		for (KeyCombination kc : keyCombinationNodes.keySet()) {
-			if (kc.match(keyEvent)) {
+			if (match(kc, keyEvent)) {
 				return keyCombinationNodes.get(kc);
 			}
 		}
@@ -187,7 +206,7 @@ public class GraphicalProgramDriver extends Application implements GraphicalOutp
 	private void doLine(String line) {
 		Boolean result = getProgram().doLine(line);
 		if (result != null) {
-			message("Game over, you " + (result ? "won" : "lost"));
+			message("Game over" + (result ? "" : ", no result") + "!");
 			inputButton.setDisable(true);
 		}
 		inputTextField.selectAll();

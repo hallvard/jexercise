@@ -40,25 +40,27 @@
 	</bottom>
 	<right>
 		<GridPane>
-			<Button id="Left" text="l" GridPane.columnIndex="0" GridPane.rowIndex="1">
+			<Button id="Left" text="a" GridPane.columnIndex="0" GridPane.rowIndex="1">
 	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
 	        	<styleClass><String fx:value="keyCombinationId"/></styleClass>
 			</Button>
-			<Button id="Up" text="u" GridPane.columnIndex="1" GridPane.rowIndex="0">
+			<Button id="Up" text="w" GridPane.columnIndex="1" GridPane.rowIndex="0">
 	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
 	        	<styleClass><String fx:value="keyCombinationId"/></styleClass>
 			</Button>
-			<Button id="Right" text="r" GridPane.columnIndex="2" GridPane.rowIndex="1">
+			<Button id="Right" text="d" GridPane.columnIndex="2" GridPane.rowIndex="1">
 	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
 	        	<styleClass><String fx:value="keyCombinationId"/></styleClass>
 			</Button>
-			<Button id="Down" text="d" GridPane.columnIndex="1" GridPane.rowIndex="2">
+			<Button id="Down" text="s" GridPane.columnIndex="1" GridPane.rowIndex="2">
 	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
 	        	<styleClass><String fx:value="keyCombinationId"/></styleClass>
 			</Button>
-			<Button id="Backspace" text=" " GridPane.columnIndex="1" GridPane.rowIndex="1">
+			<Button text="u" GridPane.columnIndex="0" GridPane.rowIndex="3">
 	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
-	        	<styleClass><String fx:value="keyCombinationId"/></styleClass>
+			</Button>
+			<Button text="r" GridPane.columnIndex="2" GridPane.rowIndex="3">
+	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
 			</Button>
 		</GridPane>
 	</right>
