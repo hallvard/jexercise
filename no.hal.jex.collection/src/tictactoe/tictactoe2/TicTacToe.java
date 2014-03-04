@@ -1,4 +1,6 @@
-package tictactoe.tictactoe1;
+package tictactoe.tictactoe2;
+
+import java.util.Stack;
 
 public class TicTacToe {
 	
@@ -9,9 +11,16 @@ public class TicTacToe {
 	private String gridString;
 	private char player;
 	
+	private Stack<String> undo = new Stack<String>();
+	private Stack<String> redo = new Stack<String>();
+
+	TicTacToe(String gridString, boolean x) {
+		this.gridString = (gridString == null ? "........." : gridString);
+		player = (x ? 'x' : 'o');
+	}
+	
 	public TicTacToe() {
-		gridString = "         ";
-		player = 'x';
+		this(null, true);
 	}
 	
 	public char getCell(int x, int y) {
@@ -28,26 +37,37 @@ public class TicTacToe {
 	}
 	
 	public boolean isOccupied(int x, int y) {
-		return getCell(x, y) != ' ';
+		return getCell(x, y) != '.';
 	}
 
 	public char getCurrentPlayer() {
 		return player;
 	}
-
-	@Override
-	public String toString() {
-		String result = "-------\n";
+	
+	public String toString(boolean pretty) {
+		String result = (pretty ? "-------\n" : "");
 		for (int y = 0; y <= 2; y++) {
-			result += "|";
-			for (int x = 0; x <= 2; x++) {
-				result += gridString.charAt(indexAt(x, y)) + "|";
+			if (pretty) {
+				result += "|";
 			}
-			result = result + "\n-------\n";
+			for (int x = 0; x <= 2; x++) {
+				char c = gridString.charAt(indexAt(x, y));
+				result += (pretty && c == '.' ? ' ' : c);
+				if (pretty) {
+					result += "|";
+				}
+			}
+			if (pretty) {
+				result = result + "\n-------\n";
+			}
 		}
 		return result;
 	}
 	
+	public String toString() {
+		return toString(false);
+	}
+
 	/* 
 	 * Grid coordinates:
 	 * (0,0) | (1,0) | (2,0)
@@ -65,12 +85,35 @@ public class TicTacToe {
 	 */
 
 	public void play(int x, int y) {
+		String oldGridString = gridString;
 		if (setCell(player, x, y)) {
-			// Change player
-			player = player == 'x' ? 'o' : 'x';
+			undo.push(oldGridString);
+			changePlayer();
 		}
 	}
 
+	private void changePlayer() {
+		player = player == 'x' ? 'o' : 'x';
+	}
+
+	private void undo(Stack<String> from, Stack<String> to) {
+		if (from.isEmpty()) {
+			return;
+		}
+		String oldGridString = gridString;
+		gridString = from.pop();
+		to.push(oldGridString);
+		changePlayer();
+	}
+
+	public void undo() {
+		undo(undo, redo);
+	}
+
+	public void redo() {
+		undo(redo, undo);
+	}
+	
 	private boolean checkNInARow(char c, int n, int x, int y, int dx, int dy) {
 		while (n > 0) {
 			if (getCell(x, y) != c) {
@@ -99,6 +142,6 @@ public class TicTacToe {
 	}
 	
 	public boolean isFinished() {
-		return hasWinner() || gridString.indexOf(' ') < 0;
+		return hasWinner() || gridString.indexOf('.') < 0;
 	}
 }
