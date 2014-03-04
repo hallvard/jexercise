@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -13,7 +14,7 @@ import javafx.scene.control.Labeled;
 import javafx.scene.control.TextInputControl;
 import javafx.stage.Stage;
 
-public class RPNFX extends Application {
+public class RPNFX extends Application implements EventHandler<ActionEvent> {
 
 	private RPN rpn;
 	private Node valueText = null;
@@ -25,36 +26,6 @@ public class RPNFX extends Application {
 		rpn = new RPN();
 	}
 
-	private void appendInputText(String inputText) {
-		if (input == null) {
-			input = String.valueOf(inputText);
-		} else {
-			input = input + inputText;
-		}
-		updateValueText();
-	}
-	
-	private void performOp(char op) {
-		// push existing input
-		if (input != null) {
-			rpn.push(Double.valueOf(input));
-			input = null;
-		}
-		rpn.performOperation(op);
-		updateValueText();
-	}
-
-	private void performInputTextEdit(String command) {
-		if (command.equals("backspace")) {
-			if (input == null || input.length() == 0) {
-				input = String.valueOf(rpn.pop(0.0));
-			} else {
-				input = input.substring(0, input.length() - 1);
-			}
-		}
-		updateValueText();
-	}
-	
 	private Class<?>[] constantClasses = {Math.class, this.getClass()};
 
 	private void performAction(String command) {
@@ -105,49 +76,49 @@ public class RPNFX extends Application {
 		}
 	}
 
-	private EventHandler<ActionEvent> inputTextEventHandler = new EventHandler<ActionEvent>() {
-		
-		@Override
-		public void handle(ActionEvent event) {
-			Object source = event.getSource();
-			if (source instanceof Labeled) {
-				appendInputText(((Labeled) source).getText());
-			}
+	@Override
+	public void handle(ActionEvent event) {
+		Object source = event.getSource();
+		Labeled labeled = null;
+		if (source instanceof Labeled) {
+			labeled = (Labeled) source;
 		}
-	};
+		if (labeled != null) {
+			// check CSS styles, see RPN.fxml
 
-	private EventHandler<ActionEvent> inputTextEditEventHandler = new EventHandler<ActionEvent>() {
-		
-		@Override
-		public void handle(ActionEvent event) {
-			Object source = event.getSource();
-			if (source instanceof Labeled) {
-				performInputTextEdit(((Labeled) source).getText());
+			// the inputTextButton style is for buttons that append text to the input text field, e.g. digits
+			String text = labeled.getText();
+			if (labeled.getStyleClass().contains("inputTextButton")) {
+				input = (input == null ? String.valueOf(text) : input + text);
+				updateValueText();
+			}
+			// the inputTextEditButton style is for buttons that (somehow) edit the input text field, e.g. backspace
+			if (labeled.getStyleClass().contains("inputTextEditButton")) {
+				if (text.equals("backspace")) {
+					if (input == null || input.length() == 0) {
+						input = String.valueOf(rpn.pop(0.0));
+					}
+					input = input.substring(0, input.length() - 1);
+				}
+				updateValueText();
+			}
+			// the operatorButton style is for operator buttons, e.g. +
+			if (labeled.getStyleClass().contains("operatorButton")) {
+				char op = text.charAt(0);
+				// push existing input
+				if (input != null) {
+					rpn.push(Double.valueOf(input));
+					input = null;
+				}
+				rpn.performOperation(op);
+				updateValueText();
+			}
+			// the actionButton style is for buttons that otherwise modify the calculator stack, e.g. push
+			if (labeled.getStyleClass().contains("actionButton")) {
+				performAction(text);
 			}
 		}
-	};
-
-	private EventHandler<ActionEvent> operatorEventHandler = new EventHandler<ActionEvent>() {
-		
-		@Override
-		public void handle(ActionEvent event) {
-			Object source = event.getSource();
-			if (source instanceof Labeled) {
-				performOp(((Labeled) source).getText().charAt(0));
-			}
-		}
-	};
-	
-	private EventHandler<ActionEvent> actionEventHandler = new EventHandler<ActionEvent>() {
-		
-		@Override
-		public void handle(ActionEvent event) {
-			Object source = event.getSource();
-			if (source instanceof Labeled) {
-				performAction(((Labeled) source).getText());
-			}
-		}
-	};
+	}
 
 	private String fxmlFile = "RPN.fxml";
 
@@ -158,22 +129,8 @@ public class RPNFX extends Application {
 		fxmlLoader.load(getClass().getResourceAsStream(fxmlFile));
 		Parent root = fxmlLoader.<Parent>getRoot();
 		
-		// select on CSS styles, see RPN.fxml
-		// the inputTextButton style is for buttons that append text to the input text field, e.g. digits
-		for (Node node : root.lookupAll(".inputTextButton")) {
-			node.addEventHandler(ActionEvent.ACTION, inputTextEventHandler);
-		}
-		// the inputTextEditButton style is for buttons that (somehow) edit the input text field, e.g. backspace
-		for (Node node : root.lookupAll(".inputTextEditButton")) {
-			node.addEventHandler(ActionEvent.ACTION, inputTextEditEventHandler);
-		}
-		// the operatorButton style is for operator buttons, e.g. +
-		for (Node node : root.lookupAll(".operatorButton")) {
-			node.addEventHandler(ActionEvent.ACTION, operatorEventHandler);
-		}
-		// the actionButton style is for buttons that otherwise modify the calculator stack, e.g. push
-		for (Node node : root.lookupAll(".actionButton")) {
-			node.addEventHandler(ActionEvent.ACTION, actionEventHandler);
+		for (Node node : root.lookupAll("Button")) {
+			node.addEventHandler(ActionEvent.ACTION, this);
 		}
 		// the node holding the current value, using id lookup
 		valueText = (TextInputControl) root.lookup("#valueTextNode");
