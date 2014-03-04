@@ -15,11 +15,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBase;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -29,7 +33,8 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-public class GraphicalProgramDriver extends Application implements GraphicalOutput {
+public class GraphicalProgramDriver extends Application implements GraphicalOutput,
+	EventHandler<ActionEvent> {
 
 	private TextualProgram program;
 	private String level = null;
@@ -44,12 +49,15 @@ public class GraphicalProgramDriver extends Application implements GraphicalOutp
 	}
 	
 	private TextInputControl levelTextField;
-	private Button levelButton;;
+	private Button levelButton;
 
 	private TextInputControl inputTextField;
 	private Button inputButton;
 
+	private Button browseButton;
 	private FileChooser fileChooser;
+	
+	private Map<KeyCombination, Node> keyCombinationNodes; 
 
 	@Override
 	public void start(final Stage stage) throws Exception {
@@ -66,80 +74,140 @@ public class GraphicalProgramDriver extends Application implements GraphicalOutp
 		fxmlLoader.load(url.openStream());
 		Parent root = fxmlLoader.<Parent>getRoot();
 
-		Button browseButton = (Button) root.lookup("#fileButton");
+		browseButton = lookupNode(root, "#fileButton", Button.class, this);
 
-		browseButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				if (fileChooser == null) {
-					fileChooser = new FileChooser();
-				}
-				fileChooser.setTitle("Open level file");
-				File file = fileChooser.showOpenDialog(stage);
-				if (file != null) {
-					levelTextField.setText(file.getAbsolutePath());
-					levelButton.getOnAction().handle(null);
-				}
-			}
-		});
-		levelTextField = (TextInputControl) root.lookup("#levelTextField");
-		if (level != null) {
+		levelTextField = lookupNode(root, "#levelTextField", TextInputControl.class, this);
+		if (levelTextField != null && level != null) {
 			levelTextField.setText(level);
 		}
-		inputTextField = (TextInputControl) root.lookup("#inputTextField");
+		levelButton = lookupNode(root, "#levelButton", Button.class, this);
 
-		messageText = root.lookup("#messageText");
-		graphicsNode = (GridPane) root.lookup("#gridPane");
+		inputTextField = lookupNode(root, "#inputTextField", TextInputControl.class, this);
+		inputButton = lookupNode(root, "#inputButton", Button.class, this);
+
+		messageText = lookupNode(root, "#messageText", Text.class);
+		graphicsNode = lookupNode(root, "#gridPane", GridPane.class);
 		
-		levelButton = (Button) root.lookup("#levelButton");
-		inputButton = (Button) root.lookup("#inputButton");
-		inputButton.setDisable(true);
-
-		EventHandler<ActionEvent> openLevelHandler = new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent actionEvent) {
-				openLevel(levelTextField.getText());
+		if (graphicsNode != null) {
+			graphicsNode.setFocusTraversable(true);
+			keyCombinationNodes = new HashMap<KeyCombination, Node>();
+			for (Node node : root.lookupAll(".keyCombinationId")) {
+				String id = node.getId();
+				keyCombinationNodes.put(KeyCombination.valueOf(id.replace('_', '+')), node);
 			}
-		};
-		if (levelTextField instanceof TextField) {
-			((TextField) levelTextField).setOnAction(openLevelHandler);
+			graphicsNode.setOnKeyPressed(keyCombinationHandler);
+			graphicsNode.setOnMouseClicked(graphicsNodeMouseHandler);
 		}
-		levelButton.setOnAction(openLevelHandler);
 
-		EventHandler<ActionEvent> doLineHandler = new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent actionEvent) {
-				doLine(inputTextField.getText());
-				inputTextField.selectAll();
-			}
-		};
-		if (inputTextField instanceof TextField) {
-			((TextField) inputTextField).setOnAction(doLineHandler);
+		for (Node node : root.lookupAll(".inputTextButton")) {
+			setActionHandler(node, this);
 		}
-		inputButton.setOnAction(doLineHandler);
 		
 		stage.setScene(new Scene(root));
 		stage.show();
 	}
 
+	private <T extends Node> T lookupNode(Node root, String selector, Class<T> c) {
+		Node node = root.lookup(selector);
+		return (c.isInstance(node) ? (T) node : null);
+	}
+	
+	private <T extends Node> T lookupNode(Node root, String selector, Class<T> c, EventHandler<ActionEvent> handler) {
+		T node = lookupNode(root, selector, c);
+		if (handler != null) {
+			setActionHandler(node, handler);
+		}
+		return node;
+	}
+
+	private <T extends Node> void setActionHandler(T node, EventHandler<ActionEvent> handler) {
+		if (node instanceof ButtonBase) {
+			((ButtonBase) node).setOnAction(handler);
+		} else if (node instanceof TextField) {
+			((TextField) node).setOnAction(handler);
+		}
+	}
+
+	private EventHandler<KeyEvent> keyCombinationHandler = new EventHandler<KeyEvent>() {
+		@Override
+		public void handle(KeyEvent keyEvent) {
+			Node node = getKeyCombinationNode(keyEvent);
+			if (node != null && doAction(node)) {
+				keyEvent.consume();
+			}
+		}
+	};
+
+	private EventHandler<MouseEvent> graphicsNodeMouseHandler = new EventHandler<MouseEvent>() {
+		@Override
+		public void handle(MouseEvent mouseEvent) {
+			graphicsNode.requestFocus();
+		}
+	};
+
+	private Node getKeyCombinationNode(KeyEvent keyEvent) {
+		for (KeyCombination kc : keyCombinationNodes.keySet()) {
+			if (kc.match(keyEvent)) {
+				return keyCombinationNodes.get(kc);
+			}
+		}
+		return null;
+	}
+	
 	public static void main(String[] args) throws Exception {
 		launch(GraphicalProgramDriver.class, args);
 	}
 	
 	//
 
-	private void openLevel(String level) {
-		getProgram().init(level);
-		getProgram().run(GraphicalProgramDriver.this);
-		inputButton.setDisable(false);
+	public void handle(ActionEvent actionEvent) {
+		Object source = actionEvent.getSource();
+		if (source == levelTextField || source == levelButton) {
+			getProgram().init(level);
+			getProgram().run(GraphicalProgramDriver.this);
+			graphicsNode.requestFocus();
+			inputButton.setDisable(false);
+		} else if (source == inputTextField || source == inputButton) {
+			doLine(inputTextField.getText());
+		} else if (source == browseButton) {
+			if (fileChooser == null) {
+				fileChooser = new FileChooser();
+			}
+			fileChooser.setTitle("Open level file");
+			File file = fileChooser.showOpenDialog(browseButton.getScene().getWindow());
+			if (file != null) {
+				levelTextField.setText(file.getAbsolutePath());
+				doAction(levelButton);
+			}
+		} else if (source instanceof Labeled && ((Node) source).getStyleClass().contains("inputTextButton")) {
+			doLine(((Labeled) source).getText());
+		}
 	}
-	
+
 	private void doLine(String line) {
 		Boolean result = getProgram().doLine(line);
 		if (result != null) {
 			message("Game over, you " + (result ? "won" : "lost"));
 			inputButton.setDisable(true);
 		}
+		inputTextField.selectAll();
+	}
+
+	private boolean doAction(Node node) {
+		EventHandler<ActionEvent> handler = null;
+		if (node instanceof ButtonBase) {
+			handler = ((ButtonBase) node).getOnAction();
+		} else if (node instanceof TextField) {
+			handler = ((TextField) node).getOnAction();
+		}
+		if (handler != null) {
+			handler.handle(new ActionEvent(node, null));
+			return true;
+		} else if (node instanceof ButtonBase) {
+			((ButtonBase) node).fire();
+			return true;
+		}
+		return false;
 	}
 	
 	// from GraphicalOutput

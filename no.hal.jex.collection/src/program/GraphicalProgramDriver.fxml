@@ -34,8 +34,32 @@
             </Text>
 			<HBox>
 				<TextField id="inputTextField" HBox.hgrow="ALWAYS" promptText="one line of input"/>
-				<Button id="inputButton" text="Input line"/>
+				<Button id="inputButton" text="Input line" disable="true"/>
 			</HBox>
 		</VBox>
 	</bottom>
+	<right>
+		<GridPane>
+			<Button id="Left" text="l" GridPane.columnIndex="0" GridPane.rowIndex="1">
+	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+	        	<styleClass><String fx:value="keyCombinationId"/></styleClass>
+			</Button>
+			<Button id="Up" text="u" GridPane.columnIndex="1" GridPane.rowIndex="0">
+	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+	        	<styleClass><String fx:value="keyCombinationId"/></styleClass>
+			</Button>
+			<Button id="Right" text="r" GridPane.columnIndex="2" GridPane.rowIndex="1">
+	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+	        	<styleClass><String fx:value="keyCombinationId"/></styleClass>
+			</Button>
+			<Button id="Down" text="d" GridPane.columnIndex="1" GridPane.rowIndex="2">
+	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+	        	<styleClass><String fx:value="keyCombinationId"/></styleClass>
+			</Button>
+			<Button id="Backspace" text=" " GridPane.columnIndex="1" GridPane.rowIndex="1">
+	        	<styleClass><String fx:value="inputTextButton"/></styleClass>
+	        	<styleClass><String fx:value="keyCombinationId"/></styleClass>
+			</Button>
+		</GridPane>
+	</right>
 </BorderPane>
