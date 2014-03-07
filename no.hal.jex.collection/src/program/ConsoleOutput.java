@@ -1,6 +1,6 @@
 package program;
 
-public interface TextualOutput {
+public interface ConsoleOutput {
 	public void message(Object o);
 	public void error(Object o);
 }

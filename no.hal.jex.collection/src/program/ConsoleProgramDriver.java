@@ -2,12 +2,12 @@ package program;
 
 import java.util.Scanner;
 
-public class TextualProgramDriver implements TextualOutput {
+public class ConsoleProgramDriver implements ConsoleOutput {
 
-	private TextualProgram program;
+	private ConsoleProgram program;
 	private String level = null;
 
-	private void init(TextualProgram program, String level) {
+	private void init(ConsoleProgram program, String level) {
 		this.program = program;
 		this.level = level;
 	}
@@ -24,17 +24,17 @@ public class TextualProgramDriver implements TextualOutput {
 			}
 			program.init(level);
 			program.run(this);
-			Boolean result = null;
+			Integer result = null;
 			while (result == null) {
 				if (scanner.hasNextLine()) {
 					String line = scanner.nextLine();
 					result = program.doLine(line);
 				} else {
-					result = false;
+					result = 0;
 				}
 			}
-			message("Game over" + (result ? "" : ", no result") + "!");
-			if (result) {
+			message("Game over" + (result != 0 ? "" : ", no result") + "!");
+			if (result > 0) {
 				level = null;
 			}
 			message("Another go (true/false)?");
@@ -53,8 +53,8 @@ public class TextualProgramDriver implements TextualOutput {
 	}
 
 	public static void main(String[] args) throws Exception {
-		TextualProgramDriver driver = new TextualProgramDriver();
-		TextualProgram program = (TextualProgram) Class.forName(args[0]).newInstance();
+		ConsoleProgramDriver driver = new ConsoleProgramDriver();
+		ConsoleProgram program = (ConsoleProgram) Class.forName(args[0]).newInstance();
 		driver.init(program, args.length > 1 ? args[1] : null);
 		driver.run();
 	}
