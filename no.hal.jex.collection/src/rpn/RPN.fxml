@@ -74,7 +74,7 @@
         <Button text="π" GridPane.rowIndex="5" GridPane.columnIndex="1">
         	<styleClass><String fx:value="operatorButton"/></styleClass>
         </Button>
-        <Button text="." GridPane.rowIndex="4" GridPane.columnIndex="2">
+        <Button text="." GridPane.rowIndex="5" GridPane.columnIndex="2">
         	<styleClass><String fx:value="inputTextButton"/></styleClass>
         </Button>
         <Button text="backspace" GridPane.rowIndex="5" GridPane.columnIndex="3">
