@@ -2,12 +2,12 @@ package program;
 
 import java.util.Scanner;
 
-public class ConsoleProgramDriver implements ConsoleOutput {
+public class ConsoleGameDriver implements ConsoleOutput {
 
-	private ConsoleProgram program;
+	private ConsoleGame program;
 	private String level = null;
 
-	private void init(ConsoleProgram program, String level) {
+	private void init(ConsoleGame program, String level) {
 		this.program = program;
 		this.level = level;
 	}
@@ -53,8 +53,8 @@ public class ConsoleProgramDriver implements ConsoleOutput {
 	}
 
 	public static void main(String[] args) throws Exception {
-		ConsoleProgramDriver driver = new ConsoleProgramDriver();
-		ConsoleProgram program = (ConsoleProgram) Class.forName(args[0]).newInstance();
+		ConsoleGameDriver driver = new ConsoleGameDriver();
+		ConsoleGame program = (ConsoleGame) Class.forName(args[0]).newInstance();
 		driver.init(program, args.length > 1 ? args[1] : null);
 		driver.run();
 	}
