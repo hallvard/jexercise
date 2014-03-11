@@ -1,0 +1,76 @@
+test inheritance.SpaceObject
+
+instance
+	spaceObject = new SpaceObject(),
+	asteroid1 = new Asteroid(10, 2),
+	asteroid2 = new Asteroid(10, 3),
+	spaceShip = new SpaceShip()
+
+sequence mass {
+	-->
+	state
+		spaceObject { mass === 0.0 }
+		asteroid1 	{ mass == asteroid2.mass * 8 / 27 }
+		spaceShip 	{ mass === 1.0 }
+}
+
+state method testSpeed(double vx, double vy) {
+	speed.x == vx
+	speed.y == vy
+}
+
+state method testPosition(double x, double y) {
+	position.x == x
+	position.y == y
+}
+
+sequence accelerate {
+	-- spaceObject.accelerate(2.3, 7.4) -->
+	state spaceObject { testSpeed(2.3, 7.4) }
+	
+	-- asteroid1.accelerate(3.2, 4.7) -->
+	state asteroid1 { testSpeed(3.2, 4.7) }
+	
+	-- spaceShip.accelerate(3.3, 7.7) -->
+	state spaceShip { testSpeed(3.3, 7.7) }
+}
+
+sequence tick {
+	-- spaceObject.accelerate(2.3, 7.4), spaceObject.tick -->
+	state spaceObject { testPosition(2.3, 7.4) }
+	-- spaceObject.accelerate(-2.3, -7.4), spaceObject.tick -->
+	state spaceObject { testPosition(2.3, 7.4) }
+	-- spaceObject.accelerate(-2.3, -7.4), spaceObject.tick -->
+	state spaceObject { testPosition(0.0, 0.0) }
+	
+	-- asteroid1.accelerate(3.2, 4.7), asteroid1.tick -->
+	state asteroid1 { testPosition(3.2, 4.7) }
+	-- asteroid1.accelerate(-3.2, -4.7), asteroid1.tick -->
+	state asteroid1 { testPosition(3.2, 4.7) }
+	-- asteroid1.accelerate(-3.2, -4.7), asteroid1.tick -->
+	state spaceObject { testPosition(0.0, 0.0) }
+	
+	-- spaceShip.accelerate(3.3, 7.7), spaceShip.tick -->
+	state spaceShip { testPosition(3.3, 7.7) }
+	-- spaceShip.accelerate(-3.3, -7.7), spaceShip.tick -->
+	state spaceShip { testPosition(3.3, 7.7) }
+	-- spaceShip.accelerate(-3.3, -7.7), spaceShip.tick -->
+	state spaceShip { testPosition(0.0, 0.0) }
+}
+
+sequence applyForce {
+	-- spaceObject.applyForce(2.3, 7.4) throws IllegalStateException
+
+	-- asteroid1.applyForce(3.2, 4.7) -->
+	state asteroid1 { testSpeed(3.2 / mass, 4.7 / mass) }
+	
+	-- spaceShip.applyForce(3.3, 7.7) -->
+	state spaceShip { testSpeed(3.3 / mass, 7.7 / mass) }
+}
+
+// helper methods
+
+method boolean operator_equals(double n1, double n2) {
+	val epsilon = 0.000001d
+	n1 + epsilon >= n2 && n1 - epsilon <= n2
+}
