@@ -7,30 +7,38 @@ public class Asteroids1 extends Asteroids {
 	public void init() {
 		super.init();
 
-		SpaceObject spaceObject1 = new SpaceObject();
-		spaceObject1.addPolarPoint(0, 50);
-		spaceObject1.addPolarPoint(90, 50);
-		spaceObject1.addPolarPoint(180, 50);
-		spaceObject1.addPolarPoint(270, 50);
-		spaceObject1.setSpeed(1, 1);
-		spaceObject1.setFill(Color.WHITE);
-		add(spaceObject1, 150, 150);
+		SpaceObject a1 = createAsteroid();
+		a1.setSpeed(2, 0);
+		a1.setFill(Color.WHITE);
+		add(a1, 0, getPrefHeight() / 5 - 10);
+
+		SpaceObject a2 = createAsteroid();
+		a2.setSpeed(-1, 0);
+		a2.setFill(Color.WHITE);
+		add(a2, getPrefWidth(), getPrefHeight() / 5 + 10);
 		
-		SpaceObject spaceObject2 = new SpaceObject();
-		spaceObject2.addPolarPoint(45, 50);
-		spaceObject2.addPolarPoint(135, 50);
-		spaceObject2.addPolarPoint(225, 50);
-		spaceObject2.addPolarPoint(315, 50);
-		spaceObject2.setSpeed(1, 0);
-		spaceObject2.setFill(Color.WHITE);
-		add(spaceObject2, 150, 300);
+		SpaceObject a3 = createAsteroid();
+		a3.setSpeed(2, 0);
+		a3.setFill(Color.WHITE);
+		add(a3, 0, getPrefHeight() / 2 - 20);
 		
-		SpaceObject spaceObject3 = new SpaceObject();
-		spaceObject3.addPolarPoint(0, 50);
-		spaceObject3.addPolarPoint(135, 50);
-		spaceObject3.addPolarPoint(225, 50);
-		spaceObject2.setSpeed(1, -1);
-		spaceObject3.setFill(Color.WHITE);
-		add(spaceObject3, 150, 450);
+		SpaceObject a4 = createAsteroid();
+		a4.setSpeed(-2, 0);
+		a4.setFill(Color.WHITE);
+		add(a4, getPrefWidth(), getPrefHeight() / 2 + 20);
+		
+		SpaceObject a5 = createAsteroid();
+		a5.setSpeed(1, 0);
+		a5.setFill(Color.WHITE);
+		add(a5, 0, getPrefHeight() * 4 / 5 - 30);
+		
+		SpaceObject a6 = createAsteroid();
+		a6.setSpeed(-2, 0);
+		a6.setFill(Color.WHITE);
+		add(a6, getPrefWidth(), getPrefHeight() * 4 / 5 + 30);
+	}
+
+	private Asteroid createAsteroid() {
+		return new Asteroid(10, 2, 10, 0.3);
 	}
 }
