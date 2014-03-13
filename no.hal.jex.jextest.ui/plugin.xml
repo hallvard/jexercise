@@ -10,6 +10,7 @@
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="jextest"
+            icon="icons/jex.gif"
             id="no.hal.jex.jextest.JexTest"
             matchingStrategy="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.editor.JavaEditorInputMatcher"
             name="JexTest Editor">
@@ -521,4 +522,59 @@
     </provider>
   </extension>
 
+	<extension point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            label="JUnit Test"
+            class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:no.hal.jex.jextest.ui.launch.JextestLaunchShortcut"
+            icon="icons/jex.gif"
+            modes="run, debug"
+            id="no.hal.jex.jextest.launch.shortcut">
+        <contextualLaunch>
+           <enablement>
+              <with variable="selection">
+                 <count value="1"/>
+                   <iterate>
+		                <and>
+			                <not><adapt type="org.eclipse.jdt.core.IJavaElement"/></not>
+			                <adapt type="no.hal.jex.jextest.ui.launch.JextestJavaElementDelegate">
+								<adapt type="org.eclipse.jdt.core.IJavaElement">
+									<test property="org.eclipse.jdt.core.isInJavaProject"/>
+									<test property="org.eclipse.jdt.core.hasTypeOnClasspath" value="junit.framework.Test"/>
+									<test property="org.eclipse.jdt.junit.canLaunchAsJUnit" forcePluginActivation="true"/>
+								</adapt>
+							</adapt>
+						</and>
+					</iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+         <configurationType id="org.eclipse.jdt.junit.launchconfig"/>
+         <description description="Debugs a set of JUnit tests" mode="debug"/>
+         <description description="Runs a set of JUnit tests" mode="run"/>
+      </shortcut>
+   </extension>
+  
+   <extension point="org.eclipse.core.runtime.adapters">
+     <factory
+        class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:no.hal.jex.jextest.ui.launch.JextestJavaElementAdapterFactory"
+        adaptableType="org.eclipse.ui.IFileEditorInput">
+        <adapter type="no.hal.jex.jextest.ui.launch.JextestJavaElementDelegate"/>
+     </factory>
+     <factory
+        class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:no.hal.jex.jextest.ui.launch.JextestJavaElementAdapterFactory"
+        adaptableType="org.eclipse.ui.IEditorPart">
+        <adapter type="no.hal.jex.jextest.ui.launch.JextestJavaElementDelegate"/>
+     </factory>
+     <factory
+        class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:no.hal.jex.jextest.ui.launch.JextestJavaElementAdapterFactory"
+        adaptableType="org.eclipse.core.resources.IResource">
+        <adapter type="no.hal.jex.jextest.ui.launch.JextestJavaElementDelegate"/>
+     </factory>
+     <factory
+        class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:no.hal.jex.jextest.ui.launch.JextestJavaElementAdapterFactory"
+        adaptableType="no.hal.jex.jextest.ui.launch.JextestJavaElementDelegate">
+        <adapter type="org.eclipse.jdt.core.IJavaElement"/>
+     </factory>
+   </extension>
+	   
 </plugin>
