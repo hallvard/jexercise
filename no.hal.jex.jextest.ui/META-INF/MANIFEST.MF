@@ -16,12 +16,15 @@ Require-Bundle: no.hal.jex.jextest;visibility:=reexport,
  org.antlr.runtime,
  org.eclipse.xtext.common.types.ui,
  org.eclipse.xtext.ui.codetemplates.ui,
- org.eclipse.compare
+ org.eclipse.compare,
+ org.eclipse.jdt.core;bundle-version="3.9.2",
+ org.eclipse.jdt.junit;bundle-version="3.7.200"
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: no.hal.jex.jextest.ui.quickfix,
- no.hal.jex.jextest.ui.contentassist,
+Export-Package: no.hal.jex.jextest.ui.contentassist,
  no.hal.jex.jextest.ui.contentassist.antlr,
- no.hal.jex.jextest.ui.internal
+ no.hal.jex.jextest.ui.internal,
+ no.hal.jex.jextest.ui.launch,
+ no.hal.jex.jextest.ui.quickfix
 Bundle-Activator: no.hal.jex.jextest.ui.internal.JexTestActivator
