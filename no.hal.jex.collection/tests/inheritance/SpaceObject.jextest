@@ -1,5 +1,7 @@
 test inheritance.SpaceObject
 
+import java.util.Arrays
+
 instance
 	spaceObject = new SpaceObject(),
 	asteroid1 = new Asteroid(10, 2),
@@ -68,7 +70,42 @@ sequence applyForce {
 	state spaceShip { testSpeed(3.3 / mass, 7.7 / mass) }
 }
 
+sequence intersects {
+	instance
+		so1 = createSpaceObject(0.0d, 0.0d, 7.0, 0.0d,	7.0, 7.0d, 0.0, 7.0d),
+		so2 = createSpaceObject(2.0d, 2.0d, 8.0, 2.0d, 8.0, 8.0d, 2.0, 8.0d),
+		so3 = createSpaceObject(5.0d, 1.0d, 9.0, 5.0d, 5.0, 9.0d, 1.0, 5.0d),
+		so4 = createSpaceObject(9.0d, 6.0d, 13.0, 10.0d, 9.0, 14.0d, 5.0, 10.0d)
+	--> 
+	state
+		so1 { intersects(so1) }
+		so2 { intersects(so2) }
+		so3 { intersects(so3) }
+		so4 { intersects(so4) }
+
+		so1 { intersects(so2) }	so2 { intersects(so1) }
+		so1 { intersects(so3) }	so3 { intersects(so1) }
+		so2 { intersects(so3) }	so3 { intersects(so2) }
+		so2 { intersects(so4) } so4 { intersects(so2) }
+		
+		so1 { ! intersects(so4) } so4 { ! intersects(so1) }
+		so3 { ! intersects(so4) } so4 { ! intersects(so3) }
+}
+
 // helper methods
+
+method SpaceObject createSpaceObject(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4) {
+	val so = new SpaceObject();
+	so.getPoints().add(x1);
+	so.getPoints().add(y1);
+	so.getPoints().add(x2);
+	so.getPoints().add(y2);
+	so.getPoints().add(x3);
+	so.getPoints().add(y3);
+	so.getPoints().add(x4);
+	so.getPoints().add(y4);
+	so;
+}
 
 method boolean operator_equals(double n1, double n2) {
 	val epsilon = 0.000001d

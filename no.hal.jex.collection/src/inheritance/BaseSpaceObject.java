@@ -37,6 +37,17 @@ public class BaseSpaceObject extends Polygon {
 	}
 	
 	/**
+	 * Adds the point given by angle, length in polar coordinates
+	 * @param angle the angle
+	 * @param length the length
+	 */
+	protected void addPolarPoints(double... als) {
+		for (int i = 0; i < als.length; i += 2) {
+			addPolarPoint(als[i], als[i + 1]);
+		}
+	}
+
+	/**
 	 * Returns the position of this Polygon as a Point2D object
 	 * @return the position as a Point2D object
 	 */

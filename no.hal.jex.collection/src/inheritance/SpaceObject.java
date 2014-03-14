@@ -45,6 +45,6 @@ public class SpaceObject extends BaseSpaceObject {
 				return true;
 			}
 		}
-		return false;
+		return contains(parentToLocal(other.getCenter(true)));
 	}
 }
