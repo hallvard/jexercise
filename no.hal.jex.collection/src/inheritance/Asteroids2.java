@@ -25,4 +25,10 @@ public class Asteroids2 extends Asteroids {
 			add(asteroid, Math.random() * getPrefWidth(), Math.random() * getPrefHeight());
 		}
 	}
+	
+	//
+
+	public static void main(String[] args) {
+		AsteroidsProgram.main(new String[]{inheritance.Asteroids2.class.getName()});
+	}
 }

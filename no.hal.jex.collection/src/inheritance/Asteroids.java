@@ -184,4 +184,10 @@ public class Asteroids extends Pane implements EventHandler<KeyEvent>  {
 		setSpeed(so1, div(add(mult(so1.getSpeed(), so1.getMass()), mult(so2.getSpeed(), so2.getMass())), so1.getMass() + so2.getMass()));
 		remove(so2);
 	}
+	
+	//
+
+	public static void main(String[] args) {
+		AsteroidsProgram.main(new String[]{inheritance.Asteroids.class.getName()});
+	}
 }

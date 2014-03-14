@@ -26,4 +26,10 @@ public class Asteroids3 extends Asteroids2 {
 			super.handleKey(keyCode);
 		}
 	}
+	
+	//
+
+	public static void main(String[] args) {
+		AsteroidsProgram.main(new String[]{inheritance.Asteroids3.class.getName()});
+	}
 }
