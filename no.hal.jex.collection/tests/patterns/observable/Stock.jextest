@@ -1,0 +1,41 @@
+test patterns.observable.Stock
+
+instance stock = new Stock("APPL", 110.0d )
+
+sequence constructor {
+	-->
+	state stock {
+		ticker == "APPL"
+		price == 110.0d
+	}
+}
+
+val double oldPrice1 = 0.0d, double newPrice1 = 110.0d
+val double oldPrice2 = 0.0d, double newPrice2 = 0.0d
+
+method setPrice1(double newPrice, double expectedOldPrice, double expectedNewPrice) {
+	this.oldPrice1 = this.newPrice1
+	this.newPrice1 = newPrice
+	stock.setPrice(newPrice)
+	assertEquals(expectedOldPrice, this.oldPrice2)
+	assertEquals(expectedNewPrice, this.newPrice2)
+}
+
+method setPrice2(double oldPrice, double newPrice) {
+	this.oldPrice2 = oldPrice
+	this.newPrice2 = newPrice
+}
+
+sequence stockListener {
+	-- stock.addStockListener([Stock stock, double oldPrice, double newPrice |
+		setPrice2(oldPrice, newPrice)
+	]),
+	setPrice1(118.0d, 110.0d, 118.0d) -->
+	state stock {
+		price == 118.0d
+	}
+	-- setPrice1(121.0d, 118.0d, 121.0d) -->
+	state stock {
+		price == 121.0d
+	}
+}

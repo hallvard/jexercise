@@ -1,0 +1,97 @@
+test patterns.observable.SmartStock
+
+instance stock = new SmartStock("APPL", 110.0d )
+
+sequence constructor {
+	-->
+	state stock {
+		ticker == "APPL"
+		price == 110.0d
+	}
+}
+
+val double oldPrice1 = 0.0d, double newPrice1 = 110.0d
+val double oldPrice2 = 0.0d, double newPrice2 = 0.0d
+
+method setPrice1(double newPrice, double expectedOldPrice, double expectedNewPrice) {
+	this.oldPrice1 = this.newPrice1
+	this.newPrice1 = newPrice
+	stock.setPrice(newPrice)
+	assertEquals(expectedOldPrice, this.oldPrice2)
+	assertEquals(expectedNewPrice, this.newPrice2)
+}
+
+method setPrice2(double oldPrice, double newPrice) {
+	this.oldPrice2 = oldPrice
+	this.newPrice2 = newPrice
+}
+
+sequence stockListener {
+	-- stock.addStockListener([Stock stock, double oldPrice, double newPrice |
+		setPrice2(oldPrice, newPrice)
+	]),
+	setPrice1(118.0d, 110.0d, 118.0d) -->
+	state stock {
+		price == 118.0d
+	}
+	-- setPrice1(121.0d, 118.0d, 121.0d) -->
+	state stock {
+		price == 121.0d
+	}
+}
+
+sequence intervalListener1 {
+	-- stock.addStockListener([Stock stock, double oldPrice, double newPrice |
+		setPrice2(oldPrice, newPrice)
+	], 110.0d, 120.0d),
+	setPrice1(118.0d, 0.0d, 0.0d) -->
+	state stock {
+		price == 118.0d
+	}
+	-- setPrice1(121.0d, 118.0d, 121.0d) -->
+	state stock {
+		price == 121.0d
+	}
+}
+
+sequence intervalListener2 {
+	-- stock.addStockListener([Stock stock, double oldPrice, double newPrice |
+		setPrice2(oldPrice, newPrice)
+	], 110.0d, 120.0d),
+	setPrice1(108.0d, 110.0d, 108.0d) -->
+	state stock {
+		price == 108.0d
+	}
+	-- setPrice1(115.0d, 110.0d, 108.0d) -->
+	state stock {
+		price == 115.0d
+	}
+}
+
+sequence differenceListener1 {
+	-- stock.addStockListener([Stock stock, double oldPrice, double newPrice |
+		setPrice2(oldPrice, newPrice)
+	], 10.0d),
+	setPrice1(118.0d, 0.0d, 0.0d) -->
+	state stock {
+		price == 118.0d
+	}
+	-- setPrice1(121.0d, 110.0d, 121.0d) -->
+	state stock {
+		price == 121.0d
+	}
+}
+
+sequence differenceListener2 {
+	-- stock.addStockListener([Stock stock, double oldPrice, double newPrice |
+		setPrice2(oldPrice, newPrice)
+	], 5.0d),
+	setPrice1(118.0d, 110.0d, 118.0d) -->
+	state stock {
+		price == 118.0d
+	}
+	-- setPrice1(121.0d, 110.0d, 118.0d) -->
+	state stock {
+		price == 121.0d
+	}
+}
