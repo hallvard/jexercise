@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jextest Runtime Library
+Bundle-SymbolicName: no.hal.jex.jextest.lib
+Bundle-Version: 0.9.0.qualifier
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: no.hal.jex.jextest.extensions
