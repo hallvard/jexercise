@@ -1,5 +1,6 @@
 package inheritance;
 
+import com.google.common.collect.Iterables;
 import inheritance.Asteroid;
 import inheritance.SpaceObject;
 import inheritance.SpaceShip;
@@ -7,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Point2D;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
+import org.eclipse.xtext.xbase.lib.Conversions;
 
 @JExercise(description = "Tests inheritance.SpaceObject")
 @SuppressWarnings("all")
@@ -39,36 +41,54 @@ public class SpaceObjectTest extends TestCase {
     return _spaceShip;
   }
   
+  private SpaceObject so1;
+  
+  private SpaceObject _init_so1() {
+    SpaceObject _createSpaceObject = this.createSpaceObject(0.0d, 0.0d, 7.0, 0.0d, 7.0, 7.0d, 0.0, 7.0d);
+    return _createSpaceObject;
+  }
+  
+  private SpaceObject so2;
+  
+  private SpaceObject _init_so2() {
+    SpaceObject _createSpaceObject = this.createSpaceObject(2.0d, 2.0d, 8.0, 2.0d, 8.0, 8.0d, 2.0, 8.0d);
+    return _createSpaceObject;
+  }
+  
+  private SpaceObject so3;
+  
+  private SpaceObject _init_so3() {
+    SpaceObject _createSpaceObject = this.createSpaceObject(5.0d, 1.0d, 9.0, 5.0d, 5.0, 9.0d, 1.0, 5.0d);
+    return _createSpaceObject;
+  }
+  
+  private SpaceObject so4;
+  
+  private SpaceObject _init_so4() {
+    SpaceObject _createSpaceObject = this.createSpaceObject(9.0d, 6.0d, 13.0, 10.0d, 9.0, 14.0d, 5.0, 10.0d);
+    return _createSpaceObject;
+  }
+  
   @Override
   protected void setUp() {
     spaceObject = _init_spaceObject();
     asteroid1 = _init_asteroid1();
     asteroid2 = _init_asteroid2();
     spaceShip = _init_spaceShip();
+    so1 = _init_so1();
+    so2 = _init_so2();
+    so3 = _init_so3();
+    so4 = _init_so4();
     
   }
   
-  private SpaceObject createSpaceObject(final double x1, final double y1, final double x2, final double y2, final double x3, final double y3, final double x4, final double y4) {
+  private SpaceObject createSpaceObject(final double... xys) {
     SpaceObject _xblockexpression = null;
     {
       SpaceObject _spaceObject = new SpaceObject();
       final SpaceObject so = _spaceObject;
       ObservableList<Double> _points = so.getPoints();
-      _points.add(Double.valueOf(x1));
-      ObservableList<Double> _points_1 = so.getPoints();
-      _points_1.add(Double.valueOf(y1));
-      ObservableList<Double> _points_2 = so.getPoints();
-      _points_2.add(Double.valueOf(x2));
-      ObservableList<Double> _points_3 = so.getPoints();
-      _points_3.add(Double.valueOf(y2));
-      ObservableList<Double> _points_4 = so.getPoints();
-      _points_4.add(Double.valueOf(x3));
-      ObservableList<Double> _points_5 = so.getPoints();
-      _points_5.add(Double.valueOf(y3));
-      ObservableList<Double> _points_6 = so.getPoints();
-      _points_6.add(Double.valueOf(x4));
-      ObservableList<Double> _points_7 = so.getPoints();
-      _points_7.add(Double.valueOf(y4));
+      Iterables.<Double>addAll(_points, ((Iterable<? extends Double>)Conversions.doWrapArray(xys)));
       _xblockexpression = (so);
     }
     return _xblockexpression;
@@ -196,12 +216,26 @@ public class SpaceObjectTest extends TestCase {
   }
   
   @JExercise(tests = "SpaceObject()", description = "Tests \n\t\tinitialization\n")
-  public void testIntersects() {
-    SpaceObject so1 = _init__intersects_so1();
-    SpaceObject so2 = _init__intersects_so2();
-    SpaceObject so3 = _init__intersects_so3();
-    SpaceObject so4 = _init__intersects_so4();
-    _test__intersects_transitions0_effect_state(so1, so2, so3, so4);
+  public void testIntersects1() {
+    _test__intersects1_transitions0_effect_state();
+    
+  }
+  
+  @JExercise(tests = "SpaceObject()", description = "Tests \n\t\tinitialization\n")
+  public void testIntersects2() {
+    _test__intersects2_transitions0_effect_state();
+    
+  }
+  
+  @JExercise(tests = "SpaceObject()", description = "Tests \n\t\tinitialization\n")
+  public void testIntersects3() {
+    _test__intersects3_transitions0_effect_state();
+    
+  }
+  
+  @JExercise(tests = "SpaceObject()", description = "Tests \n\t\tinitialization\n")
+  public void testIntersects4() {
+    _test__intersects4_transitions0_effect_state();
     
   }
   
@@ -707,157 +741,149 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private SpaceObject _init__intersects_so1() {
-    SpaceObject _createSpaceObject = this.createSpaceObject(0.0d, 0.0d, 7.0, 0.0d, 7.0, 7.0d, 0.0, 7.0d);
-    return _createSpaceObject;
-  }
-  
-  private SpaceObject _init__intersects_so2() {
-    SpaceObject _createSpaceObject = this.createSpaceObject(2.0d, 2.0d, 8.0, 2.0d, 8.0, 8.0d, 2.0, 8.0d);
-    return _createSpaceObject;
-  }
-  
-  private SpaceObject _init__intersects_so3() {
-    SpaceObject _createSpaceObject = this.createSpaceObject(5.0d, 1.0d, 9.0, 5.0d, 5.0, 9.0d, 1.0, 5.0d);
-    return _createSpaceObject;
-  }
-  
-  private SpaceObject _init__intersects_so4() {
-    SpaceObject _createSpaceObject = this.createSpaceObject(9.0d, 6.0d, 13.0, 10.0d, 9.0, 14.0d, 5.0, 10.0d);
-    return _createSpaceObject;
-  }
-  
-  private void _test__intersects_transitions0_effect_state(final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
-    _test__intersects_transitions0_effect_state_objectTests0_test(so1, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests1_test(so2, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests2_test(so3, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests3_test(so4, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests4_test(so1, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests5_test(so2, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests6_test(so1, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests7_test(so3, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests8_test(so2, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests9_test(so3, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests10_test(so2, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests11_test(so4, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests12_test(so1, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests13_test(so4, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests14_test(so3, so1, so2, so3, so4);
-    _test__intersects_transitions0_effect_state_objectTests15_test(so4, so1, so2, so3, so4);
+  private void _test__intersects1_transitions0_effect_state() {
+    _test__intersects1_transitions0_effect_state_objectTests0_test(so1);
+    _test__intersects1_transitions0_effect_state_objectTests1_test(so1);
+    _test__intersects1_transitions0_effect_state_objectTests2_test(so1);
+    _test__intersects1_transitions0_effect_state_objectTests3_test(so1);
     
   }
   
-  private void _test__intersects_transitions0_effect_state_objectTests0_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
+  private void _test__intersects1_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(so1);
+    boolean _intersects = it.intersects(this.so1);
     assertTrue("intersects(so1) failed", _intersects);
     
   }
   
-  private void _test__intersects_transitions0_effect_state_objectTests1_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
+  private void _test__intersects1_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(so2);
+    boolean _intersects = it.intersects(this.so2);
     assertTrue("intersects(so2) failed", _intersects);
     
   }
   
-  private void _test__intersects_transitions0_effect_state_objectTests2_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
+  private void _test__intersects1_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(so3);
+    boolean _intersects = it.intersects(this.so3);
     assertTrue("intersects(so3) failed", _intersects);
     
   }
   
-  private void _test__intersects_transitions0_effect_state_objectTests3_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
+  private void _test__intersects1_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(so4);
-    assertTrue("intersects(so4) failed", _intersects);
-    
-  }
-  
-  private void _test__intersects_transitions0_effect_state_objectTests4_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
-    
-    boolean _intersects = it.intersects(so2);
-    assertTrue("intersects(so2) failed", _intersects);
-    
-  }
-  
-  private void _test__intersects_transitions0_effect_state_objectTests5_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
-    
-    boolean _intersects = it.intersects(so1);
-    assertTrue("intersects(so1) failed", _intersects);
-    
-  }
-  
-  private void _test__intersects_transitions0_effect_state_objectTests6_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
-    
-    boolean _intersects = it.intersects(so3);
-    assertTrue("intersects(so3) failed", _intersects);
-    
-  }
-  
-  private void _test__intersects_transitions0_effect_state_objectTests7_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
-    
-    boolean _intersects = it.intersects(so1);
-    assertTrue("intersects(so1) failed", _intersects);
-    
-  }
-  
-  private void _test__intersects_transitions0_effect_state_objectTests8_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
-    
-    boolean _intersects = it.intersects(so3);
-    assertTrue("intersects(so3) failed", _intersects);
-    
-  }
-  
-  private void _test__intersects_transitions0_effect_state_objectTests9_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
-    
-    boolean _intersects = it.intersects(so2);
-    assertTrue("intersects(so2) failed", _intersects);
-    
-  }
-  
-  private void _test__intersects_transitions0_effect_state_objectTests10_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
-    
-    boolean _intersects = it.intersects(so4);
-    assertTrue("intersects(so4) failed", _intersects);
-    
-  }
-  
-  private void _test__intersects_transitions0_effect_state_objectTests11_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
-    
-    boolean _intersects = it.intersects(so2);
-    assertTrue("intersects(so2) failed", _intersects);
-    
-  }
-  
-  private void _test__intersects_transitions0_effect_state_objectTests12_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
-    
-    boolean _intersects = it.intersects(so4);
+    boolean _intersects = it.intersects(this.so4);
     boolean _not = (!_intersects);
     assertTrue("! intersects(so4) failed", _not);
     
   }
   
-  private void _test__intersects_transitions0_effect_state_objectTests13_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
+  private void _test__intersects2_transitions0_effect_state() {
+    _test__intersects2_transitions0_effect_state_objectTests0_test(so2);
+    _test__intersects2_transitions0_effect_state_objectTests1_test(so2);
+    _test__intersects2_transitions0_effect_state_objectTests2_test(so2);
+    _test__intersects2_transitions0_effect_state_objectTests3_test(so2);
     
-    boolean _intersects = it.intersects(so1);
+  }
+  
+  private void _test__intersects2_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
+    
+    boolean _intersects = it.intersects(this.so2);
+    assertTrue("intersects(so2) failed", _intersects);
+    
+  }
+  
+  private void _test__intersects2_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
+    
+    boolean _intersects = it.intersects(this.so1);
+    assertTrue("intersects(so1) failed", _intersects);
+    
+  }
+  
+  private void _test__intersects2_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
+    
+    boolean _intersects = it.intersects(this.so3);
+    assertTrue("intersects(so3) failed", _intersects);
+    
+  }
+  
+  private void _test__intersects2_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
+    
+    boolean _intersects = it.intersects(this.so4);
+    assertTrue("intersects(so4) failed", _intersects);
+    
+  }
+  
+  private void _test__intersects3_transitions0_effect_state() {
+    _test__intersects3_transitions0_effect_state_objectTests0_test(so3);
+    _test__intersects3_transitions0_effect_state_objectTests1_test(so3);
+    _test__intersects3_transitions0_effect_state_objectTests2_test(so3);
+    _test__intersects3_transitions0_effect_state_objectTests3_test(so3);
+    
+  }
+  
+  private void _test__intersects3_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
+    
+    boolean _intersects = it.intersects(this.so3);
+    assertTrue("intersects(so3) failed", _intersects);
+    
+  }
+  
+  private void _test__intersects3_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
+    
+    boolean _intersects = it.intersects(this.so1);
+    assertTrue("intersects(so1) failed", _intersects);
+    
+  }
+  
+  private void _test__intersects3_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
+    
+    boolean _intersects = it.intersects(this.so2);
+    assertTrue("intersects(so2) failed", _intersects);
+    
+  }
+  
+  private void _test__intersects3_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
+    
+    boolean _intersects = it.intersects(this.so4);
+    boolean _not = (!_intersects);
+    assertTrue("! intersects(so4) failed", _not);
+    
+  }
+  
+  private void _test__intersects4_transitions0_effect_state() {
+    _test__intersects4_transitions0_effect_state_objectTests0_test(so4);
+    _test__intersects4_transitions0_effect_state_objectTests1_test(so4);
+    _test__intersects4_transitions0_effect_state_objectTests2_test(so4);
+    _test__intersects4_transitions0_effect_state_objectTests3_test(so4);
+    
+  }
+  
+  private void _test__intersects4_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
+    
+    boolean _intersects = it.intersects(this.so4);
+    assertTrue("intersects(so4) failed", _intersects);
+    
+  }
+  
+  private void _test__intersects4_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
+    
+    boolean _intersects = it.intersects(this.so1);
     boolean _not = (!_intersects);
     assertTrue("! intersects(so1) failed", _not);
     
   }
   
-  private void _test__intersects_transitions0_effect_state_objectTests14_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
+  private void _test__intersects4_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(so4);
-    boolean _not = (!_intersects);
-    assertTrue("! intersects(so4) failed", _not);
+    boolean _intersects = it.intersects(this.so2);
+    assertTrue("intersects(so2) failed", _intersects);
     
   }
   
-  private void _test__intersects_transitions0_effect_state_objectTests15_test(final SpaceObject it, final SpaceObject so1, final SpaceObject so2, final SpaceObject so3, final SpaceObject so4) {
+  private void _test__intersects4_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(so3);
+    boolean _intersects = it.intersects(this.so3);
     boolean _not = (!_intersects);
     assertTrue("! intersects(so3) failed", _not);
     
