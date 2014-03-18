@@ -21,7 +21,7 @@ JexTestCase:
 	;
 
 Instance:
-	(type = JvmParameterizedTypeReference)? name = ID ('=' expr = XExpression)?
+	(type = JvmTypeReference)? name = ID ('=' expr = XExpression)?
 ;
 
 StateTestContext: StateFunction | JexTestSequence;
@@ -56,16 +56,9 @@ ObjectTest:
 PropertiesTest returns xbase::XBlockExpression:
 	{PropertiesTest}
 	(
-//	('=' stateFunctionCall = StateFunctionCall (';' | ('{' (expressions += XExpression ';')* '}'))) |
 	('{' (expressions += XExpression ';'?)* '}')
 	)
 	;
-
-//StateFunctionCall returns xbase::XBlockExpression:
-//	{StateFunctionCall}
-//	stateFunction = [StateFunction | ID]
-//	('(' (expressions += XExpression (',' expressions += XExpression)*)? ')')?
-//;
 
 Transition:
 	(
@@ -85,7 +78,7 @@ TransitionSource:
 	state = State | ('#' stateRef = [State | ID])	
 ;
 
-TransitionAction: TransitionExpressionAction | TransitionInputAction;
+TransitionAction: TransitionExpressionAction; // | TransitionInputAction;
 
 TransitionExpressionAction:
 	expr = XExpression ('#' times = XExpression)?
@@ -94,7 +87,7 @@ TransitionInputAction:
 	'input' input = STRING
 ;
 
-TransitionEffect: TransitionTargetEffect | TransitionExceptionEffect | TransitionOutputEffect;
+TransitionEffect: TransitionTargetEffect | TransitionExceptionEffect; // | TransitionOutputEffect;
 
 TransitionTargetEffect:
 	'-->' (state = State | ('#' stateRef = [State | ID]))
@@ -107,11 +100,18 @@ TransitionOutputEffect:
 ;
 
 Method:
-	(static?='static')? 'method' (returnType = JvmParameterizedTypeReference)? name = (ID | OpEquality | OpCompare)
+	(static?='static')? 'method' (returnType = JvmTypeReference)? name = (ID | OpEquality | OpCompare)
 	'(' (parameters += Parameter (',' parameters += Parameter)*)? ')'
 	body = XExpression	
 ;
 
 Parameter:
-	type = JvmParameterizedTypeReference name = ID
+	type = JvmTypeReference (vararg ?= '...')? name = ID
 ;
+
+// XExpression extensions
+
+OpEquality:
+	'==' | '!=' | '===' | '!=='
+	| '~=' // approximatelyEquals operator, for comparisons with slack, e.g. double with epsilon and String with trim and ignoreCase
+	;

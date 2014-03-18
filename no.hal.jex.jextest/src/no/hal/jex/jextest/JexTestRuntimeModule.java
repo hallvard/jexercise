@@ -13,4 +13,12 @@ public class JexTestRuntimeModule extends no.hal.jex.jextest.AbstractJexTestRunt
 	public Class<? extends XbaseCompiler> bindXbaseCompiler() {
 		return no.hal.jex.jextest.jvmmodel.JexTestCompiler.class;
 	}
+
+	public Class<? extends org.eclipse.xtext.xbase.scoping.batch.ImplicitlyImportedTypes> bindImplicitlyImportedTypes() {
+		return no.hal.jex.jextest.extensions.ImplicitlyImportedTypes.class;
+	}
+	
+	public Class<? extends org.eclipse.xtext.xbase.scoping.featurecalls.OperatorMapping> bindOperatorMapping() {
+		return no.hal.jex.jextest.extensions.OperatorMapping.class;
+	}
 }

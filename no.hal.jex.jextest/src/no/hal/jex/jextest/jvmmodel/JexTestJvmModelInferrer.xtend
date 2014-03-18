@@ -33,6 +33,8 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.eclipse.xtext.xbase.lib.Pair
 import org.eclipse.xtext.xbase.scoping.XbaseScopeProvider
 import org.eclipse.xtext.xbase.scoping.featurecalls.OperatorMapping
+import no.hal.jex.jextest.jexTest.Parameter
+import org.eclipse.xtext.common.types.JvmExecutable
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -88,9 +90,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 					members += method.toMethod(methodName, method.returnType) [
 						visibility = JvmVisibility.PRIVATE
 						static = method.static
-						for (parameter : method.parameters) {
-							parameters += parameter.toParameter(parameter.name, parameter.type)
-						}
+						initParameters(method.parameters)
 						body = method.body
 					]
 				}
@@ -101,9 +101,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 					val stateMethod = stateFunction.toMethod(stateFunction.name, stateFunction.newTypeRef(void)) [
 						visibility = JvmVisibility.PRIVATE
 						parameters += stateFunction.toParameter(XbaseScopeProvider.IT.toString, stateFunction.type ?: testCase.testedClass)
-						for (parameter : stateFunction.parameters) {
-							parameters += parameter.toParameter(parameter.name, parameter.type)
-						}
+						initParameters(stateFunction.parameters)
 						body = [
 							generateTestHelperMethodCall("_test_", (stateFunction.test as PropertiesTest), it)
 						]
@@ -205,6 +203,17 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 		method
 	}
 
+	def initParameters(JvmExecutable op, Iterable<Parameter> parameters) {
+		for (parameter : parameters) {
+			val formalParameter = parameter.toParameter(parameter.name, parameter.type)
+			if (parameter.vararg) {
+				formalParameter.parameterType = formalParameter.parameterType.addArrayTypeDimension
+				op.varArgs = true
+			}
+			op.parameters += formalParameter
+		}
+	}
+
 	def generateSetUpMethodBody(JexTestCase testCase, ITreeAppendable appendable) {
 		if (testCase.defaultInstanceTest) {
 			appendable.append('''«defaultInstanceName(testCase)» = new ''')
@@ -245,9 +254,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 			}
 			var stateTestContext = innerStateTestContext
 			if (stateTestContext instanceof StateFunction) {
-				for (parameter : (stateTestContext as StateFunction).parameters) {
-					parameters += parameter.toParameter(parameter.name, parameter.type)
-				}
+				initParameters((stateTestContext as StateFunction).parameters)
 				stateTestContext = stateTestContext.ancestor(StateTestContext)
 			}
 			if (stateTestContext instanceof JexTestSequence) {
