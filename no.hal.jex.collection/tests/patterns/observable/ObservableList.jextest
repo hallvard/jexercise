@@ -1,0 +1,58 @@
+test patterns.observable.ObservableList
+
+instance observableList = [Object element | true]
+
+sequence constructor {
+	-->
+	state observableList {
+		size() == 0
+	}
+}
+
+sequence addElement {
+	-- observableList.addElement(5) -->
+	state {
+		testElements(5)
+	}
+	-- observableList.addElement(6) -->
+	state {
+		testElements(5, 6)
+	}
+	-- observableList.addElement(0, 2) -->
+	state {
+		testElements(2, 5, 6)
+	}
+}
+
+val int pos1 = -1, int pos2 = -1
+
+method void addElement(int element, int pos) {
+	pos1 = pos
+	observableList.addElement(pos, element)
+	assertEquals(pos1, pos2)
+}
+
+sequence listListener {
+	-- observableList.addListListener([list, pos | pos2 = pos]),
+	addElement(5, 0) -->
+	state {
+		testElements(5)
+	}
+	-- addElement(6, 1) -->
+	state {
+		testElements(5, 6)
+	}
+	-- addElement(2, 0) -->
+	state {
+		testElements(2, 5, 6)
+	}
+}
+
+method testElements(int... elements) {
+	assertEquals(elements.length, observableList.size())
+	val iterator = elements.iterator
+	for (element : observableList) {
+		val next = iterator.next
+		assertEquals(next, element)
+	}
+}
