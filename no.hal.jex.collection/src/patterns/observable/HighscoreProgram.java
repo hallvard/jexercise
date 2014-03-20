@@ -21,10 +21,8 @@ public class HighscoreProgram implements ListListener {
 	}
 
 	public void listChanged(ObservableList list, int pos) {
-		int i = 0;
-		for (Object result: highscoreList) {
-			System.out.println(result + (pos == i ? (" <=== @ " + pos) : ""));
-			i++;
+		for (int i = 0; i < highscoreList.size(); i++) {
+			System.out.println(highscoreList.getElement(i) + (pos == i ? (" <=== @ " + pos) : ""));
 		}
 		System.out.println();
 	}

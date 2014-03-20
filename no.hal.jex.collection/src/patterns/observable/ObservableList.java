@@ -1,10 +1,9 @@
 package patterns.observable;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-public abstract class ObservableList implements Iterable<Object> {
+public abstract class ObservableList {
 
 	private List<Object> list = new ArrayList<Object>();
 
@@ -14,11 +13,6 @@ public abstract class ObservableList implements Iterable<Object> {
 
 	protected Object getElement(int i) {
 		return list.get(i);
-	}
-	
-	@Override
-	public Iterator<Object> iterator() {
-		return list.iterator();
 	}
 	
 	private void checkIndex(int pos, int d) {

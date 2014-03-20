@@ -53,11 +53,19 @@ public class HighscoreListTest extends TestCase {
     int _size = this.highscoreList.size();
     Assert.assertEquals(_length, _size);
     final Iterator<Integer> iterator = ((List<Integer>)Conversions.doWrapArray(elements)).iterator();
-    for (final Object element : this.highscoreList) {
+    int i = 0;
+    boolean _hasNext = iterator.hasNext();
+    boolean _while = _hasNext;
+    while (_while) {
       {
         final Integer next = iterator.next();
-        Assert.assertEquals(next, element);
+        Object _element = this.highscoreList.getElement(i);
+        Assert.assertEquals(next, _element);
+        int _plus = (i + 1);
+        i = _plus;
       }
+      boolean _hasNext_1 = iterator.hasNext();
+      _while = _hasNext_1;
     }
   }
   

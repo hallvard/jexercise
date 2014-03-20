@@ -105,8 +105,10 @@ sequence listListenerDuplicate {
 method testElements(int... elements) {
 	assertEquals(elements.length, highscoreList.size())
 	val iterator = elements.iterator
-	for (element : highscoreList) {
+	var i = 0
+	while (iterator.hasNext) {
 		val next = iterator.next
-		assertEquals(next, element)
+		assertEquals(next, highscoreList.getElement(i))
+		i = i + 1
 	}
 }

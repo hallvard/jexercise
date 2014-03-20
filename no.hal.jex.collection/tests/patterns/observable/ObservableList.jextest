@@ -60,8 +60,10 @@ sequence listListener {
 method testElements(int... elements) {
 	assertEquals(elements.length, observableList.size())
 	val iterator = elements.iterator
-	for (element : observableList) {
+	var i = 0
+	while (iterator.hasNext) {
 		val next = iterator.next
-		assertEquals(next, element)
+		assertEquals(next, observableList.getElement(i))
+		i = i + 1
 	}
 }
