@@ -1,0 +1,46 @@
+test patterns.observable.StockIndex
+
+instance double facebookPrice = 67.80, double applePrice = 534.98
+instance Stock facebook = new Stock("FB", facebookPrice), Stock apple = new Stock("AAPL", applePrice)
+instance index0 = new StockIndex("OSEBX"), index1 = new StockIndex("OSEBX", facebook), indexN = new StockIndex("OSEBX", facebook, apple)
+
+sequence constructor "Tests constructor with no Stock-objects as argument" {
+	-->
+	state
+		index0 { index == 0.0 }
+		index1 { index == facebookPrice }
+		indexN { index == facebookPrice + applePrice }
+}
+
+sequence addStock {
+	-- index0.addStock(facebook) -->
+	state index0 { index == facebookPrice }
+	-- index0.addStock(facebook) -->
+	state index0 { index == facebookPrice }
+}
+
+sequence removeStock {
+	-- indexN.removeStock(apple) -->
+	state indexN { index == facebookPrice }
+	-- indexN.removeStock(apple) -->
+	state indexN { index == facebookPrice }
+	-- indexN.removeStock(facebook) -->
+	state indexN { index == 0.0 }
+}
+
+sequence changePrice {
+	val double facebookPrice2 = 67.0, double facebookPrice3 = 69.0
+	-- facebook.setPrice(facebookPrice2) -->
+	state
+		index1 { index == facebookPrice2 }	
+		indexN { index == facebookPrice2 + applePrice }	
+	-- facebook.setPrice(facebookPrice3) -->
+	state
+		index1 { index == facebookPrice3 }
+		indexN { index == facebookPrice3 + applePrice }
+}
+
+method boolean operator_equals(double n1, double n2) {
+	val epsilon = 0.000001d
+	n1 + epsilon >= n2 && n1 - epsilon <= n2
+}
