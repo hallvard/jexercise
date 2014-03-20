@@ -18,7 +18,7 @@ public class ObservableListTest extends TestCase {
     final ObservableList _function = new ObservableList() {
       @Override
       public boolean acceptsElement(final Object element) {
-        return true;
+        return (element instanceof Integer);
       }
     };
     return _function;
@@ -71,6 +71,18 @@ public class ObservableListTest extends TestCase {
     
   }
   
+  @JExercise(tests = "void addElement(Object)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>observableList.addElement(\"5\")</li>\n\t\t</ul>\n")
+  public void testAcceptsElement() {
+    _test__acceptsElement_transitions0_effect_state();
+    try {
+      _transition_exprAction__acceptsElement_transitions1_actions0();
+      fail("IllegalArgumentException should be thrown after observableList.addElement(\"5\")");
+    } catch (Exception e) {
+      assertTrue("IllegalArgumentException should be thrown after observableList.addElement(\"5\")", e instanceof IllegalArgumentException);
+    }
+    
+  }
+  
   @JExercise(tests = "void addElement(Object);void addElement(int,Object)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>observableList.addElement(5)</li>\n\t\t<li>observableList.addElement(6)</li>\n\t\t<li>observableList.addElement(0, 2)</li>\n\t\t</ul>\n")
   public void testAddElement() {
     _transition_exprAction__addElement_transitions0_actions0();
@@ -103,6 +115,32 @@ public class ObservableListTest extends TestCase {
     
     int _size = it.size();
     assertEquals("size() == 0 failed", 0, _size);
+    
+  }
+  
+  private void _test__acceptsElement_transitions0_effect_state() {
+    _test__acceptsElement_transitions0_effect_state_objectTests0_test(observableList);
+    
+  }
+  
+  private void _test__acceptsElement_transitions0_effect_state_objectTests0_test(final ObservableList it) {
+    
+    boolean _acceptsElement = it.acceptsElement(Integer.valueOf(5));
+    assertTrue("acceptsElement(5) failed", _acceptsElement);
+    
+    boolean _acceptsElement_1 = it.acceptsElement("5");
+    boolean _not = (!_acceptsElement_1);
+    assertTrue("! acceptsElement(\"5\") failed", _not);
+    
+  }
+  
+  private void _transition_exprAction__acceptsElement_transitions1_actions0() {
+    try {
+      
+      this.observableList.addElement("5");
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("observableList.addElement(\"5\") failed: " + error.getMessage());
+    }
     
   }
   

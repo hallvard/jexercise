@@ -1,12 +1,21 @@
 test patterns.observable.ObservableList
 
-instance observableList = [Object element | true]
+instance observableList = [Object element | element instanceof Integer]
 
 sequence constructor {
 	-->
 	state observableList {
 		size() == 0
 	}
+}
+
+sequence acceptsElement {
+	-->
+	state observableList {
+		acceptsElement(5)
+		! acceptsElement("5")
+	}
+	-- observableList.addElement("5") throws IllegalArgumentException
 }
 
 sequence addElement {
