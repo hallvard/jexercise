@@ -27,7 +27,12 @@ public abstract class ObservableList implements Iterable<Object> {
 		}
 	}
 	
+	public abstract boolean acceptsElement(Object element);
+	
 	protected void addElement(int pos, Object element) {
+		if (! acceptsElement(element)) {
+			throw new IllegalArgumentException(element + " is not acceptable");
+		}
 		checkIndex(pos, 0);
 		list.add(pos, element);
 		fireListChanged(pos);

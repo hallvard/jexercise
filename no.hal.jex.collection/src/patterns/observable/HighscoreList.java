@@ -8,6 +8,10 @@ public class HighscoreList extends ObservableList {
 		this.maxSize = maxSize;
 	}
 
+	public boolean acceptsElement(Object element) {
+		return element instanceof Integer;
+	}
+
 	public int addResult(Integer result) {
 		int pos = 0;
 		while (pos < size() && result >= (int) getElement(pos)) {
