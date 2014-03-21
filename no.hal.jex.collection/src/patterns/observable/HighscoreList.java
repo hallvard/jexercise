@@ -12,17 +12,21 @@ public class HighscoreList extends ObservableList {
 		return element instanceof Integer;
 	}
 
-	public int addResult(Integer result) {
-		int pos = 0;
-		while (pos < size() && result >= (int) getElement(pos)) {
-			pos++;
-		}
+	@Override
+	public void addElement(int pos, Object element) {
 		if (pos < maxSize) {
 			while (size() >= maxSize) {
 				removeElement(size() - 1);
 			}
-			super.addElement(pos, result);
+			super.addElement(pos, element);
 		}
-		return pos;
+	}
+
+	public void addResult(Integer result) {
+		int pos = 0;
+		while (pos < size() && result >= (int) getElement(pos)) {
+			pos++;
+		}
+		addElement(pos, result);
 	}
 }

@@ -75,7 +75,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);int addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addResult(5)</li>\n\t\t<li>highscoreList.addResult(6)</li>\n\t\t<li>highscoreList.addResult(2)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "HighscoreList(int);void addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addResult(5)</li>\n\t\t<li>highscoreList.addResult(6)</li>\n\t\t<li>highscoreList.addResult(2)</li>\n\t\t</ul>\n")
   public void testAddElementSimple() {
     _transition_exprAction__addElementSimple_transitions0_actions0();
     _test__addElementSimple_transitions0_effect_state();
@@ -86,7 +86,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);int addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>highscoreList.addResult(3)</li>\n\t\t<li>highscoreList.addResult(7)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "HighscoreList(int);void addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>highscoreList.addResult(3)</li>\n\t\t<li>highscoreList.addResult(7)</li>\n\t\t</ul>\n")
   public void testAddElementMoreThanMax() {
     _transition_exprAction__addElementMoreThanMax_transitions0_actions0();
     _transition_exprAction__addElementMoreThanMax_transitions0_actions1();
@@ -99,7 +99,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);int addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>highscoreList.addResult(2)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "HighscoreList(int);void addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>highscoreList.addResult(2)</li>\n\t\t</ul>\n")
   public void testAddElementDuplicate() {
     _transition_exprAction__addElementDuplicate_transitions0_actions0();
     _transition_exprAction__addElementDuplicate_transitions0_actions1();
@@ -122,7 +122,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);int addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>addResult(3, 1)</li>\n\t\t<li>pos2 = -1, addResult(7, -1)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "HighscoreList(int);void addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>addResult(3, 1)</li>\n\t\t<li>pos2 = -1, addResult(7, -1)</li>\n\t\t</ul>\n")
   public void testListListenerMoreThanMax() {
     _transition_exprAction__listListenerMoreThanMax_transitions0_actions0();
     _transition_exprAction__listListenerMoreThanMax_transitions0_actions1();
@@ -137,7 +137,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);int addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>addResult(2, 1)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "HighscoreList(int);void addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>addResult(2, 1)</li>\n\t\t</ul>\n")
   public void testListListenerDuplicate() {
     _transition_exprAction__listListenerDuplicate_transitions0_actions0();
     _transition_exprAction__listListenerDuplicate_transitions0_actions1();
@@ -162,8 +162,12 @@ public class HighscoreListTest extends TestCase {
   }
   
   private void _transition_exprAction__addElementSimple_transitions0_actions0() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(5));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(5));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(5) failed: " + error.getMessage());
+    }
     
   }
   
@@ -183,8 +187,12 @@ public class HighscoreListTest extends TestCase {
   }
   
   private void _transition_exprAction__addElementSimple_transitions1_actions0() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(6));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(6));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(6) failed: " + error.getMessage());
+    }
     
   }
   
@@ -204,8 +212,12 @@ public class HighscoreListTest extends TestCase {
   }
   
   private void _transition_exprAction__addElementSimple_transitions2_actions0() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(2));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(2));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(2) failed: " + error.getMessage());
+    }
     
   }
   
@@ -225,20 +237,32 @@ public class HighscoreListTest extends TestCase {
   }
   
   private void _transition_exprAction__addElementMoreThanMax_transitions0_actions0() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(5));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(5));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(5) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__addElementMoreThanMax_transitions0_actions1() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(6));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(6));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(6) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__addElementMoreThanMax_transitions0_actions2() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(2));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(2));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(2) failed: " + error.getMessage());
+    }
     
   }
   
@@ -258,8 +282,12 @@ public class HighscoreListTest extends TestCase {
   }
   
   private void _transition_exprAction__addElementMoreThanMax_transitions1_actions0() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(3));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(3));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(3) failed: " + error.getMessage());
+    }
     
   }
   
@@ -279,8 +307,12 @@ public class HighscoreListTest extends TestCase {
   }
   
   private void _transition_exprAction__addElementMoreThanMax_transitions2_actions0() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(7));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(7));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(7) failed: " + error.getMessage());
+    }
     
   }
   
@@ -300,20 +332,32 @@ public class HighscoreListTest extends TestCase {
   }
   
   private void _transition_exprAction__addElementDuplicate_transitions0_actions0() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(5));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(5));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(5) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__addElementDuplicate_transitions0_actions1() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(6));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(6));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(6) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__addElementDuplicate_transitions0_actions2() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(2));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(2));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(2) failed: " + error.getMessage());
+    }
     
   }
   
@@ -333,8 +377,12 @@ public class HighscoreListTest extends TestCase {
   }
   
   private void _transition_exprAction__addElementDuplicate_transitions1_actions0() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(2));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(2));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(2) failed: " + error.getMessage());
+    }
     
   }
   
@@ -459,20 +507,32 @@ public class HighscoreListTest extends TestCase {
   }
   
   private void _transition_exprAction__listListenerMoreThanMax_transitions0_actions1() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(5));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(5));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(5) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__listListenerMoreThanMax_transitions0_actions2() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(6));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(6));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(6) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__listListenerMoreThanMax_transitions0_actions3() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(2));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(2));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(2) failed: " + error.getMessage());
+    }
     
   }
   
@@ -565,20 +625,32 @@ public class HighscoreListTest extends TestCase {
   }
   
   private void _transition_exprAction__listListenerDuplicate_transitions0_actions1() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(5));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(5));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(5) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__listListenerDuplicate_transitions0_actions2() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(6));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(6));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(6) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__listListenerDuplicate_transitions0_actions3() {
-    
-    int _addResult = this.highscoreList.addResult(Integer.valueOf(2));
+    try {
+      
+      this.highscoreList.addResult(Integer.valueOf(2));
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("highscoreList.addResult(2) failed: " + error.getMessage());
+    }
     
   }
   

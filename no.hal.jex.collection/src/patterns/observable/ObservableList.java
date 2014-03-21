@@ -40,12 +40,6 @@ public abstract class ObservableList {
 	protected void addElement(Object element) {
 		addElement(list.size(), element);
 	}
-	protected void removeElement(Object element) {
-		int pos = list.indexOf(element);
-		if (pos >= 0) {
-			removeElement(pos);
-		}
-	}
 	
 	//
 	
