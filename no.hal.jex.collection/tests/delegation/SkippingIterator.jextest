@@ -1,0 +1,41 @@
+test delegation.SkippingIterator
+
+import java.util.Iterator
+import java.util.Collection
+import java.util.List
+
+instance
+	List<Integer> list17 = #[1, 2, 3, 4, 5, 6, 7],
+	List<Integer> list18 = #[1, 2, 3, 4, 5, 6, 7, 8],
+	List<Integer> list19 = #[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+sequence caseEmpty {
+	--> state { testIterator(#[], 0) }
+}
+sequence caseSingle {
+	--> state { testIterator(#[1], 0, 1) }
+}
+sequence case12_1 {
+	--> state { testIterator(#[1, 2], 1, 1) }
+}
+sequence case17_2 {
+	--> state { testIterator(list17, 2, 1, 4, 7) }
+}
+sequence case18_2 {
+	--> state { testIterator(list18, 2, 1, 4, 7) }
+}
+sequence case19_2 {
+	--> state { testIterator(list19, 2, 1, 4, 7) }
+}
+
+method testIterator(Collection<Integer> col, int skipCount, int... values) {
+	testIterator(new SkippingIterator<Integer>(col.iterator, skipCount), values)
+}
+
+method testIterator(Iterator<Integer> iterator, int... values) {
+	for (value : values) {
+		assertTrue(iterator.hasNext)
+		assertEquals(value, iterator.next)
+	}
+	assertFalse(iterator.hasNext)
+}

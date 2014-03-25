@@ -1,0 +1,55 @@
+test delegation.AppendingIterator
+
+import java.util.Iterator
+import java.util.Collection
+import java.util.List
+
+instance
+	List<Integer> list86 = #[8, 7, 6],
+	List<Integer> list13 = #[1, 2, 3],
+	List<Integer> list14 = #[1, 2, 3, 4]
+
+sequence caseNone {
+	--> state { testIterator(new AppendingIterator()) }
+}
+sequence caseEmpty {
+	--> state { testIterator(#[]) }
+}
+sequence case1 {
+	--> state { testIterator(#[1], 1) }
+}
+sequence case86 {
+	--> state { testIterator(list86, 8, 7, 6) }
+}
+sequence case8613 {
+	--> state { testIterator(list86, list13, 8, 7, 6, 1, 2, 3) }
+}
+sequence case8614 {
+	--> state { testIterator(list86, list14, 8, 7, 6, 1, 2, 3, 4) }
+}
+sequence case1486 {
+	--> state { testIterator(list14, list86, 1, 2, 3, 4, 8, 7, 6) }
+}
+sequence case131486 {
+	--> state { testIterator(list13, list14, list86, 1, 2, 3, 1, 2, 3, 4, 8, 7, 6) }
+}
+
+method testIterator(Collection<Integer> col, int... values) {
+	testIterator(new AppendingIterator(col.iterator), values)
+}
+
+method testIterator(Collection<Integer> col1, Collection<Integer> col2, int... values) {
+	testIterator(new AppendingIterator(col1.iterator, col2.iterator), values)
+}
+
+method testIterator(Collection<Integer> col1, Collection<Integer> col2, Collection<Integer> col3, int... values) {
+	testIterator(new AppendingIterator(col1.iterator, col2.iterator, col3.iterator), values)
+}
+
+method testIterator(Iterator<Integer> iterator, int... values) {
+	for (value : values) {
+		assertTrue(iterator.hasNext)
+		assertEquals(value, iterator.next)
+	}
+	assertFalse(iterator.hasNext)
+}

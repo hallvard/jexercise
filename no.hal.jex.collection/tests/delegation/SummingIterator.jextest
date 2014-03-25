@@ -1,0 +1,31 @@
+test delegation.SummingIterator
+
+import java.util.Iterator
+import java.util.Collection
+import java.util.List
+
+instance
+	List<Integer> list86 = #[8, 7, 6],
+	List<Integer> list13 = #[1, 2, 3]
+
+sequence caseEmpty {
+	--> state { testIterator(#[], #[]) }
+}
+sequence case1122 {
+	--> state { testIterator(#[1], #[2], 3) }
+}
+sequence case8613 {
+	--> state { testIterator(list86, list13, 9, 9, 9) }
+}
+
+method testIterator(Collection<Integer> col1, Collection<Integer> col2, int... values) {
+	testIterator(new SummingIterator(col1.iterator, col2.iterator), values)
+}
+
+method testIterator(Iterator<Integer> iterator, int... values) {
+	for (value : values) {
+		assertTrue(iterator.hasNext)
+		assertEquals(value, iterator.next)
+	}
+	assertFalse(iterator.hasNext)
+}
