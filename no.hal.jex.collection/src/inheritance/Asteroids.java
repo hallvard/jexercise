@@ -51,11 +51,22 @@ public class Asteroids extends Pane implements EventHandler<KeyEvent>  {
 	protected void handleKey(KeyCode keyCode) {
 	}
 
+	/*
+	 * Used for pausing or stepping
+	 */
+	private int steps = -1;
+	
 	protected void handleKey(String character) {
 		if ("+".equals(character)) {
 			zoom(2);
 		} else if ("-".equals(character)) {
 			zoom(0.5);
+		} else if (" ".equals(character)) {
+			// toggle steps
+			steps = (steps < 0 ? 0 : -1);
+		} else if (">".equals(character)) {
+			// one step
+			steps = 1;
 		}
 	}
 	
@@ -74,6 +85,13 @@ public class Asteroids extends Pane implements EventHandler<KeyEvent>  {
 	}
 
 	private void tick(int tickCount) {
+		
+		if (steps == 0) {
+			return;
+		} else if (steps > 0) {
+			steps--;
+		}
+		
 		// accelerate due to gravity
 		for (int i = 0; i < spaceObjects.size(); i++) {
 			for (int j = i + 1; j < spaceObjects.size(); j++) {

@@ -1,7 +1,5 @@
 package inheritance;
 
-import javafx.scene.paint.Color;
-
 public class Asteroids1 extends Asteroids {
 
 	public void init() {
@@ -33,9 +31,7 @@ public class Asteroids1 extends Asteroids {
 	}
 
 	private Asteroid createAsteroid() {
-		Asteroid asteroid = new Asteroid(10, 2, 10, 0.3);
-		asteroid.setFill(Color.WHITE);
-		return asteroid;
+		return new Asteroid(10, 2, 10, 0.3);
 	}
 	
 	//

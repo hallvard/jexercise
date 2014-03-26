@@ -3,9 +3,14 @@ package inheritance;
 import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 public class BaseSpaceObject extends Polygon {
+
+	public BaseSpaceObject() {
+		setFill(Color.WHITE);
+	}
 
 	/**
 	 * Adds the point given by x,y to this Polygon

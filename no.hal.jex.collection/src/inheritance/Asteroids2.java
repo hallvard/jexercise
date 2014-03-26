@@ -21,7 +21,6 @@ public class Asteroids2 extends Asteroids {
 		for (int i = 0; i < 7; i++) {
 			SpaceObject asteroid = new Asteroid(Math.random() * 0.5 + 0.2, Math.random() + 0.2, 10, 0.8);
 			asteroid.setSpeed((Math.random() - 0.5) * 3, (Math.random() - 0.5) * 3);
-			asteroid.setFill(Color.WHITE);
 			add(asteroid, Math.random() * getPrefWidth(), Math.random() * getPrefHeight());
 		}
 	}
