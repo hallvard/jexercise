@@ -2,7 +2,7 @@ package program;
 
 import java.util.Scanner;
 
-public class ConsoleGameDriver implements ConsoleOutput {
+public class ConsoleGameDriver implements GameOutput {
 
 	private ConsoleGame program;
 	private String level = null;
@@ -19,7 +19,7 @@ public class ConsoleGameDriver implements ConsoleOutput {
 				if (scanner.hasNextLine()) {
 					level = scanner.nextLine();
 				}
-				message("Enter level: ");
+				info("Enter level: ");
 				level = scanner.nextLine();
 			}
 			program.init(level);
@@ -33,18 +33,23 @@ public class ConsoleGameDriver implements ConsoleOutput {
 					result = 0;
 				}
 			}
-			message("Game over" + (result != 0 ? "" : ", no result") + "!");
+			info("Game over" + (result != 0 ? "" : ", no result") + "!");
 			if (result > 0) {
 				level = null;
 			}
-			message("Another go (true/false)?");
+			info("Another go (true/false)?");
 		} while (scanner.nextBoolean());
 		scanner.close();
 	}
 
 	@Override
-	public void message(String message) {
+	public void info(String message) {
 		System.out.println(message);
+	}
+
+	@Override
+	public void warning(String message) {
+		System.out.println("==> " + message);
 	}
 
 	@Override

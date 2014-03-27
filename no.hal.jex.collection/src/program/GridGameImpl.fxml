@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<?import java.lang.*?>
+<?import java.util.HashMap?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.textfield.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import program.ImageGridPane?>
+ 
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+    prefHeight="600" prefWidth="500"
+    >
+	<top>
+		<HBox>
+			<Button id="fileButton" text="Browse..."/>
+			<TextField id="levelTextField" HBox.hgrow="ALWAYS" promptText="url or filename"/>
+			<Button id="startButton" text="init and run"/>
+		</HBox>
+	</top>
+	<center>
+		<GameGridPane id="gridPane"/>
+	</center>
+	<bottom>
+		<VBox>
+			<Text id="messageText" VBox.vgrow="ALWAYS">
+				<font>
+                	<Font name="Courier"/>
+            	</font>
+            </Text>
+			<HBox>
+				<TextField id="inputTextField" HBox.hgrow="ALWAYS" promptText="one line of input"/>
+				<Button id="inputButton" text="doCommand" disable="true"/>
+			</HBox>
+		</VBox>
+	</bottom>
+</BorderPane>
