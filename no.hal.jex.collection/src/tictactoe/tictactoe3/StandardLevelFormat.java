@@ -16,11 +16,16 @@ public class StandardLevelFormat implements LevelFormat {
 	@Override
 	public TicTacToe readLevel(InputStream input) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+		String firstLine = null;
 		StringBuilder builder = new StringBuilder();
 		try {
 			int count = 0;
 			while (reader.ready()) {
 				String line = reader.readLine();
+				if (firstLine == null) {
+					firstLine = line;
+					continue;
+				}
 				for (int i = 0; i < line.length(); i++) {
 					char c = line.charAt(i);
 					if (c == 'x') {
@@ -31,7 +36,13 @@ public class StandardLevelFormat implements LevelFormat {
 				}
 				builder.append(line);
 			}
-			return new TicTacToe(builder.toString(), count == 0);
+			String[] params = firstLine.split(" ");
+			try {
+				return new TicTacToe(Integer.valueOf(params[0]), Integer.valueOf(params[1]), builder.toString(), count == 0);
+			} catch (IndexOutOfBoundsException e) {
+			} catch (NumberFormatException e) {
+			}
+			return null;
 		} finally {
 			try {
 				reader.close();
@@ -44,6 +55,7 @@ public class StandardLevelFormat implements LevelFormat {
 	public void writeLevel(TicTacToe grid, OutputStream output) throws IOException {
 		OutputStreamWriter writer = new OutputStreamWriter(output);
 		try {
+			writer.write(grid.getGridWidth() + " " + grid.getWinLength() + "\n");
 			writer.write(grid.toString());
 		} finally {
 			try {

@@ -13,30 +13,50 @@ public class TicTacToe implements GridProvider {
 	 * PART 1
 	 */
 	
-	private int width = 3, height = 3;
-	private String gridString;
+	private int gridSize = 3;
+	private int winLength = 3;
+
+	private StringBuilder gridString;
 	private char player;
 	
 	private Stack<String> undo = new Stack<String>();
 	private Stack<String> redo = new Stack<String>();
 
-	TicTacToe(String gridString, boolean x) {
-		this.gridString = (gridString == null ? "........." : gridString);
-		player = (x ? 'x' : 'o');
+	private static StringBuilder createGridString(int size) {
+		StringBuilder buffer = new StringBuilder(size * size);
+		while (buffer.length() < buffer.capacity()) {
+			buffer.append(".");
+		}
+		return buffer;
 	}
 	
+	TicTacToe(int gridSize, int winLength, String gridString, boolean x) {
+		this.gridSize = gridSize;
+		this.winLength = winLength;
+		this.gridString = new StringBuilder(gridString);
+		this.player = (x ? 'x' : 'o');
+	}
+	
+	public TicTacToe(int gridSize, int winLength, boolean x) {
+		this(gridSize, winLength, createGridString(gridSize).toString(), x);
+	}
+
 	public TicTacToe() {
-		this(null, true);
+		this(3, 3, true);
+	}
+	
+	public int getWinLength() {
+		return winLength;
 	}
 
 	@Override
 	public int getGridWidth() {
-		return width;
+		return gridSize;
 	}
 
 	@Override
 	public int getGridHeight() {
-		return height;
+		return gridSize;
 	}
 
 	/* 
@@ -58,7 +78,7 @@ public class TicTacToe implements GridProvider {
 	public boolean setCell(char c, int x, int y) {
 		if (! isOccupied(x, y)) {
 			int index = indexAt(x, y);
-			gridString = gridString.substring(0, index) + c + gridString.substring(index+1);
+			gridString.setCharAt(index, c);
 			fireGridChanged(x, y);
 			return true;
 		}
@@ -102,7 +122,7 @@ public class TicTacToe implements GridProvider {
 	 */
 
 	public void play(int x, int y) {
-		String oldGridString = gridString;
+		String oldGridString = gridString.toString();
 		if (setCell(player, x, y)) {
 			undo.push(oldGridString);
 			changePlayer();
@@ -117,8 +137,8 @@ public class TicTacToe implements GridProvider {
 		if (from.isEmpty()) {
 			return;
 		}
-		String oldGridString = gridString;
-		gridString = from.pop();
+		String oldGridString = gridString.toString();
+		gridString = new StringBuilder(from.pop());
 		to.push(oldGridString);
 		changePlayer();
 	}
@@ -132,26 +152,37 @@ public class TicTacToe implements GridProvider {
 	}
 	
 	private boolean checkNInARow(char c, int n, int x, int y, int dx, int dy) {
-		while (n > 0) {
-			if (getCell(x, y) != c) {
-				return false;
+		int count = 0;
+		while (x >= 0 && x < getGridWidth() && y >= 0 && y < getGridHeight()) {
+			if (getCell(x, y) == c) {
+				count++;
+				if (count == n) {
+					return true;
+				}
+			} else {
+				count = 0;
 			}
 			x += dx;
 			y += dy;
-			n--;
 		}
-		return true;
+		return false;
 	}
 	
 	public boolean isWinner(char c) {
-		return
-			// rows
-			checkNInARow(c, 3, 0, 0, 1, 0) || checkNInARow(c, 3, 0, 1, 1, 0) || checkNInARow(c, 3, 0, 2, 1, 0)
-			|| // columns
-			checkNInARow(c, 3, 0, 0, 0, 1) || checkNInARow(c, 3, 1, 0, 0, 1) || checkNInARow(c, 3, 2, 0, 0, 1)
-			|| // diagonals
-			checkNInARow(c, 3, 0, 0, 1, 1) || checkNInARow(c, 3, 2, 0, -1, 1)
-			;
+		for (int i = 0; i < gridSize; i++) {
+			// check down column and across row
+			if (checkNInARow(c, winLength, i, 0, 0, 1) || checkNInARow(c, winLength, 0, i, 1, 0)) {
+				return true;
+			}
+			// check diagonals
+			if (checkNInARow(c, winLength, i, 0, -1, 1) || checkNInARow(c, winLength, gridSize - 1, i, -1, 1)) {
+				return true;
+			}
+			if (checkNInARow(c, winLength, i, 0, 1, 1) || checkNInARow(c, winLength, 0, i, 1, 1)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public boolean hasWinner() {
@@ -159,7 +190,7 @@ public class TicTacToe implements GridProvider {
 	}
 	
 	public boolean isFinished() {
-		return hasWinner() || gridString.indexOf('.') < 0;
+		return hasWinner() || gridString.indexOf(".") < 0;
 	}
 
 	@Override

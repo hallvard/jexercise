@@ -3,12 +3,10 @@ package tictactoe.tictactoe3;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import program.ConsoleGameDriver;
 import program.GameOutput;
 import program.GridGame;
 import program.GridGameGUI;
 import program.GridProvider;
-import sokoban.sokoban3.SokobanProgram;
 
 public class TicTacToeProgram implements GridGame {
 	
@@ -16,7 +14,12 @@ public class TicTacToeProgram implements GridGame {
 	
 	@Override
 	public void init(String level) {
-		ticTacToe = new TicTacToe(level, true);
+		String[] params = level.split(" ");
+		try {
+			ticTacToe = new TicTacToe(Integer.valueOf(params[0]), Integer.valueOf(params[1]), true);
+		} catch (IndexOutOfBoundsException e) {
+		} catch (NumberFormatException e) {
+		}
 	}
 
 	private GameOutput output;
@@ -71,8 +74,8 @@ public class TicTacToeProgram implements GridGame {
 			}
 		}
 		String message = ""; // ticTacToe.toString(true) + "\n";
-		output.info(message + ticTacToe.getCurrentPlayer() + "'s turn");
 		if (! ticTacToe.isFinished()) {
+			output.info(message + ticTacToe.getCurrentPlayer() + "'s turn");
 			return null;
 		}
 		if (! ticTacToe.hasWinner()) {
