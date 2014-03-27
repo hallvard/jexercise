@@ -11,7 +11,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-<?import program.ImageGridPane?>
+<?import program.GameGridPane?>
  
 <BorderPane xmlns:fx="http://javafx.com/fxml"
     prefHeight="600" prefWidth="500"

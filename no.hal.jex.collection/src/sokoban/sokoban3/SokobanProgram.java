@@ -11,7 +11,7 @@ import java.util.Stack;
 
 import program.GameOutput;
 import program.GridGame;
-import program.GridGameImpl;
+import program.GridGameGUI;
 import program.GridProvider;
 
 public class SokobanProgram implements GridGame {
@@ -214,6 +214,6 @@ public class SokobanProgram implements GridGame {
 	//
 	
 	public static void main(String[] args) throws Exception {
-		GridGameImpl.main(new String[]{SokobanProgram.class.getName(), "#######|#.@ # #|#$* $ #|#   $ #|# ..  #|#  *  #|#######"});
+		GridGameGUI.main(new String[]{SokobanProgram.class.getName(), "#######|#.@ # #|#$* $ #|#   $ #|# ..  #|#  *  #|#######"});
 	}
 }

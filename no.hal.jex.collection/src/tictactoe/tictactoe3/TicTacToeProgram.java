@@ -6,7 +6,9 @@ import java.io.FileOutputStream;
 import program.ConsoleGameDriver;
 import program.GameOutput;
 import program.GridGame;
+import program.GridGameGUI;
 import program.GridProvider;
+import sokoban.sokoban3.SokobanProgram;
 
 public class TicTacToeProgram implements GridGame {
 	
@@ -24,7 +26,7 @@ public class TicTacToeProgram implements GridGame {
 	@Override
 	public void run(GameOutput output) {
 		this.output = output;
-		output.info(instructions + "\n" + ticTacToe.toString(true) + "\n" + ticTacToe.getCurrentPlayer() + "'s turn");
+		output.info(instructions + "\n" /* + ticTacToe.toString(true) + "\n" */ + ticTacToe.getCurrentPlayer() + "'s turn");
 	}
 
 	/*
@@ -68,7 +70,7 @@ public class TicTacToeProgram implements GridGame {
 				return null;
 			}
 		}
-		String message = ticTacToe.toString(true) + "\n";
+		String message = ""; // ticTacToe.toString(true) + "\n";
 		output.info(message + ticTacToe.getCurrentPlayer() + "'s turn");
 		if (! ticTacToe.isFinished()) {
 			return null;
@@ -84,11 +86,7 @@ public class TicTacToeProgram implements GridGame {
 		return 1;
 	}
 	
-	//
-
-	public static void main(String[] args) throws Exception {
-		ConsoleGameDriver.main(new String[]{TicTacToeProgram.class.getName(), "........."});
-	}
+	// from GridGame
 
 	@Override
 	public GridProvider getGridProvider() {
@@ -113,5 +111,11 @@ public class TicTacToeProgram implements GridGame {
 	@Override
 	public Integer directionInput(int dx, int dy) {
 		return null;
+	}
+	
+	//
+
+	public static void main(String[] args) throws Exception {
+		GridGameGUI.main(new String[]{TicTacToeProgram.class.getName()});
 	}
 }

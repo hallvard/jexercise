@@ -33,7 +33,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class GridGameImpl extends Application implements GameOutput, GridListener {
+public class GridGameGUI extends Application implements GameOutput, GridListener {
 
 	private GridGame gridGame;
 	private String level = null;
@@ -43,7 +43,7 @@ public class GridGameImpl extends Application implements GameOutput, GridListene
 		this.level = level;
 	}
 	
-	private GridGame getProgram() {
+	private GridGame getGridGame() {
 		return this.gridGame;
 	}
 
@@ -135,11 +135,11 @@ public class GridGameImpl extends Application implements GameOutput, GridListene
 	private EventHandler<ActionEvent> levelTextActionHandler = new EventHandler<ActionEvent>() {
 		@Override
 		public void handle(ActionEvent actionEvent) {
-			getProgram().init(level);
-			getProgram().run(GridGameImpl.this);
+			getGridGame().init(level);
+			getGridGame().run(GridGameGUI.this);
 			if (gridPane != null) {
-				gridProvider = getProgram().getGridProvider();
-				gridProvider.addGridListener(GridGameImpl.this);
+				gridProvider = getGridGame().getGridProvider();
+				gridProvider.addGridListener(GridGameGUI.this);
 				initGrid();
 				gridPane.requestFocus();
 			}
@@ -152,9 +152,9 @@ public class GridGameImpl extends Application implements GameOutput, GridListene
 		public void handle(ActionEvent actionEvent) {
 			Object source = actionEvent.getSource();
 			if (source == inputTextField) {
-				doLine(inputTextField.getText());
+				doCommand(inputTextField.getText());
 			} else if (source instanceof Labeled && ((Node) source).getStyleClass().contains("inputTextButton")) {
-				doLine(((Labeled) source).getText());
+				doCommand(((Labeled) source).getText());
 			}
 		}
 	};
@@ -194,10 +194,6 @@ public class GridGameImpl extends Application implements GameOutput, GridListene
 		}
 	};
 	
-	private void directionInput(int dx, int dy) {
-		getProgram().directionInput(dx, dy);
-	}
-
 	private EventHandler<KeyEvent> keyCombinationHandler = new EventHandler<KeyEvent>() {
 		@Override
 		public void handle(KeyEvent keyEvent) {
@@ -219,13 +215,13 @@ public class GridGameImpl extends Application implements GameOutput, GridListene
 				if (bounds.contains(mouseEvent.getX(), mouseEvent.getY())) {
 					Integer column = GridPane.getColumnIndex(child), row = GridPane.getRowIndex(child);
 					if (column != null && column < gridProvider.getGridWidth() && row != null && row < gridProvider.getGridHeight()) {
-						getProgram().gridElementInput(column, row);
+						gridInput(column, row);
 					}
 				}
 			}
 		}
 	};
-
+	
 	private boolean match(KeyCombination kc, KeyEvent keyEvent) {
 		if (keyEvent.getEventType() == KeyEvent.KEY_TYPED) {
 			if (kc instanceof KeyCharacterCombination) {
@@ -245,21 +241,31 @@ public class GridGameImpl extends Application implements GameOutput, GridListene
 		}
 		return null;
 	}
-	
-	public static void main(String[] args) throws Exception {
-		launch(GridGameImpl.class, args);
-	}
-	
-	//
 
-	private void doLine(String line) {
+	private void doCommand(String line) {
 		updateMessage(null, null, true);
-		Integer result = getProgram().doCommand(line);
+		Integer result = getGridGame().doCommand(line);
+		handleInputResult(result);
+		inputTextField.selectAll();
+	}
+
+	private void handleInputResult(Integer result) {
 		if (result != null) {
 			info("Game over" + (result != 0 ? "" : ", no result") + "!");
 			inputButton.setDisable(true);
 		}
-		inputTextField.selectAll();
+	}
+	
+	private void gridInput(int column, int row) {
+		updateMessage(null, null, true);
+		Integer result = getGridGame().gridElementInput(column, row);
+		handleInputResult(result);
+	}
+	
+	private void directionInput(int dx, int dy) {
+		updateMessage(null, null, true);
+		Integer result = getGridGame().directionInput(dx, dy);
+		handleInputResult(result);
 	}
 
 	private boolean doAction(Node node) {
@@ -336,9 +342,17 @@ public class GridGameImpl extends Application implements GameOutput, GridListene
 		for (int column = x; column < x + w; column++) {
 			for (int row = y; row < y + h; row++) {
 				Object gridElement = gridProvider.getGridElement(column, row);
-				String imageKey = getProgram().getImageFor(gridElement);
-				gridPane.setImage(imageKey, column, row, getProgram(), this);
+				String text = getGridGame().getTextFor(gridElement);
+				String imageKey = getGridGame().getImageFor(gridElement);
+				gridPane.setText(text, column, row);
+				gridPane.setImage(imageKey, column, row, getGridGame(), this);
 			}			
 		}
+	}
+	
+	//
+	
+	public static void main(String[] args) throws Exception {
+		launch(GridGameGUI.class, args);
 	}
 }

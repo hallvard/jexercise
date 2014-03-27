@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -67,52 +69,56 @@ public class GameGridPane extends GridPane {
 	
 	private int columns = 0, rows = 0;
 	
-	private ImageView[] imageViews = null;
+	private Label[] labels = null;
 	
 	public void setDimensions(int columns, int rows) {
 		this.columns = columns;
 		this.rows = rows;
-		imageViews = new ImageView[columns * rows];
+		labels = new Label[columns * rows];
 		getChildren().clear();
 	}
 	
-	public ImageView getImageView(int column, int row) {
-		return imageViews[row * columns + column];
+	private Label getLabel(int column, int row) {
+		return labels[row * columns + column];
+	}
+	
+	private void setLabel(Label label, int column, int row) {
+		labels[row * columns + column] = label;
 	}
 	
 	public Image setImage(String imageKey, int column, int row, Object... contexts) {
-		String imageKey2 = getImageKeyMap().get(imageKey);
-		Image image = getImage(imageKey2, contexts);
-		if (image == null) {
-			image = getImage(imageKey, contexts);
+		Image image = null;
+		if (imageKey != null) {
+			String imageKey2 = getImageKeyMap().get(imageKey);
+			image = getImage(imageKey2, contexts);
+			if (image == null) {
+				image = getImage(imageKey, contexts);
+			}
 		}
-		ImageView imageView = getImageView(column, row);
-		if (imageView != null) {
-			imageView.setImage(image);
+		Label label = getLabel(column, row);
+		if (label != null) {
+			Node graphic = label.getGraphic();
+			if (graphic instanceof ImageView) {
+				((ImageView) graphic).setImage(image);
+			} else {
+				label.setGraphic(new ImageView(image));
+			}
 		} else {
-			add(new ImageView(image), column, row);
+			label = new Label(null, new ImageView(image));
+			setLabel(label, column, row);
+			add(label, column, row);
 		}
 		return image;
 	}
-
-	public void setImages(String s, int keyLength, String separator, Object... contexts) {
-		String[] lines = s.split(separator);
-		int imageHeight = -1, imageWidth = -1;
-		for (int row = 0; row < lines.length; row++) {
-			for (int column = 0; column < lines[row].length(); column += keyLength) {
-				String key = lines[row].substring(column, column + keyLength);
-				Image image = setImage(key, column / keyLength, row, contexts);
-				if (image != null) {
-					if (imageWidth <= 0) {
-						imageWidth = (int) image.getWidth();
-					}
-					if (imageHeight <= 0) {
-						imageHeight = (int) image.getHeight();
-					}
-				}
-			}
+	
+	public void setText(String text, int column, int row) {
+		Label label = getLabel(column, row);
+		if (label != null) {
+			label.setText(text);
+		} else {
+			label = new Label(text);
+			setLabel(label, column, row);
+			add(label, column, row);
 		}
-		setPrefWidth(imageWidth * lines[0].length() / keyLength);
-		setPrefHeight(imageHeight * lines.length);
 	}
 }
