@@ -91,9 +91,8 @@ public class GameGridPane extends GridPane {
 		if (imageKey != null) {
 			String imageKey2 = getImageKeyMap().get(imageKey);
 			if (imageKey2 != null) {
-				imageKey = imageKey2; 
+				image = getImage(imageKey2, contexts);
 			}
-			image = getImage(imageKey, contexts);
 			if (image == null) {
 				image = getImage(imageKey, contexts);
 			}
