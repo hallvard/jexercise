@@ -26,12 +26,11 @@ public class Game2048 implements GridGame {
 	@Override
 	public Integer doCommand(String command) {
 		switch (command) {
-		case "w": directionInput( 0, -1); break;
-		case "s": directionInput( 0,  1); break;
-		case "a": directionInput(-1,  0); break;
-		case "d": directionInput( 1,  0); break;
+		case "w": return directionInput( 0, -1);
+		case "s": return directionInput( 0,  1);
+		case "a": return directionInput(-1,  0);
+		case "d": return directionInput( 1,  0);
 		}
-		output.info("Point: " + grid.getPoints());
 		return null;
 	}
 	
@@ -65,6 +64,7 @@ public class Game2048 implements GridGame {
 				shiftCount = grid.shiftColumn(dy, false);
 			}
 		}
+		output.info("Point: " + grid.getPoints());
 		if (shiftCount > 0) {
 			grid.putRandom();
 		}

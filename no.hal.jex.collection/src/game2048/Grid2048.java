@@ -105,6 +105,7 @@ public class Grid2048 implements GridProvider {
 				return null;
 			}
 			setGridValue(x + (emptyCount + 1) * dx, y + (emptyCount + 1) * dy, value * 2);
+			points += value * 2;
 			setGridValue(x, y, 0);
 			return new boolean[]{true, true};
 		} else if (emptyCount > 0) {
