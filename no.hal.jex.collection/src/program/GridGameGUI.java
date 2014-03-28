@@ -135,7 +135,7 @@ public class GridGameGUI extends Application implements GameOutput, GridListener
 	private EventHandler<ActionEvent> levelTextActionHandler = new EventHandler<ActionEvent>() {
 		@Override
 		public void handle(ActionEvent actionEvent) {
-			getGridGame().init(level);
+			getGridGame().init(levelTextField.getText());
 			getGridGame().run(GridGameGUI.this);
 			if (gridPane != null) {
 				gridProvider = getGridGame().getGridProvider();
@@ -151,7 +151,7 @@ public class GridGameGUI extends Application implements GameOutput, GridListener
 		@Override
 		public void handle(ActionEvent actionEvent) {
 			Object source = actionEvent.getSource();
-			if (source == inputTextField) {
+			if (source == inputTextField || source == inputButton) {
 				doCommand(inputTextField.getText());
 			} else if (source instanceof Labeled && ((Node) source).getStyleClass().contains("inputTextButton")) {
 				doCommand(((Labeled) source).getText());
