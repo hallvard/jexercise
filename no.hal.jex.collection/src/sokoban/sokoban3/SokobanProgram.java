@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 import program.GameOutput;
@@ -18,8 +20,8 @@ public class SokobanProgram implements GridGame {
 
 	private SokobanGrid grid = null;
 	
-	private Stack<Character> undo = new Stack<Character>();
-	private Stack<Character> redo = new Stack<Character>();
+	private Stack<String> undo = new Stack<String>();
+	private Stack<String> redo = new Stack<String>();
 
 	private Direction directionFor(char c) {
 		switch (Character.toLowerCase(c)) {
@@ -44,39 +46,45 @@ public class SokobanProgram implements GridGame {
 		return null;
 	}
 
-	public boolean doMove(char move, boolean isRedo) {
-		Direction direction = directionFor(move);
-		if (direction != null) {
-			Boolean wasPush = grid.doMove(direction);
-			if (wasPush != null) {
-				move = wasPush ? Character.toUpperCase(move) : move;
-				undo.push(move);
-				if (! isRedo) {
-					redo.clear();
+	public boolean doMoves(String moves, boolean isRedo) {
+		String undoMoves = "";
+		for (int i = 0; i < moves.length(); i++) {
+			char move = moves.charAt(i);
+			Direction direction = directionFor(move);
+			if (direction != null) {
+				Boolean wasPush = grid.doMove(direction);
+				if (wasPush != null) {
+					move = wasPush ? Character.toUpperCase(move) : move;
+					undoMoves += move;
 				}
-				return true;
 			}
+		}
+		if (undoMoves.length() > 0) {
+			undo.push(undoMoves);
+			if (! isRedo) {
+				redo.clear();
+			}
+			return true;
 		}
 		return false;
 	}
 	
 	public boolean doMove(char move) {
-		return doMove(move, false);
+		return doMoves(String.valueOf(move), false);
 	}
 
-	public boolean undoMove() {
+	public boolean undoMoves() {
 		if (undo.isEmpty()) {
 			return false;
 		}
-		char move = undo.pop();
-		boolean wasPush = Character.isUpperCase(move);
-		move = Character.toLowerCase(move);
-		Direction direction = directionFor(move);
-		if (direction == null) {
-			return false;
+		String moves = undo.pop();
+		for (int i = moves.length() - 1; i >= 0; i--) {
+			char move = moves.charAt(i);
+			boolean wasPush = Character.isUpperCase(move);
+			move = Character.toLowerCase(move);
+			grid.undoMove(directionFor(move), wasPush);
 		}
-		grid.undoMove(direction, wasPush);
-		redo.push(move);
+		redo.push(moves);
 		return true;
 	}
 
@@ -84,7 +92,82 @@ public class SokobanProgram implements GridGame {
 		if (redo.isEmpty()) {
 			return false;
 		}
-		return doMove(redo.pop(), true);
+		return doMoves(redo.pop(), true);
+	}
+
+	public CharSequence computeMovesToGoal(int goalX, int goalY) {
+		Cell goalValue = grid.getGridElement(goalX, goalY);
+		if (goalValue.isOccupied()) {
+			return null;
+		}
+		int[] player = grid.getPlayerPosition();
+		// we extend a boundary, like riples in the water, from the starting point
+		Queue<Integer> boundary = new LinkedList<Integer>();
+		boundary.add(player[0]);
+		boundary.add(player[1]);
+		// as long as there are more cells to consider
+		StringBuilder moves = null;
+		while (boundary.size() > 0) {
+			// remove current position
+			int x = boundary.poll(), y = boundary.poll();
+			for (Direction direction : Direction.DIRECTIONS) {
+				int nx = x + direction.dx, ny = y + direction.dy;
+				Cell cell = grid.getGridElement(nx, ny);
+				// if this is a new and unoccupied cell
+				if (cell.getDirection() == null && (! cell.isOccupied())) {
+					// note the direction we came from
+					cell.setDirection(direction);
+					// if this is goal, walk backwards (the opposite direction) and collect moves
+					if (nx == goalX && ny == goalY) {
+						moves = new StringBuilder(grid.getGridWidth() + grid.getGridHeight());
+						while (nx != player[0] || ny != player[1]) {
+							Cell moveCell = grid.getGridElement(nx, ny);
+							Direction moveDirection = moveCell.getDirection();
+							moves.append(moveFor(moveDirection.dx, moveDirection.dy));
+							nx -= moveDirection.dx;
+							ny -= moveDirection.dy;
+						}
+						moves.reverse();
+						break;
+					}
+					// enqueue this position, so we can consider it later
+					boundary.offer(nx);
+					boundary.offer(ny);
+				}
+			}
+		}
+		grid.clearDirections();
+		return moves;
+	}
+
+	public CharSequence computeMovesInDirection(int dx, int dy, boolean considerPushes) {
+		int player[] = grid.getPlayerPosition(), nx = player[0] + dx, ny = player[1] + dy;
+		StringBuilder buffer = new StringBuilder();
+		buffer.append(moveFor(dx, dy));
+		outer: while (true) {
+			Direction possibleDirection = null;
+			for (Direction testDirection : Direction.DIRECTIONS) {
+				// ignore the opposite direction
+				if (testDirection.dx == -dx && testDirection.dy == -dy) {
+					continue;
+				}
+				if (grid.tryMove(nx, ny, testDirection.dx, testDirection.dy, false, false) != null) {
+					if (possibleDirection != null)
+						break outer;
+					else
+						possibleDirection = testDirection;
+				}
+			}
+			if (possibleDirection == null || grid.tryMove(nx, ny, possibleDirection.dx, possibleDirection.dy, considerPushes, false) == null) {
+				break;
+			}
+			dx = possibleDirection.dx;
+			dy = possibleDirection.dy;
+			buffer.append(moveFor(dx, dy));
+			nx += dx;
+			ny += dy;
+		}
+		return buffer;
 	}
 
 	private LevelFormat levelFormat = new StandardLevelFormat();
@@ -153,14 +236,26 @@ public class SokobanProgram implements GridGame {
 				}
 				// space == undo
 				else if (command == 'u') {
-					undoMove();
+					undoMoves();
 				} else if (command == 'r') {
 					redoMove();
 				}
 				// command is move in specific direction
-				else if (directionFor(command) != null) {
-					if (! doMove(command)) {
-						output.info("Illegal move!");
+				else {
+					Direction direction = directionFor(command);
+					if (direction != null) {
+						Boolean legalMove = null;
+						if (Character.isUpperCase(command)) {
+							CharSequence directionMoves = computeMovesInDirection(direction.dx, direction.dy, true);
+							if (directionMoves != null) {
+								legalMove = doMoves(directionMoves.toString(), false);
+							}
+						} else {
+							legalMove = doMove(command);
+						}
+						if (legalMove != null && (! legalMove)) {
+							output.info("Illegal move!");
+						}
 					}
 				}
 				// count down repetition or step to next command
@@ -184,6 +279,10 @@ public class SokobanProgram implements GridGame {
 	
 	@Override
 	public Integer gridElementInput(int x, int y) {
+		CharSequence moves = computeMovesToGoal(x, y);
+		if (moves != null) {
+			doMoves(moves.toString(), false);
+		}
 		return null;
 	}
 	

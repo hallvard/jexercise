@@ -1,5 +1,7 @@
 package sokoban.sokoban3;
 
+import java.util.Arrays;
+
 public class Direction {
 
 	public final int dx, dy;
@@ -14,4 +16,6 @@ public class Direction {
 		DOWN = new Direction(0, 1),
 		LEFT = new Direction(-1, 0),
 		RIGHT = new Direction(1, 0);
+
+	public final static Direction[] DIRECTIONS = {UP, DOWN, LEFT, RIGHT};
 }

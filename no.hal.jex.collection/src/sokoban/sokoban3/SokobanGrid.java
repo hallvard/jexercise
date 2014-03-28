@@ -87,31 +87,47 @@ public class SokobanGrid implements GridProvider {
 		return count;
 	}
 
+	public void clearDirections() {
+		for (Cell cell : grid) {
+			cell.setDirection(null);
+		}
+	}
+	
 	private int playerX = -1, playerY = -1;
 
-	public Boolean doMove(Direction direction) {
+	public int[] getPlayerPosition() {
+		return new int[]{playerX, playerY};
+	}
+	
+	public Boolean tryMove(int x, int y, int dx, int dy, boolean allowPush, boolean reallyDo) {
 		// a legal move is 1 in one direction and 0 in the other
-		int x = playerX, y = playerY;
-		int dx = direction.dx, dy = direction.dy;
 		boolean isPush = false;
 		// if we need to move a box, i.e. overwrite the target, whether goal or floor
 		Cell cell = getGridElement(x, y);
 		Cell forward1 = getGridElement(x + dx, y + dy);
 		Cell forward2 = getGridElement(x + dx + dx, y + dy + dy);
-		if (forward1.isBox() && (! forward2.isOccupied())) {
+		if (allowPush && forward1.isBox() && (! forward2.isOccupied())) {
 			// remember that the move is a push
 			isPush = true;
-			forward1.moveTo(forward2);
+			if (reallyDo) {
+				forward1.moveTo(forward2);
+			}
 		}
 		if (isPush || (! forward1.isOccupied())) {
 			// then move the player, i.e. overwrite the target, whether box (just moved), goal or floor
-			cell.moveTo(forward1);
-			playerX += dx;
-			playerY += dy;
-			fireGridChanged(x, y, dx, dy, isPush);
+			if (reallyDo) {
+				cell.moveTo(forward1);
+				playerX += dx;
+				playerY += dy;
+				fireGridChanged(x, y, dx, dy, isPush);
+			}
 			return Boolean.valueOf(isPush);
 		}
 		return null;
+	}
+
+	public Boolean doMove(Direction direction) {
+		return tryMove(playerX, playerY, direction.dx, direction.dy, true, true);
 	}
 	
 	public void undoMove(Direction direction, boolean wasPush) {
@@ -128,6 +144,7 @@ public class SokobanGrid implements GridProvider {
 		}
 		playerX -= dx;
 		playerY -= dy;
+		fireGridChanged(playerX, playerY, dx, dy, wasPush);
 	}
 
 	//

@@ -80,4 +80,16 @@ public class Cell {
 	public String toString() {
 		return String.valueOf(toChar());
 	}
+	
+	// used for search
+	
+	private Direction direction;
+	
+	public Direction getDirection() {
+		return direction;
+	}
+	
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
 }
