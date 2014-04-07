@@ -10,9 +10,9 @@ public class Grid2048 implements GridProvider {
 
 	private int[][] grid = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
 	private int emptyCount = 16;
-	
+
 	private int points = 0;
-	
+
 	@Override
 	public int getGridWidth() {
 		return grid[0].length;
@@ -22,7 +22,7 @@ public class Grid2048 implements GridProvider {
 	public int getGridHeight() {
 		return grid.length;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder buffer = new StringBuilder();
@@ -34,11 +34,11 @@ public class Grid2048 implements GridProvider {
 		}
 		return buffer.toString();
 	}
-	
+
 	public int getEmptyCount() {
 		return emptyCount;
 	}
-	
+
 	public int getPoints() {
 		return points;
 	}
@@ -75,7 +75,7 @@ public class Grid2048 implements GridProvider {
 		}
 		return null;
 	}
-	
+
 	public int shiftRow(int dx, boolean justCheck) {
 		int shiftCount = 0;
 		for (int y = 0; y < getGridHeight(); y++) {
@@ -115,7 +115,7 @@ public class Grid2048 implements GridProvider {
 		}
 		return new boolean[]{false, false};
 	}
-	
+
 	public int shiftColumn(int dy, boolean justCheck) {
 		int shiftCount = 0;
 		for (int x = 0; x < getGridWidth(); x++) {
@@ -147,7 +147,7 @@ public class Grid2048 implements GridProvider {
 			gridListener.gridChanged(this, x, y, 1, 1);
 		}
 	}
-	
+
 	@Override
 	public void addGridListener(GridListener gridListener) {
 		gridListeners.add(gridListener);

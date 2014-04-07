@@ -41,12 +41,12 @@ public class Game2048 implements GridGame {
 
 	@Override
 	public String getTextFor(Object o) {
-		return String.format(" %1$4s", ((Integer) o) != -1 ? o.toString() : "");
+		return null; // String.format(" %1$4s", ((Integer) o) != -1 ? o.toString() : "");
 	}
 
 	@Override
 	public String getImageFor(Object o) {
-		return null;
+		return o.toString() + ".png";
 	}
 
 	@Override
