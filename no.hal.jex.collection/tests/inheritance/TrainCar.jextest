@@ -1,0 +1,16 @@
+test inheritance.TrainCar
+
+instance TrainCar tc = new TrainCar(3000)
+
+sequence checkWeight "Død vekt er lik totalvekt" {
+	
+	state {
+		tc.deadWeight == 3000
+	}
+	--
+	tc.deadWeight = 5000
+	-->
+	state {
+		tc.deadWeight == 5000
+	}
+}

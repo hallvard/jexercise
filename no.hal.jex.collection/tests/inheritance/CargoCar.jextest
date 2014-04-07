@@ -1,0 +1,17 @@
+test inheritance.CargoCar
+
+instance CargoCar cc = new CargoCar(3000,2000)
+
+sequence checkWeight {
+
+	state {
+		cc.totalWeight == 5000
+	}
+	--
+	cc.cargoWeight = 4000
+	-->
+	state {
+		cc.totalWeight == 7000
+		cc.cargoWeight == 4000
+	}
+}

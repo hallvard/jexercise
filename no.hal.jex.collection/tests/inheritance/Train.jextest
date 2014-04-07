@@ -33,7 +33,7 @@ sequence checkTotalTrainWeight {
 	-->
 	
 	state {
-		t.totalWeight == 8000 + (2000 + (200 * 80)) + (1500 +(100*80))
+		t.totalWeight == 8000 + (2000 + (200 * 80)) + (1500 + (100 * 80))
 	}
 }
 
@@ -43,13 +43,13 @@ sequence checkPassengerCount {
 	t.addTrainCar(pc2)
 	-->
 	state {
-		t.getPassengerCount() == 300
+		t.passengerCount == 300
 	}
 	--
 	t.addTrainCar(cc1)
 	-->
 	state {
-		t.getPassengerCount() == 300
+		t.passengerCount == 300
 	}
 }
 
@@ -59,12 +59,12 @@ sequence checkCargoWeight {
 	t.addTrainCar(cc2)
 	-->
 	state {
-		t.getCargoWeight == 12000
+		t.cargoWeight == 12000
 	}
 	--
 	t.addTrainCar(pc1)
 	-->
 	state {
-		t.getCargoWeight == 12000
+		t.cargoWeight == 12000
 	}
 }

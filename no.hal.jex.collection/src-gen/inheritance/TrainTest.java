@@ -200,7 +200,7 @@ public class TrainTest extends TestCase {
     int _plus_2 = (1500 + _multiply_1);
     int _plus_3 = (_plus_1 + _plus_2);
     int _totalWeight = this.t.getTotalWeight();
-    assertEquals("t.totalWeight == 8000 + (2000 + (200 * 80)) + (1500 +(100*80)) failed after t.addTrainCar(pc2)", _plus_3, _totalWeight);
+    assertEquals("t.totalWeight == 8000 + (2000 + (200 * 80)) + (1500 + (100 * 80)) failed after t.addTrainCar(pc2)", _plus_3, _totalWeight);
     
   }
   
@@ -232,7 +232,7 @@ public class TrainTest extends TestCase {
   private void _test__checkPassengerCount_transitions0_effect_state_objectTests0_test() {
     
     int _passengerCount = this.t.getPassengerCount();
-    assertEquals("t.getPassengerCount() == 300 failed after t.addTrainCar(pc1) ,t.addTrainCar(pc2)", 300, _passengerCount);
+    assertEquals("t.passengerCount == 300 failed after t.addTrainCar(pc1) ,t.addTrainCar(pc2)", 300, _passengerCount);
     
   }
   
@@ -254,7 +254,7 @@ public class TrainTest extends TestCase {
   private void _test__checkPassengerCount_transitions1_effect_state_objectTests0_test() {
     
     int _passengerCount = this.t.getPassengerCount();
-    assertEquals("t.getPassengerCount() == 300 failed after t.addTrainCar(cc1)", 300, _passengerCount);
+    assertEquals("t.passengerCount == 300 failed after t.addTrainCar(cc1)", 300, _passengerCount);
     
   }
   
@@ -286,7 +286,7 @@ public class TrainTest extends TestCase {
   private void _test__checkCargoWeight_transitions0_effect_state_objectTests0_test() {
     
     int _cargoWeight = this.t.getCargoWeight();
-    assertEquals("t.getCargoWeight == 12000 failed after t.addTrainCar(cc1) ,t.addTrainCar(cc2)", 12000, _cargoWeight);
+    assertEquals("t.cargoWeight == 12000 failed after t.addTrainCar(cc1) ,t.addTrainCar(cc2)", 12000, _cargoWeight);
     
   }
   
@@ -308,7 +308,7 @@ public class TrainTest extends TestCase {
   private void _test__checkCargoWeight_transitions1_effect_state_objectTests0_test() {
     
     int _cargoWeight = this.t.getCargoWeight();
-    assertEquals("t.getCargoWeight == 12000 failed after t.addTrainCar(pc1)", 12000, _cargoWeight);
+    assertEquals("t.cargoWeight == 12000 failed after t.addTrainCar(pc1)", 12000, _cargoWeight);
     
   }
   
