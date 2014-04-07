@@ -1,0 +1,70 @@
+test inheritance.Train
+
+instance
+	Train t = new Train(),
+	PassengerCar pc1 = new PassengerCar(2000, 200),
+	CargoCar cc1 = new CargoCar(3000, 5000),
+	PassengerCar pc2 = new PassengerCar(1500, 100),
+	CargoCar cc2 = new CargoCar(2500, 7000)
+	
+sequence addCarToTrain {
+	--
+	t.addTrainCar(pc1),
+	t.addTrainCar(pc2),
+	t.addTrainCar(cc1)
+	-->
+	state {
+		t.contains(pc1)
+		t.contains(pc2)
+		t.contains(cc1)
+	}
+}
+
+sequence checkTotalTrainWeight {
+	--
+	t.addTrainCar(pc1),
+	t.addTrainCar(cc1)
+	-->
+	state {
+		t.totalWeight == 8000 + (2000 + (200 * 80))
+	}
+	--
+	t.addTrainCar(pc2)
+	-->
+	
+	state {
+		t.totalWeight == 8000 + (2000 + (200 * 80)) + (1500 +(100*80))
+	}
+}
+
+sequence checkPassengerCount {
+	--
+	t.addTrainCar(pc1),
+	t.addTrainCar(pc2)
+	-->
+	state {
+		t.getPassengerCount() == 300
+	}
+	--
+	t.addTrainCar(cc1)
+	-->
+	state {
+		t.getPassengerCount() == 300
+	}
+}
+
+sequence checkCargoWeight {
+	--
+	t.addTrainCar(cc1),
+	t.addTrainCar(cc2)
+	-->
+	state {
+		t.getCargoWeight == 12000
+	}
+	--
+	t.addTrainCar(pc1)
+	-->
+	state {
+		t.getCargoWeight == 12000
+	}
+}
