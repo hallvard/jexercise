@@ -1,0 +1,68 @@
+test inheritance.ForeldreSpar
+
+instance ForeldreSpar foreldreSpar = new ForeldreSpar(0.04, 3)
+
+sequence withdraw {
+	--
+	foreldreSpar.deposit(10000.0), foreldreSpar.withdraw(1000.0)
+	-->
+	state {
+		foreldreSpar.getBalance() == 9000.0
+	}
+	--
+	foreldreSpar.withdraw(-1000.0) throws IllegalArgumentException
+	-->
+	state {
+		foreldreSpar.getBalance() == 9000.0
+	}
+	--
+	foreldreSpar.withdraw(10000.0) throws IllegalStateException
+	-->
+	state {
+		foreldreSpar.getBalance() == 9000.0
+	}
+	--
+	foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0) throws IllegalStateException
+	-->
+	state {
+		foreldreSpar.getBalance() == 7000.0
+	}
+	--
+	foreldreSpar.endYearUpdate(), foreldreSpar.withdraw(1000.0)
+	-->
+	state {
+		foreldreSpar.getBalance() == 7000.0 * (1 + 0.04) - 1000.0
+	}
+}
+
+sequence getRemainingWithdrawals {
+	--
+	foreldreSpar.deposit(10000.0), foreldreSpar.withdraw(1000.0)
+	-->
+	state {
+		foreldreSpar.getRemainingWithdrawals() == 2
+	}
+	--
+	foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0)
+	-->
+	state {
+		foreldreSpar.getRemainingWithdrawals() == 0
+	}
+	--
+	foreldreSpar.withdraw(1000.0) throws IllegalStateException
+	-->
+	state {
+		foreldreSpar.getRemainingWithdrawals() == 0
+	}
+	--
+	foreldreSpar.endYearUpdate()
+	-->
+	state {
+		foreldreSpar.getRemainingWithdrawals() == 3
+	}
+}
+
+method boolean ==(double n1, double n2) {
+	val epsilon = 0.0000001 // avrundingsfeil
+	n1 - epsilon <= n2 && n1 + epsilon >= n2
+}
