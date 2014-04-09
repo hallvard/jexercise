@@ -1,0 +1,19 @@
+test inheritance.CardHand
+	
+instance sub = new CardHand(2)
+	
+sequence addCard "Tester maxCardCount" {
+	state {
+		sub instanceof CardContainerImpl
+		getCardCount() == 0
+	}
+	"Legger til kort" -- addCard(new Card('S',1)), addCard(new Card('S',2)) -->
+	state {
+		getCardCount() == 2
+	}
+	"Test at det ikke kan legges til flere kort" -- addCard(new Card('S', 3)) throws IllegalStateException
+	-->
+	state {
+		getCardCount() == 2
+	}
+}

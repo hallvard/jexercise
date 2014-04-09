@@ -1,0 +1,11 @@
+test inheritance.CardDeck
+	
+instance sub = new CardDeck(4)
+	
+sequence addCard "Tester maxCardCount" {
+	-->
+	state {
+		sub instanceof CardContainerImpl
+		maxCardCount == 52
+	}
+}
