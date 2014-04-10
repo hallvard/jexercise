@@ -84,7 +84,7 @@ public class CardHandTest extends TestCase {
   private void _test__addCard_transitions0_effect_state_objectTests0_test(final CardHand it) {
     
     int _cardCount = it.getCardCount();
-    assertEquals("getCardCount() == 2 failed after addCard(new Card('S',1)) ,addCard(new Card('S',2))", 2, _cardCount);
+    assertEquals("cardCount == 2 failed after addCard(new Card('S',1)) ,addCard(new Card('S',2))", 2, _cardCount);
     
   }
   
@@ -107,7 +107,7 @@ public class CardHandTest extends TestCase {
   private void _test__addCard_transitions2_effect_state_objectTests0_test(final CardHand it) {
     
     int _cardCount = it.getCardCount();
-    assertEquals("getCardCount() == 2 failed", 2, _cardCount);
+    assertEquals("cardCount == 2 failed", 2, _cardCount);
     
   }
   

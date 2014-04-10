@@ -26,42 +26,38 @@ public class RPNTest extends TestCase {
   private boolean operator_equals(final RPN rpn, final Collection<Double> ds) {
     boolean _xblockexpression = false;
     {
+      int _size = rpn.getSize();
+      int _size_1 = ds.size();
+      boolean _notEquals = (_size != _size_1);
+      if (_notEquals) {
+        return false;
+      }
+      final double epsilon = 0.000001d;
       int count = 0;
       for (final Double d : ds) {
         {
-          int _size = ds.size();
-          int _minus = (_size - count);
+          int _size_2 = ds.size();
+          int _minus = (_size_2 - count);
           int _minus_1 = (_minus - 1);
-          double _peek = rpn.peek(_minus_1);
-          boolean _equals = this.operator_equals(_peek, (d).doubleValue());
-          boolean _not = (!_equals);
-          if (_not) {
+          final double value = rpn.peek(_minus_1);
+          boolean _or = false;
+          double _minus_2 = (value - epsilon);
+          boolean _lessThan = ((d).doubleValue() < _minus_2);
+          if (_lessThan) {
+            _or = true;
+          } else {
+            double _plus = (value + epsilon);
+            boolean _greaterThan = ((d).doubleValue() > _plus);
+            _or = (_lessThan || _greaterThan);
+          }
+          if (_or) {
             return false;
           }
-          int _plus = (count + 1);
-          count = _plus;
+          int _plus_1 = (count + 1);
+          count = _plus_1;
         }
       }
       _xblockexpression = (true);
-    }
-    return _xblockexpression;
-  }
-  
-  private boolean operator_equals(final double d1, final double d2) {
-    boolean _xblockexpression = false;
-    {
-      final double epsilon = 0.000001d;
-      boolean _and = false;
-      double _minus = (d2 - epsilon);
-      boolean _greaterEqualsThan = (d1 >= _minus);
-      if (!_greaterEqualsThan) {
-        _and = false;
-      } else {
-        double _plus = (d2 + epsilon);
-        boolean _lessEqualsThan = (d1 <= _plus);
-        _and = (_greaterEqualsThan && _lessEqualsThan);
-      }
-      _xblockexpression = (_and);
     }
     return _xblockexpression;
   }
@@ -172,33 +168,37 @@ public class RPNTest extends TestCase {
   }
   
   private void _test__constructor_transitions0_effect_state(final RPN it) {
-    _test__constructor_transitions0_effect_state_propertyTests0(rPN);
+    _test__constructor_transitions0_effect_state_objectTests0_test(rPN);
     
   }
   
-  private boolean _test__constructor_transitions0_effect_state_propertyTests0(final RPN it) {
+  private void _test__constructor_transitions0_effect_state_objectTests0_test(final RPN it) {
     
     int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 0);
-    assertTrue("size == 0; failed after ", _equals);
-    return _equals;
+    assertEquals("size == 0 failed", 0, _size);
+    
   }
   
   private void _transition_exprAction__push_transitions0_actions0(final RPN it) {
-    it.push(1.0);
+    try {
+      
+      it.push(1.0);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(1.0) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__push_transitions0_effect_state(final RPN it) {
-    _test__push_transitions0_effect_state_propertyTests0(rPN);
+    _test__push_transitions0_effect_state_objectTests0_test(rPN);
     
   }
   
-  private boolean _test__push_transitions0_effect_state_propertyTests0(final RPN it) {
+  private void _test__push_transitions0_effect_state_objectTests0_test(final RPN it) {
     
     int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 1);
-    assertTrue("size == 1; failed after push(1.0)", _equals);
-    return _equals;
+    assertEquals("size == 1 failed after push(1.0)", 1, _size);
+    
   }
   
   private double _init__pushPop_random() {
@@ -208,39 +208,44 @@ public class RPNTest extends TestCase {
   }
   
   private void _transition_exprAction__pushPop_transitions0_actions0(final RPN it, final double random) {
-    it.push(random);
+    try {
+      
+      it.push(random);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__pushPop_transitions0_effect_state(final RPN it, final double random) {
-    _test__pushPop_transitions0_effect_state_propertyTests0(rPN, random);
+    _test__pushPop_transitions0_effect_state_objectTests0_test(rPN, random);
     
   }
   
-  private boolean _transition_exprAction__pushPop_transitions1_actions0(final RPN it, final double random) {
+  private void _test__pushPop_transitions0_effect_state_objectTests0_test(final RPN it, final double random) {
+    
+    int _size = it.getSize();
+    assertEquals("size == 1 failed after push(random)", 1, _size);
+    
+  }
+  
+  private void _transition_exprAction__pushPop_transitions1_actions0(final RPN it, final double random) {
+    
     double _pop = it.pop();
-    boolean _equals = this.operator_equals(_pop, random);
-    return _equals;
+    assertEquals("pop == random failed", random, _pop);
+    
   }
   
   private void _test__pushPop_transitions1_effect_state(final RPN it, final double random) {
-    _test__pushPop_transitions1_effect_state_propertyTests0(rPN, random);
+    _test__pushPop_transitions1_effect_state_objectTests0_test(rPN, random);
     
   }
   
-  private boolean _test__pushPop_transitions0_effect_state_propertyTests0(final RPN it, final double random) {
+  private void _test__pushPop_transitions1_effect_state_objectTests0_test(final RPN it, final double random) {
     
     int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 1);
-    assertTrue("size == 1; failed after push(random)", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__pushPop_transitions1_effect_state_propertyTests0(final RPN it, final double random) {
+    assertEquals("size == 0 failed after pop == random", 0, _size);
     
-    int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 0);
-    assertTrue("size == 0; failed after pop == random", _equals);
-    return _equals;
   }
   
   private double _init__pushPeek_random1() {
@@ -256,53 +261,47 @@ public class RPNTest extends TestCase {
   }
   
   private void _transition_exprAction__pushPeek_transitions0_actions0(final RPN it, final double random1, final double random2) {
-    it.push(random1);
+    try {
+      
+      it.push(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random1) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__pushPeek_transitions0_effect_state(final RPN it, final double random1, final double random2) {
-    _test__pushPeek_transitions0_effect_state_propertyTests0(rPN, random1, random2);
-    _test__pushPeek_transitions0_effect_state_propertyTests1(rPN, random1, random2);
+    _test__pushPeek_transitions0_effect_state_objectTests0_test(rPN, random1, random2);
+    
+  }
+  
+  private void _test__pushPeek_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
+    
+    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(random1))));
+    assertTrue("it == #[random1] failed after push(random1)", _equals);
     
   }
   
   private void _transition_exprAction__pushPeek_transitions1_actions0(final RPN it, final double random1, final double random2) {
-    it.push(random2);
+    try {
+      
+      it.push(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random2) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__pushPeek_transitions1_effect_state(final RPN it, final double random1, final double random2) {
-    _test__pushPeek_transitions1_effect_state_propertyTests0(rPN, random1, random2);
-    _test__pushPeek_transitions1_effect_state_propertyTests1(rPN, random1, random2);
+    _test__pushPeek_transitions1_effect_state_objectTests0_test(rPN, random1, random2);
     
   }
   
-  private boolean _test__pushPeek_transitions0_effect_state_propertyTests0(final RPN it, final double random1, final double random2) {
-    
-    int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 1);
-    assertTrue("size == 1; failed after push(random1)", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__pushPeek_transitions0_effect_state_propertyTests1(final RPN it, final double random1, final double random2) {
-    
-    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(random1))));
-    assertTrue("it == #[random1]; failed after push(random1)", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__pushPeek_transitions1_effect_state_propertyTests0(final RPN it, final double random1, final double random2) {
-    
-    int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 2);
-    assertTrue("size == 2; failed after push(random2)", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__pushPeek_transitions1_effect_state_propertyTests1(final RPN it, final double random1, final double random2) {
+  private void _test__pushPeek_transitions1_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
     boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(random1), Double.valueOf(random2))));
-    assertTrue("it == #[random1, random2]; failed after push(random2)", _equals);
-    return _equals;
+    assertTrue("it == #[random1, random2] failed after push(random2)", _equals);
+    
   }
   
   private double _init__performAdd_random1() {
@@ -318,37 +317,46 @@ public class RPNTest extends TestCase {
   }
   
   private void _transition_exprAction__performAdd_transitions0_actions0(final RPN it, final double random1, final double random2) {
-    it.push(random1);
+    try {
+      
+      it.push(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random1) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performAdd_transitions0_actions1(final RPN it, final double random1, final double random2) {
-    it.push(random2);
+    try {
+      
+      it.push(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random2) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performAdd_transitions0_actions2(final RPN it, final double random1, final double random2) {
-    this.performOperation("+");
+    try {
+      
+      this.performOperation("+");
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("performOperation('+') failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__performAdd_transitions0_effect_state(final RPN it, final double random1, final double random2) {
-    _test__performAdd_transitions0_effect_state_propertyTests0(rPN, random1, random2);
-    _test__performAdd_transitions0_effect_state_propertyTests1(rPN, random1, random2);
+    _test__performAdd_transitions0_effect_state_objectTests0_test(rPN, random1, random2);
     
   }
   
-  private boolean _test__performAdd_transitions0_effect_state_propertyTests0(final RPN it, final double random1, final double random2) {
-    
-    int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 1);
-    assertTrue("size == 1; failed after push(random1) ,push(random2) ,performOperation('+')", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__performAdd_transitions0_effect_state_propertyTests1(final RPN it, final double random1, final double random2) {
+  private void _test__performAdd_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
     double _plus = (random1 + random2);
     boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(_plus))));
-    assertTrue("it == #[random1 + random2]; failed after push(random1) ,push(random2) ,performOperation('+')", _equals);
-    return _equals;
+    assertTrue("it == #[random1 + random2] failed after push(random1) ,push(random2) ,performOperation('+')", _equals);
+    
   }
   
   private double _init__performSubtract_random1() {
@@ -364,37 +372,46 @@ public class RPNTest extends TestCase {
   }
   
   private void _transition_exprAction__performSubtract_transitions0_actions0(final RPN it, final double random1, final double random2) {
-    it.push(random1);
+    try {
+      
+      it.push(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random1) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performSubtract_transitions0_actions1(final RPN it, final double random1, final double random2) {
-    it.push(random2);
+    try {
+      
+      it.push(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random2) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performSubtract_transitions0_actions2(final RPN it, final double random1, final double random2) {
-    this.performOperation("-");
+    try {
+      
+      this.performOperation("-");
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("performOperation('-') failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__performSubtract_transitions0_effect_state(final RPN it, final double random1, final double random2) {
-    _test__performSubtract_transitions0_effect_state_propertyTests0(rPN, random1, random2);
-    _test__performSubtract_transitions0_effect_state_propertyTests1(rPN, random1, random2);
+    _test__performSubtract_transitions0_effect_state_objectTests0_test(rPN, random1, random2);
     
   }
   
-  private boolean _test__performSubtract_transitions0_effect_state_propertyTests0(final RPN it, final double random1, final double random2) {
-    
-    int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 1);
-    assertTrue("size == 1; failed after push(random1) ,push(random2) ,performOperation('-')", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__performSubtract_transitions0_effect_state_propertyTests1(final RPN it, final double random1, final double random2) {
+  private void _test__performSubtract_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
     double _minus = (random1 - random2);
     boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(_minus))));
-    assertTrue("it == #[random1 - random2]; failed after push(random1) ,push(random2) ,performOperation('-')", _equals);
-    return _equals;
+    assertTrue("it == #[random1 - random2] failed after push(random1) ,push(random2) ,performOperation('-')", _equals);
+    
   }
   
   private double _init__performMultiply_random1() {
@@ -410,37 +427,46 @@ public class RPNTest extends TestCase {
   }
   
   private void _transition_exprAction__performMultiply_transitions0_actions0(final RPN it, final double random1, final double random2) {
-    it.push(random1);
+    try {
+      
+      it.push(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random1) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performMultiply_transitions0_actions1(final RPN it, final double random1, final double random2) {
-    it.push(random2);
+    try {
+      
+      it.push(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random2) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performMultiply_transitions0_actions2(final RPN it, final double random1, final double random2) {
-    this.performOperation("*");
+    try {
+      
+      this.performOperation("*");
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("performOperation('*') failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__performMultiply_transitions0_effect_state(final RPN it, final double random1, final double random2) {
-    _test__performMultiply_transitions0_effect_state_propertyTests0(rPN, random1, random2);
-    _test__performMultiply_transitions0_effect_state_propertyTests1(rPN, random1, random2);
+    _test__performMultiply_transitions0_effect_state_objectTests0_test(rPN, random1, random2);
     
   }
   
-  private boolean _test__performMultiply_transitions0_effect_state_propertyTests0(final RPN it, final double random1, final double random2) {
-    
-    int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 1);
-    assertTrue("size == 1; failed after push(random1) ,push(random2) ,performOperation('*')", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__performMultiply_transitions0_effect_state_propertyTests1(final RPN it, final double random1, final double random2) {
+  private void _test__performMultiply_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
     double _multiply = (random1 * random2);
     boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(_multiply))));
-    assertTrue("it == #[random1 * random2]; failed after push(random1) ,push(random2) ,performOperation('*')", _equals);
-    return _equals;
+    assertTrue("it == #[random1 * random2] failed after push(random1) ,push(random2) ,performOperation('*')", _equals);
+    
   }
   
   private double _init__performDivide_random1() {
@@ -457,37 +483,46 @@ public class RPNTest extends TestCase {
   }
   
   private void _transition_exprAction__performDivide_transitions0_actions0(final RPN it, final double random1, final double random2) {
-    it.push(random1);
+    try {
+      
+      it.push(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random1) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performDivide_transitions0_actions1(final RPN it, final double random1, final double random2) {
-    it.push(random2);
+    try {
+      
+      it.push(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random2) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performDivide_transitions0_actions2(final RPN it, final double random1, final double random2) {
-    this.performOperation("/");
+    try {
+      
+      this.performOperation("/");
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("performOperation('/') failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__performDivide_transitions0_effect_state(final RPN it, final double random1, final double random2) {
-    _test__performDivide_transitions0_effect_state_propertyTests0(rPN, random1, random2);
-    _test__performDivide_transitions0_effect_state_propertyTests1(rPN, random1, random2);
+    _test__performDivide_transitions0_effect_state_objectTests0_test(rPN, random1, random2);
     
   }
   
-  private boolean _test__performDivide_transitions0_effect_state_propertyTests0(final RPN it, final double random1, final double random2) {
-    
-    int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 1);
-    assertTrue("size == 1; failed after push(random1) ,push(random2) ,performOperation('/')", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__performDivide_transitions0_effect_state_propertyTests1(final RPN it, final double random1, final double random2) {
+  private void _test__performDivide_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
     double _divide = (random1 / random2);
     boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(_divide))));
-    assertTrue("it == #[random1 / random2]; failed after push(random1) ,push(random2) ,performOperation('/')", _equals);
-    return _equals;
+    assertTrue("it == #[random1 / random2] failed after push(random1) ,push(random2) ,performOperation('/')", _equals);
+    
   }
   
   private double _init__performSwap_random1() {
@@ -504,61 +539,67 @@ public class RPNTest extends TestCase {
   }
   
   private void _transition_exprAction__performSwap_transitions0_actions0(final RPN it, final double random1, final double random2) {
-    it.push(random1);
+    try {
+      
+      it.push(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random1) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performSwap_transitions0_actions1(final RPN it, final double random1, final double random2) {
-    it.push(random2);
+    try {
+      
+      it.push(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random2) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performSwap_transitions0_actions2(final RPN it, final double random1, final double random2) {
-    this.performOperation("~");
+    try {
+      
+      this.performOperation("~");
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("performOperation('~') failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__performSwap_transitions0_effect_state(final RPN it, final double random1, final double random2) {
-    _test__performSwap_transitions0_effect_state_propertyTests0(rPN, random1, random2);
-    _test__performSwap_transitions0_effect_state_propertyTests1(rPN, random1, random2);
+    _test__performSwap_transitions0_effect_state_objectTests0_test(rPN, random1, random2);
     
   }
   
-  private boolean _test__performSwap_transitions0_effect_state_propertyTests0(final RPN it, final double random1, final double random2) {
-    
-    int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 2);
-    assertTrue("size == 2; failed after push(random1) ,push(random2) ,performOperation('~')", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__performSwap_transitions0_effect_state_propertyTests1(final RPN it, final double random1, final double random2) {
+  private void _test__performSwap_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
     boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(random2), Double.valueOf(random1))));
-    assertTrue("it == #[random2, random1]; failed after push(random1) ,push(random2) ,performOperation('~')", _equals);
-    return _equals;
+    assertTrue("it == #[random2, random1] failed after push(random1) ,push(random2) ,performOperation('~')", _equals);
+    
   }
   
   private void _transition_exprAction__performPi_transitions0_actions0(final RPN it) {
-    this.performOperation("p");
+    try {
+      
+      this.performOperation("p");
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("performOperation('p') failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__performPi_transitions0_effect_state(final RPN it) {
-    _test__performPi_transitions0_effect_state_propertyTests0(rPN);
-    _test__performPi_transitions0_effect_state_propertyTests1(rPN);
+    _test__performPi_transitions0_effect_state_objectTests0_test(rPN);
     
   }
   
-  private boolean _test__performPi_transitions0_effect_state_propertyTests0(final RPN it) {
-    
-    int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 1);
-    assertTrue("size == 1; failed after performOperation('p')", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__performPi_transitions0_effect_state_propertyTests1(final RPN it) {
+  private void _test__performPi_transitions0_effect_state_objectTests0_test(final RPN it) {
     
     boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(Math.PI))));
-    assertTrue("it == #[Math.PI]; failed after performOperation('p')", _equals);
-    return _equals;
+    assertTrue("it == #[Math.PI] failed after performOperation('p')", _equals);
+    
   }
   
   private double _init__performAbs_random() {
@@ -569,32 +610,39 @@ public class RPNTest extends TestCase {
   }
   
   private void _transition_exprAction__performAbs_transitions0_actions0(final RPN it, final double random) {
-    it.push(random);
+    try {
+      
+      it.push(random);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("push(random) failed: " + error.getMessage());
+    }
+    
   }
   
   private void _transition_exprAction__performAbs_transitions0_actions1(final RPN it, final double random) {
-    this.performOperation("|");
+    try {
+      
+      this.performOperation("|");
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("performOperation('|') failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__performAbs_transitions0_effect_state(final RPN it, final double random) {
-    _test__performAbs_transitions0_effect_state_propertyTests0(rPN, random);
-    _test__performAbs_transitions0_effect_state_propertyTests1(rPN, random);
+    _test__performAbs_transitions0_effect_state_objectTests0_test(rPN, random);
     
   }
   
-  private boolean _test__performAbs_transitions0_effect_state_propertyTests0(final RPN it, final double random) {
-    
-    int _size = it.getSize();
-    boolean _equals = this.operator_equals(_size, 1);
-    assertTrue("size == 1; failed after push(random) ,performOperation('|')", _equals);
-    return _equals;
-  }
-  
-  private boolean _test__performAbs_transitions0_effect_state_propertyTests1(final RPN it, final double random) {
+  private void _test__performAbs_transitions0_effect_state_objectTests0_test(final RPN it, final double random) {
     
     double _abs = Math.abs(random);
     boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(_abs))));
-    assertTrue("it == #[Math.abs(random)]; failed after push(random) ,performOperation('|')", _equals);
-    return _equals;
+    assertTrue("it == #[Math.abs(random)] failed after push(random) ,performOperation('|')", _equals);
+    
+  }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(RPNTest.class);
   }
 }

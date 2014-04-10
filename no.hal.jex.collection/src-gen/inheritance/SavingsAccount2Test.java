@@ -20,7 +20,7 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  @JExercise(tests = "SavingsAccount2(int,double)", description = "<h3>Setter inn midler</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Penger settes inn: deposit(10000.0)</li>\n\t\t<li>Tester negativt belop: deposit(-10000.0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "SavingsAccount2(int,double)", description = "<h3>Setter inn midler</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Penger settes inn: deposit(10000.0)</li>\n\t\t<li>Tester negativt bel\u00F8p: deposit(-10000.0)</li>\n\t\t</ul>\n")
   public void testDeposit() {
     _test__deposit_transitions0_source_state(sub);
     _transition_exprAction__deposit_transitions0_actions0(sub);
@@ -35,7 +35,7 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  @JExercise(tests = "SavingsAccount2(int,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Setter inn og tar ut: deposit(20000.0), withdraw(5000.0)</li>\n\t\t<li>Tester negativt bel\u00BFp: withdraw(-10000.0)</li>\n\t\t<li>Tester for stort bel\u00BFp: withdraw(20000.0)</li>\n\t\t<li>Tester fee: withdraw(10000.0)</li>\n\t\t<li>Tester fee og withdrawals: withdraw(4930.0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "SavingsAccount2(int,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Setter inn og tar ut: deposit(20000.0), withdraw(5000.0)</li>\n\t\t<li>Tester negativt bel\u00F8p: withdraw(-10000.0)</li>\n\t\t<li>Tester for stort bel\u00F8p: withdraw(20000.0)</li>\n\t\t<li>Tester fee: withdraw(10000.0)</li>\n\t\t<li>Tester fee og withdrawals: withdraw(4930.0)</li>\n\t\t</ul>\n")
   public void testWithdraw() {
     _transition_exprAction__withdraw_transitions0_actions0(sub);
     _transition_exprAction__withdraw_transitions0_actions1(sub);

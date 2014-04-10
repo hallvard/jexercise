@@ -240,4 +240,8 @@ public class NamedTest extends TestCase {
     assertEquals("compare(jt, jt) == 0 failed", 0, _compare_3);
     
   }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(NamedTest.class);
+  }
 }

@@ -176,4 +176,8 @@ public class CardComparatorTest extends TestCase {
     assertEquals("it == #[c1, c13, h1, h13, s1, s13, d1, d13] failed after Collections.sort(cards, new CardComparator(false, 'D'))", Collections.<Card>unmodifiableList(Lists.<Card>newArrayList(this.c1, this.c13, this.h1, this.h13, this.s1, this.s13, this.d1, this.d13)), it);
     
   }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(CardComparatorTest.class);
+  }
 }

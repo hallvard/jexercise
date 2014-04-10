@@ -2,6 +2,7 @@ package inheritance;
 
 import inheritance.BSU;
 import junit.framework.TestCase;
+import no.hal.jex.jextest.extensions.JextestExtensions;
 import no.hal.jex.runtime.JExercise;
 
 @JExercise(description = "Tests inheritance.BSU")
@@ -18,25 +19,6 @@ public class BSUTest extends TestCase {
   protected void setUp() {
     bsu = _init_bsu();
     
-  }
-  
-  private boolean operator_equals(final double n1, final double n2) {
-    boolean _xblockexpression = false;
-    {
-      final double epsilon = 0.0000001;
-      boolean _and = false;
-      double _minus = (n1 - epsilon);
-      boolean _lessEqualsThan = (_minus <= n2);
-      if (!_lessEqualsThan) {
-        _and = false;
-      } else {
-        double _plus = (n1 + epsilon);
-        boolean _greaterEqualsThan = (_plus >= n2);
-        _and = (_lessEqualsThan && _greaterEqualsThan);
-      }
-      _xblockexpression = (_and);
-    }
-    return _xblockexpression;
   }
   
   @JExercise(tests = "BSU(double,double);void deposit(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>bsu.deposit(10000.0)</li>\n\t\t<li>bsu.deposit(-10000.0)</li>\n\t\t<li>bsu.deposit(20000.0)</li>\n\t\t<li>bsu.endYearUpdate(), bsu.deposit(20000.0)</li>\n\t\t</ul>\n")
@@ -122,9 +104,9 @@ public class BSUTest extends TestCase {
   
   private void _test__deposit_transitions0_effect_state_objectTests0_test(final BSU it) {
     
-    double _balance = this.bsu.getBalance();
-    boolean _equals = this.operator_equals(_balance, 10000.0);
-    assertTrue("bsu.getBalance() == 10000.0 failed after bsu.deposit(10000.0)", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 10000.0);
+    assertTrue("bsu.balance ?= 10000.0 failed after bsu.deposit(10000.0)", _assertEquals);
     
   }
   
@@ -146,9 +128,9 @@ public class BSUTest extends TestCase {
   
   private void _test__deposit_transitions2_effect_state_objectTests0_test(final BSU it) {
     
-    double _balance = this.bsu.getBalance();
-    boolean _equals = this.operator_equals(_balance, 10000.0);
-    assertTrue("bsu.getBalance() == 10000.0 failed", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 10000.0);
+    assertTrue("bsu.balance ?= 10000.0 failed", _assertEquals);
     
   }
   
@@ -169,9 +151,9 @@ public class BSUTest extends TestCase {
   
   private void _test__deposit_transitions4_effect_state_objectTests0_test(final BSU it) {
     
-    double _balance = this.bsu.getBalance();
-    boolean _equals = this.operator_equals(_balance, 10000.0);
-    assertTrue("bsu.getBalance() == 10000.0 failed", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 10000.0);
+    assertTrue("bsu.balance ?= 10000.0 failed", _assertEquals);
     
   }
   
@@ -202,12 +184,12 @@ public class BSUTest extends TestCase {
   
   private void _test__deposit_transitions5_effect_state_objectTests0_test(final BSU it) {
     
-    double _balance = this.bsu.getBalance();
     double _plus = (1 + 0.05);
     double _multiply = (10000.0 * _plus);
     double _plus_1 = (_multiply + 20000.0);
-    boolean _equals = this.operator_equals(_balance, _plus_1);
-    assertTrue("bsu.getBalance() == 10000.0 * (1 + 0.05) + 20000.0 failed after bsu.endYearUpdate() ,bsu.deposit(20000.0)", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(
+      this.bsu.balance, _plus_1);
+    assertTrue("bsu.balance ?= 10000.0 * (1 + 0.05) + 20000.0 failed after bsu.endYearUpdate() ,bsu.deposit(20000.0)", _assertEquals);
     
   }
   
@@ -238,9 +220,9 @@ public class BSUTest extends TestCase {
   
   private void _test__withdraw_transitions0_effect_state_objectTests0_test(final BSU it) {
     
-    double _balance = this.bsu.getBalance();
-    boolean _equals = this.operator_equals(_balance, 15000.0);
-    assertTrue("bsu.getBalance() == 15000.0 failed after bsu.deposit(20000.0) ,bsu.withdraw(5000.0)", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 15000.0);
+    assertTrue("bsu.balance ?= 15000.0 failed after bsu.deposit(20000.0) ,bsu.withdraw(5000.0)", _assertEquals);
     
   }
   
@@ -262,9 +244,9 @@ public class BSUTest extends TestCase {
   
   private void _test__withdraw_transitions2_effect_state_objectTests0_test(final BSU it) {
     
-    double _balance = this.bsu.getBalance();
-    boolean _equals = this.operator_equals(_balance, 15000.0);
-    assertTrue("bsu.getBalance() == 15000.0 failed", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 15000.0);
+    assertTrue("bsu.balance ?= 15000.0 failed", _assertEquals);
     
   }
   
@@ -285,9 +267,9 @@ public class BSUTest extends TestCase {
   
   private void _test__withdraw_transitions4_effect_state_objectTests0_test(final BSU it) {
     
-    double _balance = this.bsu.getBalance();
-    boolean _equals = this.operator_equals(_balance, 15000.0);
-    assertTrue("bsu.getBalance() == 15000.0 failed", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 15000.0);
+    assertTrue("bsu.balance ?= 15000.0 failed", _assertEquals);
     
   }
   
@@ -318,11 +300,11 @@ public class BSUTest extends TestCase {
   
   private void _test__withdraw_transitions6_effect_state_objectTests0_test(final BSU it) {
     
-    double _balance = this.bsu.getBalance();
     double _plus = (1 + 0.05);
     double _multiply = (15000.0 * _plus);
-    boolean _equals = this.operator_equals(_balance, _multiply);
-    assertTrue("bsu.getBalance() == 15000.0 * (1 + 0.05) failed", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(
+      this.bsu.balance, _multiply);
+    assertTrue("bsu.balance ?= 15000.0 * (1 + 0.05) failed", _assertEquals);
     
   }
   
@@ -345,8 +327,8 @@ public class BSUTest extends TestCase {
     
     double _taxDeduction = this.bsu.getTaxDeduction();
     double _multiply = (20000.0 * 0.20);
-    boolean _equals = this.operator_equals(_taxDeduction, _multiply);
-    assertTrue("bsu.getTaxDeduction() == 20000.0 * 0.20 failed after bsu.deposit(20000.0)", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(_taxDeduction, _multiply);
+    assertTrue("bsu.taxDeduction ?= 20000.0 * 0.20 failed after bsu.deposit(20000.0)", _assertEquals);
     
   }
   
@@ -379,8 +361,8 @@ public class BSUTest extends TestCase {
     
     double _taxDeduction = this.bsu.getTaxDeduction();
     double _multiply = (10000.0 * 0.20);
-    boolean _equals = this.operator_equals(_taxDeduction, _multiply);
-    assertTrue("bsu.getTaxDeduction() == 10000.0 * 0.20 failed after bsu.endYearUpdate ,bsu.deposit(10000.0)", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(_taxDeduction, _multiply);
+    assertTrue("bsu.taxDeduction ?= 10000.0 * 0.20 failed after bsu.endYearUpdate ,bsu.deposit(10000.0)", _assertEquals);
     
   }
   
@@ -402,8 +384,8 @@ public class BSUTest extends TestCase {
   private void _test__getTaxDeduction_transitions2_effect_state_objectTests0_test(final BSU it) {
     
     double _taxDeduction = this.bsu.getTaxDeduction();
-    boolean _equals = this.operator_equals(_taxDeduction, 0.0);
-    assertTrue("bsu.getTaxDeduction() == 0.0 failed after bsu.endYearUpdate", _equals);
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(_taxDeduction, 0.0);
+    assertTrue("bsu.taxDeduction ?= 0.0 failed after bsu.endYearUpdate", _assertEquals);
     
   }
   

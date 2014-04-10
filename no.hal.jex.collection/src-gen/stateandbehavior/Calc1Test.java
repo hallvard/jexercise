@@ -115,16 +115,16 @@ public class Calc1Test extends TestCase {
   }
   
   private void _test__constructor_transitions0_effect_state(final Calc1 it) {
-    _test__constructor_transitions0_effect_state_propertyTests0(calc1);
+    _test__constructor_transitions0_effect_state_objectTests0_test(calc1);
     
   }
   
-  private boolean _test__constructor_transitions0_effect_state_propertyTests0(final Calc1 it) {
+  private void _test__constructor_transitions0_effect_state_objectTests0_test(final Calc1 it) {
     
     double _value = it.getValue();
     boolean _equals = this.operator_equals(_value, 0.0d);
-    assertTrue("value == 0.0d; failed after ", _equals);
-    return _equals;
+    assertTrue("value == 0.0d failed", _equals);
+    
   }
   
   private double _init__setValue_random() {
@@ -134,20 +134,26 @@ public class Calc1Test extends TestCase {
   }
   
   private void _transition_exprAction__setValue_transitions0_actions0(final Calc1 it, final double random) {
-    it.setValue(random);
+    try {
+      
+      it.setValue(random);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("value = random failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__setValue_transitions0_effect_state(final Calc1 it, final double random) {
-    _test__setValue_transitions0_effect_state_propertyTests0(calc1, random);
+    _test__setValue_transitions0_effect_state_objectTests0_test(calc1, random);
     
   }
   
-  private boolean _test__setValue_transitions0_effect_state_propertyTests0(final Calc1 it, final double random) {
+  private void _test__setValue_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random) {
     
     double _value = it.getValue();
     boolean _equals = this.operator_equals(_value, random);
-    assertTrue("value == random; failed after value = random", _equals);
-    return _equals;
+    assertTrue("value == random failed after value = random", _equals);
+    
   }
   
   private double _init__add_random1() {
@@ -163,25 +169,37 @@ public class Calc1Test extends TestCase {
   }
   
   private void _transition_exprAction__add_transitions0_actions0(final Calc1 it, final double random1, final double random2) {
-    it.setValue(random1);
-  }
-  
-  private void _transition_exprAction__add_transitions0_actions1(final Calc1 it, final double random1, final double random2) {
-    it.add(random2);
-  }
-  
-  private void _test__add_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
-    _test__add_transitions0_effect_state_propertyTests0(calc1, random1, random2);
+    try {
+      
+      it.setValue(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("value = random1 failed: " + error.getMessage());
+    }
     
   }
   
-  private boolean _test__add_transitions0_effect_state_propertyTests0(final Calc1 it, final double random1, final double random2) {
+  private void _transition_exprAction__add_transitions0_actions1(final Calc1 it, final double random1, final double random2) {
+    try {
+      
+      it.add(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("add(random2) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__add_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
+    _test__add_transitions0_effect_state_objectTests0_test(calc1, random1, random2);
+    
+  }
+  
+  private void _test__add_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
     double _plus = (random1 + random2);
     boolean _equals = this.operator_equals(_value, _plus);
-    assertTrue("value == random1 + random2; failed after value = random1 ,add(random2)", _equals);
-    return _equals;
+    assertTrue("value == random1 + random2 failed after value = random1 ,add(random2)", _equals);
+    
   }
   
   private double _init__subtract_random1() {
@@ -197,25 +215,37 @@ public class Calc1Test extends TestCase {
   }
   
   private void _transition_exprAction__subtract_transitions0_actions0(final Calc1 it, final double random1, final double random2) {
-    it.setValue(random1);
-  }
-  
-  private void _transition_exprAction__subtract_transitions0_actions1(final Calc1 it, final double random1, final double random2) {
-    it.subtract(random2);
-  }
-  
-  private void _test__subtract_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
-    _test__subtract_transitions0_effect_state_propertyTests0(calc1, random1, random2);
+    try {
+      
+      it.setValue(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("value = random1 failed: " + error.getMessage());
+    }
     
   }
   
-  private boolean _test__subtract_transitions0_effect_state_propertyTests0(final Calc1 it, final double random1, final double random2) {
+  private void _transition_exprAction__subtract_transitions0_actions1(final Calc1 it, final double random1, final double random2) {
+    try {
+      
+      it.subtract(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("subtract(random2) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__subtract_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
+    _test__subtract_transitions0_effect_state_objectTests0_test(calc1, random1, random2);
+    
+  }
+  
+  private void _test__subtract_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
     double _minus = (random1 - random2);
     boolean _equals = this.operator_equals(_value, _minus);
-    assertTrue("value == random1 - random2; failed after value = random1 ,subtract(random2)", _equals);
-    return _equals;
+    assertTrue("value == random1 - random2 failed after value = random1 ,subtract(random2)", _equals);
+    
   }
   
   private double _init__multiply_random1() {
@@ -231,25 +261,37 @@ public class Calc1Test extends TestCase {
   }
   
   private void _transition_exprAction__multiply_transitions0_actions0(final Calc1 it, final double random1, final double random2) {
-    it.setValue(random1);
-  }
-  
-  private void _transition_exprAction__multiply_transitions0_actions1(final Calc1 it, final double random1, final double random2) {
-    it.multiply(random2);
-  }
-  
-  private void _test__multiply_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
-    _test__multiply_transitions0_effect_state_propertyTests0(calc1, random1, random2);
+    try {
+      
+      it.setValue(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("value = random1 failed: " + error.getMessage());
+    }
     
   }
   
-  private boolean _test__multiply_transitions0_effect_state_propertyTests0(final Calc1 it, final double random1, final double random2) {
+  private void _transition_exprAction__multiply_transitions0_actions1(final Calc1 it, final double random1, final double random2) {
+    try {
+      
+      it.multiply(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("multiply(random2) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__multiply_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
+    _test__multiply_transitions0_effect_state_objectTests0_test(calc1, random1, random2);
+    
+  }
+  
+  private void _test__multiply_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
     double _multiply = (random1 * random2);
     boolean _equals = this.operator_equals(_value, _multiply);
-    assertTrue("value == random1 * random2; failed after value = random1 ,multiply(random2)", _equals);
-    return _equals;
+    assertTrue("value == random1 * random2 failed after value = random1 ,multiply(random2)", _equals);
+    
   }
   
   private double _init__divide_random1() {
@@ -266,25 +308,37 @@ public class Calc1Test extends TestCase {
   }
   
   private void _transition_exprAction__divide_transitions0_actions0(final Calc1 it, final double random1, final double random2) {
-    it.setValue(random1);
-  }
-  
-  private void _transition_exprAction__divide_transitions0_actions1(final Calc1 it, final double random1, final double random2) {
-    it.divide(random2);
-  }
-  
-  private void _test__divide_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
-    _test__divide_transitions0_effect_state_propertyTests0(calc1, random1, random2);
+    try {
+      
+      it.setValue(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("value = random1 failed: " + error.getMessage());
+    }
     
   }
   
-  private boolean _test__divide_transitions0_effect_state_propertyTests0(final Calc1 it, final double random1, final double random2) {
+  private void _transition_exprAction__divide_transitions0_actions1(final Calc1 it, final double random1, final double random2) {
+    try {
+      
+      it.divide(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("divide(random2) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__divide_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
+    _test__divide_transitions0_effect_state_objectTests0_test(calc1, random1, random2);
+    
+  }
+  
+  private void _test__divide_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
     double _divide = (random1 / random2);
     boolean _equals = this.operator_equals(_value, _divide);
-    assertTrue("value == random1 / random2; failed after value = random1 ,divide(random2)", _equals);
-    return _equals;
+    assertTrue("value == random1 / random2 failed after value = random1 ,divide(random2)", _equals);
+    
   }
   
   private double _init__percent_random1() {
@@ -300,26 +354,38 @@ public class Calc1Test extends TestCase {
   }
   
   private void _transition_exprAction__percent_transitions0_actions0(final Calc1 it, final double random1, final double random2) {
-    it.setValue(random1);
-  }
-  
-  private void _transition_exprAction__percent_transitions0_actions1(final Calc1 it, final double random1, final double random2) {
-    it.percent(random2);
-  }
-  
-  private void _test__percent_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
-    _test__percent_transitions0_effect_state_propertyTests0(calc1, random1, random2);
+    try {
+      
+      it.setValue(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("value = random1 failed: " + error.getMessage());
+    }
     
   }
   
-  private boolean _test__percent_transitions0_effect_state_propertyTests0(final Calc1 it, final double random1, final double random2) {
+  private void _transition_exprAction__percent_transitions0_actions1(final Calc1 it, final double random1, final double random2) {
+    try {
+      
+      it.percent(random2);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("percent(random2) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__percent_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
+    _test__percent_transitions0_effect_state_objectTests0_test(calc1, random1, random2);
+    
+  }
+  
+  private void _test__percent_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
     double _multiply = (random1 * random2);
     double _divide = (_multiply / 100);
     boolean _equals = this.operator_equals(_value, _divide);
-    assertTrue("value == random1 * random2 / 100; failed after value = random1 ,percent(random2)", _equals);
-    return _equals;
+    assertTrue("value == random1 * random2 / 100 failed after value = random1 ,percent(random2)", _equals);
+    
   }
   
   private double _init__negate_random1() {
@@ -329,41 +395,63 @@ public class Calc1Test extends TestCase {
   }
   
   private void _transition_exprAction__negate_transitions0_actions0(final Calc1 it, final double random1) {
-    it.setValue(random1);
-  }
-  
-  private void _transition_exprAction__negate_transitions0_actions1(final Calc1 it, final double random1) {
-    it.negate();
-  }
-  
-  private void _test__negate_transitions0_effect_state(final Calc1 it, final double random1) {
-    _test__negate_transitions0_effect_state_propertyTests0(calc1, random1);
+    try {
+      
+      it.setValue(random1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("value = random1 failed: " + error.getMessage());
+    }
     
   }
   
-  private boolean _test__negate_transitions0_effect_state_propertyTests0(final Calc1 it, final double random1) {
+  private void _transition_exprAction__negate_transitions0_actions1(final Calc1 it, final double random1) {
+    try {
+      
+      it.negate();
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("negate failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__negate_transitions0_effect_state(final Calc1 it, final double random1) {
+    _test__negate_transitions0_effect_state_objectTests0_test(calc1, random1);
+    
+  }
+  
+  private void _test__negate_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1) {
     
     double _value = it.getValue();
     double _minus = (-random1);
     boolean _equals = this.operator_equals(_value, _minus);
-    assertTrue("value == -random1; failed after value = random1 ,negate", _equals);
-    return _equals;
+    assertTrue("value == -random1 failed after value = random1 ,negate", _equals);
+    
   }
   
   private void _transition_exprAction__pi_transitions0_actions0(final Calc1 it) {
-    it.pi();
+    try {
+      
+      it.pi();
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("pi failed: " + error.getMessage());
+    }
+    
   }
   
   private void _test__pi_transitions0_effect_state(final Calc1 it) {
-    _test__pi_transitions0_effect_state_propertyTests0(calc1);
+    _test__pi_transitions0_effect_state_objectTests0_test(calc1);
     
   }
   
-  private boolean _test__pi_transitions0_effect_state_propertyTests0(final Calc1 it) {
+  private void _test__pi_transitions0_effect_state_objectTests0_test(final Calc1 it) {
     
     double _value = it.getValue();
     boolean _equals = this.operator_equals(_value, Math.PI);
-    assertTrue("value == Math.PI; failed after pi", _equals);
-    return _equals;
+    assertTrue("value == Math.PI failed after pi", _equals);
+    
+  }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(Calc1Test.class);
   }
 }

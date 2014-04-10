@@ -449,4 +449,8 @@ public class CardTest extends TestCase {
     assertEquals("toString == 'C13' failed after c = new Card('C', 13)", "C13", _string);
     
   }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(CardTest.class);
+  }
 }

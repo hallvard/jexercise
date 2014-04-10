@@ -3,8 +3,8 @@ package objectstructures;
 import com.google.common.collect.Lists;
 import java.util.Collection;
 import java.util.Collections;
-import junit.framework.Assert;
 import junit.framework.TestCase;
+import no.hal.jex.jextest.extensions.JextestExtensions;
 import no.hal.jex.runtime.JExercise;
 import objectstructures.Card;
 import objectstructures.CardDeck;
@@ -21,23 +21,28 @@ public class CardHandTest extends TestCase {
     
   }
   
-  private void testCards(final CardHand it, final Collection<String> toStrings) {
-    int _size = toStrings.size();
-    int _cardCount = it.getCardCount();
-    Assert.assertEquals(_size, _cardCount);
-    int i = 0;
-    for (final String toString : toStrings) {
-      {
-        final Card card = it.getCard(i);
-        char _suit = card.getSuit();
-        String _valueOf = String.valueOf(_suit);
-        int _face = card.getFace();
-        String _plus = (_valueOf + Integer.valueOf(_face));
-        Assert.assertEquals(toString, _plus);
-        int _plus_1 = (i + 1);
-        i = _plus_1;
+  private boolean operator_assertEquals(final CardHand it, final Collection<String> toStrings) {
+    boolean _xblockexpression = false;
+    {
+      int _cardCount = it.getCardCount();
+      int _size = toStrings.size();
+      JextestExtensions.operator_assertEquals(_cardCount, _size);
+      int i = 0;
+      for (final String toString : toStrings) {
+        {
+          final Card card = it.getCard(i);
+          char _suit = card.getSuit();
+          String _valueOf = String.valueOf(_suit);
+          int _face = card.getFace();
+          String _plus = (_valueOf + Integer.valueOf(_face));
+          JextestExtensions.operator_assertEquals(_plus, toString);
+          int _plus_1 = (i + 1);
+          i = _plus_1;
+        }
       }
+      _xblockexpression = (true);
     }
+    return _xblockexpression;
   }
   
   @JExercise(tests = "CardHand()", description = "Tests \n\t\tinitialization\n")
@@ -101,12 +106,9 @@ public class CardHandTest extends TestCase {
   }
   
   private void _test__deal_transitions0_effect_state_objectTests0_test(final CardHand it, final CardDeck deck) {
-    try {
-      
-      this.testCards(it, Collections.<String>unmodifiableList(Lists.<String>newArrayList("C2", "C1", "D2")));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testCards(it, #[\"C2\", \"C1\", \"D2\"]) failed after deck.deal(cardHand, 3): " + error.getMessage());
-    }
+    
+    boolean _assertEquals = this.operator_assertEquals(it, Collections.<String>unmodifiableList(Lists.<String>newArrayList("C2", "C1", "D2")));
+    assertTrue("it ?= #[\"C2\", \"C1\", \"D2\"] failed after deck.deal(cardHand, 3)", _assertEquals);
     
   }
   
@@ -131,12 +133,9 @@ public class CardHandTest extends TestCase {
   }
   
   private void _test__dealPlay_transitions0_effect_state_objectTests0_test(final CardHand it, final CardDeck deck) {
-    try {
-      
-      this.testCards(it, Collections.<String>unmodifiableList(Lists.<String>newArrayList("C2", "C1", "D2")));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testCards(it, #[\"C2\", \"C1\", \"D2\"]) failed after deck.deal(cardHand, 3): " + error.getMessage());
-    }
+    
+    boolean _assertEquals = this.operator_assertEquals(it, Collections.<String>unmodifiableList(Lists.<String>newArrayList("C2", "C1", "D2")));
+    assertTrue("it ?= #[\"C2\", \"C1\", \"D2\"] failed after deck.deal(cardHand, 3)", _assertEquals);
     
   }
   
@@ -152,12 +151,9 @@ public class CardHandTest extends TestCase {
   }
   
   private void _test__dealPlay_transitions1_effect_state_objectTests0_test(final CardHand it, final CardDeck deck) {
-    try {
-      
-      this.testCards(it, Collections.<String>unmodifiableList(Lists.<String>newArrayList("C2", "D2")));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testCards(it, #[\"C2\", \"D2\"]) failed after play(1): " + error.getMessage());
-    }
+    
+    boolean _assertEquals = this.operator_assertEquals(it, Collections.<String>unmodifiableList(Lists.<String>newArrayList("C2", "D2")));
+    assertTrue("it ?= #[\"C2\", \"D2\"] failed after play(1)", _assertEquals);
     
   }
   
@@ -173,12 +169,9 @@ public class CardHandTest extends TestCase {
   }
   
   private void _test__dealPlay_transitions2_effect_state_objectTests0_test(final CardHand it, final CardDeck deck) {
-    try {
-      
-      this.testCards(it, Collections.<String>unmodifiableList(Lists.<String>newArrayList("D2")));
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("testCards(it, #[\"D2\"]) failed after play(0): " + error.getMessage());
-    }
+    
+    boolean _assertEquals = this.operator_assertEquals(it, Collections.<String>unmodifiableList(Lists.<String>newArrayList("D2")));
+    assertTrue("it ?= #[\"D2\"] failed after play(0)", _assertEquals);
     
   }
   
@@ -198,5 +191,9 @@ public class CardHandTest extends TestCase {
     int _cardCount = it.getCardCount();
     assertEquals("cardCount == 0 failed after play(0)", 0, _cardCount);
     
+  }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(CardHandTest.class);
   }
 }
