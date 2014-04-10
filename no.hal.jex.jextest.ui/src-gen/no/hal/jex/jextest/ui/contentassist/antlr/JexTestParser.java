@@ -44,13 +44,12 @@ public class JexTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJexTestSequenceAccess().getAlternatives_4_0(), "rule__JexTestSequence__Alternatives_4_0");
 					put(grammarAccess.getTransitionAccess().getAlternatives(), "rule__Transition__Alternatives");
 					put(grammarAccess.getTransitionSourceAccess().getAlternatives(), "rule__TransitionSource__Alternatives");
-					put(grammarAccess.getTransitionActionAccess().getAlternatives(), "rule__TransitionAction__Alternatives");
 					put(grammarAccess.getTransitionEffectAccess().getAlternatives(), "rule__TransitionEffect__Alternatives");
 					put(grammarAccess.getTransitionTargetEffectAccess().getAlternatives_1(), "rule__TransitionTargetEffect__Alternatives_1");
 					put(grammarAccess.getMethodAccess().getNameAlternatives_3_0(), "rule__Method__NameAlternatives_3_0");
+					put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");
 					put(grammarAccess.getXAssignmentAccess().getAlternatives(), "rule__XAssignment__Alternatives");
 					put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
-					put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");
 					put(grammarAccess.getXRelationalExpressionAccess().getAlternatives_1(), "rule__XRelationalExpression__Alternatives_1");
 					put(grammarAccess.getOpCompareAccess().getAlternatives(), "rule__OpCompare__Alternatives");
 					put(grammarAccess.getOpOtherAccess().getAlternatives(), "rule__OpOther__Alternatives");
@@ -325,7 +324,8 @@ public class JexTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodAccess().getParametersAssignment_5_1_1(), "rule__Method__ParametersAssignment_5_1_1");
 					put(grammarAccess.getMethodAccess().getBodyAssignment_7(), "rule__Method__BodyAssignment_7");
 					put(grammarAccess.getParameterAccess().getTypeAssignment_0(), "rule__Parameter__TypeAssignment_0");
-					put(grammarAccess.getParameterAccess().getNameAssignment_1(), "rule__Parameter__NameAssignment_1");
+					put(grammarAccess.getParameterAccess().getVarargAssignment_1(), "rule__Parameter__VarargAssignment_1");
+					put(grammarAccess.getParameterAccess().getNameAssignment_2(), "rule__Parameter__NameAssignment_2");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 					put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");

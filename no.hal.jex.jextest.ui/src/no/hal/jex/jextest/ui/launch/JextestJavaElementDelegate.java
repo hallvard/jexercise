@@ -29,7 +29,12 @@ public class JextestJavaElementDelegate extends JavaElementDelegate {
 			} catch (CoreException e) {
 			}
 		}
-		return super.getAdapter(adapter);
+		try {
+			return super.getAdapter(adapter);
+		} catch (NullPointerException e) {
+			// problem with @Inject in superclass
+		}
+		return null;
 	}
 
 	private IJavaElement findTestClassForJextest(IResource file) throws CoreException {
