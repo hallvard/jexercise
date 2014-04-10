@@ -3,6 +3,7 @@ package stateandbehavior;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Calc1Program {
 
@@ -20,14 +21,9 @@ public class Calc1Program {
 	}
 	
 	void run() {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		while (true) {
-			String line = null;
-			try {
-				line = reader.readLine();
-			} catch (IOException e) {
-				System.err.println(e);
-			}
+		Scanner scanner = new Scanner(System.in);
+		while (scanner.hasNextLine()) {
+			String line = scanner.nextLine();
 			if (line == null || line.trim().length() == 0) {
 				System.err.println(calc1);
 				break;
@@ -35,6 +31,7 @@ public class Calc1Program {
 			double value = doLine(line);
 			System.out.printf("=%f\n", value);
 		}
+		scanner.close();
 	}
 
 	double doLine(String line) {

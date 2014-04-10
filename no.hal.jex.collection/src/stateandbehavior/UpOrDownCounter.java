@@ -21,9 +21,9 @@ public class UpOrDownCounter {
 		this.start = start;
 		this.end = end;
 		delta = signum(start, end);
-		if (delta == 0) {
-			throw new IllegalArgumentException("start and end cannot be equal");
-		}
+//		if (start == end) {
+//			throw new IllegalArgumentException("Start and end cannot be equal");
+//		}
 		counter = start;
 	}
 
@@ -41,7 +41,7 @@ public class UpOrDownCounter {
 		if (signum(start, end) == signum(counter, end)) {
 			counter += delta;
 		}
-		return signum(start, end) == signum(counter, end);
+		return start != end && signum(start, end) == signum(counter, end);
 	}
 	
 	public int getCounter() {

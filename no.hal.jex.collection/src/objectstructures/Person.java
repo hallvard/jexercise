@@ -75,7 +75,7 @@ public class Person {
 
 
 	private void checkGender(Person person, char gender) {
-		if (person.gender != gender) {
+		if (person != null && person.gender != gender) {
 			throw new IllegalArgumentException("The gender is " + person.gender + " but should have been " + gender);
 		}
 	}

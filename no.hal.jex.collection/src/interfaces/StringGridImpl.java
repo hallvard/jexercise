@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class StringGridImpl implements StringGrid {
+public class StringGridImpl implements StringGrid, Iterable<String> {
 
 	private int columnCount;
 	private List<String> elements;
@@ -17,6 +17,8 @@ public class StringGridImpl implements StringGrid {
 		this.columnCount = columnCount;
 	}
 
+	// from StringGrid
+	
 	@Override
 	public int getRowCount() {
 		return elements.size() / columnCount;
@@ -48,6 +50,8 @@ public class StringGridImpl implements StringGrid {
 		checkValidElement(row, column);
 		elements.set(getIndex(row, column), element);
 	}
+	
+	// from Iterable<String>
 
 	@Override
 	public Iterator<String> iterator() {
