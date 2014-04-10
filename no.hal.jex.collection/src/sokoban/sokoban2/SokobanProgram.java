@@ -7,16 +7,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
 
-import program.GraphicalOutput;
-import program.TextualOutput;
-import program.TextualProgram;
-import program.TextualProgramDriver;
+import program.ConsoleGame;
+import program.ConsoleGameDriver;
+import program.GameOutput;
 
-public class SokobanProgram implements TextualProgram {
+public class SokobanProgram implements ConsoleGame {
 
 	private SokobanGrid grid = null;
 	
@@ -105,35 +102,19 @@ public class SokobanProgram implements TextualProgram {
 				}
 			}
 			if (exception != null) {
-				output.error(exception);
+				output.error(exception.getMessage());
 			}
 		}
 	}
 	
-	private TextualOutput output;
+	private GameOutput output;
 	
-	public void run(TextualOutput output) {
+	public void run(GameOutput output) {
 		this.output = output;
-		if (output instanceof GraphicalOutput) {
-			((GraphicalOutput) output).imageGrid(grid.toString(), cellImageMapping);
-		} else {
-			output.message(grid);
-		}
+		output.info(grid.toString());
 	}
 	
-	private String imageSuffix = "16x16.png";
-	private Map<String, String> cellImageMapping = new HashMap<String, String>();
-	{
-		cellImageMapping.put(" ", "empty" + imageSuffix);
-		cellImageMapping.put("#", "wall" + imageSuffix);
-		cellImageMapping.put(".", "target" + imageSuffix);
-		cellImageMapping.put("@", "player" + imageSuffix);
-		cellImageMapping.put("+", "player_on_target" + imageSuffix);
-		cellImageMapping.put("$", "box" + imageSuffix);
-		cellImageMapping.put("*", "box_on_target" + imageSuffix);
-	}
-	
-	public Boolean doLine(String moves) {
+	public Integer doLine(String moves) {
 		if (moves.startsWith("<")) {
 			try {
 				init(moves.substring(1).trim());
@@ -147,7 +128,7 @@ public class SokobanProgram implements TextualProgram {
 				output.error("Exception when writing level: " + e);
 			}
 		} else if (moves.equals("x") || moves.equals("q")) {
-			return false;
+			return -1;
 		} else {
 			int i = 0, n = 0;
 			while (i < moves.length()) {
@@ -166,7 +147,7 @@ public class SokobanProgram implements TextualProgram {
 				// command is move in specific direction
 				else if (direction(command) != null) {
 					if (! doMove(command)) {
-						output.message("Illegal move!");
+						output.info("Illegal move!");
 					}
 				}
 				// count down repetition or step to next command
@@ -176,15 +157,11 @@ public class SokobanProgram implements TextualProgram {
 					i++;
 				}
 			}
-			if (output instanceof GraphicalOutput) {
-				((GraphicalOutput) output).imageGrid(grid.toString(), cellImageMapping);
-			} else {
-				output.message(grid + "\n" + this.undo.size() + " moves/pushes: " + moves);
-			}
+			output.info(grid + "\n" + this.undo.size() + " moves/pushes: " + moves);
 		}
 		if (grid.countRemainingTargets() == 0) {
-			output.message("Finished using " + this.undo.size() + " moves/pushes!");
-			return true;
+			output.info("Finished using " + this.undo.size() + " moves/pushes!");
+			return 1;
 		}
 		return null;
 	}
@@ -192,6 +169,6 @@ public class SokobanProgram implements TextualProgram {
 	//
 	
 	public static void main(String[] args) throws Exception {
-		TextualProgramDriver.main(new String[]{SokobanProgram.class.getName(), "#######|#.@ # #|#$* $ #|#   $ #|# ..  #|#  *  #|#######"});
+		ConsoleGameDriver.main(new String[]{SokobanProgram.class.getName(), "#######|#.@ # #|#$* $ #|#   $ #|# ..  #|#  *  #|#######"});
 	}
 }

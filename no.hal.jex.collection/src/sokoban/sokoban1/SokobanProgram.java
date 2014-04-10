@@ -8,13 +8,13 @@ public class SokobanProgram {
 	
 	public boolean doMove(char move) {
 		int dx = 0, dy = 0;
-		if (move == 'u') {
+		if (move == 'w') {
 			dy = -1;
-		} else if (move == 'd') {
+		} else if (move == 's') {
 			dy = 1;
-		} if (move == 'l') {
+		} if (move == 'a') {
 			dx = -1;
-		} else if (move == 'r') {
+		} else if (move == 'd') {
 			dx = 1;
 		}
 		if (dx != 0 || dy != 0) {

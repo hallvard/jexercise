@@ -3,11 +3,11 @@ package tictactoe.tictactoe2;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import program.TextualOutput;
-import program.TextualProgram;
-import program.TextualProgramDriver;
+import program.GameOutput;
+import program.ConsoleGame;
+import program.ConsoleGameDriver;
 
-public class TicTacToeProgram implements TextualProgram {
+public class TicTacToeProgram implements ConsoleGame {
 	
 	private TicTacToe ticTacToe;
 	
@@ -16,14 +16,14 @@ public class TicTacToeProgram implements TextualProgram {
 		ticTacToe = new TicTacToe(level, true);
 	}
 
-	private TextualOutput output;
+	private GameOutput output;
 	
 	private String instructions = "Enter x and y coordinate of next placement (separated by whitespace) corresponding to board positions:\n0 0|1 0|2 0\n-----------\n0 1|1 1|2 1\n-----------\n0 2|1 2|2 2\n###########\n";
 
 	@Override
-	public void run(TextualOutput output) {
+	public void run(GameOutput output) {
 		this.output = output;
-		output.message(instructions + "\n" + ticTacToe.toString(true) + "\n" + ticTacToe.getCurrentPlayer() + "'s turn");
+		output.info(instructions + "\n" + ticTacToe.toString(true) + "\n" + ticTacToe.getCurrentPlayer() + "'s turn");
 	}
 
 	/*
@@ -33,7 +33,7 @@ public class TicTacToeProgram implements TextualProgram {
 	private LevelFormat levelFormat = new StandardLevelFormat();
 	
 	@Override
-	public Boolean doLine(String line) {
+	public Integer doLine(String line) {
 		if (line.startsWith("<")) {
 			try {
 				ticTacToe = levelFormat.readLevel(new FileInputStream(line.substring(1).trim()));
@@ -47,7 +47,7 @@ public class TicTacToeProgram implements TextualProgram {
 				output.error("Exception when writing level: " + e);
 			}
 		} else if (line.equals("x") || line.equals("q")) {
-			return false;
+			return -1;
 		}
 		if (line.equals("u")) {
 			ticTacToe.undo();
@@ -68,24 +68,24 @@ public class TicTacToeProgram implements TextualProgram {
 			}
 		}
 		String message = ticTacToe.toString(true) + "\n";
-		output.message(message + ticTacToe.getCurrentPlayer() + "'s turn");
+		output.info(message + ticTacToe.getCurrentPlayer() + "'s turn");
 		if (! ticTacToe.isFinished()) {
 			return null;
 		}
 		if (! ticTacToe.hasWinner()) {
 			// The game ended in a draw
-			output.message(message + "The game ended in a draw.");
+			output.info(message + "The game ended in a draw.");
 		} else if (ticTacToe.isWinner('x')) {
-			output.message(message + "Player x has won the game.");
+			output.info(message + "Player x has won the game.");
 		} else if (ticTacToe.isWinner('o')) {
-			output.message(message + "Player o has won the game.");
+			output.info(message + "Player o has won the game.");
 		}
-		return true;
+		return 1;
 	}
 	
 	//
 
 	public static void main(String[] args) throws Exception {
-		TextualProgramDriver.main(new String[]{TicTacToeProgram.class.getName(), "........."});
+		ConsoleGameDriver.main(new String[]{TicTacToeProgram.class.getName(), "........."});
 	}
 }
