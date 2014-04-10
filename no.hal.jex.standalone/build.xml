@@ -28,9 +28,10 @@
                 <attribute name="Main-Class" value="no.hal.jex.swing.JexExercisePanel"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="/Users/hal/java/git/jexercise/no.hal.jex.standalone/bin"/>
-            <fileset dir="/Users/hal/java/git/jexercise/no.hal.jex.runtime/bin"/>
-            <fileset dir="/Users/hal/java/git/jexercise/no.hal.jex/bin"/>
+            <fileset dir="${basedir}/bin"/>
+            <fileset dir="${basedir}/../no.hal.jex.runtime/bin"/>
+            <fileset dir="${basedir}/../no.hal.jex/bin"/>
+            <fileset dir="${basedir}/../no.hal.jex.jextest.lib/bin"/>
             <zipfileset excludes="META-INF/*.SF" src="${plugin-dir}/org.eclipse.emf.ecore_${ecore-version}.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="${plugin-dir}/org.eclipse.emf.common_${ecore-version}.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="${plugin-dir}/org.eclipse.emf.ecore.xmi_${ecore-version}.jar"/>
