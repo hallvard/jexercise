@@ -551,4 +551,8 @@ public class GridTest extends TestCase {
     assertEquals("hasNext == false failed after gridIterator.next == \"1, 2\"", false, _hasNext);
     
   }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(GridTest.class);
+  }
 }
