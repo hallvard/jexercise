@@ -4,7 +4,7 @@ package no.hal.jex.jextest.jexTest;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -37,12 +37,12 @@ public interface Instance extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(JvmParameterizedTypeReference)
+   * @see #setType(JvmTypeReference)
    * @see no.hal.jex.jextest.jexTest.JexTestPackage#getInstance_Type()
    * @model containment="true"
    * @generated
    */
-  JvmParameterizedTypeReference getType();
+  JvmTypeReference getType();
 
   /**
    * Sets the value of the '{@link no.hal.jex.jextest.jexTest.Instance#getType <em>Type</em>}' containment reference.
@@ -52,7 +52,7 @@ public interface Instance extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(JvmParameterizedTypeReference value);
+  void setType(JvmTypeReference value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

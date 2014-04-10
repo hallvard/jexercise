@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.common.types.JvmAnnotationReference;
 import org.eclipse.xtext.common.types.JvmDeclaredType;
+import org.eclipse.xtext.common.types.JvmExecutable;
 import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericType;
@@ -142,7 +143,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           EList<Instance> _instances = testCase.getInstances();
           for (final Instance instance : _instances) {
             {
-              final JvmParameterizedTypeReference type = JexTestJvmModelInferrer.this._util.jvmType(instance);
+              final JvmTypeReference type = JexTestJvmModelInferrer.this._util.jvmType(instance);
               EList<JvmMember> _members_1 = jvmClass.getMembers();
               String _name = instance.getName();
               final Procedure1<JvmField> _function_1 = new Procedure1<JvmField>() {
@@ -199,20 +200,14 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
             boolean _notEquals = (!Objects.equal(methodName, null));
             if (_notEquals) {
               EList<JvmMember> _members_2 = it.getMembers();
-              JvmParameterizedTypeReference _returnType = method.getReturnType();
+              JvmTypeReference _returnType = method.getReturnType();
               final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
                 public void apply(final JvmOperation it) {
                   it.setVisibility(JvmVisibility.PRIVATE);
                   boolean _isStatic = method.isStatic();
                   it.setStatic(_isStatic);
                   EList<Parameter> _parameters = method.getParameters();
-                  for (final Parameter parameter : _parameters) {
-                    EList<JvmFormalParameter> _parameters_1 = it.getParameters();
-                    String _name = parameter.getName();
-                    JvmParameterizedTypeReference _type = parameter.getType();
-                    JvmFormalParameter _parameter = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(parameter, _name, _type);
-                    JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_1, _parameter);
-                  }
+                  JexTestJvmModelInferrer.this.initParameters(it, _parameters);
                   XExpression _body = method.getBody();
                   JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _body);
                 }
@@ -245,13 +240,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
                 JvmFormalParameter _parameter = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(stateFunction, _string, _elvis);
                 JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
                 EList<Parameter> _parameters_1 = stateFunction.getParameters();
-                for (final Parameter parameter : _parameters_1) {
-                  EList<JvmFormalParameter> _parameters_2 = it.getParameters();
-                  String _name = parameter.getName();
-                  JvmParameterizedTypeReference _type_1 = parameter.getType();
-                  JvmFormalParameter _parameter_1 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(parameter, _name, _type_1);
-                  JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_2, _parameter_1);
-                }
+                JexTestJvmModelInferrer.this.initParameters(it, _parameters_1);
                 final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
                   public void apply(final ITreeAppendable it) {
                     XBlockExpression _test = stateFunction.getTest();
@@ -425,7 +414,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
   public JvmOperation inferTestInstanceInitMethod(final String name, final Instance instance) {
     JvmOperation _xblockexpression = null;
     {
-      JvmParameterizedTypeReference _jvmType = this._util.jvmType(instance);
+      JvmTypeReference _jvmType = this._util.jvmType(instance);
       final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
         public void apply(final JvmOperation it) {
           it.setVisibility(JvmVisibility.PRIVATE);
@@ -438,7 +427,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
         final Procedure1<ITreeAppendable> _function_1 = new Procedure1<ITreeAppendable>() {
           public void apply(final ITreeAppendable it) {
             it.append("return new ");
-            JvmParameterizedTypeReference _jvmType = JexTestJvmModelInferrer.this._util.jvmType(instance);
+            JvmTypeReference _jvmType = JexTestJvmModelInferrer.this._util.jvmType(instance);
             JexTestJvmModelInferrer.this._typeReferenceSerializer.serialize(_jvmType, instance, it);
             ITreeAppendable _append = it.append("();");
             _append.newLine();
@@ -474,6 +463,25 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       _xblockexpression = (method);
     }
     return _xblockexpression;
+  }
+  
+  public void initParameters(final JvmExecutable op, final Iterable<Parameter> parameters) {
+    for (final Parameter parameter : parameters) {
+      {
+        String _name = parameter.getName();
+        JvmTypeReference _type = parameter.getType();
+        final JvmFormalParameter formalParameter = this._jvmTypesBuilder.toParameter(parameter, _name, _type);
+        boolean _isVararg = parameter.isVararg();
+        if (_isVararg) {
+          JvmTypeReference _parameterType = formalParameter.getParameterType();
+          JvmTypeReference _addArrayTypeDimension = this._jvmTypesBuilder.addArrayTypeDimension(_parameterType);
+          formalParameter.setParameterType(_addArrayTypeDimension);
+          op.setVarArgs(true);
+        }
+        EList<JvmFormalParameter> _parameters = op.getParameters();
+        this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, formalParameter);
+      }
+    }
   }
   
   public ITreeAppendable generateSetUpMethodBody(final JexTestCase testCase, final ITreeAppendable appendable) {
@@ -560,7 +568,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
     final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
       public void apply(final JvmOperation it) {
         it.setVisibility(JvmVisibility.PRIVATE);
-        final JvmParameterizedTypeReference instanceType = JexTestJvmModelInferrer.this._util.jvmInstanceType(context);
+        final JvmTypeReference instanceType = JexTestJvmModelInferrer.this._util.jvmInstanceType(context);
         boolean _notEquals = (!Objects.equal(instanceType, null));
         if (_notEquals) {
           EList<JvmFormalParameter> _parameters = it.getParameters();
@@ -571,24 +579,18 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
         StateTestContext stateTestContext = innerStateTestContext;
         if ((stateTestContext instanceof StateFunction)) {
           EList<Parameter> _parameters_1 = ((StateFunction) stateTestContext).getParameters();
-          for (final Parameter parameter : _parameters_1) {
-            EList<JvmFormalParameter> _parameters_2 = it.getParameters();
-            String _name = parameter.getName();
-            JvmParameterizedTypeReference _type = parameter.getType();
-            JvmFormalParameter _parameter_1 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(parameter, _name, _type);
-            JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_2, _parameter_1);
-          }
+          JexTestJvmModelInferrer.this.initParameters(it, _parameters_1);
           StateTestContext _ancestor = JexTestJvmModelInferrer.this._util.<StateTestContext>ancestor(stateTestContext, StateTestContext.class);
           stateTestContext = _ancestor;
         }
         if ((stateTestContext instanceof JexTestSequence)) {
           EList<Instance> _instances = ((JexTestSequence) stateTestContext).getInstances();
           for (final Instance instance : _instances) {
-            EList<JvmFormalParameter> _parameters_3 = it.getParameters();
-            String _name_1 = instance.getName();
-            JvmParameterizedTypeReference _jvmType = JexTestJvmModelInferrer.this._util.jvmType(instance);
-            JvmFormalParameter _parameter_2 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(instance, _name_1, _jvmType);
-            JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_3, _parameter_2);
+            EList<JvmFormalParameter> _parameters_2 = it.getParameters();
+            String _name = instance.getName();
+            JvmTypeReference _jvmType = JexTestJvmModelInferrer.this._util.jvmType(instance);
+            JvmFormalParameter _parameter_1 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(instance, _name, _jvmType);
+            JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_2, _parameter_1);
           }
         }
       }
@@ -699,7 +701,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
   public ITreeAppendable generateLocalInstance(final Instance instance, final ITreeAppendable appendable) {
     ITreeAppendable _xblockexpression = null;
     {
-      final JvmParameterizedTypeReference instanceType = this._util.jvmType(instance);
+      final JvmTypeReference instanceType = this._util.jvmType(instance);
       this._typeReferenceSerializer.serialize(instanceType, instance, appendable);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append(" ");

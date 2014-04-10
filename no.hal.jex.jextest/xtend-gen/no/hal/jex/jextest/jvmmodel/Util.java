@@ -206,20 +206,20 @@ public class Util {
     return _xblockexpression;
   }
   
-  public JvmParameterizedTypeReference jvmType(final Instance instance) {
-    JvmParameterizedTypeReference _elvis = null;
-    JvmParameterizedTypeReference _type = instance.getType();
+  public JvmTypeReference jvmType(final Instance instance) {
+    JvmTypeReference _elvis = null;
+    JvmTypeReference _type = instance.getType();
     if (_type != null) {
       _elvis = _type;
     } else {
       JvmParameterizedTypeReference _defaultInstanceType = this.defaultInstanceType(instance);
-      _elvis = ObjectExtensions.<JvmParameterizedTypeReference>operator_elvis(_type, _defaultInstanceType);
+      _elvis = ObjectExtensions.<JvmTypeReference>operator_elvis(_type, _defaultInstanceType);
     }
     return _elvis;
   }
   
-  public JvmParameterizedTypeReference jvmInstanceType(final EObject eObject) {
-    JvmParameterizedTypeReference _xblockexpression = null;
+  public JvmTypeReference jvmInstanceType(final EObject eObject) {
+    JvmTypeReference _xblockexpression = null;
     {
       final PropertiesTestOwner propertiesTestOwner = this.<PropertiesTestOwner>ancestor(eObject, PropertiesTestOwner.class);
       if ((propertiesTestOwner instanceof StateFunction)) {
@@ -244,18 +244,18 @@ public class Util {
       }
       JexTestCase _ancestor = this.<JexTestCase>ancestor(eObject, JexTestCase.class);
       final EList<Instance> instances = _ancestor.getInstances();
-      JvmParameterizedTypeReference _xifexpression = null;
+      JvmTypeReference _xifexpression = null;
       boolean _isEmpty = instances.isEmpty();
       if (_isEmpty) {
         JvmParameterizedTypeReference _defaultInstanceType_1 = this.defaultInstanceType(eObject);
         _xifexpression = _defaultInstanceType_1;
       } else {
-        JvmParameterizedTypeReference _xifexpression_1 = null;
+        JvmTypeReference _xifexpression_1 = null;
         int _size = instances.size();
         boolean _equals = (_size == 1);
         if (_equals) {
           Instance _head = IterableExtensions.<Instance>head(instances);
-          JvmParameterizedTypeReference _jvmType = this.jvmType(_head);
+          JvmTypeReference _jvmType = this.jvmType(_head);
           _xifexpression_1 = _jvmType;
         } else {
           _xifexpression_1 = null;

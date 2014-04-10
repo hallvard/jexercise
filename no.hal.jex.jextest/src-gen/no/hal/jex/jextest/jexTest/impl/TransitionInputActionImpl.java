@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class TransitionInputActionImpl extends TransitionActionImpl implements TransitionInputAction
+public class TransitionInputActionImpl extends MinimalEObjectImpl.Container implements TransitionInputAction
 {
   /**
    * The default value of the '{@link #getInput() <em>Input</em>}' attribute.

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +24,7 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  * The following features are implemented:
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.ParameterImpl#getType <em>Type</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.ParameterImpl#isVararg <em>Vararg</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.ParameterImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -40,7 +41,27 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
    * @generated
    * @ordered
    */
-  protected JvmParameterizedTypeReference type;
+  protected JvmTypeReference type;
+
+  /**
+   * The default value of the '{@link #isVararg() <em>Vararg</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isVararg()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean VARARG_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isVararg() <em>Vararg</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isVararg()
+   * @generated
+   * @ordered
+   */
+  protected boolean vararg = VARARG_EDEFAULT;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -88,7 +109,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
    * <!-- end-user-doc -->
    * @generated
    */
-  public JvmParameterizedTypeReference getType()
+  public JvmTypeReference getType()
   {
     return type;
   }
@@ -98,9 +119,9 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(JvmParameterizedTypeReference newType, NotificationChain msgs)
+  public NotificationChain basicSetType(JvmTypeReference newType, NotificationChain msgs)
   {
-    JvmParameterizedTypeReference oldType = type;
+    JvmTypeReference oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -115,7 +136,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(JvmParameterizedTypeReference newType)
+  public void setType(JvmTypeReference newType)
   {
     if (newType != type)
     {
@@ -129,6 +150,29 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.PARAMETER__TYPE, newType, newType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isVararg()
+  {
+    return vararg;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVararg(boolean newVararg)
+  {
+    boolean oldVararg = vararg;
+    vararg = newVararg;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.PARAMETER__VARARG, oldVararg, vararg));
   }
 
   /**
@@ -182,6 +226,8 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
     {
       case JexTestPackage.PARAMETER__TYPE:
         return getType();
+      case JexTestPackage.PARAMETER__VARARG:
+        return isVararg();
       case JexTestPackage.PARAMETER__NAME:
         return getName();
     }
@@ -199,7 +245,10 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
     switch (featureID)
     {
       case JexTestPackage.PARAMETER__TYPE:
-        setType((JvmParameterizedTypeReference)newValue);
+        setType((JvmTypeReference)newValue);
+        return;
+      case JexTestPackage.PARAMETER__VARARG:
+        setVararg((Boolean)newValue);
         return;
       case JexTestPackage.PARAMETER__NAME:
         setName((String)newValue);
@@ -219,7 +268,10 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
     switch (featureID)
     {
       case JexTestPackage.PARAMETER__TYPE:
-        setType((JvmParameterizedTypeReference)null);
+        setType((JvmTypeReference)null);
+        return;
+      case JexTestPackage.PARAMETER__VARARG:
+        setVararg(VARARG_EDEFAULT);
         return;
       case JexTestPackage.PARAMETER__NAME:
         setName(NAME_EDEFAULT);
@@ -240,6 +292,8 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
     {
       case JexTestPackage.PARAMETER__TYPE:
         return type != null;
+      case JexTestPackage.PARAMETER__VARARG:
+        return vararg != VARARG_EDEFAULT;
       case JexTestPackage.PARAMETER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
@@ -257,7 +311,9 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (vararg: ");
+    result.append(vararg);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

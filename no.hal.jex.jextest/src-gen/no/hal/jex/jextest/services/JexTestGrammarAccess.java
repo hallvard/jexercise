@@ -168,7 +168,7 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Instance");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cTypeJvmParameterizedTypeReferenceParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
+		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -177,17 +177,17 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprXExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
 		//Instance:
-		//	type=JvmParameterizedTypeReference? name=ID ("=" expr=XExpression)?;
+		//	type=JvmTypeReference? name=ID ("=" expr=XExpression)?;
 		public ParserRule getRule() { return rule; }
 
-		//type=JvmParameterizedTypeReference? name=ID ("=" expr=XExpression)?
+		//type=JvmTypeReference? name=ID ("=" expr=XExpression)?
 		public Group getGroup() { return cGroup; }
 
-		//type=JvmParameterizedTypeReference?
+		//type=JvmTypeReference?
 		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
 
-		//JvmParameterizedTypeReference
-		public RuleCall getTypeJvmParameterizedTypeReferenceParserRuleCall_0_0() { return cTypeJvmParameterizedTypeReferenceParserRuleCall_0_0; }
+		//JvmTypeReference
+		public RuleCall getTypeJvmTypeReferenceParserRuleCall_0_0() { return cTypeJvmTypeReferenceParserRuleCall_0_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -553,12 +553,10 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		
 		//PropertiesTest returns xbase::XBlockExpression:
-		//	{PropertiesTest} //	('=' stateFunctionCall = StateFunctionCall (';' | ('{' (expressions += XExpression ';')* '}'))) |
-		//	("{" (expressions+=XExpression ";"?)* "}");
+		//	{PropertiesTest} ("{" (expressions+=XExpression ";"?)* "}");
 		public ParserRule getRule() { return rule; }
 
-		//{PropertiesTest} //	('=' stateFunctionCall = StateFunctionCall (';' | ('{' (expressions += XExpression ';')* '}'))) |
-		//("{" (expressions+=XExpression ";"?)* "}")
+		//{PropertiesTest} ("{" (expressions+=XExpression ";"?)* "}")
 		public Group getGroup() { return cGroup; }
 
 		//{PropertiesTest}
@@ -606,11 +604,6 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cEffectAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cEffectTransitionTargetEffectParserRuleCall_1_0 = (RuleCall)cEffectAssignment_1.eContents().get(0);
 		
-		////StateFunctionCall returns xbase::XBlockExpression:
-		////	{StateFunctionCall}
-		////	stateFunction = [StateFunction | ID]
-		////	('(' (expressions += XExpression (',' expressions += XExpression)*)? ')')?
-		////;
 		//Transition:
 		//	source=TransitionSource? // optional source
 		//	// action part
@@ -721,22 +714,15 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class TransitionActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TransitionAction");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTransitionExpressionActionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTransitionInputActionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTransitionExpressionActionParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
+		//// | TransitionInputAction;
 		//TransitionAction:
-		//	TransitionExpressionAction | TransitionInputAction;
+		//	TransitionExpressionAction;
 		public ParserRule getRule() { return rule; }
 
-		//TransitionExpressionAction | TransitionInputAction
-		public Alternatives getAlternatives() { return cAlternatives; }
-
 		//TransitionExpressionAction
-		public RuleCall getTransitionExpressionActionParserRuleCall_0() { return cTransitionExpressionActionParserRuleCall_0; }
-
-		//TransitionInputAction
-		public RuleCall getTransitionInputActionParserRuleCall_1() { return cTransitionInputActionParserRuleCall_1; }
+		public RuleCall getTransitionExpressionActionParserRuleCall() { return cTransitionExpressionActionParserRuleCall; }
 	}
 
 	public class TransitionExpressionActionElements extends AbstractParserRuleElementFinder {
@@ -804,13 +790,13 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cTransitionTargetEffectParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cTransitionExceptionEffectParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cTransitionOutputEffectParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
+		//// | TransitionOutputEffect;
 		//TransitionEffect:
-		//	TransitionTargetEffect | TransitionExceptionEffect | TransitionOutputEffect;
+		//	TransitionTargetEffect | TransitionExceptionEffect;
 		public ParserRule getRule() { return rule; }
 
-		//TransitionTargetEffect | TransitionExceptionEffect | TransitionOutputEffect
+		//TransitionTargetEffect | TransitionExceptionEffect
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//TransitionTargetEffect
@@ -818,9 +804,6 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 
 		//TransitionExceptionEffect
 		public RuleCall getTransitionExceptionEffectParserRuleCall_1() { return cTransitionExceptionEffectParserRuleCall_1; }
-
-		//TransitionOutputEffect
-		public RuleCall getTransitionOutputEffectParserRuleCall_2() { return cTransitionOutputEffectParserRuleCall_2; }
 	}
 
 	public class TransitionTargetEffectElements extends AbstractParserRuleElementFinder {
@@ -926,7 +909,7 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cStaticStaticKeyword_0_0 = (Keyword)cStaticAssignment_0.eContents().get(0);
 		private final Keyword cMethodKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cReturnTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cReturnTypeJvmParameterizedTypeReferenceParserRuleCall_2_0 = (RuleCall)cReturnTypeAssignment_2.eContents().get(0);
+		private final RuleCall cReturnTypeJvmTypeReferenceParserRuleCall_2_0 = (RuleCall)cReturnTypeAssignment_2.eContents().get(0);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final Alternatives cNameAlternatives_3_0 = (Alternatives)cNameAssignment_3.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_3_0_0 = (RuleCall)cNameAlternatives_3_0.eContents().get(0);
@@ -945,12 +928,12 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBodyXExpressionParserRuleCall_7_0 = (RuleCall)cBodyAssignment_7.eContents().get(0);
 		
 		//Method:
-		//	static?="static"? "method" returnType=JvmParameterizedTypeReference? name=(ID | OpEquality | OpCompare) "("
-		//	(parameters+=Parameter ("," parameters+=Parameter)*)? ")" body=XExpression;
+		//	static?="static"? "method" returnType=JvmTypeReference? name=(ID | OpEquality | OpCompare) "(" (parameters+=Parameter
+		//	("," parameters+=Parameter)*)? ")" body=XExpression;
 		public ParserRule getRule() { return rule; }
 
-		//static?="static"? "method" returnType=JvmParameterizedTypeReference? name=(ID | OpEquality | OpCompare) "("
-		//(parameters+=Parameter ("," parameters+=Parameter)*)? ")" body=XExpression
+		//static?="static"? "method" returnType=JvmTypeReference? name=(ID | OpEquality | OpCompare) "(" (parameters+=Parameter
+		//("," parameters+=Parameter)*)? ")" body=XExpression
 		public Group getGroup() { return cGroup; }
 
 		//static?="static"?
@@ -962,11 +945,11 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		//"method"
 		public Keyword getMethodKeyword_1() { return cMethodKeyword_1; }
 
-		//returnType=JvmParameterizedTypeReference?
+		//returnType=JvmTypeReference?
 		public Assignment getReturnTypeAssignment_2() { return cReturnTypeAssignment_2; }
 
-		//JvmParameterizedTypeReference
-		public RuleCall getReturnTypeJvmParameterizedTypeReferenceParserRuleCall_2_0() { return cReturnTypeJvmParameterizedTypeReferenceParserRuleCall_2_0; }
+		//JvmTypeReference
+		public RuleCall getReturnTypeJvmTypeReferenceParserRuleCall_2_0() { return cReturnTypeJvmTypeReferenceParserRuleCall_2_0; }
 
 		//name=(ID | OpEquality | OpCompare)
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
@@ -1021,28 +1004,72 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Parameter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cTypeJvmParameterizedTypeReferenceParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
+		private final Assignment cVarargAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cVarargFullStopFullStopFullStopKeyword_1_0 = (Keyword)cVarargAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//Parameter:
-		//	type=JvmParameterizedTypeReference name=ID;
+		//	type=JvmTypeReference vararg?="..."? name=ID;
 		public ParserRule getRule() { return rule; }
 
-		//type=JvmParameterizedTypeReference name=ID
+		//type=JvmTypeReference vararg?="..."? name=ID
 		public Group getGroup() { return cGroup; }
 
-		//type=JvmParameterizedTypeReference
+		//type=JvmTypeReference
 		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
 
-		//JvmParameterizedTypeReference
-		public RuleCall getTypeJvmParameterizedTypeReferenceParserRuleCall_0_0() { return cTypeJvmParameterizedTypeReferenceParserRuleCall_0_0; }
+		//JvmTypeReference
+		public RuleCall getTypeJvmTypeReferenceParserRuleCall_0_0() { return cTypeJvmTypeReferenceParserRuleCall_0_0; }
+
+		//vararg?="..."?
+		public Assignment getVarargAssignment_1() { return cVarargAssignment_1; }
+
+		//"..."
+		public Keyword getVarargFullStopFullStopFullStopKeyword_1_0() { return cVarargFullStopFullStopFullStopKeyword_1_0; }
 
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+	}
+
+	public class OpEqualityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OpEquality");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cEqualsSignEqualsSignKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cExclamationMarkEqualsSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cEqualsSignEqualsSignEqualsSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cExclamationMarkEqualsSignEqualsSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cQuestionMarkEqualsSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		
+		//// XExpression extensions
+		//OpEquality:
+		//	"==" | "!=" | "===" | "!==" | // assertEquals operator, for comparisons that should result in an assertion
+		//	"?=";
+		public ParserRule getRule() { return rule; }
+
+		//"==" | "!=" | "===" | "!==" | // assertEquals operator, for comparisons that should result in an assertion
+		//"?="
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"=="
+		public Keyword getEqualsSignEqualsSignKeyword_0() { return cEqualsSignEqualsSignKeyword_0; }
+
+		//"!="
+		public Keyword getExclamationMarkEqualsSignKeyword_1() { return cExclamationMarkEqualsSignKeyword_1; }
+
+		//"==="
+		public Keyword getEqualsSignEqualsSignEqualsSignKeyword_2() { return cEqualsSignEqualsSignEqualsSignKeyword_2; }
+
+		//"!=="
+		public Keyword getExclamationMarkEqualsSignEqualsSignKeyword_3() { return cExclamationMarkEqualsSignEqualsSignKeyword_3; }
+
+		//// assertEquals operator, for comparisons that should result in an assertion
+		//"?="
+		public Keyword getQuestionMarkEqualsSignKeyword_4() { return cQuestionMarkEqualsSignKeyword_4; }
 	}
 	
 	
@@ -1067,6 +1094,7 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	private TransitionOutputEffectElements pTransitionOutputEffect;
 	private MethodElements pMethod;
 	private ParameterElements pParameter;
+	private OpEqualityElements pOpEquality;
 	
 	private final Grammar grammar;
 
@@ -1119,7 +1147,7 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Instance:
-	//	type=JvmParameterizedTypeReference? name=ID ("=" expr=XExpression)?;
+	//	type=JvmTypeReference? name=ID ("=" expr=XExpression)?;
 	public InstanceElements getInstanceAccess() {
 		return (pInstance != null) ? pInstance : (pInstance = new InstanceElements());
 	}
@@ -1201,8 +1229,7 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PropertiesTest returns xbase::XBlockExpression:
-	//	{PropertiesTest} //	('=' stateFunctionCall = StateFunctionCall (';' | ('{' (expressions += XExpression ';')* '}'))) |
-	//	("{" (expressions+=XExpression ";"?)* "}");
+	//	{PropertiesTest} ("{" (expressions+=XExpression ";"?)* "}");
 	public PropertiesTestElements getPropertiesTestAccess() {
 		return (pPropertiesTest != null) ? pPropertiesTest : (pPropertiesTest = new PropertiesTestElements());
 	}
@@ -1211,11 +1238,6 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertiesTestAccess().getRule();
 	}
 
-	////StateFunctionCall returns xbase::XBlockExpression:
-	////	{StateFunctionCall}
-	////	stateFunction = [StateFunction | ID]
-	////	('(' (expressions += XExpression (',' expressions += XExpression)*)? ')')?
-	////;
 	//Transition:
 	//	source=TransitionSource? // optional source
 	//	// action part
@@ -1240,8 +1262,9 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransitionSourceAccess().getRule();
 	}
 
+	//// | TransitionInputAction;
 	//TransitionAction:
-	//	TransitionExpressionAction | TransitionInputAction;
+	//	TransitionExpressionAction;
 	public TransitionActionElements getTransitionActionAccess() {
 		return (pTransitionAction != null) ? pTransitionAction : (pTransitionAction = new TransitionActionElements());
 	}
@@ -1270,8 +1293,9 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransitionInputActionAccess().getRule();
 	}
 
+	//// | TransitionOutputEffect;
 	//TransitionEffect:
-	//	TransitionTargetEffect | TransitionExceptionEffect | TransitionOutputEffect;
+	//	TransitionTargetEffect | TransitionExceptionEffect;
 	public TransitionEffectElements getTransitionEffectAccess() {
 		return (pTransitionEffect != null) ? pTransitionEffect : (pTransitionEffect = new TransitionEffectElements());
 	}
@@ -1311,8 +1335,8 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Method:
-	//	static?="static"? "method" returnType=JvmParameterizedTypeReference? name=(ID | OpEquality | OpCompare) "("
-	//	(parameters+=Parameter ("," parameters+=Parameter)*)? ")" body=XExpression;
+	//	static?="static"? "method" returnType=JvmTypeReference? name=(ID | OpEquality | OpCompare) "(" (parameters+=Parameter
+	//	("," parameters+=Parameter)*)? ")" body=XExpression;
 	public MethodElements getMethodAccess() {
 		return (pMethod != null) ? pMethod : (pMethod = new MethodElements());
 	}
@@ -1322,13 +1346,25 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Parameter:
-	//	type=JvmParameterizedTypeReference name=ID;
+	//	type=JvmTypeReference vararg?="..."? name=ID;
 	public ParameterElements getParameterAccess() {
 		return (pParameter != null) ? pParameter : (pParameter = new ParameterElements());
 	}
 	
 	public ParserRule getParameterRule() {
 		return getParameterAccess().getRule();
+	}
+
+	//// XExpression extensions
+	//OpEquality:
+	//	"==" | "!=" | "===" | "!==" | // assertEquals operator, for comparisons that should result in an assertion
+	//	"?=";
+	public OpEqualityElements getOpEqualityAccess() {
+		return (pOpEquality != null) ? pOpEquality : (pOpEquality = new OpEqualityElements());
+	}
+	
+	public ParserRule getOpEqualityRule() {
+		return getOpEqualityAccess().getRule();
 	}
 
 	//XExpression:
@@ -1424,16 +1460,6 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getXEqualityExpressionRule() {
 		return getXEqualityExpressionAccess().getRule();
-	}
-
-	//OpEquality:
-	//	"==" | "!=" | "===" | "!==";
-	public XbaseGrammarAccess.OpEqualityElements getOpEqualityAccess() {
-		return gaXbase.getOpEqualityAccess();
-	}
-	
-	public ParserRule getOpEqualityRule() {
-		return getOpEqualityAccess().getRule();
 	}
 
 	//XRelationalExpression returns XExpression:

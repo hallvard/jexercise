@@ -160,15 +160,13 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case JexTestPackage.TRANSITION_INPUT_ACTION:
-				if(context == grammarAccess.getTransitionActionRule() ||
-				   context == grammarAccess.getTransitionInputActionRule()) {
+				if(context == grammarAccess.getTransitionInputActionRule()) {
 					sequence_TransitionInputAction(context, (TransitionInputAction) semanticObject); 
 					return; 
 				}
 				else break;
 			case JexTestPackage.TRANSITION_OUTPUT_EFFECT:
-				if(context == grammarAccess.getTransitionEffectRule() ||
-				   context == grammarAccess.getTransitionOutputEffectRule()) {
+				if(context == grammarAccess.getTransitionOutputEffectRule()) {
 					sequence_TransitionOutputEffect(context, (TransitionOutputEffect) semanticObject); 
 					return; 
 				}
@@ -1130,7 +1128,7 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=JvmParameterizedTypeReference? name=ID expr=XExpression?)
+	 *     (type=JvmTypeReference? name=ID expr=XExpression?)
 	 */
 	protected void sequence_Instance(EObject context, Instance semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1166,7 +1164,7 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         static?='static'? 
-	 *         returnType=JvmParameterizedTypeReference? 
+	 *         returnType=JvmTypeReference? 
 	 *         (name=ID | name=OpEquality | name=OpCompare) 
 	 *         (parameters+=Parameter parameters+=Parameter*)? 
 	 *         body=XExpression
@@ -1188,20 +1186,10 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=JvmParameterizedTypeReference name=ID)
+	 *     (type=JvmTypeReference vararg?='...'? name=ID)
 	 */
 	protected void sequence_Parameter(EObject context, Parameter semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, JexTestPackage.Literals.PARAMETER__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JexTestPackage.Literals.PARAMETER__TYPE));
-			if(transientValues.isValueTransient(semanticObject, JexTestPackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JexTestPackage.Literals.PARAMETER__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getParameterAccess().getTypeJvmParameterizedTypeReferenceParserRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -73,7 +73,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * @generated
    * @ordered
    */
-  protected JvmParameterizedTypeReference returnType;
+  protected JvmTypeReference returnType;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -164,7 +164,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public JvmParameterizedTypeReference getReturnType()
+  public JvmTypeReference getReturnType()
   {
     return returnType;
   }
@@ -174,9 +174,9 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReturnType(JvmParameterizedTypeReference newReturnType, NotificationChain msgs)
+  public NotificationChain basicSetReturnType(JvmTypeReference newReturnType, NotificationChain msgs)
   {
-    JvmParameterizedTypeReference oldReturnType = returnType;
+    JvmTypeReference oldReturnType = returnType;
     returnType = newReturnType;
     if (eNotificationRequired())
     {
@@ -191,7 +191,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setReturnType(JvmParameterizedTypeReference newReturnType)
+  public void setReturnType(JvmTypeReference newReturnType)
   {
     if (newReturnType != returnType)
     {
@@ -351,7 +351,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         setStatic((Boolean)newValue);
         return;
       case JexTestPackage.METHOD__RETURN_TYPE:
-        setReturnType((JvmParameterizedTypeReference)newValue);
+        setReturnType((JvmTypeReference)newValue);
         return;
       case JexTestPackage.METHOD__NAME:
         setName((String)newValue);
@@ -381,7 +381,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         setStatic(STATIC_EDEFAULT);
         return;
       case JexTestPackage.METHOD__RETURN_TYPE:
-        setReturnType((JvmParameterizedTypeReference)null);
+        setReturnType((JvmTypeReference)null);
         return;
       case JexTestPackage.METHOD__NAME:
         setName(NAME_EDEFAULT);

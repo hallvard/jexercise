@@ -636,7 +636,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSITION_INPUT_ACTION__INPUT = TRANSITION_ACTION_FEATURE_COUNT + 0;
+  int TRANSITION_INPUT_ACTION__INPUT = 0;
 
   /**
    * The number of structural features of the '<em>Transition Input Action</em>' class.
@@ -645,7 +645,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSITION_INPUT_ACTION_FEATURE_COUNT = TRANSITION_ACTION_FEATURE_COUNT + 1;
+  int TRANSITION_INPUT_ACTION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.TransitionEffectImpl <em>Transition Effect</em>}' class.
@@ -748,7 +748,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSITION_OUTPUT_EFFECT__PATTERN = TRANSITION_EFFECT_FEATURE_COUNT + 0;
+  int TRANSITION_OUTPUT_EFFECT__PATTERN = 0;
 
   /**
    * The number of structural features of the '<em>Transition Output Effect</em>' class.
@@ -757,7 +757,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSITION_OUTPUT_EFFECT_FEATURE_COUNT = TRANSITION_EFFECT_FEATURE_COUNT + 1;
+  int TRANSITION_OUTPUT_EFFECT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.MethodImpl <em>Method</em>}' class.
@@ -843,13 +843,22 @@ public interface JexTestPackage extends EPackage
   int PARAMETER__TYPE = 0;
 
   /**
+   * The feature id for the '<em><b>Vararg</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__VARARG = 1;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER__NAME = 1;
+  int PARAMETER__NAME = 2;
 
   /**
    * The number of structural features of the '<em>Parameter</em>' class.
@@ -858,7 +867,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = 2;
+  int PARAMETER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.PropertiesTestImpl <em>Properties Test</em>}' class.
@@ -1542,6 +1551,17 @@ public interface JexTestPackage extends EPackage
   EReference getParameter_Type();
 
   /**
+   * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.Parameter#isVararg <em>Vararg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Vararg</em>'.
+   * @see no.hal.jex.jextest.jexTest.Parameter#isVararg()
+   * @see #getParameter()
+   * @generated
+   */
+  EAttribute getParameter_Vararg();
+
+  /**
    * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.Parameter#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2110,6 +2130,14 @@ public interface JexTestPackage extends EPackage
      * @generated
      */
     EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Vararg</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER__VARARG = eINSTANCE.getParameter_Vararg();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

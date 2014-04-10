@@ -168,7 +168,6 @@ public class JexTestSwitch<T> extends Switch<T>
       {
         TransitionInputAction transitionInputAction = (TransitionInputAction)theEObject;
         T result = caseTransitionInputAction(transitionInputAction);
-        if (result == null) result = caseTransitionAction(transitionInputAction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -199,7 +198,6 @@ public class JexTestSwitch<T> extends Switch<T>
       {
         TransitionOutputEffect transitionOutputEffect = (TransitionOutputEffect)theEObject;
         T result = caseTransitionOutputEffect(transitionOutputEffect);
-        if (result == null) result = caseTransitionEffect(transitionOutputEffect);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

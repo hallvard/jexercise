@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -67,12 +67,12 @@ public interface Method extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Return Type</em>' containment reference.
-   * @see #setReturnType(JvmParameterizedTypeReference)
+   * @see #setReturnType(JvmTypeReference)
    * @see no.hal.jex.jextest.jexTest.JexTestPackage#getMethod_ReturnType()
    * @model containment="true"
    * @generated
    */
-  JvmParameterizedTypeReference getReturnType();
+  JvmTypeReference getReturnType();
 
   /**
    * Sets the value of the '{@link no.hal.jex.jextest.jexTest.Method#getReturnType <em>Return Type</em>}' containment reference.
@@ -82,7 +82,7 @@ public interface Method extends EObject
    * @see #getReturnType()
    * @generated
    */
-  void setReturnType(JvmParameterizedTypeReference value);
+  void setReturnType(JvmTypeReference value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

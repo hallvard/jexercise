@@ -2,6 +2,7 @@
  */
 package no.hal.jex.jextest.jexTest;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +20,7 @@ package no.hal.jex.jextest.jexTest;
  * @model
  * @generated
  */
-public interface TransitionOutputEffect extends TransitionEffect
+public interface TransitionOutputEffect extends EObject
 {
   /**
    * Returns the value of the '<em><b>Pattern</b></em>' attribute.

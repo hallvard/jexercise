@@ -113,5 +113,5 @@ Parameter:
 
 OpEquality:
 	'==' | '!=' | '===' | '!=='
-	| '~=' // approximatelyEquals operator, for comparisons with slack, e.g. double with epsilon and String with trim and ignoreCase
+	| '?=' // assertEquals operator, for comparisons that should result in an assertion
 	;

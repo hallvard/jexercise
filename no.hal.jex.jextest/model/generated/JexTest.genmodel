@@ -84,6 +84,7 @@
     </genClasses>
     <genClasses ecoreClass="JexTest.ecore#//Parameter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//Parameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//Parameter/vararg"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//Parameter/name"/>
     </genClasses>
     <genClasses ecoreClass="JexTest.ecore#//PropertiesTest"/>

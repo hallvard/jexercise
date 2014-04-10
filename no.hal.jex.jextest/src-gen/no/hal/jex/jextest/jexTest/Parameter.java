@@ -4,7 +4,7 @@ package no.hal.jex.jextest.jexTest;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +15,7 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  * The following features are supported:
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.Parameter#getType <em>Type</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.Parameter#isVararg <em>Vararg</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Parameter#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -34,12 +35,12 @@ public interface Parameter extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(JvmParameterizedTypeReference)
+   * @see #setType(JvmTypeReference)
    * @see no.hal.jex.jextest.jexTest.JexTestPackage#getParameter_Type()
    * @model containment="true"
    * @generated
    */
-  JvmParameterizedTypeReference getType();
+  JvmTypeReference getType();
 
   /**
    * Sets the value of the '{@link no.hal.jex.jextest.jexTest.Parameter#getType <em>Type</em>}' containment reference.
@@ -49,7 +50,33 @@ public interface Parameter extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(JvmParameterizedTypeReference value);
+  void setType(JvmTypeReference value);
+
+  /**
+   * Returns the value of the '<em><b>Vararg</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Vararg</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Vararg</em>' attribute.
+   * @see #setVararg(boolean)
+   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getParameter_Vararg()
+   * @model
+   * @generated
+   */
+  boolean isVararg();
+
+  /**
+   * Sets the value of the '{@link no.hal.jex.jextest.jexTest.Parameter#isVararg <em>Vararg</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Vararg</em>' attribute.
+   * @see #isVararg()
+   * @generated
+   */
+  void setVararg(boolean value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

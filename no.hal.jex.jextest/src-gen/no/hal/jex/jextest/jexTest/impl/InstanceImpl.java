@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -43,7 +43,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
    * @generated
    * @ordered
    */
-  protected JvmParameterizedTypeReference type;
+  protected JvmTypeReference type;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -101,7 +101,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
    * <!-- end-user-doc -->
    * @generated
    */
-  public JvmParameterizedTypeReference getType()
+  public JvmTypeReference getType()
   {
     return type;
   }
@@ -111,9 +111,9 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(JvmParameterizedTypeReference newType, NotificationChain msgs)
+  public NotificationChain basicSetType(JvmTypeReference newType, NotificationChain msgs)
   {
-    JvmParameterizedTypeReference oldType = type;
+    JvmTypeReference oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -128,7 +128,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(JvmParameterizedTypeReference newType)
+  public void setType(JvmTypeReference newType)
   {
     if (newType != type)
     {
@@ -264,7 +264,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
     switch (featureID)
     {
       case JexTestPackage.INSTANCE__TYPE:
-        setType((JvmParameterizedTypeReference)newValue);
+        setType((JvmTypeReference)newValue);
         return;
       case JexTestPackage.INSTANCE__NAME:
         setName((String)newValue);
@@ -287,7 +287,7 @@ public class InstanceImpl extends MinimalEObjectImpl.Container implements Instan
     switch (featureID)
     {
       case JexTestPackage.INSTANCE__TYPE:
-        setType((JvmParameterizedTypeReference)null);
+        setType((JvmTypeReference)null);
         return;
       case JexTestPackage.INSTANCE__NAME:
         setName(NAME_EDEFAULT);
