@@ -1,0 +1,13 @@
+test stateandbehavior.Counter
+
+instance counter = new Counter(1, 3)
+
+sequence example1 {
+	-->
+	state { getCounter() == 1 }
+	-- count() -->
+	state { getCounter() == 2 }
+	-- count() -->
+	state #final { getCounter() == 3 }
+	-- count() --> #final
+}

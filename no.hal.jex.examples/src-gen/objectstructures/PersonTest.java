@@ -296,4 +296,8 @@ public class PersonTest extends TestCase {
     }
     
   }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(PersonTest.class);
+  }
 }

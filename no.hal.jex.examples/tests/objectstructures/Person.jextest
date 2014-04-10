@@ -8,7 +8,7 @@ instance
 	jens = new Person("Jens", 'M'),
 	anne = new Person("Anne", 'F')
 
-state initial() {
+state method initial() {
 	father == null;
 	mother == null;
 	testChildren(#[]);
