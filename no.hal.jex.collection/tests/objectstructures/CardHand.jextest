@@ -11,33 +11,34 @@ sequence constructor {
 
 sequence deal {
 	
-	instances CardDeck deck = new CardDeck(2)
+	instance CardDeck deck = new CardDeck(2)
 	
 	-- deck.deal(cardHand, 3) -->
 	state {
-		testCards(it, #["C2", "C1", "D2"]);
+		it ?= #["C2", "C1", "D2"]
 	}
 }
 
 sequence dealPlay {
 	
-	instances CardDeck deck = new CardDeck(2)
+	instance CardDeck deck = new CardDeck(2)
 
 	-- deck.deal(cardHand, 3) -->
 	state {
-		testCards(it, #["C2", "C1", "D2"]);
+		it ?= #["C2", "C1", "D2"]
 	}
-	-- play(1) --> state { testCards(it, #["C2", "D2"]); }
-	-- play(0) --> state { testCards(it, #["D2"]); }
-	-- play(0) --> state { cardCount == 0; }
+	-- play(1) --> state { it ?= #["C2", "D2"] }
+	-- play(0) --> state { it ?= #["D2"] }
+	-- play(0) --> state { cardCount == 0 }
 }
 
-method void testCards(CardHand it, Collection<String> toStrings) {
-	assertEquals(toStrings.size, cardCount)
+method boolean ?= (CardHand it, Collection<String> toStrings) {
+	cardCount ?= toStrings.size 
 	var i = 0
 	for (toString : toStrings) {
 		val card = getCard(i)
-		assertEquals(toString, String.valueOf(card.suit) + card.face)
+		String.valueOf(card.suit) + card.face ?= toString 
 		i = i + 1
 	}
+	true
 }

@@ -10,7 +10,7 @@ sequence constructor "Konstruktør" {
 }
 
 sequence domacratVotes "Demokrat-stemmer" {
-	instances int votes = 10 + (Math.random * 100000) as int
+	instance int votes = 10 + (Math.random * 100000) as int
 	"2 demokrat-stemmer." -- voteDemocrat # votes -->
 	state {
 		democratTally == votes;
@@ -19,7 +19,7 @@ sequence domacratVotes "Demokrat-stemmer" {
 }
 
 sequence republicanVotes "Replikaner-stemmer" {
-	instances int votes = 10 + (Math.random * 100000) as int
+	instance int votes = 10 + (Math.random * 100000) as int
 	"3 replikaner-stemmer." -- voteRepublican # votes -->
 	state {
 		democratTally == 0;
@@ -28,7 +28,7 @@ sequence republicanVotes "Replikaner-stemmer" {
 }
 
 sequence clearVotes "Stemmer og nullstill" {
-	instances
+	instance
 		int democratVotes = 10 + (Math.random * 100000) as int,
 		int republicanVotes = 10 + (Math.random * 100000) as int
 	"3 demokrat-stemmer." -- voteDemocrat # democratVotes -->

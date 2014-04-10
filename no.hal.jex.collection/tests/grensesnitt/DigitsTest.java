@@ -1,5 +1,6 @@
 package grensesnitt;
 
+import interfaces.Digits;
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
 import junit.framework.TestCase;

@@ -6,43 +6,43 @@ sequence constructor "Konstruktør" {
 }
 
 sequence setValue "Sett verdi" {
-	var double random = Math.random * 100
+	val double random = Math.random * 100
 	"Sett verdi til et tilfeldig tall" -- value = random -->
 	state { value == random; }
 }
 
 sequence add "Addisjon" {
-	var double random1 = Math.random * 100, double random2 = Math.random * 100
+	val double random1 = Math.random * 100, double random2 = Math.random * 100
 	"Addisjon med to tilfeldige tall" -- value = random1, add(random2) -->
 	state { value == random1 + random2; }
 }
 
 sequence subtract "Subtraksjon" {
-	var double random1 = Math.random * 100, double random2 = Math.random * 100
+	val double random1 = Math.random * 100, double random2 = Math.random * 100
 	"Subtraksjon med to tilfeldige tall" -- value = random1, subtract(random2) -->
 	state { value == random1 - random2; }
 }
 
 sequence multiply "Multiplikasjon" {
-	var double random1 = Math.random * 100, double random2 = Math.random * 100
+	val double random1 = Math.random * 100, double random2 = Math.random * 100
 	"Multiplikasjon med to tilfeldige tall" -- value = random1, multiply(random2) -->
 	state { value == random1 * random2; }
 }
 
 sequence divide "Divisjon" {
-	var double random1 = Math.random * 100, double random2 = Math.random * 100 + 1
+	val double random1 = Math.random * 100, double random2 = Math.random * 100 + 1
 	"Divisjon med to tilfeldige tall" -- value = random1, divide(random2) -->
 	state { value == random1 / random2; }
 }
 
 sequence percent "Prosent" {
-	var double random1 = Math.random * 100, double random2 = Math.random * 100
+	val double random1 = Math.random * 100, double random2 = Math.random * 100
 	"Tilfeldig prosent av et tilfeldige tall" -- value = random1, percent(random2) -->
 	state { value == random1 * random2 / 100; }
 }
 
 sequence negate "Negasjon" {
-	var double random1 = Math.random * 100
+	val double random1 = Math.random * 100
 	"Negasjon av et tilfeldige tall" -- value = random1, negate -->
 	state { value == -random1; }
 }

@@ -42,21 +42,21 @@ public class UpOrDownCounterTest extends TestCase {
 		UpOrDownCounter counter31 = new UpOrDownCounter(3, 1);
 		assertEquals("After instantiating an UpOrDownCounter the counter should be the start value. ", 3, counter31.getCounter());
 	}
-	@JExercise(
-			tests="UpOrDownCounter(int,int)",
-			description="A constructor that initializes the UpOrDownCounter class with the provided start and end value. " +
-					"If the start and end values are equal, an IllegalArgumentException should be thrown. "
-			)
-	public void testUpOrDownCounterWithException() {
-		Exception iae = null;
-		try {
-			new UpOrDownCounter(0, 0);
-			fail("When the start and end values are equal an IllegalArgumentException should be thrown. ");
-		} catch (Exception e) {
-			iae = e;
-		}
-		assertTrue("When the start and end values are equal an IllegalArgumentException should be thrown, ", iae instanceof IllegalArgumentException);
-	}
+//	@JExercise(
+//			tests="UpOrDownCounter(int,int)",
+//			description="A constructor that initializes the UpOrDownCounter class with the provided start and end value. " +
+//					"If the start and end values are equal, an IllegalArgumentException should be thrown. "
+//			)
+//	public void testUpOrDownCounterWithException() {
+//		Exception iae = null;
+//		try {
+//			new UpOrDownCounter(0, 0);
+//			fail("When the start and end values are equal an IllegalArgumentException should be thrown. ");
+//		} catch (Exception e) {
+//			iae = e;
+//		}
+//		assertTrue("When the start and end values are equal an IllegalArgumentException should be thrown, ", iae instanceof IllegalArgumentException);
+//	}
 	
 	@JExercise(
 			tests="boolean count()",

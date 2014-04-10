@@ -8,27 +8,27 @@ sequence deposit {
 	bsu.deposit(10000.0)
 	-->
 	state {
-		bsu.getBalance() == 10000.0
+		bsu.balance ?= 10000.0
 	}
 	--
 	bsu.deposit(-10000.0)
 	throws IllegalArgumentException
 	-->
 	state {
-		bsu.getBalance() == 10000.0
+		bsu.balance ?= 10000.0
 	}
 	--
 	bsu.deposit(20000.0)
 	throws IllegalStateException
 	-->
 	state {
-		bsu.getBalance() == 10000.0
+		bsu.balance ?= 10000.0
 	}
 	--
 	bsu.endYearUpdate(), bsu.deposit(20000.0)
 	-->
 	state {
-		bsu.getBalance() == 10000.0 * (1 + 0.05) + 20000.0
+		bsu.balance ?= 10000.0 * (1 + 0.05) + 20000.0
 	}
 }
 
@@ -37,25 +37,25 @@ sequence withdraw {
 	bsu.deposit(20000.0), bsu.withdraw(5000.0)
 	-->
 	state {
-		bsu.getBalance() == 15000.0
+		bsu.balance ?= 15000.0
 	}
 	--
 	bsu.withdraw(-10000.0) throws IllegalArgumentException
 	-->
 	state {
-		bsu.getBalance() == 15000.0
+		bsu.balance ?= 15000.0
 	}
 	--
 	bsu.withdraw(20000.0) throws IllegalStateException
 	-->
 	state {
-		bsu.getBalance() == 15000.0
+		bsu.balance ?= 15000.0
 	}
 	--
 	bsu.endYearUpdate(), bsu.withdraw(10000.0) throws IllegalStateException
 	-->
 	state {
-		bsu.getBalance() == 15000.0 * (1 + 0.05)
+		bsu.balance ?= 15000.0 * (1 + 0.05)
 	}
 }
 
@@ -64,23 +64,18 @@ sequence getTaxDeduction {
 	bsu.deposit(20000.0)
 	-->
 	state {
-		bsu.getTaxDeduction() == 20000.0 * 0.20
+		bsu.taxDeduction ?= 20000.0 * 0.20
 	}
 	--
 	bsu.endYearUpdate, bsu.deposit(10000.0)
 	-->
 	state {
-		bsu.getTaxDeduction() == 10000.0 * 0.20
+		bsu.taxDeduction ?= 10000.0 * 0.20
 	}
 	--
 	bsu.endYearUpdate
 	-->
 	state {
-		bsu.getTaxDeduction() == 0.0
+		bsu.taxDeduction ?= 0.0
 	}
-}
-
-method boolean ==(double n1, double n2) {
-	val epsilon = 0.0000001 // avrundingsfeil
-	n1 - epsilon <= n2 && n1 + epsilon >= n2
 }

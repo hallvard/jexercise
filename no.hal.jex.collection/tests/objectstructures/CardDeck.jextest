@@ -2,38 +2,39 @@ test objectstructures.CardDeck
 
 import java.util.Collection
 
-instances deck = new CardDeck(2)
+instance deck = new CardDeck(2)
 
 sequence constructor {
 	-->
 	state {
-		testCards(deck, #["S1", "S2", "H1", "H2", "D1", "D2", "C1", "C2"]);
+		deck ?= #["S1", "S2", "H1", "H2", "D1", "D2", "C1", "C2"];
 	}
 }
 
 sequence shufflePerfectly {
 	-- shufflePerfectly -->
 	state {
-		testCards(deck, #["S1", "D1", "S2", "D2", "H1", "C1", "H2", "C2"]);
+		deck ?= #["S1", "D1", "S2", "D2", "H1", "C1", "H2", "C2"]
 	}
 }
 
 sequence deal {
 	
-	instances CardHand hand
+	instance CardHand hand
 	
 	-- deal(hand, 3) -->
 	state {
-		testCards(deck, #["S1", "S2", "H1", "H2", "D1"]);
+		deck ?= #["S1", "S2", "H1", "H2", "D1"]
 	}
 }
 
-method void testCards(CardDeck it, Collection<String> toStrings) {
-	assertEquals(toStrings.size, cardCount)
+method boolean ?= (CardDeck it, Collection<String> toStrings) {
+	cardCount ?= toStrings.size
 	var i = 0
 	for (toString : toStrings) {
 		val card = getCard(i)
-		assertEquals(toString, String.valueOf(card.suit) + card.face)
+		String.valueOf(card.suit) + card.face ?= toString 
 		i = i + 1
 	}
+	true
 }

@@ -1,6 +1,6 @@
 test objectstructures.Card
 
-instances c = null
+instance c = null
 
 sequence constructor {
 	-- c = new Card('S', 1)  --> state { suit == 'S'; face == 1; }

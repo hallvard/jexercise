@@ -2,13 +2,13 @@ test interfaces.Named
 
 instance String h = "Hallvard", String t = "Trætteberg", String j = "Jens" 
 
-state Named ht() {
+state method Named ht() {
 	givenName == h
 	familyName == t
 	fullName = h + " " + t
 }
 
-state Named jt() {
+state method Named jt() {
 	givenName == j
 	familyName == t
 	fullName = j + " " + t
