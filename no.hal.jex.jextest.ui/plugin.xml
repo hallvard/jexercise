@@ -16,6 +16,22 @@
             name="JexTest Editor">
         </editor>
     </extension>
+    
+    <extension
+          point="org.eclipse.ui.newWizards">
+       <category
+             id="no.hal.jex.jextest.JexTest"
+             name="JExercise">
+       </category>
+       <wizard
+             category="no.hal.jex.jextest.ui"
+             class="no.hal.jex.jextest.ui.wizards.NewJextestFileWizard"
+             icon="icons/jex.gif"
+             id="no.hal.jex.jextest.ui.wizards.NewJextestFileWizard"
+             name="Jextest file">
+       </wizard>
+    </extension>
+
     <extension
         point="org.eclipse.ui.handlers">
         <handler
