@@ -4,10 +4,14 @@ import com.google.inject.Inject
 import no.hal.jex.jextest.jexTest.Instance
 import no.hal.jex.jextest.jexTest.JexTestCase
 import no.hal.jex.jextest.jexTest.JexTestSequence
+import no.hal.jex.jextest.jexTest.Parameter
 import no.hal.jex.jextest.jexTest.PropertiesTest
 import no.hal.jex.jextest.jexTest.State
 import no.hal.jex.jextest.jexTest.StateFunction
 import no.hal.jex.jextest.jexTest.StateTestContext
+import no.hal.jex.jextest.jexTest.TestedClass
+import no.hal.jex.jextest.jexTest.TestedConstructor
+import no.hal.jex.jextest.jexTest.TestedMethod
 import no.hal.jex.jextest.jexTest.Transition
 import no.hal.jex.jextest.jexTest.TransitionAction
 import no.hal.jex.jextest.jexTest.TransitionEffect
@@ -15,6 +19,7 @@ import no.hal.jex.jextest.jexTest.TransitionExceptionEffect
 import no.hal.jex.jextest.jexTest.TransitionExpressionAction
 import no.hal.jex.jextest.jexTest.TransitionTargetEffect
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.common.types.JvmExecutable
 import org.eclipse.xtext.common.types.JvmGenericType
 import org.eclipse.xtext.common.types.JvmOperation
 import org.eclipse.xtext.common.types.JvmTypeReference
@@ -28,13 +33,10 @@ import org.eclipse.xtext.xbase.compiler.XbaseCompiler
 import org.eclipse.xtext.xbase.compiler.output.ITreeAppendable
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
+import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociator
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import org.eclipse.xtext.xbase.lib.Pair
-import org.eclipse.xtext.xbase.scoping.XbaseScopeProvider
 import org.eclipse.xtext.xbase.scoping.featurecalls.OperatorMapping
-import no.hal.jex.jextest.jexTest.Parameter
-import org.eclipse.xtext.common.types.JvmExecutable
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -53,9 +55,13 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 	@Inject extension TestAnnotationsSupport
 
 	def dispatch void infer(JexTestCase testCase, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-		val className = testCase.testClassName ?: testCase.testedClass.qualifiedName + "Test"
-		val jvmClass = testCase.toClass(className)
+		val className = testCase.testClassName ?: testCase.testedClassName + "Test"
+		val jvmClass = testCase.toClass(className.prependPackageName(testCase))
 		jvmClass.superTypes += testCase.newTypeRef("junit.framework.TestCase")
+		
+		for (testedClass : testCase.testedClasses) {
+			inferTestedClass(testedClass, acceptor)
+		}
 		acceptor.accept(jvmClass).initializeLater[
 			
 			val jexerciseTestCaseAnnotation = testCase.toAnnotation("no.hal.jex.runtime.JExercise")
@@ -63,7 +69,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 			annotations += jexerciseTestCaseAnnotation
 			
 			if (testCase.defaultInstanceTest) {
-				jvmClass.members += testCase.toField(defaultInstanceName(testCase), testCase.testedClass) [
+				jvmClass.members += testCase.toField(defaultInstanceName(testCase), testCase.testedJvmTypeRef) [
 					visibility = JvmVisibility.PRIVATE
 				]
 			} else {
@@ -100,7 +106,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 				if (stateFunction.name != null) {
 					val stateMethod = stateFunction.toMethod(stateFunction.name, stateFunction.newTypeRef(void)) [
 						visibility = JvmVisibility.PRIVATE
-						parameters += stateFunction.toParameter(XbaseScopeProvider.IT.toString, stateFunction.type ?: testCase.testedClass)
+						parameters += stateFunction.toParameter("it", stateFunction.type ?: testCase.testedJvmTypeRef)
 						initParameters(stateFunction.parameters)
 						body = [
 							generateTestHelperMethodCall("_test_", (stateFunction.test as PropertiesTest), it)
@@ -172,6 +178,32 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 				]
 			]
 		]
+	}
+	
+	def inferTestedClass(TestedClass testedClass, IJvmDeclaredTypeAcceptor acceptor) {
+		val jvmTestedClass = testedClass.toClass(testedClass.name.prependPackageName(testedClass)) [
+			interface = testedClass.interface
+			abstract = testedClass.abstract
+			superTypes += testedClass.superClass.cloneWithProxies
+			for (superInterface : testedClass.superInterfaces) {
+				superTypes += superInterface.cloneWithProxies
+			}
+		]
+		for (op : testedClass.methods) {
+			val jvmMethod =
+				if (op instanceof TestedConstructor) {
+					op.toConstructor() [
+					]
+				} else if (op instanceof TestedMethod) {
+					op.toMethod(op.name, op.returnType) [
+						abstract = (op.abstract || jvmTestedClass.interface)
+					]
+				}
+			jvmMethod.visibility = JvmVisibility.PUBLIC
+			initParameters(jvmMethod, op.parameters)
+			jvmTestedClass.members += jvmMethod
+		}
+		acceptor.accept(jvmTestedClass)
 	}
 	
 	private boolean checkDiagnosticInCompiler = true
@@ -250,15 +282,15 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 			visibility = JvmVisibility.PRIVATE
 			val instanceType = jvmInstanceType(context)
 			if (instanceType != null) {
-				parameters += context.toParameter(XbaseScopeProvider.IT.toString, instanceType)
+				parameters += context.toParameter("it", instanceType)
 			}
 			var stateTestContext = innerStateTestContext
 			if (stateTestContext instanceof StateFunction) {
-				initParameters((stateTestContext as StateFunction).parameters)
+				initParameters(stateTestContext.parameters)
 				stateTestContext = stateTestContext.ancestor(StateTestContext)
 			}
 			if (stateTestContext instanceof JexTestSequence) {
-				for (instance : (stateTestContext as JexTestSequence).instances) {
+				for (instance : stateTestContext.instances) {
 					parameters += instance.toParameter(instance.name, jvmType(instance))
 				}
 			}
@@ -296,11 +328,11 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 		}		
 		var stateTestContext = eObject.ancestor(StateTestContext)
 		if (stateTestContext instanceof StateFunction) {
-			appendable.append((stateTestContext as StateFunction).parameters.join(separator, ", ", "")[name])
+			appendable.append(stateTestContext.parameters.join(separator, ", ", "")[name])
 			stateTestContext = stateTestContext.ancestor(StateTestContext)
 		}
 		if (stateTestContext instanceof JexTestSequence) {
-			appendable.append((stateTestContext as JexTestSequence).instances.join(separator, ", ", "")[name])
+			appendable.append(stateTestContext.instances.join(separator, ", ", "")[name])
 		}
 		appendable.append(")")
 		if (asStatement) {

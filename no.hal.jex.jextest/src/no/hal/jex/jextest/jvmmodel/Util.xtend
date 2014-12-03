@@ -18,12 +18,13 @@ import org.eclipse.xtext.common.types.JvmTypeReference
 import org.eclipse.xtext.common.types.TypesFactory
 import org.eclipse.xtext.diagnostics.AbstractDiagnostic
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils
-import org.eclipse.xtext.validation.EObjectDiagnosticImpl
 import org.eclipse.xtext.xbase.XAbstractFeatureCall
 import org.eclipse.xtext.xbase.XExpression
 import org.eclipse.xtext.xbase.compiler.output.ITreeAppendable
-import org.eclipse.xtext.xbase.scoping.XbaseScopeProvider
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
+import org.eclipse.xtext.common.types.JvmType
+import no.hal.jex.jextest.jexTest.JexTestSuite
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -70,25 +71,43 @@ class Util {
    		null
    	}	
 
+	def prependPackageName (String name, EObject context) {
+		val packOwner = ancestor(context, JexTestSuite)
+		if (packOwner != null && packOwner.pack != null) packOwner.pack + "." + name else name  
+	}
+
+	def testedClassName(JexTestCase testCase) {
+		testCase.testedClassRef ?.qualifiedName ?: testCase.testedClasses.head.name
+	}
+
+	@Inject extension IJvmModelAssociations
+
+	def testedJvmTypeRef(JexTestCase testCase) {
+		testCase.testedClassRef ?: {
+			val testedClass = testCase.testedClasses.head;
+			(getJvmElements(testedClass).head as JvmType).newTypeRef
+		}
+	}
+	
 	def isDefaultInstanceTest(EObject eObject) {
 		eObject.ancestor(JexTestCase).instances.empty
 	}
 
    	def defaultInstanceType(EObject eObject) {
 		val testCase = eObject.ancestor(JexTestCase)
-		testCase?.testedClass
+		testCase?.testedJvmTypeRef
    	}
 
 	def defaultInstanceName(EObject eObject) {
-		eObject.ancestor(JexTestCase).testedClass.simpleName.toFirstLower
+		eObject.ancestor(JexTestCase).testedJvmTypeRef.simpleName.toFirstLower
 	}
 	
 	def instanceName(EObject eObject) {
 		val propertiesTestOwner = eObject.ancestor(PropertiesTestOwner)
 		if (propertiesTestOwner instanceof StateFunction) {
-			return XbaseScopeProvider.IT.toString
+			return "it"
 		} else if (propertiesTestOwner instanceof ObjectTest) {
-			val instance = (propertiesTestOwner as ObjectTest).instance
+			val instance = propertiesTestOwner.instance
 			if (instance != null) {
 				return instance.name
 			}
@@ -108,10 +127,9 @@ class Util {
 	def jvmInstanceType(EObject eObject) {
 		val propertiesTestOwner = eObject.ancestor(PropertiesTestOwner)
 		if (propertiesTestOwner instanceof StateFunction) {
-			val stateFunction = (propertiesTestOwner as StateFunction)
-			return stateFunction.type ?: defaultInstanceType(eObject)
+			return propertiesTestOwner.type ?: defaultInstanceType(eObject)
 		} else if (propertiesTestOwner instanceof ObjectTest) {
-			val instance = (propertiesTestOwner as ObjectTest).instance
+			val instance = propertiesTestOwner.instance
 			if (instance != null) {
 				return instance.jvmType
 			}
@@ -124,14 +142,15 @@ class Util {
 		} else null
 	}
 
-	@Inject extension TypesFactory
+	@Inject
+	private extension TypesFactory
 	
 	def toAnnotationStringValues(EObject context, JvmAnnotationReference annotation, String valueName, String... values) {
 		val op = annotation.annotation.members.filter(JvmOperation).findFirst[simpleName == valueName]
 		val annotationValue = createJvmStringAnnotationValue
 		annotationValue.operation = op
 		annotationValue.values += values
-		annotation.values += annotationValue
+		annotation.explicitValues += annotationValue
 	}
 	
 	def asSourceText(EList<? extends EObject> eObjects, String separator) {
@@ -148,7 +167,7 @@ class Util {
 	
 	def appendMethodSignature(StringBuilder buffer, JvmExecutable op) {
 		if (op instanceof JvmOperation) {
-			appendSignatureType(buffer, (op as JvmOperation).returnType)
+			appendSignatureType(buffer, op.returnType)
 			buffer.append(" ")
 		}
 		buffer.append(op.simpleName)
@@ -173,10 +192,10 @@ class Util {
 	
 	def getProblemObject(Resource.Diagnostic diagnostic, Resource resource) {
 		if (diagnostic instanceof AbstractDiagnostic) {
-			val uri = (diagnostic as AbstractDiagnostic).uriToProblem;
+			val uri = diagnostic.uriToProblem;
 			return resource.getEObject(uri.fragment());
-		} else if (diagnostic instanceof EObjectDiagnosticImpl) {
-			return (diagnostic as EObjectDiagnosticImpl).problematicObject
+//		} else if (diagnostic instanceof EObjectDiagnosticImpl) {
+//			return (diagnostic as EObjectDiagnosticImpl).problematicObject
 		}
 		null
 	}
@@ -204,7 +223,7 @@ class Util {
 	@Inject extension JvmTypesBuilder
 	def JvmTypeReference jvmType(XExpression expr, EObject context) {
 		if (expr instanceof XAbstractFeatureCall) {
-			val feature = (expr as XAbstractFeatureCall).feature
+			val feature = expr.feature
 			switch (feature) {
 				JvmOperation: feature.returnType
 				JvmConstructor: feature.declaringType.newTypeRef

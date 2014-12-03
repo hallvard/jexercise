@@ -5,6 +5,7 @@ import java.util.Collection
 import no.hal.jex.jextest.jexTest.Instance
 import no.hal.jex.jextest.jexTest.JexTestCase
 import no.hal.jex.jextest.jexTest.JexTestSequence
+import no.hal.jex.jextest.jexTest.TransitionExpressionAction
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.common.types.JvmAnnotationReference
 import org.eclipse.xtext.common.types.JvmConstructor
@@ -13,17 +14,25 @@ import org.eclipse.xtext.common.types.JvmGenericType
 import org.eclipse.xtext.common.types.JvmType
 import org.eclipse.xtext.xbase.XAbstractFeatureCall
 import org.eclipse.xtext.xbase.XConstructorCall
-import no.hal.jex.jextest.jexTest.TransitionExpressionAction
 import org.eclipse.xtext.xbase.XExpression
+import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
 
 class TestAnnotationsSupport {
 
 	@Inject extension Util
+	@Inject extension IJvmModelAssociations
+
+	def testedJvmType(JexTestCase testCase) {
+		testCase.testedClassRef ?.type ?: {
+			val testedClass = testCase.testedClasses.head;
+			(getJvmElements(testedClass).head as JvmType)
+		}
+	}
 
 	def generateTestClassAnntations(JexTestCase testCase, JvmAnnotationReference jexerciseAnnotation) {
 		val descriptionBuffer = new StringBuilder()
 		descriptionBuffer.addDescription(testCase.description, "h3")
-		descriptionBuffer.append('''Tests «testCase.testedClass.identifier»''')
+		descriptionBuffer.append('''Tests «testCase.testedJvmType.identifier»''')
 		if (testCase.url != null) {
 			descriptionBuffer.append('''<p>(see <a href="«testCase.url»">«testCase.url»</a>)</p>''')
 		}
@@ -33,7 +42,7 @@ class TestAnnotationsSupport {
 	def generateTestMethodAnntations(JexTestSequence sequence, JvmAnnotationReference jexerciseAnnotation) {
 		val testsBuffer = new StringBuilder()
 		val testCase = sequence.ancestor(JexTestCase)
-		val testedClass = testCase.testedClass.type
+		val testedClass = testCase.testedJvmType
 		val testedMembers = <JvmExecutable>newArrayList
 		if (testCase.instances.empty) {
 			addDefaultConstructor(testedClass, testedMembers)
@@ -49,7 +58,7 @@ class TestAnnotationsSupport {
 			for (action : transition.actions) {
 				var XExpression expr = null
 				if (action instanceof TransitionExpressionAction) {
-					expr = (action as TransitionExpressionAction).expr;
+					expr = action.expr;
 				}
 				if (expr != null) {
 					expr.collectUsedMembers(testedClass, testedMembers)
@@ -99,7 +108,7 @@ class TestAnnotationsSupport {
 
 	private def void addDefaultConstructor(JvmType type, Collection<JvmExecutable> testedMembers) {
 		if (type instanceof JvmGenericType) {
-			for (member : (type as JvmGenericType).members) {
+			for (member : type.members) {
 				if (member instanceof JvmConstructor && (member as JvmExecutable).parameters.empty) {
 					addUsedMember(member as JvmExecutable, type, testedMembers)
 					return
@@ -127,13 +136,11 @@ class TestAnnotationsSupport {
 	private def void collectUsedMember(EObject expr, JvmType type, Collection<JvmExecutable> executables) {
 		var JvmExecutable op = null
 		if (expr instanceof XAbstractFeatureCall) {
-			val featureCall = expr as XAbstractFeatureCall
-			if (featureCall.feature instanceof JvmExecutable) {
-				op = featureCall.feature as JvmExecutable
+			if (expr.feature instanceof JvmExecutable) {
+				op = expr.feature as JvmExecutable
 			}
 		} else if (expr instanceof XConstructorCall) {
-			val constructorCall = expr as XConstructorCall
-			op = constructorCall.constructor
+			op = expr.constructor
 		}
 		addUsedMember(op, type, executables)
 	}
