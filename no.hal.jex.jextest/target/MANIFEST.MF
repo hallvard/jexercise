@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: no.hal.jex.jextest;singleton:=true
+Export-Package: no.hal.jex.jextest,no.hal.jex.jextest.services,no.hal.
+ jex.jextest.jexTest,no.hal.jex.jextest.jexTest.impl,no.hal.jex.jextes
+ t.jexTest.util,no.hal.jex.jextest.serializer,no.hal.jex.jextest.parse
+ r.antlr,no.hal.jex.jextest.parser.antlr.internal,no.hal.jex.jextest.v
+ alidation,no.hal.jex.jextest.formatting,no.hal.jex.jextest.jvmmodel
+Bundle-Name: no.hal.jex.jextest
+Bundle-Version: 0.9.0.201501141640
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,org.eclipse.xte
+ xt.xbase;resolution:=optional;visibility:=reexport,org.eclipse.xtext.
+ generator;resolution:=optional,org.apache.commons.logging;bundle-vers
+ ion="1.0.4";resolution:=optional,org.eclipse.emf.codegen.ecore;resolu
+ tion:=optional,org.eclipse.emf.mwe.utils;resolution:=optional,org.ecl
+ ipse.emf.mwe2.launch;resolution:=optional,org.eclipse.xtext.util,org.
+ eclipse.emf.ecore,org.eclipse.emf.common,org.antlr.runtime,org.eclips
+ e.xtext.common.types,org.eclipse.xtext.xbase.lib,no.hal.jex.jextest.l
+ ib;bundle-version="0.9.0",org.objectweb.asm;bundle-version="[5.0.1,6.
+ 0.0)";resolution:=optional
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: IDI
+Import-Package: org.apache.log4j,org.eclipse.xtext.xbase.lib
+

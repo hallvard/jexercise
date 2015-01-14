@@ -59,50 +59,23 @@ public interface JexTestPackage extends EPackage
   JexTestPackage eINSTANCE = no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl <em>Case</em>}' class.
+   * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.JexTestSuiteImpl <em>Suite</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl
-   * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getJexTestCase()
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestSuiteImpl
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getJexTestSuite()
    * @generated
    */
-  int JEX_TEST_CASE = 0;
+  int JEX_TEST_SUITE = 0;
 
   /**
-   * The feature id for the '<em><b>Tested Class</b></em>' containment reference.
+   * The feature id for the '<em><b>Pack</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JEX_TEST_CASE__TESTED_CLASS = 0;
-
-  /**
-   * The feature id for the '<em><b>Test Class Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int JEX_TEST_CASE__TEST_CLASS_NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int JEX_TEST_CASE__DESCRIPTION = 2;
-
-  /**
-   * The feature id for the '<em><b>Url</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int JEX_TEST_CASE__URL = 3;
+  int JEX_TEST_SUITE__PACK = 0;
 
   /**
    * The feature id for the '<em><b>Import Section</b></em>' containment reference.
@@ -111,7 +84,89 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEX_TEST_CASE__IMPORT_SECTION = 4;
+  int JEX_TEST_SUITE__IMPORT_SECTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Test Cases</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEX_TEST_SUITE__TEST_CASES = 2;
+
+  /**
+   * The number of structural features of the '<em>Suite</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEX_TEST_SUITE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl <em>Case</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getJexTestCase()
+   * @generated
+   */
+  int JEX_TEST_CASE = 1;
+
+  /**
+   * The feature id for the '<em><b>Tested Classes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEX_TEST_CASE__TESTED_CLASSES = 0;
+
+  /**
+   * The feature id for the '<em><b>Tested Class Ref</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEX_TEST_CASE__TESTED_CLASS_REF = 1;
+
+  /**
+   * The feature id for the '<em><b>Test Class Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEX_TEST_CASE__TEST_CLASS_NAME = 2;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEX_TEST_CASE__DESCRIPTION = 3;
+
+  /**
+   * The feature id for the '<em><b>Url</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEX_TEST_CASE__URL = 4;
+
+  /**
+   * The feature id for the '<em><b>Import Section</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEX_TEST_CASE__IMPORT_SECTION = 5;
 
   /**
    * The feature id for the '<em><b>Instances</b></em>' containment reference list.
@@ -120,7 +175,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEX_TEST_CASE__INSTANCES = 5;
+  int JEX_TEST_CASE__INSTANCES = 6;
 
   /**
    * The feature id for the '<em><b>State Functions</b></em>' containment reference list.
@@ -129,7 +184,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEX_TEST_CASE__STATE_FUNCTIONS = 6;
+  int JEX_TEST_CASE__STATE_FUNCTIONS = 7;
 
   /**
    * The feature id for the '<em><b>Test Sequences</b></em>' containment reference list.
@@ -138,7 +193,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEX_TEST_CASE__TEST_SEQUENCES = 7;
+  int JEX_TEST_CASE__TEST_SEQUENCES = 8;
 
   /**
    * The feature id for the '<em><b>Methods</b></em>' containment reference list.
@@ -147,7 +202,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEX_TEST_CASE__METHODS = 8;
+  int JEX_TEST_CASE__METHODS = 9;
 
   /**
    * The number of structural features of the '<em>Case</em>' class.
@@ -156,7 +211,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEX_TEST_CASE_FEATURE_COUNT = 9;
+  int JEX_TEST_CASE_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.InstanceImpl <em>Instance</em>}' class.
@@ -166,7 +221,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getInstance()
    * @generated
    */
-  int INSTANCE = 1;
+  int INSTANCE = 2;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -212,7 +267,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getStateTestContext()
    * @generated
    */
-  int STATE_TEST_CONTEXT = 2;
+  int STATE_TEST_CONTEXT = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -249,7 +304,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getPropertiesTestOwner()
    * @generated
    */
-  int PROPERTIES_TEST_OWNER = 3;
+  int PROPERTIES_TEST_OWNER = 4;
 
   /**
    * The feature id for the '<em><b>Test</b></em>' containment reference.
@@ -277,7 +332,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getStateFunction()
    * @generated
    */
-  int STATE_FUNCTION = 4;
+  int STATE_FUNCTION = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -341,7 +396,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getJexTestSequence()
    * @generated
    */
-  int JEX_TEST_SEQUENCE = 5;
+  int JEX_TEST_SEQUENCE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -396,7 +451,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getState()
    * @generated
    */
-  int STATE = 6;
+  int STATE = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -442,7 +497,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getObjectTest()
    * @generated
    */
-  int OBJECT_TEST = 7;
+  int OBJECT_TEST = 8;
 
   /**
    * The feature id for the '<em><b>Test</b></em>' containment reference.
@@ -479,7 +534,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransition()
    * @generated
    */
-  int TRANSITION = 8;
+  int TRANSITION = 9;
 
   /**
    * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -534,7 +589,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionSource()
    * @generated
    */
-  int TRANSITION_SOURCE = 9;
+  int TRANSITION_SOURCE = 10;
 
   /**
    * The feature id for the '<em><b>State</b></em>' containment reference.
@@ -571,7 +626,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionAction()
    * @generated
    */
-  int TRANSITION_ACTION = 10;
+  int TRANSITION_ACTION = 11;
 
   /**
    * The number of structural features of the '<em>Transition Action</em>' class.
@@ -590,7 +645,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionExpressionAction()
    * @generated
    */
-  int TRANSITION_EXPRESSION_ACTION = 11;
+  int TRANSITION_EXPRESSION_ACTION = 12;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -627,7 +682,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionInputAction()
    * @generated
    */
-  int TRANSITION_INPUT_ACTION = 12;
+  int TRANSITION_INPUT_ACTION = 13;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' attribute.
@@ -655,7 +710,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionEffect()
    * @generated
    */
-  int TRANSITION_EFFECT = 13;
+  int TRANSITION_EFFECT = 14;
 
   /**
    * The number of structural features of the '<em>Transition Effect</em>' class.
@@ -674,7 +729,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionTargetEffect()
    * @generated
    */
-  int TRANSITION_TARGET_EFFECT = 14;
+  int TRANSITION_TARGET_EFFECT = 15;
 
   /**
    * The feature id for the '<em><b>State</b></em>' containment reference.
@@ -711,7 +766,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionExceptionEffect()
    * @generated
    */
-  int TRANSITION_EXCEPTION_EFFECT = 15;
+  int TRANSITION_EXCEPTION_EFFECT = 16;
 
   /**
    * The feature id for the '<em><b>Exception Class</b></em>' containment reference.
@@ -739,7 +794,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionOutputEffect()
    * @generated
    */
-  int TRANSITION_OUTPUT_EFFECT = 16;
+  int TRANSITION_OUTPUT_EFFECT = 17;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' attribute.
@@ -767,7 +822,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getMethod()
    * @generated
    */
-  int METHOD = 17;
+  int METHOD = 18;
 
   /**
    * The feature id for the '<em><b>Static</b></em>' attribute.
@@ -831,7 +886,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 18;
+  int PARAMETER = 19;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -870,6 +925,190 @@ public interface JexTestPackage extends EPackage
   int PARAMETER_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.TestedClassImpl <em>Tested Class</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see no.hal.jex.jextest.jexTest.impl.TestedClassImpl
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedClass()
+   * @generated
+   */
+  int TESTED_CLASS = 20;
+
+  /**
+   * The feature id for the '<em><b>Interface</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_CLASS__INTERFACE = 0;
+
+  /**
+   * The feature id for the '<em><b>Abstract</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_CLASS__ABSTRACT = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_CLASS__NAME = 2;
+
+  /**
+   * The feature id for the '<em><b>Super Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_CLASS__SUPER_CLASS = 3;
+
+  /**
+   * The feature id for the '<em><b>Super Interfaces</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_CLASS__SUPER_INTERFACES = 4;
+
+  /**
+   * The feature id for the '<em><b>Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_CLASS__METHODS = 5;
+
+  /**
+   * The number of structural features of the '<em>Tested Class</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_CLASS_FEATURE_COUNT = 6;
+
+  /**
+   * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl <em>Tested Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see no.hal.jex.jextest.jexTest.impl.TestedOperationImpl
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedOperation()
+   * @generated
+   */
+  int TESTED_OPERATION = 21;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_OPERATION__PARAMETERS = 0;
+
+  /**
+   * The number of structural features of the '<em>Tested Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_OPERATION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.TestedConstructorImpl <em>Tested Constructor</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see no.hal.jex.jextest.jexTest.impl.TestedConstructorImpl
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedConstructor()
+   * @generated
+   */
+  int TESTED_CONSTRUCTOR = 22;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_CONSTRUCTOR__PARAMETERS = TESTED_OPERATION__PARAMETERS;
+
+  /**
+   * The number of structural features of the '<em>Tested Constructor</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_CONSTRUCTOR_FEATURE_COUNT = TESTED_OPERATION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.TestedMethodImpl <em>Tested Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see no.hal.jex.jextest.jexTest.impl.TestedMethodImpl
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedMethod()
+   * @generated
+   */
+  int TESTED_METHOD = 23;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_METHOD__PARAMETERS = TESTED_OPERATION__PARAMETERS;
+
+  /**
+   * The feature id for the '<em><b>Abstract</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_METHOD__ABSTRACT = TESTED_OPERATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_METHOD__RETURN_TYPE = TESTED_OPERATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_METHOD__NAME = TESTED_OPERATION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Tested Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TESTED_METHOD_FEATURE_COUNT = TESTED_OPERATION_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.PropertiesTestImpl <em>Properties Test</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -877,7 +1116,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getPropertiesTest()
    * @generated
    */
-  int PROPERTIES_TEST = 19;
+  int PROPERTIES_TEST = 24;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -899,6 +1138,49 @@ public interface JexTestPackage extends EPackage
 
 
   /**
+   * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.JexTestSuite <em>Suite</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Suite</em>'.
+   * @see no.hal.jex.jextest.jexTest.JexTestSuite
+   * @generated
+   */
+  EClass getJexTestSuite();
+
+  /**
+   * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.JexTestSuite#getPack <em>Pack</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pack</em>'.
+   * @see no.hal.jex.jextest.jexTest.JexTestSuite#getPack()
+   * @see #getJexTestSuite()
+   * @generated
+   */
+  EAttribute getJexTestSuite_Pack();
+
+  /**
+   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.JexTestSuite#getImportSection <em>Import Section</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Import Section</em>'.
+   * @see no.hal.jex.jextest.jexTest.JexTestSuite#getImportSection()
+   * @see #getJexTestSuite()
+   * @generated
+   */
+  EReference getJexTestSuite_ImportSection();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link no.hal.jex.jextest.jexTest.JexTestSuite#getTestCases <em>Test Cases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Test Cases</em>'.
+   * @see no.hal.jex.jextest.jexTest.JexTestSuite#getTestCases()
+   * @see #getJexTestSuite()
+   * @generated
+   */
+  EReference getJexTestSuite_TestCases();
+
+  /**
    * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.JexTestCase <em>Case</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -909,15 +1191,26 @@ public interface JexTestPackage extends EPackage
   EClass getJexTestCase();
 
   /**
-   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestedClass <em>Tested Class</em>}'.
+   * Returns the meta object for the containment reference list '{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestedClasses <em>Tested Classes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Tested Class</em>'.
-   * @see no.hal.jex.jextest.jexTest.JexTestCase#getTestedClass()
+   * @return the meta object for the containment reference list '<em>Tested Classes</em>'.
+   * @see no.hal.jex.jextest.jexTest.JexTestCase#getTestedClasses()
    * @see #getJexTestCase()
    * @generated
    */
-  EReference getJexTestCase_TestedClass();
+  EReference getJexTestCase_TestedClasses();
+
+  /**
+   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestedClassRef <em>Tested Class Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tested Class Ref</em>'.
+   * @see no.hal.jex.jextest.jexTest.JexTestCase#getTestedClassRef()
+   * @see #getJexTestCase()
+   * @generated
+   */
+  EReference getJexTestCase_TestedClassRef();
 
   /**
    * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestClassName <em>Test Class Name</em>}'.
@@ -1573,6 +1866,156 @@ public interface JexTestPackage extends EPackage
   EAttribute getParameter_Name();
 
   /**
+   * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.TestedClass <em>Tested Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tested Class</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedClass
+   * @generated
+   */
+  EClass getTestedClass();
+
+  /**
+   * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.TestedClass#isInterface <em>Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Interface</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedClass#isInterface()
+   * @see #getTestedClass()
+   * @generated
+   */
+  EAttribute getTestedClass_Interface();
+
+  /**
+   * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.TestedClass#isAbstract <em>Abstract</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Abstract</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedClass#isAbstract()
+   * @see #getTestedClass()
+   * @generated
+   */
+  EAttribute getTestedClass_Abstract();
+
+  /**
+   * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.TestedClass#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedClass#getName()
+   * @see #getTestedClass()
+   * @generated
+   */
+  EAttribute getTestedClass_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.TestedClass#getSuperClass <em>Super Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Super Class</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedClass#getSuperClass()
+   * @see #getTestedClass()
+   * @generated
+   */
+  EReference getTestedClass_SuperClass();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link no.hal.jex.jextest.jexTest.TestedClass#getSuperInterfaces <em>Super Interfaces</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Super Interfaces</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedClass#getSuperInterfaces()
+   * @see #getTestedClass()
+   * @generated
+   */
+  EReference getTestedClass_SuperInterfaces();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link no.hal.jex.jextest.jexTest.TestedClass#getMethods <em>Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Methods</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedClass#getMethods()
+   * @see #getTestedClass()
+   * @generated
+   */
+  EReference getTestedClass_Methods();
+
+  /**
+   * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.TestedOperation <em>Tested Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tested Operation</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedOperation
+   * @generated
+   */
+  EClass getTestedOperation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link no.hal.jex.jextest.jexTest.TestedOperation#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedOperation#getParameters()
+   * @see #getTestedOperation()
+   * @generated
+   */
+  EReference getTestedOperation_Parameters();
+
+  /**
+   * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.TestedConstructor <em>Tested Constructor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tested Constructor</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedConstructor
+   * @generated
+   */
+  EClass getTestedConstructor();
+
+  /**
+   * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.TestedMethod <em>Tested Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tested Method</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedMethod
+   * @generated
+   */
+  EClass getTestedMethod();
+
+  /**
+   * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.TestedMethod#isAbstract <em>Abstract</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Abstract</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedMethod#isAbstract()
+   * @see #getTestedMethod()
+   * @generated
+   */
+  EAttribute getTestedMethod_Abstract();
+
+  /**
+   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.TestedMethod#getReturnType <em>Return Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Return Type</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedMethod#getReturnType()
+   * @see #getTestedMethod()
+   * @generated
+   */
+  EReference getTestedMethod_ReturnType();
+
+  /**
+   * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.TestedMethod#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedMethod#getName()
+   * @see #getTestedMethod()
+   * @generated
+   */
+  EAttribute getTestedMethod_Name();
+
+  /**
    * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.PropertiesTest <em>Properties Test</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1606,6 +2049,40 @@ public interface JexTestPackage extends EPackage
   interface Literals
   {
     /**
+     * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.JexTestSuiteImpl <em>Suite</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see no.hal.jex.jextest.jexTest.impl.JexTestSuiteImpl
+     * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getJexTestSuite()
+     * @generated
+     */
+    EClass JEX_TEST_SUITE = eINSTANCE.getJexTestSuite();
+
+    /**
+     * The meta object literal for the '<em><b>Pack</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JEX_TEST_SUITE__PACK = eINSTANCE.getJexTestSuite_Pack();
+
+    /**
+     * The meta object literal for the '<em><b>Import Section</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference JEX_TEST_SUITE__IMPORT_SECTION = eINSTANCE.getJexTestSuite_ImportSection();
+
+    /**
+     * The meta object literal for the '<em><b>Test Cases</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference JEX_TEST_SUITE__TEST_CASES = eINSTANCE.getJexTestSuite_TestCases();
+
+    /**
      * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl <em>Case</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1616,12 +2093,20 @@ public interface JexTestPackage extends EPackage
     EClass JEX_TEST_CASE = eINSTANCE.getJexTestCase();
 
     /**
-     * The meta object literal for the '<em><b>Tested Class</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Tested Classes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference JEX_TEST_CASE__TESTED_CLASS = eINSTANCE.getJexTestCase_TestedClass();
+    EReference JEX_TEST_CASE__TESTED_CLASSES = eINSTANCE.getJexTestCase_TestedClasses();
+
+    /**
+     * The meta object literal for the '<em><b>Tested Class Ref</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference JEX_TEST_CASE__TESTED_CLASS_REF = eINSTANCE.getJexTestCase_TestedClassRef();
 
     /**
      * The meta object literal for the '<em><b>Test Class Name</b></em>' attribute feature.
@@ -2146,6 +2631,126 @@ public interface JexTestPackage extends EPackage
      * @generated
      */
     EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+
+    /**
+     * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.TestedClassImpl <em>Tested Class</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see no.hal.jex.jextest.jexTest.impl.TestedClassImpl
+     * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedClass()
+     * @generated
+     */
+    EClass TESTED_CLASS = eINSTANCE.getTestedClass();
+
+    /**
+     * The meta object literal for the '<em><b>Interface</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TESTED_CLASS__INTERFACE = eINSTANCE.getTestedClass_Interface();
+
+    /**
+     * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TESTED_CLASS__ABSTRACT = eINSTANCE.getTestedClass_Abstract();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TESTED_CLASS__NAME = eINSTANCE.getTestedClass_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Super Class</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TESTED_CLASS__SUPER_CLASS = eINSTANCE.getTestedClass_SuperClass();
+
+    /**
+     * The meta object literal for the '<em><b>Super Interfaces</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TESTED_CLASS__SUPER_INTERFACES = eINSTANCE.getTestedClass_SuperInterfaces();
+
+    /**
+     * The meta object literal for the '<em><b>Methods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TESTED_CLASS__METHODS = eINSTANCE.getTestedClass_Methods();
+
+    /**
+     * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl <em>Tested Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see no.hal.jex.jextest.jexTest.impl.TestedOperationImpl
+     * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedOperation()
+     * @generated
+     */
+    EClass TESTED_OPERATION = eINSTANCE.getTestedOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TESTED_OPERATION__PARAMETERS = eINSTANCE.getTestedOperation_Parameters();
+
+    /**
+     * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.TestedConstructorImpl <em>Tested Constructor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see no.hal.jex.jextest.jexTest.impl.TestedConstructorImpl
+     * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedConstructor()
+     * @generated
+     */
+    EClass TESTED_CONSTRUCTOR = eINSTANCE.getTestedConstructor();
+
+    /**
+     * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.TestedMethodImpl <em>Tested Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see no.hal.jex.jextest.jexTest.impl.TestedMethodImpl
+     * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedMethod()
+     * @generated
+     */
+    EClass TESTED_METHOD = eINSTANCE.getTestedMethod();
+
+    /**
+     * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TESTED_METHOD__ABSTRACT = eINSTANCE.getTestedMethod_Abstract();
+
+    /**
+     * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TESTED_METHOD__RETURN_TYPE = eINSTANCE.getTestedMethod_ReturnType();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TESTED_METHOD__NAME = eINSTANCE.getTestedMethod_Name();
 
     /**
      * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.PropertiesTestImpl <em>Properties Test</em>}' class.

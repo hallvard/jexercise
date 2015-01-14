@@ -25,7 +25,7 @@ public class JexTestParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrP
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "JexTestCase";
+		return "JexTestSuite";
 	}
 	
 	public JexTestGrammarAccess getGrammarAccess() {

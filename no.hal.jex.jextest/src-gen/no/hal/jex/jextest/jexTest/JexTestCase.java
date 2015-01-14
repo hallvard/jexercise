@@ -18,7 +18,8 @@ import org.eclipse.xtext.xtype.XImportSection;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestedClass <em>Tested Class</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestedClasses <em>Tested Classes</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestedClassRef <em>Tested Class Ref</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestClassName <em>Test Class Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestCase#getDescription <em>Description</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestCase#getUrl <em>Url</em>}</li>
@@ -37,30 +38,46 @@ import org.eclipse.xtext.xtype.XImportSection;
 public interface JexTestCase extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Tested Class</b></em>' containment reference.
+   * Returns the value of the '<em><b>Tested Classes</b></em>' containment reference list.
+   * The list contents are of type {@link no.hal.jex.jextest.jexTest.TestedClass}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Tested Class</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Tested Classes</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tested Class</em>' containment reference.
-   * @see #setTestedClass(JvmParameterizedTypeReference)
-   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getJexTestCase_TestedClass()
+   * @return the value of the '<em>Tested Classes</em>' containment reference list.
+   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getJexTestCase_TestedClasses()
    * @model containment="true"
    * @generated
    */
-  JvmParameterizedTypeReference getTestedClass();
+  EList<TestedClass> getTestedClasses();
 
   /**
-   * Sets the value of the '{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestedClass <em>Tested Class</em>}' containment reference.
+   * Returns the value of the '<em><b>Tested Class Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tested Class Ref</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Tested Class</em>' containment reference.
-   * @see #getTestedClass()
+   * @return the value of the '<em>Tested Class Ref</em>' containment reference.
+   * @see #setTestedClassRef(JvmParameterizedTypeReference)
+   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getJexTestCase_TestedClassRef()
+   * @model containment="true"
    * @generated
    */
-  void setTestedClass(JvmParameterizedTypeReference value);
+  JvmParameterizedTypeReference getTestedClassRef();
+
+  /**
+   * Sets the value of the '{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestedClassRef <em>Tested Class Ref</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tested Class Ref</em>' containment reference.
+   * @see #getTestedClassRef()
+   * @generated
+   */
+  void setTestedClassRef(JvmParameterizedTypeReference value);
 
   /**
    * Returns the value of the '<em><b>Test Class Name</b></em>' attribute.

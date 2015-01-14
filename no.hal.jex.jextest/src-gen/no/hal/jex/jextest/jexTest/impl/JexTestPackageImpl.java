@@ -7,6 +7,7 @@ import no.hal.jex.jextest.jexTest.JexTestCase;
 import no.hal.jex.jextest.jexTest.JexTestFactory;
 import no.hal.jex.jextest.jexTest.JexTestPackage;
 import no.hal.jex.jextest.jexTest.JexTestSequence;
+import no.hal.jex.jextest.jexTest.JexTestSuite;
 import no.hal.jex.jextest.jexTest.Method;
 import no.hal.jex.jextest.jexTest.ObjectTest;
 import no.hal.jex.jextest.jexTest.Parameter;
@@ -15,6 +16,10 @@ import no.hal.jex.jextest.jexTest.PropertiesTestOwner;
 import no.hal.jex.jextest.jexTest.State;
 import no.hal.jex.jextest.jexTest.StateFunction;
 import no.hal.jex.jextest.jexTest.StateTestContext;
+import no.hal.jex.jextest.jexTest.TestedClass;
+import no.hal.jex.jextest.jexTest.TestedConstructor;
+import no.hal.jex.jextest.jexTest.TestedMethod;
+import no.hal.jex.jextest.jexTest.TestedOperation;
 import no.hal.jex.jextest.jexTest.Transition;
 import no.hal.jex.jextest.jexTest.TransitionAction;
 import no.hal.jex.jextest.jexTest.TransitionEffect;
@@ -46,6 +51,13 @@ import org.eclipse.xtext.xtype.XtypePackage;
  */
 public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
 {
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass jexTestSuiteEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -184,6 +196,34 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass testedClassEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass testedOperationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass testedConstructorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass testedMethodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass propertiesTestEClass = null;
 
   /**
@@ -258,6 +298,46 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getJexTestSuite()
+  {
+    return jexTestSuiteEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJexTestSuite_Pack()
+  {
+    return (EAttribute)jexTestSuiteEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getJexTestSuite_ImportSection()
+  {
+    return (EReference)jexTestSuiteEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getJexTestSuite_TestCases()
+  {
+    return (EReference)jexTestSuiteEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getJexTestCase()
   {
     return jexTestCaseEClass;
@@ -268,7 +348,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJexTestCase_TestedClass()
+  public EReference getJexTestCase_TestedClasses()
   {
     return (EReference)jexTestCaseEClass.getEStructuralFeatures().get(0);
   }
@@ -278,9 +358,9 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getJexTestCase_TestClassName()
+  public EReference getJexTestCase_TestedClassRef()
   {
-    return (EAttribute)jexTestCaseEClass.getEStructuralFeatures().get(1);
+    return (EReference)jexTestCaseEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -288,7 +368,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getJexTestCase_Description()
+  public EAttribute getJexTestCase_TestClassName()
   {
     return (EAttribute)jexTestCaseEClass.getEStructuralFeatures().get(2);
   }
@@ -298,7 +378,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getJexTestCase_Url()
+  public EAttribute getJexTestCase_Description()
   {
     return (EAttribute)jexTestCaseEClass.getEStructuralFeatures().get(3);
   }
@@ -308,9 +388,9 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJexTestCase_ImportSection()
+  public EAttribute getJexTestCase_Url()
   {
-    return (EReference)jexTestCaseEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)jexTestCaseEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -318,7 +398,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJexTestCase_Instances()
+  public EReference getJexTestCase_ImportSection()
   {
     return (EReference)jexTestCaseEClass.getEStructuralFeatures().get(5);
   }
@@ -328,7 +408,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJexTestCase_StateFunctions()
+  public EReference getJexTestCase_Instances()
   {
     return (EReference)jexTestCaseEClass.getEStructuralFeatures().get(6);
   }
@@ -338,7 +418,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJexTestCase_TestSequences()
+  public EReference getJexTestCase_StateFunctions()
   {
     return (EReference)jexTestCaseEClass.getEStructuralFeatures().get(7);
   }
@@ -348,9 +428,19 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getJexTestCase_Methods()
+  public EReference getJexTestCase_TestSequences()
   {
     return (EReference)jexTestCaseEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getJexTestCase_Methods()
+  {
+    return (EReference)jexTestCaseEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -888,6 +978,146 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getTestedClass()
+  {
+    return testedClassEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTestedClass_Interface()
+  {
+    return (EAttribute)testedClassEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTestedClass_Abstract()
+  {
+    return (EAttribute)testedClassEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTestedClass_Name()
+  {
+    return (EAttribute)testedClassEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTestedClass_SuperClass()
+  {
+    return (EReference)testedClassEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTestedClass_SuperInterfaces()
+  {
+    return (EReference)testedClassEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTestedClass_Methods()
+  {
+    return (EReference)testedClassEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTestedOperation()
+  {
+    return testedOperationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTestedOperation_Parameters()
+  {
+    return (EReference)testedOperationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTestedConstructor()
+  {
+    return testedConstructorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTestedMethod()
+  {
+    return testedMethodEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTestedMethod_Abstract()
+  {
+    return (EAttribute)testedMethodEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTestedMethod_ReturnType()
+  {
+    return (EReference)testedMethodEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTestedMethod_Name()
+  {
+    return (EAttribute)testedMethodEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPropertiesTest()
   {
     return propertiesTestEClass;
@@ -923,8 +1153,14 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     isCreated = true;
 
     // Create classes and their features
+    jexTestSuiteEClass = createEClass(JEX_TEST_SUITE);
+    createEAttribute(jexTestSuiteEClass, JEX_TEST_SUITE__PACK);
+    createEReference(jexTestSuiteEClass, JEX_TEST_SUITE__IMPORT_SECTION);
+    createEReference(jexTestSuiteEClass, JEX_TEST_SUITE__TEST_CASES);
+
     jexTestCaseEClass = createEClass(JEX_TEST_CASE);
-    createEReference(jexTestCaseEClass, JEX_TEST_CASE__TESTED_CLASS);
+    createEReference(jexTestCaseEClass, JEX_TEST_CASE__TESTED_CLASSES);
+    createEReference(jexTestCaseEClass, JEX_TEST_CASE__TESTED_CLASS_REF);
     createEAttribute(jexTestCaseEClass, JEX_TEST_CASE__TEST_CLASS_NAME);
     createEAttribute(jexTestCaseEClass, JEX_TEST_CASE__DESCRIPTION);
     createEAttribute(jexTestCaseEClass, JEX_TEST_CASE__URL);
@@ -1005,6 +1241,24 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     createEAttribute(parameterEClass, PARAMETER__VARARG);
     createEAttribute(parameterEClass, PARAMETER__NAME);
 
+    testedClassEClass = createEClass(TESTED_CLASS);
+    createEAttribute(testedClassEClass, TESTED_CLASS__INTERFACE);
+    createEAttribute(testedClassEClass, TESTED_CLASS__ABSTRACT);
+    createEAttribute(testedClassEClass, TESTED_CLASS__NAME);
+    createEReference(testedClassEClass, TESTED_CLASS__SUPER_CLASS);
+    createEReference(testedClassEClass, TESTED_CLASS__SUPER_INTERFACES);
+    createEReference(testedClassEClass, TESTED_CLASS__METHODS);
+
+    testedOperationEClass = createEClass(TESTED_OPERATION);
+    createEReference(testedOperationEClass, TESTED_OPERATION__PARAMETERS);
+
+    testedConstructorEClass = createEClass(TESTED_CONSTRUCTOR);
+
+    testedMethodEClass = createEClass(TESTED_METHOD);
+    createEAttribute(testedMethodEClass, TESTED_METHOD__ABSTRACT);
+    createEReference(testedMethodEClass, TESTED_METHOD__RETURN_TYPE);
+    createEAttribute(testedMethodEClass, TESTED_METHOD__NAME);
+
     propertiesTestEClass = createEClass(PROPERTIES_TEST);
   }
 
@@ -1033,8 +1287,8 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     setNsURI(eNS_URI);
 
     // Obtain other dependent packages
-    TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
     XtypePackage theXtypePackage = (XtypePackage)EPackage.Registry.INSTANCE.getEPackage(XtypePackage.eNS_URI);
+    TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
     XbasePackage theXbasePackage = (XbasePackage)EPackage.Registry.INSTANCE.getEPackage(XbasePackage.eNS_URI);
 
     // Create type parameters
@@ -1049,11 +1303,19 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     transitionExpressionActionEClass.getESuperTypes().add(this.getTransitionAction());
     transitionTargetEffectEClass.getESuperTypes().add(this.getTransitionEffect());
     transitionExceptionEffectEClass.getESuperTypes().add(this.getTransitionEffect());
+    testedConstructorEClass.getESuperTypes().add(this.getTestedOperation());
+    testedMethodEClass.getESuperTypes().add(this.getTestedOperation());
     propertiesTestEClass.getESuperTypes().add(theXbasePackage.getXBlockExpression());
 
     // Initialize classes and features; add operations and parameters
+    initEClass(jexTestSuiteEClass, JexTestSuite.class, "JexTestSuite", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getJexTestSuite_Pack(), ecorePackage.getEString(), "pack", null, 0, 1, JexTestSuite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJexTestSuite_ImportSection(), theXtypePackage.getXImportSection(), null, "importSection", null, 0, 1, JexTestSuite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJexTestSuite_TestCases(), this.getJexTestCase(), null, "testCases", null, 0, -1, JexTestSuite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(jexTestCaseEClass, JexTestCase.class, "JexTestCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getJexTestCase_TestedClass(), theTypesPackage.getJvmParameterizedTypeReference(), null, "testedClass", null, 0, 1, JexTestCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJexTestCase_TestedClasses(), this.getTestedClass(), null, "testedClasses", null, 0, -1, JexTestCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJexTestCase_TestedClassRef(), theTypesPackage.getJvmParameterizedTypeReference(), null, "testedClassRef", null, 0, 1, JexTestCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJexTestCase_TestClassName(), ecorePackage.getEString(), "testClassName", null, 0, 1, JexTestCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJexTestCase_Description(), ecorePackage.getEString(), "description", null, 0, 1, JexTestCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJexTestCase_Url(), ecorePackage.getEString(), "url", null, 0, 1, JexTestCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1133,6 +1395,24 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     initEReference(getParameter_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParameter_Vararg(), ecorePackage.getEBoolean(), "vararg", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(testedClassEClass, TestedClass.class, "TestedClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTestedClass_Interface(), ecorePackage.getEBoolean(), "interface", null, 0, 1, TestedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTestedClass_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 0, 1, TestedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTestedClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, TestedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTestedClass_SuperClass(), theTypesPackage.getJvmParameterizedTypeReference(), null, "superClass", null, 0, 1, TestedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTestedClass_SuperInterfaces(), theTypesPackage.getJvmParameterizedTypeReference(), null, "superInterfaces", null, 0, -1, TestedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTestedClass_Methods(), this.getTestedOperation(), null, "methods", null, 0, -1, TestedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(testedOperationEClass, TestedOperation.class, "TestedOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTestedOperation_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, TestedOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(testedConstructorEClass, TestedConstructor.class, "TestedConstructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(testedMethodEClass, TestedMethod.class, "TestedMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTestedMethod_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 0, 1, TestedMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTestedMethod_ReturnType(), theTypesPackage.getJvmParameterizedTypeReference(), null, "returnType", null, 0, 1, TestedMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTestedMethod_Name(), ecorePackage.getEString(), "name", null, 0, 1, TestedMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertiesTestEClass, PropertiesTest.class, "PropertiesTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

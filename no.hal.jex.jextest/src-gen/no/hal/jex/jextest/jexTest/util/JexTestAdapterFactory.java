@@ -78,6 +78,11 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
     new JexTestSwitch<Adapter>()
     {
       @Override
+      public Adapter caseJexTestSuite(JexTestSuite object)
+      {
+        return createJexTestSuiteAdapter();
+      }
+      @Override
       public Adapter caseJexTestCase(JexTestCase object)
       {
         return createJexTestCaseAdapter();
@@ -173,6 +178,26 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
         return createParameterAdapter();
       }
       @Override
+      public Adapter caseTestedClass(TestedClass object)
+      {
+        return createTestedClassAdapter();
+      }
+      @Override
+      public Adapter caseTestedOperation(TestedOperation object)
+      {
+        return createTestedOperationAdapter();
+      }
+      @Override
+      public Adapter caseTestedConstructor(TestedConstructor object)
+      {
+        return createTestedConstructorAdapter();
+      }
+      @Override
+      public Adapter caseTestedMethod(TestedMethod object)
+      {
+        return createTestedMethodAdapter();
+      }
+      @Override
       public Adapter casePropertiesTest(PropertiesTest object)
       {
         return createPropertiesTestAdapter();
@@ -208,6 +233,21 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
+
+  /**
+   * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.JexTestSuite <em>Suite</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see no.hal.jex.jextest.jexTest.JexTestSuite
+   * @generated
+   */
+  public Adapter createJexTestSuiteAdapter()
+  {
+    return null;
+  }
 
   /**
    * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.JexTestCase <em>Case</em>}'.
@@ -490,6 +530,66 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.TestedClass <em>Tested Class</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see no.hal.jex.jextest.jexTest.TestedClass
+   * @generated
+   */
+  public Adapter createTestedClassAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.TestedOperation <em>Tested Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see no.hal.jex.jextest.jexTest.TestedOperation
+   * @generated
+   */
+  public Adapter createTestedOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.TestedConstructor <em>Tested Constructor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see no.hal.jex.jextest.jexTest.TestedConstructor
+   * @generated
+   */
+  public Adapter createTestedConstructorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.TestedMethod <em>Tested Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see no.hal.jex.jextest.jexTest.TestedMethod
+   * @generated
+   */
+  public Adapter createTestedMethodAdapter()
   {
     return null;
   }

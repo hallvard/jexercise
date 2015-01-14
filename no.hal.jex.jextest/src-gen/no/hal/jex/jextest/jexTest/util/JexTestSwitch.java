@@ -75,6 +75,13 @@ public class JexTestSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case JexTestPackage.JEX_TEST_SUITE:
+      {
+        JexTestSuite jexTestSuite = (JexTestSuite)theEObject;
+        T result = caseJexTestSuite(jexTestSuite);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case JexTestPackage.JEX_TEST_CASE:
       {
         JexTestCase jexTestCase = (JexTestCase)theEObject;
@@ -215,6 +222,36 @@ public class JexTestSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case JexTestPackage.TESTED_CLASS:
+      {
+        TestedClass testedClass = (TestedClass)theEObject;
+        T result = caseTestedClass(testedClass);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JexTestPackage.TESTED_OPERATION:
+      {
+        TestedOperation testedOperation = (TestedOperation)theEObject;
+        T result = caseTestedOperation(testedOperation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JexTestPackage.TESTED_CONSTRUCTOR:
+      {
+        TestedConstructor testedConstructor = (TestedConstructor)theEObject;
+        T result = caseTestedConstructor(testedConstructor);
+        if (result == null) result = caseTestedOperation(testedConstructor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JexTestPackage.TESTED_METHOD:
+      {
+        TestedMethod testedMethod = (TestedMethod)theEObject;
+        T result = caseTestedMethod(testedMethod);
+        if (result == null) result = caseTestedOperation(testedMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case JexTestPackage.PROPERTIES_TEST:
       {
         PropertiesTest propertiesTest = (PropertiesTest)theEObject;
@@ -226,6 +263,22 @@ public class JexTestSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Suite</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Suite</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJexTestSuite(JexTestSuite object)
+  {
+    return null;
   }
 
   /**
@@ -528,6 +581,70 @@ public class JexTestSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseParameter(Parameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tested Class</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tested Class</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTestedClass(TestedClass object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tested Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tested Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTestedOperation(TestedOperation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tested Constructor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tested Constructor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTestedConstructor(TestedConstructor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tested Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tested Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTestedMethod(TestedMethod object)
   {
     return null;
   }

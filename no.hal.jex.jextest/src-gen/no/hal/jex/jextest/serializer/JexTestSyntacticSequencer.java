@@ -19,11 +19,12 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class JexTestSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected JexTestGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_JexTestCase_InstanceKeyword_6_0_0_0_or_ValKeyword_6_0_0_1;
+	protected AbstractElementAlias match_JexTestCase_InstanceKeyword_7_0_0_0_or_ValKeyword_7_0_0_1;
 	protected AbstractElementAlias match_JexTestSequence_InstanceKeyword_4_0_0_or_ValKeyword_4_0_1;
+	protected AbstractElementAlias match_JexTestSuite_SuiteKeyword_1_q;
 	protected AbstractElementAlias match_PropertiesTest_SemicolonKeyword_1_1_1_q;
+	protected AbstractElementAlias match_TestedClass_ClassKeyword_0_1_1_q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
-	protected AbstractElementAlias match_XConstructorCall___LeftParenthesisKeyword_4_0_RightParenthesisKeyword_4_2__q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
 	protected AbstractElementAlias match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q;
 	protected AbstractElementAlias match_XImportDeclaration_SemicolonKeyword_2_q;
@@ -33,11 +34,12 @@ public class JexTestSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (JexTestGrammarAccess) access;
-		match_JexTestCase_InstanceKeyword_6_0_0_0_or_ValKeyword_6_0_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getJexTestCaseAccess().getInstanceKeyword_6_0_0_0()), new TokenAlias(false, false, grammarAccess.getJexTestCaseAccess().getValKeyword_6_0_0_1()));
+		match_JexTestCase_InstanceKeyword_7_0_0_0_or_ValKeyword_7_0_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getJexTestCaseAccess().getInstanceKeyword_7_0_0_0()), new TokenAlias(false, false, grammarAccess.getJexTestCaseAccess().getValKeyword_7_0_0_1()));
 		match_JexTestSequence_InstanceKeyword_4_0_0_or_ValKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getJexTestSequenceAccess().getInstanceKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getJexTestSequenceAccess().getValKeyword_4_0_1()));
+		match_JexTestSuite_SuiteKeyword_1_q = new TokenAlias(false, true, grammarAccess.getJexTestSuiteAccess().getSuiteKeyword_1());
 		match_PropertiesTest_SemicolonKeyword_1_1_1_q = new TokenAlias(false, true, grammarAccess.getPropertiesTestAccess().getSemicolonKeyword_1_1_1());
+		match_TestedClass_ClassKeyword_0_1_1_q = new TokenAlias(false, true, grammarAccess.getTestedClassAccess().getClassKeyword_0_1_1());
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
-		match_XConstructorCall___LeftParenthesisKeyword_4_0_RightParenthesisKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXConstructorCallAccess().getLeftParenthesisKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getXConstructorCallAccess().getRightParenthesisKeyword_4_2()));
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
 		match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getLeftParenthesisKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getRightParenthesisKeyword_0_2()));
 		match_XImportDeclaration_SemicolonKeyword_2_q = new TokenAlias(false, true, grammarAccess.getXImportDeclarationAccess().getSemicolonKeyword_2());
@@ -82,16 +84,18 @@ public class JexTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_JexTestCase_InstanceKeyword_6_0_0_0_or_ValKeyword_6_0_0_1.equals(syntax))
-				emit_JexTestCase_InstanceKeyword_6_0_0_0_or_ValKeyword_6_0_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_JexTestCase_InstanceKeyword_7_0_0_0_or_ValKeyword_7_0_0_1.equals(syntax))
+				emit_JexTestCase_InstanceKeyword_7_0_0_0_or_ValKeyword_7_0_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_JexTestSequence_InstanceKeyword_4_0_0_or_ValKeyword_4_0_1.equals(syntax))
 				emit_JexTestSequence_InstanceKeyword_4_0_0_or_ValKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_JexTestSuite_SuiteKeyword_1_q.equals(syntax))
+				emit_JexTestSuite_SuiteKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_PropertiesTest_SemicolonKeyword_1_1_1_q.equals(syntax))
 				emit_PropertiesTest_SemicolonKeyword_1_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_TestedClass_ClassKeyword_0_1_1_q.equals(syntax))
+				emit_TestedClass_ClassKeyword_0_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
 				emit_XBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_XConstructorCall___LeftParenthesisKeyword_4_0_RightParenthesisKeyword_4_2__q.equals(syntax))
-				emit_XConstructorCall___LeftParenthesisKeyword_4_0_RightParenthesisKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XExpressionInClosure_SemicolonKeyword_1_1_q.equals(syntax))
 				emit_XExpressionInClosure_SemicolonKeyword_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q.equals(syntax))
@@ -108,17 +112,25 @@ public class JexTestSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     'val' | 'instance'
+	 *     'instance' | 'val'
 	 */
-	protected void emit_JexTestCase_InstanceKeyword_6_0_0_0_or_ValKeyword_6_0_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_JexTestCase_InstanceKeyword_7_0_0_0_or_ValKeyword_7_0_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     'val' | 'instance'
+	 *     'instance' | 'val'
 	 */
 	protected void emit_JexTestSequence_InstanceKeyword_4_0_0_or_ValKeyword_4_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     'suite'?
+	 */
+	protected void emit_JexTestSuite_SuiteKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -132,17 +144,17 @@ public class JexTestSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     ';'?
+	 *     'class'?
 	 */
-	protected void emit_XBlockExpression_SemicolonKeyword_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_TestedClass_ClassKeyword_0_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Syntax:
-	 *     ('(' ')')?
+	 *     ';'?
 	 */
-	protected void emit_XConstructorCall___LeftParenthesisKeyword_4_0_RightParenthesisKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_XBlockExpression_SemicolonKeyword_2_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

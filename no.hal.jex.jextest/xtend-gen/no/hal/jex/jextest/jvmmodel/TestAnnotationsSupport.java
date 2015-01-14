@@ -1,12 +1,15 @@
 package no.hal.jex.jextest.jvmmodel;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
 import no.hal.jex.jextest.jexTest.Instance;
 import no.hal.jex.jextest.jexTest.JexTestCase;
 import no.hal.jex.jextest.jexTest.JexTestSequence;
+import no.hal.jex.jextest.jexTest.TestedClass;
 import no.hal.jex.jextest.jexTest.Transition;
 import no.hal.jex.jextest.jexTest.TransitionAction;
 import no.hal.jex.jextest.jexTest.TransitionExpressionAction;
@@ -16,6 +19,8 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.common.types.JvmAnnotationReference;
+import org.eclipse.xtext.common.types.JvmAnnotationType;
+import org.eclipse.xtext.common.types.JvmAnnotationValue;
 import org.eclipse.xtext.common.types.JvmConstructor;
 import org.eclipse.xtext.common.types.JvmDeclaredType;
 import org.eclipse.xtext.common.types.JvmExecutable;
@@ -23,12 +28,17 @@ import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmIdentifiableElement;
 import org.eclipse.xtext.common.types.JvmMember;
+import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
+import org.eclipse.xtext.common.types.JvmStringAnnotationValue;
 import org.eclipse.xtext.common.types.JvmType;
+import org.eclipse.xtext.common.types.TypesFactory;
 import org.eclipse.xtext.xbase.XAbstractFeatureCall;
 import org.eclipse.xtext.xbase.XConstructorCall;
 import org.eclipse.xtext.xbase.XExpression;
+import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -40,17 +50,70 @@ public class TestAnnotationsSupport {
   @Extension
   private Util _util;
   
+  @Inject
+  @Extension
+  private IJvmModelAssociations _iJvmModelAssociations;
+  
+  @Inject
+  @Extension
+  private TypesFactory _typesFactory;
+  
+  public JvmType testedJvmType(final JexTestCase testCase) {
+    JvmType _elvis = null;
+    JvmParameterizedTypeReference _testedClassRef = testCase.getTestedClassRef();
+    JvmType _type = null;
+    if (_testedClassRef!=null) {
+      _type=_testedClassRef.getType();
+    }
+    if (_type != null) {
+      _elvis = _type;
+    } else {
+      JvmType _xblockexpression = null;
+      {
+        EList<TestedClass> _testedClasses = testCase.getTestedClasses();
+        final TestedClass testedClass = IterableExtensions.<TestedClass>head(_testedClasses);
+        Set<EObject> _jvmElements = this._iJvmModelAssociations.getJvmElements(testedClass);
+        EObject _head = IterableExtensions.<EObject>head(_jvmElements);
+        _xblockexpression = ((JvmType) _head);
+      }
+      _elvis = _xblockexpression;
+    }
+    return _elvis;
+  }
+  
+  public boolean toAnnotationStringValues(final EObject context, final JvmAnnotationReference annotation, final String valueName, final String... values) {
+    boolean _xblockexpression = false;
+    {
+      JvmAnnotationType _annotation = annotation.getAnnotation();
+      EList<JvmMember> _members = _annotation.getMembers();
+      Iterable<JvmOperation> _filter = Iterables.<JvmOperation>filter(_members, JvmOperation.class);
+      final Function1<JvmOperation, Boolean> _function = new Function1<JvmOperation, Boolean>() {
+        public Boolean apply(final JvmOperation it) {
+          String _simpleName = it.getSimpleName();
+          return Boolean.valueOf(Objects.equal(_simpleName, valueName));
+        }
+      };
+      final JvmOperation op = IterableExtensions.<JvmOperation>findFirst(_filter, _function);
+      final JvmStringAnnotationValue annotationValue = this._typesFactory.createJvmStringAnnotationValue();
+      annotationValue.setOperation(op);
+      EList<String> _values = annotationValue.getValues();
+      Iterables.<String>addAll(_values, ((Iterable<? extends String>)Conversions.doWrapArray(values)));
+      EList<JvmAnnotationValue> _explicitValues = annotation.getExplicitValues();
+      _xblockexpression = _explicitValues.add(annotationValue);
+    }
+    return _xblockexpression;
+  }
+  
   public boolean generateTestClassAnntations(final JexTestCase testCase, final JvmAnnotationReference jexerciseAnnotation) {
     boolean _xblockexpression = false;
     {
-      StringBuilder _stringBuilder = new StringBuilder();
-      final StringBuilder descriptionBuffer = _stringBuilder;
+      final StringBuilder descriptionBuffer = new StringBuilder();
       String _description = testCase.getDescription();
       this.addDescription(descriptionBuffer, _description, "h3");
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Tests ");
-      JvmParameterizedTypeReference _testedClass = testCase.getTestedClass();
-      String _identifier = _testedClass.getIdentifier();
+      JvmType _testedJvmType = this.testedJvmType(testCase);
+      String _identifier = _testedJvmType.getIdentifier();
       _builder.append(_identifier, "");
       descriptionBuffer.append(_builder);
       String _url = testCase.getUrl();
@@ -67,8 +130,7 @@ public class TestAnnotationsSupport {
         descriptionBuffer.append(_builder_1);
       }
       String _string = descriptionBuffer.toString();
-      boolean _annotationStringValues = this._util.toAnnotationStringValues(testCase, jexerciseAnnotation, "description", _string);
-      _xblockexpression = (_annotationStringValues);
+      _xblockexpression = this.toAnnotationStringValues(testCase, jexerciseAnnotation, "description", _string);
     }
     return _xblockexpression;
   }
@@ -76,11 +138,9 @@ public class TestAnnotationsSupport {
   public boolean generateTestMethodAnntations(final JexTestSequence sequence, final JvmAnnotationReference jexerciseAnnotation) {
     boolean _xblockexpression = false;
     {
-      StringBuilder _stringBuilder = new StringBuilder();
-      final StringBuilder testsBuffer = _stringBuilder;
+      final StringBuilder testsBuffer = new StringBuilder();
       final JexTestCase testCase = this._util.<JexTestCase>ancestor(sequence, JexTestCase.class);
-      JvmParameterizedTypeReference _testedClass = testCase.getTestedClass();
-      final JvmType testedClass = _testedClass.getType();
+      final JvmType testedClass = this.testedJvmType(testCase);
       final ArrayList<JvmExecutable> testedMembers = CollectionLiterals.<JvmExecutable>newArrayList();
       EList<Instance> _instances = testCase.getInstances();
       boolean _isEmpty = _instances.isEmpty();
@@ -103,7 +163,7 @@ public class TestAnnotationsSupport {
           {
             XExpression expr = null;
             if ((action instanceof TransitionExpressionAction)) {
-              XExpression _expr = ((TransitionExpressionAction) action).getExpr();
+              XExpression _expr = ((TransitionExpressionAction)action).getExpr();
               expr = _expr;
             }
             boolean _notEquals = (!Objects.equal(expr, null));
@@ -124,17 +184,15 @@ public class TestAnnotationsSupport {
           this._util.appendMethodSignature(testsBuffer, op);
         }
       }
-      StringBuilder _stringBuilder_1 = new StringBuilder();
-      final StringBuilder descriptionBuffer = _stringBuilder_1;
+      final StringBuilder descriptionBuffer = new StringBuilder();
       String _description = sequence.getDescription();
       this.addDescription(descriptionBuffer, _description, "h3");
       EList<Transition> _transitions_1 = sequence.getTransitions();
-      final Function1<Transition,Boolean> _function = new Function1<Transition,Boolean>() {
+      final Function1<Transition, Boolean> _function = new Function1<Transition, Boolean>() {
         public Boolean apply(final Transition it) {
           EList<TransitionAction> _actions = it.getActions();
           boolean _isEmpty = _actions.isEmpty();
-          boolean _not = (!_isEmpty);
-          return Boolean.valueOf(_not);
+          return Boolean.valueOf((!_isEmpty));
         }
       };
       final Iterable<Transition> transitionExpressions = IterableExtensions.<Transition>filter(_transitions_1, _function);
@@ -163,13 +221,13 @@ public class TestAnnotationsSupport {
                 boolean _notEquals = (!Objects.equal(_description_1, null));
                 if (_notEquals) {
                   String _description_2 = transition_1.getDescription();
-                  _builder.append(_description_2, "		");
+                  _builder.append(_description_2, "\t\t");
                   _builder.append(": ");
                 }
               }
               EList<TransitionAction> _actions_1 = transition_1.getActions();
               String _asSourceText = this._util.asSourceText(_actions_1, ", ");
-              _builder.append(_asSourceText, "		");
+              _builder.append(_asSourceText, "\t\t");
               _builder.append("</li>");
               _builder.newLineIfNotEmpty();
             }
@@ -186,11 +244,10 @@ public class TestAnnotationsSupport {
       if (_greaterThan) {
         String _string = testsBuffer.toString();
         String _removeJavaLang = this._util.removeJavaLang(_string);
-        this._util.toAnnotationStringValues(sequence, jexerciseAnnotation, "tests", _removeJavaLang);
+        this.toAnnotationStringValues(sequence, jexerciseAnnotation, "tests", _removeJavaLang);
       }
       String _string_1 = descriptionBuffer.toString();
-      boolean _annotationStringValues = this._util.toAnnotationStringValues(sequence, jexerciseAnnotation, "description", _string_1);
-      _xblockexpression = (_annotationStringValues);
+      _xblockexpression = this.toAnnotationStringValues(sequence, jexerciseAnnotation, "description", _string_1);
     }
     return _xblockexpression;
   }
@@ -200,23 +257,19 @@ public class TestAnnotationsSupport {
     if (_notEquals) {
       final ArrayList<String> tagList = CollectionLiterals.<String>newArrayList(tags);
       for (final String tag : tagList) {
-        String _plus = ("<" + tag);
-        String _plus_1 = (_plus + ">");
-        buffer.append(_plus_1);
+        buffer.append((("<" + tag) + ">"));
       }
       buffer.append(description);
       ListExtensions.<String>reverse(tagList);
       for (final String tag_1 : tagList) {
-        String _plus_2 = ("</" + tag_1);
-        String _plus_3 = (_plus_2 + ">");
-        buffer.append(_plus_3);
+        buffer.append((("</" + tag_1) + ">"));
       }
     }
   }
   
   private void addDefaultConstructor(final JvmType type, final Collection<JvmExecutable> testedMembers) {
     if ((type instanceof JvmGenericType)) {
-      EList<JvmMember> _members = ((JvmGenericType) type).getMembers();
+      EList<JvmMember> _members = ((JvmGenericType)type).getMembers();
       for (final JvmMember member : _members) {
         boolean _and = false;
         if (!(member instanceof JvmConstructor)) {
@@ -224,7 +277,7 @@ public class TestAnnotationsSupport {
         } else {
           EList<JvmFormalParameter> _parameters = ((JvmExecutable) member).getParameters();
           boolean _isEmpty = _parameters.isEmpty();
-          _and = ((member instanceof JvmConstructor) && _isEmpty);
+          _and = _isEmpty;
         }
         if (_and) {
           this.addUsedMember(((JvmExecutable) member), type, testedMembers);
@@ -248,29 +301,23 @@ public class TestAnnotationsSupport {
   private void collectUsedMembers(final EObject expr, final JvmType type, final Collection<JvmExecutable> executables) {
     this.collectUsedMember(expr, type, executables);
     final TreeIterator<EObject> allContents = expr.eAllContents();
-    boolean _hasNext = allContents.hasNext();
-    boolean _while = _hasNext;
-    while (_while) {
+    while (allContents.hasNext()) {
       EObject _next = allContents.next();
       this.collectUsedMember(_next, type, executables);
-      boolean _hasNext_1 = allContents.hasNext();
-      _while = _hasNext_1;
     }
   }
   
   private void collectUsedMember(final EObject expr, final JvmType type, final Collection<JvmExecutable> executables) {
     JvmExecutable op = null;
     if ((expr instanceof XAbstractFeatureCall)) {
-      final XAbstractFeatureCall featureCall = ((XAbstractFeatureCall) expr);
-      JvmIdentifiableElement _feature = featureCall.getFeature();
+      JvmIdentifiableElement _feature = ((XAbstractFeatureCall)expr).getFeature();
       if ((_feature instanceof JvmExecutable)) {
-        JvmIdentifiableElement _feature_1 = featureCall.getFeature();
+        JvmIdentifiableElement _feature_1 = ((XAbstractFeatureCall)expr).getFeature();
         op = ((JvmExecutable) _feature_1);
       }
     } else {
       if ((expr instanceof XConstructorCall)) {
-        final XConstructorCall constructorCall = ((XConstructorCall) expr);
-        JvmConstructor _constructor = constructorCall.getConstructor();
+        JvmConstructor _constructor = ((XConstructorCall)expr).getConstructor();
         op = _constructor;
       }
     }
@@ -286,14 +333,14 @@ public class TestAnnotationsSupport {
     } else {
       JvmDeclaredType _declaringType = op.getDeclaringType();
       boolean _equals = Objects.equal(_declaringType, type);
-      _and_1 = (_notEquals && _equals);
+      _and_1 = _equals;
     }
     if (!_and_1) {
       _and = false;
     } else {
       boolean _contains = testedMembers.contains(op);
       boolean _not = (!_contains);
-      _and = (_and_1 && _not);
+      _and = _not;
     }
     if (_and) {
       testedMembers.add(op);

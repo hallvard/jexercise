@@ -23,6 +23,15 @@ public interface JexTestFactory extends EFactory
   JexTestFactory eINSTANCE = no.hal.jex.jextest.jexTest.impl.JexTestFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>Suite</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Suite</em>'.
+   * @generated
+   */
+  JexTestSuite createJexTestSuite();
+
+  /**
    * Returns a new object of class '<em>Case</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -192,6 +201,42 @@ public interface JexTestFactory extends EFactory
    * @generated
    */
   Parameter createParameter();
+
+  /**
+   * Returns a new object of class '<em>Tested Class</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tested Class</em>'.
+   * @generated
+   */
+  TestedClass createTestedClass();
+
+  /**
+   * Returns a new object of class '<em>Tested Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tested Operation</em>'.
+   * @generated
+   */
+  TestedOperation createTestedOperation();
+
+  /**
+   * Returns a new object of class '<em>Tested Constructor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tested Constructor</em>'.
+   * @generated
+   */
+  TestedConstructor createTestedConstructor();
+
+  /**
+   * Returns a new object of class '<em>Tested Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tested Method</em>'.
+   * @generated
+   */
+  TestedMethod createTestedMethod();
 
   /**
    * Returns a new object of class '<em>Properties Test</em>'.

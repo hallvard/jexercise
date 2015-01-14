@@ -10,6 +10,7 @@ import no.hal.jex.jextest.jexTest.JexTestPackage;
 import no.hal.jex.jextest.jexTest.JexTestSequence;
 import no.hal.jex.jextest.jexTest.Method;
 import no.hal.jex.jextest.jexTest.StateFunction;
+import no.hal.jex.jextest.jexTest.TestedClass;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -36,7 +37,8 @@ import org.eclipse.xtext.xtype.XImportSection;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl#getTestedClass <em>Tested Class</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl#getTestedClasses <em>Tested Classes</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl#getTestedClassRef <em>Tested Class Ref</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl#getTestClassName <em>Test Class Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestCaseImpl#getUrl <em>Url</em>}</li>
@@ -53,14 +55,24 @@ import org.eclipse.xtext.xtype.XImportSection;
 public class JexTestCaseImpl extends MinimalEObjectImpl.Container implements JexTestCase
 {
   /**
-   * The cached value of the '{@link #getTestedClass() <em>Tested Class</em>}' containment reference.
+   * The cached value of the '{@link #getTestedClasses() <em>Tested Classes</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTestedClass()
+   * @see #getTestedClasses()
    * @generated
    * @ordered
    */
-  protected JvmParameterizedTypeReference testedClass;
+  protected EList<TestedClass> testedClasses;
+
+  /**
+   * The cached value of the '{@link #getTestedClassRef() <em>Tested Class Ref</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTestedClassRef()
+   * @generated
+   * @ordered
+   */
+  protected JvmParameterizedTypeReference testedClassRef;
 
   /**
    * The default value of the '{@link #getTestClassName() <em>Test Class Name</em>}' attribute.
@@ -198,9 +210,13 @@ public class JexTestCaseImpl extends MinimalEObjectImpl.Container implements Jex
    * <!-- end-user-doc -->
    * @generated
    */
-  public JvmParameterizedTypeReference getTestedClass()
+  public EList<TestedClass> getTestedClasses()
   {
-    return testedClass;
+    if (testedClasses == null)
+    {
+      testedClasses = new EObjectContainmentEList<TestedClass>(TestedClass.class, this, JexTestPackage.JEX_TEST_CASE__TESTED_CLASSES);
+    }
+    return testedClasses;
   }
 
   /**
@@ -208,13 +224,23 @@ public class JexTestCaseImpl extends MinimalEObjectImpl.Container implements Jex
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTestedClass(JvmParameterizedTypeReference newTestedClass, NotificationChain msgs)
+  public JvmParameterizedTypeReference getTestedClassRef()
   {
-    JvmParameterizedTypeReference oldTestedClass = testedClass;
-    testedClass = newTestedClass;
+    return testedClassRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTestedClassRef(JvmParameterizedTypeReference newTestedClassRef, NotificationChain msgs)
+  {
+    JvmParameterizedTypeReference oldTestedClassRef = testedClassRef;
+    testedClassRef = newTestedClassRef;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JexTestPackage.JEX_TEST_CASE__TESTED_CLASS, oldTestedClass, newTestedClass);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JexTestPackage.JEX_TEST_CASE__TESTED_CLASS_REF, oldTestedClassRef, newTestedClassRef);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -225,20 +251,20 @@ public class JexTestCaseImpl extends MinimalEObjectImpl.Container implements Jex
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTestedClass(JvmParameterizedTypeReference newTestedClass)
+  public void setTestedClassRef(JvmParameterizedTypeReference newTestedClassRef)
   {
-    if (newTestedClass != testedClass)
+    if (newTestedClassRef != testedClassRef)
     {
       NotificationChain msgs = null;
-      if (testedClass != null)
-        msgs = ((InternalEObject)testedClass).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.JEX_TEST_CASE__TESTED_CLASS, null, msgs);
-      if (newTestedClass != null)
-        msgs = ((InternalEObject)newTestedClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.JEX_TEST_CASE__TESTED_CLASS, null, msgs);
-      msgs = basicSetTestedClass(newTestedClass, msgs);
+      if (testedClassRef != null)
+        msgs = ((InternalEObject)testedClassRef).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.JEX_TEST_CASE__TESTED_CLASS_REF, null, msgs);
+      if (newTestedClassRef != null)
+        msgs = ((InternalEObject)newTestedClassRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.JEX_TEST_CASE__TESTED_CLASS_REF, null, msgs);
+      msgs = basicSetTestedClassRef(newTestedClassRef, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.JEX_TEST_CASE__TESTED_CLASS, newTestedClass, newTestedClass));
+      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.JEX_TEST_CASE__TESTED_CLASS_REF, newTestedClassRef, newTestedClassRef));
   }
 
   /**
@@ -424,8 +450,10 @@ public class JexTestCaseImpl extends MinimalEObjectImpl.Container implements Jex
   {
     switch (featureID)
     {
-      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASS:
-        return basicSetTestedClass(null, msgs);
+      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASSES:
+        return ((InternalEList<?>)getTestedClasses()).basicRemove(otherEnd, msgs);
+      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASS_REF:
+        return basicSetTestedClassRef(null, msgs);
       case JexTestPackage.JEX_TEST_CASE__IMPORT_SECTION:
         return basicSetImportSection(null, msgs);
       case JexTestPackage.JEX_TEST_CASE__INSTANCES:
@@ -450,8 +478,10 @@ public class JexTestCaseImpl extends MinimalEObjectImpl.Container implements Jex
   {
     switch (featureID)
     {
-      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASS:
-        return getTestedClass();
+      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASSES:
+        return getTestedClasses();
+      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASS_REF:
+        return getTestedClassRef();
       case JexTestPackage.JEX_TEST_CASE__TEST_CLASS_NAME:
         return getTestClassName();
       case JexTestPackage.JEX_TEST_CASE__DESCRIPTION:
@@ -483,8 +513,12 @@ public class JexTestCaseImpl extends MinimalEObjectImpl.Container implements Jex
   {
     switch (featureID)
     {
-      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASS:
-        setTestedClass((JvmParameterizedTypeReference)newValue);
+      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASSES:
+        getTestedClasses().clear();
+        getTestedClasses().addAll((Collection<? extends TestedClass>)newValue);
+        return;
+      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASS_REF:
+        setTestedClassRef((JvmParameterizedTypeReference)newValue);
         return;
       case JexTestPackage.JEX_TEST_CASE__TEST_CLASS_NAME:
         setTestClassName((String)newValue);
@@ -528,8 +562,11 @@ public class JexTestCaseImpl extends MinimalEObjectImpl.Container implements Jex
   {
     switch (featureID)
     {
-      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASS:
-        setTestedClass((JvmParameterizedTypeReference)null);
+      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASSES:
+        getTestedClasses().clear();
+        return;
+      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASS_REF:
+        setTestedClassRef((JvmParameterizedTypeReference)null);
         return;
       case JexTestPackage.JEX_TEST_CASE__TEST_CLASS_NAME:
         setTestClassName(TEST_CLASS_NAME_EDEFAULT);
@@ -569,8 +606,10 @@ public class JexTestCaseImpl extends MinimalEObjectImpl.Container implements Jex
   {
     switch (featureID)
     {
-      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASS:
-        return testedClass != null;
+      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASSES:
+        return testedClasses != null && !testedClasses.isEmpty();
+      case JexTestPackage.JEX_TEST_CASE__TESTED_CLASS_REF:
+        return testedClassRef != null;
       case JexTestPackage.JEX_TEST_CASE__TEST_CLASS_NAME:
         return TEST_CLASS_NAME_EDEFAULT == null ? testClassName != null : !TEST_CLASS_NAME_EDEFAULT.equals(testClassName);
       case JexTestPackage.JEX_TEST_CASE__DESCRIPTION:

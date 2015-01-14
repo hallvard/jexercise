@@ -14,11 +14,16 @@ public class JexTestRuntimeModule extends no.hal.jex.jextest.AbstractJexTestRunt
 		return no.hal.jex.jextest.jvmmodel.JexTestCompiler.class;
 	}
 
-	public Class<? extends org.eclipse.xtext.xbase.scoping.batch.ImplicitlyImportedTypes> bindImplicitlyImportedTypes() {
+	public Class<? extends org.eclipse.xtext.xbase.scoping.batch.ImplicitlyImportedFeatures> bindImplicitlyImportedFeatures() {
 		return no.hal.jex.jextest.extensions.ImplicitlyImportedTypes.class;
 	}
 	
 	public Class<? extends org.eclipse.xtext.xbase.scoping.featurecalls.OperatorMapping> bindOperatorMapping() {
 		return no.hal.jex.jextest.extensions.OperatorMapping.class;
+	}
+	
+	// contributed by org.eclipse.xtext.generator.xbase.XbaseGeneratorFragment
+	public Class<? extends org.eclipse.xtext.generator.IGenerator> bindIGenerator() {
+		return no.hal.jex.jextest.jvmmodel.JexTestGenerator.class;
 	}
 }

@@ -64,6 +64,7 @@ public class JexTestFactoryImpl extends EFactoryImpl implements JexTestFactory
   {
     switch (eClass.getClassifierID())
     {
+      case JexTestPackage.JEX_TEST_SUITE: return createJexTestSuite();
       case JexTestPackage.JEX_TEST_CASE: return createJexTestCase();
       case JexTestPackage.INSTANCE: return createInstance();
       case JexTestPackage.STATE_TEST_CONTEXT: return createStateTestContext();
@@ -83,10 +84,25 @@ public class JexTestFactoryImpl extends EFactoryImpl implements JexTestFactory
       case JexTestPackage.TRANSITION_OUTPUT_EFFECT: return createTransitionOutputEffect();
       case JexTestPackage.METHOD: return createMethod();
       case JexTestPackage.PARAMETER: return createParameter();
+      case JexTestPackage.TESTED_CLASS: return createTestedClass();
+      case JexTestPackage.TESTED_OPERATION: return createTestedOperation();
+      case JexTestPackage.TESTED_CONSTRUCTOR: return createTestedConstructor();
+      case JexTestPackage.TESTED_METHOD: return createTestedMethod();
       case JexTestPackage.PROPERTIES_TEST: return createPropertiesTest();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JexTestSuite createJexTestSuite()
+  {
+    JexTestSuiteImpl jexTestSuite = new JexTestSuiteImpl();
+    return jexTestSuite;
   }
 
   /**
@@ -296,6 +312,50 @@ public class JexTestFactoryImpl extends EFactoryImpl implements JexTestFactory
   {
     ParameterImpl parameter = new ParameterImpl();
     return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TestedClass createTestedClass()
+  {
+    TestedClassImpl testedClass = new TestedClassImpl();
+    return testedClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TestedOperation createTestedOperation()
+  {
+    TestedOperationImpl testedOperation = new TestedOperationImpl();
+    return testedOperation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TestedConstructor createTestedConstructor()
+  {
+    TestedConstructorImpl testedConstructor = new TestedConstructorImpl();
+    return testedConstructor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TestedMethod createTestedMethod()
+  {
+    TestedMethodImpl testedMethod = new TestedMethodImpl();
+    return testedMethod;
   }
 
   /**

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='no.hal.jex.jextest' version='0.9.0.201501141640'>
+    <update id='no.hal.jex.jextest' range='[0.0.0,0.9.0.201501141640)' severity='0'/>
+    <properties size='5'>
+      <property name='org.eclipse.equinox.p2.name' value='no.hal.jex.jextest'/>
+      <property name='org.eclipse.equinox.p2.provider' value='IDI'/>
+      <property name='maven-groupId' value='no.hal.jex'/>
+      <property name='maven-artifactId' value='no.hal.jex.jextest'/>
+      <property name='maven-version' value='0.9.0-SNAPSHOT'/>
+    </properties>
+    <provides size='14'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='no.hal.jex.jextest' version='0.9.0.201501141640'/>
+      <provided namespace='osgi.bundle' name='no.hal.jex.jextest' version='0.9.0.201501141640'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest.services' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest.jexTest' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest.jexTest.impl' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest.jexTest.util' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest.serializer' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest.parser.antlr' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest.parser.antlr.internal' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest.validation' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest.formatting' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.jex.jextest.jvmmodel' version='0.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='17'>
+      <required namespace='osgi.bundle' name='org.eclipse.xtext' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase' range='0.0.0' optional='true' greedy='false'/>
+      <required namespace='osgi.bundle' name='org.eclipse.xtext.generator' range='0.0.0' optional='true' greedy='false'/>
+      <required namespace='osgi.bundle' name='org.apache.commons.logging' range='1.0.4' optional='true' greedy='false'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.codegen.ecore' range='0.0.0' optional='true' greedy='false'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.mwe.utils' range='0.0.0' optional='true' greedy='false'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.mwe2.launch' range='0.0.0' optional='true' greedy='false'/>
+      <required namespace='osgi.bundle' name='org.eclipse.xtext.util' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.common' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.antlr.runtime' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.xtext.common.types' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.lib' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='no.hal.jex.jextest.lib' range='0.9.0'/>
+      <required namespace='osgi.bundle' name='org.objectweb.asm' range='[5.0.1,6.0.0)' optional='true' greedy='false'/>
+      <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+      <required namespace='java.package' name='org.eclipse.xtext.xbase.lib' range='0.0.0'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='no.hal.jex.jextest' version='0.9.0.201501141640'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: no.hal.jex.jextest;singleton:=true&#xA;Bundle-Version: 0.9.0.201501141640&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>

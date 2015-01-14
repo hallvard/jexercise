@@ -5,7 +5,7 @@ package no.hal.jex.jextest.validation;
 
 import java.util.Collection;
 import java.util.Iterator;
-import no.hal.jex.jextest.jexTest.JexTestPackage.Literals;
+import no.hal.jex.jextest.jexTest.JexTestPackage;
 import no.hal.jex.jextest.jexTest.Method;
 import no.hal.jex.jextest.jexTest.Parameter;
 import no.hal.jex.jextest.jexTest.StateFunction;
@@ -29,25 +29,21 @@ public class JexTestValidator extends AbstractJexTestValidator {
     boolean _xblockexpression = false;
     {
       final Iterator<Parameter> iterator = parameters.iterator();
-      boolean _hasNext = iterator.hasNext();
-      boolean _while = _hasNext;
-      while (_while) {
+      while (iterator.hasNext()) {
         boolean _and = false;
         Parameter _next = iterator.next();
         boolean _isVararg = _next.isVararg();
         if (!_isVararg) {
           _and = false;
         } else {
-          boolean _hasNext_1 = iterator.hasNext();
-          _and = (_isVararg && _hasNext_1);
+          boolean _hasNext = iterator.hasNext();
+          _and = _hasNext;
         }
         if (_and) {
           this.error("Only the last paramter can be a vararg", feature);
         }
-        boolean _hasNext_2 = iterator.hasNext();
-        _while = _hasNext_2;
       }
-      _xblockexpression = (true);
+      _xblockexpression = true;
     }
     return _xblockexpression;
   }
@@ -55,14 +51,12 @@ public class JexTestValidator extends AbstractJexTestValidator {
   @Check
   public boolean checkVarargIsLast(final StateFunction method) {
     EList<Parameter> _parameters = method.getParameters();
-    boolean _checkVarargIsLast = this.checkVarargIsLast(_parameters, Literals.STATE_FUNCTION__PARAMETERS);
-    return _checkVarargIsLast;
+    return this.checkVarargIsLast(_parameters, JexTestPackage.Literals.STATE_FUNCTION__PARAMETERS);
   }
   
   @Check
   public boolean checkVarargIsLast(final Method method) {
     EList<Parameter> _parameters = method.getParameters();
-    boolean _checkVarargIsLast = this.checkVarargIsLast(_parameters, Literals.METHOD__PARAMETERS);
-    return _checkVarargIsLast;
+    return this.checkVarargIsLast(_parameters, JexTestPackage.Literals.METHOD__PARAMETERS);
   }
 }
