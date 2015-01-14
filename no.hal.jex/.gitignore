@@ -1,1 +1,2 @@
 bin/ # ignore bin directory
+/target/
