@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='no.hal.emfs.provider' version='0.1.0.201501141640'>
+    <update id='no.hal.emfs.provider' range='[0.0.0,0.1.0.201501141640)' severity='0'/>
+    <properties size='5'>
+      <property name='org.eclipse.equinox.p2.name' value='EMF-based EFS provider'/>
+      <property name='org.eclipse.equinox.p2.provider' value='Hallvard Traetteberg'/>
+      <property name='maven-groupId' value='no.hal.jex'/>
+      <property name='maven-artifactId' value='no.hal.emfs.provider'/>
+      <property name='maven-version' value='0.1.0-SNAPSHOT'/>
+    </properties>
+    <provides size='3'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='no.hal.emfs.provider' version='0.1.0.201501141640'/>
+      <provided namespace='osgi.bundle' name='no.hal.emfs.provider' version='0.1.0.201501141640'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='4'>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.10.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.9.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.filesystem' range='1.4.100'/>
+      <required namespace='osgi.bundle' name='no.hal.emfs' range='0.1.0'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='no.hal.emfs.provider' version='0.1.0.201501141640'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: no.hal.emfs.provider;singleton:=true&#xA;Bundle-Version: 0.1.0.201501141640&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>

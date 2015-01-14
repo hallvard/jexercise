@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: no.hal.emfs.xtext; singleton:=true
+Export-Package: no.hal.emfs.xtext,no.hal.emfs.xtext.services,no.hal.em
+ fs.xtext.serializer,no.hal.emfs.xtext.parser.antlr,no.hal.emfs.xtext.
+ parser.antlr.internal,no.hal.emfs.xtext.validation,no.hal.emfs.xtext.
+ scoping,no.hal.emfs.xtext.generator,no.hal.emfs.xtext.formatting
+Bundle-Name: EMFS grammar and parser
+Bundle-Version: 0.1.0.201501141640
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,org.eclipse.xte
+ xt.xbase;resolution:=optional;visibility:=reexport,org.eclipse.xtext.
+ generator;resolution:=optional,org.apache.commons.logging;bundle-vers
+ ion="1.0.4";resolution:=optional,org.eclipse.emf.codegen.ecore;resolu
+ tion:=optional,org.eclipse.emf.mwe.utils;resolution:=optional,org.ecl
+ ipse.emf.mwe2.launch;resolution:=optional,no.hal.emfs,org.eclipse.xte
+ xt.util,org.antlr.runtime,org.eclipse.xtext.common.types,org.objectwe
+ b.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,org.eclipse
+ .xtext.xbase.lib
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: Hallvard Traetteberg
+Import-Package: org.apache.log4j,org.eclipse.xtext.xbase.lib
+

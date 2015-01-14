@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: no.hal.emfs.git
+Export-Package: no.hal.emfs.git
+Bundle-Name: EMFS Git Import support
+Bundle-Version: 0.1.0.201501141640
+Bundle-ClassPath: .
+Require-Bundle: org.eclipse.jgit;bundle-version="3.4.0"
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Hallvard Traetteberg
+

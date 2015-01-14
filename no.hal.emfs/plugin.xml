@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated emfs -->
+      <package
+            uri="platform:/plugin/no.hal.emfs/model/emfs.ecore"
+            class="no.hal.emfs.EmfsPackage"
+            genModel="model/emfs.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated emfs -->
+      <parser
+            type="emfs"
+            class="no.hal.emfs.util.EmfsResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

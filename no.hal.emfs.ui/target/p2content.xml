@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='no.hal.emfs.ui' version='0.1.0.201501141640'>
+    <update id='no.hal.emfs.ui' range='[0.0.0,0.1.0.201501141640)' severity='0'/>
+    <properties size='8'>
+      <property name='df_LT.pluginName' value='Emfs UI'/>
+      <property name='df_LT.providerName' value='Hallvard Traetteberg'/>
+      <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+      <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+      <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      <property name='maven-groupId' value='no.hal.jex'/>
+      <property name='maven-artifactId' value='no.hal.emfs.ui'/>
+      <property name='maven-version' value='0.1.0-SNAPSHOT'/>
+    </properties>
+    <provides size='8'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='no.hal.emfs.ui' version='0.1.0.201501141640'/>
+      <provided namespace='osgi.bundle' name='no.hal.emfs.ui' version='0.1.0.201501141640'/>
+      <provided namespace='java.package' name='no.hal.emfs.ui' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.emfs.ui.commands' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.emfs.ui.presentation' version='0.0.0'/>
+      <provided namespace='java.package' name='no.hal.emfs.ui.provider' version='0.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+    </provides>
+    <requires size='8'>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='no.hal.emfs' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='no.hal.emfs.git' range='0.1.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.edit' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.edit.ui' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='no.hal.emfs.ui' version='0.1.0.201501141640'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: no.hal.emfs.ui;singleton:=true&#xA;Bundle-Version: 0.1.0.201501141640&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>
