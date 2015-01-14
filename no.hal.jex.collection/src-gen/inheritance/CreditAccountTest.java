@@ -119,8 +119,7 @@ public class CreditAccountTest extends TestCase {
   private void _transition_exprAction__deposit_transitions1_actions0(final CreditAccount it) {
     try {
       
-      double _minus = (-10000.0);
-      it.deposit(_minus);
+      it.deposit((-10000.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("deposit(-10000.0) failed: " + error.getMessage());
     }
@@ -174,8 +173,7 @@ public class CreditAccountTest extends TestCase {
   private void _transition_exprAction__withdraw_transitions1_actions0(final CreditAccount it) {
     try {
       
-      double _minus = (-10000.0);
-      it.withdraw(_minus);
+      it.withdraw((-10000.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("withdraw(-10000.0) failed: " + error.getMessage());
     }
@@ -211,9 +209,8 @@ public class CreditAccountTest extends TestCase {
   
   private void _test__withdraw_transitions3_effect_state_objectTests0_test(final CreditAccount it) {
     
-    double _minus = (-5000.0);
     double _balance = it.getBalance();
-    assertEquals("getBalance() == -5000.0 failed after withdraw(20000.0)", _minus, _balance);
+    assertEquals("getBalance() == -5000.0 failed after withdraw(20000.0)", (-5000.0), _balance);
     
   }
   
@@ -234,9 +231,8 @@ public class CreditAccountTest extends TestCase {
   
   private void _test__withdraw_transitions5_effect_state_objectTests0_test(final CreditAccount it) {
     
-    double _minus = (-5000.0);
     double _balance = it.getBalance();
-    assertEquals("getBalance() == -5000.0 failed", _minus, _balance);
+    assertEquals("getBalance() == -5000.0 failed", (-5000.0), _balance);
     
   }
   
@@ -277,8 +273,7 @@ public class CreditAccountTest extends TestCase {
   private void _transition_exprAction__setCreditLine_transitions1_actions0(final CreditAccount it) {
     try {
       
-      double _minus = (-5000.0);
-      it.setCreditLine(_minus);
+      it.setCreditLine((-5000.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("setCreditLine(-5000.0) failed: " + error.getMessage());
     }
@@ -324,9 +319,8 @@ public class CreditAccountTest extends TestCase {
   
   private void _test__setCreditLine_transitions4_effect_state_objectTests0_test(final CreditAccount it) {
     
-    double _minus = (-4000.0);
     double _balance = it.getBalance();
-    assertEquals("getBalance() == -4000.0 failed", _minus, _balance);
+    assertEquals("getBalance() == -4000.0 failed", (-4000.0), _balance);
     
     double _creditLine = it.getCreditLine();
     assertEquals("getCreditLine() == 5000.0 failed", 5000.0, _creditLine);

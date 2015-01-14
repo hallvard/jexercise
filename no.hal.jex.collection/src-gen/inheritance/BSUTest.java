@@ -2,6 +2,7 @@ package inheritance;
 
 import inheritance.BSU;
 import junit.framework.TestCase;
+import no.hal.jex.jextest.extensions.JextestExtensions;
 import no.hal.jex.runtime.JExercise;
 
 @JExercise(description = "Tests inheritance.BSU")
@@ -103,21 +104,15 @@ public class BSUTest extends TestCase {
   
   private void _test__deposit_transitions0_effect_state_objectTests0_test(final BSU it) {
     
-    assertNotNull("bsu.balance ?= failed after bsu.deposit(10000.0)", this.bsu.balance);
-    try {
-      
-      /* 10000.0 */
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("10000.0 failed after bsu.deposit(10000.0): " + error.getMessage());
-    }
+    assertTrue("bsu.balance ?= 10000.0 failed after bsu.deposit(10000.0)", JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 10000.0));
     
   }
   
   private void _transition_exprAction__deposit_transitions1_actions0(final BSU it) {
     try {
       
-      double _minus = (-10000.0);
-      this.bsu.deposit(_minus);
+      this.bsu.deposit((-10000.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("bsu.deposit(-10000.0) failed: " + error.getMessage());
     }
@@ -131,13 +126,8 @@ public class BSUTest extends TestCase {
   
   private void _test__deposit_transitions2_effect_state_objectTests0_test(final BSU it) {
     
-    assertNotNull("bsu.balance ?= failed", this.bsu.balance);
-    try {
-      
-      /* 10000.0 */
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("10000.0 failed: " + error.getMessage());
-    }
+    assertTrue("bsu.balance ?= 10000.0 failed", JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 10000.0));
     
   }
   
@@ -158,13 +148,8 @@ public class BSUTest extends TestCase {
   
   private void _test__deposit_transitions4_effect_state_objectTests0_test(final BSU it) {
     
-    assertNotNull("bsu.balance ?= failed", this.bsu.balance);
-    try {
-      
-      /* 10000.0 */
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("10000.0 failed: " + error.getMessage());
-    }
+    assertTrue("bsu.balance ?= 10000.0 failed", JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 10000.0));
     
   }
   
@@ -195,12 +180,8 @@ public class BSUTest extends TestCase {
   
   private void _test__deposit_transitions5_effect_state_objectTests0_test(final BSU it) {
     
-    assertNotNull("bsu.balance ?= failed after bsu.endYearUpdate() ,bsu.deposit(20000.0)", this.bsu.balance);
-    
-    double _plus = (1 + 0.05);
-    double _multiply = (10000.0 * _plus);
-    double _plus_1 = (_multiply + 20000.0);
-    assertNotNull("10000.0 * (1 + 0.05) + 20000.0 failed after bsu.endYearUpdate() ,bsu.deposit(20000.0)", _plus_1);
+    assertTrue("bsu.balance ?= 10000.0 * (1 + 0.05) + 20000.0 failed after bsu.endYearUpdate() ,bsu.deposit(20000.0)", JextestExtensions.operator_assertEquals(
+      this.bsu.balance, ((10000.0 * (1 + 0.05)) + 20000.0)));
     
   }
   
@@ -231,21 +212,15 @@ public class BSUTest extends TestCase {
   
   private void _test__withdraw_transitions0_effect_state_objectTests0_test(final BSU it) {
     
-    assertNotNull("bsu.balance ?= failed after bsu.deposit(20000.0) ,bsu.withdraw(5000.0)", this.bsu.balance);
-    try {
-      
-      /* 15000.0 */
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("15000.0 failed after bsu.deposit(20000.0) ,bsu.withdraw(5000.0): " + error.getMessage());
-    }
+    assertTrue("bsu.balance ?= 15000.0 failed after bsu.deposit(20000.0) ,bsu.withdraw(5000.0)", JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 15000.0));
     
   }
   
   private void _transition_exprAction__withdraw_transitions1_actions0(final BSU it) {
     try {
       
-      double _minus = (-10000.0);
-      this.bsu.withdraw(_minus);
+      this.bsu.withdraw((-10000.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("bsu.withdraw(-10000.0) failed: " + error.getMessage());
     }
@@ -259,13 +234,8 @@ public class BSUTest extends TestCase {
   
   private void _test__withdraw_transitions2_effect_state_objectTests0_test(final BSU it) {
     
-    assertNotNull("bsu.balance ?= failed", this.bsu.balance);
-    try {
-      
-      /* 15000.0 */
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("15000.0 failed: " + error.getMessage());
-    }
+    assertTrue("bsu.balance ?= 15000.0 failed", JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 15000.0));
     
   }
   
@@ -286,13 +256,8 @@ public class BSUTest extends TestCase {
   
   private void _test__withdraw_transitions4_effect_state_objectTests0_test(final BSU it) {
     
-    assertNotNull("bsu.balance ?= failed", this.bsu.balance);
-    try {
-      
-      /* 15000.0 */
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("15000.0 failed: " + error.getMessage());
-    }
+    assertTrue("bsu.balance ?= 15000.0 failed", JextestExtensions.operator_assertEquals(
+      this.bsu.balance, 15000.0));
     
   }
   
@@ -323,11 +288,8 @@ public class BSUTest extends TestCase {
   
   private void _test__withdraw_transitions6_effect_state_objectTests0_test(final BSU it) {
     
-    assertNotNull("bsu.balance ?= failed", this.bsu.balance);
-    
-    double _plus = (1 + 0.05);
-    double _multiply = (15000.0 * _plus);
-    assertNotNull("15000.0 * (1 + 0.05) failed", _multiply);
+    assertTrue("bsu.balance ?= 15000.0 * (1 + 0.05) failed", JextestExtensions.operator_assertEquals(
+      this.bsu.balance, (15000.0 * (1 + 0.05))));
     
   }
   
@@ -349,10 +311,7 @@ public class BSUTest extends TestCase {
   private void _test__getTaxDeduction_transitions0_effect_state_objectTests0_test(final BSU it) {
     
     double _taxDeduction = this.bsu.getTaxDeduction();
-    assertNotNull("bsu.taxDeduction ?= failed after bsu.deposit(20000.0)", _taxDeduction);
-    
-    double _multiply = (20000.0 * 0.20);
-    assertNotNull("20000.0 * 0.20 failed after bsu.deposit(20000.0)", _multiply);
+    assertTrue("bsu.taxDeduction ?= 20000.0 * 0.20 failed after bsu.deposit(20000.0)", JextestExtensions.operator_assertEquals(_taxDeduction, (20000.0 * 0.20)));
     
   }
   
@@ -384,10 +343,7 @@ public class BSUTest extends TestCase {
   private void _test__getTaxDeduction_transitions1_effect_state_objectTests0_test(final BSU it) {
     
     double _taxDeduction = this.bsu.getTaxDeduction();
-    assertNotNull("bsu.taxDeduction ?= failed after bsu.endYearUpdate ,bsu.deposit(10000.0)", _taxDeduction);
-    
-    double _multiply = (10000.0 * 0.20);
-    assertNotNull("10000.0 * 0.20 failed after bsu.endYearUpdate ,bsu.deposit(10000.0)", _multiply);
+    assertTrue("bsu.taxDeduction ?= 10000.0 * 0.20 failed after bsu.endYearUpdate ,bsu.deposit(10000.0)", JextestExtensions.operator_assertEquals(_taxDeduction, (10000.0 * 0.20)));
     
   }
   
@@ -409,13 +365,7 @@ public class BSUTest extends TestCase {
   private void _test__getTaxDeduction_transitions2_effect_state_objectTests0_test(final BSU it) {
     
     double _taxDeduction = this.bsu.getTaxDeduction();
-    assertNotNull("bsu.taxDeduction ?= failed after bsu.endYearUpdate", _taxDeduction);
-    try {
-      
-      /* 0.0 */
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("0.0 failed after bsu.endYearUpdate: " + error.getMessage());
-    }
+    assertTrue("bsu.taxDeduction ?= 0.0 failed after bsu.endYearUpdate", JextestExtensions.operator_assertEquals(_taxDeduction, 0.0));
     
   }
   

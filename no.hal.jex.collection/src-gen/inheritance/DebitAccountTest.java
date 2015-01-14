@@ -20,7 +20,7 @@ public class DebitAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "DebitAccount()", description = "<h3>Setter inn midler</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Penger settes inn: deposit(10000.0)</li>\n\t\t<li>Tester negativt belop: deposit(-10000.0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "DebitAccount()", description = "<h3>Setter inn midler</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Penger settes inn: deposit(10000.0)</li>\n\t\t<li>Tester negativt bel\u00F8p: deposit(-10000.0)</li>\n\t\t</ul>\n")
   public void testDeposit() {
     _test__deposit_transitions0_source_state(sub);
     _transition_exprAction__deposit_transitions0_actions0(sub);
@@ -35,7 +35,7 @@ public class DebitAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "DebitAccount()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Setter inn og tar ut: deposit(20000.0), withdraw(5000.0)</li>\n\t\t<li>Tester negativt bel\u00BFp: withdraw(-10000.0)</li>\n\t\t<li>Tester for stort bel\u00BFp: withdraw(20000.0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "DebitAccount()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Setter inn og tar ut: deposit(20000.0), withdraw(5000.0)</li>\n\t\t<li>Tester negativt bel\u00F8p: withdraw(-10000.0)</li>\n\t\t<li>Tester for stort bel\u00F8p: withdraw(20000.0)</li>\n\t\t</ul>\n")
   public void testWithdraw() {
     _transition_exprAction__withdraw_transitions0_actions0(sub);
     _transition_exprAction__withdraw_transitions0_actions1(sub);
@@ -94,8 +94,7 @@ public class DebitAccountTest extends TestCase {
   private void _transition_exprAction__deposit_transitions1_actions0(final DebitAccount it) {
     try {
       
-      double _minus = (-10000.0);
-      it.deposit(_minus);
+      it.deposit((-10000.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("deposit(-10000.0) failed: " + error.getMessage());
     }
@@ -149,8 +148,7 @@ public class DebitAccountTest extends TestCase {
   private void _transition_exprAction__withdraw_transitions1_actions0(final DebitAccount it) {
     try {
       
-      double _minus = (-10000.0);
-      it.withdraw(_minus);
+      it.withdraw((-10000.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("withdraw(-10000.0) failed: " + error.getMessage());
     }

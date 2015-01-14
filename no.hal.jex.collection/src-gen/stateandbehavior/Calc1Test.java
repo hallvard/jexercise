@@ -19,17 +19,7 @@ public class Calc1Test extends TestCase {
     boolean _xblockexpression = false;
     {
       final double epsilon = 0.000001d;
-      boolean _and = false;
-      double _minus = (d2 - epsilon);
-      boolean _greaterEqualsThan = (d1 >= _minus);
-      if (!_greaterEqualsThan) {
-        _and = false;
-      } else {
-        double _plus = (d2 + epsilon);
-        boolean _lessEqualsThan = (d1 <= _plus);
-        _and = (_greaterEqualsThan && _lessEqualsThan);
-      }
-      _xblockexpression = (_and);
+      _xblockexpression = ((d1 >= (d2 - epsilon)) && (d1 <= (d2 + epsilon)));
     }
     return _xblockexpression;
   }
@@ -122,8 +112,7 @@ public class Calc1Test extends TestCase {
   private void _test__constructor_transitions0_effect_state_objectTests0_test(final Calc1 it) {
     
     double _value = it.getValue();
-    boolean _equals = this.operator_equals(_value, 0.0d);
-    assertTrue("value == 0.0d failed", _equals);
+    assertTrue("value == 0.0d failed", this.operator_equals(_value, 0.0d));
     
   }
   
@@ -151,8 +140,7 @@ public class Calc1Test extends TestCase {
   private void _test__setValue_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random) {
     
     double _value = it.getValue();
-    boolean _equals = this.operator_equals(_value, random);
-    assertTrue("value == random failed after value = random", _equals);
+    assertTrue("value == random failed after value = random", this.operator_equals(_value, random));
     
   }
   
@@ -196,9 +184,7 @@ public class Calc1Test extends TestCase {
   private void _test__add_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
-    double _plus = (random1 + random2);
-    boolean _equals = this.operator_equals(_value, _plus);
-    assertTrue("value == random1 + random2 failed after value = random1 ,add(random2)", _equals);
+    assertTrue("value == random1 + random2 failed after value = random1 ,add(random2)", this.operator_equals(_value, (random1 + random2)));
     
   }
   
@@ -242,9 +228,7 @@ public class Calc1Test extends TestCase {
   private void _test__subtract_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
-    double _minus = (random1 - random2);
-    boolean _equals = this.operator_equals(_value, _minus);
-    assertTrue("value == random1 - random2 failed after value = random1 ,subtract(random2)", _equals);
+    assertTrue("value == random1 - random2 failed after value = random1 ,subtract(random2)", this.operator_equals(_value, (random1 - random2)));
     
   }
   
@@ -288,9 +272,7 @@ public class Calc1Test extends TestCase {
   private void _test__multiply_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
-    double _multiply = (random1 * random2);
-    boolean _equals = this.operator_equals(_value, _multiply);
-    assertTrue("value == random1 * random2 failed after value = random1 ,multiply(random2)", _equals);
+    assertTrue("value == random1 * random2 failed after value = random1 ,multiply(random2)", this.operator_equals(_value, (random1 * random2)));
     
   }
   
@@ -335,9 +317,7 @@ public class Calc1Test extends TestCase {
   private void _test__divide_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
-    double _divide = (random1 / random2);
-    boolean _equals = this.operator_equals(_value, _divide);
-    assertTrue("value == random1 / random2 failed after value = random1 ,divide(random2)", _equals);
+    assertTrue("value == random1 / random2 failed after value = random1 ,divide(random2)", this.operator_equals(_value, (random1 / random2)));
     
   }
   
@@ -381,10 +361,7 @@ public class Calc1Test extends TestCase {
   private void _test__percent_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
-    double _multiply = (random1 * random2);
-    double _divide = (_multiply / 100);
-    boolean _equals = this.operator_equals(_value, _divide);
-    assertTrue("value == random1 * random2 / 100 failed after value = random1 ,percent(random2)", _equals);
+    assertTrue("value == random1 * random2 / 100 failed after value = random1 ,percent(random2)", this.operator_equals(_value, ((random1 * random2) / 100)));
     
   }
   
@@ -422,9 +399,7 @@ public class Calc1Test extends TestCase {
   private void _test__negate_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1) {
     
     double _value = it.getValue();
-    double _minus = (-random1);
-    boolean _equals = this.operator_equals(_value, _minus);
-    assertTrue("value == -random1 failed after value = random1 ,negate", _equals);
+    assertTrue("value == -random1 failed after value = random1 ,negate", this.operator_equals(_value, (-random1)));
     
   }
   
@@ -446,8 +421,7 @@ public class Calc1Test extends TestCase {
   private void _test__pi_transitions0_effect_state_objectTests0_test(final Calc1 it) {
     
     double _value = it.getValue();
-    boolean _equals = this.operator_equals(_value, Math.PI);
-    assertTrue("value == Math.PI failed after pi", _equals);
+    assertTrue("value == Math.PI failed after pi", this.operator_equals(_value, Math.PI));
     
   }
   

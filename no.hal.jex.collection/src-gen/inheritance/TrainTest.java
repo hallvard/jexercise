@@ -136,8 +136,7 @@ public class TrainTest extends TestCase {
     boolean _contains_1 = this.t.contains(this.pc2);
     assertTrue("t.contains(pc2) failed after t.addTrainCar(pc1) ,t.addTrainCar(pc2) ,t.addTrainCar(cc1)", _contains_1);
     
-    boolean _contains_2 = this.t.contains(this.cc1);
-    assertTrue("t.contains(cc1) failed after t.addTrainCar(pc1) ,t.addTrainCar(pc2) ,t.addTrainCar(cc1)", _contains_2);
+    assertTrue("t.contains(cc1) failed after t.addTrainCar(pc1) ,t.addTrainCar(pc2) ,t.addTrainCar(cc1)", this.t.contains(this.cc1));
     
   }
   
@@ -168,11 +167,8 @@ public class TrainTest extends TestCase {
   
   private void _test__checkTotalTrainWeight_transitions0_effect_state_objectTests0_test() {
     
-    int _multiply = (200 * 80);
-    int _plus = (2000 + _multiply);
-    int _plus_1 = (8000 + _plus);
     int _totalWeight = this.t.getTotalWeight();
-    assertEquals("t.totalWeight == 8000 + (2000 + (200 * 80)) failed after t.addTrainCar(pc1) ,t.addTrainCar(cc1)", _plus_1, _totalWeight);
+    assertEquals("t.totalWeight == 8000 + (2000 + (200 * 80)) failed after t.addTrainCar(pc1) ,t.addTrainCar(cc1)", (8000 + (2000 + (200 * 80))), _totalWeight);
     
   }
   
@@ -193,14 +189,8 @@ public class TrainTest extends TestCase {
   
   private void _test__checkTotalTrainWeight_transitions1_effect_state_objectTests0_test() {
     
-    int _multiply = (200 * 80);
-    int _plus = (2000 + _multiply);
-    int _plus_1 = (8000 + _plus);
-    int _multiply_1 = (100 * 80);
-    int _plus_2 = (1500 + _multiply_1);
-    int _plus_3 = (_plus_1 + _plus_2);
     int _totalWeight = this.t.getTotalWeight();
-    assertEquals("t.totalWeight == 8000 + (2000 + (200 * 80)) + (1500 + (100 * 80)) failed after t.addTrainCar(pc2)", _plus_3, _totalWeight);
+    assertEquals("t.totalWeight == 8000 + (2000 + (200 * 80)) + (1500 + (100 * 80)) failed after t.addTrainCar(pc2)", ((8000 + (2000 + (200 * 80))) + (1500 + (100 * 80))), _totalWeight);
     
   }
   

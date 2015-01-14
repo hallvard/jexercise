@@ -1,6 +1,5 @@
 package patterns.observable;
 
-import junit.framework.Assert;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import patterns.observable.SmartStock;
@@ -55,16 +54,15 @@ public class SmartStockTest extends TestCase {
     this.oldPrice1 = this.newPrice1;
     this.newPrice1 = newPrice;
     this.stock.setPrice(newPrice);
-    Assert.assertEquals(Double.valueOf(expectedOldPrice), Double.valueOf(this.oldPrice2));
-    Assert.assertEquals(Double.valueOf(expectedNewPrice), Double.valueOf(this.newPrice2));
+    TestCase.assertEquals(Double.valueOf(expectedOldPrice), Double.valueOf(this.oldPrice2));
+    TestCase.assertEquals(Double.valueOf(expectedNewPrice), Double.valueOf(this.newPrice2));
   }
   
   private double setPrice2(final double oldPrice, final double newPrice) {
     double _xblockexpression = (double) 0;
     {
       this.oldPrice2 = oldPrice;
-      double _newPrice2 = this.newPrice2 = newPrice;
-      _xblockexpression = (_newPrice2);
+      _xblockexpression = this.newPrice2 = newPrice;
     }
     return _xblockexpression;
   }

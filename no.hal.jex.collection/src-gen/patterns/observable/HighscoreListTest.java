@@ -2,7 +2,6 @@ package patterns.observable;
 
 import java.util.Iterator;
 import java.util.List;
-import junit.framework.Assert;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import org.eclipse.xtext.xbase.lib.Conversions;
@@ -23,15 +22,13 @@ public class HighscoreListTest extends TestCase {
   private int pos1;
   
   private int _init_pos1() {
-    int _minus = (-1);
-    return _minus;
+    return (-1);
   }
   
   private int pos2;
   
   private int _init_pos2() {
-    int _minus = (-1);
-    return _minus;
+    return (-1);
   }
   
   @Override
@@ -45,27 +42,22 @@ public class HighscoreListTest extends TestCase {
   private void addResult(final int element, final int pos) {
     this.pos1 = pos;
     this.highscoreList.addResult(Integer.valueOf(element));
-    Assert.assertEquals(this.pos1, this.pos2);
+    TestCase.assertEquals(this.pos1, this.pos2);
   }
   
   private void testElements(final int... elements) {
     int _length = elements.length;
     int _size = this.highscoreList.size();
-    Assert.assertEquals(_length, _size);
+    TestCase.assertEquals(_length, _size);
     final Iterator<Integer> iterator = ((List<Integer>)Conversions.doWrapArray(elements)).iterator();
     int i = 0;
-    boolean _hasNext = iterator.hasNext();
-    boolean _while = _hasNext;
-    while (_while) {
+    while (iterator.hasNext()) {
       {
         final Integer next = iterator.next();
         Object _element = this.highscoreList.getElement(i);
-        Assert.assertEquals(next, _element);
-        int _plus = (i + 1);
-        i = _plus;
+        TestCase.assertEquals(next, _element);
+        i = (i + 1);
       }
-      boolean _hasNext_1 = iterator.hasNext();
-      _while = _hasNext_1;
     }
   }
   
@@ -578,16 +570,13 @@ public class HighscoreListTest extends TestCase {
   
   private void _transition_exprAction__listListenerMoreThanMax_transitions2_actions0() {
     
-    int _minus = (-1);
-    int _pos2 = this.pos2 = _minus;
     
   }
   
   private void _transition_exprAction__listListenerMoreThanMax_transitions2_actions1() {
     try {
       
-      int _minus = (-1);
-      this.addResult(7, _minus);
+      this.addResult(7, (-1));
       } catch (junit.framework.AssertionFailedError error) {
       fail("addResult(7, -1) failed: " + error.getMessage());
     }

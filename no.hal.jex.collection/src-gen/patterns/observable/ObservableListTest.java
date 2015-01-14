@@ -2,7 +2,6 @@ package patterns.observable;
 
 import java.util.Iterator;
 import java.util.List;
-import junit.framework.Assert;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import org.eclipse.xtext.xbase.lib.Conversions;
@@ -27,15 +26,13 @@ public class ObservableListTest extends TestCase {
   private int pos1;
   
   private int _init_pos1() {
-    int _minus = (-1);
-    return _minus;
+    return (-1);
   }
   
   private int pos2;
   
   private int _init_pos2() {
-    int _minus = (-1);
-    return _minus;
+    return (-1);
   }
   
   @Override
@@ -49,27 +46,22 @@ public class ObservableListTest extends TestCase {
   private void addElement(final int element, final int pos) {
     this.pos1 = pos;
     this.observableList.addElement(pos, Integer.valueOf(element));
-    Assert.assertEquals(this.pos1, this.pos2);
+    TestCase.assertEquals(this.pos1, this.pos2);
   }
   
   private void testElements(final int... elements) {
     int _length = elements.length;
     int _size = this.observableList.size();
-    Assert.assertEquals(_length, _size);
+    TestCase.assertEquals(_length, _size);
     final Iterator<Integer> iterator = ((List<Integer>)Conversions.doWrapArray(elements)).iterator();
     int i = 0;
-    boolean _hasNext = iterator.hasNext();
-    boolean _while = _hasNext;
-    while (_while) {
+    while (iterator.hasNext()) {
       {
         final Integer next = iterator.next();
         Object _element = this.observableList.getElement(i);
-        Assert.assertEquals(next, _element);
-        int _plus = (i + 1);
-        i = _plus;
+        TestCase.assertEquals(next, _element);
+        i = (i + 1);
       }
-      boolean _hasNext_1 = iterator.hasNext();
-      _while = _hasNext_1;
     }
   }
   
@@ -137,8 +129,7 @@ public class ObservableListTest extends TestCase {
     assertTrue("acceptsElement(5) failed", _acceptsElement);
     
     boolean _acceptsElement_1 = it.acceptsElement("5");
-    boolean _not = (!_acceptsElement_1);
-    assertTrue("! acceptsElement(\"5\") failed", _not);
+    assertTrue("! acceptsElement(\"5\") failed", (!_acceptsElement_1));
     
   }
   

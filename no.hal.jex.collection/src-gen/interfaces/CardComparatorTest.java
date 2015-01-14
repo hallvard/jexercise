@@ -1,6 +1,5 @@
 package interfaces;
 
-import com.google.common.collect.Lists;
 import interfaces.Card;
 import interfaces.CardComparator;
 import java.util.ArrayList;
@@ -129,7 +128,7 @@ public class CardComparatorTest extends TestCase {
   
   private void _test__normal_transitions0_effect_state_objectTests0_test(final List<Card> it) {
     
-    assertEquals("it == #[c1, c13, d1, d13, h1, h13, s1, s13] failed after Collections.sort(cards, new CardComparator(false, ' '))", Collections.<Card>unmodifiableList(Lists.<Card>newArrayList(this.c1, this.c13, this.d1, this.d13, this.h1, this.h13, this.s1, this.s13)), it);
+    assertEquals("it == #[c1, c13, d1, d13, h1, h13, s1, s13] failed after Collections.sort(cards, new CardComparator(false, ' '))", Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.c1, this.c13, this.d1, this.d13, this.h1, this.h13, this.s1, this.s13)), it);
     
   }
   
@@ -151,7 +150,7 @@ public class CardComparatorTest extends TestCase {
   
   private void _test__aceIsHighest_transitions0_effect_state_objectTests0_test(final List<Card> it) {
     
-    assertEquals("it == #[c13, c1, d13, d1, h13, h1, s13, s1] failed after Collections.sort(cards, new CardComparator(true, ' '))", Collections.<Card>unmodifiableList(Lists.<Card>newArrayList(this.c13, this.c1, this.d13, this.d1, this.h13, this.h1, this.s13, this.s1)), it);
+    assertEquals("it == #[c13, c1, d13, d1, h13, h1, s13, s1] failed after Collections.sort(cards, new CardComparator(true, ' '))", Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.c13, this.c1, this.d13, this.d1, this.h13, this.h1, this.s13, this.s1)), it);
     
   }
   
@@ -173,7 +172,7 @@ public class CardComparatorTest extends TestCase {
   
   private void _test__diamondIsTrumph_transitions0_effect_state_objectTests0_test(final List<Card> it) {
     
-    assertEquals("it == #[c1, c13, h1, h13, s1, s13, d1, d13] failed after Collections.sort(cards, new CardComparator(false, 'D'))", Collections.<Card>unmodifiableList(Lists.<Card>newArrayList(this.c1, this.c13, this.h1, this.h13, this.s1, this.s13, this.d1, this.d13)), it);
+    assertEquals("it == #[c1, c13, h1, h13, s1, s13, d1, d13] failed after Collections.sort(cards, new CardComparator(false, 'D'))", Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.c1, this.c13, this.h1, this.h13, this.s1, this.s13, this.d1, this.d13)), it);
     
   }
   

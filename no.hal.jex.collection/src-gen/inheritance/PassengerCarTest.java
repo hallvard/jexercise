@@ -35,10 +35,8 @@ public class PassengerCarTest extends TestCase {
   
   private void _test__checkWeight_transitions0_source_state_objectTests0_test(final PassengerCar it) {
     
-    int _multiply = (200 * 80);
-    int _plus = (3000 + _multiply);
     int _totalWeight = this.pc.getTotalWeight();
-    assertEquals("pc.totalWeight == 3000 + (200 * 80) failed after pc.passengerCount = 100", _plus, _totalWeight);
+    assertEquals("pc.totalWeight == 3000 + (200 * 80) failed after pc.passengerCount = 100", (3000 + (200 * 80)), _totalWeight);
     
   }
   
@@ -62,10 +60,8 @@ public class PassengerCarTest extends TestCase {
     int _passengerCount = this.pc.getPassengerCount();
     assertEquals("pc.passengerCount == 100 failed after pc.passengerCount = 100", 100, _passengerCount);
     
-    int _multiply = (100 * 80);
-    int _plus = (3000 + _multiply);
     int _totalWeight = this.pc.getTotalWeight();
-    assertEquals("pc.totalWeight == 3000 + (100 * 80) failed after pc.passengerCount = 100", _plus, _totalWeight);
+    assertEquals("pc.totalWeight == 3000 + (100 * 80) failed after pc.passengerCount = 100", (3000 + (100 * 80)), _totalWeight);
     
   }
   

@@ -19,10 +19,9 @@ public class LineEditorTest extends TestCase {
   private void set(final String s) {
     final int pos = s.indexOf("|");
     String _substring = s.substring(0, pos);
-    int _plus = (pos + 1);
-    String _substring_1 = s.substring(_plus);
-    String _plus_1 = (_substring + _substring_1);
-    this.lineEditor.text = _plus_1;
+    String _substring_1 = s.substring((pos + 1));
+    String _plus = (_substring + _substring_1);
+    this.lineEditor.text = _plus;
     this.lineEditor.insertionIndex = pos;
   }
   
@@ -32,27 +31,22 @@ public class LineEditorTest extends TestCase {
       final int pos = s.indexOf("|");
       final String head = s.substring(0, pos);
       String _xifexpression = null;
-      int _plus = (pos + 1);
       int _length = s.length();
-      boolean _lessThan = (_plus < _length);
+      boolean _lessThan = ((pos + 1) < _length);
       if (_lessThan) {
-        int _plus_1 = (pos + 1);
-        String _substring = s.substring(_plus_1);
-        _xifexpression = _substring;
+        _xifexpression = s.substring((pos + 1));
       } else {
         _xifexpression = "";
       }
       final String tail = _xifexpression;
       boolean _and = false;
-      String _plus_2 = (head + tail);
-      boolean _equals = Objects.equal(lineEditor.text, _plus_2);
+      boolean _equals = Objects.equal(lineEditor.text, (head + tail));
       if (!_equals) {
         _and = false;
       } else {
-        boolean _equals_1 = (lineEditor.insertionIndex == pos);
-        _and = (_equals && _equals_1);
+        _and = (lineEditor.insertionIndex == pos);
       }
-      _xblockexpression = (_and);
+      _xblockexpression = _and;
     }
     return _xblockexpression;
   }
@@ -133,8 +127,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__constructor_transitions0_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "|");
-    assertTrue("it ==\"|\" failed", _equals);
+    assertTrue("it ==\"|\" failed", this.operator_equals(it, "|"));
     
   }
   
@@ -155,8 +148,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__left_transitions0_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "|");
-    assertTrue("it == \"|\" failed after left", _equals);
+    assertTrue("it == \"|\" failed after left", this.operator_equals(it, "|"));
     
   }
   
@@ -187,8 +179,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__left_transitions1_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "|J");
-    assertTrue("it == \"|J\" failed after set(\"J|\") ,left", _equals);
+    assertTrue("it == \"|J\" failed after set(\"J|\") ,left", this.operator_equals(it, "|J"));
     
   }
   
@@ -209,8 +200,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__right_transitions0_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "|");
-    assertTrue("it == \"|\" failed after right", _equals);
+    assertTrue("it == \"|\" failed after right", this.operator_equals(it, "|"));
     
   }
   
@@ -241,8 +231,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__right_transitions1_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "J|");
-    assertTrue("it == \"J|\" failed after set(\"|J\") ,right", _equals);
+    assertTrue("it == \"J|\" failed after set(\"|J\") ,right", this.operator_equals(it, "J|"));
     
   }
   
@@ -263,8 +252,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__deleteLeft_transitions0_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "|");
-    assertTrue("it == \"|\" failed after deleteLeft", _equals);
+    assertTrue("it == \"|\" failed after deleteLeft", this.operator_equals(it, "|"));
     
   }
   
@@ -295,8 +283,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__deleteLeft_transitions1_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "|");
-    assertTrue("it == \"|\" failed after set(\"J|\") ,deleteLeft", _equals);
+    assertTrue("it == \"|\" failed after set(\"J|\") ,deleteLeft", this.operator_equals(it, "|"));
     
   }
   
@@ -327,8 +314,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__deleteLeft_transitions2_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "J|va");
-    assertTrue("it == \"J|va\" failed after set(\"Ja|va\") ,deleteLeft", _equals);
+    assertTrue("it == \"J|va\" failed after set(\"Ja|va\") ,deleteLeft", this.operator_equals(it, "J|va"));
     
   }
   
@@ -349,8 +335,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__deleteRight_transitions0_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "|");
-    assertTrue("it == \"|\" failed after deleteRight", _equals);
+    assertTrue("it == \"|\" failed after deleteRight", this.operator_equals(it, "|"));
     
   }
   
@@ -381,8 +366,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__deleteRight_transitions1_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "|");
-    assertTrue("it == \"|\" failed after set(\"|J\") ,deleteRight", _equals);
+    assertTrue("it == \"|\" failed after set(\"|J\") ,deleteRight", this.operator_equals(it, "|"));
     
   }
   
@@ -413,8 +397,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__deleteRight_transitions2_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "J|va");
-    assertTrue("it == \"J|va\" failed after set(\"J|ava\") ,deleteRight", _equals);
+    assertTrue("it == \"J|va\" failed after set(\"J|ava\") ,deleteRight", this.operator_equals(it, "J|va"));
     
   }
   
@@ -435,8 +418,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__insertString_transitions0_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "|");
-    assertTrue("it == \"|\" failed after insertString(\"\")", _equals);
+    assertTrue("it == \"|\" failed after insertString(\"\")", this.operator_equals(it, "|"));
     
   }
   
@@ -457,8 +439,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__insertString_transitions1_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "Java|");
-    assertTrue("it == \"Java|\" failed after insertString(\"Java\")", _equals);
+    assertTrue("it == \"Java|\" failed after insertString(\"Java\")", this.operator_equals(it, "Java|"));
     
   }
   
@@ -479,8 +460,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__insertString_transitions2_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "Java er g\u00F8y!|");
-    assertTrue("it == \"Java er gøy!|\" failed after insertString(\" er gøy!\")", _equals);
+    assertTrue("it == \"Java er gøy!|\" failed after insertString(\" er gøy!\")", this.operator_equals(it, "Java er g\u00F8y!|"));
     
   }
   
@@ -511,8 +491,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__insertString_transitions3_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "Java er |g\u00F8y!");
-    assertTrue("it == \"Java er |gøy!\" failed after set(\"Java|gøy!\") ,insertString(\" er \")", _equals);
+    assertTrue("it == \"Java er |gøy!\" failed after set(\"Java|gøy!\") ,insertString(\" er \")", this.operator_equals(it, "Java er |g\u00F8y!"));
     
   }
   
@@ -543,8 +522,7 @@ public class LineEditorTest extends TestCase {
   
   private void _test__insertString_transitions4_effect_state_objectTests0_test(final LineEditor it) {
     
-    boolean _equals = this.operator_equals(it, "Java |er g\u00F8y!");
-    assertTrue("it == \"Java |er gøy!\" failed after set(\"|er gøy!\") ,insertString(\"Java \")", _equals);
+    assertTrue("it == \"Java |er gøy!\" failed after set(\"|er gøy!\") ,insertString(\"Java \")", this.operator_equals(it, "Java |er g\u00F8y!"));
     
   }
   

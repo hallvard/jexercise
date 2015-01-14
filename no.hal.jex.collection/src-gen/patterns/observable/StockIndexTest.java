@@ -71,17 +71,7 @@ public class StockIndexTest extends TestCase {
     boolean _xblockexpression = false;
     {
       final double epsilon = 0.000001d;
-      boolean _and = false;
-      double _plus = (n1 + epsilon);
-      boolean _greaterEqualsThan = (_plus >= n2);
-      if (!_greaterEqualsThan) {
-        _and = false;
-      } else {
-        double _minus = (n1 - epsilon);
-        boolean _lessEqualsThan = (_minus <= n2);
-        _and = (_greaterEqualsThan && _lessEqualsThan);
-      }
-      _xblockexpression = (_and);
+      _xblockexpression = (((n1 + epsilon) >= n2) && ((n1 - epsilon) <= n2));
     }
     return _xblockexpression;
   }
@@ -133,25 +123,21 @@ public class StockIndexTest extends TestCase {
   private void _test__constructor_transitions0_effect_state_objectTests0_test(final StockIndex it) {
     
     double _index = it.getIndex();
-    boolean _equals = this.operator_equals(_index, 0.0);
-    assertTrue("index == 0.0 failed", _equals);
+    assertTrue("index == 0.0 failed", this.operator_equals(_index, 0.0));
     
   }
   
   private void _test__constructor_transitions0_effect_state_objectTests1_test(final StockIndex it) {
     
     double _index = it.getIndex();
-    boolean _equals = this.operator_equals(_index, this.facebookPrice);
-    assertTrue("index == facebookPrice failed", _equals);
+    assertTrue("index == facebookPrice failed", this.operator_equals(_index, this.facebookPrice));
     
   }
   
   private void _test__constructor_transitions0_effect_state_objectTests2_test(final StockIndex it) {
     
     double _index = it.getIndex();
-    double _plus = (this.facebookPrice + this.applePrice);
-    boolean _equals = this.operator_equals(_index, _plus);
-    assertTrue("index == facebookPrice + applePrice failed", _equals);
+    assertTrue("index == facebookPrice + applePrice failed", this.operator_equals(_index, (this.facebookPrice + this.applePrice)));
     
   }
   
@@ -173,8 +159,7 @@ public class StockIndexTest extends TestCase {
   private void _test__addStock_transitions0_effect_state_objectTests0_test(final StockIndex it) {
     
     double _index = it.getIndex();
-    boolean _equals = this.operator_equals(_index, this.facebookPrice);
-    assertTrue("index == facebookPrice failed after index0.addStock(facebook)", _equals);
+    assertTrue("index == facebookPrice failed after index0.addStock(facebook)", this.operator_equals(_index, this.facebookPrice));
     
   }
   
@@ -196,8 +181,7 @@ public class StockIndexTest extends TestCase {
   private void _test__addStock_transitions1_effect_state_objectTests0_test(final StockIndex it) {
     
     double _index = it.getIndex();
-    boolean _equals = this.operator_equals(_index, this.facebookPrice);
-    assertTrue("index == facebookPrice failed after index0.addStock(facebook)", _equals);
+    assertTrue("index == facebookPrice failed after index0.addStock(facebook)", this.operator_equals(_index, this.facebookPrice));
     
   }
   
@@ -219,8 +203,7 @@ public class StockIndexTest extends TestCase {
   private void _test__removeStock_transitions0_effect_state_objectTests0_test(final StockIndex it) {
     
     double _index = it.getIndex();
-    boolean _equals = this.operator_equals(_index, this.facebookPrice);
-    assertTrue("index == facebookPrice failed after indexN.removeStock(apple)", _equals);
+    assertTrue("index == facebookPrice failed after indexN.removeStock(apple)", this.operator_equals(_index, this.facebookPrice));
     
   }
   
@@ -242,8 +225,7 @@ public class StockIndexTest extends TestCase {
   private void _test__removeStock_transitions1_effect_state_objectTests0_test(final StockIndex it) {
     
     double _index = it.getIndex();
-    boolean _equals = this.operator_equals(_index, this.facebookPrice);
-    assertTrue("index == facebookPrice failed after indexN.removeStock(apple)", _equals);
+    assertTrue("index == facebookPrice failed after indexN.removeStock(apple)", this.operator_equals(_index, this.facebookPrice));
     
   }
   
@@ -265,8 +247,7 @@ public class StockIndexTest extends TestCase {
   private void _test__removeStock_transitions2_effect_state_objectTests0_test(final StockIndex it) {
     
     double _index = it.getIndex();
-    boolean _equals = this.operator_equals(_index, 0.0);
-    assertTrue("index == 0.0 failed after indexN.removeStock(facebook)", _equals);
+    assertTrue("index == 0.0 failed after indexN.removeStock(facebook)", this.operator_equals(_index, 0.0));
     
   }
   
@@ -297,17 +278,14 @@ public class StockIndexTest extends TestCase {
   private void _test__changePrice_transitions0_effect_state_objectTests0_test(final StockIndex it, final double facebookPrice2, final double facebookPrice3) {
     
     double _index = it.getIndex();
-    boolean _equals = this.operator_equals(_index, facebookPrice2);
-    assertTrue("index == facebookPrice2 failed after facebook.setPrice(facebookPrice2)", _equals);
+    assertTrue("index == facebookPrice2 failed after facebook.setPrice(facebookPrice2)", this.operator_equals(_index, facebookPrice2));
     
   }
   
   private void _test__changePrice_transitions0_effect_state_objectTests1_test(final StockIndex it, final double facebookPrice2, final double facebookPrice3) {
     
     double _index = it.getIndex();
-    double _plus = (facebookPrice2 + this.applePrice);
-    boolean _equals = this.operator_equals(_index, _plus);
-    assertTrue("index == facebookPrice2 + applePrice failed after facebook.setPrice(facebookPrice2)", _equals);
+    assertTrue("index == facebookPrice2 + applePrice failed after facebook.setPrice(facebookPrice2)", this.operator_equals(_index, (facebookPrice2 + this.applePrice)));
     
   }
   
@@ -330,17 +308,14 @@ public class StockIndexTest extends TestCase {
   private void _test__changePrice_transitions1_effect_state_objectTests0_test(final StockIndex it, final double facebookPrice2, final double facebookPrice3) {
     
     double _index = it.getIndex();
-    boolean _equals = this.operator_equals(_index, facebookPrice3);
-    assertTrue("index == facebookPrice3 failed after facebook.setPrice(facebookPrice3)", _equals);
+    assertTrue("index == facebookPrice3 failed after facebook.setPrice(facebookPrice3)", this.operator_equals(_index, facebookPrice3));
     
   }
   
   private void _test__changePrice_transitions1_effect_state_objectTests1_test(final StockIndex it, final double facebookPrice2, final double facebookPrice3) {
     
     double _index = it.getIndex();
-    double _plus = (facebookPrice3 + this.applePrice);
-    boolean _equals = this.operator_equals(_index, _plus);
-    assertTrue("index == facebookPrice3 + applePrice failed after facebook.setPrice(facebookPrice3)", _equals);
+    assertTrue("index == facebookPrice3 + applePrice failed after facebook.setPrice(facebookPrice3)", this.operator_equals(_index, (facebookPrice3 + this.applePrice)));
     
   }
   

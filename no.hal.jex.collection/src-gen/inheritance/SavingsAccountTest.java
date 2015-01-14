@@ -24,17 +24,7 @@ public class SavingsAccountTest extends TestCase {
     boolean _xblockexpression = false;
     {
       final double epsilon = 0.0000001;
-      boolean _and = false;
-      double _minus = (n1 - epsilon);
-      boolean _lessEqualsThan = (_minus <= n2);
-      if (!_lessEqualsThan) {
-        _and = false;
-      } else {
-        double _plus = (n1 + epsilon);
-        boolean _greaterEqualsThan = (_plus >= n2);
-        _and = (_lessEqualsThan && _greaterEqualsThan);
-      }
-      _xblockexpression = (_and);
+      _xblockexpression = (((n1 - epsilon) <= n2) && ((n1 + epsilon) >= n2));
     }
     return _xblockexpression;
   }
@@ -109,8 +99,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__balanceField_transitions0_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    boolean _equals = this.operator_equals(_balance, 100.0);
-    assertTrue("savingsAccount.getBalance() == 100.0 failed after savingsAccount.deposit(100.0)", _equals);
+    assertTrue("savingsAccount.getBalance() == 100.0 failed after savingsAccount.deposit(100.0)", this.operator_equals(_balance, 100.0));
     
   }
   
@@ -142,8 +131,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__depositAndWithdraw_transitions0_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    boolean _equals = this.operator_equals(_balance, 60.0);
-    assertTrue("savingsAccount.getBalance() == 60.0 failed after savingsAccount.deposit(100.0) ,savingsAccount.withdraw(40.0)", _equals);
+    assertTrue("savingsAccount.getBalance() == 60.0 failed after savingsAccount.deposit(100.0) ,savingsAccount.withdraw(40.0)", this.operator_equals(_balance, 60.0));
     
   }
   
@@ -160,8 +148,7 @@ public class SavingsAccountTest extends TestCase {
   private void _transition_exprAction__depositAndWithdrawIllegalStateOrInput_transitions0_actions1(final SavingsAccount it) {
     try {
       
-      double _minus = (-100.0);
-      this.savingsAccount.deposit(_minus);
+      this.savingsAccount.deposit((-100.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("savingsAccount.deposit(-100.0) failed: " + error.getMessage());
     }
@@ -176,8 +163,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__depositAndWithdrawIllegalStateOrInput_transitions1_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    boolean _equals = this.operator_equals(_balance, 10.0);
-    assertTrue("savingsAccount.getBalance() == 10.0 failed", _equals);
+    assertTrue("savingsAccount.getBalance() == 10.0 failed", this.operator_equals(_balance, 10.0));
     
   }
   
@@ -194,8 +180,7 @@ public class SavingsAccountTest extends TestCase {
   private void _transition_exprAction__depositAndWithdrawIllegalStateOrInput_transitions2_actions1(final SavingsAccount it) {
     try {
       
-      double _minus = (-100.0);
-      this.savingsAccount.withdraw(_minus);
+      this.savingsAccount.withdraw((-100.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("savingsAccount.withdraw(-100.0) failed: " + error.getMessage());
     }
@@ -210,8 +195,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__depositAndWithdrawIllegalStateOrInput_transitions3_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    boolean _equals = this.operator_equals(_balance, 20.0);
-    assertTrue("savingsAccount.getBalance() == 20.0 failed", _equals);
+    assertTrue("savingsAccount.getBalance() == 20.0 failed", this.operator_equals(_balance, 20.0));
     
   }
   
@@ -243,8 +227,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__depositAndWithdrawIllegalStateOrInput_transitions5_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    boolean _equals = this.operator_equals(_balance, 30.0);
-    assertTrue("savingsAccount.getBalance() == 30.0 failed", _equals);
+    assertTrue("savingsAccount.getBalance() == 30.0 failed", this.operator_equals(_balance, 30.0));
     
   }
   
@@ -276,10 +259,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__endYearUpdate_transitions0_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    double _plus = (1 + 0.10);
-    double _multiply = (100.0 * _plus);
-    boolean _equals = this.operator_equals(_balance, _multiply);
-    assertTrue("savingsAccount.getBalance() == 100.0 * (1 + 0.10) failed after savingsAccount.deposit(100.0) ,savingsAccount.endYearUpdate()", _equals);
+    assertTrue("savingsAccount.getBalance() == 100.0 * (1 + 0.10) failed after savingsAccount.deposit(100.0) ,savingsAccount.endYearUpdate()", this.operator_equals(_balance, (100.0 * (1 + 0.10))));
     
   }
   

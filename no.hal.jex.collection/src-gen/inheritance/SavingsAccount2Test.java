@@ -103,8 +103,7 @@ public class SavingsAccount2Test extends TestCase {
   private void _transition_exprAction__deposit_transitions1_actions0(final SavingsAccount2 it) {
     try {
       
-      double _minus = (-10000.0);
-      it.deposit(_minus);
+      it.deposit((-10000.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("deposit(-10000.0) failed: " + error.getMessage());
     }
@@ -158,8 +157,7 @@ public class SavingsAccount2Test extends TestCase {
   private void _transition_exprAction__withdraw_transitions1_actions0(final SavingsAccount2 it) {
     try {
       
-      double _minus = (-10000.0);
-      it.withdraw(_minus);
+      it.withdraw((-10000.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("withdraw(-10000.0) failed: " + error.getMessage());
     }

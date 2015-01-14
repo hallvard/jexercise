@@ -24,17 +24,7 @@ public class ForeldreSparTest extends TestCase {
     boolean _xblockexpression = false;
     {
       final double epsilon = 0.0000001;
-      boolean _and = false;
-      double _minus = (n1 - epsilon);
-      boolean _lessEqualsThan = (_minus <= n2);
-      if (!_lessEqualsThan) {
-        _and = false;
-      } else {
-        double _plus = (n1 + epsilon);
-        boolean _greaterEqualsThan = (_plus >= n2);
-        _and = (_lessEqualsThan && _greaterEqualsThan);
-      }
-      _xblockexpression = (_and);
+      _xblockexpression = (((n1 - epsilon) <= n2) && ((n1 + epsilon) >= n2));
     }
     return _xblockexpression;
   }
@@ -121,16 +111,14 @@ public class ForeldreSparTest extends TestCase {
   private void _test__withdraw_transitions0_effect_state_objectTests0_test(final ForeldreSpar it) {
     
     double _balance = this.foreldreSpar.getBalance();
-    boolean _equals = this.operator_equals(_balance, 9000.0);
-    assertTrue("foreldreSpar.getBalance() == 9000.0 failed after foreldreSpar.deposit(10000.0) ,foreldreSpar.withdraw(1000.0)", _equals);
+    assertTrue("foreldreSpar.getBalance() == 9000.0 failed after foreldreSpar.deposit(10000.0) ,foreldreSpar.withdraw(1000.0)", this.operator_equals(_balance, 9000.0));
     
   }
   
   private void _transition_exprAction__withdraw_transitions1_actions0(final ForeldreSpar it) {
     try {
       
-      double _minus = (-1000.0);
-      this.foreldreSpar.withdraw(_minus);
+      this.foreldreSpar.withdraw((-1000.0));
       } catch (junit.framework.AssertionFailedError error) {
       fail("foreldreSpar.withdraw(-1000.0) failed: " + error.getMessage());
     }
@@ -145,8 +133,7 @@ public class ForeldreSparTest extends TestCase {
   private void _test__withdraw_transitions2_effect_state_objectTests0_test(final ForeldreSpar it) {
     
     double _balance = this.foreldreSpar.getBalance();
-    boolean _equals = this.operator_equals(_balance, 9000.0);
-    assertTrue("foreldreSpar.getBalance() == 9000.0 failed", _equals);
+    assertTrue("foreldreSpar.getBalance() == 9000.0 failed", this.operator_equals(_balance, 9000.0));
     
   }
   
@@ -168,8 +155,7 @@ public class ForeldreSparTest extends TestCase {
   private void _test__withdraw_transitions4_effect_state_objectTests0_test(final ForeldreSpar it) {
     
     double _balance = this.foreldreSpar.getBalance();
-    boolean _equals = this.operator_equals(_balance, 9000.0);
-    assertTrue("foreldreSpar.getBalance() == 9000.0 failed", _equals);
+    assertTrue("foreldreSpar.getBalance() == 9000.0 failed", this.operator_equals(_balance, 9000.0));
     
   }
   
@@ -211,8 +197,7 @@ public class ForeldreSparTest extends TestCase {
   private void _test__withdraw_transitions6_effect_state_objectTests0_test(final ForeldreSpar it) {
     
     double _balance = this.foreldreSpar.getBalance();
-    boolean _equals = this.operator_equals(_balance, 7000.0);
-    assertTrue("foreldreSpar.getBalance() == 7000.0 failed", _equals);
+    assertTrue("foreldreSpar.getBalance() == 7000.0 failed", this.operator_equals(_balance, 7000.0));
     
   }
   
@@ -244,11 +229,7 @@ public class ForeldreSparTest extends TestCase {
   private void _test__withdraw_transitions7_effect_state_objectTests0_test(final ForeldreSpar it) {
     
     double _balance = this.foreldreSpar.getBalance();
-    double _plus = (1 + 0.04);
-    double _multiply = (7000.0 * _plus);
-    double _minus = (_multiply - 1000.0);
-    boolean _equals = this.operator_equals(_balance, _minus);
-    assertTrue("foreldreSpar.getBalance() == 7000.0 * (1 + 0.04) - 1000.0 failed after foreldreSpar.endYearUpdate() ,foreldreSpar.withdraw(1000.0)", _equals);
+    assertTrue("foreldreSpar.getBalance() == 7000.0 * (1 + 0.04) - 1000.0 failed after foreldreSpar.endYearUpdate() ,foreldreSpar.withdraw(1000.0)", this.operator_equals(_balance, ((7000.0 * (1 + 0.04)) - 1000.0)));
     
   }
   
@@ -280,8 +261,7 @@ public class ForeldreSparTest extends TestCase {
   private void _test__getRemainingWithdrawals_transitions0_effect_state_objectTests0_test(final ForeldreSpar it) {
     
     int _remainingWithdrawals = this.foreldreSpar.getRemainingWithdrawals();
-    boolean _equals = this.operator_equals(_remainingWithdrawals, 2);
-    assertTrue("foreldreSpar.getRemainingWithdrawals() == 2 failed after foreldreSpar.deposit(10000.0) ,foreldreSpar.withdraw(1000.0)", _equals);
+    assertTrue("foreldreSpar.getRemainingWithdrawals() == 2 failed after foreldreSpar.deposit(10000.0) ,foreldreSpar.withdraw(1000.0)", this.operator_equals(_remainingWithdrawals, 2));
     
   }
   
@@ -313,8 +293,7 @@ public class ForeldreSparTest extends TestCase {
   private void _test__getRemainingWithdrawals_transitions1_effect_state_objectTests0_test(final ForeldreSpar it) {
     
     int _remainingWithdrawals = this.foreldreSpar.getRemainingWithdrawals();
-    boolean _equals = this.operator_equals(_remainingWithdrawals, 0);
-    assertTrue("foreldreSpar.getRemainingWithdrawals() == 0 failed after foreldreSpar.withdraw(1000.0) ,foreldreSpar.withdraw(1000.0)", _equals);
+    assertTrue("foreldreSpar.getRemainingWithdrawals() == 0 failed after foreldreSpar.withdraw(1000.0) ,foreldreSpar.withdraw(1000.0)", this.operator_equals(_remainingWithdrawals, 0));
     
   }
   
@@ -336,8 +315,7 @@ public class ForeldreSparTest extends TestCase {
   private void _test__getRemainingWithdrawals_transitions3_effect_state_objectTests0_test(final ForeldreSpar it) {
     
     int _remainingWithdrawals = this.foreldreSpar.getRemainingWithdrawals();
-    boolean _equals = this.operator_equals(_remainingWithdrawals, 0);
-    assertTrue("foreldreSpar.getRemainingWithdrawals() == 0 failed", _equals);
+    assertTrue("foreldreSpar.getRemainingWithdrawals() == 0 failed", this.operator_equals(_remainingWithdrawals, 0));
     
   }
   
@@ -359,8 +337,7 @@ public class ForeldreSparTest extends TestCase {
   private void _test__getRemainingWithdrawals_transitions4_effect_state_objectTests0_test(final ForeldreSpar it) {
     
     int _remainingWithdrawals = this.foreldreSpar.getRemainingWithdrawals();
-    boolean _equals = this.operator_equals(_remainingWithdrawals, 3);
-    assertTrue("foreldreSpar.getRemainingWithdrawals() == 3 failed after foreldreSpar.endYearUpdate()", _equals);
+    assertTrue("foreldreSpar.getRemainingWithdrawals() == 3 failed after foreldreSpar.endYearUpdate()", this.operator_equals(_remainingWithdrawals, 3));
     
   }
   

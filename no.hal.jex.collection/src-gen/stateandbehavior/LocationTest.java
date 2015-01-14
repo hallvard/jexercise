@@ -79,8 +79,7 @@ public class LocationTest extends TestCase {
   
   private void _test__left_transitions0_effect_state_objectTests0_test(final Location it) {
     
-    int _minus = (-1);
-    assertEquals("x == -1 failed after left", _minus, it.x);
+    assertEquals("x == -1 failed after left", (-1), it.x);
     
     assertEquals("y == 0 failed after left", 0, it.y);
     
@@ -128,8 +127,7 @@ public class LocationTest extends TestCase {
     
     assertEquals("x == 0 failed after up", 0, it.x);
     
-    int _minus = (-1);
-    assertEquals("y == -1 failed after up", _minus, it.y);
+    assertEquals("y == -1 failed after up", (-1), it.y);
     
   }
   

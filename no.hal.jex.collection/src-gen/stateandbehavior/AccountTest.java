@@ -19,17 +19,7 @@ public class AccountTest extends TestCase {
     boolean _xblockexpression = false;
     {
       final double epsilon = 0.000001d;
-      boolean _and = false;
-      double _minus = (d2 - epsilon);
-      boolean _greaterEqualsThan = (d1 >= _minus);
-      if (!_greaterEqualsThan) {
-        _and = false;
-      } else {
-        double _plus = (d2 + epsilon);
-        boolean _lessEqualsThan = (d1 <= _plus);
-        _and = (_greaterEqualsThan && _lessEqualsThan);
-      }
-      _xblockexpression = (_and);
+      _xblockexpression = ((d1 >= (d2 - epsilon)) && (d1 <= (d2 + epsilon)));
     }
     return _xblockexpression;
   }
@@ -72,9 +62,8 @@ public class AccountTest extends TestCase {
   
   private void _test__constructor_transitions0_effect_state_objectTests0_test(final Account it) {
     
-    boolean _equals = this.operator_equals(
-      it.balance, 0);
-    assertTrue("balance == 0 failed", _equals);
+    assertTrue("balance == 0 failed", this.operator_equals(
+      it.balance, 0));
     
   }
   
@@ -95,17 +84,15 @@ public class AccountTest extends TestCase {
   
   private void _test__deposit_transitions0_effect_state_objectTests0_test(final Account it) {
     
-    boolean _equals = this.operator_equals(
-      it.balance, 100);
-    assertTrue("balance == 100 failed after deposit(100)", _equals);
+    assertTrue("balance == 100 failed after deposit(100)", this.operator_equals(
+      it.balance, 100));
     
   }
   
   private void _transition_exprAction__depositNegative_transitions0_actions0(final Account it) {
     try {
       
-      int _minus = (-50);
-      it.deposit(_minus);
+      it.deposit((-50));
       } catch (junit.framework.AssertionFailedError error) {
       fail("deposit(-50) failed: " + error.getMessage());
     }
@@ -119,15 +106,13 @@ public class AccountTest extends TestCase {
   
   private void _test__depositNegative_transitions0_effect_state_objectTests0_test(final Account it) {
     
-    boolean _equals = this.operator_equals(
-      it.balance, 0);
-    assertTrue("balance == 0 failed after deposit(-50)", _equals);
+    assertTrue("balance == 0 failed after deposit(-50)", this.operator_equals(
+      it.balance, 0));
     
   }
   
   private void _transition_exprAction__addInterest_transitions0_actions0(final Account it) {
     
-    double _interestRate = it.interestRate = 5;
     
   }
   
@@ -142,9 +127,8 @@ public class AccountTest extends TestCase {
       it.balance, 0);
     assertTrue("balance == 0 failed after interestRate = 5", _equals);
     
-    boolean _equals_1 = this.operator_equals(
-      it.interestRate, 5);
-    assertTrue("interestRate == 5 failed after interestRate = 5", _equals_1);
+    assertTrue("interestRate == 5 failed after interestRate = 5", this.operator_equals(
+      it.interestRate, 5));
     
   }
   
@@ -165,9 +149,8 @@ public class AccountTest extends TestCase {
   
   private void _test__addInterest_transitions1_effect_state_objectTests0_test(final Account it) {
     
-    boolean _equals = this.operator_equals(
-      it.balance, 100);
-    assertTrue("balance == 100 failed after deposit(100)", _equals);
+    assertTrue("balance == 100 failed after deposit(100)", this.operator_equals(
+      it.balance, 100));
     
   }
   
@@ -188,9 +171,8 @@ public class AccountTest extends TestCase {
   
   private void _test__addInterest_transitions2_effect_state_objectTests0_test(final Account it) {
     
-    boolean _equals = this.operator_equals(
-      it.balance, 105);
-    assertTrue("balance == 105 failed after addInterest", _equals);
+    assertTrue("balance == 105 failed after addInterest", this.operator_equals(
+      it.balance, 105));
     
   }
   

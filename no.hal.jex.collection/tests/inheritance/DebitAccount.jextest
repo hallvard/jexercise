@@ -10,7 +10,7 @@ sequence deposit "Setter inn midler"{
 	state {
 		getBalance() == 10000.0
 	}
-	"Tester negativt belop" -- deposit(-10000.0) throws IllegalArgumentException
+	"Tester negativt beløp" -- deposit(-10000.0) throws IllegalArgumentException
 	-->
 	state {
 		getBalance() == 10000.0
@@ -22,12 +22,12 @@ sequence withdraw {
 	state {
 		getBalance() == 15000.0
 	}
-	"Tester negativt bel¿p" -- withdraw(-10000.0) throws IllegalArgumentException
+	"Tester negativt beløp" -- withdraw(-10000.0) throws IllegalArgumentException
 	-->
 	state {
 		getBalance() == 15000.0
 	}
-	"Tester for stort bel¿p" -- withdraw(20000.0) throws IllegalStateException
+	"Tester for stort beløp" -- withdraw(20000.0) throws IllegalStateException
 	-->
 	state {
 		getBalance() == 15000.0

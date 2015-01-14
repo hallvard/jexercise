@@ -50,9 +50,7 @@ public class NamedTest extends TestCase {
     assertEquals("familyName == t failed", this.t, _familyName);
     try {
       
-      String _plus = (this.h + " ");
-      String _plus_1 = (_plus + this.t);
-      it.setFullName(_plus_1);
+      it.setFullName(((this.h + " ") + this.t));
       } catch (junit.framework.AssertionFailedError error) {
       fail("fullName = h + \" \" + t failed: " + error.getMessage());
     }
@@ -73,9 +71,7 @@ public class NamedTest extends TestCase {
     assertEquals("familyName == t failed", this.t, _familyName);
     try {
       
-      String _plus = (this.j + " ");
-      String _plus_1 = (_plus + this.t);
-      it.setFullName(_plus_1);
+      it.setFullName(((this.j + " ") + this.t));
       } catch (junit.framework.AssertionFailedError error) {
       fail("fullName = j + \" \" + t failed: " + error.getMessage());
     }
@@ -155,9 +151,7 @@ public class NamedTest extends TestCase {
   }
   
   private Person2 _init__person2_person2() {
-    String _plus = (this.h + " ");
-    String _plus_1 = (_plus + this.t);
-    Person2 _person2 = new Person2(_plus_1);
+    Person2 _person2 = new Person2(((this.h + " ") + this.t));
     return _person2;
   }
   
@@ -212,9 +206,7 @@ public class NamedTest extends TestCase {
   }
   
   private Person2 _init__namedComparator_jt() {
-    String _plus = (this.j + " ");
-    String _plus_1 = (_plus + this.t);
-    Person2 _person2 = new Person2(_plus_1);
+    Person2 _person2 = new Person2(((this.j + " ") + this.t));
     return _person2;
   }
   

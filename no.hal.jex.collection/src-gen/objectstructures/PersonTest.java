@@ -1,12 +1,11 @@
 package objectstructures;
 
-import com.google.common.collect.Lists;
 import java.util.Collection;
 import java.util.Collections;
-import junit.framework.Assert;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import objectstructures.Person;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 
 @JExercise(description = "Tests objectstructures.Person")
 @SuppressWarnings("all")
@@ -48,17 +47,16 @@ public class PersonTest extends TestCase {
     
   }
   
-  private void testChildren(final Person person, final Collection<? extends Object> children) {
+  private void testChildren(final Person person, final Collection<?> children) {
     int _size = children.size();
     int _childCount = person.getChildCount();
-    Assert.assertEquals(_size, _childCount);
+    TestCase.assertEquals(_size, _childCount);
     int i = 0;
     for (final Object child : children) {
       {
         Person _child = person.getChild(i);
-        Assert.assertEquals(child, _child);
-        int _plus = (i + 1);
-        i = _plus;
+        TestCase.assertEquals(child, _child);
+        i = (i + 1);
       }
     }
   }
@@ -214,7 +212,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed: " + error.getMessage());
     }
@@ -230,7 +228,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed: " + error.getMessage());
     }
@@ -246,7 +244,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed: " + error.getMessage());
     }
@@ -262,7 +260,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed: " + error.getMessage());
     }
@@ -354,7 +352,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after jens.father = hallvard", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens]) failed after jens.father = hallvard: " + error.getMessage());
     }
@@ -370,7 +368,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after jens.father = hallvard", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after jens.father = hallvard: " + error.getMessage());
     }
@@ -403,7 +401,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after anne.father = hallvard", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens, this.anne)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens, this.anne)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens, anne]) failed after anne.father = hallvard: " + error.getMessage());
     }
@@ -419,7 +417,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after anne.father = hallvard", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after anne.father = hallvard: " + error.getMessage());
     }
@@ -435,7 +433,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after anne.father = hallvard", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after anne.father = hallvard: " + error.getMessage());
     }
@@ -467,7 +465,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after hallvard.addChild(jens)", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens]) failed after hallvard.addChild(jens): " + error.getMessage());
     }
@@ -483,7 +481,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after hallvard.addChild(jens)", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after hallvard.addChild(jens): " + error.getMessage());
     }
@@ -516,7 +514,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after hallvard.addChild(anne)", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens, this.anne)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens, this.anne)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens, anne]) failed after hallvard.addChild(anne): " + error.getMessage());
     }
@@ -532,7 +530,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after hallvard.addChild(anne)", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after hallvard.addChild(anne): " + error.getMessage());
     }
@@ -548,7 +546,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after hallvard.addChild(anne)", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after hallvard.addChild(anne): " + error.getMessage());
     }
@@ -580,7 +578,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after jens.mother = marit", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens]) failed after jens.mother = marit: " + error.getMessage());
     }
@@ -596,7 +594,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == marit failed after jens.mother = marit", this.marit, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after jens.mother = marit: " + error.getMessage());
     }
@@ -629,7 +627,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after anne.mother = marit", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens, this.anne)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens, this.anne)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens, anne]) failed after anne.mother = marit: " + error.getMessage());
     }
@@ -645,7 +643,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == marit failed after anne.mother = marit", this.marit, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after anne.mother = marit: " + error.getMessage());
     }
@@ -661,7 +659,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == marit failed after anne.mother = marit", this.marit, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after anne.mother = marit: " + error.getMessage());
     }
@@ -693,7 +691,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after marit.addChild(jens)", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens]) failed after marit.addChild(jens): " + error.getMessage());
     }
@@ -709,7 +707,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == marit failed after marit.addChild(jens)", this.marit, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after marit.addChild(jens): " + error.getMessage());
     }
@@ -742,7 +740,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == null failed after marit.addChild(anne)", null, _mother);
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens, this.anne)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens, this.anne)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens, anne]) failed after marit.addChild(anne): " + error.getMessage());
     }
@@ -758,7 +756,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == marit failed after marit.addChild(anne)", this.marit, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after marit.addChild(anne): " + error.getMessage());
     }
@@ -774,7 +772,7 @@ public class PersonTest extends TestCase {
     assertEquals("mother == marit failed after marit.addChild(anne)", this.marit, _mother);
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after marit.addChild(anne): " + error.getMessage());
     }
@@ -807,7 +805,7 @@ public class PersonTest extends TestCase {
   private void _test__farbytteSetFather_transitions0_effect_state_objectTests1_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.anne)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.anne)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[anne]) failed after anne.father = jens: " + error.getMessage());
     }
@@ -841,7 +839,7 @@ public class PersonTest extends TestCase {
   private void _test__farbytteSetFather_transitions1_effect_state_objectTests1_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after anne.father = hallvard: " + error.getMessage());
     }
@@ -851,7 +849,7 @@ public class PersonTest extends TestCase {
   private void _test__farbytteSetFather_transitions1_effect_state_objectTests2_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.anne)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.anne)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[anne]) failed after anne.father = hallvard: " + error.getMessage());
     }
@@ -884,7 +882,7 @@ public class PersonTest extends TestCase {
   private void _test__farbytteAddChild_transitions0_effect_state_objectTests1_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.anne)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.anne)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[anne]) failed after jens.addChild(anne): " + error.getMessage());
     }
@@ -918,7 +916,7 @@ public class PersonTest extends TestCase {
   private void _test__farbytteAddChild_transitions1_effect_state_objectTests1_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after hallvard.addChild(anne): " + error.getMessage());
     }
@@ -928,7 +926,7 @@ public class PersonTest extends TestCase {
   private void _test__farbytteAddChild_transitions1_effect_state_objectTests2_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.anne)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.anne)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[anne]) failed after hallvard.addChild(anne): " + error.getMessage());
     }
@@ -961,7 +959,7 @@ public class PersonTest extends TestCase {
   private void _test__morbytteSetFather_transitions0_effect_state_objectTests1_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens]) failed after jens.mother = anne: " + error.getMessage());
     }
@@ -995,7 +993,7 @@ public class PersonTest extends TestCase {
   private void _test__morbytteSetFather_transitions1_effect_state_objectTests1_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after jens.mother = marit: " + error.getMessage());
     }
@@ -1005,7 +1003,7 @@ public class PersonTest extends TestCase {
   private void _test__morbytteSetFather_transitions1_effect_state_objectTests2_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens]) failed after jens.mother = marit: " + error.getMessage());
     }
@@ -1038,7 +1036,7 @@ public class PersonTest extends TestCase {
   private void _test__morbytteAddChild_transitions0_effect_state_objectTests1_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens]) failed after anne.addChild(jens): " + error.getMessage());
     }
@@ -1072,7 +1070,7 @@ public class PersonTest extends TestCase {
   private void _test__morbytteAddChild_transitions1_effect_state_objectTests1_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Object>unmodifiableList(Lists.<Object>newArrayList()));
+      this.testChildren(it, Collections.<Object>unmodifiableList(CollectionLiterals.<Object>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[]) failed after marit.addChild(jens): " + error.getMessage());
     }
@@ -1082,7 +1080,7 @@ public class PersonTest extends TestCase {
   private void _test__morbytteAddChild_transitions1_effect_state_objectTests2_test(final Person it) {
     try {
       
-      this.testChildren(it, Collections.<Person>unmodifiableList(Lists.<Person>newArrayList(this.jens)));
+      this.testChildren(it, Collections.<Person>unmodifiableList(CollectionLiterals.<Person>newArrayList(this.jens)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testChildren(#[jens]) failed after marit.addChild(jens): " + error.getMessage());
     }

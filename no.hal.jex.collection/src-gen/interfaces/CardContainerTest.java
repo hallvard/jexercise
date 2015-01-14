@@ -1,6 +1,5 @@
 package interfaces;
 
-import com.google.common.collect.Lists;
 import interfaces.Card;
 import interfaces.CardContainer;
 import interfaces.CardContainerIterator;
@@ -9,9 +8,9 @@ import interfaces.CardHand;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
-import junit.framework.Assert;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 
 @JExercise(description = "Tests interfaces.CardContainer")
 @SuppressWarnings("all")
@@ -88,48 +87,39 @@ public class CardContainerTest extends TestCase {
   private void testCards(final CardContainer it, final Collection<Card> expected) {
     int _size = expected.size();
     int _cardCount = it.getCardCount();
-    Assert.assertEquals(_size, _cardCount);
+    TestCase.assertEquals(_size, _cardCount);
     final Iterator<Card> expectedIt = expected.iterator();
     int i = 0;
-    boolean _hasNext = expectedIt.hasNext();
-    boolean _while = _hasNext;
-    while (_while) {
+    while (expectedIt.hasNext()) {
       {
         final Card expectedCard = expectedIt.next();
         final Card actualCard = it.getCard(i);
         char _suit = expectedCard.getSuit();
         char _suit_1 = actualCard.getSuit();
-        Assert.assertEquals(_suit, _suit_1);
+        TestCase.assertEquals(_suit, _suit_1);
         int _face = expectedCard.getFace();
         int _face_1 = actualCard.getFace();
-        Assert.assertEquals(_face, _face_1);
-        int _plus = (i + 1);
-        i = _plus;
+        TestCase.assertEquals(_face, _face_1);
+        i = (i + 1);
       }
-      boolean _hasNext_1 = expectedIt.hasNext();
-      _while = _hasNext_1;
     }
   }
   
   private void testCards(final Iterator<Card> actual, final Collection<Card> expected) {
     final Iterator<Card> expectedIt = expected.iterator();
-    boolean _hasNext = expectedIt.hasNext();
-    boolean _while = _hasNext;
-    while (_while) {
+    while (expectedIt.hasNext()) {
       {
-        boolean _hasNext_1 = actual.hasNext();
-        Assert.assertTrue(_hasNext_1);
+        boolean _hasNext = actual.hasNext();
+        TestCase.assertTrue(_hasNext);
         final Card expectedCard = expectedIt.next();
         final Card actualCard = actual.next();
         char _suit = expectedCard.getSuit();
         char _suit_1 = actualCard.getSuit();
-        Assert.assertEquals(_suit, _suit_1);
+        TestCase.assertEquals(_suit, _suit_1);
         int _face = expectedCard.getFace();
         int _face_1 = actualCard.getFace();
-        Assert.assertEquals(_face, _face_1);
+        TestCase.assertEquals(_face, _face_1);
       }
-      boolean _hasNext_1 = expectedIt.hasNext();
-      _while = _hasNext_1;
     }
   }
   
@@ -189,7 +179,7 @@ public class CardContainerTest extends TestCase {
   private void _test__handIterator_transitions0_effect_state_objectTests0_test(final CardHand it, final CardHand hand) {
     try {
       
-      this.testCards(it, Collections.<Card>unmodifiableList(Lists.<Card>newArrayList(this.s1, this.c2)));
+      this.testCards(it, Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.s1, this.c2)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testCards(#[s1, c2]) failed after hand.addCard(s1) ,hand.addCard(c2): " + error.getMessage());
     }
@@ -209,7 +199,7 @@ public class CardContainerTest extends TestCase {
   private void _test__deckIterator_transitions0_effect_state_objectTests0_test(final CardDeck it, final CardDeck deck) {
     try {
       
-      this.testCards(it, Collections.<Card>unmodifiableList(Lists.<Card>newArrayList(this.s1, this.s2, this.h1, this.h2, this.d1, this.d2, this.c1, this.c2)));
+      this.testCards(it, Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.s1, this.s2, this.h1, this.h2, this.d1, this.d2, this.c1, this.c2)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testCards(#[s1, s2, h1, h2, d1, d2, c1, c2]) failed: " + error.getMessage());
     }
@@ -230,7 +220,7 @@ public class CardContainerTest extends TestCase {
   private void _test__cardContainerIterator_transitions0_effect_state_objectTests0_test(final CardContainerIterator it, final CardContainerIterator cardContainerIterator) {
     try {
       
-      this.testCards(it, Collections.<Card>unmodifiableList(Lists.<Card>newArrayList(this.s1, this.s2, this.h1, this.h2, this.d1, this.d2, this.c1, this.c2)));
+      this.testCards(it, Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.s1, this.s2, this.h1, this.h2, this.d1, this.d2, this.c1, this.c2)));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testCards(#[s1, s2, h1, h2, d1, d2, c1, c2]) failed: " + error.getMessage());
     }

@@ -28,7 +28,7 @@ public class CardTest extends TestCase {
     } else {
       char _charAt = s.charAt(0);
       boolean _equals_1 = ((c).charValue() == _charAt);
-      _and = (_equals && _equals_1);
+      _and = _equals_1;
     }
     return _and;
   }
@@ -96,7 +96,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__constructor_transitions0_actions0(final Card it) {
     
     Card _card = new Card('S', 1);
-    Card _c = this.c = _card;
     
   }
   
@@ -119,7 +118,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__constructor_transitions1_actions0(final Card it) {
     
     Card _card = new Card('S', 13);
-    Card _c = this.c = _card;
     
   }
   
@@ -142,7 +140,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__constructor_transitions2_actions0(final Card it) {
     
     Card _card = new Card('H', 1);
-    Card _c = this.c = _card;
     
   }
   
@@ -165,7 +162,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__constructor_transitions3_actions0(final Card it) {
     
     Card _card = new Card('H', 13);
-    Card _c = this.c = _card;
     
   }
   
@@ -188,7 +184,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__constructor_transitions4_actions0(final Card it) {
     
     Card _card = new Card('D', 1);
-    Card _c = this.c = _card;
     
   }
   
@@ -211,7 +206,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__constructor_transitions5_actions0(final Card it) {
     
     Card _card = new Card('D', 13);
-    Card _c = this.c = _card;
     
   }
   
@@ -234,7 +228,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__constructor_transitions6_actions0(final Card it) {
     
     Card _card = new Card('C', 1);
-    Card _c = this.c = _card;
     
   }
   
@@ -257,7 +250,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__constructor_transitions7_actions0(final Card it) {
     
     Card _card = new Card('C', 13);
-    Card _c = this.c = _card;
     
   }
   
@@ -280,28 +272,24 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__constructor_transitions8_actions0(final Card it) {
     
     Card _card = new Card('X', 1);
-    Card _c = this.c = _card;
     
   }
   
   private void _transition_exprAction__constructor_transitions9_actions0(final Card it) {
     
     Card _card = new Card('S', 0);
-    Card _c = this.c = _card;
     
   }
   
   private void _transition_exprAction__constructor_transitions10_actions0(final Card it) {
     
     Card _card = new Card('C', 14);
-    Card _c = this.c = _card;
     
   }
   
   private void _transition_exprAction__toString_transitions0_actions0(final Card it) {
     
     Card _card = new Card('S', 1);
-    Card _c = this.c = _card;
     
   }
   
@@ -320,7 +308,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__toString_transitions1_actions0(final Card it) {
     
     Card _card = new Card('S', 13);
-    Card _c = this.c = _card;
     
   }
   
@@ -339,7 +326,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__toString_transitions2_actions0(final Card it) {
     
     Card _card = new Card('H', 1);
-    Card _c = this.c = _card;
     
   }
   
@@ -358,7 +344,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__toString_transitions3_actions0(final Card it) {
     
     Card _card = new Card('H', 13);
-    Card _c = this.c = _card;
     
   }
   
@@ -377,7 +362,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__toString_transitions4_actions0(final Card it) {
     
     Card _card = new Card('D', 1);
-    Card _c = this.c = _card;
     
   }
   
@@ -396,7 +380,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__toString_transitions5_actions0(final Card it) {
     
     Card _card = new Card('D', 13);
-    Card _c = this.c = _card;
     
   }
   
@@ -415,7 +398,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__toString_transitions6_actions0(final Card it) {
     
     Card _card = new Card('C', 1);
-    Card _c = this.c = _card;
     
   }
   
@@ -434,7 +416,6 @@ public class CardTest extends TestCase {
   private void _transition_exprAction__toString_transitions7_actions0(final Card it) {
     
     Card _card = new Card('C', 13);
-    Card _c = this.c = _card;
     
   }
   

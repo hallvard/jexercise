@@ -1,10 +1,10 @@
 package rpn;
 
-import com.google.common.collect.Lists;
 import java.util.Collection;
 import java.util.Collections;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import rpn.RPN;
 
 @JExercise(description = "Tests rpn.RPN")
@@ -40,24 +40,13 @@ public class RPNTest extends TestCase {
           int _minus = (_size_2 - count);
           int _minus_1 = (_minus - 1);
           final double value = rpn.peek(_minus_1);
-          boolean _or = false;
-          double _minus_2 = (value - epsilon);
-          boolean _lessThan = ((d).doubleValue() < _minus_2);
-          if (_lessThan) {
-            _or = true;
-          } else {
-            double _plus = (value + epsilon);
-            boolean _greaterThan = ((d).doubleValue() > _plus);
-            _or = (_lessThan || _greaterThan);
-          }
-          if (_or) {
+          if ((((d).doubleValue() < (value - epsilon)) || ((d).doubleValue() > (value + epsilon)))) {
             return false;
           }
-          int _plus_1 = (count + 1);
-          count = _plus_1;
+          count = (count + 1);
         }
       }
-      _xblockexpression = (true);
+      _xblockexpression = true;
     }
     return _xblockexpression;
   }
@@ -277,8 +266,7 @@ public class RPNTest extends TestCase {
   
   private void _test__pushPeek_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
-    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(random1))));
-    assertTrue("it == #[random1] failed after push(random1)", _equals);
+    assertTrue("it == #[random1] failed after push(random1)", this.operator_equals(it, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(random1)))));
     
   }
   
@@ -299,8 +287,7 @@ public class RPNTest extends TestCase {
   
   private void _test__pushPeek_transitions1_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
-    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(random1), Double.valueOf(random2))));
-    assertTrue("it == #[random1, random2] failed after push(random2)", _equals);
+    assertTrue("it == #[random1, random2] failed after push(random2)", this.operator_equals(it, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(random1), Double.valueOf(random2)))));
     
   }
   
@@ -353,9 +340,7 @@ public class RPNTest extends TestCase {
   
   private void _test__performAdd_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
-    double _plus = (random1 + random2);
-    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(_plus))));
-    assertTrue("it == #[random1 + random2] failed after push(random1) ,push(random2) ,performOperation('+')", _equals);
+    assertTrue("it == #[random1 + random2] failed after push(random1) ,push(random2) ,performOperation('+')", this.operator_equals(it, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf((random1 + random2))))));
     
   }
   
@@ -408,9 +393,7 @@ public class RPNTest extends TestCase {
   
   private void _test__performSubtract_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
-    double _minus = (random1 - random2);
-    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(_minus))));
-    assertTrue("it == #[random1 - random2] failed after push(random1) ,push(random2) ,performOperation('-')", _equals);
+    assertTrue("it == #[random1 - random2] failed after push(random1) ,push(random2) ,performOperation('-')", this.operator_equals(it, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf((random1 - random2))))));
     
   }
   
@@ -463,9 +446,7 @@ public class RPNTest extends TestCase {
   
   private void _test__performMultiply_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
-    double _multiply = (random1 * random2);
-    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(_multiply))));
-    assertTrue("it == #[random1 * random2] failed after push(random1) ,push(random2) ,performOperation('*')", _equals);
+    assertTrue("it == #[random1 * random2] failed after push(random1) ,push(random2) ,performOperation('*')", this.operator_equals(it, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf((random1 * random2))))));
     
   }
   
@@ -519,9 +500,7 @@ public class RPNTest extends TestCase {
   
   private void _test__performDivide_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
-    double _divide = (random1 / random2);
-    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(_divide))));
-    assertTrue("it == #[random1 / random2] failed after push(random1) ,push(random2) ,performOperation('/')", _equals);
+    assertTrue("it == #[random1 / random2] failed after push(random1) ,push(random2) ,performOperation('/')", this.operator_equals(it, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf((random1 / random2))))));
     
   }
   
@@ -575,8 +554,7 @@ public class RPNTest extends TestCase {
   
   private void _test__performSwap_transitions0_effect_state_objectTests0_test(final RPN it, final double random1, final double random2) {
     
-    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(random2), Double.valueOf(random1))));
-    assertTrue("it == #[random2, random1] failed after push(random1) ,push(random2) ,performOperation('~')", _equals);
+    assertTrue("it == #[random2, random1] failed after push(random1) ,push(random2) ,performOperation('~')", this.operator_equals(it, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(random2), Double.valueOf(random1)))));
     
   }
   
@@ -597,8 +575,7 @@ public class RPNTest extends TestCase {
   
   private void _test__performPi_transitions0_effect_state_objectTests0_test(final RPN it) {
     
-    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(Math.PI))));
-    assertTrue("it == #[Math.PI] failed after performOperation('p')", _equals);
+    assertTrue("it == #[Math.PI] failed after performOperation('p')", this.operator_equals(it, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(Math.PI)))));
     
   }
   
@@ -637,8 +614,7 @@ public class RPNTest extends TestCase {
   private void _test__performAbs_transitions0_effect_state_objectTests0_test(final RPN it, final double random) {
     
     double _abs = Math.abs(random);
-    boolean _equals = this.operator_equals(it, Collections.<Double>unmodifiableList(Lists.<Double>newArrayList(Double.valueOf(_abs))));
-    assertTrue("it == #[Math.abs(random)] failed after push(random) ,performOperation('|')", _equals);
+    assertTrue("it == #[Math.abs(random)] failed after push(random) ,performOperation('|')", this.operator_equals(it, Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(_abs)))));
     
   }
   

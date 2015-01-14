@@ -85,11 +85,10 @@ public class SpaceObjectTest extends TestCase {
   private SpaceObject createSpaceObject(final double... xys) {
     SpaceObject _xblockexpression = null;
     {
-      SpaceObject _spaceObject = new SpaceObject();
-      final SpaceObject so = _spaceObject;
+      final SpaceObject so = new SpaceObject();
       ObservableList<Double> _points = so.getPoints();
       Iterables.<Double>addAll(_points, ((Iterable<? extends Double>)Conversions.doWrapArray(xys)));
-      _xblockexpression = (so);
+      _xblockexpression = so;
     }
     return _xblockexpression;
   }
@@ -98,17 +97,7 @@ public class SpaceObjectTest extends TestCase {
     boolean _xblockexpression = false;
     {
       final double epsilon = 0.000001d;
-      boolean _and = false;
-      double _plus = (n1 + epsilon);
-      boolean _greaterEqualsThan = (_plus >= n2);
-      if (!_greaterEqualsThan) {
-        _and = false;
-      } else {
-        double _minus = (n1 - epsilon);
-        boolean _lessEqualsThan = (_minus <= n2);
-        _and = (_greaterEqualsThan && _lessEqualsThan);
-      }
-      _xblockexpression = (_and);
+      _xblockexpression = (((n1 + epsilon) >= n2) && ((n1 - epsilon) <= n2));
     }
     return _xblockexpression;
   }
@@ -127,8 +116,7 @@ public class SpaceObjectTest extends TestCase {
     
     Point2D _speed_1 = it.getSpeed();
     double _y = _speed_1.getY();
-    boolean _equals_1 = this.operator_equals(_y, vy);
-    assertTrue("speed.y == vy failed", _equals_1);
+    assertTrue("speed.y == vy failed", this.operator_equals(_y, vy));
     
   }
   
@@ -146,8 +134,7 @@ public class SpaceObjectTest extends TestCase {
     
     Point2D _position_1 = it.getPosition();
     double _y = _position_1.getY();
-    boolean _equals_1 = this.operator_equals(_y, y);
-    assertTrue("position.y == y failed", _equals_1);
+    assertTrue("position.y == y failed", this.operator_equals(_y, y));
     
   }
   
@@ -259,8 +246,7 @@ public class SpaceObjectTest extends TestCase {
     double _mass_1 = this.asteroid2.getMass();
     double _multiply = (_mass_1 * 8);
     double _divide = (_multiply / 27);
-    boolean _equals = this.operator_equals(_mass, _divide);
-    assertTrue("mass == asteroid2.mass * 8 / 27 failed", _equals);
+    assertTrue("mass == asteroid2.mass * 8 / 27 failed", this.operator_equals(_mass, _divide));
     
   }
   
@@ -384,9 +370,7 @@ public class SpaceObjectTest extends TestCase {
   private void _transition_exprAction__tick_transitions1_actions0() {
     try {
       
-      double _minus = (-2.3);
-      double _minus_1 = (-7.4);
-      this.spaceObject.accelerate(_minus, _minus_1);
+      this.spaceObject.accelerate((-2.3), (-7.4));
       } catch (junit.framework.AssertionFailedError error) {
       fail("spaceObject.accelerate(-2.3, -7.4) failed: " + error.getMessage());
     }
@@ -421,9 +405,7 @@ public class SpaceObjectTest extends TestCase {
   private void _transition_exprAction__tick_transitions2_actions0() {
     try {
       
-      double _minus = (-2.3);
-      double _minus_1 = (-7.4);
-      this.spaceObject.accelerate(_minus, _minus_1);
+      this.spaceObject.accelerate((-2.3), (-7.4));
       } catch (junit.framework.AssertionFailedError error) {
       fail("spaceObject.accelerate(-2.3, -7.4) failed: " + error.getMessage());
     }
@@ -493,9 +475,7 @@ public class SpaceObjectTest extends TestCase {
   private void _transition_exprAction__tick_transitions4_actions0() {
     try {
       
-      double _minus = (-3.2);
-      double _minus_1 = (-4.7);
-      this.asteroid1.accelerate(_minus, _minus_1);
+      this.asteroid1.accelerate((-3.2), (-4.7));
       } catch (junit.framework.AssertionFailedError error) {
       fail("asteroid1.accelerate(-3.2, -4.7) failed: " + error.getMessage());
     }
@@ -530,9 +510,7 @@ public class SpaceObjectTest extends TestCase {
   private void _transition_exprAction__tick_transitions5_actions0() {
     try {
       
-      double _minus = (-3.2);
-      double _minus_1 = (-4.7);
-      this.asteroid1.accelerate(_minus, _minus_1);
+      this.asteroid1.accelerate((-3.2), (-4.7));
       } catch (junit.framework.AssertionFailedError error) {
       fail("asteroid1.accelerate(-3.2, -4.7) failed: " + error.getMessage());
     }
@@ -602,9 +580,7 @@ public class SpaceObjectTest extends TestCase {
   private void _transition_exprAction__tick_transitions7_actions0() {
     try {
       
-      double _minus = (-3.3);
-      double _minus_1 = (-7.7);
-      this.spaceShip.accelerate(_minus, _minus_1);
+      this.spaceShip.accelerate((-3.3), (-7.7));
       } catch (junit.framework.AssertionFailedError error) {
       fail("spaceShip.accelerate(-3.3, -7.7) failed: " + error.getMessage());
     }
@@ -639,9 +615,7 @@ public class SpaceObjectTest extends TestCase {
   private void _transition_exprAction__tick_transitions8_actions0() {
     try {
       
-      double _minus = (-3.3);
-      double _minus_1 = (-7.7);
-      this.spaceShip.accelerate(_minus, _minus_1);
+      this.spaceShip.accelerate((-3.3), (-7.7));
       } catch (junit.framework.AssertionFailedError error) {
       fail("spaceShip.accelerate(-3.3, -7.7) failed: " + error.getMessage());
     }
@@ -751,30 +725,26 @@ public class SpaceObjectTest extends TestCase {
   
   private void _test__intersects1_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so1);
-    assertTrue("intersects(so1) failed", _intersects);
+    assertTrue("intersects(so1) failed", it.intersects(this.so1));
     
   }
   
   private void _test__intersects1_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so2);
-    assertTrue("intersects(so2) failed", _intersects);
+    assertTrue("intersects(so2) failed", it.intersects(this.so2));
     
   }
   
   private void _test__intersects1_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so3);
-    assertTrue("intersects(so3) failed", _intersects);
+    assertTrue("intersects(so3) failed", it.intersects(this.so3));
     
   }
   
   private void _test__intersects1_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
     
     boolean _intersects = it.intersects(this.so4);
-    boolean _not = (!_intersects);
-    assertTrue("! intersects(so4) failed", _not);
+    assertTrue("! intersects(so4) failed", (!_intersects));
     
   }
   
@@ -788,29 +758,25 @@ public class SpaceObjectTest extends TestCase {
   
   private void _test__intersects2_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so2);
-    assertTrue("intersects(so2) failed", _intersects);
+    assertTrue("intersects(so2) failed", it.intersects(this.so2));
     
   }
   
   private void _test__intersects2_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so1);
-    assertTrue("intersects(so1) failed", _intersects);
+    assertTrue("intersects(so1) failed", it.intersects(this.so1));
     
   }
   
   private void _test__intersects2_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so3);
-    assertTrue("intersects(so3) failed", _intersects);
+    assertTrue("intersects(so3) failed", it.intersects(this.so3));
     
   }
   
   private void _test__intersects2_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so4);
-    assertTrue("intersects(so4) failed", _intersects);
+    assertTrue("intersects(so4) failed", it.intersects(this.so4));
     
   }
   
@@ -824,30 +790,26 @@ public class SpaceObjectTest extends TestCase {
   
   private void _test__intersects3_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so3);
-    assertTrue("intersects(so3) failed", _intersects);
+    assertTrue("intersects(so3) failed", it.intersects(this.so3));
     
   }
   
   private void _test__intersects3_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so1);
-    assertTrue("intersects(so1) failed", _intersects);
+    assertTrue("intersects(so1) failed", it.intersects(this.so1));
     
   }
   
   private void _test__intersects3_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so2);
-    assertTrue("intersects(so2) failed", _intersects);
+    assertTrue("intersects(so2) failed", it.intersects(this.so2));
     
   }
   
   private void _test__intersects3_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
     
     boolean _intersects = it.intersects(this.so4);
-    boolean _not = (!_intersects);
-    assertTrue("! intersects(so4) failed", _not);
+    assertTrue("! intersects(so4) failed", (!_intersects));
     
   }
   
@@ -861,31 +823,27 @@ public class SpaceObjectTest extends TestCase {
   
   private void _test__intersects4_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so4);
-    assertTrue("intersects(so4) failed", _intersects);
+    assertTrue("intersects(so4) failed", it.intersects(this.so4));
     
   }
   
   private void _test__intersects4_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
     
     boolean _intersects = it.intersects(this.so1);
-    boolean _not = (!_intersects);
-    assertTrue("! intersects(so1) failed", _not);
+    assertTrue("! intersects(so1) failed", (!_intersects));
     
   }
   
   private void _test__intersects4_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
     
-    boolean _intersects = it.intersects(this.so2);
-    assertTrue("intersects(so2) failed", _intersects);
+    assertTrue("intersects(so2) failed", it.intersects(this.so2));
     
   }
   
   private void _test__intersects4_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
     
     boolean _intersects = it.intersects(this.so3);
-    boolean _not = (!_intersects);
-    assertTrue("! intersects(so3) failed", _not);
+    assertTrue("! intersects(so3) failed", (!_intersects));
     
   }
   

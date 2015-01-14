@@ -1,14 +1,13 @@
 package delegation;
 
-import com.google.common.collect.Lists;
 import delegation.MergingIterator;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import junit.framework.Assert;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 
 @JExercise(description = "Tests delegation.MergingIterator")
 @SuppressWarnings("all")
@@ -16,19 +15,19 @@ public class MergingIteratorTest extends TestCase {
   private List<Integer> list86;
   
   private List<Integer> _init_list86() {
-    return Collections.<Integer>unmodifiableList(Lists.<Integer>newArrayList(Integer.valueOf(8), Integer.valueOf(7), Integer.valueOf(6)));
+    return Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(8), Integer.valueOf(7), Integer.valueOf(6)));
   }
   
   private List<Integer> list13;
   
   private List<Integer> _init_list13() {
-    return Collections.<Integer>unmodifiableList(Lists.<Integer>newArrayList(Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3)));
+    return Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3)));
   }
   
   private List<Integer> list14;
   
   private List<Integer> _init_list14() {
-    return Collections.<Integer>unmodifiableList(Lists.<Integer>newArrayList(Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3), Integer.valueOf(4)));
+    return Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3), Integer.valueOf(4)));
   }
   
   @Override
@@ -64,13 +63,13 @@ public class MergingIteratorTest extends TestCase {
     for (final int value : values) {
       {
         boolean _hasNext = iterator.hasNext();
-        Assert.assertTrue(_hasNext);
+        TestCase.assertTrue(_hasNext);
         Integer _next = iterator.next();
-        Assert.assertEquals(value, (_next).intValue());
+        TestCase.assertEquals(value, (_next).intValue());
       }
     }
     boolean _hasNext = iterator.hasNext();
-    Assert.assertFalse(_hasNext);
+    TestCase.assertFalse(_hasNext);
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
@@ -139,7 +138,7 @@ public class MergingIteratorTest extends TestCase {
   private void _test__caseEmpty_transitions0_effect_state_objectTests0_test() {
     try {
       
-      this.testIterator(Collections.<Integer>unmodifiableList(Lists.<Integer>newArrayList()));
+      this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList()));
       } catch (junit.framework.AssertionFailedError error) {
       fail("testIterator(#[]) failed: " + error.getMessage());
     }
@@ -154,7 +153,7 @@ public class MergingIteratorTest extends TestCase {
   private void _test__case1_transitions0_effect_state_objectTests0_test() {
     try {
       
-      this.testIterator(Collections.<Integer>unmodifiableList(Lists.<Integer>newArrayList(Integer.valueOf(1))), 1);
+      this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1))), 1);
       } catch (junit.framework.AssertionFailedError error) {
       fail("testIterator(#[1], 1) failed: " + error.getMessage());
     }
