@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+     <extension
+           point="no.hal.confluence.ui.emfsResourceExtractor"
+			id="no.hal.confluence.java.ui.resources.JavaClassifiers">
+        <emfsResourceClassifier
+	        emfsResourceClassifierClass="no.hal.confluence.java.ui.resources.JavaClassResourceClassifier"
+	    />
+        <emfsResourcePath
+        	pathKeys="source,.java,#java"
+        	defaultPath="tdt4100/src"
+	    />
+        <emfsResourcePath
+        	pathKeys="tests,Test.java,#java,#test"
+        	defaultPath="tdt4100/tests"
+	    />
+        <emfsResourceClassifier
+	        emfsResourceClassifierClass="no.hal.confluence.java.ui.resources.JavaSnippetResourceClassifier"
+	    />
+        <emfsResourcePath
+        	pathKeys="snippets,.jpage,#java,#snippet"
+        	defaultPath="tdt4100/snippets"
+	    />
+        <emfsResourceClassifier
+	        emfsResourceClassifierClass="no.hal.confluence.java.ui.resources.FxmlResourceClassifier"
+	    />
+     </extension>
+
+     <extension
+           point="no.hal.confluence.ui.emfsResourceExtractor"
+			id="no.hal.confluence.java.ui.resources.JavaClassURLResourceExtractor">
+        <emfsResourceExtractor
+	        contentRegionExtractorClass="no.hal.confluence.ui.resources.util.ContentUrlExtractor"
+	        emfsResourceClassifierClass="no.hal.confluence.java.ui.resources.JavaClassURLResourceClassifier"
+	    />
+     </extension>
+
+     <extension
+           point="no.hal.confluence.ui.emfsResourceExtractor"
+			id="no.hal.confluence.java.ui.resources.JarURLResourceExtractor">
+        <emfsResourceExtractor
+	        contentRegionExtractorClass="no.hal.confluence.ui.resources.util.ContentUrlExtractor"
+	        emfsResourceClassifierClass="no.hal.confluence.java.ui.resources.JarURLResourceClassifier"
+	    />
+        <emfsResourcePath
+        	pathKeys="library,.jar"
+        	defaultPath="tdt4100/libs"
+	    />
+     </extension>
+
+</plugin>

@@ -2,6 +2,8 @@ package no.hal.confluence.ui.actions;
 
 import java.util.Collection;
 
+import no.hal.confluence.ui.resources.SourceComposer;
+
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;

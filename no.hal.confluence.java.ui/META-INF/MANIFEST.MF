@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Java content import support
+Bundle-SymbolicName: no.hal.confluence.java.ui;singleton:=true
+Bundle-Version: 0.9.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ no.hal.confluence.ui;bundle-version="0.9.0",
+ no.hal.emfs;bundle-version="0.1.0",
+ org.eclipse.jface;bundle-version="3.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: no.hal.confluence.java.ui.resources
+Bundle-Vendor: Hallvard Traetteberg
+Import-Package: org.eclipse.jdt.core,
+ org.eclipse.jface.dialogs

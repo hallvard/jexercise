@@ -9,74 +9,54 @@
 -->
 
 <plugin>
-   <extension-point id="wikiAction" name="Wiki action" schema="schema/wikiAction.exsd"/>
+   <extension-point id="emfsResourceExtractor" name="Emfs Resource Extractor" schema="schema/emfsResourceExtractor.exsd"/>
 
    <extension point="org.eclipse.ui.preferencePages">
       <page id="no.hal.confluence.ui.WikiPreferencePage"
             class="no.hal.confluence.ui.preferences.WikiPreferencePage"
-            name="Programming Wiki"
+            name="Digital Compendium"
+            />
+      <page id="no.hal.confluence.ui.ImportPathsPreferencePage"
+            class="no.hal.confluence.ui.preferences.ImportPathsPreferencePage"
+            name="Import paths"
+            category="no.hal.confluence.ui.WikiPreferencePage"
             />
    </extension>
+   
    <extension point="org.eclipse.core.runtime.preferences">
       <initializer class="no.hal.confluence.ui.preferences.WikiPreferenceInitializer"/>
+      <initializer class="no.hal.confluence.ui.preferences.ImportPathsPreferenceInitializer"/>
    </extension>
 
      <extension
          point="org.eclipse.ui.views">
       <category
-            name="Programming Wiki"
+            name="Digital Compendium"
             id="no.hal.confluence.ui.ConfluenceWiki">
       </category>
       <view
-            name="Programming Wiki"
+            id="no.hal.confluence.ui.views.ConfluenceWikiView"
             category="no.hal.confluence.ui.ConfluenceWiki"
             class="no.hal.confluence.ui.views.ConfluenceWikiView"
-            id="no.hal.confluence.ui.views.ConfluenceWikiView">
+            name="Digital Compendium"
+            icon="icons/full/book.gif"
+            >
       </view>
    </extension>
 
      <extension
-           point="no.hal.confluence.ui.wikiAction">
-        <wikiAction
-			id="no.hal.confluence.ui.actions.PasteLinkedSourceIntoPackageExporerAction"
-            wikiActionClass="no.hal.confluence.ui.actions.PasteLinkedSourceIntoPackageExporerAction"
-			name="Paste Linked Source into Package Explorer"
-            urlPattern="^\Qhttps://raw.github.com/\E.*\Q.java\E$"
-         >
-        </wikiAction>
-     </extension>
-
-     <extension
-           point="no.hal.confluence.ui.wikiAction">
-        <wikiAction
-			id="no.hal.confluence.ui.actions.PasteCodeBlocksIntoPackageExporerAction"
-	        wikiActionClass="no.hal.confluence.ui.actions.PasteCodeBlocksIntoPackageExporerAction"
-			name="Paste Code Blocks into Package Explorer"
-          	urlPattern="^\Qhttps://raw.github.com/\E.*\Q.java\E$"
-	    >
-        </wikiAction>
-     </extension>
-
-     <extension
-           point="no.hal.confluence.ui.wikiAction">
-        <wikiAction
-			id="no.hal.confluence.ui.actions.AddIconResourceToProjectAction"
-	        wikiActionClass="no.hal.confluence.ui.actions.AddResourceToProjectAction"
-			name="Add Icons to Project"
-          	urlPattern="^.*(\Q.png\E|\Q.jpeg\E)$"
-	    >
-        </wikiAction>
-     </extension>
-
-     <extension
-           point="no.hal.confluence.ui.wikiAction">
-        <wikiAction
-			id="no.hal.confluence.ui.actions.AddJarToProjectAndBuildPathAction"
-	        wikiActionClass="no.hal.confluence.ui.actions.AddJarToProjectAndBuildPathAction"
-			name="Add Jar File to Project and Build Path"
-          	urlPattern="^.*\Q.jar\E$"
-	    >
-        </wikiAction>
+           point="no.hal.confluence.ui.emfsResourceExtractor"
+			id="no.hal.confluence.ui.resources.EmfsResourceExtractor">
+        <contentRegionExtractor
+	        contentRegionExtractorClass="no.hal.confluence.ui.resources.util.CodeBlockSourceExtractor2"
+	    />
+        <emfsResourceClassifier
+	        emfsResourceClassifierClass="no.hal.confluence.ui.resources.XemfsResourceClassifier"
+	    />
+        <emfsResourceExtractor
+	        contentRegionExtractorClass="no.hal.confluence.ui.resources.util.ContentUrlExtractor"
+	        emfsResourceClassifierClass="no.hal.confluence.ui.resources.XemfsURLResourceClassifier"
+	    />
      </extension>
 
 </plugin>

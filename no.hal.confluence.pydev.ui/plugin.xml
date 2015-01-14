@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+     <extension
+           point="no.hal.confluence.ui.emfsResourceExtractor"
+			id="no.hal.confluence.pydev.ui.actions.PythonModuleCodeResourceExtractor">
+        <contentRegionExtractor
+	        contentRegionExtractorClass="no.hal.confluence.pydev.ui.resources.DocOnceCodeBlockSourceExtractor2"
+	    />
+        <emfsResourceClassifier
+	        emfsResourceClassifierClass="no.hal.confluence.pydev.ui.resources.PythonModuleResourceClassifier"
+	    />
+        <emfsResourcePath
+        	pathKeys="python,.py,#python"
+        	defaultPath="/tkt4140/src"
+	    />
+        <emfsResourcePath
+        	pathKeys="python package,.py,#python,#package"
+        	defaultPath="/tkt4140/src"
+	    />
+     </extension>
+<!--
+     <extension
+           point="no.hal.confluence.ui.emfsResourceExtractor"
+			id="no.hal.confluence.pydev.ui.actions.PythonModuleURLResourceExtractor">
+        <emfsResourceExtractor
+	        contentRegionExtractorClass="no.hal.confluence.ui.resources.util.ContentUrlExtractor"
+	        emfsResourceClassifierClass="no.hal.confluence.pydev.ui.resources.PythonModuleURLResourceClassifier"
+	    />
+     </extension>
+-->
+</plugin>

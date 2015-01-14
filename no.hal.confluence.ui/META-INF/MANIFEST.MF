@@ -1,18 +1,29 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Confluence support
+Bundle-Name: Embedded Browser with content import support
 Bundle-SymbolicName: no.hal.confluence.ui;singleton:=true
 Bundle-Version: 0.9.0.qualifier
 Bundle-Activator: no.hal.confluence.ui.Activator
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.ui.browser;bundle-version="3.4.100",
- org.eclipse.jdt.core;bundle-version="3.9.1",
- org.eclipse.jdt.ui;bundle-version="3.9.1",
+Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
- org.eclipse.jface.text;bundle-version="3.8.100"
+ no.hal.emfs;bundle-version="0.1.0",
+ no.hal.emfs.ui;bundle-version="0.1.0",
+ org.eclipse.ui.browser;bundle-version="3.4.200"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Export-Package: no.hal.confluence.ui.actions,
+Export-Package: no.hal.confluence.ui,
+ no.hal.confluence.ui.actions,
  no.hal.confluence.ui.actions.util,
+ no.hal.confluence.ui.preferences,
+ no.hal.confluence.ui.resources,
+ no.hal.confluence.ui.resources.util,
+ no.hal.confluence.ui.resources.util.xml,
  no.hal.confluence.ui.views
+Import-Package: no.hal.emfs.ui.provider,
+ org.eclipse.emf.edit.ui.provider,
+ org.eclipse.jface.text,
+ org.eclipse.ui.browser,
+ org.eclipse.ui.internal.browser
+Bundle-Vendor: Hallvard Traetteberg
+Bundle-ClassPath: .,
+ libs/tagsoup-1.2.1.jar

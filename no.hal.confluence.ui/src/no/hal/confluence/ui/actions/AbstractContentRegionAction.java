@@ -4,7 +4,8 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.Collection;
 
-import no.hal.confluence.ui.actions.util.ContentUrlExtractor;
+import no.hal.confluence.ui.resources.ContentRegionExtractor;
+import no.hal.confluence.ui.resources.util.ContentUrlExtractor;
 import no.hal.confluence.ui.views.BrowserView;
 
 import org.eclipse.jface.dialogs.Dialog;

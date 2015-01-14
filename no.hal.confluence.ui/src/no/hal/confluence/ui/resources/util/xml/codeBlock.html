@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <title>FXML-filer og Java-kontroller-logikk - Objektorientert programmering med Java - NTNU Wiki</title>
+    
+        
+
+                        
+    
+                        
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7"/>
+<meta charset="UTF-8"/>
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use AJS.Confluence.getContextPath() -->
+<meta id="confluence-context-path" name="confluence-context-path" content="/wiki"/>
+<meta id="confluence-base-url" name="confluence-base-url" content="https://www.ntnu.no/wiki"/>
+
+<meta id="atlassian-token" name="atlassian-token" content="352cffd13ce280862c92ef27f9adfc498635adee"/>
+
+<meta id="confluence-space-key" name="confluence-space-key" content="tdt4100"/>
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '/wiki';
+</script>
+
+    
+
+<!-- include system css resources -->
+
+
+    <!--[if lt IE 9]>
+<link data-atlassian-webresource-contents="confluence.web.resources:userlink[1.0],confluence.web.resources:master-styles[1.0],com.atlassian.auiplugin:ajs-gadgets-base[3.6.5],confluence.web.resources:page-ordering-tree[1.0],confluence.web.resources:aui-forms[1.0],com.atlassian.auiplugin:ajs[3.6.5],confluence.web.resources:icons[1.0],confluence.macros.profile:profile-macro-styles[1.0],confluence.web.resources:page-permissions-editor[1.0]" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/102/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all"/>
+<![endif]--/>
+<link data-atlassian-webresource-contents="confluence.macros.advanced:get-more[2.1.11],confluence.web.resources:print-styles[1.0]" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/102/_/download/superbatch/css/batch.css?media=print" media="print"/>
+<link data-atlassian-webresource-contents="confluence.web.resources:master-styles[1.0],confluence.web.resources:fancy-box[1.0],confluence.web.resources:content-styles[1.0],confluence.web.resources:page-move-resources[1.0],confluence.web.resources:labels-editor[1.0],confluence.web.components:core[1.0],com.atlassian.auiplugin:ajs[3.6.5],com.atlassian.auiplugin:ajs-html5shim[3.6.5],confluence.macros.profile:network-resources-css[1.0],confluence.macros.profile:profile-macro-styles[1.0],confluence.macros.advanced:get-more[2.1.11],confluence.web.resources:create-space[1.0],confluence.web.resources:panel-styles[1.0],com.atlassian.plugins.shortcuts.atlassian-shortcuts-module:shortcuts[1.0],com.atlassian.confluence.keyboardshortcuts:confluence-keyboard-shortcuts[4.3.7],confluence.web.resources:userlink[1.0],confluence.web.resources:view-content[1.0],confluence.macros.advanced:recently-updated-sidebar-resources[2.1.11],confluence.web.resources:search-results-grid[1.0],confluence.web.resources:aui-forms[1.0],com.atlassian.confluence.plugins.gadgets:css[4.3.7],confluence.content.action.menu:linkpopup-resources[1.0],com.atlassian.auiplugin:ajs-gadgets-base[3.6.5],confluence.userstatus:userstatus-resources[1.0],confluence.web.resources:page-ordering-tree[1.0],confluence.web.resources:jquery-autocomplete[1.0],confluence.web.components:property-panel-css[1.0],confluence.web.resources:tooltip[1.0],com.atlassian.confluence.whatsnew:whats-new-resources[4.3.7],confluence.web.resources:ajs[1.0],confluence.web.resources:icons[1.0],confluence.web.resources:dashboard-resources[1.0],confluence.web.resources:page-permissions-editor[1.0]" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/102/_/download/superbatch/css/batch.css" media="all">
+<!--[if lte IE 9]>
+<link data-atlassian-webresource-contents="com.atlassian.auiplugin:ajs[3.6.5]" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/102/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<!--[if IE 9]>
+<link data-atlassian-webresource-contents="com.atlassian.auiplugin:ajs-gadgets-base[3.6.5]" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/102/_/download/superbatch/css/batch.css?conditionalComment=IE+9" media="all">
+<![endif]-->
+<link data-atlassian-webresource-contents="com.atlassian.confluence.plugins.view-storage-format:view-storage-menu-resources[4.3.7],com.atlassian.confluence.plugins.view-source:view-source-menu-resources[4.3.7],confluence.macros.core:flash-autosize[4.3.7],com.atlassian.confluence.plugins.share-page:mail-page-resources[1.26]" data-atlassian-webresource-contexts="page" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/9ec81869a580c0aa5809243fa01caab5/_/download/contextbatch/css/page/batch.css" media="all">
+<!--[if lt IE 9]>
+<link data-atlassian-webresource-contents="com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-resources[4.3.7],com.atlassian.confluence.plugins.jira.jira-connector:help-dialog-extension[1.4.2],com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content[4.3.7],com.atlassian.confluence.plugins.view-storage-format:view-comment-storage-resources[4.3.7],confluence.web.resources:view-comment[1.0],com.atlassian.confluence.plugins.confluence-like:content-like-resources[4.3.7],com.atlassian.auiplugin:jquery-ui-other[3.6.5],com.atlassian.confluence.plugins.confluence-mentions-plugin:help-dialog-extension[1.5.9],com.atlassian.confluence.plugins.confluence-sortable-tables:sortable-table-resources[4.3.7],com.atlassian.confluence.plugins.drag-and-drop:support[4.3.7]" data-atlassian-webresource-contexts="viewcontent" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/bd23c5a3bc97fb00610e72d7753ce55f/_/download/contextbatch/css/viewcontent/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link data-atlassian-webresource-contents="com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-resources[4.3.7],com.atlassian.confluence.plugins.jira.jira-connector:help-dialog-extension[1.4.2],com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content[4.3.7],com.atlassian.confluence.plugins.view-storage-format:view-comment-storage-resources[4.3.7],confluence.web.resources:view-comment[1.0],com.atlassian.confluence.plugins.confluence-like:content-like-resources[4.3.7],com.atlassian.auiplugin:jquery-ui-other[3.6.5],com.atlassian.confluence.plugins.confluence-mentions-plugin:help-dialog-extension[1.5.9],com.atlassian.confluence.plugins.confluence-sortable-tables:sortable-table-resources[4.3.7],com.atlassian.confluence.plugins.drag-and-drop:support[4.3.7]" data-atlassian-webresource-contexts="viewcontent" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/bd23c5a3bc97fb00610e72d7753ce55f/_/download/contextbatch/css/viewcontent/batch.css" media="all">
+<link data-atlassian-webresource-contents="com.atlassian.confluence.plugins.quickcomments:quick-comment-page[4.3.7],com.atlassian.confluence.plugins.editor-loader:background-loading-editor[4.3.7],com.atlassian.confluence.plugins.quickcomments:quick-comment-initial[4.3.7]" data-atlassian-webresource-contexts="plugin.quick.comment.pre" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/1e45cf05304df6c01096dbcdef74a819/_/download/contextbatch/css/plugin.quick.comment.pre/batch.css" media="all">
+<link data-atlassian-webresource-contents="com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles[4.3.7],com.atlassian.confluence.plugins.jira.jira-connector:help-dialog-extension[1.4.2],com.atlassian.confluence.plugins.share-page:share-keyboard-shortcut-js-resources[1.26],com.atlassian.confluence.plugins.doctheme:splitter[4.3.7],com.lucidchart.confluence.plugins.lucid-confluence:lucidchart-global-resources[1.17],com.atlassian.confluence.plugins.confluence-mentions-plugin:help-dialog-extension[1.5.9]" data-atlassian-webresource-contexts="main" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/1eb84df4915c4d32815524acf8454e86/_/download/contextbatch/css/main/batch.css" media="all">
+<link data-atlassian-webresource-contents="de.griffel.confluence.plugins.plant-uml:plantuml-resources[5.5],com.adaptavist.confluence.contentFormattingMacros:inline-fix[3.0.0],com.adaptavist.confluence.contentFormattingMacros:clickable-resources[3.0.0],com.atlassian.plugins.navigation-link-plugin:rotp-menu[1.2]" data-atlassian-webresource-contexts="atl.general" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/9fcb96027447efabcd980da4a5193e39/_/download/contextbatch/css/atl.general/batch.css" media="all">
+<link data-atlassian-webresource-contents="com.atlassian.confluence.ext.newcode-macro-plugin:syntaxhighlighter[2.0.16]" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/2.0.16/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin:syntaxhighlighter/com.atlassian.confluence.ext.newcode-macro-plugin:syntaxhighlighter.css" media="all">
+<link data-atlassian-webresource-contents="com.atlassian.confluence.ext.newcode-macro-plugin:sh-theme-confluence[2.0.16]" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/2.0.16/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin:sh-theme-confluence/com.atlassian.confluence.ext.newcode-macro-plugin:sh-theme-confluence.css" media="all">
+<link data-atlassian-webresource-contents="com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor[1.1.10]" type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/1.1.10/_/download/batch/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor.css" media="all">
+<link type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/3/_/styles/colors.css?spaceKey=tdt4100" media="all">
+<link type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/1.0/_/download/resources/com.atlassian.confluence.themes.default:styles/default-theme.css" media="all">
+
+<!-- end system css resources -->
+
+    <meta name="confluence-request-time" content="1418739170035"/>
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use atl.header -->
+        
+            <script type="text/x-template" title="share-content-popup">
+    <form action="#" method="post" class="aui share-content-popup">
+        <fieldset>
+            <label for="users">User name or email</label>
+            <div class="autocomplete-user-target">
+                <input class="text autocomplete-sharepage" id="users" data-max="10" data-dropdown-target=".autocomplete-user-target" data-none-message="No matching user or email found"/>
+            </div>
+            <ol class="recipients">
+            </ol>
+            <div><label for="note">Note</label></div>
+            <textarea class="textarea" id="note" placeholder="Add an optional note"/>
+        </fieldset>
+        <div class="button-panel">
+            <div class="progress-messages-icon"></div>
+            <div class="progress-messages">
+            </div>
+            <input class="button submit" type="submit" value="Share" disabled="true"/>
+            <a class="close-dialog" href="#">Cancel</a>
+        </div>
+    </form>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-username">
+    <li data-username="{username}" style="display: none">
+        <span>
+            <img src="{thumbnailLink.href}" title="{title}"/>
+            <span>{title}</span>
+            <span class="remove-recipient"/>
+        </span>
+    </li>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-email">
+    <li data-email="{email}" style="display: none">
+        <span>
+            <img src="{icon}" title="{email}"/>
+            <span>{email}</span>
+            <span class="remove-recipient"/>
+        </span>
+    </li>
+</script>
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true"/>
+            <meta name="ajs-keyboardshortcut-hash" content="c06e4e1b80b8d2ef989640c4796a215b"/>
+            
+    
+            
+    
+    
+            <meta name="ajs-page-id" content="74974061"/>
+            <meta name="ajs-page-title" content="FXML-filer og Java-kontroller-logikk"/>
+            <meta name="ajs-parent-page-title" content="JavaFX"/>
+            <meta name="ajs-parent-page-id" content="65936865"/>
+            <meta name="ajs-space-key" content="tdt4100"/>
+            <meta name="ajs-space-name" content="Objektorientert programmering med Java"/>
+            <meta name="ajs-from-page-title" content=""/>
+            <meta name="ajs-browse-page-tree-mode" content="view"/>
+            <meta name="ajs-user-display-name" content="Hallvard Trætteberg"/>
+            <meta name="ajs-context-path" content="/wiki"/>
+            <meta name="ajs-base-url" content="https://www.ntnu.no/wiki"/>
+            <meta name="ajs-version-number" content="4.3.7"/>
+            <meta name="ajs-build-number" content="3398"/>
+            <meta name="ajs-remote-user" content="hal"/>
+            <meta name="ajs-static-resource-url-prefix" content="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/_"/>
+            <meta name="ajs-global-settings-attachment-max-size" content="52428800"/>
+            <meta name="ajs-user-locale" content="en_GB"/>
+            <meta name="ajs-enabled-dark-features" content=""/>
+            <meta name="ajs-atl-token" content="352cffd13ce280862c92ef27f9adfc498635adee"/>
+            <meta name="ajs-confluence-flavour" content="VANILLA"/>
+            <meta name="ajs-editor.loader.resources" content="&lt;!--[if lt IE 9]&gt;
+&lt;link data-atlassian-webresource-excluded-contexts=&quot;viewcontent&quot; data-atlassian-webresource-contents=&quot;com.atlassian.confluence.plugins.confluence-paste:autoconvert-youtu.be-rewrite[4.3.7],com.atlassian.plugins.editor:atlassian-rte-javascript-translations[4.3.7],confluence.macros.advanced:editor_includemacro[2.1.11],com.atlassian.confluence.plugins.profile-picture:profile-picture-editor_resources[1.6],confluence.web.resources:page-editor-css[1.0],com.atlassian.confluence.plugins.status-macro:editor_status[1.14],com.atlassian.applinks.applinks-plugin:applinks-util-js[3.8.0],com.atlassian.auiplugin:jquery-autocomplete[3.6.5],com.atlassian.plugins.editor:atlassian-rte-javascript-tinymce-core[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-core[4.3.7],com.atlassian.confluence.extra.officeconnector:macro-browser-smart-fields[2.1.12],com.atlassian.confluence.plugins.editor-height-fix:editor-height-fix-resources[1.0],confluence.extra.jira:macro-browser-resources[4.0.29],com.atlassian.confluence.plugins.jira.jira-connector:proxy-js[1.4.2],com.atlassian.confluence.plugins.gadgets:macro-browser-for-gadgetsplugin[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-skitch[4.3.7],com.lucidchart.confluence.plugins.lucid-confluence:lucidchart-macro-editor-resources[1.17],com.atlassian.gadgets.embedded:gadget-core-resources[3.2.0-m3],com.atlassian.confluence.plugins.confluence-templates:template-editor-variables-resources[4.3.7],com.atlassian.confluence.tinymceplugin:editor-resources[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-cloudapp[4.3.7],net.customware.confluence.plugin.linking:editor_linkmacros[3.0.2],com.atlassian.confluence.plugins.confluence-mentions-plugin:editor-autocomplete-mentions-no-dependencies[1.5.9],com.atlassian.confluence.plugins.confluence-sortable-tables:ConfluenceSortableTablesEditorPlugin[4.3.7],com.atlassian.applinks.applinks-plugin:applinks-oauth-ui[3.8.0],com.atlassian.confluence.plugins.confluence-templates:template-editor-variables-template-resources[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-openphoto[4.3.7],confluence.web.resources:page-editor-js[1.0],com.atlassian.confluence.ext.newcode-macro-plugin:editor-scripts[2.0.16],de.griffel.confluence.plugins.plant-uml:macro-browser-fields[5.5],com.atlassian.confluence.image.effects.ImageEffectsPlugin:propertiespanel[1.0.1],confluence.web.resources:draft-changes-js[1.0],com.atlassian.confluence.extra.widgetconnector:twitter-autoconvert-webresources[2.1.6],com.atlassian.confluence.tinymceplugin:editor-javascript-resources[4.3.7],com.atlassian.confluence.tinymceplugin:editor-autocomplete-resources-only[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-google-redirect[4.3.7],com.atlassian.confluence.tinymceplugin:editor-css-resources[4.3.7],com.atlassian.plugins.editor:atlassian-rte-javascript[4.3.7],com.atlassian.plugins.editor:atlassian-rte-css[4.3.7],confluence.web.components:editor-notifications[1.0],confluence.web.resources:jira-controls[1.0],confluence.web.resources:draft-changes[1.0],com.atlassian.confluence.plugins.drag-and-drop:drop-zone-for-image-dialog[4.3.7],com.atlassian.confluence.tinymceplugin:editor-autocomplete-resources[4.3.7],com.atlassian.plugins.editor:atlassian-rte-resources[4.3.7],com.atlassian.confluence.keyboardshortcuts:confluence-tinymce-keyboard-shortcuts[4.3.7],com.atlassian.latex.confluence.macro-latex:editor[0.3],com.atlassian.confluence.plugins.jira.jira-connector:dialogsJs[1.4.2],com.atlassian.confluence.plugins.confluence-paste:paste-resources[4.3.7],confluence.web.resources:draft-changes-css[1.0],com.atlassian.confluence.plugins.confluence-paste:autoconvert-jira[4.3.7],confluence.web.resources:page-editor[1.0],com.atlassian.confluence.plugins.confluence-paste:autoconvert-confluence[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-widget-connector[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-shortcut-links[4.3.7],com.atlassian.confluence.plugins.confluence-mentions-plugin:editor-autocomplete-mentions[1.5.9],com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-editor[4.3.7],confluence.macros.core:macro-browser-smart-fields[4.3.7],confluence.editor.actions:editor-macro-browser[1.0],com.atlassian.plugins.editor:atlassian-rte-javascript-tinymce-extensions[4.3.7],com.atlassian.confluence.extra.officeconnector:officeconnector-editor-resources[2.1.12]&quot; data-atlassian-webresource-contexts=&quot;editor,macro-browser&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/22ef579fb75d878292b270e537100690/_/download/contextbatch/css/editor,macro-browser,-viewcontent/batch.css?conditionalComment=lt+IE+9&quot; media=&quot;all&quot;&gt;
+&lt;![endif]--&gt;
+&lt;link data-atlassian-webresource-excluded-contexts=&quot;viewcontent&quot; data-atlassian-webresource-contents=&quot;com.atlassian.confluence.plugins.confluence-paste:autoconvert-youtu.be-rewrite[4.3.7],com.atlassian.plugins.editor:atlassian-rte-javascript-translations[4.3.7],confluence.macros.advanced:editor_includemacro[2.1.11],com.atlassian.confluence.plugins.profile-picture:profile-picture-editor_resources[1.6],confluence.web.resources:page-editor-css[1.0],com.atlassian.confluence.plugins.status-macro:editor_status[1.14],com.atlassian.applinks.applinks-plugin:applinks-util-js[3.8.0],com.atlassian.auiplugin:jquery-autocomplete[3.6.5],com.atlassian.plugins.editor:atlassian-rte-javascript-tinymce-core[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-core[4.3.7],com.atlassian.confluence.extra.officeconnector:macro-browser-smart-fields[2.1.12],com.atlassian.confluence.plugins.editor-height-fix:editor-height-fix-resources[1.0],confluence.extra.jira:macro-browser-resources[4.0.29],com.atlassian.confluence.plugins.jira.jira-connector:proxy-js[1.4.2],com.atlassian.confluence.plugins.gadgets:macro-browser-for-gadgetsplugin[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-skitch[4.3.7],com.lucidchart.confluence.plugins.lucid-confluence:lucidchart-macro-editor-resources[1.17],com.atlassian.gadgets.embedded:gadget-core-resources[3.2.0-m3],com.atlassian.confluence.plugins.confluence-templates:template-editor-variables-resources[4.3.7],com.atlassian.confluence.tinymceplugin:editor-resources[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-cloudapp[4.3.7],net.customware.confluence.plugin.linking:editor_linkmacros[3.0.2],com.atlassian.confluence.plugins.confluence-mentions-plugin:editor-autocomplete-mentions-no-dependencies[1.5.9],com.atlassian.confluence.plugins.confluence-sortable-tables:ConfluenceSortableTablesEditorPlugin[4.3.7],com.atlassian.applinks.applinks-plugin:applinks-oauth-ui[3.8.0],com.atlassian.confluence.plugins.confluence-templates:template-editor-variables-template-resources[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-openphoto[4.3.7],confluence.web.resources:page-editor-js[1.0],com.atlassian.confluence.ext.newcode-macro-plugin:editor-scripts[2.0.16],de.griffel.confluence.plugins.plant-uml:macro-browser-fields[5.5],com.atlassian.confluence.image.effects.ImageEffectsPlugin:propertiespanel[1.0.1],confluence.web.resources:draft-changes-js[1.0],com.atlassian.confluence.extra.widgetconnector:twitter-autoconvert-webresources[2.1.6],com.atlassian.confluence.tinymceplugin:editor-javascript-resources[4.3.7],com.atlassian.confluence.tinymceplugin:editor-autocomplete-resources-only[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-google-redirect[4.3.7],com.atlassian.confluence.tinymceplugin:editor-css-resources[4.3.7],com.atlassian.plugins.editor:atlassian-rte-javascript[4.3.7],com.atlassian.plugins.editor:atlassian-rte-css[4.3.7],confluence.web.components:editor-notifications[1.0],confluence.web.resources:jira-controls[1.0],confluence.web.resources:draft-changes[1.0],com.atlassian.confluence.plugins.drag-and-drop:drop-zone-for-image-dialog[4.3.7],com.atlassian.confluence.tinymceplugin:editor-autocomplete-resources[4.3.7],com.atlassian.plugins.editor:atlassian-rte-resources[4.3.7],com.atlassian.confluence.keyboardshortcuts:confluence-tinymce-keyboard-shortcuts[4.3.7],com.atlassian.latex.confluence.macro-latex:editor[0.3],com.atlassian.confluence.plugins.jira.jira-connector:dialogsJs[1.4.2],com.atlassian.confluence.plugins.confluence-paste:paste-resources[4.3.7],confluence.web.resources:draft-changes-css[1.0],com.atlassian.confluence.plugins.confluence-paste:autoconvert-jira[4.3.7],confluence.web.resources:page-editor[1.0],com.atlassian.confluence.plugins.confluence-paste:autoconvert-confluence[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-widget-connector[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-shortcut-links[4.3.7],com.atlassian.confluence.plugins.confluence-mentions-plugin:editor-autocomplete-mentions[1.5.9],com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-editor[4.3.7],confluence.macros.core:macro-browser-smart-fields[4.3.7],confluence.editor.actions:editor-macro-browser[1.0],com.atlassian.plugins.editor:atlassian-rte-javascript-tinymce-extensions[4.3.7],com.atlassian.confluence.extra.officeconnector:officeconnector-editor-resources[2.1.12]&quot; data-atlassian-webresource-contexts=&quot;editor,macro-browser&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/22ef579fb75d878292b270e537100690/_/download/contextbatch/css/editor,macro-browser,-viewcontent/batch.css&quot; media=&quot;all&quot;&gt;
+&lt;script data-atlassian-webresource-excluded-contexts=&quot;viewcontent&quot; data-atlassian-webresource-contents=&quot;com.atlassian.confluence.plugins.confluence-paste:autoconvert-youtu.be-rewrite[4.3.7],com.atlassian.plugins.editor:atlassian-rte-javascript-translations[4.3.7],confluence.macros.advanced:editor_includemacro[2.1.11],com.atlassian.confluence.plugins.profile-picture:profile-picture-editor_resources[1.6],confluence.web.resources:page-editor-css[1.0],com.atlassian.confluence.plugins.status-macro:editor_status[1.14],com.atlassian.applinks.applinks-plugin:applinks-util-js[3.8.0],com.atlassian.auiplugin:jquery-autocomplete[3.6.5],com.atlassian.plugins.editor:atlassian-rte-javascript-tinymce-core[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-core[4.3.7],com.atlassian.confluence.extra.officeconnector:macro-browser-smart-fields[2.1.12],com.atlassian.confluence.plugins.editor-height-fix:editor-height-fix-resources[1.0],confluence.extra.jira:macro-browser-resources[4.0.29],com.atlassian.confluence.plugins.jira.jira-connector:proxy-js[1.4.2],com.atlassian.confluence.plugins.gadgets:macro-browser-for-gadgetsplugin[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-skitch[4.3.7],com.lucidchart.confluence.plugins.lucid-confluence:lucidchart-macro-editor-resources[1.17],com.atlassian.gadgets.embedded:gadget-core-resources[3.2.0-m3],com.atlassian.confluence.plugins.confluence-templates:template-editor-variables-resources[4.3.7],com.atlassian.confluence.tinymceplugin:editor-resources[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-cloudapp[4.3.7],net.customware.confluence.plugin.linking:editor_linkmacros[3.0.2],com.atlassian.confluence.plugins.confluence-mentions-plugin:editor-autocomplete-mentions-no-dependencies[1.5.9],com.atlassian.confluence.plugins.confluence-sortable-tables:ConfluenceSortableTablesEditorPlugin[4.3.7],com.atlassian.applinks.applinks-plugin:applinks-oauth-ui[3.8.0],com.atlassian.confluence.plugins.confluence-templates:template-editor-variables-template-resources[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-openphoto[4.3.7],confluence.web.resources:page-editor-js[1.0],com.atlassian.confluence.ext.newcode-macro-plugin:editor-scripts[2.0.16],de.griffel.confluence.plugins.plant-uml:macro-browser-fields[5.5],com.atlassian.confluence.image.effects.ImageEffectsPlugin:propertiespanel[1.0.1],confluence.web.resources:draft-changes-js[1.0],com.atlassian.confluence.extra.widgetconnector:twitter-autoconvert-webresources[2.1.6],com.atlassian.confluence.tinymceplugin:editor-javascript-resources[4.3.7],com.atlassian.confluence.tinymceplugin:editor-autocomplete-resources-only[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-google-redirect[4.3.7],com.atlassian.confluence.tinymceplugin:editor-css-resources[4.3.7],com.atlassian.plugins.editor:atlassian-rte-javascript[4.3.7],com.atlassian.plugins.editor:atlassian-rte-css[4.3.7],confluence.web.components:editor-notifications[1.0],confluence.web.resources:jira-controls[1.0],confluence.web.resources:draft-changes[1.0],com.atlassian.confluence.plugins.drag-and-drop:drop-zone-for-image-dialog[4.3.7],com.atlassian.confluence.tinymceplugin:editor-autocomplete-resources[4.3.7],com.atlassian.plugins.editor:atlassian-rte-resources[4.3.7],com.atlassian.confluence.keyboardshortcuts:confluence-tinymce-keyboard-shortcuts[4.3.7],com.atlassian.latex.confluence.macro-latex:editor[0.3],com.atlassian.confluence.plugins.jira.jira-connector:dialogsJs[1.4.2],com.atlassian.confluence.plugins.confluence-paste:paste-resources[4.3.7],confluence.web.resources:draft-changes-css[1.0],com.atlassian.confluence.plugins.confluence-paste:autoconvert-jira[4.3.7],confluence.web.resources:page-editor[1.0],com.atlassian.confluence.plugins.confluence-paste:autoconvert-confluence[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-widget-connector[4.3.7],com.atlassian.confluence.plugins.confluence-paste:autoconvert-shortcut-links[4.3.7],com.atlassian.confluence.plugins.confluence-mentions-plugin:editor-autocomplete-mentions[1.5.9],com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-editor[4.3.7],confluence.macros.core:macro-browser-smart-fields[4.3.7],confluence.editor.actions:editor-macro-browser[1.0],com.atlassian.plugins.editor:atlassian-rte-javascript-tinymce-extensions[4.3.7],com.atlassian.confluence.extra.officeconnector:officeconnector-editor-resources[2.1.12]&quot; data-atlassian-webresource-contexts=&quot;editor,macro-browser&quot; type=&quot;text/javascript&quot; src=&quot;/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/22ef579fb75d878292b270e537100690/_/download/contextbatch/js/editor,macro-browser,-viewcontent/batch.js&quot; &gt;&lt;/script&gt;
+"/>
+            <meta name="ajs-date.format" content="dd.MM.yyyy"/>
+    
+    <link rel="shortcut icon" href="/wiki/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="/wiki/favicon.ico"/>
+
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch/osd.action" title="NTNU Wiki"/>
+
+        <!-- include system javascript resources -->
+                        
+    
+    <!--[if lt IE 9]>
+<script data-atlassian-webresource-contents="com.atlassian.auiplugin:ajs-html5shim[3.6.5]" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/102/_/download/superbatch/js/batch.js?conditionalComment=lt+IE+9" ></script>
+<![endif]-->
+<script data-atlassian-webresource-contents="confluence.web.resources:contentnamesearch[1.0],confluence.web.resources:fancy-box[1.0],confluence.web.resources:page-move-resources[1.0],confluence.web.resources:labels-editor[1.0],confluence.web.resources:atlassian-effects[1.0],confluence.web.components:core[1.0],com.atlassian.auiplugin:ajs[3.6.5],confluence.aui.staging:storage-manager[4.3.7],confluence.web.resources:safe-ajax[1.0],confluence.aui.staging:dark-features[4.3.7],confluence.macros.profile:profile-macro-styles[1.0],com.atlassian.auiplugin:jquery-compatibility[3.6.5],confluence.macros.advanced:get-more[2.1.11],confluence.web.resources:animation[1.0],confluence.macros.advanced:get-more-helper[2.1.11],confluence.web.resources:create-personal-space[1.0],com.atlassian.soy.soy-template-plugin:soy-deps[1.1.5],confluence.web.resources:create-space[1.0],com.atlassian.plugins.shortcuts.atlassian-shortcuts-module:shortcuts[1.0],com.atlassian.confluence.keyboardshortcuts:confluence-keyboard-shortcuts[4.3.7],com.atlassian.confluence.restplugin:confluence-rest[4.3.7],confluence.web.resources:userlink[1.0],com.atlassian.confluence.extra.officeconnector:editinoffice[2.1.12],confluence.web.resources:keygen[1.0],confluence.web.resources:view-content[1.0],confluence.web.components:property-panel-js[1.0],confluence.web.resources:search-results-grid[1.0],com.atlassian.auiplugin:jquery-lib[3.6.5],confluence.web.resources:jquery-json[1.0],confluence.web.resources:raphael[1.0],confluence.content.action.menu:linkpopup-resources[1.0],com.atlassian.confluence.plugins.gadgets:gadget-directory-resources[4.3.7],com.atlassian.auiplugin:ajs-gadgets-base[3.6.5],confluence.userstatus:userstatus-resources[1.0],confluence.web.resources:page-ordering-tree[1.0],confluence.web.resources:master-scripts[1.0],confluence.web.resources:breadcrumbs[1.0],confluence.web.resources:tooltip[1.0],com.atlassian.confluence.whatsnew:whats-new-resources[4.3.7],confluence.web.resources:ajs[1.0],confluence.aui.staging:meta[4.3.7],com.atlassian.auiplugin:aui-core[3.6.5],confluence.web.resources:page-permissions-editor[1.0]" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/102/_/download/superbatch/js/batch.js" ></script>
+<!--[if lte IE 8]>
+<script data-atlassian-webresource-contents="com.atlassian.auiplugin:ajs[3.6.5]" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/102/_/download/superbatch/js/batch.js?conditionalComment=lte+IE+8" ></script>
+<![endif]-->
+<script data-atlassian-webresource-contents="com.atlassian.confluence.plugins.view-storage-format:view-storage-menu-resources[4.3.7],com.atlassian.confluence.plugins.view-source:view-source-menu-resources[4.3.7],confluence.macros.core:flash-autosize[4.3.7],com.atlassian.confluence.plugins.share-page:mail-page-resources[1.26]" data-atlassian-webresource-contexts="page" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/9ec81869a580c0aa5809243fa01caab5/_/download/contextbatch/js/page/batch.js" ></script>
+<script data-atlassian-webresource-contents="com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-resources[4.3.7],com.atlassian.confluence.plugins.confluence-inline-tasks:inline-tasks-styles[4.3.7],com.atlassian.confluence.plugins.drag-and-drop:drag-and-drop-for-view-content[4.3.7],com.atlassian.confluence.plugins.share-page:share-keyboard-shortcut-js-resources[1.26],com.atlassian.confluence.plugins.doctheme:splitter[4.3.7],com.atlassian.confluence.plugins.view-storage-format:view-comment-storage-resources[4.3.7],com.atlassian.confluence.plugins.confluence-like:content-like-resources[4.3.7],com.lucidchart.confluence.plugins.lucid-confluence:lucidchart-global-resources[1.17],com.atlassian.confluence.plugins.jira.jira-connector:help-dialog-extension[1.4.2],confluence.web.resources:view-comment[1.0],com.atlassian.auiplugin:jquery-ui-other[3.6.5],com.atlassian.confluence.plugins.confluence-mentions-plugin:help-dialog-extension[1.5.9],com.atlassian.confluence.plugins.confluence-sortable-tables:sortable-table-resources[4.3.7],com.atlassian.confluence.plugins.drag-and-drop:support[4.3.7]" data-atlassian-webresource-contexts="viewcontent,main" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/af033b16a7d216fc9cf5d43c1d417dca/_/download/contextbatch/js/viewcontent,main/batch.js" ></script>
+<script data-atlassian-webresource-contents="com.atlassian.confluence.plugins.quickcomments:quick-comment-hide-traditional[4.3.7]" data-atlassian-webresource-contexts="atl.comments" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/728f756c8ddf721072c53a140ddc49b8/_/download/contextbatch/js/atl.comments/batch.js" ></script>
+<script data-atlassian-webresource-contents="com.atlassian.confluence.plugins.quickcomments:quick-comment-page[4.3.7],com.atlassian.confluence.plugins.editor-loader:background-loading-editor[4.3.7],com.atlassian.confluence.plugins.quickcomments:quick-comment-initial[4.3.7]" data-atlassian-webresource-contexts="plugin.quick.comment.pre" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/1e45cf05304df6c01096dbcdef74a819/_/download/contextbatch/js/plugin.quick.comment.pre/batch.js" ></script>
+<script data-atlassian-webresource-contents="de.griffel.confluence.plugins.plant-uml:plantuml-resources[5.5],com.adaptavist.confluence.contentFormattingMacros:inline-fix[3.0.0],com.adaptavist.confluence.contentFormattingMacros:clickable-resources[3.0.0],com.atlassian.plugins.navigation-link-plugin:rotp-menu[1.2]" data-atlassian-webresource-contexts="atl.general" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/9fcb96027447efabcd980da4a5193e39/_/download/contextbatch/js/atl.general/batch.js" ></script>
+<script data-atlassian-webresource-contents="com.atlassian.confluence.ext.newcode-macro-plugin:syntaxhighlighter[2.0.16]" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/2.0.16/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin:syntaxhighlighter/com.atlassian.confluence.ext.newcode-macro-plugin:syntaxhighlighter.js" ></script>
+<script data-atlassian-webresource-contents="com.atlassian.confluence.ext.newcode-macro-plugin:syntaxhighlighter-brushes[2.0.16]" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/2.0.16/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin:syntaxhighlighter-brushes/com.atlassian.confluence.ext.newcode-macro-plugin:syntaxhighlighter-brushes.js" ></script>
+<script data-atlassian-webresource-contents="com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor[1.1.10]" type="text/javascript" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/1.1.10/_/download/batch/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor.js" ></script>
+
+    
+    <!-- end system javascript resources -->
+    
+
+    
+                <link rel="canonical" href="https://www.ntnu.no/wiki/display/tdt4100/FXML-filer+og+Java-kontroller-logikk"/>
+        <link rel="shortlink" href="https://www.ntnu.no/wiki/x/bQN4B"/>
+    <meta name="wikilink" content="[tdt4100:FXML-filer og Java-kontroller-logikk]"/>
+    <meta name="page-version" content="35"/>
+
+</head>
+    
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-default ">
+
+        
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="#title-heading">Skip to content</a></li>
+    <li><a href="#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="#navigation">Skip to action menu</a></li>
+    <li><a href="#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                        </div>
+    </div>
+            <div id="header" class="">
+    <div class="cell">
+                          
+    <form id="quick-search" class="quick-search" method="get" action="/wiki/dosearchsite.action">
+        <fieldset>
+            <label class="assistive" for="quick-search-query">Quick Search</label>
+            <input id="quick-search-query" class="quick-search-query" type="search" accessKey="q" autocomplete="off" name="queryString" size="25" title="Quick Search" />
+            <input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search" />
+            <div class="aui-dd-parent quick-nav-drop-down"></div>
+        </fieldset>
+        <div class="hidden parameters">
+                                        <!-- putMetadata failed to add value for key "quick-nav-enabled" so rendering metadata inline - see server debug log for details -->
+        <meta name="ajs-quick-nav-enabled" content="true">
+                                                    </div>
+    </form>
+        <ul id="header-menu-bar" class="ajs-menu-bar">
+                                                                
+            
+            <li class="normal ajs-menu-item">
+        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="assistive ajs-drop-down">
+                        <ul  id="browse-menu-link-leading"                 class="section-leading first">
+                                        <li>
+    
+        
+    
+    <a  id="space-pages-link" href="/wiki/pages/listpages.action?key=tdt4100"  class=""   title="Browse pages in the Objektorientert programmering med Java space">
+                   <span>Pages</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-blogposts-link" href="/wiki/pages/viewrecentblogposts.action?key=tdt4100"  class=""   title="Browse blogs in the Objektorientert programmering med Java space">
+                   <span>Blog</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-templates-link" href="/wiki/pages/templates2/listpagetemplates.action?key=tdt4100"  class=""   title="Browse and edit templates in the Objektorientert programmering med Java space">
+                   <span>Templates</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-labels-link" href="/wiki/labels/listlabels-heatmap.action?key=tdt4100"  class=""   title="Browse labels in the Objektorientert programmering med Java space">
+                   <span>Labels</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-attachments-link" href="/wiki/spaces/listattachmentsforspace.action?key=tdt4100"  class=""   title="Browse attachments in the Objektorientert programmering med Java space">
+                   <span>Attachments</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/spaces/space-bookmarks.action?spaceKey=tdt4100"  class=""   title="Browse bookmarks in the Objektorientert programmering med Java space">
+                   <span>Bookmarks</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-mail-link" href="/wiki/mail/archive/viewmailarchive.action?key=tdt4100"  class=""   title="Browse mail in the Objektorientert programmering med Java space">
+                   <span>Mail</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/spaces/forums/spaceForums.action?key=tdt4100"  class=""   title="">
+                   <span>Forums</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/spaces/usage/report.action?key=tdt4100"  class=""   title="">
+                   <span>Activity</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-advanced-link" href="/wiki/spaces/viewspacesummary.action?key=tdt4100"  class=""   title="Browse additional space functions in the Objektorientert programmering med Java space">
+                   <span>Advanced</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-admin-link" href="/wiki/spaces/editspace.action?key=tdt4100"  class=""   title="Administer the Objektorientert programmering med Java space">
+                   <span>Space Admin</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/customspacemgmt/permissions/custompermissionsmanage.action?key=tdt4100"  class=""   title="">
+                   <span>Manage Users/Groups</span></a>        </li>
+                            </ul>
+                        <ul  id="browse-menu-link-global"                 class="section-global">
+                                        <li>
+    
+        
+    
+    <a  id="whats-new-menu-link" href="http://docs.atlassian.com/confluence/docs-43/whatsnew/iframe"  class=""   title="">
+                   <span>What’s New</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="people-directory-link" href="/wiki/peopledirectory.action"  class=""   title="Browse the Confluence people directory">
+                   <span>People Directory</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-directory-link" href="/wiki/spacedirectory/view.action"  class=""   title="Browse the Confluence space directory">
+                   <span>Space Directory</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="feed-builder-link" href="/wiki/dashboard/configurerssfeed.action"  class=""   title="Create your custom RSS feed.">
+                   <span>Feed Builder</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="keyboard-shortcuts-link" href="/wiki"  class=""   title="View available keyboard shortcuts">
+                   <span>Keyboard Shortcuts</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="gadget-directory-link" href="/wiki"  class="user-item administration-link"   title="Browse gadgets provided by Confluence">
+                   <span>Confluence Gadgets</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+            
+                                                                        
+            <li class="normal ajs-menu-item">
+        <a id="user-menu-link" class="user trigger ajs-menu-title" href="#"><span><span>Hallvard Trætteberg</span></span></a>         <div class="assistive ajs-drop-down">
+                        <ul  id="user-menu-link-user-status"                 class="section-user-status first">
+                                        <li>
+        
+        
+    
+    <a  id="set-user-status-link" href="/wiki/display/~hal"  class="user-item update-user-status"   title="Update your status">
+                   <span>Update Status&hellip;</span></a>        </li>
+                            </ul>
+                        <ul  id="user-menu-link-user-preferences"                 class="section-user-preferences">
+                                        <li>
+    
+        
+    
+    <a  id="create-personal-space-link" href="/wiki/spaces/createpersonalspace.action"  class="user-item personal-space"   title="">
+                   <span>Add Personal Space&hellip;</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="view-user-history-link" href="/wiki/users/viewuserhistory.action"  class="user-item user-history popup-link"   title="">
+                   <span>Recently Viewed</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/users/bubbles/user-community-profile.action"  class=""   title="">
+                   <span>My Communities</span></a>        </li>
+                            </ul>
+                        <ul  id="user-menu-link-user-content"                 class="section-user-content">
+                                        <li>
+    
+        
+    
+    <a  id="view-user-profile-link" href="/wiki/users/viewmyprofile.action"  class="user-item user-profile"   title="">
+                   <span>Profile</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/users/viewfollow.action?username=hal"  class="follow-link"   title="">
+                   <span>Network</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/display/status/hal/list"  class="user-item list-user-status"   title="">
+                   <span>Status Updates</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="user-favourites-link" href="/wiki/users/viewmyfavourites.action"  class="user-item"   title="">
+                   <span>Favourites</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="user-watches-link" href="/wiki/users/viewnotifications.action"  class="user-item"   title="">
+                   <span>Watches</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="user-drafts-link" href="/wiki/users/viewmydrafts.action"  class="user-item"   title="">
+                   <span>Drafts</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="user-settings-link" href="/wiki/users/viewmysettings.action"  class="user-item"   title="">
+                   <span>Settings</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="upm-requests-link" href="/wiki/plugins/servlet/upm/requests?source=header_user"  class=""   title="">
+                   <span>Atlassian Marketplace</span></a>        </li>
+                            </ul>
+                        <ul  id="user-menu-link-user-operations"                 class="section-user-operations">
+                                        <li>
+    
+        
+    
+    <a  id="logout-link" href="/wiki/logout.action"  class="user-item logout-link"   title="">
+                   <span>Log Out</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+                        </ul>
+        
+    
+    <ol id="breadcrumbs">
+                    
+                        
+        <li class="first" >
+                                    <span><a href="/wiki/dashboard.action" title="Go to Dashboard">Dashboard</a></span>
+                </li>
+                    
+                
+        <li>
+                                    <span><a href="/wiki/display/tdt4100">Objektorientert programmering med Java</a></span>
+                </li>
+                                        <li id="ellipsis" title="Show all breadcrumbs"><span><strong>&#8230;</strong></span></li>
+                                    
+                
+        <li class="hidden-crumb" >
+                                    <span><a href="/wiki/display/tdt4100/Faginnhold">Faginnhold</a></span>
+                </li>
+                                
+                
+        <li class="hidden-crumb" >
+                                    <span><a href="/wiki/display/tdt4100/Java-programmering">Java-programmering</a></span>
+                </li>
+                                
+                
+        <li class="hidden-crumb" >
+                                    <span><a href="/wiki/display/tdt4100/GUI-programmering+med+java">GUI-programmering med java</a></span>
+                </li>
+                                
+                
+        <li class="hidden-crumb" >
+                                    <span><a href="/wiki/display/tdt4100/JavaFX">JavaFX</a></span>
+                </li>
+                    
+                
+        <li>
+                                    <span><a href="/wiki/display/tdt4100/FXML-filer+og+Java-kontroller-logikk">FXML-filer og Java-kontroller-logikk</a></span>
+                </li>
+        </ol>
+
+    </div>
+</div>
+<!-- \#header -->    
+        <!-- \#header -->
+
+        
+    <div id="main" class="">
+        <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                <li class="ajs-button normal">
+    
+        
+    
+    <a  id="editPageLink" href="/wiki/pages/editpage.action?pageId=74974061"  class="edit"  accessKey="e"  title="Edit">
+                   <span><u>E</u>dit</span></a>        </li>
+                    <li class="ajs-button normal">
+    
+        
+    
+    <a  id="shareContentLink" href="/wiki"  class="share"   title="Share this content by emailing other users">
+                   <span><u>S</u>hare</span></a>        </li>
+                    
+            <li class="normal ajs-menu-item">
+        <a id="add-menu-link" class="add trigger ajs-menu-title" href="#"><span><span>Add</span></span></a>         <div class="assistive ajs-drop-down">
+                        <ul  id="add-menu-link-space"                 class="section-space first">
+                                        <li>
+    
+        
+    
+    <a  id="createPageLink" href="/wiki/pages/createpage.action?spaceKey=tdt4100&amp;fromPageId=74974061"  class="add-page"  accessKey="p"  title="Add a Page">
+                   <span>Page</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="createBlogpostLink" href="/wiki/pages/createblogpost.action?spaceKey=tdt4100"  class="add-news"   title="Add a Blog Post">
+                   <span>Blog Post</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/plugins/socialbookmarking/updatebookmark.action?spaceKey=tdt4100&amp;redirect=spacebookmarks"  class=""   title="">
+                    <span>
+                <img alt="Bookmark" src="/wiki/images/icons/adfav_16.gif" height="16" width="16" title="Bookmark">
+                Bookmark
+            </span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/plugins/lucidchart/insertDiagram.action?contentId=74974061"  class=""   title="">
+                    <span>
+                <img alt="Lucidchart Diagram" src="/wiki/download/resources/com.lucidchart.confluence.plugins.lucid-confluence:lucid-images/images/lucid.png" height="16" width="16" title="Lucidchart Diagram">
+                Lucidchart Diagram
+            </span></a>        </li>
+                            </ul>
+                        <ul  id="add-menu-link-page"                 class="section-page">
+                                        <li>
+    
+        
+    
+    <a  id="add-comment-menu-link" href="/wiki/display/tdt4100/FXML-filer+og+Java-kontroller-logikk?showComments=true&amp;showCommentArea=true#addcomment"  class="add-comment"   title="Add a Comment">
+                   <span>Comment</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="add-attachment-link" href="/wiki/pages/viewpageattachments.action?pageId=74974061"  class="add-attachment"  accessKey="a"  title="Add an Attachment">
+                   <span>Attachment</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+                    
+            <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="assistive ajs-drop-down">
+                        <ul  id="action-menu-link-primary"                 class="section-primary first">
+                                        <li>
+    
+        
+    
+    <a  id="view-attachments-link" href="/wiki/pages/viewpageattachments.action?pageId=74974061"  class="action-view-attachments"  accessKey="a"  title="View Attachments">
+                   <span><u>A</u>ttachments (2)</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-view-history-link" href="/wiki/pages/viewpreviousversions.action?pageId=74974061"  class="action-view-history"   title="">
+                   <span>Page History</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-page-permissions-link" href="/wiki/pages/viewinfo.action?pageId=74974061"  class="action-page-permissions"   title="Edit restrictions">
+                   <span>Restrictions</span></a>        </li>
+                            </ul>
+                        <ul  id="action-menu-link-marker"                 class="section-marker">
+                                        <li>
+    
+        
+    
+    <a  id="page-favourite" href="/wiki/labels/addfavourite.action?entityId=74974061&amp;atl_token=352cffd13ce280862c92ef27f9adfc498635adee"  class="action-page-favourite"   title="">
+                   <span>Favourite</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="space-watching" href="/wiki/spaces/viewspacecontent.action?key=tdt4100"  class="action-page-watching-space"   title="">
+                   <span>Watching Space</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="manage-watchers-menu-item" href="/wiki/pages/managepagenotifications.action?pageId=74974061"  class="action-manage-watchers"   title="Manage page watchers">
+                   <span>Manage Watchers</span></a>        </li>
+                            </ul>
+                        <ul  id="action-menu-link-secondary"                 class="section-secondary">
+                                        <li>
+    
+        
+    
+    <a  id="view-page-info-link" href="/wiki/pages/viewinfo.action?pageId=74974061"  class="action-view-info"   title="">
+                   <span>Info</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="link-to-page-link" href="/wiki/pages/viewinfo.action?pageId=74974061"  class=""   title="Link to this Page">
+                   <span>Link to this Page&hellip;</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="view-in-hierarchy-link" href="/wiki/pages/listpages-dirview.action?key=tdt4100&amp;openId=74974061#selectedPageInHierarchy"  class=""   title="">
+                   <span>View in Hierarchy</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-view-source-link" href="/wiki/plugins/viewsource/viewpagesrc.action?pageId=74974061"  class="action-view-source popup-link"   title="">
+                   <span>View Source</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-export-pdf-link" href="/wiki/spaces/flyingpdf/pdfpageexport.action?pageId=74974061"  class=""   title="">
+                   <span>Export to PDF</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-export-word-link" href="/wiki/exportword?pageId=74974061"  class="action-export-word"   title="">
+                   <span>Export to Word</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="import-word-doc" href="/wiki/pages/worddav/uploadimport.action?pageId=74974061"  class=""   title="">
+                   <span>Import Word Document</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/pages/favourites/pagefavourites.action?pageId=74974061"  class=""   title="">
+                   <span>Favourites</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  href="/wiki/plugins/lucidchart/selectVisio.action?contentId=74974061"  class=""   title="">
+                   <span>View Visio File</span></a>        </li>
+                            </ul>
+                        <ul  id="action-menu-link-modify"                 class="section-modify">
+                                        <li>
+    
+        
+    
+    <a  id="action-copy-page-link" href="/wiki/pages/copypage.action?idOfPageToCopy=74974061&amp;spaceKey=tdt4100"  class="action-copy"   title="">
+                   <span>Copy</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-move-page-dialog-link" href="/wiki/pages/viewpage.action?pageId=74974061"  class="action-move"   title="">
+                   <span>Move</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a  id="action-remove-content-link" href="/wiki/pages/removepage.action?pageId=74974061"  class="action-remove"   title="">
+                   <span>Remove</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <h1 id="title-heading" class="pagetitle">
+                                    <a href="/wiki/display/tdt4100"><img class="logo global" src="/wiki/images/logo/confluence_48_trans.png" alt=""></a>                
+                <span id="title-text">
+                                                <a href="/wiki/display/tdt4100/FXML-filer+og+Java-kontroller-logikk">FXML-filer og Java-kontroller-logikk</a>
+                                    </span>
+            </h1>
+        </div><!-- \#main-header -->
+
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+
+<div id="content" class="page view">
+    
+
+<div id="action-messages">
+                        </div>
+
+
+
+    
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Specify the new parent page for this page and its children by space and title.
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        <fieldset>
+                
+
+    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
+            <div class="row">
+                <label for="new-space">New space:</label>
+                <div class="value new-space-value">
+                    <input id="new-space-key" name="new-space-key" type="hidden" value="tdt4100">
+                                            <span class="space-input">
+                            <input id="new-space" name="new-space" value="Objektorientert programmering med Java">
+                        </span>
+                        <span class="description hidden">Start typing a space name to see a list of suggestions.</span>
+                                        <div class="new-space-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+            <div class="row">
+                <label for="new-parent-page">New parent page:</label>
+                <div class="value new-parent-page-value">
+                    <span class="page-input">
+                        <input id="new-parent-page" name="new-parent-page" value="JavaFX">
+                    </span>
+                    <span class="description">Start typing a page title to see a list of suggestions.</span>
+                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="location-info">
+        <div class="row">
+            <label>Current location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>New location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Search for and select the new parent page for this page and its children.
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+        <div class="search-form">
+            <fieldset>
+                    
+
+    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
+                    
+
+    <label  for="move-page-search-query" class="assistive">Search keywords</label>
+                <input class="search-query" id="move-page-search-query">
+                    
+
+    <label  for="move-page-search-space" class="assistive">Search in space</label>
+                                    <select id="move-page-search-space" class="search-space">
+                        <option value="conf_all" selected="selected">All Spaces</option>
+                        <option value="tdt4100">Objektorientert programmering med Java</option>
+                    </select>
+                                <input type="button" value="Search">
+                            </fieldset>
+        </div>
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table>
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/wiki/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script><!-- Start restrictions section -->
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+
+                <div id="page-permissions-error-div" class="hidden">
+            <a href="#" id="permissions-error-div-close">Ok</a>
+            <div></div>
+        </div>
+
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div>
+                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">Restrict viewing of this page</label>
+                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">Restrict editing of this page</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">To:</div>
+            <div id="page-permissions-chooser-box">
+                                    <span id="page-permissions-choose-me" class="ajs-button normal">
+                        <img class="permission-entity-picture" src="/wiki/download/attachments/17928904/hal-headonly-64x64.png?version=1&amp;modificationDate=1283508649000&amp;api=v2" border="0" alt="Me" align="absmiddle"/>
+                        <a href="#">Me</a>
+                        <span class="remote-user-name hidden">hal</span>
+                    </span>
+                                <span id="page-permissions-choose-user" class="ajs-button">
+                    
+
+
+
+    
+
+
+
+<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/wiki/spaces/openuserpicker.action?key=tdt4100&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
+<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/wiki/spaces/openuserpicker.action?key=tdt4100&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="ajs-button">
+                    
+
+
+
+    
+
+ 
+
+<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/wiki/spaces/opengrouppicker.action?key=tdt4100&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
+<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/wiki/spaces/opengrouppicker.action?key=tdt4100&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                <input type="text" id="page-permissions-names-input" name="permissionNames"
+                    placeholder="Enter user or group name" class="autocomplete-user"
+                    data-max="10" data-none-message="No matches"
+                    data-target="#page-permissions-names-hidden" data-template="{username}"
+                    data-dropdown-target="#page-perms-name-dropdown-wrapper" data-resize-to-input="true"
+                    size="30"/>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/_/images/border/spacer.gif"/>
+                <input type="button" id="add-typed-names" value="Restrict">
+                <div id="page-perms-name-dropdown-wrapper" class="aui-dd-parent autocomplete"></div>
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">Show/Hide</a>
+                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<!-- End restrictions section -->
+
+        
+    
+    
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+                            <li class="page-metadata-item noprint">
+    
+            
+    
+    <a  id="content-metadata-page-restrictions" href="#"  class="page-metadata-icon page-restrictions hidden"   title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Page restrictions apply</span></a>        </li>
+                            <li class="page-metadata-item noprint">
+    
+        
+    
+    <a  id="content-metadata-attachments" href="/wiki/pages/viewpageattachments.action?pageId=74974061&amp;metadataLink=true"  class="page-metadata-icon action-view-attachments"  accessKey="a"  title="Attachments: 2">
+                   <span><span class="page-metadata-attachments-text">Attachments:</span><span class="page-metadata-attachments-count">2</span></span></a>        </li>
+                        <li class="page-metadata-modification-info">
+                                    Added by <a href="/wiki/display/~hal"
+                          class="url fn confluence-userlink" data-username="hal"
+                   >Hallvard Trætteberg</a>, last edited by <a href="/wiki/display/~hal"
+                          class="url fn confluence-userlink" data-username="hal"
+                   >Hallvard Trætteberg</a> on 12.12.2014
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/wiki/pages/diffpages.action?pageId=74974061&originalId=78973328">view change</a>)</span>
+                                                </li>
+                    </ul>
+                </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+        
+                                
+        <div id="main-content" class="wiki-content">
+                           <p> </p><h2 id="FXML-filerogJava-kontroller-logikk-FXML-filer">FXML-filer</h2><p>JavaFX har støtte for egne såkalte GUI-definisjonsfiler av typen FXML, som er XML-filer som beskriver innholdet i et GUI. Den hierarkiske strukturen av XML-elementer (tags) tilsvarer den hierarkiske strukturen av GUI-objekter, bestående av vinduer, paneler og enklere interaktive elementer som lister, tekstfelt og knapper. Ved oppstart av JavaFX-applikasjonen lastes FXML-fila inn og alle GUI-objektene opprettes. Fordelen er at FXML-fila er lettere å skrive og vedlikeholde enn Java-koden som trengs for å opprette den tilsvarende strukturen. Under vises et GUI med kun et tekstfelt og en knapp, FXML-fila som beskriver strukturen og java-koden for å laste inn FXML-fila.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td colspan="2" class="confluenceTd"><img class="confluence-embedded-image image-center" src="/wiki/download/attachments/74974061/Example1.png?version=1&amp;modificationDate=1409578937000&amp;api=v2" data-image-src="/wiki/download/attachments/74974061/Example1.png?version=1&amp;modificationDate=1409578937000&amp;api=v2"></td></tr><tr><td colspan="1" class="confluenceTd"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Example1.fxml</b></div><div class="codeContent panelContent">
+<script type="syntaxhighlighter" class="theme: Confluence; brush: javafx; gutter: false"><![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?emfs /fxcontroller/Example1.fxml; ?&gt;
+&lt;?import javafx.scene.control.TextField?&gt;
+&lt;?import javafx.scene.control.Button?&gt;
+&lt;?import javafx.scene.layout.HBox?&gt;
+
+&lt;HBox xmlns:fx=&quot;http://javafx.com/fxml&quot;&gt;
+    &lt;TextField text=&quot;Type something here!&quot;/&gt;
+    &lt;Button text=&quot;Click me!&quot;/&gt;
+&lt;/HBox&gt;]]></script>
+</div></div></td><td colspan="1" class="confluenceTd"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Example1.java</b></div><div class="codeContent panelContent">
+<script type="syntaxhighlighter" class="theme: Confluence; brush: javafx; gutter: false"><![CDATA[package fxcontroller;
+
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Example1 extends Application {
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(this.getClass().getResource(&quot;Example1.fxml&quot;));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+    public static void main(String[] args) {
+        launch(args);
+    }
+}]]></script>
+</div></div></td></tr></tbody></table></div><h2 id="FXML-filerogJava-kontroller-logikk-KoblingmellomFXML-filerogkontroller-logikk">Kobling mellom FXML-filer og kontroller-logikk</h2><p>Det er praktisk at GUI-strukturen automatisk bygges, men det blir samtidig upraktisk å få tak i (referanser) til de interaktive GUI-elementene, så en kan få lagt til lyttere og implementert <em>kontroller</em>-logikk. Dersom en f.eks. skal reagere på trykk på &quot;Click me!&quot;-knappen, så må en lete gjennom children-lista til root-elementet og finne knappen, for så å bruke cast og legge til lytteren. Heldigvis har FXML støtte for nettopp å koble elementer i GUI-strukturen til kontroller-logikk, som vist under:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td colspan="1" class="confluenceTd"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Example2.fxml</b></div><div class="codeContent panelContent">
+<script type="syntaxhighlighter" class="theme: Confluence; brush: javafx; gutter: true"><![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?emfs /fxcontroller/Example2.fxml; ?&gt;
+&lt;?import javafx.scene.control.TextField?&gt;
+&lt;?import javafx.scene.control.Button?&gt;
+&lt;?import javafx.scene.layout.HBox?&gt;
+&lt;HBox xmlns:fx=&quot;http://javafx.com/fxml&quot;&gt;
+    &lt;TextField fx:id=&quot;textField&quot; text=&quot;Type something here!&quot;/&gt;
+    &lt;Button text=&quot;Click me!&quot; onAction=&quot;#handleUpcaseAction&quot;/&gt;
+&lt;/HBox&gt;]]></script>
+</div></div><p>FXML-fil for eksemplet. XML-elementer (tags) svarer stort sett til GUI-elementer, hvor tag-navnet svarer til GUI-klassen.</p></td><td colspan="1" class="confluenceTd"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Example2.java</b></div><div class="codeContent panelContent">
+<script type="syntaxhighlighter" class="theme: Confluence; brush: javafx; gutter: true"><![CDATA[package fxcontroller;
+
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class Example2 extends Application {
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setController(this);
+        Parent root = (Parent) fxmlLoader.load(this.getClass().getResourceAsStream(&quot;Example2.fxml&quot;));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+    @FXML
+    private TextField textField;
+
+	@FXML
+    public void handleUpcaseAction(ActionEvent event) {
+        textField.setText(textField.getText().toUpperCase());
+    }
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
+}]]></script>
+</div></div><p>Kode for innlasting av FXML-fil. Koden <strong>this.getClass().getResourceAsStream(&quot;Example2.fxml&quot;)</strong> brukes for å lese inn en fil som ligger i samme mappe/pakke som klassen.</p></td></tr></tbody></table></div><p>Teknikken er basert på at en <strong>FXMLLoader</strong>-instans leser inn FXML-fila og underveis/i etterkant kobler elementer i FXML-fila til felt og metoder i et <em>kontroller</em>-objekt:</p><ul><li>I linje 5 i Example2.java registreres applikasjonsobjektet som <strong>kontrolleren</strong> for GUI-elementene som bygges basert på FXML-fila.</li><li>I linje 8 i Example2.fxml så brukes <strong>fx:id</strong> for å knytte en id til <strong>TextField</strong>-objektet. Merk at &quot;<strong>fx</strong>&quot; først må være registrert som XML-namespace i en <strong>xmlns</strong>-deklarasjon, slik det gjøres i linje 7.</li><li>I linje 11 og 12 i Example2.java deklareres et felt med en <strong>@FXML</strong>-annotasjon. Annotasjonen forteller <strong>FXMLLoader</strong>-en at feltet skal settes til GUI-elementet med <em>tilsvarende</em> id.</li><li>I linje 9 i Example2.fxml så brukes <strong>onAction</strong>-attributtet for å angi <strong>handleUpcaseAction</strong> som kontroller-metoden for action-hendelsen til knappen. Merk #-tegnet foran metodenavnet.</li><li>I linje 14 og 15 i Example2.java så deklareres en metode med en <strong>@FXML</strong>-annotasjon for å håndtere action-hendelsen. Merk at vi egentlig kan utelate parameteret, hvis det ikke brukes (som her).</li></ul><p>Det sentrale her er <em>registrering</em> av kontroller-objektet og <em>sammenhengen</em> mellom <em>elementer</em> og <em>attributter</em> i FXML-fila og <em>deklarasjoner</em> i kontroller-klassen. Typen og navnet til feltene som er annotert med <strong>@FXML</strong> må stemme med henholdsvis element-navnet (tag-en) og <strong>fx:id</strong>-attributtet. Tilsvarende må navnet og signaturen til kontroller-metoden med <strong>@FXML</strong>-annotasjonen stemme med verdien til <strong>onAction</strong>-attributtet.</p><h2 id="FXML-filerogJava-kontroller-logikk-Opprettelseavkontroller-instanser">Opprettelse av kontroller-instanser</h2><p>I eksemplet over fungerer applikasjonsobjektet også som kontroller, men vanligvis ønsker en å unngå en slik dobbeltrolle. En oppretter isteden en egen kontroller-klasse og putter alle felt og metoder knyttet til kontroller-logikken i denne klassen. I <strong>start</strong>-metoden i applikasjonen må en så registrere en instans av denne klassen som kontroller, istedenfor å applikasjonsobjektet selv:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Example3.java</b></div><div class="codeContent panelContent">
+<script type="syntaxhighlighter" class="theme: Confluence; brush: javafx; gutter: false"><![CDATA[package fxcontroller;
+
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Example3 extends Application {
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setController(new Example3Controller());
+        Parent root = (Parent) fxmlLoader.load(this.getClass().getResourceAsStream(&quot;Example2.fxml&quot;));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
+}]]></script>
+</div></div></td><td class="confluenceTd"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Example3Controller.java</b></div><div class="codeContent panelContent">
+<script type="syntaxhighlighter" class="theme: Confluence; brush: javafx; gutter: false"><![CDATA[package fxcontroller;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+
+public class Example3Controller {
+    @FXML
+    private TextField textField;
+
+    @FXML
+	public void handleUpcaseAction() {
+        textField.setText(textField.getText().toUpperCase());
+    }
+}]]></script>
+</div></div></td></tr></tbody></table></div><p>Ulempen med flere klasser oppveies av at begge er en klart definert rolle. Det er også mulig å la FXMLLoader-en selv opprette kontroller-instansen, basert på et eget <strong>fx:controller</strong>-attributt på toppnivå-elementet i FXML-fila:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Example4.fxml</b></div><div class="codeContent panelContent">
+<script type="syntaxhighlighter" class="theme: Confluence; brush: javafx; gutter: false"><![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?emfs /fxcontroller/Example4.fxml; ?&gt;
+&lt;?import javafx.scene.control.TextField?&gt;
+&lt;?import javafx.scene.control.Button?&gt;
+&lt;?import javafx.scene.layout.HBox?&gt;
+
+&lt;HBox xmlns:fx=&quot;http://javafx.com/fxml&quot;
+    fx:controller=&quot;fxcontroller.Example3Controller&quot;&gt;
+    &lt;TextField fx:id=&quot;textField&quot; text=&quot;Type something here!&quot;/&gt;
+    &lt;Button text=&quot;Click me!&quot; onAction=&quot;#handleUpcaseAction&quot;/&gt;
+&lt;/HBox&gt;]]></script>
+</div></div><p> </p><p> </p></td><td class="confluenceTd"><div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Example4.java</b></div><div class="codeContent panelContent">
+<script type="syntaxhighlighter" class="theme: Confluence; brush: javafx; gutter: false"><![CDATA[package fxcontroller;
+
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Example4 extends Application {
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(this.getClass().getResource(&quot;Example4.fxml&quot;));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
+}]]></script>
+</div></div></td></tr></tbody></table></div><p>Vi ser at navnet til kontroller-klassen brukes i FXML-fila, slik at <strong>FXMLLoader</strong>-en selv kan opprette kontroller-instansen. Kontroller-klassen er uendret, mens applikasjonsklassen blir litt enklere, f.eks. så kan den statiske <strong>load</strong>-metoden i <strong>FXMLLoader</strong>-klassen brukes‚ siden vi ikke trenger å registrere kontrolleren.</p><p>To merknader:</p><ul><li>Det er mulig å bruke denne teknikken for <em>deler</em> av en applikasjon, f.eks. kun for ett eller dialog og som aktiveres når det trengs.</li><li>e(fx)clipse-tillegget til Eclipse (se <a class="createlink" href="/wiki/pages/createpage.action?spaceKey=tdt4100&amp;title=Nyttige+Eclipse-tillegg&amp;linkCreation=true&amp;fromPageId=74974061">Nyttige Eclipse-tillegg</a>) har god editor-støtte for FXML-filer og et preview-panel for å viser hvordan GUI-et blir.</li></ul><p> </p>
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://www.ntnu.no/wiki/display/tdt4100/FXML-filer+og+Java-kontroller-logikk"
+    dc:identifier="https://www.ntnu.no/wiki/display/tdt4100/FXML-filer+og+Java-kontroller-logikk"
+    dc:title="FXML-filer og Java-kontroller-logikk"
+    trackback:ping="https://www.ntnu.no/wiki/rpc/trackback/74974061"/>
+</rdf:RDF>
+-->
+
+                    <script type="text/x-template" title="labels-dialog-div">
+        <div id="labels-dialog">
+        <div class="labels-editor">
+            <form method="GET" action="" id="add-labels-form">
+                <div id="labelOperationErrorContainer">
+                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
+                </div>
+    
+                <div id="label-input-fields">
+                    <input autocomplete="off" id="labelsString" name="labelsString" value="">
+                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
+                </div>
+                <div id="labelsAutocompleteList" class="aui-dd-parent resize-to-input" style="width: 417px"></div>
+                <div id="dialog-label-list">
+                    <!-- DIV placeholder for labels list, is copied into in labels-dialog.js -->
+                </div>
+                <div id="waitImageAndStatus">
+                    <img class="waiting" alt="Please wait" src="/wiki/s/en_GB/3398/84f448c1067609161db7eeaf020f96b084eef29d.2/_/images/icons/wait.gif">&nbsp;
+                    <span id="labelOperationStatus" class="smalltext"></span>
+                </div>
+                <div class="labels-tip"></div>
+            </form>
+        </div>
+        <div style="display: none;">
+            <div class="labels-section-content content-column"
+    	    		entityid="74974061" entitytype="Page"
+    		>
+	<div class="labels-content">
+		
+
+<ul class="label-list">
+    <li class="no-labels-message-container">
+        <span id="labels-section-title-none" class="no-labels-message">
+            None
+        </span>
+    </li>
+                <li class="labels-edit-container"><a href="#" class="show-labels-editor editor-icon" title="Edit Labels">
+            <span class="icon icon-edit">Edit Labels</span>
+        </a></li>
+    </ul>
+    </div>
+</div>        </div>
+    </div>
+</script>
+                
+    
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-editor">
+        <span id="labels-section-title" class="label-title">Labels</span>
+        <div class="labels-section-content content-column"
+    	    		entityid="74974061" entitytype="Page"
+    		>
+	<div class="labels-content">
+		
+
+<ul class="label-list">
+    <li class="no-labels-message-container">
+        <span id="labels-section-title-none" class="no-labels-message">
+            None
+        </span>
+    </li>
+                <li class="labels-edit-container"><a href="#" class="show-labels-editor editor-icon" title="Edit Labels">
+            <span class="icon icon-edit">Edit Labels</span>
+        </a></li>
+    </ul>
+    </div>
+</div>    </div>
+</div>
+        
+            
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                    
+    
+<div id="comments-section" class="pageSection group">
+    
+    
+    
+    
+            <div class="bottom-comment-panels comment-panels">
+                                    
+    
+
+
+    
+
+<div class="quick-comment-container comment add"><p class="comment-user-logo"><a class="userLogoLink" data-username="hal" href="/wiki/display/~hal"><img class="userLogo logo" src="/wiki/download/attachments/17928904/hal-headonly-64x64.png?version=1&amp;modificationDate=1283508649000&amp;api=v2" alt="User icon: hal" title="hal"></a></p><div class="quick-comment-vertical-spacer"></div><div class="quick-comment-body"><div class="quick-comment-loading-container" style="display:none;"><p class="quick-comment-loading-message">Loading the Editor</p></div><form style="display:block;" class="quick-comment-form" method="post" name="inlinecommentform" action="/wiki/pages/doaddcomment.action?pageId=74974061" ><div title="Add a Comment" class="quick-comment-prompt"><span>Write a comment…</span></div></form></div></div>
+
+            </div>
+    
+                        <div id="comments-actions" class="aui-toolbar noprint">
+                <p class="toolbar-group">
+                    <span class="toolbar-item"><a href="/wiki/display/tdt4100/FXML-filer+og+Java-kontroller-logikk?showComments=true&amp;showCommentArea=true#addcomment" id="add-comment-rte" accesskey="m" class="toolbar-trigger">Add Comment</a></span>
+                </p>
+            </div>
+            </div>
+
+
+            
+</div>
+
+
+    
+
+
+
+    
+    
+
+    
+    
+    
+
+
+            
+    
+
+
+        <br class="clear">
+    </div><!-- \#main -->
+    
+    
+        
+            <div id="footer">
+                                            
+    <ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>4.3.7</span>, the <a href="http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
+        <li class="print-only">Printed by Atlassian Confluence 4.3.7, the Enterprise Wiki.</li>        
+        <li class="noprint"> &nbsp;&middot;&nbsp; <a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
+        <li class="noprint"> &nbsp;&middot;&nbsp; <a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+    </ul>
+
+            
+    </div>
+    
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+</body>
+</html>
