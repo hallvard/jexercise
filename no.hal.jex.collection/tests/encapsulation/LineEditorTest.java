@@ -24,9 +24,13 @@ public class LineEditorTest extends TestCase {
 		lineEditor.setInsertionIndex(index);
 	}
 	
+	private void testLineEditor(String message, String text, int index) {
+		assertEquals(message, text, lineEditor.getText());
+		assertEquals(message, index, lineEditor.getInsertionIndex());
+	}
+	
 	private void testLineEditor(String text, int index) {
-		assertEquals(text, lineEditor.getText());
-		assertEquals(index, lineEditor.getInsertionIndex());
+		testLineEditor("", text, index);
 	}
 	
 	@JExercise(
@@ -89,7 +93,7 @@ public class LineEditorTest extends TestCase {
 		lineEditor.left();
 		testLineEditor("Ja", 0);
 		lineEditor.left();
-		testLineEditor("Ja",  0);
+		testLineEditor("Calling left() when the insertion index is at the beginning of the string should be ignored. ", "Ja",  0);
 	}
 	
 	@JExercise(
@@ -103,7 +107,7 @@ public class LineEditorTest extends TestCase {
 		lineEditor.right();
 		testLineEditor("Ja",  2);
 		lineEditor.right();
-		testLineEditor("Ja",  2);
+		testLineEditor("Calling right() when the insertion index is at the end of the string should be ignored. ", "Ja",  2);
 	}
 
 	@JExercise(
