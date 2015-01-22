@@ -28,7 +28,7 @@ public class DigitTest extends TestCase {
 		} catch (IllegalArgumentException e) {
 			caught = true;
 		}
-		assertTrue(caught);
+		assertTrue("Creating a Digit with negative base should throw IllegalArgumentException.", caught);
 	}
 	
 	private void testIncrement(int base, boolean checkValue, boolean checkToString) {

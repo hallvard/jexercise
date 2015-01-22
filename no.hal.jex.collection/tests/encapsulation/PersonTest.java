@@ -55,8 +55,8 @@ public class PersonTest extends TestCase {
 
 	@SuppressWarnings("deprecation")
 	@JExercise(
-		tests="void setBirthday(String)",
-		description="The setBirthday(String) should set birthday to input argument, given that the birthday is on a valid format."
+		tests="void setBirthday(Date)",
+		description="The setBirthday(Date) should set birthday to input argument, given that the birthday is on a valid format."
 	)
 	public void testSetBirthday() {
 		try {
@@ -103,8 +103,8 @@ public class PersonTest extends TestCase {
 	}
 
 	@JExercise(
-			tests="void setGender(String)",
-			description="The setGender(String) should set gender to input argument, given that the gender is on a valid format"
+			tests="void setGender(char)",
+			description="The setGender(char) should set gender to input argument, given that the gender is on a valid format"
 	)	
 	public void testSetGender() {
 		String validGenders = "FM\0";
