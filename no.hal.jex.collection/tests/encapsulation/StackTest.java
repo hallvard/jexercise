@@ -32,9 +32,10 @@ public class StackTest extends TestCase {
 	
 	@JExercise(
 			tests="String pop()",
-			description="The pop() method returns the element on the top of the stack."
+			description="The pop() method returns the element on the top of the stack or null if the stack is empty."
 			)
 	public void testPop() {
+		assertEquals("pop() should return null when the stack is empty. ", null, stack.pop());
 		stack.push("0");
 		stack.push("1");
 		stack.push("2");
@@ -43,6 +44,7 @@ public class StackTest extends TestCase {
 		stack.push("3");
 		assertEquals("3", stack.pop());
 		assertEquals("0", stack.pop());
+		assertEquals("pop() should return null when the stack is empty. ", null, stack.pop());
 	}
 	
 	@JExercise(
@@ -56,8 +58,8 @@ public class StackTest extends TestCase {
 		assertEquals("2", stack.peek(0));
 		assertEquals("1", stack.peek(1));
 		assertEquals("0", stack.peek(2));
-		assertEquals(null , stack.peek(3));
-		assertEquals(null , stack.peek(-1));
+		assertEquals("peek(int) should return null when passed a position that doesn't exist. ", null , stack.peek(3));
+		assertEquals("peek(int) should return null when passed a position that doesn't exist. ", null , stack.peek(-1));
 	}
 	
 	@JExercise(
