@@ -65,7 +65,7 @@ public class CalculatorTest extends TestCase {
 		} catch (IllegalArgumentException e) {
 			caught = true;
 		}
-		assertTrue(caught);
+		assertTrue("Setting an illegal operator should throw exception.", caught);
 	}
 	
 	@JExercise(
@@ -82,7 +82,7 @@ public class CalculatorTest extends TestCase {
 		} catch (IllegalStateException e) {
 			caught = true;
 		}
-		assertTrue(caught);
+		assertTrue("calculateResult should throw IllegalStateException if called with no operator set.", caught);
 		
 		calculator.setOperator('+');
 		assertEquals(calculator.calculateResult(), 5.0 + 4.0);
@@ -107,7 +107,7 @@ public class CalculatorTest extends TestCase {
 		} catch (IllegalStateException e) {
 			caught = true;
 		}
-		assertTrue(caught);
+		assertTrue("calculateResult should throw IllegalStateException if the calculation is division by 0.", caught);
 	}
 
 	public static void main(String[] args) {
