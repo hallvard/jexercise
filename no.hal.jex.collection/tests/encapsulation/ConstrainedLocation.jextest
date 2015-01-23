@@ -1,0 +1,81 @@
+test encapsulation.ConstrainedLocation
+
+instance location = new ConstrainedLocation(0, 0, -2, -2, 2, 2)
+
+sequence emptyConstructor "Konstruktør" {
+	instance emptyConstructorLocation = new ConstrainedLocation()
+	-->
+	state emptyConstructorLocation { 
+		x == 0; 
+		y == 0;
+	}
+}
+
+sequence constrainingConstructor "Konstruktør med startposisjon (2, 3) og begrensninger" {
+	instance constrainingConstructorLocation = new ConstrainedLocation(2, 3, -5, -5, 5, 5) 
+	-->
+	state constrainingConstructorLocation {
+		x == 2;
+		y == 3;
+	}
+}
+
+sequence left "Venstre" {
+	"Flytter til venstre" -- left -->
+	state {
+		x == -1;
+		y == 0;
+	}
+	"Flytter forbi begrensning" -- left, left -->
+	state {
+		x == -2;
+		y == 0;
+	}
+}
+
+sequence right "Høyre" {
+	"Flytter til høyre" -- right -->
+	state {
+		x == 1;
+		y == 0;
+	}
+	"Flytter forbi begrensning" -- right, right -->
+	state {
+		x == 2;
+		y == 0;
+	}
+}
+
+sequence up "Opp" {
+	"Flytter opp" -- up -->
+	state {
+		x == 0;
+		y == -1;
+	}
+	"Flytter forbi begrensning" -- up, up -->
+	state {
+		x == 0;
+		y == -2;
+	}
+}
+
+sequence ned "Ned" {
+	"Flytter ned" -- down -->
+	state {
+		x == 0;
+		y == 1;
+	}
+	"Flytter forbi begrensning" -- down, down -->
+	state {
+		x == 0;
+		y == 2;
+	}
+}
+
+sequence isValidCoordinates "Validering av koordinater" {
+	-->
+	state {
+		isValidCoordinates(0, 0);
+		! isValidCoordinates(-1, 5);
+	}
+}
