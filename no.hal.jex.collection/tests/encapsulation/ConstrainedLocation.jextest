@@ -1,0 +1,84 @@
+test encapsulation.ConstrainedLocation
+
+
+sequence constructor "Konstruktør" {
+	instance location = new ConstrainedLocation()
+	-->
+	state location { 
+		x == 0; 
+		y == 0;
+	}
+}
+
+sequence constructorPosition "Konstruktør med startposisjon (2, 3) og begrensninger"{
+	instance positionedLocation = new ConstrainedLocation(2, 3, -5, -5, 5, 5) 
+	-->
+	state positionedLocation {
+		x == 2;
+		y == 3;
+	}
+}
+
+sequence left "Venstre" {
+	instance location = new ConstrainedLocation(0, 0, -2, -2, 2, 2)
+	"Flytter til venstre" -- location.left -->
+	state location {
+		x == -1;
+		y == 0;
+	}
+	"Flytter forbi begrensning"-- location.left, location.left -->
+	state location {
+		x == -2;
+		y == 0;
+	}
+}
+
+sequence right "Høyre" {
+	instance location = new ConstrainedLocation(0, 0, -2, -2, 2, 2)
+	"Flytter til høyre" -- location.right -->
+	state location {
+		x == 1;
+		y == 0;
+	}
+	"Flytter forbi begrensning" -- location.right, location.right -->
+	state location {
+		x == 2;
+		y == 0;
+	}
+}
+
+sequence up "Opp" {
+	instance location = new ConstrainedLocation(0, 0, -2, -2, 2, 2)
+	"Flytter opp" -- location.up -->
+	state location {
+		x == 0;
+		y == -1;
+	}
+	"Flytter forbi begrensning" -- location.up, location.up -->
+	state location {
+		x == 0;
+		y == -2;
+	}
+}
+
+sequence ned "Ned" {
+	instance location = new ConstrainedLocation(0, 0, -2, -2, 2, 2)
+	"Flytter ned" -- location.down -->
+	state location {
+		x == 0;
+		y == 1;
+	}
+	"Flytter forbi begrensning" -- location.down, location.down -->
+	state location {
+		x == 0;
+		y == 2;
+	}
+}
+
+sequence isValidCoordinates "Validering av koordinater" {
+	instance location = new ConstrainedLocation(0, 0, -2, -2, 2, 2)
+	-- location.isValidCoordinates(-1, 5) --> 
+	state location {
+		isValidCoordinates(-1, 5) == false 
+	}
+}
