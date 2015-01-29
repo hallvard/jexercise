@@ -47,17 +47,17 @@ sequence gameOver "Avsluttet spill" {
 sequence isValidMove "Gyldige trekk"{
 	-->
 	state {
-		checkValidation(2, true, nim);
-		checkValidation(-2, false, nim);
-		checkValidation(0, false, nim);
-		checkValidation(6, false, nim);
+		checkValidation(2, true, nim) == true;
+		checkValidation(-2, false, nim) == true;
+		checkValidation(0, false, nim) == true;
+		checkValidation(6, false, nim) == true;
 	}
 	"Avslutter spillet" -- removePieces(5, 0) -->
 	state {
-		checkValidation(2, false, nim);
+		checkValidation(2, false, nim) == true;
 	}
 }
 
 method boolean checkValidation (int pieces, boolean legal, Nim game){
-	return legal == (game.isValidMove(pieces, 0) && game.isValidMove(pieces, 1) && game.isValidMove(pieces, 2));
+	return (legal == game.isValidMove(pieces, 0) && (legal == game.isValidMove(pieces, 1)) && (legal == game.isValidMove(pieces, 2)));
 }

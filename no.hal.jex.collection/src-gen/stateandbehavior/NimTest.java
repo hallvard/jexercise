@@ -24,19 +24,22 @@ public class NimTest extends TestCase {
     boolean _and = false;
     boolean _and_1 = false;
     boolean _isValidMove = game.isValidMove(pieces, 0);
-    if (!_isValidMove) {
+    boolean _equals = (legal == _isValidMove);
+    if (!_equals) {
       _and_1 = false;
     } else {
       boolean _isValidMove_1 = game.isValidMove(pieces, 1);
-      _and_1 = _isValidMove_1;
+      boolean _equals_1 = (legal == _isValidMove_1);
+      _and_1 = _equals_1;
     }
     if (!_and_1) {
       _and = false;
     } else {
       boolean _isValidMove_2 = game.isValidMove(pieces, 2);
-      _and = _isValidMove_2;
+      boolean _equals_2 = (legal == _isValidMove_2);
+      _and = _equals_2;
     }
-    return (legal == _and);
+    return _and;
   }
   
   @JExercise(tests = "Nim(int)", description = "<h3>Konstrukt\u00F8r</h3>Tests \r\n\t\tinitialization\r\n")
@@ -252,15 +255,16 @@ public class NimTest extends TestCase {
   private void _test__isValidMove_transitions0_effect_state_objectTests0_test(final Nim it) {
     
     boolean _checkValidation = this.checkValidation(2, true, this.nim);
-    assertTrue("checkValidation(2, true, nim) failed", _checkValidation);
+    assertEquals("checkValidation(2, true, nim) == true failed", true, _checkValidation);
     
     boolean _checkValidation_1 = this.checkValidation((-2), false, this.nim);
-    assertTrue("checkValidation(-2, false, nim) failed", _checkValidation_1);
+    assertEquals("checkValidation(-2, false, nim) == true failed", true, _checkValidation_1);
     
     boolean _checkValidation_2 = this.checkValidation(0, false, this.nim);
-    assertTrue("checkValidation(0, false, nim) failed", _checkValidation_2);
+    assertEquals("checkValidation(0, false, nim) == true failed", true, _checkValidation_2);
     
-    assertTrue("checkValidation(6, false, nim) failed", this.checkValidation(6, false, this.nim));
+    boolean _checkValidation_3 = this.checkValidation(6, false, this.nim);
+    assertEquals("checkValidation(6, false, nim) == true failed", true, _checkValidation_3);
     
   }
   
@@ -281,7 +285,8 @@ public class NimTest extends TestCase {
   
   private void _test__isValidMove_transitions1_effect_state_objectTests0_test(final Nim it) {
     
-    assertTrue("checkValidation(2, false, nim) failed after removePieces(5, 0)", this.checkValidation(2, false, this.nim));
+    boolean _checkValidation = this.checkValidation(2, false, this.nim);
+    assertEquals("checkValidation(2, false, nim) == true failed after removePieces(5, 0)", true, _checkValidation);
     
   }
   

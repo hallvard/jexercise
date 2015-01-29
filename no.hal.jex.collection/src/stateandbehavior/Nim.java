@@ -21,7 +21,7 @@ public class Nim {
 	}
 
 	public boolean isValidMove(int number, int targetPile){
-		return number > 0 && piles[targetPile] - number >= 0;
+		return number > 0 && piles[targetPile] - number >= 0 && !isGameOver();
 	}
 
 	public boolean isGameOver() {
