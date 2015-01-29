@@ -60,6 +60,9 @@ public class NimFX extends Application {
 	}
 	
 	public void removePieces(){
+		if(numberField.getText() == null || numberField.getText().isEmpty())
+			return;
+		
 		int number = Integer.valueOf(numberField.getText());
 		int targetPile = Integer.valueOf(targetPileChoice.getValue())-1;
 		
