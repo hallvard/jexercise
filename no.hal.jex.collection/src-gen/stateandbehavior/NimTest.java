@@ -45,7 +45,7 @@ public class NimTest extends TestCase {
     
   }
   
-  @JExercise(tests = "Nim(int);void removePieces(int,int)", description = "<h3>Fjerning av brikker</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Fjerner brikker: removePieces(3, 1), removePieces(2, 2), removePieces(1, 3)</li>\r\n\t\t<li>Fjerner negativt antall: removePieces(-1, 1)</li>\r\n\t\t<li>Fjerner for f\uFFFD brikker: removePieces(0, 1)</li>\r\n\t\t<li>Fjerner for mange brikker: removePieces(6, 1)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "Nim(int);void removePieces(int,int)", description = "<h3>Fjerning av brikker</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Fjerner brikker: removePieces(3, 1), removePieces(2, 2), removePieces(1, 3)</li>\r\n\t\t<li>Fjerner negativt antall: removePieces(-1, 1)</li>\r\n\t\t<li>Fjerner for f\u00E5 brikker: removePieces(0, 1)</li>\r\n\t\t<li>Fjerner for mange brikker: removePieces(6, 1)</li>\r\n\t\t</ul>\r\n")
   public void testRemovePieces() {
     _transition_exprAction__removePieces_transitions0_actions0(nim);
     _transition_exprAction__removePieces_transitions0_actions1(nim);

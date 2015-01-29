@@ -22,7 +22,7 @@ sequence removePieces "Fjerning av brikker" {
 	state {
 		getPile(1) == 2;
 	}
-	"Fjerner for f� brikker" -- removePieces(0, 1) -->
+	"Fjerner for få brikker" -- removePieces(0, 1) -->
 	state {
 		getPile(1) == 2;
 	}
