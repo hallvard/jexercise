@@ -48,14 +48,20 @@ public class NimFX extends Application {
 	}
 	
 	public void newGame(){
-		int pileSize = Integer.valueOf(pileSizeField.getText());
-		nim = new Nim(pileSize);
+		if(pileSizeField.getText() != null && !pileSizeField.getText().isEmpty()){
+			int pileSize = Integer.valueOf(pileSizeField.getText());
+			nim = new Nim(pileSize);
+		}
+		else{
+			nim = new Nim();
+		}
+		
 		update();
 	}
 	
 	public void removePieces(){
 		int number = Integer.valueOf(numberField.getText());
-		int targetPile = Integer.valueOf(targetPileChoice.getValue());
+		int targetPile = Integer.valueOf(targetPileChoice.getValue())-1;
 		
 		if(nim.isValidMove(number, targetPile)){
 			nim.removePieces(number, targetPile);
@@ -70,9 +76,9 @@ public class NimFX extends Application {
 	
 	
 	private void update() {
-		pile1.setText(Integer.toString(nim.getPile(1)));
-		pile2.setText(Integer.toString(nim.getPile(2)));
-		pile3.setText(Integer.toString(nim.getPile(3)));
+		pile1.setText(Integer.toString(nim.getPile(0)));
+		pile2.setText(Integer.toString(nim.getPile(1)));
+		pile3.setText(Integer.toString(nim.getPile(2)));
 		
 		if(nim.isGameOver())
 			gameState.setText("Game over!");
@@ -80,8 +86,6 @@ public class NimFX extends Application {
 			gameState.setText("Game active");
 	}
 	
-	
-	
-	
+
 	
 }

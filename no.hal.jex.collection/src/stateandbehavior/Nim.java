@@ -16,12 +16,12 @@ public class Nim {
 	
 	public void removePieces(int number, int targetPile){
 		if(isValidMove(number, targetPile)){
-			piles[targetPile-1] -= number;
+			piles[targetPile] -= number;
 		}
 	}
 
 	public boolean isValidMove(int number, int targetPile){
-		return number > 0 && piles[targetPile-1] - number >= 0;
+		return number > 0 && piles[targetPile] - number >= 0;
 	}
 
 	public boolean isGameOver() {
@@ -36,6 +36,6 @@ public class Nim {
 	}
 	
 	public int getPile(int targetPile){
-		return piles[targetPile-1];
+		return piles[targetPile];
 	}
 }

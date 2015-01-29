@@ -5,30 +5,30 @@ instance nim = new Nim(5)
 sequence constructor "Konstruktør" {
 	-->
 	state {
+		getPile(0) == 5;
 		getPile(1) == 5;
 		getPile(2) == 5;
-		getPile(3) == 5;
 	}
 }
 
 sequence removePieces "Fjerning av brikker" {
-	"Fjerner brikker" -- removePieces(3, 1), removePieces(2, 2), removePieces(1, 3) -->
+	"Fjerner brikker" -- removePieces(3, 0), removePieces(2, 1), removePieces(1, 2) -->
 	state {
-		getPile(1) == 2;
-		getPile(2) == 3;
-		getPile(3) == 4;
+		getPile(0) == 2;
+		getPile(1) == 3;
+		getPile(2) == 4;
 	}
-	"Fjerner negativt antall" -- removePieces(-1, 1) -->
+	"Fjerner negativt antall" -- removePieces(-1, 0) -->
 	state {
-		getPile(1) == 2;
+		getPile(0) == 2;
 	}
-	"Fjerner for få brikker" -- removePieces(0, 1) -->
+	"Fjerner for få brikker" -- removePieces(0, 0) -->
 	state {
-		getPile(1) == 2;
+		getPile(0) == 2;
 	}
-	"Fjerner for mange brikker" -- removePieces(6, 1) -->
+	"Fjerner for mange brikker" -- removePieces(6, 0) -->
 	state {
-		getPile(1) == 2; 
+		getPile(0) == 2; 
 	}
 }
 
@@ -37,9 +37,9 @@ sequence gameOver "Avsluttet spill" {
 	state{
 		! isGameOver();
 	}
-	"Fjerner brikker" -- removePieces(5, 1) -->
+	"Fjerner brikker" -- removePieces(5, 0) -->
 	state {
-		getPile(1) == 0;
+		getPile(0) == 0;
 		isGameOver();
 	}
 }
@@ -52,12 +52,12 @@ sequence isValidMove "Gyldige trekk"{
 		checkValidation(0, false, nim);
 		checkValidation(6, false, nim);
 	}
-	"Avslutter spillet" -- removePieces(5, 1) -->
+	"Avslutter spillet" -- removePieces(5, 0) -->
 	state {
 		checkValidation(2, false, nim);
 	}
 }
 
 method boolean checkValidation (int pieces, boolean legal, Nim game){
-	return legal == (game.isValidMove(pieces, 1) && game.isValidMove(pieces, 2) && game.isValidMove(pieces, 3));
+	return legal == (game.isValidMove(pieces, 0) && game.isValidMove(pieces, 1) && game.isValidMove(pieces, 2));
 }
