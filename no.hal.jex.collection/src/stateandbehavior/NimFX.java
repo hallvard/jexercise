@@ -42,6 +42,7 @@ public class NimFX extends Application {
 	
 	public void initialize() {
 		targetPileChoice.setItems(FXCollections.observableArrayList("1", "2", "3"));
+		targetPileChoice.setValue("1");
 		nim = new Nim();
 		update();
 	}
