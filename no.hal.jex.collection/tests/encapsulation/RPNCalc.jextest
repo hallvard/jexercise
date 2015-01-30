@@ -1,0 +1,84 @@
+test encapsulation.RPNCalc
+
+sequence push "Push" {
+	-- push(1.0) --> state { peek(0) == 1.0 }
+	-- push(2.0) --> state { peek(0) == 2.0 }
+	-- push(3.0) --> state { peek(0) == 3.0 }
+}
+
+sequence pop "Pop" {
+	-- push(1.0), push(2.0), push(3.0) -->
+	state {
+		peek(0) == 3.0
+	}
+	-- pop() == 3.0 --> state { peek(0) == 2.0 }
+	-- pop() == 2.0 --> state { peek(0) == 1.0 }
+	-- push(2.0) --> state { peek(0) == 2.0 }
+	-- pop() == 2.0 --> state { peek(0) == 1.0 }
+	-- pop() == 1.0 --> state { size == 0 }
+}
+
+sequence peek "Peek" {
+	-- push(0.0), push(1.0), push(2.0) -->
+	state {
+		peek(0) == 2.0;
+		peek(1) == 1.0;
+		peek(2) == 0.0;
+	}
+}
+
+sequence peekEmpty "Peek empty stack" {
+	-->
+	state {
+		peek(3) == Double.NaN;
+		peek(-1) == Double.NaN;
+	}
+}
+
+sequence getSize "getSize" {
+	--> state { size == 0 }
+	-- push(1.0) --> state { size == 1 }
+	-- push(2.0) --> state { size == 2 }
+	-- push(3.0) --> state { size == 3 }
+}
+
+sequence add "+ operation" {
+	-- push(3.0), push(4.0), performOperation('+') -->
+	state {
+		size == 1
+		peek(0) == 7.0
+	}
+}
+
+sequence sub "- operation" {
+	-- push(7.0), push(2.0), performOperation('-') -->
+	state {
+		size == 1
+		peek(0) == 5.0
+	}
+}
+
+sequence mult "* operation" {
+	-- push(5.0), push(2.0), performOperation('*') -->
+	state {
+		size == 1
+		peek(0) == 10.0
+	}
+}
+
+sequence div "/ operation" {
+	-- push(10.0), push(4.0), performOperation('/') -->
+	state {
+		size == 1
+		peek(0) == 2.5
+	}
+}
+
+sequence swap "~ operation" {
+	-- push(10.0), push(4.0), performOperation('~') -->
+	state {
+		size == 2
+		peek(0) == 10.0;
+		peek(1) == 4.0;
+	}
+}
