@@ -1,4 +1,4 @@
-package stateandbehavior;
+package encapsulation;
 
 public class Nim {
 
