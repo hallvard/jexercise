@@ -20,7 +20,7 @@ public class NimTest extends TestCase {
     
   }
   
-  private boolean checkValidation(final int pieces, final boolean legal, final Nim game) {
+  private boolean isValidMove(final Nim game, final int pieces, final boolean legal) {
     boolean _and = false;
     boolean _and_1 = false;
     boolean _isValidMove = game.isValidMove(pieces, 0);
@@ -42,36 +42,54 @@ public class NimTest extends TestCase {
     return _and;
   }
   
-  @JExercise(tests = "Nim(int)", description = "<h3>Konstrukt\u00F8r</h3>Tests \r\n\t\tinitialization\r\n")
+  @JExercise(tests = "Nim(int)", description = "<h3>Konstrukt\u00F8r</h3>Tests \n\t\tinitialization\n")
   public void testConstructor() {
     _test__constructor_transitions0_effect_state(nim);
     
   }
   
-  @JExercise(tests = "Nim(int);void removePieces(int,int)", description = "<h3>Fjerning av brikker</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Fjerner brikker: removePieces(3, 0), removePieces(2, 1), removePieces(1, 2)</li>\r\n\t\t<li>Fjerner negativt antall: removePieces(-1, 0)</li>\r\n\t\t<li>Fjerner for f\u00E5 brikker: removePieces(0, 0)</li>\r\n\t\t<li>Fjerner for mange brikker: removePieces(6, 0)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "Nim(int);void removePieces(int,int)", description = "<h3>Fjerning av brikker</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Fjerner brikker: removePieces(3, 0), removePieces(2, 1), removePieces(1, 2)</li>\n\t\t<li>Fjerner negativt antall: removePieces(-1, 0)</li>\n\t\t<li>Fjerner for f\u00E5 brikker: removePieces(0, 0)</li>\n\t\t<li>Fjerner for mange brikker: removePieces(6, 0)</li>\n\t\t</ul>\n")
   public void testRemovePieces() {
     _transition_exprAction__removePieces_transitions0_actions0(nim);
     _transition_exprAction__removePieces_transitions0_actions1(nim);
     _transition_exprAction__removePieces_transitions0_actions2(nim);
     _test__removePieces_transitions0_effect_state(nim);
-    _transition_exprAction__removePieces_transitions1_actions0(nim);
-    _test__removePieces_transitions1_effect_state(nim);
-    _transition_exprAction__removePieces_transitions2_actions0(nim);
-    _test__removePieces_transitions2_effect_state(nim);
-    _transition_exprAction__removePieces_transitions3_actions0(nim);
-    _test__removePieces_transitions3_effect_state(nim);
+    try {
+      _transition_exprAction__removePieces_transitions1_actions0(nim);
+      fail("IllegalArgumentException should be thrown after removePieces(-1, 0)");
+    } catch (Exception e) {
+      assertTrue("IllegalArgumentException should be thrown after removePieces(-1, 0)", e instanceof IllegalArgumentException);
+    }
+    try {
+      _transition_exprAction__removePieces_transitions2_actions0(nim);
+      fail("IllegalArgumentException should be thrown after removePieces(0, 0)");
+    } catch (Exception e_1) {
+      assertTrue("IllegalArgumentException should be thrown after removePieces(0, 0)", e_1 instanceof IllegalArgumentException);
+    }
+    try {
+      _transition_exprAction__removePieces_transitions3_actions0(nim);
+      fail("IllegalArgumentException should be thrown after removePieces(6, 0)");
+    } catch (Exception e_2) {
+      assertTrue("IllegalArgumentException should be thrown after removePieces(6, 0)", e_2 instanceof IllegalArgumentException);
+    }
     
   }
   
-  @JExercise(tests = "Nim(int);void removePieces(int,int)", description = "<h3>Avsluttet spill</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Fjerner brikker: removePieces(5, 0)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "Nim(int);void removePieces(int,int)", description = "<h3>Avsluttet spill</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Fjerner brikker: removePieces(5, 0)</li>\n\t\t<li>Fjerner brikker etter avsluttet spill : removePieces(5, 0)</li>\n\t\t</ul>\n")
   public void testGameOver() {
     _test__gameOver_transitions0_effect_state(nim);
     _transition_exprAction__gameOver_transitions1_actions0(nim);
     _test__gameOver_transitions1_effect_state(nim);
+    try {
+      _transition_exprAction__gameOver_transitions2_actions0(nim);
+      fail("IllegalStateException should be thrown after removePieces(5, 0)");
+    } catch (Exception e) {
+      assertTrue("IllegalStateException should be thrown after removePieces(5, 0)", e instanceof IllegalStateException);
+    }
     
   }
   
-  @JExercise(tests = "Nim(int);void removePieces(int,int)", description = "<h3>Gyldige trekk</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Avslutter spillet: removePieces(5, 0)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "Nim(int);void removePieces(int,int)", description = "<h3>Gyldige trekk</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Avslutter spillet: removePieces(5, 0)</li>\n\t\t</ul>\n")
   public void testIsValidMove() {
     _test__isValidMove_transitions0_effect_state(nim);
     _transition_exprAction__isValidMove_transitions1_actions0(nim);
@@ -155,18 +173,6 @@ public class NimTest extends TestCase {
     
   }
   
-  private void _test__removePieces_transitions1_effect_state(final Nim it) {
-    _test__removePieces_transitions1_effect_state_objectTests0_test(nim);
-    
-  }
-  
-  private void _test__removePieces_transitions1_effect_state_objectTests0_test(final Nim it) {
-    
-    int _pile = it.getPile(0);
-    assertEquals("getPile(0) == 2 failed after removePieces(-1, 0)", 2, _pile);
-    
-  }
-  
   private void _transition_exprAction__removePieces_transitions2_actions0(final Nim it) {
     try {
       
@@ -177,18 +183,6 @@ public class NimTest extends TestCase {
     
   }
   
-  private void _test__removePieces_transitions2_effect_state(final Nim it) {
-    _test__removePieces_transitions2_effect_state_objectTests0_test(nim);
-    
-  }
-  
-  private void _test__removePieces_transitions2_effect_state_objectTests0_test(final Nim it) {
-    
-    int _pile = it.getPile(0);
-    assertEquals("getPile(0) == 2 failed after removePieces(0, 0)", 2, _pile);
-    
-  }
-  
   private void _transition_exprAction__removePieces_transitions3_actions0(final Nim it) {
     try {
       
@@ -196,18 +190,6 @@ public class NimTest extends TestCase {
       } catch (junit.framework.AssertionFailedError error) {
       fail("removePieces(6, 0) failed: " + error.getMessage());
     }
-    
-  }
-  
-  private void _test__removePieces_transitions3_effect_state(final Nim it) {
-    _test__removePieces_transitions3_effect_state_objectTests0_test(nim);
-    
-  }
-  
-  private void _test__removePieces_transitions3_effect_state_objectTests0_test(final Nim it) {
-    
-    int _pile = it.getPile(0);
-    assertEquals("getPile(0) == 2 failed after removePieces(6, 0)", 2, _pile);
     
   }
   
@@ -247,6 +229,16 @@ public class NimTest extends TestCase {
     
   }
   
+  private void _transition_exprAction__gameOver_transitions2_actions0(final Nim it) {
+    try {
+      
+      it.removePieces(5, 0);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("removePieces(5, 0) failed: " + error.getMessage());
+    }
+    
+  }
+  
   private void _test__isValidMove_transitions0_effect_state(final Nim it) {
     _test__isValidMove_transitions0_effect_state_objectTests0_test(nim);
     
@@ -254,17 +246,16 @@ public class NimTest extends TestCase {
   
   private void _test__isValidMove_transitions0_effect_state_objectTests0_test(final Nim it) {
     
-    boolean _checkValidation = this.checkValidation(2, true, this.nim);
-    assertEquals("checkValidation(2, true, nim) == true failed", true, _checkValidation);
+    boolean _isValidMove = this.isValidMove(it, 2, true);
+    assertTrue("isValidMove(2, true) failed", _isValidMove);
     
-    boolean _checkValidation_1 = this.checkValidation((-2), false, this.nim);
-    assertEquals("checkValidation(-2, false, nim) == true failed", true, _checkValidation_1);
+    boolean _isValidMove_1 = this.isValidMove(it, (-2), false);
+    assertTrue("isValidMove(-2, false) failed", _isValidMove_1);
     
-    boolean _checkValidation_2 = this.checkValidation(0, false, this.nim);
-    assertEquals("checkValidation(0, false, nim) == true failed", true, _checkValidation_2);
+    boolean _isValidMove_2 = this.isValidMove(it, 0, false);
+    assertTrue("isValidMove(0, false) failed", _isValidMove_2);
     
-    boolean _checkValidation_3 = this.checkValidation(6, false, this.nim);
-    assertEquals("checkValidation(6, false, nim) == true failed", true, _checkValidation_3);
+    assertTrue("isValidMove(6, false) failed", this.isValidMove(it, 6, false));
     
   }
   
@@ -285,8 +276,7 @@ public class NimTest extends TestCase {
   
   private void _test__isValidMove_transitions1_effect_state_objectTests0_test(final Nim it) {
     
-    boolean _checkValidation = this.checkValidation(2, false, this.nim);
-    assertEquals("checkValidation(2, false, nim) == true failed after removePieces(5, 0)", true, _checkValidation);
+    assertTrue("isValidMove(2, false) failed after removePieces(5, 0)", this.isValidMove(it, 2, false));
     
   }
   

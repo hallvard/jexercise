@@ -18,18 +18,9 @@ sequence removePieces "Fjerning av brikker" {
 		getPile(1) == 3;
 		getPile(2) == 4;
 	}
-	"Fjerner negativt antall" -- removePieces(-1, 0) -->
-	state {
-		getPile(0) == 2;
-	}
-	"Fjerner for få brikker" -- removePieces(0, 0) -->
-	state {
-		getPile(0) == 2;
-	}
-	"Fjerner for mange brikker" -- removePieces(6, 0) -->
-	state {
-		getPile(0) == 2; 
-	}
+	"Fjerner negativt antall" -- removePieces(-1, 0) throws IllegalArgumentException
+	"Fjerner for få brikker" -- removePieces(0, 0) throws IllegalArgumentException
+	"Fjerner for mange brikker" -- removePieces(6, 0) throws IllegalArgumentException
 }
 
 sequence gameOver "Avsluttet spill" {
@@ -42,22 +33,23 @@ sequence gameOver "Avsluttet spill" {
 		getPile(0) == 0;
 		isGameOver();
 	}
+	"Fjerner brikker etter avsluttet spill " -- removePieces(5, 0) throws IllegalStateException
 }
 
-sequence isValidMove "Gyldige trekk"{
+sequence isValidMove "Gyldige trekk" {
 	-->
 	state {
-		checkValidation(2, true, nim) == true;
-		checkValidation(-2, false, nim) == true;
-		checkValidation(0, false, nim) == true;
-		checkValidation(6, false, nim) == true;
+		isValidMove(2, true);
+		isValidMove(-2, false);
+		isValidMove(0, false);
+		isValidMove(6, false);
 	}
 	"Avslutter spillet" -- removePieces(5, 0) -->
 	state {
-		checkValidation(2, false, nim) == true;
+		isValidMove(2, false);
 	}
 }
 
-method boolean checkValidation (int pieces, boolean legal, Nim game){
+method boolean isValidMove(Nim game, int pieces, boolean legal) {
 	return (legal == game.isValidMove(pieces, 0) && (legal == game.isValidMove(pieces, 1)) && (legal == game.isValidMove(pieces, 2)));
 }

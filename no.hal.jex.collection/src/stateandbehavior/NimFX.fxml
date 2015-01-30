@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.*?>
+<?import java.lang.String?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" spacing="30">
 	<HBox spacing="5">
@@ -33,7 +35,18 @@
 			<Text text="Remove " />
 			<TextField fx:id="numberField" promptText="number"/>
 			<Text text=" from pile "/>
-			<ChoiceBox fx:id="targetPileChoice" />
+			<ChoiceBox fx:id="targetPileChoice">
+				<value>
+					<String fx:value="1"/>
+				</value>
+				 <items>
+					<FXCollections fx:factory="observableArrayList">
+						<String fx:value="1"/>
+						<String fx:value="2"/>
+						<String fx:value="3"/>
+					</FXCollections>
+				</items>
+		</ChoiceBox>
 		</HBox>
 		<HBox spacing="10">
 			<Button text="removePieces(number, targetPile)" onAction="#removePieces"/>
