@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.textfield.*?>
+ 
+<GridPane xmlns:fx="http://javafx.com/fxml"
+    prefHeight="200" prefWidth="320"
+    alignment="center" hgap="10" vgap="10">
+ 
+        <TextField fx:id="valueTextNode" text="" prefColumnCount="8" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="3"/>
+
+        <Button text="push" onAction="#performAction" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        <Button text="7" onAction="#inputText" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Button text="8" onAction="#inputText" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Button text="9" onAction="#inputText" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <Button text="+" onAction="#performOperation" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+        <Button text="4" onAction="#inputText" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Button text="5" onAction="#inputText" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <Button text="6" onAction="#inputText" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+        <Button text="-" onAction="#performOperation" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+        <Button text="1" onAction="#inputText" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <Button text="2" onAction="#inputText" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        <Button text="3" onAction="#inputText" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+        <Button text="*" onAction="#performOperation" GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+
+        <Button text="~" onAction="#performOperation" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <Button text="0" onAction="#inputText" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        <Button text="=" onAction="#performOperation" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+        <Button text="/" onAction="#performOperation" GridPane.rowIndex="4" GridPane.columnIndex="3"/>
+
+        <Button text="\%" onAction="#performOperation" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <Button text="π" onAction="#performOperation" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        <Button text="." onAction="#inputText" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
+        <Button text="backspace" onAction="#inputTextEdit" GridPane.rowIndex="5" GridPane.columnIndex="3"/>
+</GridPane>
