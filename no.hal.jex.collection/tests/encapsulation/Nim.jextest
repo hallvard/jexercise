@@ -1,4 +1,4 @@
-test stateandbehavior.Nim
+test encapsulation.Nim
 
 instance nim = new Nim(5)
 
