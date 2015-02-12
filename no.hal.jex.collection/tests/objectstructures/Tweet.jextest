@@ -1,0 +1,58 @@
+test objectstructures.Tweet
+
+import objectstructures.TwitterAccount
+
+instance TwitterAccount nils = new TwitterAccount("Nils")
+instance TwitterAccount ole = new TwitterAccount("Ole")
+instance TwitterAccount kari = new TwitterAccount("Kari")
+
+instance tweet = new Tweet(nils, "Kvitre!"), retweet1 = null, retweet2 = null
+
+sequence constructorNewTweet "Konstruktør for ny tweet" {
+	-->
+	state tweet {
+		text == "Kvitre!"
+		owner == nils
+	}
+}
+
+sequence constructorRetweet "Konstruktør for retweet" { 
+	-- retweet1 = new Tweet(ole, tweet) -->
+	state retweet1 {
+		text == "Kvitre!"
+		owner == ole
+	}
+	"Kan ikke retweete seg selv" -- new Tweet(nils, tweet) throws RuntimeException
+}
+
+sequence getOriginalTweet "Originalforfatter av retweets" {
+	-->
+	state tweet {
+		originalTweet == null
+	}
+	-- retweet1 = new Tweet(ole, tweet) -->
+	state retweet1 {
+		originalTweet == tweet
+		text == originalTweet.text
+	}
+	-- retweet2 = new Tweet(kari, tweet) -->
+	state retweet2 {
+		originalTweet == tweet
+		text == originalTweet.text
+	}
+}
+
+sequence getRetweetCount "Retweet count" {
+	-->
+	state tweet {
+		retweetCount == 0
+	}
+	-- new Tweet(ole, tweet) -->
+	state tweet {
+		retweetCount == 1
+	}
+	-- new Tweet(kari, tweet) -->
+	state tweet {
+		retweetCount == 2
+	}
+}
