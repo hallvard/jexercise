@@ -1,0 +1,153 @@
+test objectstructures.LineEditor
+
+import java.util.Collection
+import java.util.List
+
+instance empty = new LineEditor()
+instance left = new LineEditor("Hallvard", 0, -1)
+instance middle = new LineEditor("Hallvard", 4, -1)
+instance regionLeft = new LineEditor("Hallvard", 3, 5)
+instance regionRight = new LineEditor("Hallvard", 5, 3)
+instance right = new LineEditor("Hallvard", 8, -1)
+
+sequence constructor "Konstruktør" {
+	-->
+	state
+	empty {
+		text == ""
+		insertionIndex == 0
+		end == 0
+	}
+	left {
+		text == "Hallvard"
+		insertionIndex == 0
+		end == 0
+	}
+	middle {
+		text == "Hallvard"
+		insertionIndex == 4
+		end == 4
+	}
+	regionLeft {
+		text == "Hallvard"
+		insertionIndex == 3
+		end == 5
+	}
+	regionRight {
+		text == "Hallvard"
+		insertionIndex == 5
+		end == 3
+	}
+	right {
+		text == "Hallvard"
+		insertionIndex == 8
+		end == 8
+	}
+}
+
+sequence toString "toString" {
+	-->
+	state {
+		empty		== "|>"
+		left		== "|>Hallvard"
+		middle		== "Hall|>vard"
+		regionLeft	== "Hal|lv>ard"
+		regionRight == "Hal<lv|ard"
+		right		== "Hallvard|>"
+	}
+}
+
+sequence left "left" {
+	-- empty.left(false), left.left(false), middle.left(false), regionLeft.left(false), regionRight.left(false), right.left(false) -->
+	state {
+		empty		== "|>"
+		left		== "|>Hallvard"
+		middle		== "Hal|>lvard"
+		regionLeft	== "Hal|>lvard"
+		regionRight == "Hal|>lvard"
+		right		== "Hallvar|>d"
+	}
+}
+
+sequence right "right" {
+	-- empty.right(false), left.right(false), middle.right(false), regionLeft.right(false), regionRight.right(false), right.right(false) -->
+	state {
+		empty		== "|>"
+		left		== "H|>allvard"
+		middle		== "Hallv|>ard"
+		regionLeft	== "Hallv|>ard"
+		regionRight	== "Hallv|>ard"
+		right		== "Hallvard|>"
+	}
+}
+
+sequence replaceRegion "replaceRegion" {
+	-- empty.replaceRegion("?!"), left.replaceRegion("?!"), middle.replaceRegion("?!"), regionLeft.replaceRegion("?!"), regionRight.replaceRegion("?!"), right.replaceRegion("?!") -->
+	state {
+		empty		== "?!|>"
+		left		== "?!|>Hallvard"
+		middle		== "Hall?!|>vard"
+		regionLeft	== "Hal?!|>ard"
+		regionRight	== "Hal?!|>ard"
+		right		== "Hallvard?!|>"
+	}
+}
+
+sequence deleteLeft "deleteLeft" {
+	-- empty.deleteLeft, left.deleteLeft, middle.deleteLeft, regionLeft.deleteLeft, regionRight.deleteLeft, right.deleteLeft -->
+	state {
+		empty		== "|>"
+		left		== "|>Hallvard"
+		middle		== "Hal|>vard"
+		regionLeft	== "Hal|>ard"
+		regionRight	== "Hal|>ard"
+		right		== "Hallvar|>"
+	}
+}
+
+sequence deleteRight "deleteRight" {
+	-- empty.deleteRight, left.deleteRight, middle.deleteRight, regionLeft.deleteRight, regionRight.deleteRight, right.deleteRight -->
+	state {
+		empty		== "|>"
+		left		== "|>allvard"
+		middle		== "Hall|>ard"
+		regionLeft	== "Hal|>ard"
+		regionRight	== "Hal|>ard"
+		right		== "Hallvard|>"
+	}
+}
+
+sequence insertTag "insertTag" {
+	-- empty.insertTag("?!"), left.insertTag("?!"), middle.insertTag("?!"), regionLeft.insertTag("?!"), regionRight.insertTag("?!"), right.insertTag("?!") -->
+	state {
+		empty		== "|>[0,0:?!>" -> #[0,0]
+		left		== "|>Hallvard[0,0:?!>" -> #[0,0]
+		middle		== "Hall|>vard[4,4:?!>" -> #[4,4]
+		regionLeft	== "Hal|lv>ard[3,5:?!>" -> #[3,5]
+		regionRight	== "Hal<lv|ard[3,5:?!>" -> #[3,5]
+		right		== "Hallvard|>[8,8:?!>" -> #[8,8]
+	}
+}
+
+//
+
+method boolean == (LineEditor lineEditor, String s) {
+	return lineEditor.toString() == s
+}
+
+method boolean == (LineEditor lineEditor, List<Integer> regions) {
+	if (lineEditor.getRegionCount() * 2 != regions.size()) {
+		return false;
+	}
+	for (var i = 0; i < lineEditor.getRegionCount(); i++) {
+		val it = lineEditor.getRegion(i);
+		if (! (startPos == regions.get(i * 2) && endPos == regions.get(i * 2 + 1))) {
+			return false;
+		}
+	}
+	return true;
+}
+
+method boolean == (LineEditor lineEditor, Pair<String, List<Integer>> textRegions) {
+	return lineEditor.toString() == textRegions.key && lineEditor == textRegions.value
+}
