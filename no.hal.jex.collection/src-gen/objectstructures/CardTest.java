@@ -94,8 +94,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__constructor_transitions0_actions0(final Card it) {
-    
-    Card _card = new Card('S', 1);
+    try {
+      
+      Card _card = new Card('S', 1);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('S', 1) failed: " + error.getMessage());
+    }
     
   }
   
@@ -116,8 +121,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__constructor_transitions1_actions0(final Card it) {
-    
-    Card _card = new Card('S', 13);
+    try {
+      
+      Card _card = new Card('S', 13);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('S', 13) failed: " + error.getMessage());
+    }
     
   }
   
@@ -138,8 +148,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__constructor_transitions2_actions0(final Card it) {
-    
-    Card _card = new Card('H', 1);
+    try {
+      
+      Card _card = new Card('H', 1);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('H', 1) failed: " + error.getMessage());
+    }
     
   }
   
@@ -160,8 +175,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__constructor_transitions3_actions0(final Card it) {
-    
-    Card _card = new Card('H', 13);
+    try {
+      
+      Card _card = new Card('H', 13);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('H', 13) failed: " + error.getMessage());
+    }
     
   }
   
@@ -182,8 +202,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__constructor_transitions4_actions0(final Card it) {
-    
-    Card _card = new Card('D', 1);
+    try {
+      
+      Card _card = new Card('D', 1);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('D', 1) failed: " + error.getMessage());
+    }
     
   }
   
@@ -204,8 +229,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__constructor_transitions5_actions0(final Card it) {
-    
-    Card _card = new Card('D', 13);
+    try {
+      
+      Card _card = new Card('D', 13);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('D', 13) failed: " + error.getMessage());
+    }
     
   }
   
@@ -226,8 +256,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__constructor_transitions6_actions0(final Card it) {
-    
-    Card _card = new Card('C', 1);
+    try {
+      
+      Card _card = new Card('C', 1);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('C', 1) failed: " + error.getMessage());
+    }
     
   }
   
@@ -248,8 +283,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__constructor_transitions7_actions0(final Card it) {
-    
-    Card _card = new Card('C', 13);
+    try {
+      
+      Card _card = new Card('C', 13);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('C', 13) failed: " + error.getMessage());
+    }
     
   }
   
@@ -270,26 +310,46 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__constructor_transitions8_actions0(final Card it) {
-    
-    Card _card = new Card('X', 1);
+    try {
+      
+      Card _card = new Card('X', 1);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('X', 1) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__constructor_transitions9_actions0(final Card it) {
-    
-    Card _card = new Card('S', 0);
+    try {
+      
+      Card _card = new Card('S', 0);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('S', 0) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__constructor_transitions10_actions0(final Card it) {
-    
-    Card _card = new Card('C', 14);
+    try {
+      
+      Card _card = new Card('C', 14);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('C', 14) failed: " + error.getMessage());
+    }
     
   }
   
   private void _transition_exprAction__toString_transitions0_actions0(final Card it) {
-    
-    Card _card = new Card('S', 1);
+    try {
+      
+      Card _card = new Card('S', 1);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('S', 1) failed: " + error.getMessage());
+    }
     
   }
   
@@ -306,8 +366,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__toString_transitions1_actions0(final Card it) {
-    
-    Card _card = new Card('S', 13);
+    try {
+      
+      Card _card = new Card('S', 13);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('S', 13) failed: " + error.getMessage());
+    }
     
   }
   
@@ -324,8 +389,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__toString_transitions2_actions0(final Card it) {
-    
-    Card _card = new Card('H', 1);
+    try {
+      
+      Card _card = new Card('H', 1);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('H', 1) failed: " + error.getMessage());
+    }
     
   }
   
@@ -342,8 +412,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__toString_transitions3_actions0(final Card it) {
-    
-    Card _card = new Card('H', 13);
+    try {
+      
+      Card _card = new Card('H', 13);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('H', 13) failed: " + error.getMessage());
+    }
     
   }
   
@@ -360,8 +435,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__toString_transitions4_actions0(final Card it) {
-    
-    Card _card = new Card('D', 1);
+    try {
+      
+      Card _card = new Card('D', 1);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('D', 1) failed: " + error.getMessage());
+    }
     
   }
   
@@ -378,8 +458,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__toString_transitions5_actions0(final Card it) {
-    
-    Card _card = new Card('D', 13);
+    try {
+      
+      Card _card = new Card('D', 13);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('D', 13) failed: " + error.getMessage());
+    }
     
   }
   
@@ -396,8 +481,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__toString_transitions6_actions0(final Card it) {
-    
-    Card _card = new Card('C', 1);
+    try {
+      
+      Card _card = new Card('C', 1);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('C', 1) failed: " + error.getMessage());
+    }
     
   }
   
@@ -414,8 +504,13 @@ public class CardTest extends TestCase {
   }
   
   private void _transition_exprAction__toString_transitions7_actions0(final Card it) {
-    
-    Card _card = new Card('C', 13);
+    try {
+      
+      Card _card = new Card('C', 13);
+      this.c = _card;
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("c = new Card('C', 13) failed: " + error.getMessage());
+    }
     
   }
   
