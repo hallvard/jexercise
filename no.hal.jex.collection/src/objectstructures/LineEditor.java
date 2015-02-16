@@ -60,6 +60,8 @@ public class LineEditor {
 		return end;
 	}
 	
+	// region methods
+	
 	public int getRegionCount() {
 		return regions.size();
 	}
@@ -67,6 +69,13 @@ public class LineEditor {
 	public Region getRegion(int i) {
 		return regions.get(i);
 	}
+	
+	public String getRegionText(int i) {
+		Region region = getRegion(i);
+		return text.substring(region.getStartPos(), region.getEndPos());
+	}
+
+	// insertion
 	
 	private int computeInsertionPos(int pos, int delta) {
 		pos += delta;

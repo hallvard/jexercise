@@ -129,6 +129,30 @@ sequence insertTag "insertTag" {
 	}
 }
 
+sequence insertTagEdit "insertTagEdit" {
+	-- regionLeft.insertTag("?!") -->
+	state regionLeft {
+		it == "Hal|lv>ard[3,5:?!>" -> #[3,5]
+		regionCount == 1
+		getRegionText(0) == "lv"
+	}
+	-- regionLeft.left(false) -->
+	state regionLeft {
+		it == "Hal|>lvard[3,5:?!>" -> #[3,5]
+		getRegionText(0) == "lv"
+	}
+	-- regionLeft.replaceRegion("xy") -->
+	state regionLeft {
+		it == "Halxy|>lvard[3,7:?!>" -> #[3,7]
+		getRegionText(0) == "xylv"
+	}
+	-- regionLeft.deleteLeft() -->
+	state regionLeft {
+		it == "Halx|>lvard[3,6:?!>" -> #[3,6]
+		getRegionText(0) == "xlv"
+	}
+}
+
 //
 
 method boolean == (LineEditor lineEditor, String s) {
