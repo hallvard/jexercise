@@ -18,7 +18,6 @@ public class LineEditorFX extends Application {
 		Parent root = (Parent) fxmlLoader.load(this.getClass().getResourceAsStream(this.getClass().getSimpleName() + ".fxml"));
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
-		update();
 	}
 
 	public void initialize() {
@@ -28,39 +27,42 @@ public class LineEditorFX extends Application {
 	
 	private LineEditor lineEditor;
 	
-	@FXML Text beforeCursor;
-	@FXML Text cursor;
-	@FXML Text afterCursor;
+	@FXML
+	private Text toStringText;
 	
 	private void update() {
-		beforeCursor.setText(lineEditor.text.substring(0,  lineEditor.insertionIndex));
-		cursor.setText(String.valueOf(lineEditor.insertionIndex));
-		afterCursor.setText(lineEditor.text.substring(lineEditor.insertionIndex));
+		toStringText.setText(lineEditor.toString());
 	}
 	
-	@FXML void left() {
+	@FXML
+	private void left() {
 		lineEditor.left();
 		update();
 	}
 	
-	@FXML void right() {
+	@FXML
+	private void right() {
 		lineEditor.right();
 		update();
 	}
 	
-	@FXML void deleteLeft() {
+	@FXML
+	private void deleteLeft() {
 		lineEditor.deleteLeft();
 		update();
 	}
 	
-	@FXML void deleteRight() {
+	@FXML
+	private void deleteRight() {
 		lineEditor.deleteRight();
 		update();
 	}
 	
-	@FXML TextField insertString_arg1;
+	@FXML
+	private TextField insertString_arg1;
 	
-	@FXML void insertString() {
+	@FXML
+	private void insertString() {
 		lineEditor.insertString(insertString_arg1.getText());
 		update();
 	}

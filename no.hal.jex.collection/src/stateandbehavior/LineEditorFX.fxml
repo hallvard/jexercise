@@ -5,13 +5,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Label?>
 
 <VBox xmlns:fx="http://javafx.com/fxml">
 	<HBox>
-		<Text text="LineEditor state: "/>
-		<Text fx:id="beforeCursor" 	text=""/>
-		<Text fx:id="cursor" 		text=""/>
-		<Text fx:id="afterCursor" 	text=""/>
+		<Label text="LineEditor: "/>
+		<Text fx:id="toStringText"	text=""/>
 	</HBox>
 	<Text text="Methods: "/>
 	<HBox>
@@ -27,6 +26,7 @@
 		<Button text="deleteRight()" onAction="#deleteRight"/>
 	</HBox>
 	<HBox>
-		<TextField fx:id="insertString_arg1" promptText="arg1"/><Button text="insertString(arg1)" onAction="#insertString"/>
+		<TextField fx:id="insertString_arg1" promptText="arg1"/>
+		<Button text="insertString(arg1)" onAction="#insertString"/>
 	</HBox>
 </VBox>
