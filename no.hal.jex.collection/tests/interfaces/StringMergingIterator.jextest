@@ -1,0 +1,37 @@
+test interfaces.StringMergingIterator
+
+import java.util.Iterator
+
+instance Iterator<String> first = newArrayList("a","b").iterator
+instance Iterator<String> second = newArrayList("c","d").iterator
+instance Iterator<String> empty1 = newArrayList().iterator
+instance Iterator<String> empty2 = newArrayList().iterator
+
+
+sequence mergeLists {
+	instance mergingIterator = new StringMergingIterator(first, second)
+	-- mergingIterator.hasNext, mergingIterator.next=="a" -->
+	state { mergingIterator.hasNext; }
+	-- mergingIterator.hasNext, mergingIterator.next=="c" -->
+	state { mergingIterator.hasNext; }
+	-- mergingIterator.hasNext, mergingIterator.next=="b" -->
+	state { mergingIterator.hasNext; }
+	-- mergingIterator.hasNext, mergingIterator.next=="d" -->
+	state { ! mergingIterator.hasNext; }
+}
+
+sequence mergeOneEmpty {
+	instance mergingIterator = new StringMergingIterator(first, empty1)
+	-- mergingIterator.hasNext, mergingIterator.next=="a"-->
+	state { mergingIterator.hasNext; }
+	-- mergingIterator.hasNext, mergingIterator.next=="b"-->
+	state { ! mergingIterator.hasNext; }
+}
+
+sequence mergeBothEmpty{
+	instance mergingIterator = new StringMergingIterator(empty1, empty2)
+	-->
+	state {
+		! mergingIterator.hasNext;			
+	}
+}
