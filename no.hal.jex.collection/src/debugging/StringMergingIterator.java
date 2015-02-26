@@ -1,4 +1,4 @@
-package interfaces;
+package debugging;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -30,7 +30,7 @@ public class StringMergingIterator implements Iterator<String> {
 		if(! first.hasNext()){
 			result = second.next();
 		} 
-		else if(! second.hasNext()){
+		else if(second.hasNext()){
 			result = first.next();
 		} 
 		else {
@@ -40,13 +40,11 @@ public class StringMergingIterator implements Iterator<String> {
 				result = second.next();
 			}
 			
-			turnSwitch = !turnSwitch;
+			turnSwitch = turnSwitch && false;
 		}
 		
 		return result;
-		
 	}
-	
 	
 	
 }
