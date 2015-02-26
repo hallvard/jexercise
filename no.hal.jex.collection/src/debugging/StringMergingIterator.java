@@ -25,7 +25,7 @@ public class StringMergingIterator implements Iterator<String> {
 		
 		if(! hasNext()){ throw new NoSuchElementException(); }
 
-		String result;
+		String result = null;
 		
 		if(! first.hasNext()){
 			result = first.next();
@@ -36,11 +36,12 @@ public class StringMergingIterator implements Iterator<String> {
 		else {
 			if(turnSwitch){
 				result = first.next();
-			} else{
+				turnSwitch = !turnSwitch;
+			}
+			if(!turnSwitch){
 				result = second.next();
 			}
-			
-			turnSwitch = turnSwitch && false;
+
 		}
 		
 		return result;
