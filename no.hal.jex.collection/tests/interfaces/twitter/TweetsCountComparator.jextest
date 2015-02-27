@@ -1,0 +1,16 @@
+test interfaces.twitter.TweetsCountComparator
+
+instance TweetsCountComparator comparator = new TweetsCountComparator()
+
+instance TwitterAccount mostTweet = new TwitterAccount("aaron")
+instance TwitterAccount lessTweet1 = new TwitterAccount("ben")
+instance TwitterAccount lessTweet2 = new TwitterAccount("charlie")
+
+sequence compare "Sammenligner TwitterAccounts på antall tweets." {
+	"Tweeter"-- mostTweet.tweet("tweet"), mostTweet.tweet("tweet"), lessTweet1.tweet("tweet"), lessTweet2.tweet("tweet") -->
+	state{
+		comparator.compare(mostTweet, lessTweet1) < 0
+		comparator.compare(lessTweet1, mostTweet) > 0
+		comparator.compare(lessTweet1, lessTweet2) == 0
+	}
+}

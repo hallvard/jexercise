@@ -1,0 +1,16 @@
+test interfaces.twitter.UserNameComparator
+
+instance UserNameComparator comparator = new UserNameComparator()
+
+instance TwitterAccount aaron1 = new TwitterAccount("aaron")
+instance TwitterAccount aaron2 = new TwitterAccount("aaron")
+instance TwitterAccount ben = new TwitterAccount("ben")
+
+sequence compare "Sammenligner TwitterAccounts på username." {
+	-->
+	state{
+		comparator.compare(aaron1, ben) < 0
+		comparator.compare(ben, aaron1) > 0
+		comparator.compare(aaron1, aaron2) == 0
+	}
+}

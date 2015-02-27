@@ -1,0 +1,136 @@
+test interfaces.twitter.TwitterAccount
+
+instance TwitterAccount nils = new TwitterAccount("Nils")
+instance TwitterAccount ole = new TwitterAccount("Ole")
+
+sequence constructor "Konstruktør" {
+	-->
+	state
+	nils {
+		userName == "Nils"
+		tweetCount == 0
+	}
+	ole {
+		userName == "Ole"
+		tweetCount == 0
+	}
+}
+
+sequence follow "Følge en annen bruker" {
+	"Nils følger Ole" -- nils.follow(ole) -->
+	state
+	nils {
+		isFollowing(ole)
+		! isFollowedBy(ole)
+		followerCount==0
+	}
+	ole {
+		! isFollowing(nils)
+		isFollowedBy(nils)
+	}
+	"Ole følger Nils" -- ole.follow(nils) -->
+	state nils {
+		isFollowing(ole)
+		isFollowedBy(ole)
+		followerCount==1
+	}
+	ole {
+		isFollowing(nils)
+		isFollowedBy(nils)
+		followerCount==1
+	}
+}
+
+sequence unfollow "Slutte å følge en annen bruker" {
+	"Nils slutter å følge Ole uten å følge han fra før" -- nils.unfollow(ole) -->
+	state
+	nils {
+		! isFollowing(ole)
+		! isFollowedBy(ole)
+	}
+	ole {
+		! isFollowing(nils)
+		! isFollowedBy(nils)
+	}
+	"Nils følger Ole" -- nils.follow(ole) -->
+	state 
+	nils {
+		isFollowing(ole)
+		! isFollowedBy(ole)
+	}
+	ole {
+		! isFollowing(nils)
+		isFollowedBy(nils)
+		followerCount==1
+	}
+	"Nils slutter å følge Ole" -- nils.unfollow(ole) -->
+	state
+	nils {
+		! isFollowing(ole)
+		! isFollowedBy(ole)
+	}
+	ole {
+		! isFollowing(nils)
+		! isFollowedBy(nils)
+		followerCount==0
+	}
+}
+
+sequence newTweet "Opprette ny tweet" {
+	"Nils tvitrer" -- nils.tweet("Kvitre!") -->
+	state nils {
+		tweetCount == 1
+		getTweet(1).text == "Kvitre!"
+	}
+	"Nils tvitrer en gang til" -- nils.tweet("Kvitre igjen!") -->
+	state nils {
+		tweetCount == 2
+		getTweet(1).text == "Kvitre igjen!"
+		getTweet(2).text == "Kvitre!"
+	}
+}
+
+sequence getTweetIllegal "Hente tweet fra feil indeks" {
+	-- nils.getTweet(1) throws RuntimeException
+	-- nils.getTweet(-1) throws RuntimeException
+	-- nils.tweet("Kvitre!") --> state { true }
+	-- nils.getTweet(2) throws RuntimeException
+	-- nils.getTweet(-1) throws RuntimeException
+}
+
+sequence retweet "Retweete noen andres tweet" {
+	instance TwitterAccount kari = new TwitterAccount("Kari")
+	"Nils tvitrer" -- nils.tweet("Kvitre!") -->
+	state nils {
+		tweetCount == 1
+		getTweet(1).text == "Kvitre!"
+	}
+	"Ole retweeter Nils" -- ole.retweet(nils.getTweet(1)) -->
+	state
+	nils {
+		tweetCount == 1
+		retweetCount == 1
+	}
+	ole {
+		tweetCount == 1
+		retweetCount == 0
+		getTweet(1).text == "Kvitre!"
+		getTweet(1).originalTweet == nils.getTweet(1)
+	}
+	"Kari retweeter Ole sin retweet" -- kari.retweet(ole.getTweet(1)) -->
+	state
+	nils {
+		tweetCount == 1
+		retweetCount == 2
+	}
+	ole {
+		tweetCount == 1
+		retweetCount == 0
+	}
+	kari {
+		tweetCount == 1
+		retweetCount == 0
+		getTweet(1).text "Kvitre!"
+		getTweet(1).originalTweet == nils.getTweet(1)
+	}
+}

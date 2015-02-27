@@ -1,0 +1,19 @@
+test interfaces.twitter.FollowersCountComparator
+
+instance FollowersCountComparator comparator = new FollowersCountComparator()
+
+instance TwitterAccount aaron = new TwitterAccount("aaron")
+instance TwitterAccount ben = new TwitterAccount("ben")
+instance TwitterAccount charlie = new TwitterAccount("charlie")
+
+sequence compare "Sammenligner TwitterAccounts på antall følgere." {
+	"Legger til følgere" -- aaron.follow(ben), ben.follow(aaron) -->
+	state{
+		comparator.compare(aaron, ben) == 0
+	}
+	"Legger til en ekstra følger" -- charlie.follow(ben) -->
+	state{
+		comparator.compare(aaron, ben) > 0
+		comparator.compare(ben, aaron) < 0
+	}
+}
