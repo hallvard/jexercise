@@ -1,45 +1,45 @@
-import java.util.Iterator
-
 test delegation.BinaryComputingIterator
 
-instance Iterator<Double> iterator1 = newArrayList(0.5, -2.0).iterator
-instance Iterator<Double> iterator2 = newArrayList(5.0, 3.0).iterator
-instance Iterator<Double> iteratorShort = newArrayList(5.0).iterator
+import java.util.Iterator
 
-instance Iterator<Double> iteratorEmpty1 = newArrayList().iterator
-instance Iterator<Double> iteratorEmpty2 = newArrayList().iterator
-
-instance double epsilon = 0.000001d
-
+instance Iterator<Double> iterator1 = #[0.5, -2.0].iterator
+instance Iterator<Double> iterator2 = #[5.0,  3.0].iterator
+instance Iterator<Double> iteratorShort = #[5.0].iterator
 
 sequence computeResultsMultiplication "BinaryOperator som multipliserer" {
 	instance binaryIterator = new BinaryComputingIterator(iterator1, iterator2,  [x, y | x * y] )
-	"Henter verdi" -- approximatelyEquals(binaryIterator.next, 2.5, epsilon) == true -->
-	state{ binaryIterator.hasNext }
-	"Henter verdi" -- approximatelyEquals(binaryIterator.next, -6.0, epsilon) == true -->
-	state{ ! binaryIterator.hasNext }
+	"Sjekker første verdi" -- binaryIterator.next ?=  2.5 --> state {   binaryIterator.hasNext }
+	"Sjekker andre verdi"  -- binaryIterator.next ?= -6.0 --> state { ! binaryIterator.hasNext }
 }
 
-sequence computeResultsAddition "BinaryOperator som adderer"{
+sequence computeResultsAddition "BinaryOperator som adderer" {
 	instance binaryIterator = new BinaryComputingIterator(iterator1, iterator2,  [x, y | x + y] )
-	"Henter verdi" -- approximatelyEquals(binaryIterator.next, 5.5, epsilon) == true -->
-	state{ binaryIterator.hasNext }
-	"Henter verdi" -- approximatelyEquals(binaryIterator.next, 1.0, epsilon) == true -->
-	state{ ! binaryIterator.hasNext }
+	"Sjekker første verdi" -- binaryIterator.next ?= 5.5 --> state {   binaryIterator.hasNext }
+	"Sjekker andre verdi"  -- binaryIterator.next ?= 1.0 --> state { ! binaryIterator.hasNext }
 }
 
 sequence computeResultsWithShortIterator "Multiplisering med ujevnt antall verdier i interne iteratorer"{
 	instance binaryIterator = new BinaryComputingIterator(iterator1, iteratorShort,  [x, y | x * y] )
-	"Henter verdi" -- approximatelyEquals(binaryIterator.next, 2.5, epsilon) == true -->
-	state{ ! binaryIterator.hasNext }
+	"Henter verdi" -- binaryIterator.next ?= 2.5 --> state { ! binaryIterator.hasNext }
+}
+
+sequence computeResultsWithShortIteratorAndDefault "Multiplisering med ujevnt antall verdier i interne iteratorer og default"{
+	instance binaryIterator = new BinaryComputingIterator(iterator1, iteratorShort, null, 2.0, [x, y | x * y] )
+	"Sjekker første verdi" -- binaryIterator.next ?=  2.5 --> state {   binaryIterator.hasNext }
+	"Sjekker andre verdi"  -- binaryIterator.next ?= -4.0 --> state { ! binaryIterator.hasNext }
 }
 
 sequence computeResultsWithEmptyIterator "Multiplisering med tomme interne iteratorer"{
-	instance binaryIterator = new BinaryComputingIterator(iteratorEmpty1, iteratorEmpty2,  [x, y | x * y] )
-	-->
-	state{ ! binaryIterator.hasNext }
+	instance binaryIterator = new BinaryComputingIterator(#[].iterator, #[].iterator,  [x, y | x * y] )
+	--> state { ! binaryIterator.hasNext }
 }
 
-method boolean approximatelyEquals(double first, double second, double epsilon){
-	return first - epsilon < second && first + epsilon > second;
+sequence computeResultsWithEmptyIteratorAndDefault "Multiplisering med tomme interne iteratorer og default"{
+	instance binaryIterator = new BinaryComputingIterator(#[].iterator, #[].iterator, 1.0, 2.0, [x, y | x * y] )
+	--> state { ! binaryIterator.hasNext }
+}
+
+method boolean operator_assertEquals(double first, double second) {
+	assertEquals(first, second, 0.000001d);
+	return true;
 }

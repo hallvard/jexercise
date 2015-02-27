@@ -1,7 +1,7 @@
 package delegation;
 
 import delegation.BinaryComputingIterator;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.function.BinaryOperator;
 import junit.framework.TestCase;
@@ -15,47 +15,22 @@ public class BinaryComputingIteratorTest extends TestCase {
   private Iterator<Double> iterator1;
   
   private Iterator<Double> _init_iterator1() {
-    ArrayList<Double> _newArrayList = CollectionLiterals.<Double>newArrayList(Double.valueOf(0.5), Double.valueOf((-2.0)));
-    Iterator<Double> _iterator = _newArrayList.iterator();
+    Iterator<Double> _iterator = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(0.5), Double.valueOf((-2.0)))).iterator();
     return _iterator;
   }
   
   private Iterator<Double> iterator2;
   
   private Iterator<Double> _init_iterator2() {
-    ArrayList<Double> _newArrayList = CollectionLiterals.<Double>newArrayList(Double.valueOf(5.0), Double.valueOf(3.0));
-    Iterator<Double> _iterator = _newArrayList.iterator();
+    Iterator<Double> _iterator = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(5.0), Double.valueOf(3.0))).iterator();
     return _iterator;
   }
   
   private Iterator<Double> iteratorShort;
   
   private Iterator<Double> _init_iteratorShort() {
-    ArrayList<Double> _newArrayList = CollectionLiterals.<Double>newArrayList(Double.valueOf(5.0));
-    Iterator<Double> _iterator = _newArrayList.iterator();
+    Iterator<Double> _iterator = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList(Double.valueOf(5.0))).iterator();
     return _iterator;
-  }
-  
-  private Iterator<Double> iteratorEmpty1;
-  
-  private Iterator<Double> _init_iteratorEmpty1() {
-    ArrayList<Double> _newArrayList = CollectionLiterals.<Double>newArrayList();
-    Iterator<Double> _iterator = _newArrayList.iterator();
-    return _iterator;
-  }
-  
-  private Iterator<Double> iteratorEmpty2;
-  
-  private Iterator<Double> _init_iteratorEmpty2() {
-    ArrayList<Double> _newArrayList = CollectionLiterals.<Double>newArrayList();
-    Iterator<Double> _iterator = _newArrayList.iterator();
-    return _iterator;
-  }
-  
-  private double epsilon;
-  
-  private double _init_epsilon() {
-    return 0.000001d;
   }
   
   @Override
@@ -63,17 +38,15 @@ public class BinaryComputingIteratorTest extends TestCase {
     iterator1 = _init_iterator1();
     iterator2 = _init_iterator2();
     iteratorShort = _init_iteratorShort();
-    iteratorEmpty1 = _init_iteratorEmpty1();
-    iteratorEmpty2 = _init_iteratorEmpty2();
-    epsilon = _init_epsilon();
     
   }
   
-  private boolean approximatelyEquals(final double first, final double second, final double epsilon) {
-    return (((first - epsilon) < second) && ((first + epsilon) > second));
+  private boolean operator_assertEquals(final double first, final double second) {
+    TestCase.assertEquals(first, second, 0.000001d);
+    return true;
   }
   
-  @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,java.util.function.BinaryOperator<Double>);Double next()", description = "<h3>BinaryOperator som multipliserer</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Henter verdi: approximatelyEquals(binaryIterator.next, 2.5, epsilon) == true</li>\r\n\t\t<li>Henter verdi: approximatelyEquals(binaryIterator.next, -6.0, epsilon) == true</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,java.util.function.BinaryOperator<Double>);Double next()", description = "<h3>BinaryOperator som multipliserer</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Sjekker f\u00F8rste verdi: binaryIterator.next ?= 2.5</li>\n\t\t<li>Sjekker andre verdi: binaryIterator.next ?= -6.0</li>\n\t\t</ul>\n")
   public void testComputeResultsMultiplication() {
     BinaryComputingIterator binaryIterator = _init__computeResultsMultiplication_binaryIterator();
     _transition_exprAction__computeResultsMultiplication_transitions0_actions0(binaryIterator);
@@ -83,7 +56,7 @@ public class BinaryComputingIteratorTest extends TestCase {
     
   }
   
-  @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,java.util.function.BinaryOperator<Double>);Double next()", description = "<h3>BinaryOperator som adderer</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Henter verdi: approximatelyEquals(binaryIterator.next, 5.5, epsilon) == true</li>\r\n\t\t<li>Henter verdi: approximatelyEquals(binaryIterator.next, 1.0, epsilon) == true</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,java.util.function.BinaryOperator<Double>);Double next()", description = "<h3>BinaryOperator som adderer</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Sjekker f\u00F8rste verdi: binaryIterator.next ?= 5.5</li>\n\t\t<li>Sjekker andre verdi: binaryIterator.next ?= 1.0</li>\n\t\t</ul>\n")
   public void testComputeResultsAddition() {
     BinaryComputingIterator binaryIterator = _init__computeResultsAddition_binaryIterator();
     _transition_exprAction__computeResultsAddition_transitions0_actions0(binaryIterator);
@@ -93,7 +66,7 @@ public class BinaryComputingIteratorTest extends TestCase {
     
   }
   
-  @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,java.util.function.BinaryOperator<Double>);Double next()", description = "<h3>Multiplisering med ujevnt antall verdier i interne iteratorer</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Henter verdi: approximatelyEquals(binaryIterator.next, 2.5, epsilon) == true</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,java.util.function.BinaryOperator<Double>);Double next()", description = "<h3>Multiplisering med ujevnt antall verdier i interne iteratorer</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Henter verdi: binaryIterator.next ?= 2.5</li>\n\t\t</ul>\n")
   public void testComputeResultsWithShortIterator() {
     BinaryComputingIterator binaryIterator = _init__computeResultsWithShortIterator_binaryIterator();
     _transition_exprAction__computeResultsWithShortIterator_transitions0_actions0(binaryIterator);
@@ -101,10 +74,27 @@ public class BinaryComputingIteratorTest extends TestCase {
     
   }
   
-  @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,java.util.function.BinaryOperator<Double>)", description = "<h3>Multiplisering med tomme interne iteratorer</h3>Tests \r\n\t\tinitialization\r\n")
+  @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,Double,Double,java.util.function.BinaryOperator<Double>);Double next()", description = "<h3>Multiplisering med ujevnt antall verdier i interne iteratorer og default</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Sjekker f\u00F8rste verdi: binaryIterator.next ?= 2.5</li>\n\t\t<li>Sjekker andre verdi: binaryIterator.next ?= -4.0</li>\n\t\t</ul>\n")
+  public void testComputeResultsWithShortIteratorAndDefault() {
+    BinaryComputingIterator binaryIterator = _init__computeResultsWithShortIteratorAndDefault_binaryIterator();
+    _transition_exprAction__computeResultsWithShortIteratorAndDefault_transitions0_actions0(binaryIterator);
+    _test__computeResultsWithShortIteratorAndDefault_transitions0_effect_state(binaryIterator);
+    _transition_exprAction__computeResultsWithShortIteratorAndDefault_transitions1_actions0(binaryIterator);
+    _test__computeResultsWithShortIteratorAndDefault_transitions1_effect_state(binaryIterator);
+    
+  }
+  
+  @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,java.util.function.BinaryOperator<Double>)", description = "<h3>Multiplisering med tomme interne iteratorer</h3>Tests \n\t\tinitialization\n")
   public void testComputeResultsWithEmptyIterator() {
     BinaryComputingIterator binaryIterator = _init__computeResultsWithEmptyIterator_binaryIterator();
     _test__computeResultsWithEmptyIterator_transitions0_effect_state(binaryIterator);
+    
+  }
+  
+  @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,Double,Double,java.util.function.BinaryOperator<Double>)", description = "<h3>Multiplisering med tomme interne iteratorer og default</h3>Tests \n\t\tinitialization\n")
+  public void testComputeResultsWithEmptyIteratorAndDefault() {
+    BinaryComputingIterator binaryIterator = _init__computeResultsWithEmptyIteratorAndDefault_binaryIterator();
+    _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effect_state(binaryIterator);
     
   }
   
@@ -121,8 +111,8 @@ public class BinaryComputingIteratorTest extends TestCase {
   private void _transition_exprAction__computeResultsMultiplication_transitions0_actions0(final BinaryComputingIterator binaryIterator) {
     
     Double _next = binaryIterator.next();
-    boolean _approximatelyEquals = this.approximatelyEquals((_next).doubleValue(), 2.5, this.epsilon);
-    assertEquals("approximatelyEquals(binaryIterator.next, 2.5, epsilon) == true failed", true, _approximatelyEquals);
+    boolean _assertEquals = this.operator_assertEquals((_next).doubleValue(), 2.5);
+    assertTrue("binaryIterator.next ?= 2.5 failed", Boolean.valueOf(_assertEquals));
     
   }
   
@@ -133,15 +123,15 @@ public class BinaryComputingIteratorTest extends TestCase {
   
   private void _test__computeResultsMultiplication_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
-    assertTrue("binaryIterator.hasNext failed after approximatelyEquals(binaryIterator.next, 2.5, epsilon) == true", binaryIterator.hasNext());
+    assertTrue("binaryIterator.hasNext failed after binaryIterator.next ?= 2.5", binaryIterator.hasNext());
     
   }
   
   private void _transition_exprAction__computeResultsMultiplication_transitions1_actions0(final BinaryComputingIterator binaryIterator) {
     
     Double _next = binaryIterator.next();
-    boolean _approximatelyEquals = this.approximatelyEquals((_next).doubleValue(), (-6.0), this.epsilon);
-    assertEquals("approximatelyEquals(binaryIterator.next, -6.0, epsilon) == true failed", true, _approximatelyEquals);
+    boolean _assertEquals = this.operator_assertEquals((_next).doubleValue(), (-6.0));
+    assertTrue("binaryIterator.next ?= -6.0 failed", Boolean.valueOf(_assertEquals));
     
   }
   
@@ -153,7 +143,7 @@ public class BinaryComputingIteratorTest extends TestCase {
   private void _test__computeResultsMultiplication_transitions1_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     boolean _hasNext = binaryIterator.hasNext();
-    assertTrue("! binaryIterator.hasNext failed after approximatelyEquals(binaryIterator.next, -6.0, epsilon) == true", (!_hasNext));
+    assertTrue("! binaryIterator.hasNext failed after binaryIterator.next ?= -6.0", (!_hasNext));
     
   }
   
@@ -170,8 +160,8 @@ public class BinaryComputingIteratorTest extends TestCase {
   private void _transition_exprAction__computeResultsAddition_transitions0_actions0(final BinaryComputingIterator binaryIterator) {
     
     Double _next = binaryIterator.next();
-    boolean _approximatelyEquals = this.approximatelyEquals((_next).doubleValue(), 5.5, this.epsilon);
-    assertEquals("approximatelyEquals(binaryIterator.next, 5.5, epsilon) == true failed", true, _approximatelyEquals);
+    boolean _assertEquals = this.operator_assertEquals((_next).doubleValue(), 5.5);
+    assertTrue("binaryIterator.next ?= 5.5 failed", Boolean.valueOf(_assertEquals));
     
   }
   
@@ -182,15 +172,15 @@ public class BinaryComputingIteratorTest extends TestCase {
   
   private void _test__computeResultsAddition_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
-    assertTrue("binaryIterator.hasNext failed after approximatelyEquals(binaryIterator.next, 5.5, epsilon) == true", binaryIterator.hasNext());
+    assertTrue("binaryIterator.hasNext failed after binaryIterator.next ?= 5.5", binaryIterator.hasNext());
     
   }
   
   private void _transition_exprAction__computeResultsAddition_transitions1_actions0(final BinaryComputingIterator binaryIterator) {
     
     Double _next = binaryIterator.next();
-    boolean _approximatelyEquals = this.approximatelyEquals((_next).doubleValue(), 1.0, this.epsilon);
-    assertEquals("approximatelyEquals(binaryIterator.next, 1.0, epsilon) == true failed", true, _approximatelyEquals);
+    boolean _assertEquals = this.operator_assertEquals((_next).doubleValue(), 1.0);
+    assertTrue("binaryIterator.next ?= 1.0 failed", Boolean.valueOf(_assertEquals));
     
   }
   
@@ -202,7 +192,7 @@ public class BinaryComputingIteratorTest extends TestCase {
   private void _test__computeResultsAddition_transitions1_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     boolean _hasNext = binaryIterator.hasNext();
-    assertTrue("! binaryIterator.hasNext failed after approximatelyEquals(binaryIterator.next, 1.0, epsilon) == true", (!_hasNext));
+    assertTrue("! binaryIterator.hasNext failed after binaryIterator.next ?= 1.0", (!_hasNext));
     
   }
   
@@ -219,8 +209,8 @@ public class BinaryComputingIteratorTest extends TestCase {
   private void _transition_exprAction__computeResultsWithShortIterator_transitions0_actions0(final BinaryComputingIterator binaryIterator) {
     
     Double _next = binaryIterator.next();
-    boolean _approximatelyEquals = this.approximatelyEquals((_next).doubleValue(), 2.5, this.epsilon);
-    assertEquals("approximatelyEquals(binaryIterator.next, 2.5, epsilon) == true failed", true, _approximatelyEquals);
+    boolean _assertEquals = this.operator_assertEquals((_next).doubleValue(), 2.5);
+    assertTrue("binaryIterator.next ?= 2.5 failed", Boolean.valueOf(_assertEquals));
     
   }
   
@@ -232,17 +222,68 @@ public class BinaryComputingIteratorTest extends TestCase {
   private void _test__computeResultsWithShortIterator_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     boolean _hasNext = binaryIterator.hasNext();
-    assertTrue("! binaryIterator.hasNext failed after approximatelyEquals(binaryIterator.next, 2.5, epsilon) == true", (!_hasNext));
+    assertTrue("! binaryIterator.hasNext failed after binaryIterator.next ?= 2.5", (!_hasNext));
     
   }
   
-  private BinaryComputingIterator _init__computeResultsWithEmptyIterator_binaryIterator() {
+  private BinaryComputingIterator _init__computeResultsWithShortIteratorAndDefault_binaryIterator() {
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
       public Double apply(final Double x, final Double y) {
         return Double.valueOf(DoubleExtensions.operator_multiply(x, y));
       }
     };
-    BinaryComputingIterator _binaryComputingIterator = new BinaryComputingIterator(this.iteratorEmpty1, this.iteratorEmpty2, _function);
+    BinaryComputingIterator _binaryComputingIterator = new BinaryComputingIterator(this.iterator1, this.iteratorShort, null, Double.valueOf(2.0), _function);
+    return _binaryComputingIterator;
+  }
+  
+  private void _transition_exprAction__computeResultsWithShortIteratorAndDefault_transitions0_actions0(final BinaryComputingIterator binaryIterator) {
+    
+    Double _next = binaryIterator.next();
+    boolean _assertEquals = this.operator_assertEquals((_next).doubleValue(), 2.5);
+    assertTrue("binaryIterator.next ?= 2.5 failed", Boolean.valueOf(_assertEquals));
+    
+  }
+  
+  private void _test__computeResultsWithShortIteratorAndDefault_transitions0_effect_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsWithShortIteratorAndDefault_transitions0_effect_state_objectTests0_test(binaryIterator);
+    
+  }
+  
+  private void _test__computeResultsWithShortIteratorAndDefault_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+    
+    assertTrue("binaryIterator.hasNext failed after binaryIterator.next ?= 2.5", binaryIterator.hasNext());
+    
+  }
+  
+  private void _transition_exprAction__computeResultsWithShortIteratorAndDefault_transitions1_actions0(final BinaryComputingIterator binaryIterator) {
+    
+    Double _next = binaryIterator.next();
+    boolean _assertEquals = this.operator_assertEquals((_next).doubleValue(), (-4.0));
+    assertTrue("binaryIterator.next ?= -4.0 failed", Boolean.valueOf(_assertEquals));
+    
+  }
+  
+  private void _test__computeResultsWithShortIteratorAndDefault_transitions1_effect_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsWithShortIteratorAndDefault_transitions1_effect_state_objectTests0_test(binaryIterator);
+    
+  }
+  
+  private void _test__computeResultsWithShortIteratorAndDefault_transitions1_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+    
+    boolean _hasNext = binaryIterator.hasNext();
+    assertTrue("! binaryIterator.hasNext failed after binaryIterator.next ?= -4.0", (!_hasNext));
+    
+  }
+  
+  private BinaryComputingIterator _init__computeResultsWithEmptyIterator_binaryIterator() {
+    Iterator<Double> _iterator = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()).iterator();
+    Iterator<Double> _iterator_1 = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()).iterator();
+    final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+      public Double apply(final Double x, final Double y) {
+        return Double.valueOf(DoubleExtensions.operator_multiply(x, y));
+      }
+    };
+    BinaryComputingIterator _binaryComputingIterator = new BinaryComputingIterator(_iterator, _iterator_1, _function);
     return _binaryComputingIterator;
   }
   
@@ -252,6 +293,30 @@ public class BinaryComputingIteratorTest extends TestCase {
   }
   
   private void _test__computeResultsWithEmptyIterator_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+    
+    boolean _hasNext = binaryIterator.hasNext();
+    assertTrue("! binaryIterator.hasNext failed", (!_hasNext));
+    
+  }
+  
+  private BinaryComputingIterator _init__computeResultsWithEmptyIteratorAndDefault_binaryIterator() {
+    Iterator<Double> _iterator = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()).iterator();
+    Iterator<Double> _iterator_1 = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()).iterator();
+    final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+      public Double apply(final Double x, final Double y) {
+        return Double.valueOf(DoubleExtensions.operator_multiply(x, y));
+      }
+    };
+    BinaryComputingIterator _binaryComputingIterator = new BinaryComputingIterator(_iterator, _iterator_1, Double.valueOf(1.0), Double.valueOf(2.0), _function);
+    return _binaryComputingIterator;
+  }
+  
+  private void _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effect_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effect_state_objectTests0_test(binaryIterator);
+    
+  }
+  
+  private void _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     boolean _hasNext = binaryIterator.hasNext();
     assertTrue("! binaryIterator.hasNext failed", (!_hasNext));
