@@ -1,9 +1,10 @@
 package delegation;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
+import com.google.common.base.Objects;
 import delegation.DistributingLogger;
 import delegation.ILogger;
 import delegation.StreamLogger;
+import java.io.ByteArrayOutputStream;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 
@@ -16,32 +17,32 @@ public class DistributingLoggerTest extends TestCase {
     return "%s: %s (%s)";
   }
   
-  private ByteOutputStream infoStream;
+  private ByteArrayOutputStream infoStream;
   
-  private ByteOutputStream _init_infoStream() {
-    ByteOutputStream _byteOutputStream = new ByteOutputStream();
-    return _byteOutputStream;
+  private ByteArrayOutputStream _init_infoStream() {
+    ByteArrayOutputStream _byteArrayOutputStream = new ByteArrayOutputStream();
+    return _byteArrayOutputStream;
   }
   
-  private ByteOutputStream warnStream;
+  private ByteArrayOutputStream warnStream;
   
-  private ByteOutputStream _init_warnStream() {
-    ByteOutputStream _byteOutputStream = new ByteOutputStream();
-    return _byteOutputStream;
+  private ByteArrayOutputStream _init_warnStream() {
+    ByteArrayOutputStream _byteArrayOutputStream = new ByteArrayOutputStream();
+    return _byteArrayOutputStream;
   }
   
-  private ByteOutputStream errorStream;
+  private ByteArrayOutputStream errorStream;
   
-  private ByteOutputStream _init_errorStream() {
-    ByteOutputStream _byteOutputStream = new ByteOutputStream();
-    return _byteOutputStream;
+  private ByteArrayOutputStream _init_errorStream() {
+    ByteArrayOutputStream _byteArrayOutputStream = new ByteArrayOutputStream();
+    return _byteArrayOutputStream;
   }
   
-  private ByteOutputStream newInfoStream;
+  private ByteArrayOutputStream newInfoStream;
   
-  private ByteOutputStream _init_newInfoStream() {
-    ByteOutputStream _byteOutputStream = new ByteOutputStream();
-    return _byteOutputStream;
+  private ByteArrayOutputStream _init_newInfoStream() {
+    ByteArrayOutputStream _byteArrayOutputStream = new ByteArrayOutputStream();
+    return _byteArrayOutputStream;
   }
   
   private StreamLogger infoLogger;
@@ -86,9 +87,9 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  private boolean checkStreamContent(final ByteOutputStream stream, final String content) {
+  private boolean operator_equals(final ByteArrayOutputStream stream, final String content) {
     String _string = stream.toString();
-    return _string.equals(content);
+    return Objects.equal(_string, content);
   }
   
   @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Skriver en melding til INFO: infoLogger.formatString = formatString, logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)</li>\r\n\t\t</ul>\r\n")
@@ -157,13 +158,16 @@ public class DistributingLoggerTest extends TestCase {
   private void _test__logToInfo_transitions0_effect_state_objectTests0_test() {
     
     String _format = String.format(this.formatString, ILogger.INFO, "Dette er en info-melding.", null);
-    boolean _checkStreamContent = this.checkStreamContent(this.infoStream, _format);
-    assertTrue("checkStreamContent(infoStream, String.format(formatString, ILogger.INFO, \"Dette er en info-melding.\", null)) failed after infoLogger.formatString = formatString ,logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)", _checkStreamContent);
+    boolean _equals = this.operator_equals(
+      this.infoStream, _format);
+    assertTrue("infoStream == String.format(formatString, ILogger.INFO, \"Dette er en info-melding.\", null) failed after infoLogger.formatString = formatString ,logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)", _equals);
     
-    boolean _checkStreamContent_1 = this.checkStreamContent(this.warnStream, "");
-    assertTrue("checkStreamContent(warnStream, \"\") failed after infoLogger.formatString = formatString ,logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)", _checkStreamContent_1);
+    boolean _equals_1 = this.operator_equals(
+      this.warnStream, "");
+    assertTrue("warnStream == \"\" failed after infoLogger.formatString = formatString ,logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)", _equals_1);
     
-    assertTrue("checkStreamContent(errorStream, \"\") failed after infoLogger.formatString = formatString ,logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)", this.checkStreamContent(this.errorStream, ""));
+    assertTrue("errorStream == \"\" failed after infoLogger.formatString = formatString ,logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)", this.operator_equals(
+      this.errorStream, ""));
     
   }
   
@@ -194,14 +198,17 @@ public class DistributingLoggerTest extends TestCase {
   
   private void _test__logToWarn_transitions0_effect_state_objectTests0_test() {
     
-    boolean _checkStreamContent = this.checkStreamContent(this.infoStream, "");
-    assertTrue("checkStreamContent(infoStream, \"\") failed after infoLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", _checkStreamContent);
+    boolean _equals = this.operator_equals(
+      this.infoStream, "");
+    assertTrue("infoStream == \"\" failed after infoLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", _equals);
     
     String _format = String.format(this.formatString, ILogger.WARNING, "Dette er en advarsel.", null);
-    boolean _checkStreamContent_1 = this.checkStreamContent(this.warnStream, _format);
-    assertTrue("checkStreamContent(warnStream, String.format(formatString, ILogger.WARNING, \"Dette er en advarsel.\", null)) failed after infoLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", _checkStreamContent_1);
+    boolean _equals_1 = this.operator_equals(
+      this.warnStream, _format);
+    assertTrue("warnStream == String.format(formatString, ILogger.WARNING, \"Dette er en advarsel.\", null) failed after infoLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", _equals_1);
     
-    assertTrue("checkStreamContent(errorStream, \"\") failed after infoLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", this.checkStreamContent(this.errorStream, ""));
+    assertTrue("errorStream == \"\" failed after infoLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", this.operator_equals(
+      this.errorStream, ""));
     
   }
   
@@ -237,14 +244,17 @@ public class DistributingLoggerTest extends TestCase {
   
   private void _test__logToError_transitions0_effect_state_objectTests0_test(final Exception exception) {
     
-    boolean _checkStreamContent = this.checkStreamContent(this.infoStream, "");
-    assertTrue("checkStreamContent(infoStream, \"\") failed after infoLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", _checkStreamContent);
+    boolean _equals = this.operator_equals(
+      this.infoStream, "");
+    assertTrue("infoStream == \"\" failed after infoLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", _equals);
     
-    boolean _checkStreamContent_1 = this.checkStreamContent(this.warnStream, "");
-    assertTrue("checkStreamContent(warnStream, \"\") failed after infoLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", _checkStreamContent_1);
+    boolean _equals_1 = this.operator_equals(
+      this.warnStream, "");
+    assertTrue("warnStream == \"\" failed after infoLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", _equals_1);
     
     String _format = String.format(this.formatString, ILogger.ERROR, "Dette er en feilmelding.", exception);
-    assertTrue("checkStreamContent(errorStream, String.format(formatString, ILogger.ERROR, \"Dette er en feilmelding.\", exception)) failed after infoLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", this.checkStreamContent(this.errorStream, _format));
+    assertTrue("errorStream == String.format(formatString, ILogger.ERROR, \"Dette er en feilmelding.\", exception) failed after infoLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", this.operator_equals(
+      this.errorStream, _format));
     
   }
   
@@ -281,7 +291,8 @@ public class DistributingLoggerTest extends TestCase {
   private void _test__changeInfoLogger_transitions0_effect_state_objectTests0_test(final StreamLogger newInfoLogger) {
     
     String _format = String.format(this.formatString, ILogger.INFO, "Dette er en info-melding.", null);
-    assertTrue("checkStreamContent(infoStream, String.format(formatString, ILogger.INFO, \"Dette er en info-melding.\", null)) failed after infoLogger.formatString = formatString ,logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)", this.checkStreamContent(this.infoStream, _format));
+    assertTrue("infoStream == String.format(formatString, ILogger.INFO, \"Dette er en info-melding.\", null) failed after infoLogger.formatString = formatString ,logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)", this.operator_equals(
+      this.infoStream, _format));
     
   }
   
@@ -323,11 +334,13 @@ public class DistributingLoggerTest extends TestCase {
   private void _test__changeInfoLogger_transitions1_effect_state_objectTests0_test(final StreamLogger newInfoLogger) {
     
     String _format = String.format(this.formatString, ILogger.INFO, "Dette er en info-melding.", null);
-    boolean _checkStreamContent = this.checkStreamContent(this.infoStream, _format);
-    assertTrue("checkStreamContent(infoStream, String.format(formatString, ILogger.INFO, \"Dette er en info-melding.\", null)) failed after newInfoLogger.formatString = formatString ,logger.setLogger(ILogger.INFO, newInfoLogger) ,logger.log(ILogger.INFO, \"Dette er en den andre info-meldingen.\", null)", _checkStreamContent);
+    boolean _equals = this.operator_equals(
+      this.infoStream, _format);
+    assertTrue("infoStream == String.format(formatString, ILogger.INFO, \"Dette er en info-melding.\", null) failed after newInfoLogger.formatString = formatString ,logger.setLogger(ILogger.INFO, newInfoLogger) ,logger.log(ILogger.INFO, \"Dette er en den andre info-meldingen.\", null)", _equals);
     
     String _format_1 = String.format(this.formatString, ILogger.INFO, "Dette er en den andre info-meldingen.", null);
-    assertTrue("checkStreamContent(newInfoStream, String.format(formatString, ILogger.INFO, \"Dette er en den andre info-meldingen.\", null)) failed after newInfoLogger.formatString = formatString ,logger.setLogger(ILogger.INFO, newInfoLogger) ,logger.log(ILogger.INFO, \"Dette er en den andre info-meldingen.\", null)", this.checkStreamContent(this.newInfoStream, _format_1));
+    assertTrue("newInfoStream == String.format(formatString, ILogger.INFO, \"Dette er en den andre info-meldingen.\", null) failed after newInfoLogger.formatString = formatString ,logger.setLogger(ILogger.INFO, newInfoLogger) ,logger.log(ILogger.INFO, \"Dette er en den andre info-meldingen.\", null)", this.operator_equals(
+      this.newInfoStream, _format_1));
     
   }
   

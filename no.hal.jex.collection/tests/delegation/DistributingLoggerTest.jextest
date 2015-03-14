@@ -1,15 +1,14 @@
 test delegation.DistributingLogger
 
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream
 import delegation.StreamLogger
-
+import java.io.ByteArrayOutputStream
 
 instance String formatString = "%s: %s (%s)"
 
-instance ByteOutputStream infoStream = new ByteOutputStream()
-instance ByteOutputStream warnStream = new ByteOutputStream()
-instance ByteOutputStream errorStream = new ByteOutputStream()
-instance ByteOutputStream newInfoStream = new ByteOutputStream()
+instance ByteArrayOutputStream infoStream = new ByteArrayOutputStream()
+instance ByteArrayOutputStream warnStream = new ByteArrayOutputStream()
+instance ByteArrayOutputStream errorStream = new ByteArrayOutputStream()
+instance ByteArrayOutputStream newInfoStream = new ByteArrayOutputStream()
 
 instance StreamLogger infoLogger = new StreamLogger(infoStream)
 instance StreamLogger warnLogger = new StreamLogger(warnStream)
@@ -21,18 +20,18 @@ instance DistributingLogger logger = new DistributingLogger(errorLogger, warnLog
 sequence logToInfo{
 	"Skriver en melding til INFO" -- infoLogger.formatString = formatString, logger.log(ILogger.INFO, "Dette er en info-melding.", null) -->
 	state{
-		checkStreamContent(infoStream, String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null))
-		checkStreamContent(warnStream, "")
-		checkStreamContent(errorStream, "")
+		infoStream == String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null)
+		warnStream == ""
+		errorStream == ""
 	}
 }
 
 sequence logToWarn{
 	"Skriver en melding til WARNING" -- infoLogger.formatString = formatString, logger.log(ILogger.WARNING, "Dette er en advarsel.", null) -->
 	state{
-		checkStreamContent(infoStream, "")
-		checkStreamContent(warnStream, String.format(formatString, ILogger.WARNING, "Dette er en advarsel.", null))
-		checkStreamContent(errorStream, "")
+		infoStream == ""
+		warnStream == String.format(formatString, ILogger.WARNING, "Dette er en advarsel.", null)
+		errorStream == ""
 	}
 }
 
@@ -41,9 +40,9 @@ sequence logToError{
 	
 	"Skriver en melding til ERROR" -- infoLogger.formatString = formatString, logger.log(ILogger.ERROR, "Dette er en feilmelding.", exception) -->
 	state {
-		checkStreamContent(infoStream, "")
-		checkStreamContent(warnStream, "")
-		checkStreamContent(errorStream, String.format(formatString, ILogger.ERROR, "Dette er en feilmelding.", exception))
+		infoStream == ""
+		warnStream == ""
+		errorStream == String.format(formatString, ILogger.ERROR, "Dette er en feilmelding.", exception)
 	}
 }
 
@@ -52,7 +51,7 @@ sequence changeInfoLogger{
 	
 	"Skriver til INFO." -- infoLogger.formatString = formatString, logger.log(ILogger.INFO, "Dette er en info-melding.", null) -->
 	state {
-		checkStreamContent(infoStream, String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null))
+		infoStream == String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null)
 	}
 	
 	"Bytter INFO-logger." 
@@ -62,11 +61,11 @@ sequence changeInfoLogger{
 	 logger.log(ILogger.INFO, "Dette er en den andre info-meldingen.", null) 
 	-->
 	state {
-		checkStreamContent(infoStream, String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null))
-		checkStreamContent(newInfoStream, String.format(formatString, ILogger.INFO, "Dette er en den andre info-meldingen.", null))
+		infoStream == String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null)
+		newInfoStream == String.format(formatString, ILogger.INFO, "Dette er en den andre info-meldingen.", null)
 	}
 }
 
-method checkStreamContent(ByteOutputStream stream, String content){
-	return stream.toString().equals(content)
+method boolean operator_equals(ByteArrayOutputStream stream, String content){
+	return stream.toString() == content
 }

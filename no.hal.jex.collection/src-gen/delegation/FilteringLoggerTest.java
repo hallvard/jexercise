@@ -1,9 +1,10 @@
 package delegation;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
+import com.google.common.base.Objects;
 import delegation.FilteringLogger;
 import delegation.ILogger;
 import delegation.StreamLogger;
+import java.io.ByteArrayOutputStream;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 
@@ -16,11 +17,11 @@ public class FilteringLoggerTest extends TestCase {
     return "%s: %s (%s)";
   }
   
-  private ByteOutputStream stream;
+  private ByteArrayOutputStream stream;
   
-  private ByteOutputStream _init_stream() {
-    ByteOutputStream _byteOutputStream = new ByteOutputStream();
-    return _byteOutputStream;
+  private ByteArrayOutputStream _init_stream() {
+    ByteArrayOutputStream _byteArrayOutputStream = new ByteArrayOutputStream();
+    return _byteArrayOutputStream;
   }
   
   private StreamLogger subLogger;
@@ -38,9 +39,9 @@ public class FilteringLoggerTest extends TestCase {
     
   }
   
-  private boolean checkStreamContent(final ByteOutputStream stream, final String content) {
+  private boolean operator_equals(final ByteArrayOutputStream stream, final String content) {
     String _string = stream.toString();
-    return _string.equals(content);
+    return Objects.equal(_string, content);
   }
   
   @JExercise(tests = "FilteringLogger(delegation.ILogger,String[])", description = "Tests \r\n\t\tinitialization\r\n")
@@ -194,7 +195,8 @@ public class FilteringLoggerTest extends TestCase {
   private void _test__errorLogging_transitions0_effect_state_objectTests0_test(final IllegalStateException exception, final FilteringLogger logger) {
     
     String _format = String.format(this.formatString, ILogger.ERROR, "Noe er feil!", exception);
-    assertTrue("checkStreamContent(stream, String.format(formatString, ILogger.ERROR, \"Noe er feil!\", exception)) failed after subLogger.setFormatString(formatString) ,logger.log(ILogger.ERROR, \"Noe er feil!\", exception)", this.checkStreamContent(this.stream, _format));
+    assertTrue("stream == String.format(formatString, ILogger.ERROR, \"Noe er feil!\", exception) failed after subLogger.setFormatString(formatString) ,logger.log(ILogger.ERROR, \"Noe er feil!\", exception)", this.operator_equals(
+      this.stream, _format));
     
   }
   
@@ -235,7 +237,8 @@ public class FilteringLoggerTest extends TestCase {
   
   private void _test__infoToErrorLogger_transitions0_effect_state_objectTests0_test(final IllegalStateException exception, final FilteringLogger logger) {
     
-    assertTrue("checkStreamContent(stream, \"\") failed after subLogger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"Noe er feil!\", exception)", this.checkStreamContent(this.stream, ""));
+    assertTrue("stream == \"\" failed after subLogger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"Noe er feil!\", exception)", this.operator_equals(
+      this.stream, ""));
     
   }
   

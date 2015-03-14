@@ -1,8 +1,9 @@
 package delegation;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
+import com.google.common.base.Objects;
 import delegation.ILogger;
 import delegation.StreamLogger;
+import java.io.ByteArrayOutputStream;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 
@@ -15,11 +16,11 @@ public class StreamLoggerTest extends TestCase {
     return "%s: %s (%s)";
   }
   
-  private ByteOutputStream stream;
+  private ByteArrayOutputStream stream;
   
-  private ByteOutputStream _init_stream() {
-    ByteOutputStream _byteOutputStream = new ByteOutputStream();
-    return _byteOutputStream;
+  private ByteArrayOutputStream _init_stream() {
+    ByteArrayOutputStream _byteArrayOutputStream = new ByteArrayOutputStream();
+    return _byteArrayOutputStream;
   }
   
   private StreamLogger logger;
@@ -37,9 +38,9 @@ public class StreamLoggerTest extends TestCase {
     
   }
   
-  private boolean checkStreamContent(final ByteOutputStream stream, final String content) {
+  private boolean operator_equals(final ByteArrayOutputStream stream, final String content) {
     String _string = stream.toString();
-    return _string.equals(content);
+    return Objects.equal(_string, content);
   }
   
   @JExercise(tests = "StreamLogger(java.io.OutputStream);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Logger infomelding: logger.log(ILogger.INFO, \"En melding ble logget!\", null)</li>\r\n\t\t</ul>\r\n")
@@ -126,7 +127,8 @@ public class StreamLoggerTest extends TestCase {
   private void _test__logException_transitions0_effect_state_objectTests0_test(final IllegalStateException exception) {
     
     String _format = String.format(this.formatString, ILogger.INFO, "En melding ble logget!", exception);
-    assertTrue("checkStreamContent(stream, String.format(formatString, ILogger.INFO, \"En melding ble logget!\", exception)) failed after logger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"En melding ble logget!\", exception)", this.checkStreamContent(this.stream, _format));
+    assertTrue("stream == String.format(formatString, ILogger.INFO, \"En melding ble logget!\", exception) failed after logger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"En melding ble logget!\", exception)", this.operator_equals(
+      this.stream, _format));
     
   }
   
@@ -163,7 +165,8 @@ public class StreamLoggerTest extends TestCase {
   private void _test__logWithFormat_transitions0_effect_state_objectTests0_test(final IllegalStateException exception) {
     
     String _format = String.format(this.formatString, ILogger.INFO, "En melding ble logget!", exception);
-    assertTrue("checkStreamContent(stream, String.format(formatString, ILogger.INFO, \"En melding ble logget!\", exception)) failed after logger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"En melding ble logget!\", exception)", this.checkStreamContent(this.stream, _format));
+    assertTrue("stream == String.format(formatString, ILogger.INFO, \"En melding ble logget!\", exception) failed after logger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"En melding ble logget!\", exception)", this.operator_equals(
+      this.stream, _format));
     
   }
   

@@ -1,10 +1,10 @@
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream
+import java.io.ByteArrayOutputStream
 
 test delegation.FilteringLogger
 
 instance String formatString = "%s: %s (%s)"
 
-instance ByteOutputStream stream = new ByteOutputStream()
+instance ByteArrayOutputStream stream = new ByteArrayOutputStream()
 instance StreamLogger subLogger = new StreamLogger(stream)
 
 
@@ -39,7 +39,7 @@ sequence errorLogging{
 	
 	"Logger med alvorlighetsgrad ERROR"-- subLogger.setFormatString(formatString), logger.log(ILogger.ERROR, "Noe er feil!", exception)  
 	--> state {
-		checkStreamContent(stream, String.format(formatString, ILogger.ERROR, "Noe er feil!", exception))
+		stream == String.format(formatString, ILogger.ERROR, "Noe er feil!", exception)
 	}
 }
 
@@ -49,10 +49,10 @@ sequence infoToErrorLogger{
 	
 	"Logger med alvorlighetsgrad INFO"-- subLogger.setFormatString(formatString), logger.log(ILogger.INFO, "Noe er feil!", exception)  
 	--> state {
-		checkStreamContent(stream, "")
+		stream == ""
 	}
 }
 
-method checkStreamContent(ByteOutputStream stream, String content){
-	return stream.toString().equals(content)
+method boolean operator_equals(ByteArrayOutputStream stream, String content){
+	return stream.toString() == content
 }
