@@ -1,0 +1,39 @@
+import java.io.OutputStream
+import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream
+
+test delegation.StreamLogger
+
+instance String formatString = "%s: %s (%s)"
+
+instance ByteOutputStream stream = new ByteOutputStream()
+instance StreamLogger logger = new StreamLogger(stream)
+
+sequence log {
+	"Logger infomelding" -- logger.log(ILogger.INFO, "En melding ble logget!", null) -->
+	state{
+		stream.toString().contains("En melding ble logget!")
+		stream.toString().contains(ILogger.INFO)		
+	}
+}
+
+sequence logException {
+	instance IllegalStateException exception = new IllegalStateException
+	"Logger unntak" -- logger.setFormatString(formatString), logger.log(ILogger.INFO, "En melding ble logget!", exception) -->
+	state{
+		checkStreamContent(stream, String.format(formatString, ILogger.INFO, "En melding ble logget!", exception))		
+	}
+}
+
+
+sequence logWithFormat {
+	instance IllegalStateException exception = new IllegalStateException
+	"Logger infomelding med spesifisert format" -- logger.setFormatString(formatString), logger.log(ILogger.INFO, "En melding ble logget!", exception) -->
+	state{
+		checkStreamContent(stream, String.format(formatString, ILogger.INFO, "En melding ble logget!", exception))		
+	}
+}
+
+
+method checkStreamContent(ByteOutputStream stream, String content){
+	return stream.toString().equals(content)
+}

@@ -1,0 +1,58 @@
+import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream
+
+test delegation.FilteringLogger
+
+instance String formatString = "%s: %s (%s)"
+
+instance ByteOutputStream stream = new ByteOutputStream()
+instance StreamLogger subLogger = new StreamLogger(stream)
+
+
+sequence noSeverities {
+	instance FilteringLogger logger = new FilteringLogger(subLogger)
+	--> state{
+		! logger.isLogging(ILogger.INFO)
+		! logger.isLogging(ILogger.WARNING)
+		! logger.isLogging(ILogger.ERROR)
+	}
+}
+
+sequence errorAndWarningSeverities {
+	instance FilteringLogger logger = new FilteringLogger(subLogger, ILogger.WARNING)
+	--> 
+	state{
+		! logger.isLogging(ILogger.INFO)
+		logger.isLogging(ILogger.WARNING)
+		! logger.isLogging(ILogger.ERROR)
+	} 
+	-- logger.setIsLogging(ILogger.ERROR, true) -->
+	state {
+		! logger.isLogging(ILogger.INFO)
+		logger.isLogging(ILogger.WARNING)
+		logger.isLogging(ILogger.ERROR)
+	}
+}
+
+sequence errorLogging{
+	instance IllegalStateException exception = new IllegalStateException
+	instance FilteringLogger logger = new FilteringLogger(subLogger, ILogger.ERROR)
+	
+	"Logger med alvorlighetsgrad ERROR"-- subLogger.setFormatString(formatString), logger.log(ILogger.ERROR, "Noe er feil!", exception)  
+	--> state {
+		checkStreamContent(stream, String.format(formatString, ILogger.ERROR, "Noe er feil!", exception))
+	}
+}
+
+sequence infoToErrorLogger{
+	instance IllegalStateException exception = new IllegalStateException
+	instance FilteringLogger logger = new FilteringLogger(subLogger, ILogger.ERROR)
+	
+	"Logger med alvorlighetsgrad INFO"-- subLogger.setFormatString(formatString), logger.log(ILogger.INFO, "Noe er feil!", exception)  
+	--> state {
+		checkStreamContent(stream, "")
+	}
+}
+
+method checkStreamContent(ByteOutputStream stream, String content){
+	return stream.toString().equals(content)
+}

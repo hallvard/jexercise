@@ -1,0 +1,72 @@
+test delegation.DistributingLogger
+
+import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream
+import delegation.StreamLogger
+
+
+instance String formatString = "%s: %s (%s)"
+
+instance ByteOutputStream infoStream = new ByteOutputStream()
+instance ByteOutputStream warnStream = new ByteOutputStream()
+instance ByteOutputStream errorStream = new ByteOutputStream()
+instance ByteOutputStream newInfoStream = new ByteOutputStream()
+
+instance StreamLogger infoLogger = new StreamLogger(infoStream)
+instance StreamLogger warnLogger = new StreamLogger(warnStream)
+instance StreamLogger errorLogger = new StreamLogger(errorStream)
+
+instance DistributingLogger logger = new DistributingLogger(errorLogger, warnLogger, infoLogger)
+
+
+sequence logToInfo{
+	"Skriver en melding til INFO" -- infoLogger.formatString = formatString, logger.log(ILogger.INFO, "Dette er en info-melding.", null) -->
+	state{
+		checkStreamContent(infoStream, String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null))
+		checkStreamContent(warnStream, "")
+		checkStreamContent(errorStream, "")
+	}
+}
+
+sequence logToWarn{
+	"Skriver en melding til WARNING" -- infoLogger.formatString = formatString, logger.log(ILogger.WARNING, "Dette er en advarsel.", null) -->
+	state{
+		checkStreamContent(infoStream, "")
+		checkStreamContent(warnStream, String.format(formatString, ILogger.WARNING, "Dette er en advarsel.", null))
+		checkStreamContent(errorStream, "")
+	}
+}
+
+sequence logToError{
+	instance Exception exception = new IllegalStateException
+	
+	"Skriver en melding til ERROR" -- infoLogger.formatString = formatString, logger.log(ILogger.ERROR, "Dette er en feilmelding.", exception) -->
+	state {
+		checkStreamContent(infoStream, "")
+		checkStreamContent(warnStream, "")
+		checkStreamContent(errorStream, String.format(formatString, ILogger.ERROR, "Dette er en feilmelding.", exception))
+	}
+}
+
+sequence changeInfoLogger{
+	instance StreamLogger newInfoLogger = new StreamLogger(newInfoStream)
+	
+	"Skriver til INFO." -- infoLogger.formatString = formatString, logger.log(ILogger.INFO, "Dette er en info-melding.", null) -->
+	state {
+		checkStreamContent(infoStream, String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null))
+	}
+	
+	"Bytter INFO-logger." 
+	-- 
+	 newInfoLogger.formatString = formatString,
+	 logger.setLogger(ILogger.INFO, newInfoLogger),
+	 logger.log(ILogger.INFO, "Dette er en den andre info-meldingen.", null) 
+	-->
+	state {
+		checkStreamContent(infoStream, String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null))
+		checkStreamContent(newInfoStream, String.format(formatString, ILogger.INFO, "Dette er en den andre info-meldingen.", null))
+	}
+}
+
+method checkStreamContent(ByteOutputStream stream, String content){
+	return stream.toString().equals(content)
+}

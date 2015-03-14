@@ -1,0 +1,173 @@
+package delegation;
+
+import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
+import delegation.ILogger;
+import delegation.StreamLogger;
+import junit.framework.TestCase;
+import no.hal.jex.runtime.JExercise;
+
+@JExercise(description = "Tests delegation.StreamLogger")
+@SuppressWarnings("all")
+public class StreamLoggerTest extends TestCase {
+  private String formatString;
+  
+  private String _init_formatString() {
+    return "%s: %s (%s)";
+  }
+  
+  private ByteOutputStream stream;
+  
+  private ByteOutputStream _init_stream() {
+    ByteOutputStream _byteOutputStream = new ByteOutputStream();
+    return _byteOutputStream;
+  }
+  
+  private StreamLogger logger;
+  
+  private StreamLogger _init_logger() {
+    StreamLogger _streamLogger = new StreamLogger(this.stream);
+    return _streamLogger;
+  }
+  
+  @Override
+  protected void setUp() {
+    formatString = _init_formatString();
+    stream = _init_stream();
+    logger = _init_logger();
+    
+  }
+  
+  private boolean checkStreamContent(final ByteOutputStream stream, final String content) {
+    String _string = stream.toString();
+    return _string.equals(content);
+  }
+  
+  @JExercise(tests = "StreamLogger(java.io.OutputStream);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Logger infomelding: logger.log(ILogger.INFO, \"En melding ble logget!\", null)</li>\r\n\t\t</ul>\r\n")
+  public void testLog() {
+    _transition_exprAction__log_transitions0_actions0();
+    _test__log_transitions0_effect_state();
+    
+  }
+  
+  @JExercise(tests = "StreamLogger(java.io.OutputStream);void setFormatString(String);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Logger unntak: logger.setFormatString(formatString), logger.log(ILogger.INFO, \"En melding ble logget!\", exception)</li>\r\n\t\t</ul>\r\n")
+  public void testLogException() {
+    IllegalStateException exception = _init__logException_exception();
+    _transition_exprAction__logException_transitions0_actions0(exception);
+    _transition_exprAction__logException_transitions0_actions1(exception);
+    _test__logException_transitions0_effect_state(exception);
+    
+  }
+  
+  @JExercise(tests = "StreamLogger(java.io.OutputStream);void setFormatString(String);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Logger infomelding med spesifisert format: logger.setFormatString(formatString), logger.log(ILogger.INFO, \"En melding ble logget!\", exception)</li>\r\n\t\t</ul>\r\n")
+  public void testLogWithFormat() {
+    IllegalStateException exception = _init__logWithFormat_exception();
+    _transition_exprAction__logWithFormat_transitions0_actions0(exception);
+    _transition_exprAction__logWithFormat_transitions0_actions1(exception);
+    _test__logWithFormat_transitions0_effect_state(exception);
+    
+  }
+  
+  private void _transition_exprAction__log_transitions0_actions0() {
+    try {
+      
+      this.logger.log(ILogger.INFO, "En melding ble logget!", null);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("logger.log(ILogger.INFO, \"En melding ble logget!\", null) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__log_transitions0_effect_state() {
+    _test__log_transitions0_effect_state_objectTests0_test();
+    
+  }
+  
+  private void _test__log_transitions0_effect_state_objectTests0_test() {
+    
+    String _string = this.stream.toString();
+    boolean _contains = _string.contains("En melding ble logget!");
+    assertTrue("stream.toString().contains(\"En melding ble logget!\") failed after logger.log(ILogger.INFO, \"En melding ble logget!\", null)", _contains);
+    
+    String _string_1 = this.stream.toString();
+    assertTrue("stream.toString().contains(ILogger.INFO) failed after logger.log(ILogger.INFO, \"En melding ble logget!\", null)", _string_1.contains(ILogger.INFO));
+    
+  }
+  
+  private IllegalStateException _init__logException_exception() {
+    IllegalStateException _illegalStateException = new IllegalStateException();
+    return _illegalStateException;
+  }
+  
+  private void _transition_exprAction__logException_transitions0_actions0(final IllegalStateException exception) {
+    try {
+      
+      this.logger.setFormatString(this.formatString);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("logger.setFormatString(formatString) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _transition_exprAction__logException_transitions0_actions1(final IllegalStateException exception) {
+    try {
+      
+      this.logger.log(ILogger.INFO, "En melding ble logget!", exception);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("logger.log(ILogger.INFO, \"En melding ble logget!\", exception) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__logException_transitions0_effect_state(final IllegalStateException exception) {
+    _test__logException_transitions0_effect_state_objectTests0_test(exception);
+    
+  }
+  
+  private void _test__logException_transitions0_effect_state_objectTests0_test(final IllegalStateException exception) {
+    
+    String _format = String.format(this.formatString, ILogger.INFO, "En melding ble logget!", exception);
+    assertTrue("checkStreamContent(stream, String.format(formatString, ILogger.INFO, \"En melding ble logget!\", exception)) failed after logger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"En melding ble logget!\", exception)", this.checkStreamContent(this.stream, _format));
+    
+  }
+  
+  private IllegalStateException _init__logWithFormat_exception() {
+    IllegalStateException _illegalStateException = new IllegalStateException();
+    return _illegalStateException;
+  }
+  
+  private void _transition_exprAction__logWithFormat_transitions0_actions0(final IllegalStateException exception) {
+    try {
+      
+      this.logger.setFormatString(this.formatString);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("logger.setFormatString(formatString) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _transition_exprAction__logWithFormat_transitions0_actions1(final IllegalStateException exception) {
+    try {
+      
+      this.logger.log(ILogger.INFO, "En melding ble logget!", exception);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("logger.log(ILogger.INFO, \"En melding ble logget!\", exception) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__logWithFormat_transitions0_effect_state(final IllegalStateException exception) {
+    _test__logWithFormat_transitions0_effect_state_objectTests0_test(exception);
+    
+  }
+  
+  private void _test__logWithFormat_transitions0_effect_state_objectTests0_test(final IllegalStateException exception) {
+    
+    String _format = String.format(this.formatString, ILogger.INFO, "En melding ble logget!", exception);
+    assertTrue("checkStreamContent(stream, String.format(formatString, ILogger.INFO, \"En melding ble logget!\", exception)) failed after logger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"En melding ble logget!\", exception)", this.checkStreamContent(this.stream, _format));
+    
+  }
+  
+  public static void main(final String[] args) {
+    no.hal.jex.standalone.JexStandalone.main(StreamLoggerTest.class);
+  }
+}
