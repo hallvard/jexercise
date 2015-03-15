@@ -1,4 +1,4 @@
-test patterns.observable.inheritance.ObservableList
+test patterns.observable.ObservableList
 
 instance observableList = [Object element | element instanceof Integer]
 
@@ -21,15 +21,15 @@ sequence acceptsElement {
 sequence addElement {
 	-- observableList.addElement(5) -->
 	state {
-		testElements(5)
+		observableList ?= #[5]
 	}
 	-- observableList.addElement(6) -->
 	state {
-		testElements(5, 6)
+		observableList ?= #[5, 6]
 	}
 	-- observableList.addElement(0, 2) -->
 	state {
-		testElements(2, 5, 6)
+		observableList ?= #[2, 5, 6]
 	}
 }
 
@@ -45,25 +45,23 @@ sequence listListener {
 	-- observableList.addListListener([list, pos | pos2 = pos]),
 	addElement(5, 0) -->
 	state {
-		testElements(5)
+		observableList ?= #[5]
 	}
 	-- addElement(6, 1) -->
 	state {
-		testElements(5, 6)
+		observableList ?= #[5, 6]
 	}
 	-- addElement(2, 0) -->
 	state {
-		testElements(2, 5, 6)
+		observableList ?= #[2, 5, 6]
 	}
 }
 
-method testElements(int... elements) {
-	assertEquals(elements.length, observableList.size())
-	val iterator = elements.iterator
+method operator_assertEquals(ObservableList observableList, int[] elements) {
+	elements.length ?= observableList.size()
 	var i = 0
-	while (iterator.hasNext) {
-		val next = iterator.next
-		assertEquals(next, observableList.getElement(i))
-		i = i + 1
+	for (element : elements) {
+		element ?= observableList.getElement(i)
+		i++
 	}
 }

@@ -1,12 +1,10 @@
 package patterns.observable;
 
-import java.util.Iterator;
-import java.util.List;
 import junit.framework.TestCase;
+import no.hal.jex.jextest.extensions.JextestExtensions;
 import no.hal.jex.runtime.JExercise;
-import org.eclipse.xtext.xbase.lib.Conversions;
-import patterns.observable.ListListener;
 import patterns.observable.ObservableList;
+import patterns.observable.ObservableListListener;
 
 @JExercise(description = "Tests patterns.observable.ObservableList")
 @SuppressWarnings("all")
@@ -49,18 +47,16 @@ public class ObservableListTest extends TestCase {
     TestCase.assertEquals(this.pos1, this.pos2);
   }
   
-  private void testElements(final int... elements) {
+  private void operator_assertEquals(final ObservableList observableList, final int[] elements) {
     int _length = elements.length;
-    int _size = this.observableList.size();
-    TestCase.assertEquals(_length, _size);
-    final Iterator<Integer> iterator = ((List<Integer>)Conversions.doWrapArray(elements)).iterator();
+    int _size = observableList.size();
+    JextestExtensions.operator_assertEquals(_length, _size);
     int i = 0;
-    while (iterator.hasNext()) {
+    for (final int element : elements) {
       {
-        final Integer next = iterator.next();
-        Object _element = this.observableList.getElement(i);
-        TestCase.assertEquals(next, _element);
-        i = (i + 1);
+        Object _element = observableList.getElement(i);
+        JextestExtensions.operator_assertEquals(Integer.valueOf(element), _element);
+        i++;
       }
     }
   }
@@ -94,7 +90,7 @@ public class ObservableListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "void addListListener(patterns.observable.ListListener)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>observableList.addListListener([list, pos | pos2 = pos]), addElement(5, 0)</li>\n\t\t<li>addElement(6, 1)</li>\n\t\t<li>addElement(2, 0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "void addListListener(patterns.observable.ObservableListListener)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>observableList.addListListener([list, pos | pos2 = pos]), addElement(5, 0)</li>\n\t\t<li>addElement(6, 1)</li>\n\t\t<li>addElement(2, 0)</li>\n\t\t</ul>\n")
   public void testListListener() {
     _transition_exprAction__listListener_transitions0_actions0();
     _transition_exprAction__listListener_transitions0_actions1();
@@ -161,9 +157,10 @@ public class ObservableListTest extends TestCase {
   private void _test__addElement_transitions0_effect_state_objectTests0_test() {
     try {
       
-      this.testElements(5);
+      this.operator_assertEquals(
+        this.observableList, new int[] { 5 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("testElements(5) failed after observableList.addElement(5): " + error.getMessage());
+      fail("observableList ?= #[5] failed after observableList.addElement(5): " + error.getMessage());
     }
     
   }
@@ -186,9 +183,10 @@ public class ObservableListTest extends TestCase {
   private void _test__addElement_transitions1_effect_state_objectTests0_test() {
     try {
       
-      this.testElements(5, 6);
+      this.operator_assertEquals(
+        this.observableList, new int[] { 5, 6 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("testElements(5, 6) failed after observableList.addElement(6): " + error.getMessage());
+      fail("observableList ?= #[5, 6] failed after observableList.addElement(6): " + error.getMessage());
     }
     
   }
@@ -211,9 +209,10 @@ public class ObservableListTest extends TestCase {
   private void _test__addElement_transitions2_effect_state_objectTests0_test() {
     try {
       
-      this.testElements(2, 5, 6);
+      this.operator_assertEquals(
+        this.observableList, new int[] { 2, 5, 6 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("testElements(2, 5, 6) failed after observableList.addElement(0, 2): " + error.getMessage());
+      fail("observableList ?= #[2, 5, 6] failed after observableList.addElement(0, 2): " + error.getMessage());
     }
     
   }
@@ -221,7 +220,7 @@ public class ObservableListTest extends TestCase {
   private void _transition_exprAction__listListener_transitions0_actions0() {
     try {
       
-      final ListListener _function = new ListListener() {
+      final ObservableListListener _function = new ObservableListListener() {
         public void listChanged(final ObservableList list, final int pos) {
           ObservableListTest.this.pos2 = pos;
         }
@@ -251,9 +250,10 @@ public class ObservableListTest extends TestCase {
   private void _test__listListener_transitions0_effect_state_objectTests0_test() {
     try {
       
-      this.testElements(5);
+      this.operator_assertEquals(
+        this.observableList, new int[] { 5 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("testElements(5) failed after observableList.addListListener([list, pos | pos2 = pos]) ,addElement(5, 0): " + error.getMessage());
+      fail("observableList ?= #[5] failed after observableList.addListListener([list, pos | pos2 = pos]) ,addElement(5, 0): " + error.getMessage());
     }
     
   }
@@ -276,9 +276,10 @@ public class ObservableListTest extends TestCase {
   private void _test__listListener_transitions1_effect_state_objectTests0_test() {
     try {
       
-      this.testElements(5, 6);
+      this.operator_assertEquals(
+        this.observableList, new int[] { 5, 6 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("testElements(5, 6) failed after addElement(6, 1): " + error.getMessage());
+      fail("observableList ?= #[5, 6] failed after addElement(6, 1): " + error.getMessage());
     }
     
   }
@@ -301,9 +302,10 @@ public class ObservableListTest extends TestCase {
   private void _test__listListener_transitions2_effect_state_objectTests0_test() {
     try {
       
-      this.testElements(2, 5, 6);
+      this.operator_assertEquals(
+        this.observableList, new int[] { 2, 5, 6 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("testElements(2, 5, 6) failed after addElement(2, 0): " + error.getMessage());
+      fail("observableList ?= #[2, 5, 6] failed after addElement(2, 0): " + error.getMessage());
     }
     
   }
