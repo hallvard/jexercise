@@ -1,0 +1,116 @@
+import patterns.observable.HighscoreList
+
+test patterns.observable.HighscoreList
+
+instance highscoreList = new HighscoreList(3)
+
+sequence constructor {
+	-->
+	state highscoreList {
+		size() == 0
+	}
+}
+
+sequence addElementSimple {
+	-- highscoreList.addResult(5) -->
+	state {
+		testElements(5)
+	}
+	-- highscoreList.addResult(6) -->
+	state {
+		testElements(5, 6)
+	}
+	-- highscoreList.addResult(2) -->
+	state {
+		testElements(2, 5, 6)
+	}
+}
+
+sequence addElementMoreThanMax {
+	-- highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2) -->
+	state {
+		testElements(2, 5, 6)
+	}
+	-- highscoreList.addResult(3) -->
+	state {
+		testElements(2, 3, 5)
+	}
+	-- highscoreList.addResult(7) -->
+	state {
+		testElements(2, 3, 5)
+	}
+}
+
+sequence addElementDuplicate {
+	-- highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2) -->
+	state {
+		testElements(2, 5, 6)
+	}
+	-- highscoreList.addResult(2) -->
+	state {
+		testElements(2, 2, 5)
+	}
+}
+
+val int pos1 = -1, int pos2 = -1
+
+method void addResult(int element, int pos) {
+	pos1 = pos
+	highscoreList.addResult(element)
+	assertEquals(pos1, pos2)
+}
+
+sequence listListenerSimple {
+	-- highscoreList.addListListener([list, pos | pos2 = pos]),
+	addResult(5, 0) -->
+	state {
+		testElements(5)
+	}
+	-- addResult(6, 1) -->
+	state {
+		testElements(5, 6)
+	}
+	-- addResult(2, 0) -->
+	state {
+		testElements(2, 5, 6)
+	}
+}
+
+sequence listListenerMoreThanMax {
+	-- highscoreList.addListListener([list, pos | pos2 = pos]),
+	highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2) -->
+	state {
+		testElements(2, 5, 6)
+	}
+	-- addResult(3, 1) -->
+	state {
+		testElements(2, 3, 5)
+	}
+	-- pos2 = -1, addResult(7, -1) -->
+	state {
+		testElements(2, 3, 5)
+	}
+}
+
+sequence listListenerDuplicate {
+	-- highscoreList.addListListener([list, pos | pos2 = pos]),
+	highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2) -->
+	state {
+		testElements(2, 5, 6)
+	}
+	-- addResult(2, 1) -->
+	state {
+		testElements(2, 2, 5)
+	}
+}
+
+method testElements(int... elements) {
+	assertEquals(elements.length, highscoreList.size())
+	val iterator = elements.iterator
+	var i = 0
+	while (iterator.hasNext) {
+		val next = iterator.next
+		assertEquals(next, highscoreList.getElement(i))
+		i = i + 1
+	}
+}
