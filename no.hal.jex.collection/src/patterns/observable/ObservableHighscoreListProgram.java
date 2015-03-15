@@ -1,13 +1,13 @@
-package patterns.observable.inheritance;
+package patterns.observable;
 
 import java.util.Scanner;
 
-public class HighscoreProgram implements ListListener {
+public class ObservableHighscoreListProgram implements ObservableListListener {
 
-	private HighscoreList highscoreList;
+	private ObservableHighscoreList highscoreList;
 
 	public void init() {
-		this.highscoreList = new HighscoreList(5);
+		this.highscoreList = new ObservableHighscoreList(5);
 		highscoreList.addListListener(this);
 	}
 
@@ -31,7 +31,7 @@ public class HighscoreProgram implements ListListener {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		HighscoreProgram program = new HighscoreProgram();
+		ObservableHighscoreListProgram program = new ObservableHighscoreListProgram();
 		program.init();
 		program.run();
 	}

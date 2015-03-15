@@ -1,10 +1,10 @@
-package patterns.observable.inheritance;
+package patterns.observable;
 
-public class HighscoreList extends ObservableList {
+public class ObservableHighscoreList extends ObservableList {
 
 	private int maxSize;
 	
-	public HighscoreList(int maxSize) {
+	public ObservableHighscoreList(int maxSize) {
 		this.maxSize = maxSize;
 	}
 

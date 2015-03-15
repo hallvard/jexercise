@@ -1,6 +1,7 @@
-package patterns.observable.inheritance;
+package patterns.observable;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public abstract class ObservableList {
@@ -43,20 +44,20 @@ public abstract class ObservableList {
 	
 	//
 	
-	private List<ListListener> listListeners = new ArrayList<ListListener>();
+	private Collection<ObservableListListener> listListeners = new ArrayList<ObservableListListener>();
 
-	public void addListListener(ListListener listListener) {
+	public void addObservableListListener(ObservableListListener listListener) {
 		if (! listListeners.contains(listListener)) {
 			listListeners.add(listListener);
 		}
 	}
 
-	public void removeListListener(ListListener listListener) {
+	public void removeObservableListListener(ObservableListListener listListener) {
 		listListeners.remove(listListener);
 	}
 	
 	protected void fireListChanged(int pos) {
-		for (ListListener listListener : listListeners) {
+		for (ObservableListListener listListener : listListeners) {
 			listListener.listChanged(this, pos);
 		}
 	}

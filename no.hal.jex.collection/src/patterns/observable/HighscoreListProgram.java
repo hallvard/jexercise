@@ -2,7 +2,7 @@ package patterns.observable;
 
 import java.util.Scanner;
 
-public class HighscoreProgram implements ListListener {
+public class HighscoreListProgram implements HighscoreListListener {
 
 	private HighscoreList highscoreList;
 
@@ -31,7 +31,7 @@ public class HighscoreProgram implements ListListener {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		HighscoreProgram program = new HighscoreProgram();
+		HighscoreListProgram program = new HighscoreListProgram();
 		program.init();
 		program.run();
 	}

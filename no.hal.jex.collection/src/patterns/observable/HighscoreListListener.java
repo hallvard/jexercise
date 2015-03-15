@@ -1,5 +1,5 @@
 package patterns.observable;
 
-public interface ListListener {
+public interface HighscoreListListener {
 	public void listChanged(HighscoreList list, int pos);
 }

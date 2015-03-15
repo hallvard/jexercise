@@ -1,9 +1,8 @@
 package patterns.observable;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-
-import patterns.observable.ListListener;
 
 public class HighscoreList {
 
@@ -17,7 +16,6 @@ public class HighscoreList {
 	public HighscoreList(int maxSize) {
 		this.maxSize = maxSize;
 	}
-
 
 	public void addElement(int pos, int element) {
 		if (pos < maxSize) {
@@ -41,20 +39,20 @@ public class HighscoreList {
 		addElement(pos, result);
 	}
 	
-	private List<ListListener> listListeners = new ArrayList<ListListener>();
+	private Collection<HighscoreListListener> listListeners = new ArrayList<HighscoreListListener>();
 
-	public void addListListener(ListListener listListener) {
+	public void addHighscoreListListener(HighscoreListListener listListener) {
 		if (! listListeners.contains(listListener)) {
 			listListeners.add(listListener);
 		}
 	}
 
-	public void removeListListener(ListListener listListener) {
+	public void removeHighscoreListListener(HighscoreListListener listListener) {
 		listListeners.remove(listListener);
 	}
 	
 	protected void fireListChanged(int pos) {
-		for (ListListener listListener : listListeners) {
+		for (HighscoreListListener listListener : listListeners) {
 			listListener.listChanged(this, pos);
 		}
 	}
