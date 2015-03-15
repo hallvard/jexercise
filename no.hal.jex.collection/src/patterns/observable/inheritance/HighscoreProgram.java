@@ -1,4 +1,4 @@
-package patterns.observable;
+package patterns.observable.inheritance;
 
 import java.util.Scanner;
 
@@ -20,7 +20,7 @@ public class HighscoreProgram implements ListListener {
 		scanner.close();
 	}
 
-	public void listChanged(HighscoreList list, int pos) {
+	public void listChanged(ObservableList list, int pos) {
 		for (int i = 0; i < highscoreList.size(); i++) {
 			System.out.println(highscoreList.getElement(i) + (pos == i ? (" <=== @ " + pos) : ""));
 		}

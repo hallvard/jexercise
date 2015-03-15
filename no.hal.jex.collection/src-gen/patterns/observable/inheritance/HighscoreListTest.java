@@ -1,14 +1,15 @@
-package patterns.observable;
+package patterns.observable.inheritance;
 
 import java.util.Iterator;
 import java.util.List;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import org.eclipse.xtext.xbase.lib.Conversions;
-import patterns.observable.HighscoreList;
-import patterns.observable.ListListener;
+import patterns.observable.inheritance.HighscoreList;
+import patterns.observable.inheritance.ListListener;
+import patterns.observable.inheritance.ObservableList;
 
-@JExercise(description = "Tests patterns.observable.HighscoreList")
+@JExercise(description = "Tests patterns.observable.inheritance.HighscoreList")
 @SuppressWarnings("all")
 public class HighscoreListTest extends TestCase {
   private HighscoreList highscoreList;
@@ -53,8 +54,8 @@ public class HighscoreListTest extends TestCase {
     while (iterator.hasNext()) {
       {
         final Integer next = iterator.next();
-        int _element = this.highscoreList.getElement(i);
-        TestCase.assertEquals((next).intValue(), _element);
+        Object _element = this.highscoreList.getElement(i);
+        TestCase.assertEquals(next, _element);
         i = (i + 1);
       }
     }
@@ -101,7 +102,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);void addListListener(patterns.observable.ListListener)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), addResult(5, 0)</li>\r\n\t\t<li>addResult(6, 1)</li>\r\n\t\t<li>addResult(2, 0)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "HighscoreList(int)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), addResult(5, 0)</li>\r\n\t\t<li>addResult(6, 1)</li>\r\n\t\t<li>addResult(2, 0)</li>\r\n\t\t</ul>\r\n")
   public void testListListenerSimple() {
     _transition_exprAction__listListenerSimple_transitions0_actions0();
     _transition_exprAction__listListenerSimple_transitions0_actions1();
@@ -113,7 +114,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);void addListListener(patterns.observable.ListListener);void addResult(Integer)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\r\n\t\t<li>addResult(3, 1)</li>\r\n\t\t<li>pos2 = -1, addResult(7, -1)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "HighscoreList(int);void addResult(Integer)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\r\n\t\t<li>addResult(3, 1)</li>\r\n\t\t<li>pos2 = -1, addResult(7, -1)</li>\r\n\t\t</ul>\r\n")
   public void testListListenerMoreThanMax() {
     _transition_exprAction__listListenerMoreThanMax_transitions0_actions0();
     _transition_exprAction__listListenerMoreThanMax_transitions0_actions1();
@@ -128,7 +129,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);void addListListener(patterns.observable.ListListener);void addResult(Integer)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\r\n\t\t<li>addResult(2, 1)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "HighscoreList(int);void addResult(Integer)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\r\n\t\t<li>addResult(2, 1)</li>\r\n\t\t</ul>\r\n")
   public void testListListenerDuplicate() {
     _transition_exprAction__listListenerDuplicate_transitions0_actions0();
     _transition_exprAction__listListenerDuplicate_transitions0_actions1();
@@ -396,7 +397,7 @@ public class HighscoreListTest extends TestCase {
     try {
       
       final ListListener _function = new ListListener() {
-        public void listChanged(final HighscoreList list, final int pos) {
+        public void listChanged(final ObservableList list, final int pos) {
           HighscoreListTest.this.pos2 = pos;
         }
       };
@@ -486,7 +487,7 @@ public class HighscoreListTest extends TestCase {
     try {
       
       final ListListener _function = new ListListener() {
-        public void listChanged(final HighscoreList list, final int pos) {
+        public void listChanged(final ObservableList list, final int pos) {
           HighscoreListTest.this.pos2 = pos;
         }
       };
@@ -606,7 +607,7 @@ public class HighscoreListTest extends TestCase {
     try {
       
       final ListListener _function = new ListListener() {
-        public void listChanged(final HighscoreList list, final int pos) {
+        public void listChanged(final ObservableList list, final int pos) {
           HighscoreListTest.this.pos2 = pos;
         }
       };

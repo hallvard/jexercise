@@ -1,4 +1,4 @@
-package patterns.observable;
+package patterns.observable.inheritance;
 
 import java.util.ArrayList;
 import java.util.List;
