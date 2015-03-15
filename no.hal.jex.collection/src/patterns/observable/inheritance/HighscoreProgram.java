@@ -1,4 +1,4 @@
-package patterns.observable;
+package patterns.observable.inheritance;
 
 import java.util.Scanner;
 

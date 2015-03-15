@@ -1,4 +1,4 @@
-test patterns.observable.HighscoreList
+test patterns.observable.inheritance.HighscoreList
 
 instance highscoreList = new HighscoreList(3)
 

@@ -1,4 +1,4 @@
-test patterns.observable.ObservableList
+test patterns.observable.inheritance.ObservableList
 
 instance observableList = [Object element | element instanceof Integer]
 

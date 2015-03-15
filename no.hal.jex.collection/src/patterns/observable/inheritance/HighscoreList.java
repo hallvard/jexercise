@@ -1,4 +1,4 @@
-package patterns.observable;
+package patterns.observable.inheritance;
 
 public class HighscoreList extends ObservableList {
 
