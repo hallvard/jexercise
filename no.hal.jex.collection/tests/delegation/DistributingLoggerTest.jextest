@@ -1,0 +1,71 @@
+test delegation.DistributingLogger
+
+import delegation.StreamLogger
+import java.io.ByteArrayOutputStream
+
+instance String formatString = "%s: %s (%s)"
+
+instance ByteArrayOutputStream infoStream = new ByteArrayOutputStream()
+instance ByteArrayOutputStream warnStream = new ByteArrayOutputStream()
+instance ByteArrayOutputStream errorStream = new ByteArrayOutputStream()
+instance ByteArrayOutputStream newInfoStream = new ByteArrayOutputStream()
+
+instance StreamLogger infoLogger = new StreamLogger(infoStream)
+instance StreamLogger warnLogger = new StreamLogger(warnStream)
+instance StreamLogger errorLogger = new StreamLogger(errorStream)
+
+instance DistributingLogger logger = new DistributingLogger(errorLogger, warnLogger, infoLogger)
+
+
+sequence logToInfo{
+	"Skriver en melding til INFO" -- infoLogger.formatString = formatString, logger.log(ILogger.INFO, "Dette er en info-melding.", null) -->
+	state{
+		infoStream == String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null)
+		warnStream == ""
+		errorStream == ""
+	}
+}
+
+sequence logToWarn{
+	"Skriver en melding til WARNING" -- infoLogger.formatString = formatString, logger.log(ILogger.WARNING, "Dette er en advarsel.", null) -->
+	state{
+		infoStream == ""
+		warnStream == String.format(formatString, ILogger.WARNING, "Dette er en advarsel.", null)
+		errorStream == ""
+	}
+}
+
+sequence logToError{
+	instance Exception exception = new IllegalStateException
+	
+	"Skriver en melding til ERROR" -- infoLogger.formatString = formatString, logger.log(ILogger.ERROR, "Dette er en feilmelding.", exception) -->
+	state {
+		infoStream == ""
+		warnStream == ""
+		errorStream == String.format(formatString, ILogger.ERROR, "Dette er en feilmelding.", exception)
+	}
+}
+
+sequence changeInfoLogger{
+	instance StreamLogger newInfoLogger = new StreamLogger(newInfoStream)
+	
+	"Skriver til INFO." -- infoLogger.formatString = formatString, logger.log(ILogger.INFO, "Dette er en info-melding.", null) -->
+	state {
+		infoStream == String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null)
+	}
+	
+	"Bytter INFO-logger." 
+	-- 
+	 newInfoLogger.formatString = formatString,
+	 logger.setLogger(ILogger.INFO, newInfoLogger),
+	 logger.log(ILogger.INFO, "Dette er en den andre info-meldingen.", null) 
+	-->
+	state {
+		infoStream == String.format(formatString, ILogger.INFO, "Dette er en info-melding.", null)
+		newInfoStream == String.format(formatString, ILogger.INFO, "Dette er en den andre info-meldingen.", null)
+	}
+}
+
+method boolean operator_equals(ByteArrayOutputStream stream, String content){
+	return stream.toString() == content
+}

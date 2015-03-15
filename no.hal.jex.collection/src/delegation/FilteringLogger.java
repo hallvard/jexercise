@@ -1,5 +1,6 @@
 package delegation;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -9,7 +10,7 @@ public class FilteringLogger implements ILogger {
 	private ILogger logger;
 	
 	public FilteringLogger(ILogger logger, String... severities) {
-		this.severities = Arrays.asList(severities);
+		this.severities = new ArrayList<String>(Arrays.asList(severities));
 		this.logger = logger;
 	}
 	
