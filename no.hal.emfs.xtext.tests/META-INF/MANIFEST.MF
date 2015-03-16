@@ -6,11 +6,13 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: no.hal.emfs.xtext.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: no.hal.emfs.xtext,
+ no.hal.emfs.xtext.runtime,
  no.hal.emfs.xtext.ui,
  org.eclipse.core.runtime,
  org.eclipse.xtext.junit4,
  org.eclipse.ui.workbench;resolution:=optional,
- org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ ../no.hal.emfs.xtext.runtime
 Import-Package: org.apache.log4j,
  org.junit;version="4.5.0",
  org.junit.runner;version="4.5.0",
