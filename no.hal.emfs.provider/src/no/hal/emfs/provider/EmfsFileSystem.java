@@ -75,7 +75,7 @@ public class EmfsFileSystem extends FileSystem {
 	
 	public static java.net.URI getURI(EmfsResource emfsResource) {
 		org.eclipse.emf.common.util.URI baseUri = emfsResource.eResource().getURI();
-		String path = no.hal.emfs.util.EmfsResourceImpl.getPathString(emfsResource);
+		String path = no.hal.emfs.util.EmfsResourceImpl.getFullPathString(emfsResource);
 		try {
 			return new URI(EmfsResourceImpl.EMFS_SCHEME, null, path, baseUri.toString(), null);
 		} catch (URISyntaxException e) {
