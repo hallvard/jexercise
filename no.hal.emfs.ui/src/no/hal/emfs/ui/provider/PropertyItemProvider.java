@@ -129,7 +129,7 @@ public class PropertyItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Property)object).getName() + "=" + ((Property)object).getValue();
+		String label = ((Property)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Property_type") :
 			getString("_UI_Property_type") + " " + label;

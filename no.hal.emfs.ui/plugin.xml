@@ -76,6 +76,9 @@
    </extension>
    
    <extension point="org.eclipse.ui.commands">
+		<command id="no.hal.emfs.ui.commands.ConvertToXmi"
+            name="Convert to XMI">
+    	</command>
 		<command id="no.hal.emfs.ui.commands.ImportEmfs"
             name="Import Resources into Project">
     	</command>
@@ -85,6 +88,17 @@
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
+      <handler
+            class="no.hal.emfs.ui.commands.ConvertToXMICommandHandler"
+            commandId="no.hal.emfs.ui.commands.ConvertToXmi">
+        <activeWhen>
+			<with variable="selection">
+				<iterate operator="or">
+					<instanceof value="org.eclipse.core.resources.IFile"/>
+				</iterate>
+			</with>
+		</activeWhen> 
+      </handler>
       <handler
             class="no.hal.emfs.ui.commands.ImportCommandHandler"
             commandId="no.hal.emfs.ui.commands.ImportEmfs">
@@ -112,12 +126,9 @@
 	<extension point="org.eclipse.ui.menus">
       <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
          <menu id="no.hal.emfs.ui.commands" label="EMFS">
-	        <command id="no.hal.emfs.ui.commands.ImportEmfs"
-	        	commandId="no.hal.emfs.ui.commands.ImportEmfs">
-	        </command>
-	        <command id="no.hal.emfs.ui.commands.LinkEmfs"
-	        	commandId="no.hal.emfs.ui.commands.LinkEmfs">
-	        </command>
+	        <command id="no.hal.emfs.ui.commands.ConvertToXmi" 	commandId="no.hal.emfs.ui.commands.ConvertToXmi"/>
+	        <command id="no.hal.emfs.ui.commands.ImportEmfs" 	commandId="no.hal.emfs.ui.commands.ImportEmfs"/>
+	        <command id="no.hal.emfs.ui.commands.LinkEmfs" 		commandId="no.hal.emfs.ui.commands.LinkEmfs"/>
          </menu>
       </menuContribution>
    </extension>

@@ -50,6 +50,9 @@ public class EmfsResourceItemProvider
 
 			addWriteablePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addFullPathPropertyDescriptor(object);
+			addContainerPathPropertyDescriptor(object);
+			addFullNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -91,6 +94,72 @@ public class EmfsResourceItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_EmfsResource_name_feature", "_UI_EmfsResource_type"),
 				 EmfsPackage.Literals.EMFS_RESOURCE__NAME,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Full Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFullPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EmfsResource_fullPath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EmfsResource_fullPath_feature", "_UI_EmfsResource_type"),
+				 EmfsPackage.Literals.EMFS_RESOURCE__FULL_PATH,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Container Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContainerPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EmfsResource_containerPath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EmfsResource_containerPath_feature", "_UI_EmfsResource_type"),
+				 EmfsPackage.Literals.EMFS_RESOURCE__CONTAINER_PATH,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Full Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFullNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EmfsResource_fullName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EmfsResource_fullName_feature", "_UI_EmfsResource_type"),
+				 EmfsPackage.Literals.EMFS_RESOURCE__FULL_NAME,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -185,6 +254,9 @@ public class EmfsResourceItemProvider
 		switch (notification.getFeatureID(EmfsResource.class)) {
 			case EmfsPackage.EMFS_RESOURCE__WRITEABLE:
 			case EmfsPackage.EMFS_RESOURCE__NAME:
+			case EmfsPackage.EMFS_RESOURCE__FULL_PATH:
+			case EmfsPackage.EMFS_RESOURCE__CONTAINER_PATH:
+			case EmfsPackage.EMFS_RESOURCE__FULL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EmfsPackage.EMFS_RESOURCE__PROPERTIES:

@@ -61,6 +61,7 @@ public class GitRepoRefItemProvider
 			addHostPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
 			addRepoPropertyDescriptor(object);
+			addRemoteStringPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,6 +133,28 @@ public class GitRepoRefItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Remote String feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRemoteStringPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GitRepoRef_remoteString_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GitRepoRef_remoteString_feature", "_UI_GitRepoRef_type"),
+				 EmfsPackage.Literals.GIT_REPO_REF__REMOTE_STRING,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns GitRepoRef.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,6 +193,7 @@ public class GitRepoRefItemProvider
 			case EmfsPackage.GIT_REPO_REF__HOST:
 			case EmfsPackage.GIT_REPO_REF__OWNER:
 			case EmfsPackage.GIT_REPO_REF__REPO:
+			case EmfsPackage.GIT_REPO_REF__REMOTE_STRING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

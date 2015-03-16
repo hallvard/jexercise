@@ -47,6 +47,7 @@ public class GitContentRefItemProvider
 			super.getPropertyDescriptors(object);
 
 			addPathPropertyDescriptor(object);
+			addUrlStringPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -66,6 +67,28 @@ public class GitContentRefItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_GitContentRef_path_feature", "_UI_GitContentRef_type"),
 				 EmfsPackage.Literals.GIT_CONTENT_REF__PATH,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Url String feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUrlStringPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GitContentRef_urlString_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GitContentRef_urlString_feature", "_UI_GitContentRef_type"),
+				 EmfsPackage.Literals.GIT_CONTENT_REF__URL_STRING,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -111,6 +134,7 @@ public class GitContentRefItemProvider
 
 		switch (notification.getFeatureID(GitContentRef.class)) {
 			case EmfsPackage.GIT_CONTENT_REF__PATH:
+			case EmfsPackage.GIT_CONTENT_REF__URL_STRING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

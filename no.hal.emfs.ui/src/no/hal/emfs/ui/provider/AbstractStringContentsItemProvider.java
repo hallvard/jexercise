@@ -5,10 +5,7 @@ package no.hal.emfs.ui.provider;
 
 import java.util.Collection;
 import java.util.List;
-
-import no.hal.emfs.AbstractStringContentProvider;
 import no.hal.emfs.AbstractStringContents;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
