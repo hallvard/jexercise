@@ -6,27 +6,15 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: no.hal.emfs.xtext; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
- org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
  org.eclipse.xtext.generator;resolution:=optional,
  org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
- org.eclipse.emf.codegen.ecore;resolution:=optional,
- org.eclipse.emf.mwe.utils;resolution:=optional,
- org.eclipse.emf.mwe2.launch;resolution:=optional,
  no.hal.emfs,
  org.eclipse.xtext.util,
  org.antlr.runtime,
  org.eclipse.xtext.common.types,
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.emf.mwe2.launch;bundle-version="2.7.0"
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: no.hal.emfs.xtext,
- no.hal.emfs.xtext.services,
- no.hal.emfs.xtext.serializer,
- no.hal.emfs.xtext.parser.antlr,
- no.hal.emfs.xtext.parser.antlr.internal,
- no.hal.emfs.xtext.validation,
- no.hal.emfs.xtext.scoping,
- no.hal.emfs.xtext.generator,
- no.hal.emfs.xtext.formatting

@@ -27,10 +27,10 @@ Workflow {
 	}
 
 	component = Generator {
-		pathRtProject = runtimeProject
+		pathRtProject = "${runtimeProject}.runtime"
 		pathUiProject = "${runtimeProject}.ui"
 		pathTestProject = "${runtimeProject}.tests"
-		projectNameRt = projectName
+		projectNameRt = "${runtimeProject}.runtime"
 		projectNameUi = "${projectName}.ui"
 		language = auto-inject {
 			uri = grammarURI
@@ -42,7 +42,7 @@ Workflow {
 			// fragment = ecore.EcoreGeneratorFragment auto-inject {}
 
 			// the Ecore2Xtext specific terminal converter
-			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment auto-inject {}
+//			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment auto-inject {}
 
 			// serializer 2.0
 			fragment = serializer.SerializerFragment auto-inject {
@@ -63,26 +63,26 @@ Workflow {
 			}
 
 			// Xtend-based API for validation 
-			fragment = validation.ValidatorFragment auto-inject {
+//			fragment = validation.ValidatorFragment auto-inject {
 			// composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
 			// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
-			}
+//			}
 
 			// old scoping and exporting API 
 			// fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
 			// fragment = exporting.QualifiedNamesFragment auto-inject {}
 
 			// scoping and exporting API
-			fragment = scoping.ImportURIScopingFragment auto-inject {}
-			fragment = exporting.SimpleNamesFragment auto-inject {}
-			fragment = builder.BuilderIntegrationFragment auto-inject {}		
+//			fragment = scoping.ImportURIScopingFragment auto-inject {}
+//			fragment = exporting.SimpleNamesFragment auto-inject {}
+//			fragment = builder.BuilderIntegrationFragment auto-inject {}		
 
 			// generator API
-			fragment = generator.GeneratorFragment auto-inject {}
+//			fragment = generator.GeneratorFragment auto-inject {}
 
 			// formatter API 
 			// fragment = formatting.FormatterFragment auto-inject {}
-			fragment = ecore2xtext.FormatterFragment auto-inject {}
+//			fragment = ecore2xtext.FormatterFragment auto-inject {}
 
 			// labeling API 
 			fragment = labeling.LabelProviderFragment auto-inject {}
@@ -92,7 +92,7 @@ Workflow {
             fragment = outline.QuickOutlineFragment auto-inject {}
 
 			// quickfix API
-			fragment = quickfix.QuickfixProviderFragment auto-inject {}
+//			fragment = quickfix.QuickfixProviderFragment auto-inject {}
 
 			//content assist API 
 			fragment = contentAssist.ContentAssistFragment auto-inject {}
@@ -113,22 +113,13 @@ Workflow {
 			// }
 
 			// rename refactoring
-			fragment = refactoring.RefactorElementNameFragment auto-inject {}
-
-			// provides the necessary bindings for java types integration
-			fragment = types.TypesGeneratorFragment auto-inject {}
-			
-			// generates the required bindings only if the grammar inherits from Xbase
-			fragment = xbase.XbaseGeneratorFragment auto-inject {}
-			
-			// generates the required bindings only if the grammar inherits from Xtype
-			fragment = xbase.XtypeGeneratorFragment auto-inject {}
+//			fragment = refactoring.RefactorElementNameFragment auto-inject {}
 
 			// provides a preference page for template proposals
-			fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
+//			fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
 
 			// provides a compare view
-            fragment = compare.CompareFragment auto-inject {}
+//            fragment = compare.CompareFragment auto-inject {}
 		}
 	}
 }
