@@ -8,6 +8,7 @@ import no.hal.emfs.Property;
 import no.hal.emfs.AbstractStringContents
 import no.hal.emfs.AbstractStringContentProvider
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import no.hal.emfs.GitRepoRef
 
 /**
  * Provides labels for a EObjects.
