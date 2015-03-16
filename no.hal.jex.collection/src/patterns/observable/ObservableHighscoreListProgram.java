@@ -8,7 +8,7 @@ public class ObservableHighscoreListProgram implements ObservableListListener {
 
 	public void init() {
 		this.highscoreList = new ObservableHighscoreList(5);
-		highscoreList.addListListener(this);
+		highscoreList.addObservableListListener(this);
 	}
 
 	public void run() {

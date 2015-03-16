@@ -42,7 +42,7 @@ method void addElement(int element, int pos) {
 }
 
 sequence listListener {
-	-- observableList.addListListener([list, pos | pos2 = pos]),
+	-- observableList.addObservableListListener([list, pos | pos2 = pos]),
 	addElement(5, 0) -->
 	state {
 		observableList ?= #[5]

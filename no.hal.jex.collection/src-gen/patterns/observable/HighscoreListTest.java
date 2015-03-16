@@ -97,7 +97,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);void addListListener(patterns.observable.HighscoreListListener)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), addResult(5, 0)</li>\n\t\t<li>addResult(6, 1)</li>\n\t\t<li>addResult(2, 0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "HighscoreList(int);void addHighscoreListListener(patterns.observable.HighscoreListListener)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addHighscoreListListener([list, pos | pos2 = pos]), addResult(5, 0)</li>\n\t\t<li>addResult(6, 1)</li>\n\t\t<li>addResult(2, 0)</li>\n\t\t</ul>\n")
   public void testListListenerSimple() {
     _transition_exprAction__listListenerSimple_transitions0_actions0();
     _transition_exprAction__listListenerSimple_transitions0_actions1();
@@ -109,7 +109,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);void addListListener(patterns.observable.HighscoreListListener);void addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>addResult(3, 1)</li>\n\t\t<li>pos2 = -1, addResult(7, -1)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "HighscoreList(int);void addHighscoreListListener(patterns.observable.HighscoreListListener);void addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addHighscoreListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>addResult(3, 1)</li>\n\t\t<li>pos2 = -1, addResult(7, -1)</li>\n\t\t</ul>\n")
   public void testListListenerMoreThanMax() {
     _transition_exprAction__listListenerMoreThanMax_transitions0_actions0();
     _transition_exprAction__listListenerMoreThanMax_transitions0_actions1();
@@ -124,7 +124,7 @@ public class HighscoreListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "HighscoreList(int);void addListListener(patterns.observable.HighscoreListListener);void addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>addResult(2, 1)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "HighscoreList(int);void addHighscoreListListener(patterns.observable.HighscoreListListener);void addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addHighscoreListListener([list, pos | pos2 = pos]), highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2)</li>\n\t\t<li>addResult(2, 1)</li>\n\t\t</ul>\n")
   public void testListListenerDuplicate() {
     _transition_exprAction__listListenerDuplicate_transitions0_actions0();
     _transition_exprAction__listListenerDuplicate_transitions0_actions1();
@@ -404,9 +404,9 @@ public class HighscoreListTest extends TestCase {
           HighscoreListTest.this.pos2 = pos;
         }
       };
-      this.highscoreList.addListListener(_function);
+      this.highscoreList.addHighscoreListListener(_function);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("highscoreList.addListListener([list, pos | pos2 = pos]) failed: " + error.getMessage());
+      fail("highscoreList.addHighscoreListListener([list, pos | pos2 = pos]) failed: " + error.getMessage());
     }
     
   }
@@ -432,7 +432,7 @@ public class HighscoreListTest extends TestCase {
       this.operator_assertEquals(
         this.highscoreList, new int[] { 5 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("highscoreList ?= #[5] failed after highscoreList.addListListener([list, pos | pos2 = pos]) ,addResult(5, 0): " + error.getMessage());
+      fail("highscoreList ?= #[5] failed after highscoreList.addHighscoreListListener([list, pos | pos2 = pos]) ,addResult(5, 0): " + error.getMessage());
     }
     
   }
@@ -497,9 +497,9 @@ public class HighscoreListTest extends TestCase {
           HighscoreListTest.this.pos2 = pos;
         }
       };
-      this.highscoreList.addListListener(_function);
+      this.highscoreList.addHighscoreListListener(_function);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("highscoreList.addListListener([list, pos | pos2 = pos]) failed: " + error.getMessage());
+      fail("highscoreList.addHighscoreListListener([list, pos | pos2 = pos]) failed: " + error.getMessage());
     }
     
   }
@@ -545,7 +545,7 @@ public class HighscoreListTest extends TestCase {
       this.operator_assertEquals(
         this.highscoreList, new int[] { 2, 5, 6 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("highscoreList ?= #[2, 5, 6] failed after highscoreList.addListListener([list, pos | pos2 = pos]) ,highscoreList.addResult(5) ,highscoreList.addResult(6) ,highscoreList.addResult(2): " + error.getMessage());
+      fail("highscoreList ?= #[2, 5, 6] failed after highscoreList.addHighscoreListListener([list, pos | pos2 = pos]) ,highscoreList.addResult(5) ,highscoreList.addResult(6) ,highscoreList.addResult(2): " + error.getMessage());
     }
     
   }
@@ -620,9 +620,9 @@ public class HighscoreListTest extends TestCase {
           HighscoreListTest.this.pos2 = pos;
         }
       };
-      this.highscoreList.addListListener(_function);
+      this.highscoreList.addHighscoreListListener(_function);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("highscoreList.addListListener([list, pos | pos2 = pos]) failed: " + error.getMessage());
+      fail("highscoreList.addHighscoreListListener([list, pos | pos2 = pos]) failed: " + error.getMessage());
     }
     
   }
@@ -668,7 +668,7 @@ public class HighscoreListTest extends TestCase {
       this.operator_assertEquals(
         this.highscoreList, new int[] { 2, 5, 6 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("highscoreList ?= #[2, 5, 6] failed after highscoreList.addListListener([list, pos | pos2 = pos]) ,highscoreList.addResult(5) ,highscoreList.addResult(6) ,highscoreList.addResult(2): " + error.getMessage());
+      fail("highscoreList ?= #[2, 5, 6] failed after highscoreList.addHighscoreListListener([list, pos | pos2 = pos]) ,highscoreList.addResult(5) ,highscoreList.addResult(6) ,highscoreList.addResult(2): " + error.getMessage());
     }
     
   }

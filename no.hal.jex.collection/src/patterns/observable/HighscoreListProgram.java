@@ -8,7 +8,7 @@ public class HighscoreListProgram implements HighscoreListListener {
 
 	public void init() {
 		this.highscoreList = new HighscoreList(5);
-		highscoreList.addListListener(this);
+		highscoreList.addHighscoreListListener(this);
 	}
 
 	public void run() {

@@ -59,7 +59,7 @@ method void addResult(int element, int pos) {
 }
 
 sequence listListenerSimple {
-	-- highscoreList.addListListener([list, pos | pos2 = pos]),
+	-- highscoreList.addObservableListListener([list, pos | pos2 = pos]),
 	addResult(5, 0) -->
 	state {
 		highscoreList ?= #[5]
@@ -75,7 +75,7 @@ sequence listListenerSimple {
 }
 
 sequence listListenerMoreThanMax {
-	-- highscoreList.addListListener([list, pos | pos2 = pos]),
+	-- highscoreList.addObservableListListener([list, pos | pos2 = pos]),
 	highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2) -->
 	state {
 		highscoreList ?= #[2, 5, 6]
@@ -91,7 +91,7 @@ sequence listListenerMoreThanMax {
 }
 
 sequence listListenerDuplicate {
-	-- highscoreList.addListListener([list, pos | pos2 = pos]),
+	-- highscoreList.addObservableListListener([list, pos | pos2 = pos]),
 	highscoreList.addResult(5), highscoreList.addResult(6), highscoreList.addResult(2) -->
 	state {
 		highscoreList ?= #[2, 5, 6]
