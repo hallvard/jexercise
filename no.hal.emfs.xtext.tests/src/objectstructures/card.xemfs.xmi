@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ASCII"?>
+<emfs:EmfsContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfs="platform:/plugin/no.hal.emfs/model/emfs.ecore">
+  <properties name="testspath" value="ACED000574002E6E6F2E68616C2E6A65782E636F6C6C656374696F6E2F7372632D67656E2F6F626A65637473747275637475726573"/>
+  <resources xsi:type="emfs:EmfsContainer" name="libs">
+    <resources xsi:type="emfs:EmfsFile" name="jexercise-standalone.jar">
+      <contentProvider xsi:type="emfs:GitURLContentProvider">
+        <gitRef host="github.com" owner="hallvard" repo="jexercise" path="/no.hal.jex.standalone/jexercise-standalone.jar"/>
+      </contentProvider>
+    </resources>
+  </resources>
+  <resources xsi:type="emfs:EmfsContainer" name="src">
+    <resources xsi:type="emfs:EmfsContainer" name="objectstructures">
+      <resources xsi:type="emfs:EmfsFile" writeable="true" name="Card.java">
+        <contentProvider xsi:type="emfs:StringContentProvider">
+          <stringContents xsi:type="emfs:VerbatimStringContents" stringContent="package objectstructures;&#xA;&#xA;public class Card {&#xA;}"/>
+        </contentProvider>
+      </resources>
+      <resources xsi:type="emfs:EmfsFile" writeable="true" name="CardDeck.java"/>
+      <resources xsi:type="emfs:EmfsFile" writeable="true" name="CardHand.java"/>
+    </resources>
+  </resources>
+  <resources xsi:type="emfs:EmfsContainer" name="tests">
+    <resources xsi:type="emfs:EmfsContainer" name="objectstructures">
+      <resources xsi:type="emfs:EmfsFile" name="CardTest.java">
+        <contentProvider xsi:type="emfs:GitURLContentProvider">
+          <gitRef host="github.com" owner="hallvard" repo="jexercise" path="/$testspath/CardTest.java"/>
+        </contentProvider>
+      </resources>
+      <resources xsi:type="emfs:EmfsFile" name="CardDeckTest.java">
+        <contentProvider xsi:type="emfs:GitURLContentProvider">
+          <gitRef host="github.com" owner="hallvard" repo="jexercise" path="/$testspath/CardTest.java"/>
+        </contentProvider>
+      </resources>
+      <resources xsi:type="emfs:EmfsFile" name="CardHandTest.java">
+        <contentProvider xsi:type="emfs:GitURLContentProvider">
+          <gitRef host="github.com" owner="hallvard" repo="jexercise" path="/$testspath/CardTest.java"/>
+        </contentProvider>
+      </resources>
+    </resources>
+  </resources>
+  <resources xsi:type="emfs:EmfsFile" name=".project">
+    <contentProvider xsi:type="emfs:DotProjectFileContentProvider">
+      <keys>java</keys>
+    </contentProvider>
+  </resources>
+  <resources xsi:type="emfs:EmfsFile" name=".classpath">
+    <contentProvider xsi:type="emfs:DotClasspathFileContentProvider">
+      <entries xsi:type="emfs:ClasspathEntry" explicitKind="lib" explicitPath="libs/jexercise-standalone.jar"/>
+      <entries xsi:type="emfs:ClasspathEntry" explicitPath="src"/>
+      <entries xsi:type="emfs:ClasspathEntry" explicitPath="tests"/>
+      <entries xsi:type="emfs:ClasspathEntry" explicitKind="con" explicitPath="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+      <entries xsi:type="emfs:ClasspathEntry" explicitKind="output" explicitPath="bin"/>
+    </contentProvider>
+  </resources>
+</emfs:EmfsContainer>

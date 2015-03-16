@@ -1,0 +1,31 @@
+emfs $testspath="no.hal.jex.collection/src-gen/objectstructures"
+/
+libs/jexercise-standalone.jar @ git@github.com:hallvard/jexercise/no.hal.jex.standalone/jexercise-standalone.jar;
+	;
+src/objectstructures/
+	Card.java*
+---8<---
+package objectstructures;
+
+public class Card {
+}
+--->8---
+	CardDeck.java*;
+	CardHand.java*;
+	;
+;
+tests/objectstructures/
+	CardTest.java 		@ git@github.com:hallvard/jexercise/$testspath/CardTest.java;
+	CardDeckTest.java 	@ git@github.com:hallvard/jexercise/$testspath/CardTest.java;
+	CardHandTest.java 	@ git@github.com:hallvard/jexercise/$testspath/CardTest.java;
+	;
+;
+.project: dot.project #java;
+
+.classpath: dot.classpath
+	library-jar libs/jexercise-standalone.jar
+	source-folder src
+	source-folder tests
+	class-container org.eclipse.jdt.launching.JRE_CONTAINER
+	output-folder bin
+;
