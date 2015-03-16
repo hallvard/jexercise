@@ -3,20 +3,14 @@
 package no.hal.emfs.impl;
 
 import java.util.Collection;
-
 import no.hal.emfs.EmfsPackage;
 import no.hal.emfs.Property;
 import no.hal.emfs.PropertyOwner;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -148,5 +142,4 @@ public class PropertyOwnerImpl extends MinimalEObjectImpl.Container implements P
 		}
 		return super.eIsSet(featureID);
 	}
-
 } //PropertyOwnerImpl

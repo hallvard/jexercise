@@ -3,14 +3,11 @@
 package no.hal.emfs.impl;
 
 import no.hal.emfs.EmfsPackage;
-import no.hal.emfs.Property;
-import no.hal.emfs.PropertyOwner;
 import no.hal.emfs.PropertyValueString;
+import no.hal.emfs.util.PropertyResolver;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.resource.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -216,28 +213,13 @@ public class PropertyValueStringImpl extends AbstractStringContentsImpl implemen
 
 	//
 	
+	private static PropertyResolver propertyResolver = new PropertyResolver(true, true, true);
+	
 	@Override
 	public String getStringContent() {
-		EObject container = eContainer();
-		while (container != null) {
-			if (container instanceof PropertyOwner) {
-				for (Property property : ((PropertyOwner) container).getProperties()) {
-					if (getPropertyName().equals(property.getName())) {
-						Object value = property.getValue();
-						if (value != null) {
-							return String.valueOf(value);
-						}
-					}
-				}
-			}
-			container = container.eContainer();
-		}
-		Resource resource = eResource();
-		if (resource != null && resource.getResourceSet() != null) {
-			Object value = resource.getResourceSet().getLoadOptions().get(getPropertyName());
-			if (value != null) {
-				return String.valueOf(value);
-			}
+		Object value = propertyResolver.getProperty(this, getPropertyName());
+		if (value != null) {
+			return String.valueOf(value);
 		}
 		return getDefaultValue();
 	}

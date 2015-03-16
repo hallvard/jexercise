@@ -107,7 +107,8 @@ public abstract class AbstractURLContentProviderImpl extends MinimalEObjectImpl.
 
 	private URL getURL() throws Exception {
 		try {
-			return new URL(getUrlString());
+			String urlString = getUrlString();
+			return new URL(urlString);
 		} catch (MalformedURLException mue) {
 			throw new IOException(mue);
 		}
@@ -119,10 +120,12 @@ public abstract class AbstractURLContentProviderImpl extends MinimalEObjectImpl.
 	 * @generated NOT
 	 */
 	public InputStream getInputStream(int options) {
+		URL url = null;
 		try {
-			return getURL().openStream();
+			url = getURL();
+			return url.openStream();
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			throw new RuntimeException("Couldn't open InputStream for " + url + ": " + e, e);
 		}
 	}
 
@@ -132,10 +135,12 @@ public abstract class AbstractURLContentProviderImpl extends MinimalEObjectImpl.
 	 * @generated NOT
 	 */
 	public OutputStream getOutputStream(int options) {
+		URL url = null;
 		try {
-			return getURL().openConnection().getOutputStream();
+			url = getURL();
+			return url.openConnection().getOutputStream();
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			throw new RuntimeException("Couldn't open OutputStream for " + url + ": " + e, e);
 		}
 	}
 

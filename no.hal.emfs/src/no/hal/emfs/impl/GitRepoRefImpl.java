@@ -4,6 +4,7 @@ package no.hal.emfs.impl;
 
 import no.hal.emfs.EmfsPackage;
 import no.hal.emfs.GitRepoRef;
+import no.hal.emfs.util.PropertyResolver;
 import no.hal.emfs.util.Util;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link no.hal.emfs.impl.GitRepoRefImpl#getHost <em>Host</em>}</li>
  *   <li>{@link no.hal.emfs.impl.GitRepoRefImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link no.hal.emfs.impl.GitRepoRefImpl#getRepo <em>Repo</em>}</li>
+ *   <li>{@link no.hal.emfs.impl.GitRepoRefImpl#getRemoteString <em>Remote String</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,6 +88,16 @@ public class GitRepoRefImpl extends MinimalEObjectImpl.Container implements GitR
 	 * @ordered
 	 */
 	protected String repo = REPO_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRemoteString() <em>Remote String</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRemoteString()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REMOTE_STRING_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -169,13 +181,18 @@ public class GitRepoRefImpl extends MinimalEObjectImpl.Container implements GitR
 			eNotify(new ENotificationImpl(this, Notification.SET, EmfsPackage.GIT_REPO_REF__REPO, oldRepo, repo));
 	}
 
+	protected static PropertyResolver propertyResolver = new PropertyResolver(true, true); 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getRemoteString() {
-		return Util.getGitRemoteString(this, null);
+		String remoteString = Util.getGitRemoteString(this, null);
+		String resolved = PropertyResolver.resolveProperties(remoteString, this, propertyResolver);
+		System.out.println("Resolved: " + resolved);
+		return resolved; // .replace("//", "/");
 	}
 
 	/**
@@ -192,6 +209,8 @@ public class GitRepoRefImpl extends MinimalEObjectImpl.Container implements GitR
 				return getOwner();
 			case EmfsPackage.GIT_REPO_REF__REPO:
 				return getRepo();
+			case EmfsPackage.GIT_REPO_REF__REMOTE_STRING:
+				return getRemoteString();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -252,6 +271,8 @@ public class GitRepoRefImpl extends MinimalEObjectImpl.Container implements GitR
 				return OWNER_EDEFAULT == null ? owner != null : !OWNER_EDEFAULT.equals(owner);
 			case EmfsPackage.GIT_REPO_REF__REPO:
 				return REPO_EDEFAULT == null ? repo != null : !REPO_EDEFAULT.equals(repo);
+			case EmfsPackage.GIT_REPO_REF__REMOTE_STRING:
+				return REMOTE_STRING_EDEFAULT == null ? getRemoteString() != null : !REMOTE_STRING_EDEFAULT.equals(getRemoteString());
 		}
 		return super.eIsSet(featureID);
 	}

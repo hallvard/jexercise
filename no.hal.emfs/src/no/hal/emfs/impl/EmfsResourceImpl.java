@@ -29,6 +29,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link no.hal.emfs.impl.EmfsResourceImpl#isWriteable <em>Writeable</em>}</li>
  *   <li>{@link no.hal.emfs.impl.EmfsResourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.emfs.impl.EmfsResourceImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link no.hal.emfs.impl.EmfsResourceImpl#getFullPath <em>Full Path</em>}</li>
+ *   <li>{@link no.hal.emfs.impl.EmfsResourceImpl#getContainerPath <em>Container Path</em>}</li>
+ *   <li>{@link no.hal.emfs.impl.EmfsResourceImpl#getFullName <em>Full Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +87,36 @@ public class EmfsResourceImpl extends TagsOwnerImpl implements EmfsResource {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFullPath() <em>Full Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_PATH_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getContainerPath() <em>Container Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainerPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTAINER_PATH_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getFullName() <em>Full Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFullName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FULL_NAME_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -202,6 +235,33 @@ public class EmfsResourceImpl extends TagsOwnerImpl implements EmfsResource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getFullPath() {
+		return no.hal.emfs.util.EmfsResourceImpl.getFullString(this, "/", "/", null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getContainerPath() {
+		return no.hal.emfs.util.EmfsResourceImpl.getFullString(getContainer(), "/", "/", null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getFullName() {
+		return no.hal.emfs.util.EmfsResourceImpl.getFullString(this, null, ".", null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -262,6 +322,12 @@ public class EmfsResourceImpl extends TagsOwnerImpl implements EmfsResource {
 				return getName();
 			case EmfsPackage.EMFS_RESOURCE__CONTAINER:
 				return getContainer();
+			case EmfsPackage.EMFS_RESOURCE__FULL_PATH:
+				return getFullPath();
+			case EmfsPackage.EMFS_RESOURCE__CONTAINER_PATH:
+				return getContainerPath();
+			case EmfsPackage.EMFS_RESOURCE__FULL_NAME:
+				return getFullName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -332,6 +398,12 @@ public class EmfsResourceImpl extends TagsOwnerImpl implements EmfsResource {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EmfsPackage.EMFS_RESOURCE__CONTAINER:
 				return getContainer() != null;
+			case EmfsPackage.EMFS_RESOURCE__FULL_PATH:
+				return FULL_PATH_EDEFAULT == null ? getFullPath() != null : !FULL_PATH_EDEFAULT.equals(getFullPath());
+			case EmfsPackage.EMFS_RESOURCE__CONTAINER_PATH:
+				return CONTAINER_PATH_EDEFAULT == null ? getContainerPath() != null : !CONTAINER_PATH_EDEFAULT.equals(getContainerPath());
+			case EmfsPackage.EMFS_RESOURCE__FULL_NAME:
+				return FULL_NAME_EDEFAULT == null ? getFullName() != null : !FULL_NAME_EDEFAULT.equals(getFullName());
 		}
 		return super.eIsSet(featureID);
 	}

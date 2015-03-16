@@ -152,13 +152,40 @@ public interface EmfsPackage extends EPackage {
 	int EMFS_RESOURCE__CONTAINER = TAGS_OWNER_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Full Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMFS_RESOURCE__FULL_PATH = TAGS_OWNER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Container Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMFS_RESOURCE__CONTAINER_PATH = TAGS_OWNER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMFS_RESOURCE__FULL_NAME = TAGS_OWNER_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EMFS_RESOURCE_FEATURE_COUNT = TAGS_OWNER_FEATURE_COUNT + 4;
+	int EMFS_RESOURCE_FEATURE_COUNT = TAGS_OWNER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -269,6 +296,33 @@ public interface EmfsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EMFS_CONTAINER__CONTAINER = EMFS_RESOURCE__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Full Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMFS_CONTAINER__FULL_PATH = EMFS_RESOURCE__FULL_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Container Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMFS_CONTAINER__CONTAINER_PATH = EMFS_RESOURCE__CONTAINER_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMFS_CONTAINER__FULL_NAME = EMFS_RESOURCE__FULL_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
@@ -426,6 +480,33 @@ public interface EmfsPackage extends EPackage {
 	 * @ordered
 	 */
 	int EMFS_FILE__CONTAINER = EMFS_RESOURCE__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Full Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMFS_FILE__FULL_PATH = EMFS_RESOURCE__FULL_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Container Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMFS_FILE__CONTAINER_PATH = EMFS_RESOURCE__CONTAINER_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMFS_FILE__FULL_NAME = EMFS_RESOURCE__FULL_NAME;
 
 	/**
 	 * The feature id for the '<em><b>File</b></em>' container reference.
@@ -891,13 +972,22 @@ public interface EmfsPackage extends EPackage {
 	int GIT_REPO_REF__REPO = 2;
 
 	/**
+	 * The feature id for the '<em><b>Remote String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIT_REPO_REF__REMOTE_STRING = 3;
+
+	/**
 	 * The number of structural features of the '<em>Git Repo Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIT_REPO_REF_FEATURE_COUNT = 3;
+	int GIT_REPO_REF_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link no.hal.emfs.impl.GitContentRefImpl <em>Git Content Ref</em>}' class.
@@ -937,6 +1027,15 @@ public interface EmfsPackage extends EPackage {
 	int GIT_CONTENT_REF__REPO = GIT_REPO_REF__REPO;
 
 	/**
+	 * The feature id for the '<em><b>Remote String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIT_CONTENT_REF__REMOTE_STRING = GIT_REPO_REF__REMOTE_STRING;
+
+	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -946,13 +1045,22 @@ public interface EmfsPackage extends EPackage {
 	int GIT_CONTENT_REF__PATH = GIT_REPO_REF_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Url String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIT_CONTENT_REF__URL_STRING = GIT_REPO_REF_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Git Content Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIT_CONTENT_REF_FEATURE_COUNT = GIT_REPO_REF_FEATURE_COUNT + 1;
+	int GIT_CONTENT_REF_FEATURE_COUNT = GIT_REPO_REF_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link no.hal.emfs.impl.CachingContentProviderImpl <em>Caching Content Provider</em>}' class.
@@ -1294,6 +1402,39 @@ public interface EmfsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEmfsResource_Container();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.emfs.EmfsResource#getFullPath <em>Full Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Path</em>'.
+	 * @see no.hal.emfs.EmfsResource#getFullPath()
+	 * @see #getEmfsResource()
+	 * @generated
+	 */
+	EAttribute getEmfsResource_FullPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.emfs.EmfsResource#getContainerPath <em>Container Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Container Path</em>'.
+	 * @see no.hal.emfs.EmfsResource#getContainerPath()
+	 * @see #getEmfsResource()
+	 * @generated
+	 */
+	EAttribute getEmfsResource_ContainerPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.emfs.EmfsResource#getFullName <em>Full Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see no.hal.emfs.EmfsResource#getFullName()
+	 * @see #getEmfsResource()
+	 * @generated
+	 */
+	EAttribute getEmfsResource_FullName();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.emfs.TagsOwner <em>Tags Owner</em>}'.
@@ -1759,6 +1900,17 @@ public interface EmfsPackage extends EPackage {
 	EAttribute getGitRepoRef_Repo();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.hal.emfs.GitRepoRef#getRemoteString <em>Remote String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Remote String</em>'.
+	 * @see no.hal.emfs.GitRepoRef#getRemoteString()
+	 * @see #getGitRepoRef()
+	 * @generated
+	 */
+	EAttribute getGitRepoRef_RemoteString();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.emfs.GitContentRef <em>Git Content Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1778,6 +1930,17 @@ public interface EmfsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGitContentRef_Path();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.emfs.GitContentRef#getUrlString <em>Url String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url String</em>'.
+	 * @see no.hal.emfs.GitContentRef#getUrlString()
+	 * @see #getGitContentRef()
+	 * @generated
+	 */
+	EAttribute getGitContentRef_UrlString();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.emfs.CachingContentProvider <em>Caching Content Provider</em>}'.
@@ -2060,6 +2223,30 @@ public interface EmfsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EMFS_RESOURCE__CONTAINER = eINSTANCE.getEmfsResource_Container();
+
+		/**
+		 * The meta object literal for the '<em><b>Full Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EMFS_RESOURCE__FULL_PATH = eINSTANCE.getEmfsResource_FullPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Container Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EMFS_RESOURCE__CONTAINER_PATH = eINSTANCE.getEmfsResource_ContainerPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EMFS_RESOURCE__FULL_NAME = eINSTANCE.getEmfsResource_FullName();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.emfs.impl.TagsOwnerImpl <em>Tags Owner</em>}' class.
@@ -2456,6 +2643,14 @@ public interface EmfsPackage extends EPackage {
 		EAttribute GIT_REPO_REF__REPO = eINSTANCE.getGitRepoRef_Repo();
 
 		/**
+		 * The meta object literal for the '<em><b>Remote String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIT_REPO_REF__REMOTE_STRING = eINSTANCE.getGitRepoRef_RemoteString();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.emfs.impl.GitContentRefImpl <em>Git Content Ref</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2472,6 +2667,14 @@ public interface EmfsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIT_CONTENT_REF__PATH = eINSTANCE.getGitContentRef_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Url String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIT_CONTENT_REF__URL_STRING = eINSTANCE.getGitContentRef_UrlString();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.emfs.impl.CachingContentProviderImpl <em>Caching Content Provider</em>}' class.

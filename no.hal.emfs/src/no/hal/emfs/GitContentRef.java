@@ -12,6 +12,7 @@ package no.hal.emfs;
  * The following features are supported:
  * <ul>
  *   <li>{@link no.hal.emfs.GitContentRef#getPath <em>Path</em>}</li>
+ *   <li>{@link no.hal.emfs.GitContentRef#getUrlString <em>Url String</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,9 +48,12 @@ public interface GitContentRef extends GitRepoRef {
 	void setPath(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Url String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @return the value of the '<em>Url String</em>' attribute.
+	 * @see no.hal.emfs.EmfsPackage#getGitContentRef_UrlString()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getUrlString();

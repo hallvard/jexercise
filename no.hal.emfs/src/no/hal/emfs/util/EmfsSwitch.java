@@ -177,6 +177,7 @@ public class EmfsSwitch<T> extends Switch<T> {
 				AbstractStringContentProvider abstractStringContentProvider = (AbstractStringContentProvider)theEObject;
 				T result = caseAbstractStringContentProvider(abstractStringContentProvider);
 				if (result == null) result = caseAbstractBytesContentProvider(abstractStringContentProvider);
+				if (result == null) result = caseAbstractStringContents(abstractStringContentProvider);
 				if (result == null) result = caseEmfsFileContentProvider(abstractStringContentProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -186,6 +187,7 @@ public class EmfsSwitch<T> extends Switch<T> {
 				T result = caseStringContentProvider(stringContentProvider);
 				if (result == null) result = caseAbstractStringContentProvider(stringContentProvider);
 				if (result == null) result = caseAbstractBytesContentProvider(stringContentProvider);
+				if (result == null) result = caseAbstractStringContents(stringContentProvider);
 				if (result == null) result = caseEmfsFileContentProvider(stringContentProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -265,6 +267,7 @@ public class EmfsSwitch<T> extends Switch<T> {
 				T result = caseDotClasspathFileContentProvider(dotClasspathFileContentProvider);
 				if (result == null) result = caseAbstractStringContentProvider(dotClasspathFileContentProvider);
 				if (result == null) result = caseAbstractBytesContentProvider(dotClasspathFileContentProvider);
+				if (result == null) result = caseAbstractStringContents(dotClasspathFileContentProvider);
 				if (result == null) result = caseEmfsFileContentProvider(dotClasspathFileContentProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -287,6 +290,7 @@ public class EmfsSwitch<T> extends Switch<T> {
 				T result = caseDotProjectFileContentProvider(dotProjectFileContentProvider);
 				if (result == null) result = caseAbstractStringContentProvider(dotProjectFileContentProvider);
 				if (result == null) result = caseAbstractBytesContentProvider(dotProjectFileContentProvider);
+				if (result == null) result = caseAbstractStringContents(dotProjectFileContentProvider);
 				if (result == null) result = caseEmfsFileContentProvider(dotProjectFileContentProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

@@ -4,6 +4,7 @@ package no.hal.emfs.impl;
 
 import no.hal.emfs.EmfsPackage;
 import no.hal.emfs.GitContentRef;
+import no.hal.emfs.util.PropertyResolver;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -17,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link no.hal.emfs.impl.GitContentRefImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link no.hal.emfs.impl.GitContentRefImpl#getUrlString <em>Url String</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,6 +44,16 @@ public class GitContentRefImpl extends GitRepoRefImpl implements GitContentRef {
 	 * @ordered
 	 */
 	protected String path = PATH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUrlString() <em>Url String</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUrlString()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URL_STRING_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,7 +107,9 @@ public class GitContentRefImpl extends GitRepoRefImpl implements GitContentRef {
 		if (path == null || (! path.startsWith("/"))) {
 			path = "/" + path;
 		}
-		return "https://raw.githubusercontent.com/" + getOwner() + "/" + getRepo() + "/" + branch + path;
+		String urlString = "https://raw.githubusercontent.com/" + getOwner() + "/" + getRepo() + "/" + branch + path;
+		String resolved = PropertyResolver.resolveProperties(urlString, this, propertyResolver);
+		return resolved; // .replace("//", "/");
 	}
 
 	/**
@@ -108,6 +122,8 @@ public class GitContentRefImpl extends GitRepoRefImpl implements GitContentRef {
 		switch (featureID) {
 			case EmfsPackage.GIT_CONTENT_REF__PATH:
 				return getPath();
+			case EmfsPackage.GIT_CONTENT_REF__URL_STRING:
+				return getUrlString();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,6 +168,8 @@ public class GitContentRefImpl extends GitRepoRefImpl implements GitContentRef {
 		switch (featureID) {
 			case EmfsPackage.GIT_CONTENT_REF__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+			case EmfsPackage.GIT_CONTENT_REF__URL_STRING:
+				return URL_STRING_EDEFAULT == null ? getUrlString() != null : !URL_STRING_EDEFAULT.equals(getUrlString());
 		}
 		return super.eIsSet(featureID);
 	}

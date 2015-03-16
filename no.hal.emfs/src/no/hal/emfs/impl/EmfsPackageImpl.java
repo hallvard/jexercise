@@ -378,6 +378,33 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEmfsResource_FullPath() {
+		return (EAttribute)emfsResourceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEmfsResource_ContainerPath() {
+		return (EAttribute)emfsResourceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEmfsResource_FullName() {
+		return (EAttribute)emfsResourceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTagsOwner() {
 		return tagsOwnerEClass;
 	}
@@ -774,6 +801,15 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGitRepoRef_RemoteString() {
+		return (EAttribute)gitRepoRefEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGitContentRef() {
 		return gitContentRefEClass;
 	}
@@ -785,6 +821,15 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 	 */
 	public EAttribute getGitContentRef_Path() {
 		return (EAttribute)gitContentRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGitContentRef_UrlString() {
+		return (EAttribute)gitContentRefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1008,6 +1053,9 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		createEAttribute(emfsResourceEClass, EMFS_RESOURCE__WRITEABLE);
 		createEAttribute(emfsResourceEClass, EMFS_RESOURCE__NAME);
 		createEReference(emfsResourceEClass, EMFS_RESOURCE__CONTAINER);
+		createEAttribute(emfsResourceEClass, EMFS_RESOURCE__FULL_PATH);
+		createEAttribute(emfsResourceEClass, EMFS_RESOURCE__CONTAINER_PATH);
+		createEAttribute(emfsResourceEClass, EMFS_RESOURCE__FULL_NAME);
 
 		tagsOwnerEClass = createEClass(TAGS_OWNER);
 		createEAttribute(tagsOwnerEClass, TAGS_OWNER__TAGS);
@@ -1073,9 +1121,11 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		createEAttribute(gitRepoRefEClass, GIT_REPO_REF__HOST);
 		createEAttribute(gitRepoRefEClass, GIT_REPO_REF__OWNER);
 		createEAttribute(gitRepoRefEClass, GIT_REPO_REF__REPO);
+		createEAttribute(gitRepoRefEClass, GIT_REPO_REF__REMOTE_STRING);
 
 		gitContentRefEClass = createEClass(GIT_CONTENT_REF);
 		createEAttribute(gitContentRefEClass, GIT_CONTENT_REF__PATH);
+		createEAttribute(gitContentRefEClass, GIT_CONTENT_REF__URL_STRING);
 
 		cachingContentProviderEClass = createEClass(CACHING_CONTENT_PROVIDER);
 		createEReference(cachingContentProviderEClass, CACHING_CONTENT_PROVIDER__CONTENT_PROVIDER);
@@ -1146,6 +1196,7 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		abstractBytesContentProviderEClass.getESuperTypes().add(this.getEmfsFileContentProvider());
 		byteArrayContentProviderEClass.getESuperTypes().add(this.getAbstractBytesContentProvider());
 		abstractStringContentProviderEClass.getESuperTypes().add(this.getAbstractBytesContentProvider());
+		abstractStringContentProviderEClass.getESuperTypes().add(this.getAbstractStringContents());
 		stringContentProviderEClass.getESuperTypes().add(this.getAbstractStringContentProvider());
 		verbatimStringContentsEClass.getESuperTypes().add(this.getAbstractStringContents());
 		propertyValueStringEClass.getESuperTypes().add(this.getAbstractStringContents());
@@ -1164,6 +1215,9 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		initEAttribute(getEmfsResource_Writeable(), ecorePackage.getEBoolean(), "writeable", null, 0, 1, EmfsResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEmfsResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, EmfsResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEmfsResource_Container(), this.getEmfsContainer(), this.getEmfsContainer_Resources(), "container", null, 0, 1, EmfsResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEmfsResource_FullPath(), ecorePackage.getEString(), "fullPath", null, 0, 1, EmfsResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEmfsResource_ContainerPath(), ecorePackage.getEString(), "containerPath", null, 0, 1, EmfsResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEmfsResource_FullName(), ecorePackage.getEString(), "fullName", null, 0, 1, EmfsResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(tagsOwnerEClass, TagsOwner.class, "TagsOwner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTagsOwner_Tags(), ecorePackage.getEString(), "tags", null, 0, -1, TagsOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1214,8 +1268,6 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 
 		initEClass(abstractStringContentProviderEClass, AbstractStringContentProvider.class, "AbstractStringContentProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(abstractStringContentProviderEClass, ecorePackage.getEString(), "getStringContent", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = addEOperation(abstractStringContentProviderEClass, null, "setStringContent", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "contents", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1252,13 +1304,11 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		initEAttribute(getGitRepoRef_Host(), ecorePackage.getEString(), "host", null, 0, 1, GitRepoRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGitRepoRef_Owner(), ecorePackage.getEString(), "owner", null, 0, 1, GitRepoRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGitRepoRef_Repo(), ecorePackage.getEString(), "repo", null, 0, 1, GitRepoRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		addEOperation(gitRepoRefEClass, ecorePackage.getEString(), "getRemoteString", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEAttribute(getGitRepoRef_RemoteString(), ecorePackage.getEString(), "remoteString", null, 0, 1, GitRepoRef.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(gitContentRefEClass, GitContentRef.class, "GitContentRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGitContentRef_Path(), ecorePackage.getEString(), "path", null, 0, 1, GitContentRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		addEOperation(gitContentRefEClass, ecorePackage.getEString(), "getUrlString", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEAttribute(getGitContentRef_UrlString(), ecorePackage.getEString(), "urlString", null, 0, 1, GitContentRef.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(cachingContentProviderEClass, CachingContentProvider.class, "CachingContentProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCachingContentProvider_ContentProvider(), this.getEmfsFileContentProvider(), null, "contentProvider", null, 0, 1, CachingContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

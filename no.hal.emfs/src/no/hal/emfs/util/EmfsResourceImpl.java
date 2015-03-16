@@ -156,7 +156,7 @@ public class EmfsResourceImpl extends XMIResourceImpl {
 				EList<EmfsResource> children = ((EmfsContainer) emfsResource).getResources();
 				int i = 0;
 				while (i < children.size()) {
-					if (! mergeInto(children.get(i), otherChildren, sameTags)) {
+					if (mergeInto(children.get(i), otherChildren, sameTags)) {
 						i++;
 					}
 				}
@@ -172,8 +172,8 @@ public class EmfsResourceImpl extends XMIResourceImpl {
 		if (end <= 0) {
 			end = segments.length + end;
 		}
-		String segment = segments[i];
 		while (i < end) {
+			String segment = segments[i];
 			EmfsResource child = (requireTags ? getEmfsResource1(emfsResources, segment, tags) : getEmfsResource1(emfsResources, segment));
 			if (! (child instanceof EmfsContainer)) {
 				break;
@@ -185,6 +185,7 @@ public class EmfsResourceImpl extends XMIResourceImpl {
 			i++;
 		}
 		while (i < end) {
+			String segment = segments[i];
 			EmfsContainer child = EmfsFactory.eINSTANCE.createEmfsContainer();
 			emfsResources.add(child);
 			child.setName(segment);
@@ -205,26 +206,34 @@ public class EmfsResourceImpl extends XMIResourceImpl {
 	@Override
 	public String getURIFragment(EObject eObject) {
 		if (eObject instanceof EmfsResource) {
-			return getPathString((EmfsResource) eObject);
+			return getFullPathString((EmfsResource) eObject);
 		}
 		return super.getURIFragment(eObject);
 	}
 
-	public static String getPathString(EmfsResource emfsResource) {
+	public static String getFullString(EmfsResource emfsResource, Object prefix, Object separator, Object suffix) {
 		StringBuilder buffer = new StringBuilder();
 		while (emfsResource != null) {
 			String name = emfsResource.getName();
 			// skip resources without a name
 			if (name != null) {
-				if (buffer.length() > 0) {
-					buffer.insert(0, IPath.SEPARATOR);
+				if (buffer.length() == 0 && suffix != null) {
+					buffer.insert(0, suffix);
+				} else if (buffer.length() > 0 && separator != null) {
+					buffer.insert(0, separator);
 				}
 				buffer.insert(0, name);
 			}
 			emfsResource = emfsResource.getContainer();
 		}
-		buffer.insert(0, IPath.SEPARATOR);
+		if (prefix != null) {
+			buffer.insert(0, prefix);
+		}
 		return buffer.toString();
+	}
+	
+	public static String getFullPathString(EmfsResource emfsResource) {
+		return getFullString(emfsResource, IPath.SEPARATOR, IPath.SEPARATOR, null);
 	}
 
 	/**

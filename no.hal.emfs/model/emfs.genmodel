@@ -23,6 +23,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//EmfsResource/writeable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//EmfsResource/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference emfs.ecore#//EmfsResource/container"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//EmfsResource/fullPath"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//EmfsResource/containerPath"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//EmfsResource/fullName"/>
     </genClasses>
     <genClasses ecoreClass="emfs.ecore#//TagsOwner">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//TagsOwner/tags"/>
@@ -103,15 +106,15 @@
     <genClasses ecoreClass="emfs.ecore#//GitURLContentProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs.ecore#//GitURLContentProvider/gitRef"/>
     </genClasses>
-    <genClasses ecoreClass="emfs.ecore#//GitRepoRef">
+    <genClasses ecoreClass="emfs.ecore#//GitRepoRef" labelFeature="#//emfs/GitRepoRef/remoteString">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//GitRepoRef/host"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//GitRepoRef/owner"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//GitRepoRef/repo"/>
-      <genOperations ecoreOperation="emfs.ecore#//GitRepoRef/getRemoteString"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//GitRepoRef/remoteString"/>
     </genClasses>
-    <genClasses ecoreClass="emfs.ecore#//GitContentRef">
+    <genClasses ecoreClass="emfs.ecore#//GitContentRef" labelFeature="#//emfs/GitContentRef/urlString">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//GitContentRef/path"/>
-      <genOperations ecoreOperation="emfs.ecore#//GitContentRef/getUrlString"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute emfs.ecore#//GitContentRef/urlString"/>
     </genClasses>
     <genClasses ecoreClass="emfs.ecore#//CachingContentProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs.ecore#//CachingContentProvider/contentProvider"/>

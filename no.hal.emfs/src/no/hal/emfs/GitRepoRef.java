@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link no.hal.emfs.GitRepoRef#getHost <em>Host</em>}</li>
  *   <li>{@link no.hal.emfs.GitRepoRef#getOwner <em>Owner</em>}</li>
  *   <li>{@link no.hal.emfs.GitRepoRef#getRepo <em>Repo</em>}</li>
+ *   <li>{@link no.hal.emfs.GitRepoRef#getRemoteString <em>Remote String</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,9 +103,12 @@ public interface GitRepoRef extends EObject {
 	void setRepo(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Remote String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @return the value of the '<em>Remote String</em>' attribute.
+	 * @see no.hal.emfs.EmfsPackage#getGitRepoRef_RemoteString()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getRemoteString();

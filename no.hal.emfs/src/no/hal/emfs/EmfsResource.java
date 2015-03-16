@@ -14,6 +14,9 @@ package no.hal.emfs;
  *   <li>{@link no.hal.emfs.EmfsResource#isWriteable <em>Writeable</em>}</li>
  *   <li>{@link no.hal.emfs.EmfsResource#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.emfs.EmfsResource#getContainer <em>Container</em>}</li>
+ *   <li>{@link no.hal.emfs.EmfsResource#getFullPath <em>Full Path</em>}</li>
+ *   <li>{@link no.hal.emfs.EmfsResource#getContainerPath <em>Container Path</em>}</li>
+ *   <li>{@link no.hal.emfs.EmfsResource#getFullName <em>Full Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +104,50 @@ public interface EmfsResource extends TagsOwner, PropertyOwner {
 	 * @generated
 	 */
 	void setContainer(EmfsContainer value);
+
+	/**
+	 * Returns the value of the '<em><b>Full Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Path</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Path</em>' attribute.
+	 * @see no.hal.emfs.EmfsPackage#getEmfsResource_FullPath()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getFullPath();
+
+	/**
+	 * Returns the value of the '<em><b>Container Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Container Path</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Container Path</em>' attribute.
+	 * @see no.hal.emfs.EmfsPackage#getEmfsResource_ContainerPath()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getContainerPath();
+
+	/**
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Full Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see no.hal.emfs.EmfsPackage#getEmfsResource_FullName()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getFullName();
 
 } // EmfsResource

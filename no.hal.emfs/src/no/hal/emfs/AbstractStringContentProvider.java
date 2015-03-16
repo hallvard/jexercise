@@ -13,15 +13,7 @@ package no.hal.emfs;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractStringContentProvider extends AbstractBytesContentProvider {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	String getStringContent();
-
+public interface AbstractStringContentProvider extends AbstractBytesContentProvider, AbstractStringContents {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
