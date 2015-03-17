@@ -1,0 +1,83 @@
+test delegation.office.Manager
+
+import java.util.Arrays
+import java.util.ArrayList
+
+instance Printer printer = new Printer()
+instance Clerk clerk = new Clerk(printer)
+instance Clerk secondClerk = new Clerk(printer)
+instance Manager manager = new Manager(Arrays.asList(clerk))
+
+
+sequence noEmployeesConstructor{
+	-- new Manager(new ArrayList<Employee>) throws IllegalArgumentException
+}
+
+sequence doCalculations{
+	-->
+	state{
+		manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5
+		clerk.taskCount == 1
+		manager.taskCount == 1
+	}
+}
+
+sequence printDocuments{
+	"Printer et dokument" -- manager.printDocument("dokument")-->
+	state{
+		printer.printHistory.get(0) == "dokument1"
+		clerk.taskCount == 1
+		printer.printHistory.size == 1
+	}
+}
+
+sequence taskCount{
+	-->
+	state{
+		manager.taskCount == 0
+		clerk.taskCount == 0
+	}
+	"Printer et dokument" -- manager.printDocument("dokument") -->
+	state{
+		manager.taskCount == 1
+		clerk.taskCount == 1
+	} 
+	"Gjør en beregning" -- manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 -->
+	state{
+		manager.taskCount == 2
+		clerk.taskCount == 2
+	} 
+} 
+
+sequence resourceCount{
+	-->
+	state{
+		manager.resourceCount == 2
+	}
+}
+
+sequence severalClerks{
+	
+	instance Manager multiManager = new Manager(Arrays.asList(clerk, secondClerk))
+	-->
+	state{
+		multiManager.resourceCount == 3
+		clerk.resourceCount == 1
+		secondClerk.resourceCount == 1
+	}
+	"Printer et dokument"-- multiManager.printDocument("dokument") -->
+	state{
+		multiManager.taskCount == 1
+		(clerk.taskCount == 1 || secondClerk.taskCount == 1) && (clerk.taskCount == 0 || secondClerk.taskCount == 0)
+	}
+	"Gjør en beregning" -- multiManager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 -->
+	state{
+		manager.taskCount == 2
+	} 
+}
+
+
+method boolean operator_assertEquals(double first, double second) {
+	assertEquals(first, second, 0.000001d);
+	return true;
+}

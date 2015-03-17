@@ -1,0 +1,27 @@
+test delegation.office.Printer
+
+instance Printer printer = new Printer()
+
+sequence print{
+	-->
+	state{
+		printer.printHistory.size == 0
+	}
+	"Printer to dokumenter" -- printer.printDocument("dokument1"), printer.printDocument("dokument2") -->
+	state{
+		printer.printHistory.size == 2
+		printer.printHistory.get(0) == "dokument1"
+		printer.printHistory.get(1) == "dokument2"
+	}
+}
+
+sequence printHistoryModification{
+	"Printer to dokumenter" -- printer.printDocument("dokument1"), printer.printDocument("dokument2") -->
+	state{
+		printer.printHistory.size == 2
+	}
+	"Fjerner et dokument fra history og sjekker at printer-historikken er uendret" -- printer.printHistory.remove(0)-->
+	state{
+		printer.printHistory.size == 2
+	}
+}

@@ -1,0 +1,66 @@
+test delegation.office.Clerk
+
+instance Printer printer = new Printer
+instance Clerk clerk = new Clerk(printer)
+
+sequence doCalculations{
+	-->
+	state{
+		clerk.taskCount == 0
+	}
+	"Gjør en beregning" -- clerk.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 -->
+	state{
+		clerk.taskCount == 1
+	}
+	"Gjør en beregning" -- clerk.doCalculations([x, y | x / y ], 2.0, 4.0) ?= 0.5 -->
+	state{
+		clerk.taskCount == 2
+	}
+}
+
+sequence printDocuments{
+	-->
+	state{
+		clerk.taskCount == 0
+	}
+	"Printer et dokument" -- clerk.printDocument("dokument1") -->
+	state{
+		printer.printHistory.get(0) == "dokument1"
+		clerk.taskCount == 1
+		printer.printHistory.size == 1
+	}
+	"Printer et dokument" -- clerk.printDocument("dokument2") -->
+	state{
+		printer.printHistory.get(1) == "dokument2"
+		clerk.taskCount == 2
+		printer.printHistory.size == 2
+	}
+}
+
+sequence taskCount{
+	-->
+	state{
+		clerk.taskCount == 0
+	}
+	"Printer et dokument" -- clerk.printDocument("dokument1") -->
+	state{
+		clerk.taskCount == 1
+	} 
+	"Gjør en beregning" -- clerk.doCalculations([x, y | x + y ], 2.0, 3.5) -->
+	state{
+		clerk.taskCount == 2
+	} 
+} 
+
+sequence resourceCount{
+	-->
+	state{
+		clerk.resourceCount == 1
+	}
+}
+
+
+method boolean operator_assertEquals(double first, double second) {
+	assertEquals(first, second, 0.000001d);
+	return true;
+}
