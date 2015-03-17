@@ -11,7 +11,9 @@
             default="true"
             extensions="xemfs"
             id="no.hal.emfs.xtext.Xemfs"
-            name="Xemfs Editor">
+            name="Xemfs Editor"
+            icon="icons/emfs.png"
+            >
         </editor>
     </extension>
     <extension
