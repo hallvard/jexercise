@@ -40,17 +40,19 @@ public class StreamLoggerTest extends TestCase {
   
   private boolean operator_equals(final ByteArrayOutputStream stream, final String content) {
     String _string = stream.toString();
-    return Objects.equal(_string, content);
+    String _trim = _string.trim();
+    String _trim_1 = content.trim();
+    return Objects.equal(_trim, _trim_1);
   }
   
-  @JExercise(tests = "StreamLogger(java.io.OutputStream);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Logger infomelding: logger.log(ILogger.INFO, \"En melding ble logget!\", null)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "StreamLogger(java.io.OutputStream);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Logger infomelding: logger.log(ILogger.INFO, \"En melding ble logget!\", null)</li>\n\t\t</ul>\n")
   public void testLog() {
     _transition_exprAction__log_transitions0_actions0();
     _test__log_transitions0_effect_state();
     
   }
   
-  @JExercise(tests = "StreamLogger(java.io.OutputStream);void setFormatString(String);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Logger unntak: logger.setFormatString(formatString), logger.log(ILogger.INFO, \"En melding ble logget!\", exception)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "StreamLogger(java.io.OutputStream);void setFormatString(String);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Logger unntak: logger.setFormatString(formatString), logger.log(ILogger.INFO, \"En melding ble logget!\", exception)</li>\n\t\t</ul>\n")
   public void testLogException() {
     IllegalStateException exception = _init__logException_exception();
     _transition_exprAction__logException_transitions0_actions0(exception);
@@ -59,7 +61,7 @@ public class StreamLoggerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "StreamLogger(java.io.OutputStream);void setFormatString(String);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Logger infomelding med spesifisert format: logger.setFormatString(formatString), logger.log(ILogger.INFO, \"En melding ble logget!\", exception)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "StreamLogger(java.io.OutputStream);void setFormatString(String);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Logger infomelding med spesifisert format: logger.setFormatString(formatString), logger.log(ILogger.INFO, \"En melding ble logget!\", exception)</li>\n\t\t</ul>\n")
   public void testLogWithFormat() {
     IllegalStateException exception = _init__logWithFormat_exception();
     _transition_exprAction__logWithFormat_transitions0_actions0(exception);

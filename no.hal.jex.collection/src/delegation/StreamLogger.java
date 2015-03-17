@@ -20,6 +20,7 @@ public class StreamLogger implements ILogger {
 	@Override
 	public void log(String severity, String message, Exception exception) {
 		stream.format(formatString, severity, message, exception);
+		stream.println();
 		stream.flush();
 	}
 }

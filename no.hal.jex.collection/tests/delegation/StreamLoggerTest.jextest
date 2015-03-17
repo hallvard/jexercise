@@ -1,7 +1,6 @@
-import java.io.OutputStream
-import java.io.ByteArrayOutputStream
-
 test delegation.StreamLogger
+
+import java.io.ByteArrayOutputStream
 
 instance String formatString = "%s: %s (%s)"
 
@@ -10,7 +9,7 @@ instance StreamLogger logger = new StreamLogger(stream)
 
 sequence log {
 	"Logger infomelding" -- logger.log(ILogger.INFO, "En melding ble logget!", null) -->
-	state{
+	state {
 		stream.toString().contains("En melding ble logget!")
 		stream.toString().contains(ILogger.INFO)		
 	}
@@ -34,6 +33,7 @@ sequence logWithFormat {
 }
 
 
-method boolean operator_equals(ByteArrayOutputStream stream, String content){
-	return stream.toString() == content
+method boolean operator_equals(ByteArrayOutputStream stream, String content) {
+	// ignore leadning and trailing whitespace
+	return stream.toString().trim() == content.trim()
 }
