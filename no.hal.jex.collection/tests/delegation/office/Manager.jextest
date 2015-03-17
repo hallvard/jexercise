@@ -10,24 +10,29 @@ instance Manager manager = new Manager(Arrays.asList(clerk))
 
 
 sequence noEmployeesConstructor{
-	-- new Manager(new ArrayList<Employee>) throws IllegalArgumentException
+	"Lager Manager med tom Employee-samling"-- new Manager(new ArrayList<Employee>) throws IllegalArgumentException
 }
 
 sequence doCalculations{
 	-->
 	state{
-		manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5
+		clerk.taskCount == 0
+		manager.taskCount == 0
+	}
+	"Gjør en beregning" -- manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 -->
+	state{
 		clerk.taskCount == 1
 		manager.taskCount == 1
 	}
 }
 
 sequence printDocuments{
-	"Printer et dokument" -- manager.printDocument("dokument")-->
+	"Printer et dokument" -- manager.printDocument("dokument1")-->
 	state{
-		printer.printHistory.get(0) == "dokument1"
+		printer.getPrintHistory(clerk).get(0) == "dokument1"
+		manager.taskCount == 1
 		clerk.taskCount == 1
-		printer.printHistory.size == 1
+		printer.getPrintHistory(clerk).size == 1
 	}
 }
 
@@ -72,7 +77,7 @@ sequence severalClerks{
 	}
 	"Gjør en beregning" -- multiManager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 -->
 	state{
-		manager.taskCount == 2
+		multiManager.taskCount == 2
 	} 
 }
 

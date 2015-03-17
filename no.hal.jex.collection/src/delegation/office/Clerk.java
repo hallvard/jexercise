@@ -19,12 +19,12 @@ public class Clerk implements Employee {
 
 	@Override
 	public void printDocument(String document) {
-		printer.printDocument(document);
+		printer.printDocument(document, this);
 	}
 
 	@Override
 	public int taskCount() {
-		return printer.getPrintHistory().size() + calculationCount;
+		return printer.getPrintHistory(this).size() + calculationCount;
 	}
 
 	@Override

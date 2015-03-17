@@ -25,15 +25,15 @@ sequence printDocuments{
 	}
 	"Printer et dokument" -- clerk.printDocument("dokument1") -->
 	state{
-		printer.printHistory.get(0) == "dokument1"
+		printer.getPrintHistory(clerk).get(0) == "dokument1"
 		clerk.taskCount == 1
-		printer.printHistory.size == 1
+		printer.getPrintHistory(clerk).size == 1
 	}
 	"Printer et dokument" -- clerk.printDocument("dokument2") -->
 	state{
-		printer.printHistory.get(1) == "dokument2"
+		printer.getPrintHistory(clerk).get(1) == "dokument2"
 		clerk.taskCount == 2
-		printer.printHistory.size == 2
+		printer.getPrintHistory(clerk).size == 2
 	}
 }
 
