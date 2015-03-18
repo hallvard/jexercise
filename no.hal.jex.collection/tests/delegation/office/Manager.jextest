@@ -51,7 +51,7 @@ sequence taskCount{
 	state{
 		manager.taskCount == 2
 		clerk.taskCount == 2
-	} 
+	}
 } 
 
 sequence resourceCount{

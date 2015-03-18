@@ -23,13 +23,12 @@ public class Clerk implements Employee {
 	}
 
 	@Override
-	public int taskCount() {
+	public int getTaskCount() {
 		return printer.getPrintHistory(this).size() + calculationCount;
 	}
 
 	@Override
-	public int resourceCount() {
+	public int getResourceCount() {
 		return 1;
 	}
-
 }

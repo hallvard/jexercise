@@ -3,13 +3,13 @@ test delegation.office.Clerk
 instance Printer printer = new Printer
 instance Clerk clerk = new Clerk(printer)
 
-sequence doCalculations{
+sequence doCalculations {
 	-->
-	state{
+	state {
 		clerk.taskCount == 0
 	}
 	"Gjør en beregning" -- clerk.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 -->
-	state{
+	state {
 		clerk.taskCount == 1
 	}
 	"Gjør en beregning" -- clerk.doCalculations([x, y | x / y ], 2.0, 4.0) ?= 0.5 -->
@@ -18,7 +18,7 @@ sequence doCalculations{
 	}
 }
 
-sequence printDocuments{
+sequence printDocuments {
 	-->
 	state{
 		clerk.taskCount == 0
@@ -37,7 +37,7 @@ sequence printDocuments{
 	}
 }
 
-sequence taskCount{
+sequence taskCount {
 	-->
 	state{
 		clerk.taskCount == 0
@@ -54,7 +54,7 @@ sequence taskCount{
 
 sequence resourceCount{
 	-->
-	state{
+	state {
 		clerk.resourceCount == 1
 	}
 }
