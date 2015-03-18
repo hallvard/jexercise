@@ -1,0 +1,52 @@
+test delegation.office.Printer
+
+instance Printer printer = new Printer()
+
+instance Clerk clerk1 = new Clerk(printer)
+instance Clerk clerk2 = new Clerk(printer)
+
+sequence printSingleClerk{
+	-->
+	state{
+		printer.getPrintHistory(clerk1).size == 0
+	}
+	"Printer to dokumenter" -- printer.printDocument("dokument1", clerk1)-->
+	state{
+		printer.getPrintHistory(clerk1).size == 1
+		printer.getPrintHistory(clerk1).get(0) == "dokument1"
+	}
+	"Printer et dokument til" -- printer.printDocument("dokument2", clerk1) -->
+	state{
+		printer.getPrintHistory(clerk1).size == 2
+		printer.getPrintHistory(clerk1).get(1) == "dokument2"
+	}
+}
+
+sequence printMulipleClerks{
+	-->
+	state{
+		printer.getPrintHistory(clerk1).size == 0
+		printer.getPrintHistory(clerk2).size == 0
+	}
+	"Printer dokument for Clerk nr. 1" -- printer.printDocument("dokument1", clerk1) -->
+	state{
+		printer.getPrintHistory(clerk1).size == 1
+		printer.getPrintHistory(clerk2).size == 0
+	}
+	"Printer dokument for Clerk nr. 2" -- printer.printDocument("dokument2", clerk2) -->
+	state{
+		printer.getPrintHistory(clerk1).size == 1
+		printer.getPrintHistory(clerk2).size == 1
+	}
+}
+
+sequence printHistoryModification{
+	"Printer to dokumenter" -- printer.printDocument("dokument1", clerk1), printer.printDocument("dokument2", clerk1) -->
+	state{
+		printer.getPrintHistory(clerk1).size == 2
+	}
+	"Fjerner et dokument fra historikk og sjekker at printer-historikken er uendret" -- printer.getPrintHistory(clerk1).remove(0)-->
+	state{
+		printer.getPrintHistory(clerk1).size == 2
+	}
+}
