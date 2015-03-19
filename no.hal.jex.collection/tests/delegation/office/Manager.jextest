@@ -13,6 +13,21 @@ sequence noEmployeesConstructor{
 	"Lager Manager med tom Employee-samling"-- new Manager(new ArrayList<Employee>) throws IllegalArgumentException
 }
 
+sequence resourceCount{
+	"Sjekker getResourceCount uten mellomledere"-- manager.resourceCount == 2 -->
+	state{
+		
+	}
+}
+
+sequence middleManagementResourceCounts{
+	instance topManager = new Manager(Arrays.asList(manager))
+	"Sjekker getResourceCount med mellomleder"-- topManager.resourceCount == 3 -->
+	state {		
+	}
+}
+
+
 sequence doCalculations{
 	-->
 	state{
@@ -54,12 +69,6 @@ sequence taskCount{
 	}
 } 
 
-sequence resourceCount{
-	-->
-	state{
-		manager.resourceCount == 2
-	}
-}
 
 sequence severalClerks{
 	instance Manager multiManager = new Manager(Arrays.asList(clerk, secondClerk))
@@ -78,14 +87,6 @@ sequence severalClerks{
 	state{
 		multiManager.taskCount == 2
 	} 
-}
-
-sequence middleManagement{
-	instance topManager = new Manager(Arrays.asList(manager))
-	-->
-	state{
-		topManager.resourceCount == 3
-	}
 }
 
 method boolean operator_assertEquals(double first, double second) {
