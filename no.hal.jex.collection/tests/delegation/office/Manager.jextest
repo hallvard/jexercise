@@ -62,7 +62,6 @@ sequence resourceCount{
 }
 
 sequence severalClerks{
-	
 	instance Manager multiManager = new Manager(Arrays.asList(clerk, secondClerk))
 	-->
 	state{
@@ -81,6 +80,13 @@ sequence severalClerks{
 	} 
 }
 
+sequence middleManagement{
+	instance topManager = new Manager(Arrays.asList(manager))
+	-->
+	state{
+		topManager.resourceCount == 3
+	}
+}
 
 method boolean operator_assertEquals(double first, double second) {
 	assertEquals(first, second, 0.000001d);

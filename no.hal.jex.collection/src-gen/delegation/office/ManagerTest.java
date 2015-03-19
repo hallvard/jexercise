@@ -60,7 +60,7 @@ public class ManagerTest extends TestCase {
     return true;
   }
   
-  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Lager Manager med tom Employee-samling: new Manager(new ArrayList<Employee>)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Lager Manager med tom Employee-samling: new Manager(new ArrayList<Employee>)</li>\r\n\t\t</ul>\r\n")
   public void testNoEmployeesConstructor() {
     try {
       _transition_exprAction__noEmployeesConstructor_transitions0_actions0();
@@ -71,7 +71,7 @@ public class ManagerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Gj\u00F8r en beregning: manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t</ul>\n")
+  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Gj\u00F8r en beregning: manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5</li>\r\n\t\t</ul>\r\n")
   public void testDoCalculations() {
     _test__doCalculations_transitions0_effect_state();
     _transition_exprAction__doCalculations_transitions1_actions0();
@@ -79,14 +79,14 @@ public class ManagerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);void printDocument(String)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: manager.printDocument(\"dokument1\")</li>\n\t\t</ul>\n")
+  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);void printDocument(String)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Printer et dokument: manager.printDocument(\"dokument1\")</li>\r\n\t\t</ul>\r\n")
   public void testPrintDocuments() {
     _transition_exprAction__printDocuments_transitions0_actions0();
     _test__printDocuments_transitions0_effect_state();
     
   }
   
-  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: manager.printDocument(\"dokument\")</li>\n\t\t<li>Gj\u00F8r en beregning: manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t</ul>\n")
+  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Printer et dokument: manager.printDocument(\"dokument\")</li>\r\n\t\t<li>Gj\u00F8r en beregning: manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5</li>\r\n\t\t</ul>\r\n")
   public void testTaskCount() {
     _test__taskCount_transitions0_effect_state();
     _transition_exprAction__taskCount_transitions1_actions0();
@@ -96,13 +96,13 @@ public class ManagerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>)", description = "Tests \n\t\tinitialization\n")
+  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>)", description = "Tests \r\n\t\tinitialization\r\n")
   public void testResourceCount() {
     _test__resourceCount_transitions0_effect_state();
     
   }
   
-  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: multiManager.printDocument(\"dokument\")</li>\n\t\t<li>Gj\u00F8r en beregning: multiManager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t</ul>\n")
+  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Printer et dokument: multiManager.printDocument(\"dokument\")</li>\r\n\t\t<li>Gj\u00F8r en beregning: multiManager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5</li>\r\n\t\t</ul>\r\n")
   public void testSeveralClerks() {
     Manager multiManager = _init__severalClerks_multiManager();
     _test__severalClerks_transitions0_effect_state(multiManager);
@@ -110,6 +110,13 @@ public class ManagerTest extends TestCase {
     _test__severalClerks_transitions1_effect_state(multiManager);
     _transition_exprAction__severalClerks_transitions2_actions0(multiManager);
     _test__severalClerks_transitions2_effect_state(multiManager);
+    
+  }
+  
+  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>)", description = "Tests \r\n\t\tinitialization\r\n")
+  public void testMiddleManagement() {
+    Manager topManager = _init__middleManagement_topManager();
+    _test__middleManagement_transitions0_effect_state(topManager);
     
   }
   
@@ -376,6 +383,24 @@ public class ManagerTest extends TestCase {
     
     int _taskCount = multiManager.getTaskCount();
     assertEquals("multiManager.taskCount == 2 failed after multiManager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5", 2, _taskCount);
+    
+  }
+  
+  private Manager _init__middleManagement_topManager() {
+    List<Employee> _asList = Arrays.<Employee>asList(this.manager);
+    Manager _manager = new Manager(_asList);
+    return _manager;
+  }
+  
+  private void _test__middleManagement_transitions0_effect_state(final Manager topManager) {
+    _test__middleManagement_transitions0_effect_state_objectTests0_test(topManager);
+    
+  }
+  
+  private void _test__middleManagement_transitions0_effect_state_objectTests0_test(final Manager topManager) {
+    
+    int _resourceCount = topManager.getResourceCount();
+    assertEquals("topManager.resourceCount == 3 failed", 3, _resourceCount);
     
   }
   
