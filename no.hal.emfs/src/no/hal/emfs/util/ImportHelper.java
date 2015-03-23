@@ -1,5 +1,7 @@
 package no.hal.emfs.util;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Collection;
 
 import no.hal.emfs.EmfsContainer;
@@ -18,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 
-public class ImportHelper {
+public class ImportHelper extends ImportHelperOptions {
 
 	public static int countEmfsResources(Collection<EmfsResource> emfsResources) {
 		int count = 0;
@@ -40,13 +42,6 @@ public class ImportHelper {
 		}
 		return count;
 	}
-
-	public Collection<EmfsResource> exclude = null;
-	public ImportSupport importSupport;
-	public boolean recurse = true;
-	public boolean overwrite = false;
-	public boolean ensureContainers = true;
-	public Class<? extends Exception> exceptionClass;
 
 	public void importResources(Collection<EmfsResource> emfsResources, IContainer target, IProgressMonitor monitor) throws Exception {
 		importResources(emfsResources, target, this.ensureContainers, monitor);
@@ -101,6 +96,15 @@ public class ImportHelper {
 		}
 		return folder;
 	}
+	
+	private InputStream getContentInputStream(EmfsFile emfsFile) {
+		if (emfsFile.getContentProvider() != null) {
+			return emfsFile.getInputStream(IResource.NONE);
+		} else if (createEmptyFiles || (emfsFile.isWriteable() && createEmptyWriteable)) {
+			return new ByteArrayInputStream(new byte[0]);
+		}
+		return null;
+	}
 
 	public void importResources(EmfsResource emfsResource, IContainer target, boolean ensureContainers, IProgressMonitor monitor) throws Exception {
 		if (this.exclude != null && this.exclude.contains(emfsResource)) {
@@ -119,16 +123,22 @@ public class ImportHelper {
 			}
 		} else if (emfsResource instanceof EmfsFile) {
 			EmfsFile emfsFile = (EmfsFile) emfsResource;
-			if (name != null && emfsFile.getContentProvider() != null) {
+			if (name != null) {
 				IFile file = target.getFile(new Path(name));
 				if (! file.exists()) {
-					try {
-						file.create(emfsFile.getInputStream(IResource.NONE), true, null);
-					} catch (CoreException e) {
-						throwException(file, target, e, monitor);
+					InputStream inputStream = getContentInputStream(emfsFile);
+					if (inputStream != null) {
+						try {
+							file.create(inputStream, true, null);
+						} catch (CoreException e) {
+							throwException(file, target, e, monitor);
+						}
 					}
 				} else if (this.overwrite) {
-					file.setContents(emfsFile.getInputStream(IResource.NONE), true, false, null);
+					InputStream inputStream = getContentInputStream(emfsFile);
+					if (inputStream != null) {
+						file.setContents(inputStream, true, false, null);
+					}
 				}
 			}
 			if (monitor != null) {
