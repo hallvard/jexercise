@@ -104,8 +104,8 @@ public class XemfsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDotClasspathFileContentProviderAccess().getGroup(), "rule__DotClasspathFileContentProvider__Group__0");
 					put(grammarAccess.getCLASSPATH_ENTRY_PATHAccess().getGroup(), "rule__CLASSPATH_ENTRY_PATH__Group__0");
 					put(grammarAccess.getClasspathEntryAccess().getGroup(), "rule__ClasspathEntry__Group__0");
-					put(grammarAccess.getClasspathEntryAccess().getGroup_2(), "rule__ClasspathEntry__Group_2__0");
-					put(grammarAccess.getClasspathEntryAccess().getGroup_2_2(), "rule__ClasspathEntry__Group_2_2__0");
+					put(grammarAccess.getClasspathEntryAccess().getGroup_3(), "rule__ClasspathEntry__Group_3__0");
+					put(grammarAccess.getClasspathEntryAccess().getGroup_3_2(), "rule__ClasspathEntry__Group_3_2__0");
 					put(grammarAccess.getDotProjectFileContentProviderAccess().getGroup(), "rule__DotProjectFileContentProvider__Group__0");
 					put(grammarAccess.getDotProjectFileContentProviderAccess().getGroup_1(), "rule__DotProjectFileContentProvider__Group_1__0");
 					put(grammarAccess.getDotProjectFileContentProviderAccess().getGroup_2(), "rule__DotProjectFileContentProvider__Group_2__0");
@@ -149,9 +149,10 @@ public class XemfsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGitContentRefAccess().getPathAssignment_5(), "rule__GitContentRef__PathAssignment_5");
 					put(grammarAccess.getDotClasspathFileContentProviderAccess().getEntriesAssignment_1(), "rule__DotClasspathFileContentProvider__EntriesAssignment_1");
 					put(grammarAccess.getClasspathEntryAccess().getExplicitKindAssignment_0(), "rule__ClasspathEntry__ExplicitKindAssignment_0");
-					put(grammarAccess.getClasspathEntryAccess().getExplicitPathAssignment_1(), "rule__ClasspathEntry__ExplicitPathAssignment_1");
-					put(grammarAccess.getClasspathEntryAccess().getMajorAssignment_2_1(), "rule__ClasspathEntry__MajorAssignment_2_1");
-					put(grammarAccess.getClasspathEntryAccess().getMinorAssignment_2_2_1(), "rule__ClasspathEntry__MinorAssignment_2_2_1");
+					put(grammarAccess.getClasspathEntryAccess().getAbsoluteAssignment_1(), "rule__ClasspathEntry__AbsoluteAssignment_1");
+					put(grammarAccess.getClasspathEntryAccess().getExplicitPathAssignment_2(), "rule__ClasspathEntry__ExplicitPathAssignment_2");
+					put(grammarAccess.getClasspathEntryAccess().getMajorAssignment_3_1(), "rule__ClasspathEntry__MajorAssignment_3_1");
+					put(grammarAccess.getClasspathEntryAccess().getMinorAssignment_3_2_1(), "rule__ClasspathEntry__MinorAssignment_3_2_1");
 					put(grammarAccess.getDotProjectFileContentProviderAccess().getKeysAssignment_1_1(), "rule__DotProjectFileContentProvider__KeysAssignment_1_1");
 					put(grammarAccess.getDotProjectFileContentProviderAccess().getLinkedResourcesAssignment_2_1(), "rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1");
 					put(grammarAccess.getDotProjectFileContentProviderAccess().getLinkedResourcesAssignment_2_2_1(), "rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1");

@@ -15343,34 +15343,45 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClasspathEntry__Group__1__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5197:1: rule__ClasspathEntry__Group__1__Impl : ( ( rule__ClasspathEntry__ExplicitPathAssignment_1 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5197:1: rule__ClasspathEntry__Group__1__Impl : ( ( rule__ClasspathEntry__AbsoluteAssignment_1 )? ) ;
     public final void rule__ClasspathEntry__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5201:1: ( ( ( rule__ClasspathEntry__ExplicitPathAssignment_1 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5202:1: ( ( rule__ClasspathEntry__ExplicitPathAssignment_1 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5201:1: ( ( ( rule__ClasspathEntry__AbsoluteAssignment_1 )? ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5202:1: ( ( rule__ClasspathEntry__AbsoluteAssignment_1 )? )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5202:1: ( ( rule__ClasspathEntry__ExplicitPathAssignment_1 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5203:1: ( rule__ClasspathEntry__ExplicitPathAssignment_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5202:1: ( ( rule__ClasspathEntry__AbsoluteAssignment_1 )? )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5203:1: ( rule__ClasspathEntry__AbsoluteAssignment_1 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getExplicitPathAssignment_1()); 
+               before(grammarAccess.getClasspathEntryAccess().getAbsoluteAssignment_1()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5204:1: ( rule__ClasspathEntry__ExplicitPathAssignment_1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5204:2: rule__ClasspathEntry__ExplicitPathAssignment_1
-            {
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__ExplicitPathAssignment_1_in_rule__ClasspathEntry__Group__1__Impl10619);
-            rule__ClasspathEntry__ExplicitPathAssignment_1();
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5204:1: ( rule__ClasspathEntry__AbsoluteAssignment_1 )?
+            int alt58=2;
+            int LA58_0 = input.LA(1);
 
-            state._fsp--;
-            if (state.failed) return ;
+            if ( (LA58_0==27) ) {
+                alt58=1;
+            }
+            switch (alt58) {
+                case 1 :
+                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5204:2: rule__ClasspathEntry__AbsoluteAssignment_1
+                    {
+                    pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__AbsoluteAssignment_1_in_rule__ClasspathEntry__Group__1__Impl10619);
+                    rule__ClasspathEntry__AbsoluteAssignment_1();
+
+                    state._fsp--;
+                    if (state.failed) return ;
+
+                    }
+                    break;
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getExplicitPathAssignment_1()); 
+               after(grammarAccess.getClasspathEntryAccess().getAbsoluteAssignment_1()); 
             }
 
             }
@@ -15394,17 +15405,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClasspathEntry__Group__2"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5214:1: rule__ClasspathEntry__Group__2 : rule__ClasspathEntry__Group__2__Impl ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5214:1: rule__ClasspathEntry__Group__2 : rule__ClasspathEntry__Group__2__Impl rule__ClasspathEntry__Group__3 ;
     public final void rule__ClasspathEntry__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5218:1: ( rule__ClasspathEntry__Group__2__Impl )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5219:2: rule__ClasspathEntry__Group__2__Impl
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5218:1: ( rule__ClasspathEntry__Group__2__Impl rule__ClasspathEntry__Group__3 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5219:2: rule__ClasspathEntry__Group__2__Impl rule__ClasspathEntry__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group__2__Impl_in_rule__ClasspathEntry__Group__210649);
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group__2__Impl_in_rule__ClasspathEntry__Group__210650);
             rule__ClasspathEntry__Group__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group__3_in_rule__ClasspathEntry__Group__210653);
+            rule__ClasspathEntry__Group__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15427,45 +15443,34 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClasspathEntry__Group__2__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5225:1: rule__ClasspathEntry__Group__2__Impl : ( ( rule__ClasspathEntry__Group_2__0 )? ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5226:1: rule__ClasspathEntry__Group__2__Impl : ( ( rule__ClasspathEntry__ExplicitPathAssignment_2 ) ) ;
     public final void rule__ClasspathEntry__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5229:1: ( ( ( rule__ClasspathEntry__Group_2__0 )? ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5230:1: ( ( rule__ClasspathEntry__Group_2__0 )? )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5230:1: ( ( ( rule__ClasspathEntry__ExplicitPathAssignment_2 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5231:1: ( ( rule__ClasspathEntry__ExplicitPathAssignment_2 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5230:1: ( ( rule__ClasspathEntry__Group_2__0 )? )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5231:1: ( rule__ClasspathEntry__Group_2__0 )?
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5231:1: ( ( rule__ClasspathEntry__ExplicitPathAssignment_2 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5232:1: ( rule__ClasspathEntry__ExplicitPathAssignment_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getGroup_2()); 
+               before(grammarAccess.getClasspathEntryAccess().getExplicitPathAssignment_2()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5232:1: ( rule__ClasspathEntry__Group_2__0 )?
-            int alt58=2;
-            int LA58_0 = input.LA(1);
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5233:1: ( rule__ClasspathEntry__ExplicitPathAssignment_2 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5233:2: rule__ClasspathEntry__ExplicitPathAssignment_2
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__ExplicitPathAssignment_2_in_rule__ClasspathEntry__Group__2__Impl10680);
+            rule__ClasspathEntry__ExplicitPathAssignment_2();
 
-            if ( (LA58_0==42) ) {
-                alt58=1;
-            }
-            switch (alt58) {
-                case 1 :
-                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5232:2: rule__ClasspathEntry__Group_2__0
-                    {
-                    pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2__0_in_rule__ClasspathEntry__Group__2__Impl10676);
-                    rule__ClasspathEntry__Group_2__0();
-
-                    state._fsp--;
-                    if (state.failed) return ;
-
-                    }
-                    break;
+            state._fsp--;
+            if (state.failed) return ;
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getGroup_2()); 
+               after(grammarAccess.getClasspathEntryAccess().getExplicitPathAssignment_2()); 
             }
 
             }
@@ -15488,23 +15493,18 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ClasspathEntry__Group__2__Impl"
 
 
-    // $ANTLR start "rule__ClasspathEntry__Group_2__0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5248:1: rule__ClasspathEntry__Group_2__0 : rule__ClasspathEntry__Group_2__0__Impl rule__ClasspathEntry__Group_2__1 ;
-    public final void rule__ClasspathEntry__Group_2__0() throws RecognitionException {
+    // $ANTLR start "rule__ClasspathEntry__Group__3"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5243:1: rule__ClasspathEntry__Group__3 : rule__ClasspathEntry__Group__3__Impl ;
+    public final void rule__ClasspathEntry__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5252:1: ( rule__ClasspathEntry__Group_2__0__Impl rule__ClasspathEntry__Group_2__1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5253:2: rule__ClasspathEntry__Group_2__0__Impl rule__ClasspathEntry__Group_2__1
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5247:1: ( rule__ClasspathEntry__Group__3__Impl )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5248:2: rule__ClasspathEntry__Group__3__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2__0__Impl_in_rule__ClasspathEntry__Group_2__010713);
-            rule__ClasspathEntry__Group_2__0__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2__1_in_rule__ClasspathEntry__Group_2__010716);
-            rule__ClasspathEntry__Group_2__1();
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group__3__Impl_in_rule__ClasspathEntry__Group__310710);
+            rule__ClasspathEntry__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15523,206 +15523,38 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ClasspathEntry__Group_2__0"
+    // $ANTLR end "rule__ClasspathEntry__Group__3"
 
 
-    // $ANTLR start "rule__ClasspathEntry__Group_2__0__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5260:1: rule__ClasspathEntry__Group_2__0__Impl : ( '(' ) ;
-    public final void rule__ClasspathEntry__Group_2__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5264:1: ( ( '(' ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5265:1: ( '(' )
-            {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5265:1: ( '(' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5266:1: '('
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getLeftParenthesisKeyword_2_0()); 
-            }
-            match(input,42,FollowSets000.FOLLOW_42_in_rule__ClasspathEntry__Group_2__0__Impl10744); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getLeftParenthesisKeyword_2_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ClasspathEntry__Group_2__0__Impl"
-
-
-    // $ANTLR start "rule__ClasspathEntry__Group_2__1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5279:1: rule__ClasspathEntry__Group_2__1 : rule__ClasspathEntry__Group_2__1__Impl rule__ClasspathEntry__Group_2__2 ;
-    public final void rule__ClasspathEntry__Group_2__1() throws RecognitionException {
+    // $ANTLR start "rule__ClasspathEntry__Group__3__Impl"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5254:1: rule__ClasspathEntry__Group__3__Impl : ( ( rule__ClasspathEntry__Group_3__0 )? ) ;
+    public final void rule__ClasspathEntry__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5283:1: ( rule__ClasspathEntry__Group_2__1__Impl rule__ClasspathEntry__Group_2__2 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5284:2: rule__ClasspathEntry__Group_2__1__Impl rule__ClasspathEntry__Group_2__2
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5258:1: ( ( ( rule__ClasspathEntry__Group_3__0 )? ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5259:1: ( ( rule__ClasspathEntry__Group_3__0 )? )
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2__1__Impl_in_rule__ClasspathEntry__Group_2__110775);
-            rule__ClasspathEntry__Group_2__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2__2_in_rule__ClasspathEntry__Group_2__110778);
-            rule__ClasspathEntry__Group_2__2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ClasspathEntry__Group_2__1"
-
-
-    // $ANTLR start "rule__ClasspathEntry__Group_2__1__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5291:1: rule__ClasspathEntry__Group_2__1__Impl : ( ( rule__ClasspathEntry__MajorAssignment_2_1 ) ) ;
-    public final void rule__ClasspathEntry__Group_2__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5295:1: ( ( ( rule__ClasspathEntry__MajorAssignment_2_1 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5296:1: ( ( rule__ClasspathEntry__MajorAssignment_2_1 ) )
-            {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5296:1: ( ( rule__ClasspathEntry__MajorAssignment_2_1 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5297:1: ( rule__ClasspathEntry__MajorAssignment_2_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5259:1: ( ( rule__ClasspathEntry__Group_3__0 )? )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5260:1: ( rule__ClasspathEntry__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getMajorAssignment_2_1()); 
+               before(grammarAccess.getClasspathEntryAccess().getGroup_3()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5298:1: ( rule__ClasspathEntry__MajorAssignment_2_1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5298:2: rule__ClasspathEntry__MajorAssignment_2_1
-            {
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__MajorAssignment_2_1_in_rule__ClasspathEntry__Group_2__1__Impl10805);
-            rule__ClasspathEntry__MajorAssignment_2_1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getMajorAssignment_2_1()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ClasspathEntry__Group_2__1__Impl"
-
-
-    // $ANTLR start "rule__ClasspathEntry__Group_2__2"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5308:1: rule__ClasspathEntry__Group_2__2 : rule__ClasspathEntry__Group_2__2__Impl rule__ClasspathEntry__Group_2__3 ;
-    public final void rule__ClasspathEntry__Group_2__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5312:1: ( rule__ClasspathEntry__Group_2__2__Impl rule__ClasspathEntry__Group_2__3 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5313:2: rule__ClasspathEntry__Group_2__2__Impl rule__ClasspathEntry__Group_2__3
-            {
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2__2__Impl_in_rule__ClasspathEntry__Group_2__210835);
-            rule__ClasspathEntry__Group_2__2__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2__3_in_rule__ClasspathEntry__Group_2__210838);
-            rule__ClasspathEntry__Group_2__3();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ClasspathEntry__Group_2__2"
-
-
-    // $ANTLR start "rule__ClasspathEntry__Group_2__2__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5320:1: rule__ClasspathEntry__Group_2__2__Impl : ( ( rule__ClasspathEntry__Group_2_2__0 )? ) ;
-    public final void rule__ClasspathEntry__Group_2__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5324:1: ( ( ( rule__ClasspathEntry__Group_2_2__0 )? ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5325:1: ( ( rule__ClasspathEntry__Group_2_2__0 )? )
-            {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5325:1: ( ( rule__ClasspathEntry__Group_2_2__0 )? )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5326:1: ( rule__ClasspathEntry__Group_2_2__0 )?
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getGroup_2_2()); 
-            }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5327:1: ( rule__ClasspathEntry__Group_2_2__0 )?
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5261:1: ( rule__ClasspathEntry__Group_3__0 )?
             int alt59=2;
             int LA59_0 = input.LA(1);
 
-            if ( (LA59_0==31) ) {
+            if ( (LA59_0==42) ) {
                 alt59=1;
             }
             switch (alt59) {
                 case 1 :
-                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5327:2: rule__ClasspathEntry__Group_2_2__0
+                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5261:2: rule__ClasspathEntry__Group_3__0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2_2__0_in_rule__ClasspathEntry__Group_2__2__Impl10865);
-                    rule__ClasspathEntry__Group_2_2__0();
+                    pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3__0_in_rule__ClasspathEntry__Group__3__Impl10737);
+                    rule__ClasspathEntry__Group_3__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -15733,7 +15565,7 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getGroup_2_2()); 
+               after(grammarAccess.getClasspathEntryAccess().getGroup_3()); 
             }
 
             }
@@ -15753,21 +15585,26 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ClasspathEntry__Group_2__2__Impl"
+    // $ANTLR end "rule__ClasspathEntry__Group__3__Impl"
 
 
-    // $ANTLR start "rule__ClasspathEntry__Group_2__3"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5337:1: rule__ClasspathEntry__Group_2__3 : rule__ClasspathEntry__Group_2__3__Impl ;
-    public final void rule__ClasspathEntry__Group_2__3() throws RecognitionException {
+    // $ANTLR start "rule__ClasspathEntry__Group_3__0"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5279:1: rule__ClasspathEntry__Group_3__0 : rule__ClasspathEntry__Group_3__0__Impl rule__ClasspathEntry__Group_3__1 ;
+    public final void rule__ClasspathEntry__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5341:1: ( rule__ClasspathEntry__Group_2__3__Impl )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5342:2: rule__ClasspathEntry__Group_2__3__Impl
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5283:1: ( rule__ClasspathEntry__Group_3__0__Impl rule__ClasspathEntry__Group_3__1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5284:2: rule__ClasspathEntry__Group_3__0__Impl rule__ClasspathEntry__Group_3__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2__3__Impl_in_rule__ClasspathEntry__Group_2__310896);
-            rule__ClasspathEntry__Group_2__3__Impl();
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3__0__Impl_in_rule__ClasspathEntry__Group_3__010776);
+            rule__ClasspathEntry__Group_3__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3__1_in_rule__ClasspathEntry__Group_3__010779);
+            rule__ClasspathEntry__Group_3__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15786,28 +15623,28 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ClasspathEntry__Group_2__3"
+    // $ANTLR end "rule__ClasspathEntry__Group_3__0"
 
 
-    // $ANTLR start "rule__ClasspathEntry__Group_2__3__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5348:1: rule__ClasspathEntry__Group_2__3__Impl : ( ')' ) ;
-    public final void rule__ClasspathEntry__Group_2__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ClasspathEntry__Group_3__0__Impl"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5291:1: rule__ClasspathEntry__Group_3__0__Impl : ( '(' ) ;
+    public final void rule__ClasspathEntry__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5352:1: ( ( ')' ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5353:1: ( ')' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5295:1: ( ( '(' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5296:1: ( '(' )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5353:1: ( ')' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5354:1: ')'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5296:1: ( '(' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5297:1: '('
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getRightParenthesisKeyword_2_3()); 
+               before(grammarAccess.getClasspathEntryAccess().getLeftParenthesisKeyword_3_0()); 
             }
-            match(input,43,FollowSets000.FOLLOW_43_in_rule__ClasspathEntry__Group_2__3__Impl10924); if (state.failed) return ;
+            match(input,42,FollowSets000.FOLLOW_42_in_rule__ClasspathEntry__Group_3__0__Impl10807); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getRightParenthesisKeyword_2_3()); 
+               after(grammarAccess.getClasspathEntryAccess().getLeftParenthesisKeyword_3_0()); 
             }
 
             }
@@ -15827,100 +15664,26 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ClasspathEntry__Group_2__3__Impl"
+    // $ANTLR end "rule__ClasspathEntry__Group_3__0__Impl"
 
 
-    // $ANTLR start "rule__ClasspathEntry__Group_2_2__0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5375:1: rule__ClasspathEntry__Group_2_2__0 : rule__ClasspathEntry__Group_2_2__0__Impl rule__ClasspathEntry__Group_2_2__1 ;
-    public final void rule__ClasspathEntry__Group_2_2__0() throws RecognitionException {
+    // $ANTLR start "rule__ClasspathEntry__Group_3__1"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5310:1: rule__ClasspathEntry__Group_3__1 : rule__ClasspathEntry__Group_3__1__Impl rule__ClasspathEntry__Group_3__2 ;
+    public final void rule__ClasspathEntry__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5379:1: ( rule__ClasspathEntry__Group_2_2__0__Impl rule__ClasspathEntry__Group_2_2__1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5380:2: rule__ClasspathEntry__Group_2_2__0__Impl rule__ClasspathEntry__Group_2_2__1
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5314:1: ( rule__ClasspathEntry__Group_3__1__Impl rule__ClasspathEntry__Group_3__2 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5315:2: rule__ClasspathEntry__Group_3__1__Impl rule__ClasspathEntry__Group_3__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2_2__0__Impl_in_rule__ClasspathEntry__Group_2_2__010963);
-            rule__ClasspathEntry__Group_2_2__0__Impl();
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3__1__Impl_in_rule__ClasspathEntry__Group_3__110838);
+            rule__ClasspathEntry__Group_3__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2_2__1_in_rule__ClasspathEntry__Group_2_2__010966);
-            rule__ClasspathEntry__Group_2_2__1();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ClasspathEntry__Group_2_2__0"
-
-
-    // $ANTLR start "rule__ClasspathEntry__Group_2_2__0__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5387:1: rule__ClasspathEntry__Group_2_2__0__Impl : ( '.' ) ;
-    public final void rule__ClasspathEntry__Group_2_2__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5391:1: ( ( '.' ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5392:1: ( '.' )
-            {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5392:1: ( '.' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5393:1: '.'
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getFullStopKeyword_2_2_0()); 
-            }
-            match(input,31,FollowSets000.FOLLOW_31_in_rule__ClasspathEntry__Group_2_2__0__Impl10994); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getFullStopKeyword_2_2_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ClasspathEntry__Group_2_2__0__Impl"
-
-
-    // $ANTLR start "rule__ClasspathEntry__Group_2_2__1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5406:1: rule__ClasspathEntry__Group_2_2__1 : rule__ClasspathEntry__Group_2_2__1__Impl ;
-    public final void rule__ClasspathEntry__Group_2_2__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5410:1: ( rule__ClasspathEntry__Group_2_2__1__Impl )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5411:2: rule__ClasspathEntry__Group_2_2__1__Impl
-            {
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_2_2__1__Impl_in_rule__ClasspathEntry__Group_2_2__111025);
-            rule__ClasspathEntry__Group_2_2__1__Impl();
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3__2_in_rule__ClasspathEntry__Group_3__110841);
+            rule__ClasspathEntry__Group_3__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15939,30 +15702,30 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ClasspathEntry__Group_2_2__1"
+    // $ANTLR end "rule__ClasspathEntry__Group_3__1"
 
 
-    // $ANTLR start "rule__ClasspathEntry__Group_2_2__1__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5417:1: rule__ClasspathEntry__Group_2_2__1__Impl : ( ( rule__ClasspathEntry__MinorAssignment_2_2_1 ) ) ;
-    public final void rule__ClasspathEntry__Group_2_2__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ClasspathEntry__Group_3__1__Impl"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5322:1: rule__ClasspathEntry__Group_3__1__Impl : ( ( rule__ClasspathEntry__MajorAssignment_3_1 ) ) ;
+    public final void rule__ClasspathEntry__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5421:1: ( ( ( rule__ClasspathEntry__MinorAssignment_2_2_1 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5422:1: ( ( rule__ClasspathEntry__MinorAssignment_2_2_1 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5326:1: ( ( ( rule__ClasspathEntry__MajorAssignment_3_1 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5327:1: ( ( rule__ClasspathEntry__MajorAssignment_3_1 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5422:1: ( ( rule__ClasspathEntry__MinorAssignment_2_2_1 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5423:1: ( rule__ClasspathEntry__MinorAssignment_2_2_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5327:1: ( ( rule__ClasspathEntry__MajorAssignment_3_1 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5328:1: ( rule__ClasspathEntry__MajorAssignment_3_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getMinorAssignment_2_2_1()); 
+               before(grammarAccess.getClasspathEntryAccess().getMajorAssignment_3_1()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5424:1: ( rule__ClasspathEntry__MinorAssignment_2_2_1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5424:2: rule__ClasspathEntry__MinorAssignment_2_2_1
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5329:1: ( rule__ClasspathEntry__MajorAssignment_3_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5329:2: rule__ClasspathEntry__MajorAssignment_3_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__MinorAssignment_2_2_1_in_rule__ClasspathEntry__Group_2_2__1__Impl11052);
-            rule__ClasspathEntry__MinorAssignment_2_2_1();
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__MajorAssignment_3_1_in_rule__ClasspathEntry__Group_3__1__Impl10868);
+            rule__ClasspathEntry__MajorAssignment_3_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15970,7 +15733,7 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getMinorAssignment_2_2_1()); 
+               after(grammarAccess.getClasspathEntryAccess().getMajorAssignment_3_1()); 
             }
 
             }
@@ -15990,25 +15753,362 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ClasspathEntry__Group_2_2__1__Impl"
+    // $ANTLR end "rule__ClasspathEntry__Group_3__1__Impl"
+
+
+    // $ANTLR start "rule__ClasspathEntry__Group_3__2"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5339:1: rule__ClasspathEntry__Group_3__2 : rule__ClasspathEntry__Group_3__2__Impl rule__ClasspathEntry__Group_3__3 ;
+    public final void rule__ClasspathEntry__Group_3__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5343:1: ( rule__ClasspathEntry__Group_3__2__Impl rule__ClasspathEntry__Group_3__3 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5344:2: rule__ClasspathEntry__Group_3__2__Impl rule__ClasspathEntry__Group_3__3
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3__2__Impl_in_rule__ClasspathEntry__Group_3__210898);
+            rule__ClasspathEntry__Group_3__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3__3_in_rule__ClasspathEntry__Group_3__210901);
+            rule__ClasspathEntry__Group_3__3();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClasspathEntry__Group_3__2"
+
+
+    // $ANTLR start "rule__ClasspathEntry__Group_3__2__Impl"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5351:1: rule__ClasspathEntry__Group_3__2__Impl : ( ( rule__ClasspathEntry__Group_3_2__0 )? ) ;
+    public final void rule__ClasspathEntry__Group_3__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5355:1: ( ( ( rule__ClasspathEntry__Group_3_2__0 )? ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5356:1: ( ( rule__ClasspathEntry__Group_3_2__0 )? )
+            {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5356:1: ( ( rule__ClasspathEntry__Group_3_2__0 )? )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5357:1: ( rule__ClasspathEntry__Group_3_2__0 )?
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getClasspathEntryAccess().getGroup_3_2()); 
+            }
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5358:1: ( rule__ClasspathEntry__Group_3_2__0 )?
+            int alt60=2;
+            int LA60_0 = input.LA(1);
+
+            if ( (LA60_0==31) ) {
+                alt60=1;
+            }
+            switch (alt60) {
+                case 1 :
+                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5358:2: rule__ClasspathEntry__Group_3_2__0
+                    {
+                    pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3_2__0_in_rule__ClasspathEntry__Group_3__2__Impl10928);
+                    rule__ClasspathEntry__Group_3_2__0();
+
+                    state._fsp--;
+                    if (state.failed) return ;
+
+                    }
+                    break;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getClasspathEntryAccess().getGroup_3_2()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClasspathEntry__Group_3__2__Impl"
+
+
+    // $ANTLR start "rule__ClasspathEntry__Group_3__3"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5368:1: rule__ClasspathEntry__Group_3__3 : rule__ClasspathEntry__Group_3__3__Impl ;
+    public final void rule__ClasspathEntry__Group_3__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5372:1: ( rule__ClasspathEntry__Group_3__3__Impl )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5373:2: rule__ClasspathEntry__Group_3__3__Impl
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3__3__Impl_in_rule__ClasspathEntry__Group_3__310959);
+            rule__ClasspathEntry__Group_3__3__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClasspathEntry__Group_3__3"
+
+
+    // $ANTLR start "rule__ClasspathEntry__Group_3__3__Impl"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5379:1: rule__ClasspathEntry__Group_3__3__Impl : ( ')' ) ;
+    public final void rule__ClasspathEntry__Group_3__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5383:1: ( ( ')' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5384:1: ( ')' )
+            {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5384:1: ( ')' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5385:1: ')'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getClasspathEntryAccess().getRightParenthesisKeyword_3_3()); 
+            }
+            match(input,43,FollowSets000.FOLLOW_43_in_rule__ClasspathEntry__Group_3__3__Impl10987); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getClasspathEntryAccess().getRightParenthesisKeyword_3_3()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClasspathEntry__Group_3__3__Impl"
+
+
+    // $ANTLR start "rule__ClasspathEntry__Group_3_2__0"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5406:1: rule__ClasspathEntry__Group_3_2__0 : rule__ClasspathEntry__Group_3_2__0__Impl rule__ClasspathEntry__Group_3_2__1 ;
+    public final void rule__ClasspathEntry__Group_3_2__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5410:1: ( rule__ClasspathEntry__Group_3_2__0__Impl rule__ClasspathEntry__Group_3_2__1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5411:2: rule__ClasspathEntry__Group_3_2__0__Impl rule__ClasspathEntry__Group_3_2__1
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3_2__0__Impl_in_rule__ClasspathEntry__Group_3_2__011026);
+            rule__ClasspathEntry__Group_3_2__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3_2__1_in_rule__ClasspathEntry__Group_3_2__011029);
+            rule__ClasspathEntry__Group_3_2__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClasspathEntry__Group_3_2__0"
+
+
+    // $ANTLR start "rule__ClasspathEntry__Group_3_2__0__Impl"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5418:1: rule__ClasspathEntry__Group_3_2__0__Impl : ( '.' ) ;
+    public final void rule__ClasspathEntry__Group_3_2__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5422:1: ( ( '.' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5423:1: ( '.' )
+            {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5423:1: ( '.' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5424:1: '.'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getClasspathEntryAccess().getFullStopKeyword_3_2_0()); 
+            }
+            match(input,31,FollowSets000.FOLLOW_31_in_rule__ClasspathEntry__Group_3_2__0__Impl11057); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getClasspathEntryAccess().getFullStopKeyword_3_2_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClasspathEntry__Group_3_2__0__Impl"
+
+
+    // $ANTLR start "rule__ClasspathEntry__Group_3_2__1"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5437:1: rule__ClasspathEntry__Group_3_2__1 : rule__ClasspathEntry__Group_3_2__1__Impl ;
+    public final void rule__ClasspathEntry__Group_3_2__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5441:1: ( rule__ClasspathEntry__Group_3_2__1__Impl )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5442:2: rule__ClasspathEntry__Group_3_2__1__Impl
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__Group_3_2__1__Impl_in_rule__ClasspathEntry__Group_3_2__111088);
+            rule__ClasspathEntry__Group_3_2__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClasspathEntry__Group_3_2__1"
+
+
+    // $ANTLR start "rule__ClasspathEntry__Group_3_2__1__Impl"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5448:1: rule__ClasspathEntry__Group_3_2__1__Impl : ( ( rule__ClasspathEntry__MinorAssignment_3_2_1 ) ) ;
+    public final void rule__ClasspathEntry__Group_3_2__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5452:1: ( ( ( rule__ClasspathEntry__MinorAssignment_3_2_1 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5453:1: ( ( rule__ClasspathEntry__MinorAssignment_3_2_1 ) )
+            {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5453:1: ( ( rule__ClasspathEntry__MinorAssignment_3_2_1 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5454:1: ( rule__ClasspathEntry__MinorAssignment_3_2_1 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getClasspathEntryAccess().getMinorAssignment_3_2_1()); 
+            }
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5455:1: ( rule__ClasspathEntry__MinorAssignment_3_2_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5455:2: rule__ClasspathEntry__MinorAssignment_3_2_1
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__ClasspathEntry__MinorAssignment_3_2_1_in_rule__ClasspathEntry__Group_3_2__1__Impl11115);
+            rule__ClasspathEntry__MinorAssignment_3_2_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getClasspathEntryAccess().getMinorAssignment_3_2_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClasspathEntry__Group_3_2__1__Impl"
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group__0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5438:1: rule__DotProjectFileContentProvider__Group__0 : rule__DotProjectFileContentProvider__Group__0__Impl rule__DotProjectFileContentProvider__Group__1 ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5469:1: rule__DotProjectFileContentProvider__Group__0 : rule__DotProjectFileContentProvider__Group__0__Impl rule__DotProjectFileContentProvider__Group__1 ;
     public final void rule__DotProjectFileContentProvider__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5442:1: ( rule__DotProjectFileContentProvider__Group__0__Impl rule__DotProjectFileContentProvider__Group__1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5443:2: rule__DotProjectFileContentProvider__Group__0__Impl rule__DotProjectFileContentProvider__Group__1
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5473:1: ( rule__DotProjectFileContentProvider__Group__0__Impl rule__DotProjectFileContentProvider__Group__1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5474:2: rule__DotProjectFileContentProvider__Group__0__Impl rule__DotProjectFileContentProvider__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__0__Impl_in_rule__DotProjectFileContentProvider__Group__011086);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__0__Impl_in_rule__DotProjectFileContentProvider__Group__011149);
             rule__DotProjectFileContentProvider__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__1_in_rule__DotProjectFileContentProvider__Group__011089);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__1_in_rule__DotProjectFileContentProvider__Group__011152);
             rule__DotProjectFileContentProvider__Group__1();
 
             state._fsp--;
@@ -16032,22 +16132,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group__0__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5450:1: rule__DotProjectFileContentProvider__Group__0__Impl : ( 'dot.project' ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5481:1: rule__DotProjectFileContentProvider__Group__0__Impl : ( 'dot.project' ) ;
     public final void rule__DotProjectFileContentProvider__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5454:1: ( ( 'dot.project' ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5455:1: ( 'dot.project' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5485:1: ( ( 'dot.project' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5486:1: ( 'dot.project' )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5455:1: ( 'dot.project' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5456:1: 'dot.project'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5486:1: ( 'dot.project' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5487:1: 'dot.project'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getDotProjectKeyword_0()); 
             }
-            match(input,44,FollowSets000.FOLLOW_44_in_rule__DotProjectFileContentProvider__Group__0__Impl11117); if (state.failed) return ;
+            match(input,44,FollowSets000.FOLLOW_44_in_rule__DotProjectFileContentProvider__Group__0__Impl11180); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDotProjectFileContentProviderAccess().getDotProjectKeyword_0()); 
             }
@@ -16073,21 +16173,21 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group__1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5469:1: rule__DotProjectFileContentProvider__Group__1 : rule__DotProjectFileContentProvider__Group__1__Impl rule__DotProjectFileContentProvider__Group__2 ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5500:1: rule__DotProjectFileContentProvider__Group__1 : rule__DotProjectFileContentProvider__Group__1__Impl rule__DotProjectFileContentProvider__Group__2 ;
     public final void rule__DotProjectFileContentProvider__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5473:1: ( rule__DotProjectFileContentProvider__Group__1__Impl rule__DotProjectFileContentProvider__Group__2 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5474:2: rule__DotProjectFileContentProvider__Group__1__Impl rule__DotProjectFileContentProvider__Group__2
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5504:1: ( rule__DotProjectFileContentProvider__Group__1__Impl rule__DotProjectFileContentProvider__Group__2 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5505:2: rule__DotProjectFileContentProvider__Group__1__Impl rule__DotProjectFileContentProvider__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__1__Impl_in_rule__DotProjectFileContentProvider__Group__111148);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__1__Impl_in_rule__DotProjectFileContentProvider__Group__111211);
             rule__DotProjectFileContentProvider__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__2_in_rule__DotProjectFileContentProvider__Group__111151);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__2_in_rule__DotProjectFileContentProvider__Group__111214);
             rule__DotProjectFileContentProvider__Group__2();
 
             state._fsp--;
@@ -16111,28 +16211,28 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group__1__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5481:1: rule__DotProjectFileContentProvider__Group__1__Impl : ( ( ( rule__DotProjectFileContentProvider__Group_1__0 ) ) ( ( rule__DotProjectFileContentProvider__Group_1__0 )* ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5512:1: rule__DotProjectFileContentProvider__Group__1__Impl : ( ( ( rule__DotProjectFileContentProvider__Group_1__0 ) ) ( ( rule__DotProjectFileContentProvider__Group_1__0 )* ) ) ;
     public final void rule__DotProjectFileContentProvider__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5485:1: ( ( ( ( rule__DotProjectFileContentProvider__Group_1__0 ) ) ( ( rule__DotProjectFileContentProvider__Group_1__0 )* ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5486:1: ( ( ( rule__DotProjectFileContentProvider__Group_1__0 ) ) ( ( rule__DotProjectFileContentProvider__Group_1__0 )* ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5516:1: ( ( ( ( rule__DotProjectFileContentProvider__Group_1__0 ) ) ( ( rule__DotProjectFileContentProvider__Group_1__0 )* ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5517:1: ( ( ( rule__DotProjectFileContentProvider__Group_1__0 ) ) ( ( rule__DotProjectFileContentProvider__Group_1__0 )* ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5486:1: ( ( ( rule__DotProjectFileContentProvider__Group_1__0 ) ) ( ( rule__DotProjectFileContentProvider__Group_1__0 )* ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5487:1: ( ( rule__DotProjectFileContentProvider__Group_1__0 ) ) ( ( rule__DotProjectFileContentProvider__Group_1__0 )* )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5517:1: ( ( ( rule__DotProjectFileContentProvider__Group_1__0 ) ) ( ( rule__DotProjectFileContentProvider__Group_1__0 )* ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5518:1: ( ( rule__DotProjectFileContentProvider__Group_1__0 ) ) ( ( rule__DotProjectFileContentProvider__Group_1__0 )* )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5487:1: ( ( rule__DotProjectFileContentProvider__Group_1__0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5488:1: ( rule__DotProjectFileContentProvider__Group_1__0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5518:1: ( ( rule__DotProjectFileContentProvider__Group_1__0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5519:1: ( rule__DotProjectFileContentProvider__Group_1__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getGroup_1()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5489:1: ( rule__DotProjectFileContentProvider__Group_1__0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5489:2: rule__DotProjectFileContentProvider__Group_1__0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5520:1: ( rule__DotProjectFileContentProvider__Group_1__0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5520:2: rule__DotProjectFileContentProvider__Group_1__0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_1__0_in_rule__DotProjectFileContentProvider__Group__1__Impl11180);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_1__0_in_rule__DotProjectFileContentProvider__Group__1__Impl11243);
             rule__DotProjectFileContentProvider__Group_1__0();
 
             state._fsp--;
@@ -16146,28 +16246,28 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5492:1: ( ( rule__DotProjectFileContentProvider__Group_1__0 )* )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5493:1: ( rule__DotProjectFileContentProvider__Group_1__0 )*
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5523:1: ( ( rule__DotProjectFileContentProvider__Group_1__0 )* )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5524:1: ( rule__DotProjectFileContentProvider__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getGroup_1()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5494:1: ( rule__DotProjectFileContentProvider__Group_1__0 )*
-            loop60:
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5525:1: ( rule__DotProjectFileContentProvider__Group_1__0 )*
+            loop61:
             do {
-                int alt60=2;
-                int LA60_0 = input.LA(1);
+                int alt61=2;
+                int LA61_0 = input.LA(1);
 
-                if ( (LA60_0==29) ) {
-                    alt60=1;
+                if ( (LA61_0==29) ) {
+                    alt61=1;
                 }
 
 
-                switch (alt60) {
+                switch (alt61) {
             	case 1 :
-            	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5494:2: rule__DotProjectFileContentProvider__Group_1__0
+            	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5525:2: rule__DotProjectFileContentProvider__Group_1__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_1__0_in_rule__DotProjectFileContentProvider__Group__1__Impl11192);
+            	    pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_1__0_in_rule__DotProjectFileContentProvider__Group__1__Impl11255);
             	    rule__DotProjectFileContentProvider__Group_1__0();
 
             	    state._fsp--;
@@ -16177,7 +16277,7 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop60;
+            	    break loop61;
                 }
             } while (true);
 
@@ -16209,21 +16309,21 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group__2"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5505:1: rule__DotProjectFileContentProvider__Group__2 : rule__DotProjectFileContentProvider__Group__2__Impl rule__DotProjectFileContentProvider__Group__3 ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5536:1: rule__DotProjectFileContentProvider__Group__2 : rule__DotProjectFileContentProvider__Group__2__Impl rule__DotProjectFileContentProvider__Group__3 ;
     public final void rule__DotProjectFileContentProvider__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5509:1: ( rule__DotProjectFileContentProvider__Group__2__Impl rule__DotProjectFileContentProvider__Group__3 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5510:2: rule__DotProjectFileContentProvider__Group__2__Impl rule__DotProjectFileContentProvider__Group__3
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5540:1: ( rule__DotProjectFileContentProvider__Group__2__Impl rule__DotProjectFileContentProvider__Group__3 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5541:2: rule__DotProjectFileContentProvider__Group__2__Impl rule__DotProjectFileContentProvider__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__2__Impl_in_rule__DotProjectFileContentProvider__Group__211225);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__2__Impl_in_rule__DotProjectFileContentProvider__Group__211288);
             rule__DotProjectFileContentProvider__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__3_in_rule__DotProjectFileContentProvider__Group__211228);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__3_in_rule__DotProjectFileContentProvider__Group__211291);
             rule__DotProjectFileContentProvider__Group__3();
 
             state._fsp--;
@@ -16247,37 +16347,37 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group__2__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5517:1: rule__DotProjectFileContentProvider__Group__2__Impl : ( ( rule__DotProjectFileContentProvider__Group_2__0 )* ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5548:1: rule__DotProjectFileContentProvider__Group__2__Impl : ( ( rule__DotProjectFileContentProvider__Group_2__0 )* ) ;
     public final void rule__DotProjectFileContentProvider__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5521:1: ( ( ( rule__DotProjectFileContentProvider__Group_2__0 )* ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5522:1: ( ( rule__DotProjectFileContentProvider__Group_2__0 )* )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5552:1: ( ( ( rule__DotProjectFileContentProvider__Group_2__0 )* ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5553:1: ( ( rule__DotProjectFileContentProvider__Group_2__0 )* )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5522:1: ( ( rule__DotProjectFileContentProvider__Group_2__0 )* )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5523:1: ( rule__DotProjectFileContentProvider__Group_2__0 )*
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5553:1: ( ( rule__DotProjectFileContentProvider__Group_2__0 )* )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5554:1: ( rule__DotProjectFileContentProvider__Group_2__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getGroup_2()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5524:1: ( rule__DotProjectFileContentProvider__Group_2__0 )*
-            loop61:
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5555:1: ( rule__DotProjectFileContentProvider__Group_2__0 )*
+            loop62:
             do {
-                int alt61=2;
-                int LA61_0 = input.LA(1);
+                int alt62=2;
+                int LA62_0 = input.LA(1);
 
-                if ( (LA61_0==35) ) {
-                    alt61=1;
+                if ( (LA62_0==35) ) {
+                    alt62=1;
                 }
 
 
-                switch (alt61) {
+                switch (alt62) {
             	case 1 :
-            	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5524:2: rule__DotProjectFileContentProvider__Group_2__0
+            	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5555:2: rule__DotProjectFileContentProvider__Group_2__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__0_in_rule__DotProjectFileContentProvider__Group__2__Impl11255);
+            	    pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__0_in_rule__DotProjectFileContentProvider__Group__2__Impl11318);
             	    rule__DotProjectFileContentProvider__Group_2__0();
 
             	    state._fsp--;
@@ -16287,7 +16387,7 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop61;
+            	    break loop62;
                 }
             } while (true);
 
@@ -16316,16 +16416,16 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group__3"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5534:1: rule__DotProjectFileContentProvider__Group__3 : rule__DotProjectFileContentProvider__Group__3__Impl ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5565:1: rule__DotProjectFileContentProvider__Group__3 : rule__DotProjectFileContentProvider__Group__3__Impl ;
     public final void rule__DotProjectFileContentProvider__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5538:1: ( rule__DotProjectFileContentProvider__Group__3__Impl )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5539:2: rule__DotProjectFileContentProvider__Group__3__Impl
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5569:1: ( rule__DotProjectFileContentProvider__Group__3__Impl )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5570:2: rule__DotProjectFileContentProvider__Group__3__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__3__Impl_in_rule__DotProjectFileContentProvider__Group__311286);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group__3__Impl_in_rule__DotProjectFileContentProvider__Group__311349);
             rule__DotProjectFileContentProvider__Group__3__Impl();
 
             state._fsp--;
@@ -16349,22 +16449,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group__3__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5545:1: rule__DotProjectFileContentProvider__Group__3__Impl : ( ';' ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5576:1: rule__DotProjectFileContentProvider__Group__3__Impl : ( ';' ) ;
     public final void rule__DotProjectFileContentProvider__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5549:1: ( ( ';' ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5550:1: ( ';' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5580:1: ( ( ';' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5581:1: ( ';' )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5550:1: ( ';' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5551:1: ';'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5581:1: ( ';' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5582:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getSemicolonKeyword_3()); 
             }
-            match(input,8,FollowSets000.FOLLOW_8_in_rule__DotProjectFileContentProvider__Group__3__Impl11314); if (state.failed) return ;
+            match(input,8,FollowSets000.FOLLOW_8_in_rule__DotProjectFileContentProvider__Group__3__Impl11377); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDotProjectFileContentProviderAccess().getSemicolonKeyword_3()); 
             }
@@ -16390,21 +16490,21 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_1__0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5572:1: rule__DotProjectFileContentProvider__Group_1__0 : rule__DotProjectFileContentProvider__Group_1__0__Impl rule__DotProjectFileContentProvider__Group_1__1 ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5603:1: rule__DotProjectFileContentProvider__Group_1__0 : rule__DotProjectFileContentProvider__Group_1__0__Impl rule__DotProjectFileContentProvider__Group_1__1 ;
     public final void rule__DotProjectFileContentProvider__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5576:1: ( rule__DotProjectFileContentProvider__Group_1__0__Impl rule__DotProjectFileContentProvider__Group_1__1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5577:2: rule__DotProjectFileContentProvider__Group_1__0__Impl rule__DotProjectFileContentProvider__Group_1__1
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5607:1: ( rule__DotProjectFileContentProvider__Group_1__0__Impl rule__DotProjectFileContentProvider__Group_1__1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5608:2: rule__DotProjectFileContentProvider__Group_1__0__Impl rule__DotProjectFileContentProvider__Group_1__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_1__0__Impl_in_rule__DotProjectFileContentProvider__Group_1__011353);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_1__0__Impl_in_rule__DotProjectFileContentProvider__Group_1__011416);
             rule__DotProjectFileContentProvider__Group_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_1__1_in_rule__DotProjectFileContentProvider__Group_1__011356);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_1__1_in_rule__DotProjectFileContentProvider__Group_1__011419);
             rule__DotProjectFileContentProvider__Group_1__1();
 
             state._fsp--;
@@ -16428,22 +16528,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_1__0__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5584:1: rule__DotProjectFileContentProvider__Group_1__0__Impl : ( '#' ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5615:1: rule__DotProjectFileContentProvider__Group_1__0__Impl : ( '#' ) ;
     public final void rule__DotProjectFileContentProvider__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5588:1: ( ( '#' ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5589:1: ( '#' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5619:1: ( ( '#' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5620:1: ( '#' )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5589:1: ( '#' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5590:1: '#'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5620:1: ( '#' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5621:1: '#'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getNumberSignKeyword_1_0()); 
             }
-            match(input,29,FollowSets000.FOLLOW_29_in_rule__DotProjectFileContentProvider__Group_1__0__Impl11384); if (state.failed) return ;
+            match(input,29,FollowSets000.FOLLOW_29_in_rule__DotProjectFileContentProvider__Group_1__0__Impl11447); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDotProjectFileContentProviderAccess().getNumberSignKeyword_1_0()); 
             }
@@ -16469,16 +16569,16 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_1__1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5603:1: rule__DotProjectFileContentProvider__Group_1__1 : rule__DotProjectFileContentProvider__Group_1__1__Impl ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5634:1: rule__DotProjectFileContentProvider__Group_1__1 : rule__DotProjectFileContentProvider__Group_1__1__Impl ;
     public final void rule__DotProjectFileContentProvider__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5607:1: ( rule__DotProjectFileContentProvider__Group_1__1__Impl )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5608:2: rule__DotProjectFileContentProvider__Group_1__1__Impl
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5638:1: ( rule__DotProjectFileContentProvider__Group_1__1__Impl )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5639:2: rule__DotProjectFileContentProvider__Group_1__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_1__1__Impl_in_rule__DotProjectFileContentProvider__Group_1__111415);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_1__1__Impl_in_rule__DotProjectFileContentProvider__Group_1__111478);
             rule__DotProjectFileContentProvider__Group_1__1__Impl();
 
             state._fsp--;
@@ -16502,25 +16602,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_1__1__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5614:1: rule__DotProjectFileContentProvider__Group_1__1__Impl : ( ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5645:1: rule__DotProjectFileContentProvider__Group_1__1__Impl : ( ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 ) ) ;
     public final void rule__DotProjectFileContentProvider__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5618:1: ( ( ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5619:1: ( ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5649:1: ( ( ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5650:1: ( ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5619:1: ( ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5620:1: ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5650:1: ( ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5651:1: ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getKeysAssignment_1_1()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5621:1: ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5621:2: rule__DotProjectFileContentProvider__KeysAssignment_1_1
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5652:1: ( rule__DotProjectFileContentProvider__KeysAssignment_1_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5652:2: rule__DotProjectFileContentProvider__KeysAssignment_1_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__KeysAssignment_1_1_in_rule__DotProjectFileContentProvider__Group_1__1__Impl11442);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__KeysAssignment_1_1_in_rule__DotProjectFileContentProvider__Group_1__1__Impl11505);
             rule__DotProjectFileContentProvider__KeysAssignment_1_1();
 
             state._fsp--;
@@ -16553,21 +16653,21 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_2__0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5635:1: rule__DotProjectFileContentProvider__Group_2__0 : rule__DotProjectFileContentProvider__Group_2__0__Impl rule__DotProjectFileContentProvider__Group_2__1 ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5666:1: rule__DotProjectFileContentProvider__Group_2__0 : rule__DotProjectFileContentProvider__Group_2__0__Impl rule__DotProjectFileContentProvider__Group_2__1 ;
     public final void rule__DotProjectFileContentProvider__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5639:1: ( rule__DotProjectFileContentProvider__Group_2__0__Impl rule__DotProjectFileContentProvider__Group_2__1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5640:2: rule__DotProjectFileContentProvider__Group_2__0__Impl rule__DotProjectFileContentProvider__Group_2__1
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5670:1: ( rule__DotProjectFileContentProvider__Group_2__0__Impl rule__DotProjectFileContentProvider__Group_2__1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5671:2: rule__DotProjectFileContentProvider__Group_2__0__Impl rule__DotProjectFileContentProvider__Group_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__0__Impl_in_rule__DotProjectFileContentProvider__Group_2__011476);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__0__Impl_in_rule__DotProjectFileContentProvider__Group_2__011539);
             rule__DotProjectFileContentProvider__Group_2__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__1_in_rule__DotProjectFileContentProvider__Group_2__011479);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__1_in_rule__DotProjectFileContentProvider__Group_2__011542);
             rule__DotProjectFileContentProvider__Group_2__1();
 
             state._fsp--;
@@ -16591,22 +16691,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_2__0__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5647:1: rule__DotProjectFileContentProvider__Group_2__0__Impl : ( '@' ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5678:1: rule__DotProjectFileContentProvider__Group_2__0__Impl : ( '@' ) ;
     public final void rule__DotProjectFileContentProvider__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5651:1: ( ( '@' ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5652:1: ( '@' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5682:1: ( ( '@' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5683:1: ( '@' )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5652:1: ( '@' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5653:1: '@'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5683:1: ( '@' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5684:1: '@'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getCommercialAtKeyword_2_0()); 
             }
-            match(input,35,FollowSets000.FOLLOW_35_in_rule__DotProjectFileContentProvider__Group_2__0__Impl11507); if (state.failed) return ;
+            match(input,35,FollowSets000.FOLLOW_35_in_rule__DotProjectFileContentProvider__Group_2__0__Impl11570); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDotProjectFileContentProviderAccess().getCommercialAtKeyword_2_0()); 
             }
@@ -16632,21 +16732,21 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_2__1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5666:1: rule__DotProjectFileContentProvider__Group_2__1 : rule__DotProjectFileContentProvider__Group_2__1__Impl rule__DotProjectFileContentProvider__Group_2__2 ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5697:1: rule__DotProjectFileContentProvider__Group_2__1 : rule__DotProjectFileContentProvider__Group_2__1__Impl rule__DotProjectFileContentProvider__Group_2__2 ;
     public final void rule__DotProjectFileContentProvider__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5670:1: ( rule__DotProjectFileContentProvider__Group_2__1__Impl rule__DotProjectFileContentProvider__Group_2__2 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5671:2: rule__DotProjectFileContentProvider__Group_2__1__Impl rule__DotProjectFileContentProvider__Group_2__2
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5701:1: ( rule__DotProjectFileContentProvider__Group_2__1__Impl rule__DotProjectFileContentProvider__Group_2__2 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5702:2: rule__DotProjectFileContentProvider__Group_2__1__Impl rule__DotProjectFileContentProvider__Group_2__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__1__Impl_in_rule__DotProjectFileContentProvider__Group_2__111538);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__1__Impl_in_rule__DotProjectFileContentProvider__Group_2__111601);
             rule__DotProjectFileContentProvider__Group_2__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__2_in_rule__DotProjectFileContentProvider__Group_2__111541);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__2_in_rule__DotProjectFileContentProvider__Group_2__111604);
             rule__DotProjectFileContentProvider__Group_2__2();
 
             state._fsp--;
@@ -16670,25 +16770,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_2__1__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5678:1: rule__DotProjectFileContentProvider__Group_2__1__Impl : ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5709:1: rule__DotProjectFileContentProvider__Group_2__1__Impl : ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 ) ) ;
     public final void rule__DotProjectFileContentProvider__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5682:1: ( ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5683:1: ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5713:1: ( ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5714:1: ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5683:1: ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5684:1: ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5714:1: ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5715:1: ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getLinkedResourcesAssignment_2_1()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5685:1: ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5685:2: rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5716:1: ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5716:2: rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1_in_rule__DotProjectFileContentProvider__Group_2__1__Impl11568);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1_in_rule__DotProjectFileContentProvider__Group_2__1__Impl11631);
             rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1();
 
             state._fsp--;
@@ -16721,16 +16821,16 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_2__2"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5695:1: rule__DotProjectFileContentProvider__Group_2__2 : rule__DotProjectFileContentProvider__Group_2__2__Impl ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5726:1: rule__DotProjectFileContentProvider__Group_2__2 : rule__DotProjectFileContentProvider__Group_2__2__Impl ;
     public final void rule__DotProjectFileContentProvider__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5699:1: ( rule__DotProjectFileContentProvider__Group_2__2__Impl )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5700:2: rule__DotProjectFileContentProvider__Group_2__2__Impl
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5730:1: ( rule__DotProjectFileContentProvider__Group_2__2__Impl )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5731:2: rule__DotProjectFileContentProvider__Group_2__2__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__2__Impl_in_rule__DotProjectFileContentProvider__Group_2__211598);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2__2__Impl_in_rule__DotProjectFileContentProvider__Group_2__211661);
             rule__DotProjectFileContentProvider__Group_2__2__Impl();
 
             state._fsp--;
@@ -16754,37 +16854,37 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_2__2__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5706:1: rule__DotProjectFileContentProvider__Group_2__2__Impl : ( ( rule__DotProjectFileContentProvider__Group_2_2__0 )* ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5737:1: rule__DotProjectFileContentProvider__Group_2__2__Impl : ( ( rule__DotProjectFileContentProvider__Group_2_2__0 )* ) ;
     public final void rule__DotProjectFileContentProvider__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5710:1: ( ( ( rule__DotProjectFileContentProvider__Group_2_2__0 )* ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5711:1: ( ( rule__DotProjectFileContentProvider__Group_2_2__0 )* )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5741:1: ( ( ( rule__DotProjectFileContentProvider__Group_2_2__0 )* ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5742:1: ( ( rule__DotProjectFileContentProvider__Group_2_2__0 )* )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5711:1: ( ( rule__DotProjectFileContentProvider__Group_2_2__0 )* )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5712:1: ( rule__DotProjectFileContentProvider__Group_2_2__0 )*
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5742:1: ( ( rule__DotProjectFileContentProvider__Group_2_2__0 )* )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5743:1: ( rule__DotProjectFileContentProvider__Group_2_2__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getGroup_2_2()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5713:1: ( rule__DotProjectFileContentProvider__Group_2_2__0 )*
-            loop62:
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5744:1: ( rule__DotProjectFileContentProvider__Group_2_2__0 )*
+            loop63:
             do {
-                int alt62=2;
-                int LA62_0 = input.LA(1);
+                int alt63=2;
+                int LA63_0 = input.LA(1);
 
-                if ( (LA62_0==32) ) {
-                    alt62=1;
+                if ( (LA63_0==32) ) {
+                    alt63=1;
                 }
 
 
-                switch (alt62) {
+                switch (alt63) {
             	case 1 :
-            	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5713:2: rule__DotProjectFileContentProvider__Group_2_2__0
+            	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5744:2: rule__DotProjectFileContentProvider__Group_2_2__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__0_in_rule__DotProjectFileContentProvider__Group_2__2__Impl11625);
+            	    pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__0_in_rule__DotProjectFileContentProvider__Group_2__2__Impl11688);
             	    rule__DotProjectFileContentProvider__Group_2_2__0();
 
             	    state._fsp--;
@@ -16794,7 +16894,7 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop62;
+            	    break loop63;
                 }
             } while (true);
 
@@ -16823,21 +16923,21 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_2_2__0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5729:1: rule__DotProjectFileContentProvider__Group_2_2__0 : rule__DotProjectFileContentProvider__Group_2_2__0__Impl rule__DotProjectFileContentProvider__Group_2_2__1 ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5760:1: rule__DotProjectFileContentProvider__Group_2_2__0 : rule__DotProjectFileContentProvider__Group_2_2__0__Impl rule__DotProjectFileContentProvider__Group_2_2__1 ;
     public final void rule__DotProjectFileContentProvider__Group_2_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5733:1: ( rule__DotProjectFileContentProvider__Group_2_2__0__Impl rule__DotProjectFileContentProvider__Group_2_2__1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5734:2: rule__DotProjectFileContentProvider__Group_2_2__0__Impl rule__DotProjectFileContentProvider__Group_2_2__1
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5764:1: ( rule__DotProjectFileContentProvider__Group_2_2__0__Impl rule__DotProjectFileContentProvider__Group_2_2__1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5765:2: rule__DotProjectFileContentProvider__Group_2_2__0__Impl rule__DotProjectFileContentProvider__Group_2_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__0__Impl_in_rule__DotProjectFileContentProvider__Group_2_2__011662);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__0__Impl_in_rule__DotProjectFileContentProvider__Group_2_2__011725);
             rule__DotProjectFileContentProvider__Group_2_2__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__1_in_rule__DotProjectFileContentProvider__Group_2_2__011665);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__1_in_rule__DotProjectFileContentProvider__Group_2_2__011728);
             rule__DotProjectFileContentProvider__Group_2_2__1();
 
             state._fsp--;
@@ -16861,22 +16961,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_2_2__0__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5741:1: rule__DotProjectFileContentProvider__Group_2_2__0__Impl : ( ',' ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5772:1: rule__DotProjectFileContentProvider__Group_2_2__0__Impl : ( ',' ) ;
     public final void rule__DotProjectFileContentProvider__Group_2_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5745:1: ( ( ',' ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5746:1: ( ',' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5776:1: ( ( ',' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5777:1: ( ',' )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5746:1: ( ',' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5747:1: ','
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5777:1: ( ',' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5778:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getCommaKeyword_2_2_0()); 
             }
-            match(input,32,FollowSets000.FOLLOW_32_in_rule__DotProjectFileContentProvider__Group_2_2__0__Impl11693); if (state.failed) return ;
+            match(input,32,FollowSets000.FOLLOW_32_in_rule__DotProjectFileContentProvider__Group_2_2__0__Impl11756); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDotProjectFileContentProviderAccess().getCommaKeyword_2_2_0()); 
             }
@@ -16902,16 +17002,16 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_2_2__1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5760:1: rule__DotProjectFileContentProvider__Group_2_2__1 : rule__DotProjectFileContentProvider__Group_2_2__1__Impl ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5791:1: rule__DotProjectFileContentProvider__Group_2_2__1 : rule__DotProjectFileContentProvider__Group_2_2__1__Impl ;
     public final void rule__DotProjectFileContentProvider__Group_2_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5764:1: ( rule__DotProjectFileContentProvider__Group_2_2__1__Impl )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5765:2: rule__DotProjectFileContentProvider__Group_2_2__1__Impl
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5795:1: ( rule__DotProjectFileContentProvider__Group_2_2__1__Impl )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5796:2: rule__DotProjectFileContentProvider__Group_2_2__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__1__Impl_in_rule__DotProjectFileContentProvider__Group_2_2__111724);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__1__Impl_in_rule__DotProjectFileContentProvider__Group_2_2__111787);
             rule__DotProjectFileContentProvider__Group_2_2__1__Impl();
 
             state._fsp--;
@@ -16935,25 +17035,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__Group_2_2__1__Impl"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5771:1: rule__DotProjectFileContentProvider__Group_2_2__1__Impl : ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5802:1: rule__DotProjectFileContentProvider__Group_2_2__1__Impl : ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 ) ) ;
     public final void rule__DotProjectFileContentProvider__Group_2_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5775:1: ( ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5776:1: ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5806:1: ( ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5807:1: ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5776:1: ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5777:1: ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5807:1: ( ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5808:1: ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getLinkedResourcesAssignment_2_2_1()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5778:1: ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5778:2: rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5809:1: ( rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5809:2: rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1_in_rule__DotProjectFileContentProvider__Group_2_2__1__Impl11751);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1_in_rule__DotProjectFileContentProvider__Group_2_2__1__Impl11814);
             rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1();
 
             state._fsp--;
@@ -16986,22 +17086,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsRoot__NameAssignment_1_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5793:1: rule__EmfsRoot__NameAssignment_1_1 : ( ruleEmfsName ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5824:1: rule__EmfsRoot__NameAssignment_1_1 : ( ruleEmfsName ) ;
     public final void rule__EmfsRoot__NameAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5797:1: ( ( ruleEmfsName ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5798:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5828:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5829:1: ( ruleEmfsName )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5798:1: ( ruleEmfsName )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5799:1: ruleEmfsName
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5829:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5830:1: ruleEmfsName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsRootAccess().getNameEmfsNameParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__EmfsRoot__NameAssignment_1_111790);
+            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__EmfsRoot__NameAssignment_1_111853);
             ruleEmfsName();
 
             state._fsp--;
@@ -17031,22 +17131,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsRoot__TagsAssignment_2_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5808:1: rule__EmfsRoot__TagsAssignment_2_1 : ( RULE_ID ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5839:1: rule__EmfsRoot__TagsAssignment_2_1 : ( RULE_ID ) ;
     public final void rule__EmfsRoot__TagsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5812:1: ( ( RULE_ID ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5813:1: ( RULE_ID )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5843:1: ( ( RULE_ID ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5844:1: ( RULE_ID )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5813:1: ( RULE_ID )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5814:1: RULE_ID
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5844:1: ( RULE_ID )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5845:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsRootAccess().getTagsIDTerminalRuleCall_2_1_0()); 
             }
-            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__EmfsRoot__TagsAssignment_2_111821); if (state.failed) return ;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__EmfsRoot__TagsAssignment_2_111884); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEmfsRootAccess().getTagsIDTerminalRuleCall_2_1_0()); 
             }
@@ -17072,22 +17172,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsRoot__PropertiesAssignment_3"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5823:1: rule__EmfsRoot__PropertiesAssignment_3 : ( ruleProperty ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5854:1: rule__EmfsRoot__PropertiesAssignment_3 : ( ruleProperty ) ;
     public final void rule__EmfsRoot__PropertiesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5827:1: ( ( ruleProperty ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5828:1: ( ruleProperty )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5858:1: ( ( ruleProperty ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5859:1: ( ruleProperty )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5828:1: ( ruleProperty )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5829:1: ruleProperty
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5859:1: ( ruleProperty )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5860:1: ruleProperty
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsRootAccess().getPropertiesPropertyParserRuleCall_3_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleProperty_in_rule__EmfsRoot__PropertiesAssignment_311852);
+            pushFollow(FollowSets000.FOLLOW_ruleProperty_in_rule__EmfsRoot__PropertiesAssignment_311915);
             ruleProperty();
 
             state._fsp--;
@@ -17117,25 +17217,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsRoot__ContentProviderAssignment_4_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5838:1: rule__EmfsRoot__ContentProviderAssignment_4_1 : ( ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5869:1: rule__EmfsRoot__ContentProviderAssignment_4_1 : ( ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 ) ) ;
     public final void rule__EmfsRoot__ContentProviderAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5842:1: ( ( ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5843:1: ( ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5873:1: ( ( ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5874:1: ( ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5843:1: ( ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5844:1: ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5874:1: ( ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5875:1: ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsRootAccess().getContentProviderAlternatives_4_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5845:1: ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5845:2: rule__EmfsRoot__ContentProviderAlternatives_4_1_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5876:1: ( rule__EmfsRoot__ContentProviderAlternatives_4_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5876:2: rule__EmfsRoot__ContentProviderAlternatives_4_1_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__EmfsRoot__ContentProviderAlternatives_4_1_0_in_rule__EmfsRoot__ContentProviderAssignment_4_111883);
+            pushFollow(FollowSets000.FOLLOW_rule__EmfsRoot__ContentProviderAlternatives_4_1_0_in_rule__EmfsRoot__ContentProviderAssignment_4_111946);
             rule__EmfsRoot__ContentProviderAlternatives_4_1_0();
 
             state._fsp--;
@@ -17168,22 +17268,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsRoot__ResourcesAssignment_6"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5854:1: rule__EmfsRoot__ResourcesAssignment_6 : ( ruleEmfsResource ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5885:1: rule__EmfsRoot__ResourcesAssignment_6 : ( ruleEmfsResource ) ;
     public final void rule__EmfsRoot__ResourcesAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5858:1: ( ( ruleEmfsResource ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5859:1: ( ruleEmfsResource )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5889:1: ( ( ruleEmfsResource ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5890:1: ( ruleEmfsResource )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5859:1: ( ruleEmfsResource )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5860:1: ruleEmfsResource
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5890:1: ( ruleEmfsResource )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5891:1: ruleEmfsResource
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsRootAccess().getResourcesEmfsResourceParserRuleCall_6_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEmfsResource_in_rule__EmfsRoot__ResourcesAssignment_611916);
+            pushFollow(FollowSets000.FOLLOW_ruleEmfsResource_in_rule__EmfsRoot__ResourcesAssignment_611979);
             ruleEmfsResource();
 
             state._fsp--;
@@ -17213,28 +17313,28 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsResourcesRef__ResourcesAssignment_0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5869:1: rule__EmfsResourcesRef__ResourcesAssignment_0 : ( ( ruleEmfsName ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5900:1: rule__EmfsResourcesRef__ResourcesAssignment_0 : ( ( ruleEmfsName ) ) ;
     public final void rule__EmfsResourcesRef__ResourcesAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5873:1: ( ( ( ruleEmfsName ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5874:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5904:1: ( ( ( ruleEmfsName ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5905:1: ( ( ruleEmfsName ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5874:1: ( ( ruleEmfsName ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5875:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5905:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5906:1: ( ruleEmfsName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsResourcesRefAccess().getResourcesEmfsResourceCrossReference_0_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5876:1: ( ruleEmfsName )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5877:1: ruleEmfsName
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5907:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5908:1: ruleEmfsName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsResourcesRefAccess().getResourcesEmfsResourceEmfsNameParserRuleCall_0_0_1()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__EmfsResourcesRef__ResourcesAssignment_011951);
+            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__EmfsResourcesRef__ResourcesAssignment_012014);
             ruleEmfsName();
 
             state._fsp--;
@@ -17270,28 +17370,28 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsResourcesRef__ResourcesAssignment_1_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5888:1: rule__EmfsResourcesRef__ResourcesAssignment_1_1 : ( ( ruleEmfsName ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5919:1: rule__EmfsResourcesRef__ResourcesAssignment_1_1 : ( ( ruleEmfsName ) ) ;
     public final void rule__EmfsResourcesRef__ResourcesAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5892:1: ( ( ( ruleEmfsName ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5893:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5923:1: ( ( ( ruleEmfsName ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5924:1: ( ( ruleEmfsName ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5893:1: ( ( ruleEmfsName ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5894:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5924:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5925:1: ( ruleEmfsName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsResourcesRefAccess().getResourcesEmfsResourceCrossReference_1_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5895:1: ( ruleEmfsName )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5896:1: ruleEmfsName
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5926:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5927:1: ruleEmfsName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsResourcesRefAccess().getResourcesEmfsResourceEmfsNameParserRuleCall_1_1_0_1()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__EmfsResourcesRef__ResourcesAssignment_1_111990);
+            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__EmfsResourcesRef__ResourcesAssignment_1_112053);
             ruleEmfsName();
 
             state._fsp--;
@@ -17327,22 +17427,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Property__NameAssignment_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5907:1: rule__Property__NameAssignment_1 : ( ruleEmfsName ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5938:1: rule__Property__NameAssignment_1 : ( ruleEmfsName ) ;
     public final void rule__Property__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5911:1: ( ( ruleEmfsName ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5912:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5942:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5943:1: ( ruleEmfsName )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5912:1: ( ruleEmfsName )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5913:1: ruleEmfsName
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5943:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5944:1: ruleEmfsName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPropertyAccess().getNameEmfsNameParserRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__Property__NameAssignment_112025);
+            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__Property__NameAssignment_112088);
             ruleEmfsName();
 
             state._fsp--;
@@ -17372,25 +17472,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Property__ValueAssignment_3"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5922:1: rule__Property__ValueAssignment_3 : ( ( rule__Property__ValueAlternatives_3_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5953:1: rule__Property__ValueAssignment_3 : ( ( rule__Property__ValueAlternatives_3_0 ) ) ;
     public final void rule__Property__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5926:1: ( ( ( rule__Property__ValueAlternatives_3_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5927:1: ( ( rule__Property__ValueAlternatives_3_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5957:1: ( ( ( rule__Property__ValueAlternatives_3_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5958:1: ( ( rule__Property__ValueAlternatives_3_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5927:1: ( ( rule__Property__ValueAlternatives_3_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5928:1: ( rule__Property__ValueAlternatives_3_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5958:1: ( ( rule__Property__ValueAlternatives_3_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5959:1: ( rule__Property__ValueAlternatives_3_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPropertyAccess().getValueAlternatives_3_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5929:1: ( rule__Property__ValueAlternatives_3_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5929:2: rule__Property__ValueAlternatives_3_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5960:1: ( rule__Property__ValueAlternatives_3_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5960:2: rule__Property__ValueAlternatives_3_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Property__ValueAlternatives_3_0_in_rule__Property__ValueAssignment_312056);
+            pushFollow(FollowSets000.FOLLOW_rule__Property__ValueAlternatives_3_0_in_rule__Property__ValueAssignment_312119);
             rule__Property__ValueAlternatives_3_0();
 
             state._fsp--;
@@ -17423,22 +17523,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsContainer__NameAssignment_0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5938:1: rule__EmfsContainer__NameAssignment_0 : ( ruleFolderName ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5969:1: rule__EmfsContainer__NameAssignment_0 : ( ruleFolderName ) ;
     public final void rule__EmfsContainer__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5942:1: ( ( ruleFolderName ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5943:1: ( ruleFolderName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5973:1: ( ( ruleFolderName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5974:1: ( ruleFolderName )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5943:1: ( ruleFolderName )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5944:1: ruleFolderName
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5974:1: ( ruleFolderName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5975:1: ruleFolderName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsContainerAccess().getNameFolderNameParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleFolderName_in_rule__EmfsContainer__NameAssignment_012089);
+            pushFollow(FollowSets000.FOLLOW_ruleFolderName_in_rule__EmfsContainer__NameAssignment_012152);
             ruleFolderName();
 
             state._fsp--;
@@ -17468,22 +17568,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsContainer__TagsAssignment_1_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5953:1: rule__EmfsContainer__TagsAssignment_1_1 : ( ruleEmfsName ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5984:1: rule__EmfsContainer__TagsAssignment_1_1 : ( ruleEmfsName ) ;
     public final void rule__EmfsContainer__TagsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5957:1: ( ( ruleEmfsName ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5958:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5988:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5989:1: ( ruleEmfsName )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5958:1: ( ruleEmfsName )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5959:1: ruleEmfsName
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5989:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5990:1: ruleEmfsName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsContainerAccess().getTagsEmfsNameParserRuleCall_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__EmfsContainer__TagsAssignment_1_112120);
+            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__EmfsContainer__TagsAssignment_1_112183);
             ruleEmfsName();
 
             state._fsp--;
@@ -17513,22 +17613,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsContainer__PropertiesAssignment_2"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5968:1: rule__EmfsContainer__PropertiesAssignment_2 : ( ruleProperty ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5999:1: rule__EmfsContainer__PropertiesAssignment_2 : ( ruleProperty ) ;
     public final void rule__EmfsContainer__PropertiesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5972:1: ( ( ruleProperty ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5973:1: ( ruleProperty )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6003:1: ( ( ruleProperty ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6004:1: ( ruleProperty )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5973:1: ( ruleProperty )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5974:1: ruleProperty
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6004:1: ( ruleProperty )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6005:1: ruleProperty
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsContainerAccess().getPropertiesPropertyParserRuleCall_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleProperty_in_rule__EmfsContainer__PropertiesAssignment_212151);
+            pushFollow(FollowSets000.FOLLOW_ruleProperty_in_rule__EmfsContainer__PropertiesAssignment_212214);
             ruleProperty();
 
             state._fsp--;
@@ -17558,25 +17658,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsContainer__ContentProviderAssignment_3_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5983:1: rule__EmfsContainer__ContentProviderAssignment_3_1 : ( ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6014:1: rule__EmfsContainer__ContentProviderAssignment_3_1 : ( ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 ) ) ;
     public final void rule__EmfsContainer__ContentProviderAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5987:1: ( ( ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5988:1: ( ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6018:1: ( ( ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6019:1: ( ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5988:1: ( ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5989:1: ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6019:1: ( ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6020:1: ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsContainerAccess().getContentProviderAlternatives_3_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5990:1: ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5990:2: rule__EmfsContainer__ContentProviderAlternatives_3_1_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6021:1: ( rule__EmfsContainer__ContentProviderAlternatives_3_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6021:2: rule__EmfsContainer__ContentProviderAlternatives_3_1_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__EmfsContainer__ContentProviderAlternatives_3_1_0_in_rule__EmfsContainer__ContentProviderAssignment_3_112182);
+            pushFollow(FollowSets000.FOLLOW_rule__EmfsContainer__ContentProviderAlternatives_3_1_0_in_rule__EmfsContainer__ContentProviderAssignment_3_112245);
             rule__EmfsContainer__ContentProviderAlternatives_3_1_0();
 
             state._fsp--;
@@ -17609,22 +17709,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsContainer__ResourcesAssignment_4"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:5999:1: rule__EmfsContainer__ResourcesAssignment_4 : ( ruleEmfsResource ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6030:1: rule__EmfsContainer__ResourcesAssignment_4 : ( ruleEmfsResource ) ;
     public final void rule__EmfsContainer__ResourcesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6003:1: ( ( ruleEmfsResource ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6004:1: ( ruleEmfsResource )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6034:1: ( ( ruleEmfsResource ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6035:1: ( ruleEmfsResource )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6004:1: ( ruleEmfsResource )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6005:1: ruleEmfsResource
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6035:1: ( ruleEmfsResource )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6036:1: ruleEmfsResource
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsContainerAccess().getResourcesEmfsResourceParserRuleCall_4_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEmfsResource_in_rule__EmfsContainer__ResourcesAssignment_412215);
+            pushFollow(FollowSets000.FOLLOW_ruleEmfsResource_in_rule__EmfsContainer__ResourcesAssignment_412278);
             ruleEmfsResource();
 
             state._fsp--;
@@ -17654,22 +17754,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GitContentProvider__GitRefAssignment"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6014:1: rule__GitContentProvider__GitRefAssignment : ( ruleGitContentRef ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6045:1: rule__GitContentProvider__GitRefAssignment : ( ruleGitContentRef ) ;
     public final void rule__GitContentProvider__GitRefAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6018:1: ( ( ruleGitContentRef ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6019:1: ( ruleGitContentRef )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6049:1: ( ( ruleGitContentRef ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6050:1: ( ruleGitContentRef )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6019:1: ( ruleGitContentRef )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6020:1: ruleGitContentRef
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6050:1: ( ruleGitContentRef )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6051:1: ruleGitContentRef
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGitContentProviderAccess().getGitRefGitContentRefParserRuleCall_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleGitContentRef_in_rule__GitContentProvider__GitRefAssignment12246);
+            pushFollow(FollowSets000.FOLLOW_ruleGitContentRef_in_rule__GitContentProvider__GitRefAssignment12309);
             ruleGitContentRef();
 
             state._fsp--;
@@ -17699,22 +17799,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsFile__NameAssignment_0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6029:1: rule__EmfsFile__NameAssignment_0 : ( ruleFileName ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6060:1: rule__EmfsFile__NameAssignment_0 : ( ruleFileName ) ;
     public final void rule__EmfsFile__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6033:1: ( ( ruleFileName ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6034:1: ( ruleFileName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6064:1: ( ( ruleFileName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6065:1: ( ruleFileName )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6034:1: ( ruleFileName )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6035:1: ruleFileName
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6065:1: ( ruleFileName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6066:1: ruleFileName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsFileAccess().getNameFileNameParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleFileName_in_rule__EmfsFile__NameAssignment_012277);
+            pushFollow(FollowSets000.FOLLOW_ruleFileName_in_rule__EmfsFile__NameAssignment_012340);
             ruleFileName();
 
             state._fsp--;
@@ -17744,28 +17844,28 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsFile__WriteableAssignment_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6044:1: rule__EmfsFile__WriteableAssignment_1 : ( ( '*' ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6075:1: rule__EmfsFile__WriteableAssignment_1 : ( ( '*' ) ) ;
     public final void rule__EmfsFile__WriteableAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6048:1: ( ( ( '*' ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6049:1: ( ( '*' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6079:1: ( ( ( '*' ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6080:1: ( ( '*' ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6049:1: ( ( '*' ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6050:1: ( '*' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getEmfsFileAccess().getWriteableAsteriskKeyword_1_0()); 
-            }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6051:1: ( '*' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6052:1: '*'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6080:1: ( ( '*' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6081:1: ( '*' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsFileAccess().getWriteableAsteriskKeyword_1_0()); 
             }
-            match(input,45,FollowSets000.FOLLOW_45_in_rule__EmfsFile__WriteableAssignment_112313); if (state.failed) return ;
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6082:1: ( '*' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6083:1: '*'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getEmfsFileAccess().getWriteableAsteriskKeyword_1_0()); 
+            }
+            match(input,45,FollowSets000.FOLLOW_45_in_rule__EmfsFile__WriteableAssignment_112376); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEmfsFileAccess().getWriteableAsteriskKeyword_1_0()); 
             }
@@ -17797,22 +17897,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsFile__TagsAssignment_2_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6067:1: rule__EmfsFile__TagsAssignment_2_1 : ( RULE_ID ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6098:1: rule__EmfsFile__TagsAssignment_2_1 : ( RULE_ID ) ;
     public final void rule__EmfsFile__TagsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6071:1: ( ( RULE_ID ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6072:1: ( RULE_ID )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6102:1: ( ( RULE_ID ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6103:1: ( RULE_ID )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6072:1: ( RULE_ID )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6073:1: RULE_ID
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6103:1: ( RULE_ID )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6104:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsFileAccess().getTagsIDTerminalRuleCall_2_1_0()); 
             }
-            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__EmfsFile__TagsAssignment_2_112352); if (state.failed) return ;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__EmfsFile__TagsAssignment_2_112415); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEmfsFileAccess().getTagsIDTerminalRuleCall_2_1_0()); 
             }
@@ -17838,22 +17938,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsFile__PropertiesAssignment_3"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6082:1: rule__EmfsFile__PropertiesAssignment_3 : ( ruleProperty ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6113:1: rule__EmfsFile__PropertiesAssignment_3 : ( ruleProperty ) ;
     public final void rule__EmfsFile__PropertiesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6086:1: ( ( ruleProperty ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6087:1: ( ruleProperty )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6117:1: ( ( ruleProperty ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6118:1: ( ruleProperty )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6087:1: ( ruleProperty )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6088:1: ruleProperty
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6118:1: ( ruleProperty )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6119:1: ruleProperty
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsFileAccess().getPropertiesPropertyParserRuleCall_3_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleProperty_in_rule__EmfsFile__PropertiesAssignment_312383);
+            pushFollow(FollowSets000.FOLLOW_ruleProperty_in_rule__EmfsFile__PropertiesAssignment_312446);
             ruleProperty();
 
             state._fsp--;
@@ -17883,25 +17983,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsFile__ContentProviderAssignment_4_0_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6097:1: rule__EmfsFile__ContentProviderAssignment_4_0_1 : ( ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6128:1: rule__EmfsFile__ContentProviderAssignment_4_0_1 : ( ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 ) ) ;
     public final void rule__EmfsFile__ContentProviderAssignment_4_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6101:1: ( ( ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6102:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6132:1: ( ( ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6133:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6102:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6103:1: ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6133:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6134:1: ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsFileAccess().getContentProviderAlternatives_4_0_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6104:1: ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6104:2: rule__EmfsFile__ContentProviderAlternatives_4_0_1_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6135:1: ( rule__EmfsFile__ContentProviderAlternatives_4_0_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6135:2: rule__EmfsFile__ContentProviderAlternatives_4_0_1_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_0_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_0_112414);
+            pushFollow(FollowSets000.FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_0_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_0_112477);
             rule__EmfsFile__ContentProviderAlternatives_4_0_1_0();
 
             state._fsp--;
@@ -17934,25 +18034,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsFile__ContentProviderAssignment_4_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6113:1: rule__EmfsFile__ContentProviderAssignment_4_1 : ( ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6144:1: rule__EmfsFile__ContentProviderAssignment_4_1 : ( ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 ) ) ;
     public final void rule__EmfsFile__ContentProviderAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6117:1: ( ( ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6118:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6148:1: ( ( ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6149:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6118:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6119:1: ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6149:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6150:1: ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsFileAccess().getContentProviderAlternatives_4_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6120:1: ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6120:2: rule__EmfsFile__ContentProviderAlternatives_4_1_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6151:1: ( rule__EmfsFile__ContentProviderAlternatives_4_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6151:2: rule__EmfsFile__ContentProviderAlternatives_4_1_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_112447);
+            pushFollow(FollowSets000.FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_112510);
             rule__EmfsFile__ContentProviderAlternatives_4_1_0();
 
             state._fsp--;
@@ -17985,25 +18085,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EmfsFile__ContentProviderAssignment_4_2_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6129:1: rule__EmfsFile__ContentProviderAssignment_4_2_1 : ( ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6160:1: rule__EmfsFile__ContentProviderAssignment_4_2_1 : ( ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 ) ) ;
     public final void rule__EmfsFile__ContentProviderAssignment_4_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6133:1: ( ( ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6134:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6164:1: ( ( ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6165:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6134:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6135:1: ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6165:1: ( ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6166:1: ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEmfsFileAccess().getContentProviderAlternatives_4_2_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6136:1: ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6136:2: rule__EmfsFile__ContentProviderAlternatives_4_2_1_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6167:1: ( rule__EmfsFile__ContentProviderAlternatives_4_2_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6167:2: rule__EmfsFile__ContentProviderAlternatives_4_2_1_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_2_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_2_112480);
+            pushFollow(FollowSets000.FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_2_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_2_112543);
             rule__EmfsFile__ContentProviderAlternatives_4_2_1_0();
 
             state._fsp--;
@@ -18036,22 +18136,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringContentProvider__StringContentsAssignment"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6145:1: rule__StringContentProvider__StringContentsAssignment : ( ruleAbstractStringContents ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6176:1: rule__StringContentProvider__StringContentsAssignment : ( ruleAbstractStringContents ) ;
     public final void rule__StringContentProvider__StringContentsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6149:1: ( ( ruleAbstractStringContents ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6150:1: ( ruleAbstractStringContents )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6180:1: ( ( ruleAbstractStringContents ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6181:1: ( ruleAbstractStringContents )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6150:1: ( ruleAbstractStringContents )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6151:1: ruleAbstractStringContents
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6181:1: ( ruleAbstractStringContents )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6182:1: ruleAbstractStringContents
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getStringContentProviderAccess().getStringContentsAbstractStringContentsParserRuleCall_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAbstractStringContents_in_rule__StringContentProvider__StringContentsAssignment12513);
+            pushFollow(FollowSets000.FOLLOW_ruleAbstractStringContents_in_rule__StringContentProvider__StringContentsAssignment12576);
             ruleAbstractStringContents();
 
             state._fsp--;
@@ -18081,25 +18181,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VerbatimStringContents__StringContentAssignment"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6160:1: rule__VerbatimStringContents__StringContentAssignment : ( ( rule__VerbatimStringContents__StringContentAlternatives_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6191:1: rule__VerbatimStringContents__StringContentAssignment : ( ( rule__VerbatimStringContents__StringContentAlternatives_0 ) ) ;
     public final void rule__VerbatimStringContents__StringContentAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6164:1: ( ( ( rule__VerbatimStringContents__StringContentAlternatives_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6165:1: ( ( rule__VerbatimStringContents__StringContentAlternatives_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6195:1: ( ( ( rule__VerbatimStringContents__StringContentAlternatives_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6196:1: ( ( rule__VerbatimStringContents__StringContentAlternatives_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6165:1: ( ( rule__VerbatimStringContents__StringContentAlternatives_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6166:1: ( rule__VerbatimStringContents__StringContentAlternatives_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6196:1: ( ( rule__VerbatimStringContents__StringContentAlternatives_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6197:1: ( rule__VerbatimStringContents__StringContentAlternatives_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVerbatimStringContentsAccess().getStringContentAlternatives_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6167:1: ( rule__VerbatimStringContents__StringContentAlternatives_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6167:2: rule__VerbatimStringContents__StringContentAlternatives_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6198:1: ( rule__VerbatimStringContents__StringContentAlternatives_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6198:2: rule__VerbatimStringContents__StringContentAlternatives_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__VerbatimStringContents__StringContentAlternatives_0_in_rule__VerbatimStringContents__StringContentAssignment12544);
+            pushFollow(FollowSets000.FOLLOW_rule__VerbatimStringContents__StringContentAlternatives_0_in_rule__VerbatimStringContents__StringContentAssignment12607);
             rule__VerbatimStringContents__StringContentAlternatives_0();
 
             state._fsp--;
@@ -18132,22 +18232,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValueString__PropertyNameAssignment_1_0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6176:1: rule__PropertyValueString__PropertyNameAssignment_1_0 : ( RULE_ID ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6207:1: rule__PropertyValueString__PropertyNameAssignment_1_0 : ( RULE_ID ) ;
     public final void rule__PropertyValueString__PropertyNameAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6180:1: ( ( RULE_ID ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6181:1: ( RULE_ID )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6211:1: ( ( RULE_ID ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6212:1: ( RULE_ID )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6181:1: ( RULE_ID )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6182:1: RULE_ID
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6212:1: ( RULE_ID )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6213:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPropertyValueStringAccess().getPropertyNameIDTerminalRuleCall_1_0_0()); 
             }
-            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__PropertyValueString__PropertyNameAssignment_1_012577); if (state.failed) return ;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__PropertyValueString__PropertyNameAssignment_1_012640); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPropertyValueStringAccess().getPropertyNameIDTerminalRuleCall_1_0_0()); 
             }
@@ -18173,22 +18273,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValueString__PropertyNameAssignment_1_1_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6191:1: rule__PropertyValueString__PropertyNameAssignment_1_1_1 : ( ruleEmfsName ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6222:1: rule__PropertyValueString__PropertyNameAssignment_1_1_1 : ( ruleEmfsName ) ;
     public final void rule__PropertyValueString__PropertyNameAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6195:1: ( ( ruleEmfsName ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6196:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6226:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6227:1: ( ruleEmfsName )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6196:1: ( ruleEmfsName )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6197:1: ruleEmfsName
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6227:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6228:1: ruleEmfsName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPropertyValueStringAccess().getPropertyNameEmfsNameParserRuleCall_1_1_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__PropertyValueString__PropertyNameAssignment_1_1_112608);
+            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__PropertyValueString__PropertyNameAssignment_1_1_112671);
             ruleEmfsName();
 
             state._fsp--;
@@ -18218,25 +18318,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyValueString__DefaultValueAssignment_2_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6206:1: rule__PropertyValueString__DefaultValueAssignment_2_1 : ( ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6237:1: rule__PropertyValueString__DefaultValueAssignment_2_1 : ( ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 ) ) ;
     public final void rule__PropertyValueString__DefaultValueAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6210:1: ( ( ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6211:1: ( ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6241:1: ( ( ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6242:1: ( ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6211:1: ( ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6212:1: ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6242:1: ( ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6243:1: ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPropertyValueStringAccess().getDefaultValueAlternatives_2_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6213:1: ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6213:2: rule__PropertyValueString__DefaultValueAlternatives_2_1_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6244:1: ( rule__PropertyValueString__DefaultValueAlternatives_2_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6244:2: rule__PropertyValueString__DefaultValueAlternatives_2_1_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__PropertyValueString__DefaultValueAlternatives_2_1_0_in_rule__PropertyValueString__DefaultValueAssignment_2_112639);
+            pushFollow(FollowSets000.FOLLOW_rule__PropertyValueString__DefaultValueAlternatives_2_1_0_in_rule__PropertyValueString__DefaultValueAssignment_2_112702);
             rule__PropertyValueString__DefaultValueAlternatives_2_1_0();
 
             state._fsp--;
@@ -18269,22 +18369,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WrappingStringContentProvider__PrefixAssignment_0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6222:1: rule__WrappingStringContentProvider__PrefixAssignment_0 : ( ruleAbstractStringContents ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6253:1: rule__WrappingStringContentProvider__PrefixAssignment_0 : ( ruleAbstractStringContents ) ;
     public final void rule__WrappingStringContentProvider__PrefixAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6226:1: ( ( ruleAbstractStringContents ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6227:1: ( ruleAbstractStringContents )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6257:1: ( ( ruleAbstractStringContents ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6258:1: ( ruleAbstractStringContents )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6227:1: ( ruleAbstractStringContents )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6228:1: ruleAbstractStringContents
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6258:1: ( ruleAbstractStringContents )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6259:1: ruleAbstractStringContents
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getWrappingStringContentProviderAccess().getPrefixAbstractStringContentsParserRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAbstractStringContents_in_rule__WrappingStringContentProvider__PrefixAssignment_012672);
+            pushFollow(FollowSets000.FOLLOW_ruleAbstractStringContents_in_rule__WrappingStringContentProvider__PrefixAssignment_012735);
             ruleAbstractStringContents();
 
             state._fsp--;
@@ -18314,25 +18414,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WrappingStringContentProvider__ContentProviderAssignment_1_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6237:1: rule__WrappingStringContentProvider__ContentProviderAssignment_1_1 : ( ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6268:1: rule__WrappingStringContentProvider__ContentProviderAssignment_1_1 : ( ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 ) ) ;
     public final void rule__WrappingStringContentProvider__ContentProviderAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6241:1: ( ( ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6242:1: ( ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6272:1: ( ( ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6273:1: ( ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6242:1: ( ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6243:1: ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6273:1: ( ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6274:1: ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getWrappingStringContentProviderAccess().getContentProviderAlternatives_1_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6244:1: ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6244:2: rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6275:1: ( rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6275:2: rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0_in_rule__WrappingStringContentProvider__ContentProviderAssignment_1_112703);
+            pushFollow(FollowSets000.FOLLOW_rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0_in_rule__WrappingStringContentProvider__ContentProviderAssignment_1_112766);
             rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0();
 
             state._fsp--;
@@ -18365,22 +18465,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__WrappingStringContentProvider__SuffixAssignment_2"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6253:1: rule__WrappingStringContentProvider__SuffixAssignment_2 : ( ruleAbstractStringContents ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6284:1: rule__WrappingStringContentProvider__SuffixAssignment_2 : ( ruleAbstractStringContents ) ;
     public final void rule__WrappingStringContentProvider__SuffixAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6257:1: ( ( ruleAbstractStringContents ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6258:1: ( ruleAbstractStringContents )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6288:1: ( ( ruleAbstractStringContents ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6289:1: ( ruleAbstractStringContents )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6258:1: ( ruleAbstractStringContents )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6259:1: ruleAbstractStringContents
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6289:1: ( ruleAbstractStringContents )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6290:1: ruleAbstractStringContents
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getWrappingStringContentProviderAccess().getSuffixAbstractStringContentsParserRuleCall_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAbstractStringContents_in_rule__WrappingStringContentProvider__SuffixAssignment_212736);
+            pushFollow(FollowSets000.FOLLOW_ruleAbstractStringContents_in_rule__WrappingStringContentProvider__SuffixAssignment_212799);
             ruleAbstractStringContents();
 
             state._fsp--;
@@ -18410,25 +18510,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__URLContentProvider__UrlStringAssignment"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6268:1: rule__URLContentProvider__UrlStringAssignment : ( ( rule__URLContentProvider__UrlStringAlternatives_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6299:1: rule__URLContentProvider__UrlStringAssignment : ( ( rule__URLContentProvider__UrlStringAlternatives_0 ) ) ;
     public final void rule__URLContentProvider__UrlStringAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6272:1: ( ( ( rule__URLContentProvider__UrlStringAlternatives_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6273:1: ( ( rule__URLContentProvider__UrlStringAlternatives_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6303:1: ( ( ( rule__URLContentProvider__UrlStringAlternatives_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6304:1: ( ( rule__URLContentProvider__UrlStringAlternatives_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6273:1: ( ( rule__URLContentProvider__UrlStringAlternatives_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6274:1: ( rule__URLContentProvider__UrlStringAlternatives_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6304:1: ( ( rule__URLContentProvider__UrlStringAlternatives_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6305:1: ( rule__URLContentProvider__UrlStringAlternatives_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getURLContentProviderAccess().getUrlStringAlternatives_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6275:1: ( rule__URLContentProvider__UrlStringAlternatives_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6275:2: rule__URLContentProvider__UrlStringAlternatives_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6306:1: ( rule__URLContentProvider__UrlStringAlternatives_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6306:2: rule__URLContentProvider__UrlStringAlternatives_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__URLContentProvider__UrlStringAlternatives_0_in_rule__URLContentProvider__UrlStringAssignment12767);
+            pushFollow(FollowSets000.FOLLOW_rule__URLContentProvider__UrlStringAlternatives_0_in_rule__URLContentProvider__UrlStringAssignment12830);
             rule__URLContentProvider__UrlStringAlternatives_0();
 
             state._fsp--;
@@ -18461,22 +18561,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GitURLContentProvider__GitRefAssignment"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6284:1: rule__GitURLContentProvider__GitRefAssignment : ( ruleGitContentRef ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6315:1: rule__GitURLContentProvider__GitRefAssignment : ( ruleGitContentRef ) ;
     public final void rule__GitURLContentProvider__GitRefAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6288:1: ( ( ruleGitContentRef ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6289:1: ( ruleGitContentRef )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6319:1: ( ( ruleGitContentRef ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6320:1: ( ruleGitContentRef )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6289:1: ( ruleGitContentRef )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6290:1: ruleGitContentRef
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6320:1: ( ruleGitContentRef )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6321:1: ruleGitContentRef
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGitURLContentProviderAccess().getGitRefGitContentRefParserRuleCall_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleGitContentRef_in_rule__GitURLContentProvider__GitRefAssignment12800);
+            pushFollow(FollowSets000.FOLLOW_ruleGitContentRef_in_rule__GitURLContentProvider__GitRefAssignment12863);
             ruleGitContentRef();
 
             state._fsp--;
@@ -18506,25 +18606,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GitContentRef__HostAssignment_2_0_0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6299:1: rule__GitContentRef__HostAssignment_2_0_0 : ( ( rule__GitContentRef__HostAlternatives_2_0_0_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6330:1: rule__GitContentRef__HostAssignment_2_0_0 : ( ( rule__GitContentRef__HostAlternatives_2_0_0_0 ) ) ;
     public final void rule__GitContentRef__HostAssignment_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6303:1: ( ( ( rule__GitContentRef__HostAlternatives_2_0_0_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6304:1: ( ( rule__GitContentRef__HostAlternatives_2_0_0_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6334:1: ( ( ( rule__GitContentRef__HostAlternatives_2_0_0_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6335:1: ( ( rule__GitContentRef__HostAlternatives_2_0_0_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6304:1: ( ( rule__GitContentRef__HostAlternatives_2_0_0_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6305:1: ( rule__GitContentRef__HostAlternatives_2_0_0_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6335:1: ( ( rule__GitContentRef__HostAlternatives_2_0_0_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6336:1: ( rule__GitContentRef__HostAlternatives_2_0_0_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGitContentRefAccess().getHostAlternatives_2_0_0_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6306:1: ( rule__GitContentRef__HostAlternatives_2_0_0_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6306:2: rule__GitContentRef__HostAlternatives_2_0_0_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6337:1: ( rule__GitContentRef__HostAlternatives_2_0_0_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6337:2: rule__GitContentRef__HostAlternatives_2_0_0_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__GitContentRef__HostAlternatives_2_0_0_0_in_rule__GitContentRef__HostAssignment_2_0_012831);
+            pushFollow(FollowSets000.FOLLOW_rule__GitContentRef__HostAlternatives_2_0_0_0_in_rule__GitContentRef__HostAssignment_2_0_012894);
             rule__GitContentRef__HostAlternatives_2_0_0_0();
 
             state._fsp--;
@@ -18557,25 +18657,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GitContentRef__OwnerAssignment_2_0_1_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6315:1: rule__GitContentRef__OwnerAssignment_2_0_1_1 : ( ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6346:1: rule__GitContentRef__OwnerAssignment_2_0_1_1 : ( ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 ) ) ;
     public final void rule__GitContentRef__OwnerAssignment_2_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6319:1: ( ( ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6320:1: ( ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6350:1: ( ( ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6351:1: ( ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6320:1: ( ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6321:1: ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6351:1: ( ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6352:1: ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGitContentRefAccess().getOwnerAlternatives_2_0_1_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6322:1: ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6322:2: rule__GitContentRef__OwnerAlternatives_2_0_1_1_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6353:1: ( rule__GitContentRef__OwnerAlternatives_2_0_1_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6353:2: rule__GitContentRef__OwnerAlternatives_2_0_1_1_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__GitContentRef__OwnerAlternatives_2_0_1_1_0_in_rule__GitContentRef__OwnerAssignment_2_0_1_112864);
+            pushFollow(FollowSets000.FOLLOW_rule__GitContentRef__OwnerAlternatives_2_0_1_1_0_in_rule__GitContentRef__OwnerAssignment_2_0_1_112927);
             rule__GitContentRef__OwnerAlternatives_2_0_1_1_0();
 
             state._fsp--;
@@ -18608,25 +18708,25 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GitContentRef__OwnerAssignment_2_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6331:1: rule__GitContentRef__OwnerAssignment_2_1 : ( ( rule__GitContentRef__OwnerAlternatives_2_1_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6362:1: rule__GitContentRef__OwnerAssignment_2_1 : ( ( rule__GitContentRef__OwnerAlternatives_2_1_0 ) ) ;
     public final void rule__GitContentRef__OwnerAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6335:1: ( ( ( rule__GitContentRef__OwnerAlternatives_2_1_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6336:1: ( ( rule__GitContentRef__OwnerAlternatives_2_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6366:1: ( ( ( rule__GitContentRef__OwnerAlternatives_2_1_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6367:1: ( ( rule__GitContentRef__OwnerAlternatives_2_1_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6336:1: ( ( rule__GitContentRef__OwnerAlternatives_2_1_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6337:1: ( rule__GitContentRef__OwnerAlternatives_2_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6367:1: ( ( rule__GitContentRef__OwnerAlternatives_2_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6368:1: ( rule__GitContentRef__OwnerAlternatives_2_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGitContentRefAccess().getOwnerAlternatives_2_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6338:1: ( rule__GitContentRef__OwnerAlternatives_2_1_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6338:2: rule__GitContentRef__OwnerAlternatives_2_1_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6369:1: ( rule__GitContentRef__OwnerAlternatives_2_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6369:2: rule__GitContentRef__OwnerAlternatives_2_1_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__GitContentRef__OwnerAlternatives_2_1_0_in_rule__GitContentRef__OwnerAssignment_2_112897);
+            pushFollow(FollowSets000.FOLLOW_rule__GitContentRef__OwnerAlternatives_2_1_0_in_rule__GitContentRef__OwnerAssignment_2_112960);
             rule__GitContentRef__OwnerAlternatives_2_1_0();
 
             state._fsp--;
@@ -18659,22 +18759,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GitContentRef__RepoAssignment_4"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6347:1: rule__GitContentRef__RepoAssignment_4 : ( RULE_ID ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6378:1: rule__GitContentRef__RepoAssignment_4 : ( RULE_ID ) ;
     public final void rule__GitContentRef__RepoAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6351:1: ( ( RULE_ID ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6352:1: ( RULE_ID )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6382:1: ( ( RULE_ID ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6383:1: ( RULE_ID )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6352:1: ( RULE_ID )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6353:1: RULE_ID
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6383:1: ( RULE_ID )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6384:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGitContentRefAccess().getRepoIDTerminalRuleCall_4_0()); 
             }
-            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__GitContentRef__RepoAssignment_412930); if (state.failed) return ;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__GitContentRef__RepoAssignment_412993); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getGitContentRefAccess().getRepoIDTerminalRuleCall_4_0()); 
             }
@@ -18700,22 +18800,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GitContentRef__PathAssignment_5"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6362:1: rule__GitContentRef__PathAssignment_5 : ( ruleURL_PATH ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6393:1: rule__GitContentRef__PathAssignment_5 : ( ruleURL_PATH ) ;
     public final void rule__GitContentRef__PathAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6366:1: ( ( ruleURL_PATH ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6367:1: ( ruleURL_PATH )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6397:1: ( ( ruleURL_PATH ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6398:1: ( ruleURL_PATH )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6367:1: ( ruleURL_PATH )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6368:1: ruleURL_PATH
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6398:1: ( ruleURL_PATH )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6399:1: ruleURL_PATH
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGitContentRefAccess().getPathURL_PATHParserRuleCall_5_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleURL_PATH_in_rule__GitContentRef__PathAssignment_512961);
+            pushFollow(FollowSets000.FOLLOW_ruleURL_PATH_in_rule__GitContentRef__PathAssignment_513024);
             ruleURL_PATH();
 
             state._fsp--;
@@ -18745,22 +18845,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotClasspathFileContentProvider__EntriesAssignment_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6377:1: rule__DotClasspathFileContentProvider__EntriesAssignment_1 : ( ruleAbstractClasspathEntry ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6408:1: rule__DotClasspathFileContentProvider__EntriesAssignment_1 : ( ruleAbstractClasspathEntry ) ;
     public final void rule__DotClasspathFileContentProvider__EntriesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6381:1: ( ( ruleAbstractClasspathEntry ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6382:1: ( ruleAbstractClasspathEntry )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6412:1: ( ( ruleAbstractClasspathEntry ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6413:1: ( ruleAbstractClasspathEntry )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6382:1: ( ruleAbstractClasspathEntry )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6383:1: ruleAbstractClasspathEntry
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6413:1: ( ruleAbstractClasspathEntry )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6414:1: ruleAbstractClasspathEntry
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotClasspathFileContentProviderAccess().getEntriesAbstractClasspathEntryParserRuleCall_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleAbstractClasspathEntry_in_rule__DotClasspathFileContentProvider__EntriesAssignment_112992);
+            pushFollow(FollowSets000.FOLLOW_ruleAbstractClasspathEntry_in_rule__DotClasspathFileContentProvider__EntriesAssignment_113055);
             ruleAbstractClasspathEntry();
 
             state._fsp--;
@@ -18790,22 +18890,22 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ClasspathEntry__ExplicitKindAssignment_0"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6392:1: rule__ClasspathEntry__ExplicitKindAssignment_0 : ( ruleClasspathEntryKind ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6423:1: rule__ClasspathEntry__ExplicitKindAssignment_0 : ( ruleClasspathEntryKind ) ;
     public final void rule__ClasspathEntry__ExplicitKindAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6396:1: ( ( ruleClasspathEntryKind ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6397:1: ( ruleClasspathEntryKind )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6427:1: ( ( ruleClasspathEntryKind ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6428:1: ( ruleClasspathEntryKind )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6397:1: ( ruleClasspathEntryKind )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6398:1: ruleClasspathEntryKind
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6428:1: ( ruleClasspathEntryKind )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6429:1: ruleClasspathEntryKind
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClasspathEntryAccess().getExplicitKindClasspathEntryKindEnumRuleCall_0_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleClasspathEntryKind_in_rule__ClasspathEntry__ExplicitKindAssignment_013023);
+            pushFollow(FollowSets000.FOLLOW_ruleClasspathEntryKind_in_rule__ClasspathEntry__ExplicitKindAssignment_013086);
             ruleClasspathEntryKind();
 
             state._fsp--;
@@ -18834,29 +18934,82 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ClasspathEntry__ExplicitKindAssignment_0"
 
 
-    // $ANTLR start "rule__ClasspathEntry__ExplicitPathAssignment_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6407:1: rule__ClasspathEntry__ExplicitPathAssignment_1 : ( ruleCLASSPATH_ENTRY_PATH ) ;
-    public final void rule__ClasspathEntry__ExplicitPathAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__ClasspathEntry__AbsoluteAssignment_1"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6438:1: rule__ClasspathEntry__AbsoluteAssignment_1 : ( ( '/' ) ) ;
+    public final void rule__ClasspathEntry__AbsoluteAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6411:1: ( ( ruleCLASSPATH_ENTRY_PATH ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6412:1: ( ruleCLASSPATH_ENTRY_PATH )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6442:1: ( ( ( '/' ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6443:1: ( ( '/' ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6412:1: ( ruleCLASSPATH_ENTRY_PATH )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6413:1: ruleCLASSPATH_ENTRY_PATH
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6443:1: ( ( '/' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6444:1: ( '/' )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_1_0()); 
+               before(grammarAccess.getClasspathEntryAccess().getAbsoluteSolidusKeyword_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleCLASSPATH_ENTRY_PATH_in_rule__ClasspathEntry__ExplicitPathAssignment_113054);
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6445:1: ( '/' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6446:1: '/'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getClasspathEntryAccess().getAbsoluteSolidusKeyword_1_0()); 
+            }
+            match(input,27,FollowSets000.FOLLOW_27_in_rule__ClasspathEntry__AbsoluteAssignment_113122); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getClasspathEntryAccess().getAbsoluteSolidusKeyword_1_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getClasspathEntryAccess().getAbsoluteSolidusKeyword_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ClasspathEntry__AbsoluteAssignment_1"
+
+
+    // $ANTLR start "rule__ClasspathEntry__ExplicitPathAssignment_2"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6461:1: rule__ClasspathEntry__ExplicitPathAssignment_2 : ( ruleCLASSPATH_ENTRY_PATH ) ;
+    public final void rule__ClasspathEntry__ExplicitPathAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6465:1: ( ( ruleCLASSPATH_ENTRY_PATH ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6466:1: ( ruleCLASSPATH_ENTRY_PATH )
+            {
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6466:1: ( ruleCLASSPATH_ENTRY_PATH )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6467:1: ruleCLASSPATH_ENTRY_PATH
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getClasspathEntryAccess().getExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_2_0()); 
+            }
+            pushFollow(FollowSets000.FOLLOW_ruleCLASSPATH_ENTRY_PATH_in_rule__ClasspathEntry__ExplicitPathAssignment_213161);
             ruleCLASSPATH_ENTRY_PATH();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_1_0()); 
+               after(grammarAccess.getClasspathEntryAccess().getExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_2_0()); 
             }
 
             }
@@ -18876,32 +19029,32 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ClasspathEntry__ExplicitPathAssignment_1"
+    // $ANTLR end "rule__ClasspathEntry__ExplicitPathAssignment_2"
 
 
-    // $ANTLR start "rule__ClasspathEntry__MajorAssignment_2_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6422:1: rule__ClasspathEntry__MajorAssignment_2_1 : ( ruleVERSION ) ;
-    public final void rule__ClasspathEntry__MajorAssignment_2_1() throws RecognitionException {
+    // $ANTLR start "rule__ClasspathEntry__MajorAssignment_3_1"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6476:1: rule__ClasspathEntry__MajorAssignment_3_1 : ( ruleVERSION ) ;
+    public final void rule__ClasspathEntry__MajorAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6426:1: ( ( ruleVERSION ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6427:1: ( ruleVERSION )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6480:1: ( ( ruleVERSION ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6481:1: ( ruleVERSION )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6427:1: ( ruleVERSION )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6428:1: ruleVERSION
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6481:1: ( ruleVERSION )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6482:1: ruleVERSION
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getMajorVERSIONParserRuleCall_2_1_0()); 
+               before(grammarAccess.getClasspathEntryAccess().getMajorVERSIONParserRuleCall_3_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleVERSION_in_rule__ClasspathEntry__MajorAssignment_2_113085);
+            pushFollow(FollowSets000.FOLLOW_ruleVERSION_in_rule__ClasspathEntry__MajorAssignment_3_113192);
             ruleVERSION();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getMajorVERSIONParserRuleCall_2_1_0()); 
+               after(grammarAccess.getClasspathEntryAccess().getMajorVERSIONParserRuleCall_3_1_0()); 
             }
 
             }
@@ -18921,32 +19074,32 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ClasspathEntry__MajorAssignment_2_1"
+    // $ANTLR end "rule__ClasspathEntry__MajorAssignment_3_1"
 
 
-    // $ANTLR start "rule__ClasspathEntry__MinorAssignment_2_2_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6437:1: rule__ClasspathEntry__MinorAssignment_2_2_1 : ( ruleVERSION ) ;
-    public final void rule__ClasspathEntry__MinorAssignment_2_2_1() throws RecognitionException {
+    // $ANTLR start "rule__ClasspathEntry__MinorAssignment_3_2_1"
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6491:1: rule__ClasspathEntry__MinorAssignment_3_2_1 : ( ruleVERSION ) ;
+    public final void rule__ClasspathEntry__MinorAssignment_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6441:1: ( ( ruleVERSION ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6442:1: ( ruleVERSION )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6495:1: ( ( ruleVERSION ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6496:1: ( ruleVERSION )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6442:1: ( ruleVERSION )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6443:1: ruleVERSION
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6496:1: ( ruleVERSION )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6497:1: ruleVERSION
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getClasspathEntryAccess().getMinorVERSIONParserRuleCall_2_2_1_0()); 
+               before(grammarAccess.getClasspathEntryAccess().getMinorVERSIONParserRuleCall_3_2_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleVERSION_in_rule__ClasspathEntry__MinorAssignment_2_2_113116);
+            pushFollow(FollowSets000.FOLLOW_ruleVERSION_in_rule__ClasspathEntry__MinorAssignment_3_2_113223);
             ruleVERSION();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getClasspathEntryAccess().getMinorVERSIONParserRuleCall_2_2_1_0()); 
+               after(grammarAccess.getClasspathEntryAccess().getMinorVERSIONParserRuleCall_3_2_1_0()); 
             }
 
             }
@@ -18966,29 +19119,29 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__ClasspathEntry__MinorAssignment_2_2_1"
+    // $ANTLR end "rule__ClasspathEntry__MinorAssignment_3_2_1"
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__KeysAssignment_1_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6452:1: rule__DotProjectFileContentProvider__KeysAssignment_1_1 : ( ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6506:1: rule__DotProjectFileContentProvider__KeysAssignment_1_1 : ( ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 ) ) ;
     public final void rule__DotProjectFileContentProvider__KeysAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6456:1: ( ( ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6457:1: ( ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6510:1: ( ( ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6511:1: ( ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6457:1: ( ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6458:1: ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6511:1: ( ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6512:1: ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getKeysAlternatives_1_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6459:1: ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6459:2: rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6513:1: ( rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0 )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6513:2: rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0_in_rule__DotProjectFileContentProvider__KeysAssignment_1_113147);
+            pushFollow(FollowSets000.FOLLOW_rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0_in_rule__DotProjectFileContentProvider__KeysAssignment_1_113254);
             rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0();
 
             state._fsp--;
@@ -19021,28 +19174,28 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6468:1: rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 : ( ( ruleEmfsName ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6522:1: rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1 : ( ( ruleEmfsName ) ) ;
     public final void rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6472:1: ( ( ( ruleEmfsName ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6473:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6526:1: ( ( ( ruleEmfsName ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6527:1: ( ( ruleEmfsName ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6473:1: ( ( ruleEmfsName ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6474:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6527:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6528:1: ( ruleEmfsName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getLinkedResourcesEmfsResourceCrossReference_2_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6475:1: ( ruleEmfsName )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6476:1: ruleEmfsName
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6529:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6530:1: ruleEmfsName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getLinkedResourcesEmfsResourceEmfsNameParserRuleCall_2_1_0_1()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_113184);
+            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_113291);
             ruleEmfsName();
 
             state._fsp--;
@@ -19078,28 +19231,28 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1"
-    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6487:1: rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 : ( ( ruleEmfsName ) ) ;
+    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6541:1: rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1 : ( ( ruleEmfsName ) ) ;
     public final void rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6491:1: ( ( ( ruleEmfsName ) ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6492:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6545:1: ( ( ( ruleEmfsName ) ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6546:1: ( ( ruleEmfsName ) )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6492:1: ( ( ruleEmfsName ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6493:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6546:1: ( ( ruleEmfsName ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6547:1: ( ruleEmfsName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getLinkedResourcesEmfsResourceCrossReference_2_2_1_0()); 
             }
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6494:1: ( ruleEmfsName )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6495:1: ruleEmfsName
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6548:1: ( ruleEmfsName )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6549:1: ruleEmfsName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDotProjectFileContentProviderAccess().getLinkedResourcesEmfsResourceEmfsNameParserRuleCall_2_2_1_0_1()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_113223);
+            pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_113330);
             ruleEmfsName();
 
             state._fsp--;
@@ -19330,9 +19483,9 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
     static final String DFA9_eofS =
         "\2\uffff\3\6\5\uffff\2\6\1\uffff\1\6\2\uffff\1\6\2\uffff\1\6\135\uffff";
     static final String DFA9_minS =
-        "\1\4\1\6\3\4\1\6\2\uffff\1\4\1\37\2\4\1\6\1\4\1\6\1\37\1\4\1\6\3\4\4\44\1\43\1\33\3\6\1\33\1\6\1\37\2\6\1\4\4\6\1\33\2\6\1\33\3\6\1\4\1\33\1\4\1\37\1\6\1\33\1\37\1\4\1\37\4\6\2\33\2\6\1\15\1\6\1\33\1\6\1\4\1\33\1\6\1\4\1\6\1\37\1\6\2\33\12\15\2\37\3\6\1\4\1\37\12\15\1\4\1\37\2\6\1\33\1\6\1\4\2\37";
+        "\1\4\1\6\3\4\1\6\2\uffff\1\4\1\37\2\4\1\6\1\4\1\6\1\37\1\4\1\6\3\4\4\44\1\43\1\33\3\6\1\33\1\6\1\37\2\6\1\4\4\6\1\33\2\6\1\33\3\6\2\4\1\33\1\37\1\6\1\33\1\37\1\4\1\37\4\6\2\33\2\6\1\15\1\6\1\33\1\6\1\4\1\6\1\4\1\6\1\33\1\37\1\6\2\33\12\15\2\37\3\6\1\4\1\37\12\15\1\4\1\37\2\6\1\33\1\6\1\4\2\37";
     static final String DFA9_maxS =
-        "\1\41\1\45\2\43\1\44\1\6\2\uffff\1\6\1\46\2\43\1\6\1\44\1\6\1\46\1\55\1\6\1\50\1\55\1\41\4\44\1\43\1\47\3\41\1\37\1\45\1\37\1\45\1\6\1\41\1\45\3\6\1\44\2\6\1\33\1\6\1\41\1\6\1\41\1\44\1\41\1\46\1\41\1\44\1\46\1\41\1\46\1\41\1\6\1\41\1\6\1\44\1\33\1\45\1\6\1\26\1\6\1\33\1\6\1\41\1\44\1\6\1\41\1\45\1\46\1\6\1\33\1\44\12\33\2\46\1\6\1\41\1\6\1\41\1\46\12\33\1\41\1\46\1\41\1\6\1\33\1\6\1\41\2\46";
+        "\1\41\1\45\2\43\1\44\1\6\2\uffff\1\6\1\46\2\43\1\6\1\44\1\6\1\46\1\55\1\6\1\50\1\55\1\41\4\44\1\43\1\47\3\41\1\37\1\45\1\37\1\45\1\6\1\41\1\45\3\6\1\44\2\6\1\33\1\6\1\41\1\6\2\41\1\44\1\46\1\41\1\44\1\46\1\41\1\46\2\41\2\6\1\44\1\33\1\45\1\6\1\26\1\6\1\33\1\6\1\41\1\6\1\41\1\45\1\44\1\46\1\6\1\33\1\44\12\33\2\46\1\6\1\41\1\6\1\41\1\46\12\33\1\41\1\46\1\41\1\6\1\33\1\6\1\41\2\46";
     static final String DFA9_acceptS =
         "\6\uffff\1\1\1\2\151\uffff";
     static final String DFA9_specialS =
@@ -19368,7 +19521,7 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             "\1\36\32\uffff\1\37",
             "\1\40\32\uffff\1\41",
             "\1\43\30\uffff\1\42\1\uffff\1\44",
-            "\1\46\3\uffff\1\45",
+            "\1\45\3\uffff\1\46",
             "\1\50\36\uffff\1\47",
             "\1\51",
             "\1\53\36\uffff\1\52",
@@ -19378,7 +19531,7 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             "\1\60",
             "\1\61",
             "\1\62",
-            "\1\46\10\uffff\1\63",
+            "\1\45\10\uffff\1\63",
             "\1\64",
             "\1\65",
             "\1\35",
@@ -19386,8 +19539,8 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             "\1\43\30\uffff\1\42\1\uffff\1\44",
             "\1\67",
             "\2\7\2\uffff\1\6\22\uffff\1\70\5\uffff\1\7",
-            "\1\46\3\uffff\1\71\4\uffff\1\63",
-            "\2\7\2\uffff\1\6\22\uffff\1\72\5\uffff\1\7",
+            "\2\7\2\uffff\1\6\22\uffff\1\71\5\uffff\1\7",
+            "\1\45\3\uffff\1\72\4\uffff\1\63",
             "\1\73\6\uffff\1\74",
             "\1\75\32\uffff\1\76",
             "\1\35\3\uffff\1\77\4\uffff\1\100",
@@ -19395,11 +19548,11 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             "\2\7\2\uffff\1\6\22\uffff\1\55\3\uffff\1\54\1\uffff\1\7",
             "\1\103\6\uffff\1\104",
             "\1\43\30\uffff\1\42\1\uffff\1\44",
-            "\1\105",
-            "\1\107\30\uffff\1\106\1\uffff\1\110",
+            "\1\106\30\uffff\1\105\1\uffff\1\107",
+            "\1\110",
             "\1\111",
-            "\1\46\10\uffff\1\63",
-            "\1\46",
+            "\1\45\10\uffff\1\63",
+            "\1\45",
             "\1\113\36\uffff\1\112",
             "\1\114",
             "\1\115\1\116\1\117\1\120\1\121\1\122\1\123\1\124\1\125\1\126",
@@ -19407,13 +19560,13 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             "\1\35",
             "\1\130",
             "\2\7\2\uffff\1\6\22\uffff\1\70\5\uffff\1\7",
-            "\1\46\3\uffff\1\71\4\uffff\1\63",
-            "\1\107",
+            "\1\106",
             "\2\7\2\uffff\1\6\22\uffff\1\132\3\uffff\1\131\1\uffff\1\7",
             "\1\134\36\uffff\1\133",
+            "\1\45\3\uffff\1\72\4\uffff\1\63",
             "\1\73\6\uffff\1\74",
             "\1\135",
-            "\1\46",
+            "\1\45",
             "\1\35\3\uffff\1\77\4\uffff\1\100",
             "\1\136\1\137\1\140\1\141\1\142\1\143\1\144\1\145\1\146\1\147\4\uffff\1\35",
             "\1\136\1\137\1\140\1\141\1\142\1\143\1\144\1\145\1\146\1\147\4\uffff\1\35",
@@ -19428,7 +19581,7 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             "\1\101\6\uffff\1\102",
             "\1\103\6\uffff\1\104",
             "\1\150",
-            "\1\107\30\uffff\1\106\1\uffff\1\110",
+            "\1\106\30\uffff\1\105\1\uffff\1\107",
             "\1\151",
             "\2\7\2\uffff\1\6\22\uffff\1\152\5\uffff\1\7",
             "\1\153\6\uffff\1\154",
@@ -19444,9 +19597,9 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
             "\1\136\1\137\1\140\1\141\1\142\1\143\1\144\1\145\1\146\1\147\4\uffff\1\35",
             "\2\7\2\uffff\1\6\22\uffff\1\132\3\uffff\1\131\1\uffff\1\7",
             "\1\155\6\uffff\1\156",
-            "\1\107\30\uffff\1\106\1\uffff\1\110",
+            "\1\106\30\uffff\1\105\1\uffff\1\107",
             "\1\157",
-            "\1\46",
+            "\1\45",
             "\1\160",
             "\2\7\2\uffff\1\6\22\uffff\1\152\5\uffff\1\7",
             "\1\153\6\uffff\1\154",
@@ -19495,12 +19648,12 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
     static final String DFA23_maxS =
         "\1\41\1\37\1\45\2\uffff\1\6\1\0\1\46\1\6\1\0\1\46";
     static final String DFA23_acceptS =
-        "\3\uffff\1\1\1\2\6\uffff";
+        "\3\uffff\1\2\1\1\6\uffff";
     static final String DFA23_specialS =
-        "\6\uffff\1\0\2\uffff\1\1\1\uffff}>";
+        "\6\uffff\1\1\2\uffff\1\0\1\uffff}>";
     static final String[] DFA23_transitionS = {
             "\1\1\32\uffff\1\2",
-            "\1\4\3\uffff\1\3",
+            "\1\3\3\uffff\1\4",
             "\1\6\36\uffff\1\5",
             "",
             "",
@@ -19549,33 +19702,33 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA23_6 = input.LA(1);
-
-                         
-                        int index23_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred35_InternalXemfs()) ) {s = 3;}
-
-                        else if ( (true) ) {s = 4;}
-
-                         
-                        input.seek(index23_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
                         int LA23_9 = input.LA(1);
 
                          
                         int index23_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred35_InternalXemfs()) ) {s = 3;}
+                        if ( (synpred35_InternalXemfs()) ) {s = 4;}
 
-                        else if ( (true) ) {s = 4;}
+                        else if ( (true) ) {s = 3;}
 
                          
                         input.seek(index23_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA23_6 = input.LA(1);
+
+                         
+                        int index23_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred35_InternalXemfs()) ) {s = 4;}
+
+                        else if ( (true) ) {s = 3;}
+
+                         
+                        input.seek(index23_6);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -19708,23 +19861,23 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
     static final String DFA57_eotS =
         "\7\uffff";
     static final String DFA57_eofS =
-        "\2\uffff\1\5\3\uffff\1\5";
+        "\2\uffff\1\4\3\uffff\1\4";
     static final String DFA57_minS =
         "\2\6\1\10\1\6\2\uffff\1\10";
     static final String DFA57_maxS =
         "\1\37\1\6\1\52\1\6\2\uffff\1\52";
     static final String DFA57_acceptS =
-        "\4\uffff\1\1\1\2\1\uffff";
+        "\4\uffff\1\2\1\1\1\uffff";
     static final String DFA57_specialS =
         "\7\uffff}>";
     static final String[] DFA57_transitionS = {
             "\1\2\30\uffff\1\1",
             "\1\2",
-            "\1\5\16\uffff\4\5\1\4\3\uffff\1\3\12\uffff\1\5",
+            "\1\4\16\uffff\4\4\1\5\3\uffff\1\3\12\uffff\1\4",
             "\1\6",
             "",
             "",
-            "\1\5\16\uffff\4\5\1\4\3\uffff\1\3\12\uffff\1\5"
+            "\1\4\16\uffff\4\4\1\5\3\uffff\1\3\12\uffff\1\4"
     };
 
     static final short[] DFA57_eot = DFA.unpackEncodedString(DFA57_eotS);
@@ -20223,105 +20376,109 @@ public class InternalXemfsParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_ruleFolderName_in_rule__CLASSPATH_ENTRY_PATH__Group__0__Impl10438 = new BitSet(new long[]{0x0000000080000042L});
         public static final BitSet FOLLOW_rule__CLASSPATH_ENTRY_PATH__Group__1__Impl_in_rule__CLASSPATH_ENTRY_PATH__Group__110469 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleFileName_in_rule__CLASSPATH_ENTRY_PATH__Group__1__Impl10496 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group__0__Impl_in_rule__ClasspathEntry__Group__010529 = new BitSet(new long[]{0x0000000080000040L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group__0__Impl_in_rule__ClasspathEntry__Group__010529 = new BitSet(new long[]{0x0000000088000040L});
         public static final BitSet FOLLOW_rule__ClasspathEntry__Group__1_in_rule__ClasspathEntry__Group__010532 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__ClasspathEntry__ExplicitKindAssignment_0_in_rule__ClasspathEntry__Group__0__Impl10559 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group__1__Impl_in_rule__ClasspathEntry__Group__110589 = new BitSet(new long[]{0x0000040000000000L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group__1__Impl_in_rule__ClasspathEntry__Group__110589 = new BitSet(new long[]{0x0000000088000040L});
         public static final BitSet FOLLOW_rule__ClasspathEntry__Group__2_in_rule__ClasspathEntry__Group__110592 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__ExplicitPathAssignment_1_in_rule__ClasspathEntry__Group__1__Impl10619 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group__2__Impl_in_rule__ClasspathEntry__Group__210649 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2__0_in_rule__ClasspathEntry__Group__2__Impl10676 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2__0__Impl_in_rule__ClasspathEntry__Group_2__010713 = new BitSet(new long[]{0x00000000007FE000L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2__1_in_rule__ClasspathEntry__Group_2__010716 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_42_in_rule__ClasspathEntry__Group_2__0__Impl10744 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2__1__Impl_in_rule__ClasspathEntry__Group_2__110775 = new BitSet(new long[]{0x0000080080000000L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2__2_in_rule__ClasspathEntry__Group_2__110778 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__MajorAssignment_2_1_in_rule__ClasspathEntry__Group_2__1__Impl10805 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2__2__Impl_in_rule__ClasspathEntry__Group_2__210835 = new BitSet(new long[]{0x0000080080000000L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2__3_in_rule__ClasspathEntry__Group_2__210838 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2_2__0_in_rule__ClasspathEntry__Group_2__2__Impl10865 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2__3__Impl_in_rule__ClasspathEntry__Group_2__310896 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_43_in_rule__ClasspathEntry__Group_2__3__Impl10924 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2_2__0__Impl_in_rule__ClasspathEntry__Group_2_2__010963 = new BitSet(new long[]{0x00000000007FE000L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2_2__1_in_rule__ClasspathEntry__Group_2_2__010966 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_31_in_rule__ClasspathEntry__Group_2_2__0__Impl10994 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_2_2__1__Impl_in_rule__ClasspathEntry__Group_2_2__111025 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ClasspathEntry__MinorAssignment_2_2_1_in_rule__ClasspathEntry__Group_2_2__1__Impl11052 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__0__Impl_in_rule__DotProjectFileContentProvider__Group__011086 = new BitSet(new long[]{0x0000000020000000L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__1_in_rule__DotProjectFileContentProvider__Group__011089 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_44_in_rule__DotProjectFileContentProvider__Group__0__Impl11117 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__1__Impl_in_rule__DotProjectFileContentProvider__Group__111148 = new BitSet(new long[]{0x0000000800000100L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__2_in_rule__DotProjectFileContentProvider__Group__111151 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_1__0_in_rule__DotProjectFileContentProvider__Group__1__Impl11180 = new BitSet(new long[]{0x0000000020000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_1__0_in_rule__DotProjectFileContentProvider__Group__1__Impl11192 = new BitSet(new long[]{0x0000000020000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__2__Impl_in_rule__DotProjectFileContentProvider__Group__211225 = new BitSet(new long[]{0x0000000800000100L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__3_in_rule__DotProjectFileContentProvider__Group__211228 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__0_in_rule__DotProjectFileContentProvider__Group__2__Impl11255 = new BitSet(new long[]{0x0000000800000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__3__Impl_in_rule__DotProjectFileContentProvider__Group__311286 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_8_in_rule__DotProjectFileContentProvider__Group__3__Impl11314 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_1__0__Impl_in_rule__DotProjectFileContentProvider__Group_1__011353 = new BitSet(new long[]{0x0000000080000050L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_1__1_in_rule__DotProjectFileContentProvider__Group_1__011356 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_29_in_rule__DotProjectFileContentProvider__Group_1__0__Impl11384 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_1__1__Impl_in_rule__DotProjectFileContentProvider__Group_1__111415 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__KeysAssignment_1_1_in_rule__DotProjectFileContentProvider__Group_1__1__Impl11442 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__0__Impl_in_rule__DotProjectFileContentProvider__Group_2__011476 = new BitSet(new long[]{0x0000000000000040L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__1_in_rule__DotProjectFileContentProvider__Group_2__011479 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_35_in_rule__DotProjectFileContentProvider__Group_2__0__Impl11507 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__1__Impl_in_rule__DotProjectFileContentProvider__Group_2__111538 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__2_in_rule__DotProjectFileContentProvider__Group_2__111541 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1_in_rule__DotProjectFileContentProvider__Group_2__1__Impl11568 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__2__Impl_in_rule__DotProjectFileContentProvider__Group_2__211598 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__0_in_rule__DotProjectFileContentProvider__Group_2__2__Impl11625 = new BitSet(new long[]{0x0000000100000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__0__Impl_in_rule__DotProjectFileContentProvider__Group_2_2__011662 = new BitSet(new long[]{0x0000000000000040L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__1_in_rule__DotProjectFileContentProvider__Group_2_2__011665 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_32_in_rule__DotProjectFileContentProvider__Group_2_2__0__Impl11693 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__1__Impl_in_rule__DotProjectFileContentProvider__Group_2_2__111724 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1_in_rule__DotProjectFileContentProvider__Group_2_2__1__Impl11751 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEmfsName_in_rule__EmfsRoot__NameAssignment_1_111790 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__EmfsRoot__TagsAssignment_2_111821 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleProperty_in_rule__EmfsRoot__PropertiesAssignment_311852 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__EmfsRoot__ContentProviderAlternatives_4_1_0_in_rule__EmfsRoot__ContentProviderAssignment_4_111883 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEmfsResource_in_rule__EmfsRoot__ResourcesAssignment_611916 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEmfsName_in_rule__EmfsResourcesRef__ResourcesAssignment_011951 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEmfsName_in_rule__EmfsResourcesRef__ResourcesAssignment_1_111990 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEmfsName_in_rule__Property__NameAssignment_112025 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Property__ValueAlternatives_3_0_in_rule__Property__ValueAssignment_312056 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleFolderName_in_rule__EmfsContainer__NameAssignment_012089 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEmfsName_in_rule__EmfsContainer__TagsAssignment_1_112120 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleProperty_in_rule__EmfsContainer__PropertiesAssignment_212151 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__EmfsContainer__ContentProviderAlternatives_3_1_0_in_rule__EmfsContainer__ContentProviderAssignment_3_112182 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEmfsResource_in_rule__EmfsContainer__ResourcesAssignment_412215 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleGitContentRef_in_rule__GitContentProvider__GitRefAssignment12246 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleFileName_in_rule__EmfsFile__NameAssignment_012277 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_45_in_rule__EmfsFile__WriteableAssignment_112313 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__EmfsFile__TagsAssignment_2_112352 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleProperty_in_rule__EmfsFile__PropertiesAssignment_312383 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_0_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_0_112414 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_112447 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_2_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_2_112480 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAbstractStringContents_in_rule__StringContentProvider__StringContentsAssignment12513 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__VerbatimStringContents__StringContentAlternatives_0_in_rule__VerbatimStringContents__StringContentAssignment12544 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__PropertyValueString__PropertyNameAssignment_1_012577 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEmfsName_in_rule__PropertyValueString__PropertyNameAssignment_1_1_112608 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__PropertyValueString__DefaultValueAlternatives_2_1_0_in_rule__PropertyValueString__DefaultValueAssignment_2_112639 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAbstractStringContents_in_rule__WrappingStringContentProvider__PrefixAssignment_012672 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0_in_rule__WrappingStringContentProvider__ContentProviderAssignment_1_112703 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAbstractStringContents_in_rule__WrappingStringContentProvider__SuffixAssignment_212736 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__URLContentProvider__UrlStringAlternatives_0_in_rule__URLContentProvider__UrlStringAssignment12767 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleGitContentRef_in_rule__GitURLContentProvider__GitRefAssignment12800 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__GitContentRef__HostAlternatives_2_0_0_0_in_rule__GitContentRef__HostAssignment_2_0_012831 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__GitContentRef__OwnerAlternatives_2_0_1_1_0_in_rule__GitContentRef__OwnerAssignment_2_0_1_112864 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__GitContentRef__OwnerAlternatives_2_1_0_in_rule__GitContentRef__OwnerAssignment_2_112897 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__GitContentRef__RepoAssignment_412930 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleURL_PATH_in_rule__GitContentRef__PathAssignment_512961 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAbstractClasspathEntry_in_rule__DotClasspathFileContentProvider__EntriesAssignment_112992 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleClasspathEntryKind_in_rule__ClasspathEntry__ExplicitKindAssignment_013023 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCLASSPATH_ENTRY_PATH_in_rule__ClasspathEntry__ExplicitPathAssignment_113054 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVERSION_in_rule__ClasspathEntry__MajorAssignment_2_113085 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVERSION_in_rule__ClasspathEntry__MinorAssignment_2_2_113116 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0_in_rule__DotProjectFileContentProvider__KeysAssignment_1_113147 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEmfsName_in_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_113184 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEmfsName_in_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_113223 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__AbsoluteAssignment_1_in_rule__ClasspathEntry__Group__1__Impl10619 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group__2__Impl_in_rule__ClasspathEntry__Group__210650 = new BitSet(new long[]{0x0000040000000000L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group__3_in_rule__ClasspathEntry__Group__210653 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__ExplicitPathAssignment_2_in_rule__ClasspathEntry__Group__2__Impl10680 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group__3__Impl_in_rule__ClasspathEntry__Group__310710 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3__0_in_rule__ClasspathEntry__Group__3__Impl10737 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3__0__Impl_in_rule__ClasspathEntry__Group_3__010776 = new BitSet(new long[]{0x00000000007FE000L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3__1_in_rule__ClasspathEntry__Group_3__010779 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_42_in_rule__ClasspathEntry__Group_3__0__Impl10807 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3__1__Impl_in_rule__ClasspathEntry__Group_3__110838 = new BitSet(new long[]{0x0000080080000000L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3__2_in_rule__ClasspathEntry__Group_3__110841 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__MajorAssignment_3_1_in_rule__ClasspathEntry__Group_3__1__Impl10868 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3__2__Impl_in_rule__ClasspathEntry__Group_3__210898 = new BitSet(new long[]{0x0000080080000000L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3__3_in_rule__ClasspathEntry__Group_3__210901 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3_2__0_in_rule__ClasspathEntry__Group_3__2__Impl10928 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3__3__Impl_in_rule__ClasspathEntry__Group_3__310959 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_43_in_rule__ClasspathEntry__Group_3__3__Impl10987 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3_2__0__Impl_in_rule__ClasspathEntry__Group_3_2__011026 = new BitSet(new long[]{0x00000000007FE000L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3_2__1_in_rule__ClasspathEntry__Group_3_2__011029 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_31_in_rule__ClasspathEntry__Group_3_2__0__Impl11057 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__Group_3_2__1__Impl_in_rule__ClasspathEntry__Group_3_2__111088 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ClasspathEntry__MinorAssignment_3_2_1_in_rule__ClasspathEntry__Group_3_2__1__Impl11115 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__0__Impl_in_rule__DotProjectFileContentProvider__Group__011149 = new BitSet(new long[]{0x0000000020000000L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__1_in_rule__DotProjectFileContentProvider__Group__011152 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_44_in_rule__DotProjectFileContentProvider__Group__0__Impl11180 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__1__Impl_in_rule__DotProjectFileContentProvider__Group__111211 = new BitSet(new long[]{0x0000000800000100L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__2_in_rule__DotProjectFileContentProvider__Group__111214 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_1__0_in_rule__DotProjectFileContentProvider__Group__1__Impl11243 = new BitSet(new long[]{0x0000000020000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_1__0_in_rule__DotProjectFileContentProvider__Group__1__Impl11255 = new BitSet(new long[]{0x0000000020000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__2__Impl_in_rule__DotProjectFileContentProvider__Group__211288 = new BitSet(new long[]{0x0000000800000100L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__3_in_rule__DotProjectFileContentProvider__Group__211291 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__0_in_rule__DotProjectFileContentProvider__Group__2__Impl11318 = new BitSet(new long[]{0x0000000800000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group__3__Impl_in_rule__DotProjectFileContentProvider__Group__311349 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_8_in_rule__DotProjectFileContentProvider__Group__3__Impl11377 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_1__0__Impl_in_rule__DotProjectFileContentProvider__Group_1__011416 = new BitSet(new long[]{0x0000000080000050L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_1__1_in_rule__DotProjectFileContentProvider__Group_1__011419 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_29_in_rule__DotProjectFileContentProvider__Group_1__0__Impl11447 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_1__1__Impl_in_rule__DotProjectFileContentProvider__Group_1__111478 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__KeysAssignment_1_1_in_rule__DotProjectFileContentProvider__Group_1__1__Impl11505 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__0__Impl_in_rule__DotProjectFileContentProvider__Group_2__011539 = new BitSet(new long[]{0x0000000000000040L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__1_in_rule__DotProjectFileContentProvider__Group_2__011542 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_35_in_rule__DotProjectFileContentProvider__Group_2__0__Impl11570 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__1__Impl_in_rule__DotProjectFileContentProvider__Group_2__111601 = new BitSet(new long[]{0x0000000100000000L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__2_in_rule__DotProjectFileContentProvider__Group_2__111604 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_1_in_rule__DotProjectFileContentProvider__Group_2__1__Impl11631 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2__2__Impl_in_rule__DotProjectFileContentProvider__Group_2__211661 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__0_in_rule__DotProjectFileContentProvider__Group_2__2__Impl11688 = new BitSet(new long[]{0x0000000100000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__0__Impl_in_rule__DotProjectFileContentProvider__Group_2_2__011725 = new BitSet(new long[]{0x0000000000000040L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__1_in_rule__DotProjectFileContentProvider__Group_2_2__011728 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_32_in_rule__DotProjectFileContentProvider__Group_2_2__0__Impl11756 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__Group_2_2__1__Impl_in_rule__DotProjectFileContentProvider__Group_2_2__111787 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_1_in_rule__DotProjectFileContentProvider__Group_2_2__1__Impl11814 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEmfsName_in_rule__EmfsRoot__NameAssignment_1_111853 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__EmfsRoot__TagsAssignment_2_111884 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleProperty_in_rule__EmfsRoot__PropertiesAssignment_311915 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__EmfsRoot__ContentProviderAlternatives_4_1_0_in_rule__EmfsRoot__ContentProviderAssignment_4_111946 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEmfsResource_in_rule__EmfsRoot__ResourcesAssignment_611979 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEmfsName_in_rule__EmfsResourcesRef__ResourcesAssignment_012014 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEmfsName_in_rule__EmfsResourcesRef__ResourcesAssignment_1_112053 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEmfsName_in_rule__Property__NameAssignment_112088 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Property__ValueAlternatives_3_0_in_rule__Property__ValueAssignment_312119 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFolderName_in_rule__EmfsContainer__NameAssignment_012152 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEmfsName_in_rule__EmfsContainer__TagsAssignment_1_112183 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleProperty_in_rule__EmfsContainer__PropertiesAssignment_212214 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__EmfsContainer__ContentProviderAlternatives_3_1_0_in_rule__EmfsContainer__ContentProviderAssignment_3_112245 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEmfsResource_in_rule__EmfsContainer__ResourcesAssignment_412278 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleGitContentRef_in_rule__GitContentProvider__GitRefAssignment12309 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFileName_in_rule__EmfsFile__NameAssignment_012340 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_45_in_rule__EmfsFile__WriteableAssignment_112376 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__EmfsFile__TagsAssignment_2_112415 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleProperty_in_rule__EmfsFile__PropertiesAssignment_312446 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_0_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_0_112477 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_112510 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__EmfsFile__ContentProviderAlternatives_4_2_1_0_in_rule__EmfsFile__ContentProviderAssignment_4_2_112543 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAbstractStringContents_in_rule__StringContentProvider__StringContentsAssignment12576 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__VerbatimStringContents__StringContentAlternatives_0_in_rule__VerbatimStringContents__StringContentAssignment12607 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__PropertyValueString__PropertyNameAssignment_1_012640 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEmfsName_in_rule__PropertyValueString__PropertyNameAssignment_1_1_112671 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__PropertyValueString__DefaultValueAlternatives_2_1_0_in_rule__PropertyValueString__DefaultValueAssignment_2_112702 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAbstractStringContents_in_rule__WrappingStringContentProvider__PrefixAssignment_012735 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__WrappingStringContentProvider__ContentProviderAlternatives_1_1_0_in_rule__WrappingStringContentProvider__ContentProviderAssignment_1_112766 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAbstractStringContents_in_rule__WrappingStringContentProvider__SuffixAssignment_212799 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__URLContentProvider__UrlStringAlternatives_0_in_rule__URLContentProvider__UrlStringAssignment12830 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleGitContentRef_in_rule__GitURLContentProvider__GitRefAssignment12863 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__GitContentRef__HostAlternatives_2_0_0_0_in_rule__GitContentRef__HostAssignment_2_0_012894 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__GitContentRef__OwnerAlternatives_2_0_1_1_0_in_rule__GitContentRef__OwnerAssignment_2_0_1_112927 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__GitContentRef__OwnerAlternatives_2_1_0_in_rule__GitContentRef__OwnerAssignment_2_112960 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__GitContentRef__RepoAssignment_412993 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleURL_PATH_in_rule__GitContentRef__PathAssignment_513024 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAbstractClasspathEntry_in_rule__DotClasspathFileContentProvider__EntriesAssignment_113055 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleClasspathEntryKind_in_rule__ClasspathEntry__ExplicitKindAssignment_013086 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_27_in_rule__ClasspathEntry__AbsoluteAssignment_113122 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCLASSPATH_ENTRY_PATH_in_rule__ClasspathEntry__ExplicitPathAssignment_213161 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVERSION_in_rule__ClasspathEntry__MajorAssignment_3_113192 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVERSION_in_rule__ClasspathEntry__MinorAssignment_3_2_113223 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__DotProjectFileContentProvider__KeysAlternatives_1_1_0_in_rule__DotProjectFileContentProvider__KeysAssignment_1_113254 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEmfsName_in_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_113291 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEmfsName_in_rule__DotProjectFileContentProvider__LinkedResourcesAssignment_2_2_113330 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__GitContentRef__Group_2_0__0_in_synpred35_InternalXemfs3241 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__EmfsName__Group_1__0_in_synpred58_InternalXemfs4759 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__EmfsContainer__ResourcesAssignment_4_in_synpred65_InternalXemfs6115 = new BitSet(new long[]{0x0000000000000002L});

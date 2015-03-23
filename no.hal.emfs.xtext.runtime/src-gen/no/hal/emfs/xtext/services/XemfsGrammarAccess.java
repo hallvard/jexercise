@@ -1205,23 +1205,27 @@ public class XemfsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cExplicitKindAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cExplicitKindClasspathEntryKindEnumRuleCall_0_0 = (RuleCall)cExplicitKindAssignment_0.eContents().get(0);
-		private final Assignment cExplicitPathAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_1_0 = (RuleCall)cExplicitPathAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cMajorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cMajorVERSIONParserRuleCall_2_1_0 = (RuleCall)cMajorAssignment_2_1.eContents().get(0);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cFullStopKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cMinorAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cMinorVERSIONParserRuleCall_2_2_1_0 = (RuleCall)cMinorAssignment_2_2_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Assignment cAbsoluteAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cAbsoluteSolidusKeyword_1_0 = (Keyword)cAbsoluteAssignment_1.eContents().get(0);
+		private final Assignment cExplicitPathAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_2_0 = (RuleCall)cExplicitPathAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cMajorAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cMajorVERSIONParserRuleCall_3_1_0 = (RuleCall)cMajorAssignment_3_1.eContents().get(0);
+		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
+		private final Keyword cFullStopKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cMinorAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final RuleCall cMinorVERSIONParserRuleCall_3_2_1_0 = (RuleCall)cMinorAssignment_3_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		
 		//ClasspathEntry:
-		//	explicitKind=ClasspathEntryKind explicitPath=CLASSPATH_ENTRY_PATH ("(" major=VERSION ("." minor=VERSION)? ")")?;
+		//	explicitKind=ClasspathEntryKind absolute?="/"? explicitPath=CLASSPATH_ENTRY_PATH ("(" major=VERSION ("."
+		//	minor=VERSION)? ")")?;
 		public ParserRule getRule() { return rule; }
 
-		//explicitKind=ClasspathEntryKind explicitPath=CLASSPATH_ENTRY_PATH ("(" major=VERSION ("." minor=VERSION)? ")")?
+		//explicitKind=ClasspathEntryKind absolute?="/"? explicitPath=CLASSPATH_ENTRY_PATH ("(" major=VERSION ("." minor=VERSION)?
+		//")")?
 		public Group getGroup() { return cGroup; }
 
 		//explicitKind=ClasspathEntryKind
@@ -1230,38 +1234,44 @@ public class XemfsGrammarAccess extends AbstractGrammarElementFinder {
 		//ClasspathEntryKind
 		public RuleCall getExplicitKindClasspathEntryKindEnumRuleCall_0_0() { return cExplicitKindClasspathEntryKindEnumRuleCall_0_0; }
 
+		//absolute?="/"?
+		public Assignment getAbsoluteAssignment_1() { return cAbsoluteAssignment_1; }
+
+		//"/"
+		public Keyword getAbsoluteSolidusKeyword_1_0() { return cAbsoluteSolidusKeyword_1_0; }
+
 		//explicitPath=CLASSPATH_ENTRY_PATH
-		public Assignment getExplicitPathAssignment_1() { return cExplicitPathAssignment_1; }
+		public Assignment getExplicitPathAssignment_2() { return cExplicitPathAssignment_2; }
 
 		//CLASSPATH_ENTRY_PATH
-		public RuleCall getExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_1_0() { return cExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_1_0; }
+		public RuleCall getExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_2_0() { return cExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_2_0; }
 
 		//("(" major=VERSION ("." minor=VERSION)? ")")?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
 
 		//major=VERSION
-		public Assignment getMajorAssignment_2_1() { return cMajorAssignment_2_1; }
+		public Assignment getMajorAssignment_3_1() { return cMajorAssignment_3_1; }
 
 		//VERSION
-		public RuleCall getMajorVERSIONParserRuleCall_2_1_0() { return cMajorVERSIONParserRuleCall_2_1_0; }
+		public RuleCall getMajorVERSIONParserRuleCall_3_1_0() { return cMajorVERSIONParserRuleCall_3_1_0; }
 
 		//("." minor=VERSION)?
-		public Group getGroup_2_2() { return cGroup_2_2; }
+		public Group getGroup_3_2() { return cGroup_3_2; }
 
 		//"."
-		public Keyword getFullStopKeyword_2_2_0() { return cFullStopKeyword_2_2_0; }
+		public Keyword getFullStopKeyword_3_2_0() { return cFullStopKeyword_3_2_0; }
 
 		//minor=VERSION
-		public Assignment getMinorAssignment_2_2_1() { return cMinorAssignment_2_2_1; }
+		public Assignment getMinorAssignment_3_2_1() { return cMinorAssignment_3_2_1; }
 
 		//VERSION
-		public RuleCall getMinorVERSIONParserRuleCall_2_2_1_0() { return cMinorVERSIONParserRuleCall_2_2_1_0; }
+		public RuleCall getMinorVERSIONParserRuleCall_3_2_1_0() { return cMinorVERSIONParserRuleCall_3_2_1_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
+		public Keyword getRightParenthesisKeyword_3_3() { return cRightParenthesisKeyword_3_3; }
 	}
 
 	public class VERSIONElements extends AbstractParserRuleElementFinder {
@@ -1844,7 +1854,8 @@ public class XemfsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ClasspathEntry:
-	//	explicitKind=ClasspathEntryKind explicitPath=CLASSPATH_ENTRY_PATH ("(" major=VERSION ("." minor=VERSION)? ")")?;
+	//	explicitKind=ClasspathEntryKind absolute?="/"? explicitPath=CLASSPATH_ENTRY_PATH ("(" major=VERSION ("."
+	//	minor=VERSION)? ")")?;
 	public ClasspathEntryElements getClasspathEntryAccess() {
 		return pClasspathEntry;
 	}

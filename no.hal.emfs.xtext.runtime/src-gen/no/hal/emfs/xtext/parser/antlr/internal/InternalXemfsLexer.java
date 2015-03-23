@@ -848,12 +848,12 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = RULE_STRING_CONTENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2449:21: ( '---8<---' ( '\\r' )? '\\n' ( options {greedy=false; } : . )* '\\n--->8---' )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2449:23: '---8<---' ( '\\r' )? '\\n' ( options {greedy=false; } : . )* '\\n--->8---'
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2464:21: ( '---8<---' ( '\\r' )? '\\n' ( options {greedy=false; } : . )* '\\n--->8---' )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2464:23: '---8<---' ( '\\r' )? '\\n' ( options {greedy=false; } : . )* '\\n--->8---'
             {
             match("---8<---"); 
 
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2449:34: ( '\\r' )?
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2464:34: ( '\\r' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -862,7 +862,7 @@ public class InternalXemfsLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2449:34: '\\r'
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2464:34: '\\r'
                     {
                     match('\r'); 
 
@@ -872,14 +872,14 @@ public class InternalXemfsLexer extends Lexer {
             }
 
             match('\n'); 
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2449:45: ( options {greedy=false; } : . )*
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2464:45: ( options {greedy=false; } : . )*
             loop2:
             do {
                 int alt2=2;
                 alt2 = dfa2.predict(input);
                 switch (alt2) {
             	case 1 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2449:73: .
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2464:73: .
             	    {
             	    matchAny(); 
 
@@ -909,10 +909,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2451:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+ )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2451:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2466:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+ )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2466:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+
             {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2451:11: ( '^' )?
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2466:11: ( '^' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -921,7 +921,7 @@ public class InternalXemfsLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2451:11: '^'
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2466:11: '^'
                     {
                     match('^'); 
 
@@ -930,7 +930,7 @@ public class InternalXemfsLexer extends Lexer {
 
             }
 
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2451:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2466:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -984,10 +984,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1005,10 +1005,10 @@ public class InternalXemfsLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1024,7 +1024,7 @@ public class InternalXemfsLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1040,7 +1040,7 @@ public class InternalXemfsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1065,10 +1065,10 @@ public class InternalXemfsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -1084,7 +1084,7 @@ public class InternalXemfsLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1100,7 +1100,7 @@ public class InternalXemfsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2453:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2468:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1143,10 +1143,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2455:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2455:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2470:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2470:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2455:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2470:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt8=0;
             loop8:
             do {
@@ -1558,7 +1558,7 @@ public class InternalXemfsLexer extends Lexer {
             this.transition = DFA2_transition;
         }
         public String getDescription() {
-            return "()* loopback of 2449:45: ( options {greedy=false; } : . )*";
+            return "()* loopback of 2464:45: ( options {greedy=false; } : . )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

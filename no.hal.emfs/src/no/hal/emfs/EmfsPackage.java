@@ -1247,13 +1247,22 @@ public interface EmfsPackage extends EPackage {
 	int CLASSPATH_ENTRY__EXPLICIT_PATH = ABSTRACT_CLASSPATH_ENTRY_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Absolute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSPATH_ENTRY__ABSOLUTE = ABSTRACT_CLASSPATH_ENTRY_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Major</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSPATH_ENTRY__MAJOR = ABSTRACT_CLASSPATH_ENTRY_FEATURE_COUNT + 2;
+	int CLASSPATH_ENTRY__MAJOR = ABSTRACT_CLASSPATH_ENTRY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Minor</b></em>' attribute.
@@ -1262,7 +1271,7 @@ public interface EmfsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSPATH_ENTRY__MINOR = ABSTRACT_CLASSPATH_ENTRY_FEATURE_COUNT + 3;
+	int CLASSPATH_ENTRY__MINOR = ABSTRACT_CLASSPATH_ENTRY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Classpath Entry</em>' class.
@@ -1271,7 +1280,7 @@ public interface EmfsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSPATH_ENTRY_FEATURE_COUNT = ABSTRACT_CLASSPATH_ENTRY_FEATURE_COUNT + 4;
+	int CLASSPATH_ENTRY_FEATURE_COUNT = ABSTRACT_CLASSPATH_ENTRY_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link no.hal.emfs.impl.DotProjectFileContentProviderImpl <em>Dot Project File Content Provider</em>}' class.
@@ -2071,6 +2080,17 @@ public interface EmfsPackage extends EPackage {
 	EAttribute getClasspathEntry_ExplicitPath();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.hal.emfs.ClasspathEntry#isAbsolute <em>Absolute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Absolute</em>'.
+	 * @see no.hal.emfs.ClasspathEntry#isAbsolute()
+	 * @see #getClasspathEntry()
+	 * @generated
+	 */
+	EAttribute getClasspathEntry_Absolute();
+
+	/**
 	 * Returns the meta object for the attribute '{@link no.hal.emfs.ClasspathEntry#getMajor <em>Major</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2779,6 +2799,14 @@ public interface EmfsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CLASSPATH_ENTRY__EXPLICIT_PATH = eINSTANCE.getClasspathEntry_ExplicitPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Absolute</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLASSPATH_ENTRY__ABSOLUTE = eINSTANCE.getClasspathEntry_Absolute();
 
 		/**
 		 * The meta object literal for the '<em><b>Major</b></em>' attribute feature.

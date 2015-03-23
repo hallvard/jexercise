@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link no.hal.emfs.impl.ClasspathEntryImpl#getExplicitKind <em>Explicit Kind</em>}</li>
  *   <li>{@link no.hal.emfs.impl.ClasspathEntryImpl#getExplicitPath <em>Explicit Path</em>}</li>
+ *   <li>{@link no.hal.emfs.impl.ClasspathEntryImpl#isAbsolute <em>Absolute</em>}</li>
  *   <li>{@link no.hal.emfs.impl.ClasspathEntryImpl#getMajor <em>Major</em>}</li>
  *   <li>{@link no.hal.emfs.impl.ClasspathEntryImpl#getMinor <em>Minor</em>}</li>
  * </ul>
@@ -66,6 +67,26 @@ public class ClasspathEntryImpl extends AbstractClasspathEntryImpl implements Cl
 	 * @ordered
 	 */
 	protected String explicitPath = EXPLICIT_PATH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isAbsolute() <em>Absolute</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAbsolute()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ABSOLUTE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isAbsolute() <em>Absolute</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAbsolute()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean absolute = ABSOLUTE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMajor() <em>Major</em>}' attribute.
@@ -173,6 +194,27 @@ public class ClasspathEntryImpl extends AbstractClasspathEntryImpl implements Cl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isAbsolute() {
+		return absolute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAbsolute(boolean newAbsolute) {
+		boolean oldAbsolute = absolute;
+		absolute = newAbsolute;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EmfsPackage.CLASSPATH_ENTRY__ABSOLUTE, oldAbsolute, absolute));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getMajor() {
 		return major;
 	}
@@ -222,6 +264,8 @@ public class ClasspathEntryImpl extends AbstractClasspathEntryImpl implements Cl
 				return getExplicitKind();
 			case EmfsPackage.CLASSPATH_ENTRY__EXPLICIT_PATH:
 				return getExplicitPath();
+			case EmfsPackage.CLASSPATH_ENTRY__ABSOLUTE:
+				return isAbsolute();
 			case EmfsPackage.CLASSPATH_ENTRY__MAJOR:
 				return getMajor();
 			case EmfsPackage.CLASSPATH_ENTRY__MINOR:
@@ -243,6 +287,9 @@ public class ClasspathEntryImpl extends AbstractClasspathEntryImpl implements Cl
 				return;
 			case EmfsPackage.CLASSPATH_ENTRY__EXPLICIT_PATH:
 				setExplicitPath((String)newValue);
+				return;
+			case EmfsPackage.CLASSPATH_ENTRY__ABSOLUTE:
+				setAbsolute((Boolean)newValue);
 				return;
 			case EmfsPackage.CLASSPATH_ENTRY__MAJOR:
 				setMajor((Integer)newValue);
@@ -268,6 +315,9 @@ public class ClasspathEntryImpl extends AbstractClasspathEntryImpl implements Cl
 			case EmfsPackage.CLASSPATH_ENTRY__EXPLICIT_PATH:
 				setExplicitPath(EXPLICIT_PATH_EDEFAULT);
 				return;
+			case EmfsPackage.CLASSPATH_ENTRY__ABSOLUTE:
+				setAbsolute(ABSOLUTE_EDEFAULT);
+				return;
 			case EmfsPackage.CLASSPATH_ENTRY__MAJOR:
 				setMajor(MAJOR_EDEFAULT);
 				return;
@@ -290,6 +340,8 @@ public class ClasspathEntryImpl extends AbstractClasspathEntryImpl implements Cl
 				return explicitKind != EXPLICIT_KIND_EDEFAULT;
 			case EmfsPackage.CLASSPATH_ENTRY__EXPLICIT_PATH:
 				return EXPLICIT_PATH_EDEFAULT == null ? explicitPath != null : !EXPLICIT_PATH_EDEFAULT.equals(explicitPath);
+			case EmfsPackage.CLASSPATH_ENTRY__ABSOLUTE:
+				return absolute != ABSOLUTE_EDEFAULT;
 			case EmfsPackage.CLASSPATH_ENTRY__MAJOR:
 				return major != MAJOR_EDEFAULT;
 			case EmfsPackage.CLASSPATH_ENTRY__MINOR:
@@ -312,6 +364,8 @@ public class ClasspathEntryImpl extends AbstractClasspathEntryImpl implements Cl
 		result.append(explicitKind);
 		result.append(", explicitPath: ");
 		result.append(explicitPath);
+		result.append(", absolute: ");
+		result.append(absolute);
 		result.append(", major: ");
 		result.append(major);
 		result.append(", minor: ");
@@ -329,7 +383,11 @@ public class ClasspathEntryImpl extends AbstractClasspathEntryImpl implements Cl
 	
 	@Override
 	public String getPath() {
-		return getExplicitPath();
+		String path = getExplicitPath();
+		if (isAbsolute()) {
+			path = "/" + path;
+		}
+		return path;
 	}
 	
 } //ClasspathEntryImpl

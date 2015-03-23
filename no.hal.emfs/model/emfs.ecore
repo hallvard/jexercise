@@ -157,6 +157,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ClasspathEntry" eSuperTypes="#//AbstractClasspathEntry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicitKind" eType="#//ClasspathEntryKind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicitPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="absolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="major" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>

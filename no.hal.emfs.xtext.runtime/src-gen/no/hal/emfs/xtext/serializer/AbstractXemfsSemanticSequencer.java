@@ -144,7 +144,7 @@ public abstract class AbstractXemfsSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     (explicitKind=ClasspathEntryKind explicitPath=CLASSPATH_ENTRY_PATH (major=VERSION minor=VERSION?)?)
+	 *     (explicitKind=ClasspathEntryKind absolute?='/'? explicitPath=CLASSPATH_ENTRY_PATH (major=VERSION minor=VERSION?)?)
 	 */
 	protected void sequence_ClasspathEntry(EObject context, ClasspathEntry semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

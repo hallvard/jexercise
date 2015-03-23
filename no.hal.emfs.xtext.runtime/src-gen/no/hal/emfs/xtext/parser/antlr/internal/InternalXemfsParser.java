@@ -6246,30 +6246,31 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleClasspathEntry"
-    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2126:1: ruleClasspathEntry returns [EObject current=null] : ( ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) ) ( (lv_explicitPath_1_0= ruleCLASSPATH_ENTRY_PATH ) ) (otherlv_2= '(' ( (lv_major_3_0= ruleVERSION ) ) (otherlv_4= '.' ( (lv_minor_5_0= ruleVERSION ) ) )? otherlv_6= ')' )? ) ;
+    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2126:1: ruleClasspathEntry returns [EObject current=null] : ( ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) ) ( (lv_absolute_1_0= '/' ) )? ( (lv_explicitPath_2_0= ruleCLASSPATH_ENTRY_PATH ) ) (otherlv_3= '(' ( (lv_major_4_0= ruleVERSION ) ) (otherlv_5= '.' ( (lv_minor_6_0= ruleVERSION ) ) )? otherlv_7= ')' )? ) ;
     public final EObject ruleClasspathEntry() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
+        Token lv_absolute_1_0=null;
+        Token otherlv_3=null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
         Enumerator lv_explicitKind_0_0 = null;
 
-        AntlrDatatypeRuleToken lv_explicitPath_1_0 = null;
+        AntlrDatatypeRuleToken lv_explicitPath_2_0 = null;
 
-        AntlrDatatypeRuleToken lv_major_3_0 = null;
+        AntlrDatatypeRuleToken lv_major_4_0 = null;
 
-        AntlrDatatypeRuleToken lv_minor_5_0 = null;
+        AntlrDatatypeRuleToken lv_minor_6_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2129:28: ( ( ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) ) ( (lv_explicitPath_1_0= ruleCLASSPATH_ENTRY_PATH ) ) (otherlv_2= '(' ( (lv_major_3_0= ruleVERSION ) ) (otherlv_4= '.' ( (lv_minor_5_0= ruleVERSION ) ) )? otherlv_6= ')' )? ) )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2130:1: ( ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) ) ( (lv_explicitPath_1_0= ruleCLASSPATH_ENTRY_PATH ) ) (otherlv_2= '(' ( (lv_major_3_0= ruleVERSION ) ) (otherlv_4= '.' ( (lv_minor_5_0= ruleVERSION ) ) )? otherlv_6= ')' )? )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2129:28: ( ( ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) ) ( (lv_absolute_1_0= '/' ) )? ( (lv_explicitPath_2_0= ruleCLASSPATH_ENTRY_PATH ) ) (otherlv_3= '(' ( (lv_major_4_0= ruleVERSION ) ) (otherlv_5= '.' ( (lv_minor_6_0= ruleVERSION ) ) )? otherlv_7= ')' )? ) )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2130:1: ( ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) ) ( (lv_absolute_1_0= '/' ) )? ( (lv_explicitPath_2_0= ruleCLASSPATH_ENTRY_PATH ) ) (otherlv_3= '(' ( (lv_major_4_0= ruleVERSION ) ) (otherlv_5= '.' ( (lv_minor_6_0= ruleVERSION ) ) )? otherlv_7= ')' )? )
             {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2130:1: ( ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) ) ( (lv_explicitPath_1_0= ruleCLASSPATH_ENTRY_PATH ) ) (otherlv_2= '(' ( (lv_major_3_0= ruleVERSION ) ) (otherlv_4= '.' ( (lv_minor_5_0= ruleVERSION ) ) )? otherlv_6= ')' )? )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2130:2: ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) ) ( (lv_explicitPath_1_0= ruleCLASSPATH_ENTRY_PATH ) ) (otherlv_2= '(' ( (lv_major_3_0= ruleVERSION ) ) (otherlv_4= '.' ( (lv_minor_5_0= ruleVERSION ) ) )? otherlv_6= ')' )?
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2130:1: ( ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) ) ( (lv_absolute_1_0= '/' ) )? ( (lv_explicitPath_2_0= ruleCLASSPATH_ENTRY_PATH ) ) (otherlv_3= '(' ( (lv_major_4_0= ruleVERSION ) ) (otherlv_5= '.' ( (lv_minor_6_0= ruleVERSION ) ) )? otherlv_7= ')' )? )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2130:2: ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) ) ( (lv_absolute_1_0= '/' ) )? ( (lv_explicitPath_2_0= ruleCLASSPATH_ENTRY_PATH ) ) (otherlv_3= '(' ( (lv_major_4_0= ruleVERSION ) ) (otherlv_5= '.' ( (lv_minor_6_0= ruleVERSION ) ) )? otherlv_7= ')' )?
             {
             // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2130:2: ( (lv_explicitKind_0_0= ruleClasspathEntryKind ) )
             // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2131:1: (lv_explicitKind_0_0= ruleClasspathEntryKind )
@@ -6306,19 +6307,56 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2148:2: ( (lv_explicitPath_1_0= ruleCLASSPATH_ENTRY_PATH ) )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2149:1: (lv_explicitPath_1_0= ruleCLASSPATH_ENTRY_PATH )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2148:2: ( (lv_absolute_1_0= '/' ) )?
+            int alt52=2;
+            int LA52_0 = input.LA(1);
+
+            if ( (LA52_0==12) ) {
+                alt52=1;
+            }
+            switch (alt52) {
+                case 1 :
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2149:1: (lv_absolute_1_0= '/' )
+                    {
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2149:1: (lv_absolute_1_0= '/' )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2150:3: lv_absolute_1_0= '/'
+                    {
+                    lv_absolute_1_0=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleClasspathEntry4883); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              newLeafNode(lv_absolute_1_0, grammarAccess.getClasspathEntryAccess().getAbsoluteSolidusKeyword_1_0());
+                          
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = createModelElement(grammarAccess.getClasspathEntryRule());
+                      	        }
+                             		setWithLastConsumed(current, "absolute", true, "/");
+                      	    
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2163:3: ( (lv_explicitPath_2_0= ruleCLASSPATH_ENTRY_PATH ) )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2164:1: (lv_explicitPath_2_0= ruleCLASSPATH_ENTRY_PATH )
             {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2149:1: (lv_explicitPath_1_0= ruleCLASSPATH_ENTRY_PATH )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2150:3: lv_explicitPath_1_0= ruleCLASSPATH_ENTRY_PATH
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2164:1: (lv_explicitPath_2_0= ruleCLASSPATH_ENTRY_PATH )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2165:3: lv_explicitPath_2_0= ruleCLASSPATH_ENTRY_PATH
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getClasspathEntryAccess().getExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_1_0()); 
+              	        newCompositeNode(grammarAccess.getClasspathEntryAccess().getExplicitPathCLASSPATH_ENTRY_PATHParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FollowSets000.FOLLOW_ruleCLASSPATH_ENTRY_PATH_in_ruleClasspathEntry4886);
-            lv_explicitPath_1_0=ruleCLASSPATH_ENTRY_PATH();
+            pushFollow(FollowSets000.FOLLOW_ruleCLASSPATH_ENTRY_PATH_in_ruleClasspathEntry4918);
+            lv_explicitPath_2_0=ruleCLASSPATH_ENTRY_PATH();
 
             state._fsp--;
             if (state.failed) return current;
@@ -6330,7 +6368,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
                      		set(
                      			current, 
                      			"explicitPath",
-                      		lv_explicitPath_1_0, 
+                      		lv_explicitPath_2_0, 
                       		"CLASSPATH_ENTRY_PATH");
               	        afterParserOrEnumRuleCall();
               	    
@@ -6341,36 +6379,36 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2166:2: (otherlv_2= '(' ( (lv_major_3_0= ruleVERSION ) ) (otherlv_4= '.' ( (lv_minor_5_0= ruleVERSION ) ) )? otherlv_6= ')' )?
-            int alt53=2;
-            int LA53_0 = input.LA(1);
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2181:2: (otherlv_3= '(' ( (lv_major_4_0= ruleVERSION ) ) (otherlv_5= '.' ( (lv_minor_6_0= ruleVERSION ) ) )? otherlv_7= ')' )?
+            int alt54=2;
+            int LA54_0 = input.LA(1);
 
-            if ( (LA53_0==39) ) {
-                alt53=1;
+            if ( (LA54_0==39) ) {
+                alt54=1;
             }
-            switch (alt53) {
+            switch (alt54) {
                 case 1 :
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2166:4: otherlv_2= '(' ( (lv_major_3_0= ruleVERSION ) ) (otherlv_4= '.' ( (lv_minor_5_0= ruleVERSION ) ) )? otherlv_6= ')'
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2181:4: otherlv_3= '(' ( (lv_major_4_0= ruleVERSION ) ) (otherlv_5= '.' ( (lv_minor_6_0= ruleVERSION ) ) )? otherlv_7= ')'
                     {
-                    otherlv_2=(Token)match(input,39,FollowSets000.FOLLOW_39_in_ruleClasspathEntry4899); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,39,FollowSets000.FOLLOW_39_in_ruleClasspathEntry4931); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_2, grammarAccess.getClasspathEntryAccess().getLeftParenthesisKeyword_2_0());
+                          	newLeafNode(otherlv_3, grammarAccess.getClasspathEntryAccess().getLeftParenthesisKeyword_3_0());
                           
                     }
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2170:1: ( (lv_major_3_0= ruleVERSION ) )
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2171:1: (lv_major_3_0= ruleVERSION )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2185:1: ( (lv_major_4_0= ruleVERSION ) )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2186:1: (lv_major_4_0= ruleVERSION )
                     {
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2171:1: (lv_major_3_0= ruleVERSION )
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2172:3: lv_major_3_0= ruleVERSION
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2186:1: (lv_major_4_0= ruleVERSION )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2187:3: lv_major_4_0= ruleVERSION
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getClasspathEntryAccess().getMajorVERSIONParserRuleCall_2_1_0()); 
+                      	        newCompositeNode(grammarAccess.getClasspathEntryAccess().getMajorVERSIONParserRuleCall_3_1_0()); 
                       	    
                     }
-                    pushFollow(FollowSets000.FOLLOW_ruleVERSION_in_ruleClasspathEntry4920);
-                    lv_major_3_0=ruleVERSION();
+                    pushFollow(FollowSets000.FOLLOW_ruleVERSION_in_ruleClasspathEntry4952);
+                    lv_major_4_0=ruleVERSION();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -6382,7 +6420,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
                              		set(
                              			current, 
                              			"major",
-                              		lv_major_3_0, 
+                              		lv_major_4_0, 
                               		"VERSION");
                       	        afterParserOrEnumRuleCall();
                       	    
@@ -6393,36 +6431,36 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2188:2: (otherlv_4= '.' ( (lv_minor_5_0= ruleVERSION ) ) )?
-                    int alt52=2;
-                    int LA52_0 = input.LA(1);
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2203:2: (otherlv_5= '.' ( (lv_minor_6_0= ruleVERSION ) ) )?
+                    int alt53=2;
+                    int LA53_0 = input.LA(1);
 
-                    if ( (LA52_0==13) ) {
-                        alt52=1;
+                    if ( (LA53_0==13) ) {
+                        alt53=1;
                     }
-                    switch (alt52) {
+                    switch (alt53) {
                         case 1 :
-                            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2188:4: otherlv_4= '.' ( (lv_minor_5_0= ruleVERSION ) )
+                            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2203:4: otherlv_5= '.' ( (lv_minor_6_0= ruleVERSION ) )
                             {
-                            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleClasspathEntry4933); if (state.failed) return current;
+                            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleClasspathEntry4965); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                                  	newLeafNode(otherlv_4, grammarAccess.getClasspathEntryAccess().getFullStopKeyword_2_2_0());
+                                  	newLeafNode(otherlv_5, grammarAccess.getClasspathEntryAccess().getFullStopKeyword_3_2_0());
                                   
                             }
-                            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2192:1: ( (lv_minor_5_0= ruleVERSION ) )
-                            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2193:1: (lv_minor_5_0= ruleVERSION )
+                            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2207:1: ( (lv_minor_6_0= ruleVERSION ) )
+                            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2208:1: (lv_minor_6_0= ruleVERSION )
                             {
-                            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2193:1: (lv_minor_5_0= ruleVERSION )
-                            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2194:3: lv_minor_5_0= ruleVERSION
+                            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2208:1: (lv_minor_6_0= ruleVERSION )
+                            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2209:3: lv_minor_6_0= ruleVERSION
                             {
                             if ( state.backtracking==0 ) {
                                
-                              	        newCompositeNode(grammarAccess.getClasspathEntryAccess().getMinorVERSIONParserRuleCall_2_2_1_0()); 
+                              	        newCompositeNode(grammarAccess.getClasspathEntryAccess().getMinorVERSIONParserRuleCall_3_2_1_0()); 
                               	    
                             }
-                            pushFollow(FollowSets000.FOLLOW_ruleVERSION_in_ruleClasspathEntry4954);
-                            lv_minor_5_0=ruleVERSION();
+                            pushFollow(FollowSets000.FOLLOW_ruleVERSION_in_ruleClasspathEntry4986);
+                            lv_minor_6_0=ruleVERSION();
 
                             state._fsp--;
                             if (state.failed) return current;
@@ -6434,7 +6472,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
                                      		set(
                                      			current, 
                                      			"minor",
-                                      		lv_minor_5_0, 
+                                      		lv_minor_6_0, 
                                       		"VERSION");
                               	        afterParserOrEnumRuleCall();
                               	    
@@ -6451,10 +6489,10 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_6=(Token)match(input,40,FollowSets000.FOLLOW_40_in_ruleClasspathEntry4968); if (state.failed) return current;
+                    otherlv_7=(Token)match(input,40,FollowSets000.FOLLOW_40_in_ruleClasspathEntry5000); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_6, grammarAccess.getClasspathEntryAccess().getRightParenthesisKeyword_2_3());
+                          	newLeafNode(otherlv_7, grammarAccess.getClasspathEntryAccess().getRightParenthesisKeyword_3_3());
                           
                     }
 
@@ -6486,7 +6524,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVERSION"
-    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2222:1: entryRuleVERSION returns [String current=null] : iv_ruleVERSION= ruleVERSION EOF ;
+    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2237:1: entryRuleVERSION returns [String current=null] : iv_ruleVERSION= ruleVERSION EOF ;
     public final String entryRuleVERSION() throws RecognitionException {
         String current = null;
 
@@ -6494,13 +6532,13 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2223:2: (iv_ruleVERSION= ruleVERSION EOF )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2224:2: iv_ruleVERSION= ruleVERSION EOF
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2238:2: (iv_ruleVERSION= ruleVERSION EOF )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2239:2: iv_ruleVERSION= ruleVERSION EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getVERSIONRule()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleVERSION_in_entryRuleVERSION5007);
+            pushFollow(FollowSets000.FOLLOW_ruleVERSION_in_entryRuleVERSION5039);
             iv_ruleVERSION=ruleVERSION();
 
             state._fsp--;
@@ -6508,7 +6546,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleVERSION.getText(); 
             }
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleVERSION5018); if (state.failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleVERSION5050); if (state.failed) return current;
 
             }
 
@@ -6526,7 +6564,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVERSION"
-    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2231:1: ruleVERSION returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '0' | kw= '1' | kw= '2' | kw= '3' | kw= '4' | kw= '5' | kw= '6' | kw= '7' | kw= '8' | kw= '9' )+ ;
+    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2246:1: ruleVERSION returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '0' | kw= '1' | kw= '2' | kw= '3' | kw= '4' | kw= '5' | kw= '6' | kw= '7' | kw= '8' | kw= '9' )+ ;
     public final AntlrDatatypeRuleToken ruleVERSION() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6535,73 +6573,73 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2234:28: ( (kw= '0' | kw= '1' | kw= '2' | kw= '3' | kw= '4' | kw= '5' | kw= '6' | kw= '7' | kw= '8' | kw= '9' )+ )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2235:1: (kw= '0' | kw= '1' | kw= '2' | kw= '3' | kw= '4' | kw= '5' | kw= '6' | kw= '7' | kw= '8' | kw= '9' )+
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2249:28: ( (kw= '0' | kw= '1' | kw= '2' | kw= '3' | kw= '4' | kw= '5' | kw= '6' | kw= '7' | kw= '8' | kw= '9' )+ )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2250:1: (kw= '0' | kw= '1' | kw= '2' | kw= '3' | kw= '4' | kw= '5' | kw= '6' | kw= '7' | kw= '8' | kw= '9' )+
             {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2235:1: (kw= '0' | kw= '1' | kw= '2' | kw= '3' | kw= '4' | kw= '5' | kw= '6' | kw= '7' | kw= '8' | kw= '9' )+
-            int cnt54=0;
-            loop54:
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2250:1: (kw= '0' | kw= '1' | kw= '2' | kw= '3' | kw= '4' | kw= '5' | kw= '6' | kw= '7' | kw= '8' | kw= '9' )+
+            int cnt55=0;
+            loop55:
             do {
-                int alt54=11;
+                int alt55=11;
                 switch ( input.LA(1) ) {
                 case 27:
                     {
-                    alt54=1;
+                    alt55=1;
                     }
                     break;
                 case 28:
                     {
-                    alt54=2;
+                    alt55=2;
                     }
                     break;
                 case 29:
                     {
-                    alt54=3;
+                    alt55=3;
                     }
                     break;
                 case 30:
                     {
-                    alt54=4;
+                    alt55=4;
                     }
                     break;
                 case 31:
                     {
-                    alt54=5;
+                    alt55=5;
                     }
                     break;
                 case 32:
                     {
-                    alt54=6;
+                    alt55=6;
                     }
                     break;
                 case 33:
                     {
-                    alt54=7;
+                    alt55=7;
                     }
                     break;
                 case 34:
                     {
-                    alt54=8;
+                    alt55=8;
                     }
                     break;
                 case 35:
                     {
-                    alt54=9;
+                    alt55=9;
                     }
                     break;
                 case 36:
                     {
-                    alt54=10;
+                    alt55=10;
                     }
                     break;
 
                 }
 
-                switch (alt54) {
+                switch (alt55) {
             	case 1 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2236:2: kw= '0'
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2251:2: kw= '0'
             	    {
-            	    kw=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleVERSION5056); if (state.failed) return current;
+            	    kw=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleVERSION5088); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6612,9 +6650,9 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2243:2: kw= '1'
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2258:2: kw= '1'
             	    {
-            	    kw=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleVERSION5075); if (state.failed) return current;
+            	    kw=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleVERSION5107); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6625,9 +6663,9 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 3 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2250:2: kw= '2'
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2265:2: kw= '2'
             	    {
-            	    kw=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleVERSION5094); if (state.failed) return current;
+            	    kw=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleVERSION5126); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6638,9 +6676,9 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 4 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2257:2: kw= '3'
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2272:2: kw= '3'
             	    {
-            	    kw=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleVERSION5113); if (state.failed) return current;
+            	    kw=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleVERSION5145); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6651,9 +6689,9 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 5 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2264:2: kw= '4'
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2279:2: kw= '4'
             	    {
-            	    kw=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleVERSION5132); if (state.failed) return current;
+            	    kw=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleVERSION5164); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6664,9 +6702,9 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 6 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2271:2: kw= '5'
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2286:2: kw= '5'
             	    {
-            	    kw=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleVERSION5151); if (state.failed) return current;
+            	    kw=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleVERSION5183); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6677,9 +6715,9 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 7 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2278:2: kw= '6'
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2293:2: kw= '6'
             	    {
-            	    kw=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleVERSION5170); if (state.failed) return current;
+            	    kw=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleVERSION5202); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6690,9 +6728,9 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 8 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2285:2: kw= '7'
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2300:2: kw= '7'
             	    {
-            	    kw=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleVERSION5189); if (state.failed) return current;
+            	    kw=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleVERSION5221); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6703,9 +6741,9 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 9 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2292:2: kw= '8'
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2307:2: kw= '8'
             	    {
-            	    kw=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleVERSION5208); if (state.failed) return current;
+            	    kw=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleVERSION5240); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6716,9 +6754,9 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 10 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2299:2: kw= '9'
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2314:2: kw= '9'
             	    {
-            	    kw=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleVERSION5227); if (state.failed) return current;
+            	    kw=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleVERSION5259); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -6730,13 +6768,13 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt54 >= 1 ) break loop54;
+            	    if ( cnt55 >= 1 ) break loop55;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(54, input);
+                            new EarlyExitException(55, input);
                         throw eee;
                 }
-                cnt54++;
+                cnt55++;
             } while (true);
 
 
@@ -6759,7 +6797,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDotProjectFileContentProvider"
-    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2312:1: entryRuleDotProjectFileContentProvider returns [EObject current=null] : iv_ruleDotProjectFileContentProvider= ruleDotProjectFileContentProvider EOF ;
+    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2327:1: entryRuleDotProjectFileContentProvider returns [EObject current=null] : iv_ruleDotProjectFileContentProvider= ruleDotProjectFileContentProvider EOF ;
     public final EObject entryRuleDotProjectFileContentProvider() throws RecognitionException {
         EObject current = null;
 
@@ -6767,13 +6805,13 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2313:2: (iv_ruleDotProjectFileContentProvider= ruleDotProjectFileContentProvider EOF )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2314:2: iv_ruleDotProjectFileContentProvider= ruleDotProjectFileContentProvider EOF
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2328:2: (iv_ruleDotProjectFileContentProvider= ruleDotProjectFileContentProvider EOF )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2329:2: iv_ruleDotProjectFileContentProvider= ruleDotProjectFileContentProvider EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDotProjectFileContentProviderRule()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleDotProjectFileContentProvider_in_entryRuleDotProjectFileContentProvider5268);
+            pushFollow(FollowSets000.FOLLOW_ruleDotProjectFileContentProvider_in_entryRuleDotProjectFileContentProvider5300);
             iv_ruleDotProjectFileContentProvider=ruleDotProjectFileContentProvider();
 
             state._fsp--;
@@ -6781,7 +6819,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleDotProjectFileContentProvider; 
             }
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDotProjectFileContentProvider5278); if (state.failed) return current;
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDotProjectFileContentProvider5310); if (state.failed) return current;
 
             }
 
@@ -6799,7 +6837,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDotProjectFileContentProvider"
-    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2321:1: ruleDotProjectFileContentProvider returns [EObject current=null] : (otherlv_0= 'dot.project' (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+ (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )* otherlv_7= ';' ) ;
+    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2336:1: ruleDotProjectFileContentProvider returns [EObject current=null] : (otherlv_0= 'dot.project' (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+ (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )* otherlv_7= ';' ) ;
     public final EObject ruleDotProjectFileContentProvider() throws RecognitionException {
         EObject current = null;
 
@@ -6815,68 +6853,68 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2324:28: ( (otherlv_0= 'dot.project' (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+ (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )* otherlv_7= ';' ) )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2325:1: (otherlv_0= 'dot.project' (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+ (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )* otherlv_7= ';' )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2339:28: ( (otherlv_0= 'dot.project' (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+ (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )* otherlv_7= ';' ) )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2340:1: (otherlv_0= 'dot.project' (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+ (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )* otherlv_7= ';' )
             {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2325:1: (otherlv_0= 'dot.project' (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+ (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )* otherlv_7= ';' )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2325:3: otherlv_0= 'dot.project' (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+ (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )* otherlv_7= ';'
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2340:1: (otherlv_0= 'dot.project' (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+ (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )* otherlv_7= ';' )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2340:3: otherlv_0= 'dot.project' (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+ (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )* otherlv_7= ';'
             {
-            otherlv_0=(Token)match(input,41,FollowSets000.FOLLOW_41_in_ruleDotProjectFileContentProvider5315); if (state.failed) return current;
+            otherlv_0=(Token)match(input,41,FollowSets000.FOLLOW_41_in_ruleDotProjectFileContentProvider5347); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getDotProjectFileContentProviderAccess().getDotProjectKeyword_0());
                   
             }
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2329:1: (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+
-            int cnt56=0;
-            loop56:
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2344:1: (otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) ) )+
+            int cnt57=0;
+            loop57:
             do {
-                int alt56=2;
-                int LA56_0 = input.LA(1);
+                int alt57=2;
+                int LA57_0 = input.LA(1);
 
-                if ( (LA56_0==9) ) {
-                    alt56=1;
+                if ( (LA57_0==9) ) {
+                    alt57=1;
                 }
 
 
-                switch (alt56) {
+                switch (alt57) {
             	case 1 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2329:3: otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) )
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2344:3: otherlv_1= '#' ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) )
             	    {
-            	    otherlv_1=(Token)match(input,9,FollowSets000.FOLLOW_9_in_ruleDotProjectFileContentProvider5328); if (state.failed) return current;
+            	    otherlv_1=(Token)match(input,9,FollowSets000.FOLLOW_9_in_ruleDotProjectFileContentProvider5360); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_1, grammarAccess.getDotProjectFileContentProviderAccess().getNumberSignKeyword_1_0());
             	          
             	    }
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2333:1: ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) )
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2334:1: ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) )
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2348:1: ( ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) ) )
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2349:1: ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) )
             	    {
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2334:1: ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) )
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2335:1: (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName )
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2349:1: ( (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName ) )
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2350:1: (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName )
             	    {
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2335:1: (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName )
-            	    int alt55=2;
-            	    int LA55_0 = input.LA(1);
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2350:1: (lv_keys_2_1= RULE_STRING | lv_keys_2_2= ruleFileName )
+            	    int alt56=2;
+            	    int LA56_0 = input.LA(1);
 
-            	    if ( (LA55_0==RULE_STRING) ) {
-            	        alt55=1;
+            	    if ( (LA56_0==RULE_STRING) ) {
+            	        alt56=1;
             	    }
-            	    else if ( (LA55_0==RULE_ID||LA55_0==13) ) {
-            	        alt55=2;
+            	    else if ( (LA56_0==RULE_ID||LA56_0==13) ) {
+            	        alt56=2;
             	    }
             	    else {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 55, 0, input);
+            	            new NoViableAltException("", 56, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt55) {
+            	    switch (alt56) {
             	        case 1 :
-            	            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2336:3: lv_keys_2_1= RULE_STRING
+            	            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2351:3: lv_keys_2_1= RULE_STRING
             	            {
-            	            lv_keys_2_1=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleDotProjectFileContentProvider5347); if (state.failed) return current;
+            	            lv_keys_2_1=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleDotProjectFileContentProvider5379); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	              			newLeafNode(lv_keys_2_1, grammarAccess.getDotProjectFileContentProviderAccess().getKeysSTRINGTerminalRuleCall_1_1_0_0()); 
@@ -6898,14 +6936,14 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2351:8: lv_keys_2_2= ruleFileName
+            	            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2366:8: lv_keys_2_2= ruleFileName
             	            {
             	            if ( state.backtracking==0 ) {
             	               
             	              	        newCompositeNode(grammarAccess.getDotProjectFileContentProviderAccess().getKeysFileNameParserRuleCall_1_1_0_1()); 
             	              	    
             	            }
-            	            pushFollow(FollowSets000.FOLLOW_ruleFileName_in_ruleDotProjectFileContentProvider5371);
+            	            pushFollow(FollowSets000.FOLLOW_ruleFileName_in_ruleDotProjectFileContentProvider5403);
             	            lv_keys_2_2=ruleFileName();
 
             	            state._fsp--;
@@ -6940,41 +6978,41 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt56 >= 1 ) break loop56;
+            	    if ( cnt57 >= 1 ) break loop57;
             	    if (state.backtracking>0) {state.failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(56, input);
+                            new EarlyExitException(57, input);
                         throw eee;
                 }
-                cnt56++;
+                cnt57++;
             } while (true);
 
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2369:4: (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )*
-            loop58:
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2384:4: (otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )* )*
+            loop59:
             do {
-                int alt58=2;
-                int LA58_0 = input.LA(1);
+                int alt59=2;
+                int LA59_0 = input.LA(1);
 
-                if ( (LA58_0==18) ) {
-                    alt58=1;
+                if ( (LA59_0==18) ) {
+                    alt59=1;
                 }
 
 
-                switch (alt58) {
+                switch (alt59) {
             	case 1 :
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2369:6: otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )*
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2384:6: otherlv_3= '@' ( ( ruleEmfsName ) ) (otherlv_5= ',' ( ( ruleEmfsName ) ) )*
             	    {
-            	    otherlv_3=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleDotProjectFileContentProvider5389); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleDotProjectFileContentProvider5421); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_3, grammarAccess.getDotProjectFileContentProviderAccess().getCommercialAtKeyword_2_0());
             	          
             	    }
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2373:1: ( ( ruleEmfsName ) )
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2374:1: ( ruleEmfsName )
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2388:1: ( ( ruleEmfsName ) )
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2389:1: ( ruleEmfsName )
             	    {
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2374:1: ( ruleEmfsName )
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2375:3: ruleEmfsName
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2389:1: ( ruleEmfsName )
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2390:3: ruleEmfsName
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -6988,7 +7026,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getDotProjectFileContentProviderAccess().getLinkedResourcesEmfsResourceCrossReference_2_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_ruleDotProjectFileContentProvider5412);
+            	    pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_ruleDotProjectFileContentProvider5444);
             	    ruleEmfsName();
 
             	    state._fsp--;
@@ -7004,32 +7042,32 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2388:2: (otherlv_5= ',' ( ( ruleEmfsName ) ) )*
-            	    loop57:
+            	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2403:2: (otherlv_5= ',' ( ( ruleEmfsName ) ) )*
+            	    loop58:
             	    do {
-            	        int alt57=2;
-            	        int LA57_0 = input.LA(1);
+            	        int alt58=2;
+            	        int LA58_0 = input.LA(1);
 
-            	        if ( (LA57_0==14) ) {
-            	            alt57=1;
+            	        if ( (LA58_0==14) ) {
+            	            alt58=1;
             	        }
 
 
-            	        switch (alt57) {
+            	        switch (alt58) {
             	    	case 1 :
-            	    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2388:4: otherlv_5= ',' ( ( ruleEmfsName ) )
+            	    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2403:4: otherlv_5= ',' ( ( ruleEmfsName ) )
             	    	    {
-            	    	    otherlv_5=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleDotProjectFileContentProvider5425); if (state.failed) return current;
+            	    	    otherlv_5=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleDotProjectFileContentProvider5457); if (state.failed) return current;
             	    	    if ( state.backtracking==0 ) {
 
             	    	          	newLeafNode(otherlv_5, grammarAccess.getDotProjectFileContentProviderAccess().getCommaKeyword_2_2_0());
             	    	          
             	    	    }
-            	    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2392:1: ( ( ruleEmfsName ) )
-            	    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2393:1: ( ruleEmfsName )
+            	    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2407:1: ( ( ruleEmfsName ) )
+            	    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2408:1: ( ruleEmfsName )
             	    	    {
-            	    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2393:1: ( ruleEmfsName )
-            	    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2394:3: ruleEmfsName
+            	    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2408:1: ( ruleEmfsName )
+            	    	    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2409:3: ruleEmfsName
             	    	    {
             	    	    if ( state.backtracking==0 ) {
 
@@ -7043,7 +7081,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    	      	        newCompositeNode(grammarAccess.getDotProjectFileContentProviderAccess().getLinkedResourcesEmfsResourceCrossReference_2_2_1_0()); 
             	    	      	    
             	    	    }
-            	    	    pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_ruleDotProjectFileContentProvider5448);
+            	    	    pushFollow(FollowSets000.FOLLOW_ruleEmfsName_in_ruleDotProjectFileContentProvider5480);
             	    	    ruleEmfsName();
 
             	    	    state._fsp--;
@@ -7064,7 +7102,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    	    break;
 
             	    	default :
-            	    	    break loop57;
+            	    	    break loop58;
             	        }
             	    } while (true);
 
@@ -7073,11 +7111,11 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop58;
+            	    break loop59;
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,11,FollowSets000.FOLLOW_11_in_ruleDotProjectFileContentProvider5464); if (state.failed) return current;
+            otherlv_7=(Token)match(input,11,FollowSets000.FOLLOW_11_in_ruleDotProjectFileContentProvider5496); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_7, grammarAccess.getDotProjectFileContentProviderAccess().getSemicolonKeyword_3());
@@ -7106,7 +7144,7 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleClasspathEntryKind"
-    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2419:1: ruleClasspathEntryKind returns [Enumerator current=null] : ( (enumLiteral_0= 'source-folder' ) | (enumLiteral_1= 'output-folder' ) | (enumLiteral_2= 'library-jar' ) | (enumLiteral_3= 'class-container' ) ) ;
+    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2434:1: ruleClasspathEntryKind returns [Enumerator current=null] : ( (enumLiteral_0= 'source-folder' ) | (enumLiteral_1= 'output-folder' ) | (enumLiteral_2= 'library-jar' ) | (enumLiteral_3= 'class-container' ) ) ;
     public final Enumerator ruleClasspathEntryKind() throws RecognitionException {
         Enumerator current = null;
 
@@ -7117,48 +7155,48 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2421:28: ( ( (enumLiteral_0= 'source-folder' ) | (enumLiteral_1= 'output-folder' ) | (enumLiteral_2= 'library-jar' ) | (enumLiteral_3= 'class-container' ) ) )
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2422:1: ( (enumLiteral_0= 'source-folder' ) | (enumLiteral_1= 'output-folder' ) | (enumLiteral_2= 'library-jar' ) | (enumLiteral_3= 'class-container' ) )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2436:28: ( ( (enumLiteral_0= 'source-folder' ) | (enumLiteral_1= 'output-folder' ) | (enumLiteral_2= 'library-jar' ) | (enumLiteral_3= 'class-container' ) ) )
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2437:1: ( (enumLiteral_0= 'source-folder' ) | (enumLiteral_1= 'output-folder' ) | (enumLiteral_2= 'library-jar' ) | (enumLiteral_3= 'class-container' ) )
             {
-            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2422:1: ( (enumLiteral_0= 'source-folder' ) | (enumLiteral_1= 'output-folder' ) | (enumLiteral_2= 'library-jar' ) | (enumLiteral_3= 'class-container' ) )
-            int alt59=4;
+            // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2437:1: ( (enumLiteral_0= 'source-folder' ) | (enumLiteral_1= 'output-folder' ) | (enumLiteral_2= 'library-jar' ) | (enumLiteral_3= 'class-container' ) )
+            int alt60=4;
             switch ( input.LA(1) ) {
             case 42:
                 {
-                alt59=1;
+                alt60=1;
                 }
                 break;
             case 43:
                 {
-                alt59=2;
+                alt60=2;
                 }
                 break;
             case 44:
                 {
-                alt59=3;
+                alt60=3;
                 }
                 break;
             case 45:
                 {
-                alt59=4;
+                alt60=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 59, 0, input);
+                    new NoViableAltException("", 60, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt59) {
+            switch (alt60) {
                 case 1 :
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2422:2: (enumLiteral_0= 'source-folder' )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2437:2: (enumLiteral_0= 'source-folder' )
                     {
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2422:2: (enumLiteral_0= 'source-folder' )
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2422:4: enumLiteral_0= 'source-folder'
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2437:2: (enumLiteral_0= 'source-folder' )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2437:4: enumLiteral_0= 'source-folder'
                     {
-                    enumLiteral_0=(Token)match(input,42,FollowSets000.FOLLOW_42_in_ruleClasspathEntryKind5514); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,42,FollowSets000.FOLLOW_42_in_ruleClasspathEntryKind5546); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getClasspathEntryKindAccess().getSrcEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -7172,12 +7210,12 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2428:6: (enumLiteral_1= 'output-folder' )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2443:6: (enumLiteral_1= 'output-folder' )
                     {
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2428:6: (enumLiteral_1= 'output-folder' )
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2428:8: enumLiteral_1= 'output-folder'
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2443:6: (enumLiteral_1= 'output-folder' )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2443:8: enumLiteral_1= 'output-folder'
                     {
-                    enumLiteral_1=(Token)match(input,43,FollowSets000.FOLLOW_43_in_ruleClasspathEntryKind5531); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,43,FollowSets000.FOLLOW_43_in_ruleClasspathEntryKind5563); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getClasspathEntryKindAccess().getOutputEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -7191,12 +7229,12 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2434:6: (enumLiteral_2= 'library-jar' )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2449:6: (enumLiteral_2= 'library-jar' )
                     {
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2434:6: (enumLiteral_2= 'library-jar' )
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2434:8: enumLiteral_2= 'library-jar'
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2449:6: (enumLiteral_2= 'library-jar' )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2449:8: enumLiteral_2= 'library-jar'
                     {
-                    enumLiteral_2=(Token)match(input,44,FollowSets000.FOLLOW_44_in_ruleClasspathEntryKind5548); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,44,FollowSets000.FOLLOW_44_in_ruleClasspathEntryKind5580); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getClasspathEntryKindAccess().getLibEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -7210,12 +7248,12 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2440:6: (enumLiteral_3= 'class-container' )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2455:6: (enumLiteral_3= 'class-container' )
                     {
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2440:6: (enumLiteral_3= 'class-container' )
-                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2440:8: enumLiteral_3= 'class-container'
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2455:6: (enumLiteral_3= 'class-container' )
+                    // ../no.hal.emfs.xtext.runtime/src-gen/no/hal/emfs/xtext/parser/antlr/internal/InternalXemfs.g:2455:8: enumLiteral_3= 'class-container'
                     {
-                    enumLiteral_3=(Token)match(input,45,FollowSets000.FOLLOW_45_in_ruleClasspathEntryKind5565); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,45,FollowSets000.FOLLOW_45_in_ruleClasspathEntryKind5597); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getClasspathEntryKindAccess().getConEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -7914,40 +7952,41 @@ public class InternalXemfsParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_ruleFileName_in_ruleCLASSPATH_ENTRY_PATH4764 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleClasspathEntry_in_entryRuleClasspathEntry4809 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleClasspathEntry4819 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleClasspathEntryKind_in_ruleClasspathEntry4865 = new BitSet(new long[]{0x0000000000002010L});
-        public static final BitSet FOLLOW_ruleCLASSPATH_ENTRY_PATH_in_ruleClasspathEntry4886 = new BitSet(new long[]{0x0000008000000002L});
-        public static final BitSet FOLLOW_39_in_ruleClasspathEntry4899 = new BitSet(new long[]{0x0000001FF8000000L});
-        public static final BitSet FOLLOW_ruleVERSION_in_ruleClasspathEntry4920 = new BitSet(new long[]{0x0000010000002000L});
-        public static final BitSet FOLLOW_13_in_ruleClasspathEntry4933 = new BitSet(new long[]{0x0000001FF8000000L});
-        public static final BitSet FOLLOW_ruleVERSION_in_ruleClasspathEntry4954 = new BitSet(new long[]{0x0000010000000000L});
-        public static final BitSet FOLLOW_40_in_ruleClasspathEntry4968 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVERSION_in_entryRuleVERSION5007 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleVERSION5018 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_27_in_ruleVERSION5056 = new BitSet(new long[]{0x0000001FF8000002L});
-        public static final BitSet FOLLOW_28_in_ruleVERSION5075 = new BitSet(new long[]{0x0000001FF8000002L});
-        public static final BitSet FOLLOW_29_in_ruleVERSION5094 = new BitSet(new long[]{0x0000001FF8000002L});
-        public static final BitSet FOLLOW_30_in_ruleVERSION5113 = new BitSet(new long[]{0x0000001FF8000002L});
-        public static final BitSet FOLLOW_31_in_ruleVERSION5132 = new BitSet(new long[]{0x0000001FF8000002L});
-        public static final BitSet FOLLOW_32_in_ruleVERSION5151 = new BitSet(new long[]{0x0000001FF8000002L});
-        public static final BitSet FOLLOW_33_in_ruleVERSION5170 = new BitSet(new long[]{0x0000001FF8000002L});
-        public static final BitSet FOLLOW_34_in_ruleVERSION5189 = new BitSet(new long[]{0x0000001FF8000002L});
-        public static final BitSet FOLLOW_35_in_ruleVERSION5208 = new BitSet(new long[]{0x0000001FF8000002L});
-        public static final BitSet FOLLOW_36_in_ruleVERSION5227 = new BitSet(new long[]{0x0000001FF8000002L});
-        public static final BitSet FOLLOW_ruleDotProjectFileContentProvider_in_entryRuleDotProjectFileContentProvider5268 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleDotProjectFileContentProvider5278 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_41_in_ruleDotProjectFileContentProvider5315 = new BitSet(new long[]{0x0000000000000200L});
-        public static final BitSet FOLLOW_9_in_ruleDotProjectFileContentProvider5328 = new BitSet(new long[]{0x0000000000002030L});
-        public static final BitSet FOLLOW_RULE_STRING_in_ruleDotProjectFileContentProvider5347 = new BitSet(new long[]{0x0000000000040A00L});
-        public static final BitSet FOLLOW_ruleFileName_in_ruleDotProjectFileContentProvider5371 = new BitSet(new long[]{0x0000000000040A00L});
-        public static final BitSet FOLLOW_18_in_ruleDotProjectFileContentProvider5389 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleEmfsName_in_ruleDotProjectFileContentProvider5412 = new BitSet(new long[]{0x0000000000044800L});
-        public static final BitSet FOLLOW_14_in_ruleDotProjectFileContentProvider5425 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleEmfsName_in_ruleDotProjectFileContentProvider5448 = new BitSet(new long[]{0x0000000000044800L});
-        public static final BitSet FOLLOW_11_in_ruleDotProjectFileContentProvider5464 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_42_in_ruleClasspathEntryKind5514 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_43_in_ruleClasspathEntryKind5531 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_44_in_ruleClasspathEntryKind5548 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_45_in_ruleClasspathEntryKind5565 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleClasspathEntryKind_in_ruleClasspathEntry4865 = new BitSet(new long[]{0x0000000000003010L});
+        public static final BitSet FOLLOW_12_in_ruleClasspathEntry4883 = new BitSet(new long[]{0x0000000000003010L});
+        public static final BitSet FOLLOW_ruleCLASSPATH_ENTRY_PATH_in_ruleClasspathEntry4918 = new BitSet(new long[]{0x0000008000000002L});
+        public static final BitSet FOLLOW_39_in_ruleClasspathEntry4931 = new BitSet(new long[]{0x0000001FF8000000L});
+        public static final BitSet FOLLOW_ruleVERSION_in_ruleClasspathEntry4952 = new BitSet(new long[]{0x0000010000002000L});
+        public static final BitSet FOLLOW_13_in_ruleClasspathEntry4965 = new BitSet(new long[]{0x0000001FF8000000L});
+        public static final BitSet FOLLOW_ruleVERSION_in_ruleClasspathEntry4986 = new BitSet(new long[]{0x0000010000000000L});
+        public static final BitSet FOLLOW_40_in_ruleClasspathEntry5000 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVERSION_in_entryRuleVERSION5039 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleVERSION5050 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_27_in_ruleVERSION5088 = new BitSet(new long[]{0x0000001FF8000002L});
+        public static final BitSet FOLLOW_28_in_ruleVERSION5107 = new BitSet(new long[]{0x0000001FF8000002L});
+        public static final BitSet FOLLOW_29_in_ruleVERSION5126 = new BitSet(new long[]{0x0000001FF8000002L});
+        public static final BitSet FOLLOW_30_in_ruleVERSION5145 = new BitSet(new long[]{0x0000001FF8000002L});
+        public static final BitSet FOLLOW_31_in_ruleVERSION5164 = new BitSet(new long[]{0x0000001FF8000002L});
+        public static final BitSet FOLLOW_32_in_ruleVERSION5183 = new BitSet(new long[]{0x0000001FF8000002L});
+        public static final BitSet FOLLOW_33_in_ruleVERSION5202 = new BitSet(new long[]{0x0000001FF8000002L});
+        public static final BitSet FOLLOW_34_in_ruleVERSION5221 = new BitSet(new long[]{0x0000001FF8000002L});
+        public static final BitSet FOLLOW_35_in_ruleVERSION5240 = new BitSet(new long[]{0x0000001FF8000002L});
+        public static final BitSet FOLLOW_36_in_ruleVERSION5259 = new BitSet(new long[]{0x0000001FF8000002L});
+        public static final BitSet FOLLOW_ruleDotProjectFileContentProvider_in_entryRuleDotProjectFileContentProvider5300 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleDotProjectFileContentProvider5310 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_41_in_ruleDotProjectFileContentProvider5347 = new BitSet(new long[]{0x0000000000000200L});
+        public static final BitSet FOLLOW_9_in_ruleDotProjectFileContentProvider5360 = new BitSet(new long[]{0x0000000000002030L});
+        public static final BitSet FOLLOW_RULE_STRING_in_ruleDotProjectFileContentProvider5379 = new BitSet(new long[]{0x0000000000040A00L});
+        public static final BitSet FOLLOW_ruleFileName_in_ruleDotProjectFileContentProvider5403 = new BitSet(new long[]{0x0000000000040A00L});
+        public static final BitSet FOLLOW_18_in_ruleDotProjectFileContentProvider5421 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleEmfsName_in_ruleDotProjectFileContentProvider5444 = new BitSet(new long[]{0x0000000000044800L});
+        public static final BitSet FOLLOW_14_in_ruleDotProjectFileContentProvider5457 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleEmfsName_in_ruleDotProjectFileContentProvider5480 = new BitSet(new long[]{0x0000000000044800L});
+        public static final BitSet FOLLOW_11_in_ruleDotProjectFileContentProvider5496 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_42_in_ruleClasspathEntryKind5546 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_43_in_ruleClasspathEntryKind5563 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_44_in_ruleClasspathEntryKind5580 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_45_in_ruleClasspathEntryKind5597 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_11_in_synpred1_InternalXemfs1389 = new BitSet(new long[]{0x0000000000000002L});
     }
 

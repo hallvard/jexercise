@@ -13,6 +13,7 @@ package no.hal.emfs;
  * <ul>
  *   <li>{@link no.hal.emfs.ClasspathEntry#getExplicitKind <em>Explicit Kind</em>}</li>
  *   <li>{@link no.hal.emfs.ClasspathEntry#getExplicitPath <em>Explicit Path</em>}</li>
+ *   <li>{@link no.hal.emfs.ClasspathEntry#isAbsolute <em>Absolute</em>}</li>
  *   <li>{@link no.hal.emfs.ClasspathEntry#getMajor <em>Major</em>}</li>
  *   <li>{@link no.hal.emfs.ClasspathEntry#getMinor <em>Minor</em>}</li>
  * </ul>
@@ -77,6 +78,32 @@ public interface ClasspathEntry extends AbstractClasspathEntry {
 	 * @generated
 	 */
 	void setExplicitPath(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Absolute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Absolute</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Absolute</em>' attribute.
+	 * @see #setAbsolute(boolean)
+	 * @see no.hal.emfs.EmfsPackage#getClasspathEntry_Absolute()
+	 * @model
+	 * @generated
+	 */
+	boolean isAbsolute();
+
+	/**
+	 * Sets the value of the '{@link no.hal.emfs.ClasspathEntry#isAbsolute <em>Absolute</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Absolute</em>' attribute.
+	 * @see #isAbsolute()
+	 * @generated
+	 */
+	void setAbsolute(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Major</b></em>' attribute.

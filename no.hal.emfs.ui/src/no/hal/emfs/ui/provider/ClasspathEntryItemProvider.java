@@ -48,6 +48,7 @@ public class ClasspathEntryItemProvider
 
 			addExplicitKindPropertyDescriptor(object);
 			addExplicitPathPropertyDescriptor(object);
+			addAbsolutePropertyDescriptor(object);
 			addMajorPropertyDescriptor(object);
 			addMinorPropertyDescriptor(object);
 		}
@@ -94,6 +95,28 @@ public class ClasspathEntryItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Absolute feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAbsolutePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ClasspathEntry_absolute_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ClasspathEntry_absolute_feature", "_UI_ClasspathEntry_type"),
+				 EmfsPackage.Literals.CLASSPATH_ENTRY__ABSOLUTE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -183,6 +206,7 @@ public class ClasspathEntryItemProvider
 		switch (notification.getFeatureID(ClasspathEntry.class)) {
 			case EmfsPackage.CLASSPATH_ENTRY__EXPLICIT_KIND:
 			case EmfsPackage.CLASSPATH_ENTRY__EXPLICIT_PATH:
+			case EmfsPackage.CLASSPATH_ENTRY__ABSOLUTE:
 			case EmfsPackage.CLASSPATH_ENTRY__MAJOR:
 			case EmfsPackage.CLASSPATH_ENTRY__MINOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

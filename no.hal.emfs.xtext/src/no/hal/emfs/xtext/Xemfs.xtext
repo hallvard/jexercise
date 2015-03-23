@@ -108,7 +108,7 @@ AbstractClasspathEntry: ClasspathEntry;
 CLASSPATH_ENTRY_PATH: (FolderName* FileName);
 
 ClasspathEntry:
-	explicitKind = ClasspathEntryKind explicitPath = CLASSPATH_ENTRY_PATH
+	explicitKind = ClasspathEntryKind (absolute ?= '/')? explicitPath = CLASSPATH_ENTRY_PATH
 	('(' major = VERSION ('.' minor = VERSION)? ')')?
 ;
 

@@ -945,7 +945,7 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getClasspathEntry_Major() {
+	public EAttribute getClasspathEntry_Absolute() {
 		return (EAttribute)classpathEntryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -954,8 +954,17 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getClasspathEntry_Minor() {
+	public EAttribute getClasspathEntry_Major() {
 		return (EAttribute)classpathEntryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getClasspathEntry_Minor() {
+		return (EAttribute)classpathEntryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1142,6 +1151,7 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		classpathEntryEClass = createEClass(CLASSPATH_ENTRY);
 		createEAttribute(classpathEntryEClass, CLASSPATH_ENTRY__EXPLICIT_KIND);
 		createEAttribute(classpathEntryEClass, CLASSPATH_ENTRY__EXPLICIT_PATH);
+		createEAttribute(classpathEntryEClass, CLASSPATH_ENTRY__ABSOLUTE);
 		createEAttribute(classpathEntryEClass, CLASSPATH_ENTRY__MAJOR);
 		createEAttribute(classpathEntryEClass, CLASSPATH_ENTRY__MINOR);
 
@@ -1325,6 +1335,7 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		initEClass(classpathEntryEClass, ClasspathEntry.class, "ClasspathEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getClasspathEntry_ExplicitKind(), this.getClasspathEntryKind(), "explicitKind", null, 0, 1, ClasspathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClasspathEntry_ExplicitPath(), ecorePackage.getEString(), "explicitPath", null, 0, 1, ClasspathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClasspathEntry_Absolute(), ecorePackage.getEBoolean(), "absolute", null, 0, 1, ClasspathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClasspathEntry_Major(), ecorePackage.getEInt(), "major", null, 0, 1, ClasspathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClasspathEntry_Minor(), ecorePackage.getEInt(), "minor", null, 0, 1, ClasspathEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
