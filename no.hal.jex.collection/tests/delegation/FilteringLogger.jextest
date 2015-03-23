@@ -1,39 +1,47 @@
-import java.io.ByteArrayOutputStream
-
 test delegation.FilteringLogger
+
+import java.io.ByteArrayOutputStream
 
 instance String formatString = "%s: %s (%s)"
 
 instance ByteArrayOutputStream stream = new ByteArrayOutputStream()
 instance StreamLogger subLogger = new StreamLogger(stream)
 
-
-sequence noSeverities {
+sequence FilteringLoggerNoSeverities {
 	instance FilteringLogger logger = new FilteringLogger(subLogger)
-	--> state{
+	--> state {
 		! logger.isLogging(ILogger.INFO)
 		! logger.isLogging(ILogger.WARNING)
 		! logger.isLogging(ILogger.ERROR)
 	}
 }
 
-sequence errorAndWarningSeverities {
-	instance FilteringLogger logger = new FilteringLogger(subLogger, ILogger.WARNING)
-	--> 
-	state{
-		! logger.isLogging(ILogger.INFO)
-		logger.isLogging(ILogger.WARNING)
-		! logger.isLogging(ILogger.ERROR)
-	} 
-	-- logger.setIsLogging(ILogger.ERROR, true) -->
-	state {
-		! logger.isLogging(ILogger.INFO)
-		logger.isLogging(ILogger.WARNING)
-		logger.isLogging(ILogger.ERROR)
+sequence FilteringLoggerErrorAndInfo {
+	instance FilteringLogger logger = new FilteringLogger(subLogger, ILogger.ERROR, ILogger.INFO)
+	--> state {
+			logger.isLogging(ILogger.INFO)
+		! 	logger.isLogging(ILogger.WARNING)
+			logger.isLogging(ILogger.ERROR)
 	}
 }
 
-sequence errorLogging{
+sequence FilteringLoggerWarningSetIsLoggingError {
+	instance FilteringLogger logger = new FilteringLogger(subLogger, ILogger.WARNING)
+	--> 
+	state {
+		! 	logger.isLogging(ILogger.INFO)
+			logger.isLogging(ILogger.WARNING)
+		! 	logger.isLogging(ILogger.ERROR)
+	} 
+	-- logger.setIsLogging(ILogger.ERROR, true) -->
+	state {
+		! 	logger.isLogging(ILogger.INFO)
+			logger.isLogging(ILogger.WARNING)
+			logger.isLogging(ILogger.ERROR)
+	}
+}
+
+sequence errorLogging {
 	instance IllegalStateException exception = new IllegalStateException
 	instance FilteringLogger logger = new FilteringLogger(subLogger, ILogger.ERROR)
 	
@@ -54,5 +62,6 @@ sequence infoToErrorLogger{
 }
 
 method boolean operator_equals(ByteArrayOutputStream stream, String content){
-	return stream.toString() == content
+	// ignore leadning and trailing whitespace
+	return stream.toString().trim() == content.trim()
 }

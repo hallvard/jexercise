@@ -89,10 +89,12 @@ public class DistributingLoggerTest extends TestCase {
   
   private boolean operator_equals(final ByteArrayOutputStream stream, final String content) {
     String _string = stream.toString();
-    return Objects.equal(_string, content);
+    String _trim = _string.trim();
+    String _trim_1 = content.trim();
+    return Objects.equal(_trim, _trim_1);
   }
   
-  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Skriver en melding til INFO: infoLogger.formatString = formatString, logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Skriver en melding til INFO: infoLogger.formatString = formatString, logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)</li>\n\t\t</ul>\n")
   public void testLogToInfo() {
     _transition_exprAction__logToInfo_transitions0_actions0();
     _transition_exprAction__logToInfo_transitions0_actions1();
@@ -100,7 +102,7 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Skriver en melding til WARNING: infoLogger.formatString = formatString, logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Skriver en melding til WARNING: infoLogger.formatString = formatString, logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)</li>\n\t\t</ul>\n")
   public void testLogToWarn() {
     _transition_exprAction__logToWarn_transitions0_actions0();
     _transition_exprAction__logToWarn_transitions0_actions1();
@@ -108,7 +110,7 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Skriver en melding til ERROR: infoLogger.formatString = formatString, logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Skriver en melding til ERROR: infoLogger.formatString = formatString, logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)</li>\n\t\t</ul>\n")
   public void testLogToError() {
     Exception exception = _init__logToError_exception();
     _transition_exprAction__logToError_transitions0_actions0(exception);
@@ -117,7 +119,7 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception);void setLogger(String,delegation.ILogger)", description = "Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Skriver til INFO.: infoLogger.formatString = formatString, logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)</li>\r\n\t\t<li>Bytter INFO-logger.: newInfoLogger.formatString = formatString, logger.setLogger(ILogger.INFO, newInfoLogger), logger.log(ILogger.INFO, \"Dette er en den andre info-meldingen.\", null)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception);void setLogger(String,delegation.ILogger)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Skriver til INFO.: infoLogger.formatString = formatString, logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)</li>\n\t\t<li>Bytter INFO-logger.: newInfoLogger.formatString = formatString, logger.setLogger(ILogger.INFO, newInfoLogger), logger.log(ILogger.INFO, \"Dette er en den andre info-meldingen.\", null)</li>\n\t\t</ul>\n")
   public void testChangeInfoLogger() {
     StreamLogger newInfoLogger = _init__changeInfoLogger_newInfoLogger();
     _transition_exprAction__changeInfoLogger_transitions0_actions0(newInfoLogger);
