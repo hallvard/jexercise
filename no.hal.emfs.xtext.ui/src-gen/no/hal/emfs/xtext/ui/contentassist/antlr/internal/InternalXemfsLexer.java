@@ -848,19 +848,38 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = RULE_STRING_CONTENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6507:21: ( '---8<---\\n' ( options {greedy=false; } : . )* '\\n--->8---' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6507:23: '---8<---\\n' ( options {greedy=false; } : . )* '\\n--->8---'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6507:21: ( '---8<---' ( '\\r' )? '\\n' ( options {greedy=false; } : . )* '\\n--->8---' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6507:23: '---8<---' ( '\\r' )? '\\n' ( options {greedy=false; } : . )* '\\n--->8---'
             {
-            match("---8<---\n"); 
+            match("---8<---"); 
 
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6507:36: ( options {greedy=false; } : . )*
-            loop1:
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6507:34: ( '\\r' )?
+            int alt1=2;
+            int LA1_0 = input.LA(1);
+
+            if ( (LA1_0=='\r') ) {
+                alt1=1;
+            }
+            switch (alt1) {
+                case 1 :
+                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6507:34: '\\r'
+                    {
+                    match('\r'); 
+
+                    }
+                    break;
+
+            }
+
+            match('\n'); 
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6507:45: ( options {greedy=false; } : . )*
+            loop2:
             do {
-                int alt1=2;
-                alt1 = dfa1.predict(input);
-                switch (alt1) {
+                int alt2=2;
+                alt2 = dfa2.predict(input);
+                switch (alt2) {
             	case 1 :
-            	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6507:64: .
+            	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6507:73: .
             	    {
             	    matchAny(); 
 
@@ -868,7 +887,7 @@ public class InternalXemfsLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop1;
+            	    break loop2;
                 }
             } while (true);
 
@@ -894,13 +913,13 @@ public class InternalXemfsLexer extends Lexer {
             // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6509:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+
             {
             // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6509:11: ( '^' )?
-            int alt2=2;
-            int LA2_0 = input.LA(1);
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-            if ( (LA2_0=='^') ) {
-                alt2=1;
+            if ( (LA3_0=='^') ) {
+                alt3=1;
             }
-            switch (alt2) {
+            switch (alt3) {
                 case 1 :
                     // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6509:11: '^'
                     {
@@ -912,18 +931,18 @@ public class InternalXemfsLexer extends Lexer {
             }
 
             // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6509:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+
-            int cnt3=0;
-            loop3:
+            int cnt4=0;
+            loop4:
             do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-                if ( (LA3_0=='-'||(LA3_0>='0' && LA3_0<='9')||(LA3_0>='A' && LA3_0<='Z')||LA3_0=='_'||(LA3_0>='a' && LA3_0<='z')) ) {
-                    alt3=1;
+                if ( (LA4_0=='-'||(LA4_0>='0' && LA4_0<='9')||(LA4_0>='A' && LA4_0<='Z')||LA4_0=='_'||(LA4_0>='a' && LA4_0<='z')) ) {
+                    alt4=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt4) {
             	case 1 :
             	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:
             	    {
@@ -941,12 +960,12 @@ public class InternalXemfsLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt3 >= 1 ) break loop3;
+            	    if ( cnt4 >= 1 ) break loop4;
                         EarlyExitException eee =
-                            new EarlyExitException(3, input);
+                            new EarlyExitException(4, input);
                         throw eee;
                 }
-                cnt3++;
+                cnt4++;
             } while (true);
 
 
@@ -969,41 +988,41 @@ public class InternalXemfsLexer extends Lexer {
             // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6511:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
             // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6511:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0=='\"') ) {
-                alt6=1;
+            if ( (LA7_0=='\"') ) {
+                alt7=1;
             }
-            else if ( (LA6_0=='\'') ) {
-                alt6=2;
+            else if ( (LA7_0=='\'') ) {
+                alt7=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
                     // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6511:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
                     // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6511:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
-                    loop4:
+                    loop5:
                     do {
-                        int alt4=3;
-                        int LA4_0 = input.LA(1);
+                        int alt5=3;
+                        int LA5_0 = input.LA(1);
 
-                        if ( (LA4_0=='\\') ) {
-                            alt4=1;
+                        if ( (LA5_0=='\\') ) {
+                            alt5=1;
                         }
-                        else if ( ((LA4_0>='\u0000' && LA4_0<='!')||(LA4_0>='#' && LA4_0<='[')||(LA4_0>=']' && LA4_0<='\uFFFF')) ) {
-                            alt4=2;
+                        else if ( ((LA5_0>='\u0000' && LA5_0<='!')||(LA5_0>='#' && LA5_0<='[')||(LA5_0>=']' && LA5_0<='\uFFFF')) ) {
+                            alt5=2;
                         }
 
 
-                        switch (alt4) {
+                        switch (alt5) {
                     	case 1 :
                     	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6511:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
@@ -1037,7 +1056,7 @@ public class InternalXemfsLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop4;
+                    	    break loop5;
                         }
                     } while (true);
 
@@ -1050,20 +1069,20 @@ public class InternalXemfsLexer extends Lexer {
                     {
                     match('\''); 
                     // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6511:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
-                    loop5:
+                    loop6:
                     do {
-                        int alt5=3;
-                        int LA5_0 = input.LA(1);
+                        int alt6=3;
+                        int LA6_0 = input.LA(1);
 
-                        if ( (LA5_0=='\\') ) {
-                            alt5=1;
+                        if ( (LA6_0=='\\') ) {
+                            alt6=1;
                         }
-                        else if ( ((LA5_0>='\u0000' && LA5_0<='&')||(LA5_0>='(' && LA5_0<='[')||(LA5_0>=']' && LA5_0<='\uFFFF')) ) {
-                            alt5=2;
+                        else if ( ((LA6_0>='\u0000' && LA6_0<='&')||(LA6_0>='(' && LA6_0<='[')||(LA6_0>=']' && LA6_0<='\uFFFF')) ) {
+                            alt6=2;
                         }
 
 
-                        switch (alt5) {
+                        switch (alt6) {
                     	case 1 :
                     	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6511:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
@@ -1097,7 +1116,7 @@ public class InternalXemfsLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop5;
+                    	    break loop6;
                         }
                     } while (true);
 
@@ -1128,18 +1147,18 @@ public class InternalXemfsLexer extends Lexer {
             // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6513:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
             // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6513:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
-            int cnt7=0;
-            loop7:
+            int cnt8=0;
+            loop8:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( ((LA7_0>='\t' && LA7_0<='\n')||LA7_0=='\r'||LA7_0==' ') ) {
-                    alt7=1;
+                if ( ((LA8_0>='\t' && LA8_0<='\n')||LA8_0=='\r'||LA8_0==' ') ) {
+                    alt8=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt8) {
             	case 1 :
             	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:
             	    {
@@ -1157,12 +1176,12 @@ public class InternalXemfsLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt7 >= 1 ) break loop7;
+            	    if ( cnt8 >= 1 ) break loop8;
                         EarlyExitException eee =
-                            new EarlyExitException(7, input);
+                            new EarlyExitException(8, input);
                         throw eee;
                 }
-                cnt7++;
+                cnt8++;
             } while (true);
 
 
@@ -1178,9 +1197,9 @@ public class InternalXemfsLexer extends Lexer {
 
     public void mTokens() throws RecognitionException {
         // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:8: ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | RULE_STRING_CONTENT | RULE_ID | RULE_STRING | RULE_WS )
-        int alt8=42;
-        alt8 = dfa8.predict(input);
-        switch (alt8) {
+        int alt9=42;
+        alt9 = dfa9.predict(input);
+        switch (alt9) {
             case 1 :
                 // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:10: T__8
                 {
@@ -1481,21 +1500,21 @@ public class InternalXemfsLexer extends Lexer {
     }
 
 
-    protected DFA1 dfa1 = new DFA1(this);
-    protected DFA8 dfa8 = new DFA8(this);
-    static final String DFA1_eotS =
+    protected DFA2 dfa2 = new DFA2(this);
+    protected DFA9 dfa9 = new DFA9(this);
+    static final String DFA2_eotS =
         "\13\uffff";
-    static final String DFA1_eofS =
+    static final String DFA2_eofS =
         "\13\uffff";
-    static final String DFA1_minS =
+    static final String DFA2_minS =
         "\2\0\1\uffff\7\0\1\uffff";
-    static final String DFA1_maxS =
+    static final String DFA2_maxS =
         "\2\uffff\1\uffff\7\uffff\1\uffff";
-    static final String DFA1_acceptS =
+    static final String DFA2_acceptS =
         "\2\uffff\1\1\7\uffff\1\2";
-    static final String DFA1_specialS =
-        "\1\7\1\5\1\uffff\1\6\1\10\1\1\1\2\1\3\1\4\1\0\1\uffff}>";
-    static final String[] DFA1_transitionS = {
+    static final String DFA2_specialS =
+        "\1\3\1\10\1\uffff\1\6\1\7\1\4\1\5\1\1\1\2\1\0\1\uffff}>";
+    static final String[] DFA2_transitionS = {
             "\12\2\1\1\ufff5\2",
             "\55\2\1\3\uffd2\2",
             "",
@@ -1509,152 +1528,152 @@ public class InternalXemfsLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA1_eot = DFA.unpackEncodedString(DFA1_eotS);
-    static final short[] DFA1_eof = DFA.unpackEncodedString(DFA1_eofS);
-    static final char[] DFA1_min = DFA.unpackEncodedStringToUnsignedChars(DFA1_minS);
-    static final char[] DFA1_max = DFA.unpackEncodedStringToUnsignedChars(DFA1_maxS);
-    static final short[] DFA1_accept = DFA.unpackEncodedString(DFA1_acceptS);
-    static final short[] DFA1_special = DFA.unpackEncodedString(DFA1_specialS);
-    static final short[][] DFA1_transition;
+    static final short[] DFA2_eot = DFA.unpackEncodedString(DFA2_eotS);
+    static final short[] DFA2_eof = DFA.unpackEncodedString(DFA2_eofS);
+    static final char[] DFA2_min = DFA.unpackEncodedStringToUnsignedChars(DFA2_minS);
+    static final char[] DFA2_max = DFA.unpackEncodedStringToUnsignedChars(DFA2_maxS);
+    static final short[] DFA2_accept = DFA.unpackEncodedString(DFA2_acceptS);
+    static final short[] DFA2_special = DFA.unpackEncodedString(DFA2_specialS);
+    static final short[][] DFA2_transition;
 
     static {
-        int numStates = DFA1_transitionS.length;
-        DFA1_transition = new short[numStates][];
+        int numStates = DFA2_transitionS.length;
+        DFA2_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA1_transition[i] = DFA.unpackEncodedString(DFA1_transitionS[i]);
+            DFA2_transition[i] = DFA.unpackEncodedString(DFA2_transitionS[i]);
         }
     }
 
-    static class DFA1 extends DFA {
+    static class DFA2 extends DFA {
 
-        public DFA1(BaseRecognizer recognizer) {
+        public DFA2(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 1;
-            this.eot = DFA1_eot;
-            this.eof = DFA1_eof;
-            this.min = DFA1_min;
-            this.max = DFA1_max;
-            this.accept = DFA1_accept;
-            this.special = DFA1_special;
-            this.transition = DFA1_transition;
+            this.decisionNumber = 2;
+            this.eot = DFA2_eot;
+            this.eof = DFA2_eof;
+            this.min = DFA2_min;
+            this.max = DFA2_max;
+            this.accept = DFA2_accept;
+            this.special = DFA2_special;
+            this.transition = DFA2_transition;
         }
         public String getDescription() {
-            return "()* loopback of 6507:36: ( options {greedy=false; } : . )*";
+            return "()* loopback of 6507:45: ( options {greedy=false; } : . )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA1_9 = input.LA(1);
+                        int LA2_9 = input.LA(1);
 
                         s = -1;
-                        if ( (LA1_9=='-') ) {s = 10;}
+                        if ( (LA2_9=='-') ) {s = 10;}
 
-                        else if ( ((LA1_9>='\u0000' && LA1_9<=',')||(LA1_9>='.' && LA1_9<='\uFFFF')) ) {s = 2;}
+                        else if ( ((LA2_9>='\u0000' && LA2_9<=',')||(LA2_9>='.' && LA2_9<='\uFFFF')) ) {s = 2;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA1_5 = input.LA(1);
+                        int LA2_7 = input.LA(1);
 
                         s = -1;
-                        if ( (LA1_5=='>') ) {s = 6;}
+                        if ( (LA2_7=='-') ) {s = 8;}
 
-                        else if ( ((LA1_5>='\u0000' && LA1_5<='=')||(LA1_5>='?' && LA1_5<='\uFFFF')) ) {s = 2;}
+                        else if ( ((LA2_7>='\u0000' && LA2_7<=',')||(LA2_7>='.' && LA2_7<='\uFFFF')) ) {s = 2;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA1_6 = input.LA(1);
+                        int LA2_8 = input.LA(1);
 
                         s = -1;
-                        if ( (LA1_6=='8') ) {s = 7;}
+                        if ( (LA2_8=='-') ) {s = 9;}
 
-                        else if ( ((LA1_6>='\u0000' && LA1_6<='7')||(LA1_6>='9' && LA1_6<='\uFFFF')) ) {s = 2;}
+                        else if ( ((LA2_8>='\u0000' && LA2_8<=',')||(LA2_8>='.' && LA2_8<='\uFFFF')) ) {s = 2;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA1_7 = input.LA(1);
+                        int LA2_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA1_7=='-') ) {s = 8;}
+                        if ( (LA2_0=='\n') ) {s = 1;}
 
-                        else if ( ((LA1_7>='\u0000' && LA1_7<=',')||(LA1_7>='.' && LA1_7<='\uFFFF')) ) {s = 2;}
+                        else if ( ((LA2_0>='\u0000' && LA2_0<='\t')||(LA2_0>='\u000B' && LA2_0<='\uFFFF')) ) {s = 2;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA1_8 = input.LA(1);
+                        int LA2_5 = input.LA(1);
 
                         s = -1;
-                        if ( (LA1_8=='-') ) {s = 9;}
+                        if ( (LA2_5=='>') ) {s = 6;}
 
-                        else if ( ((LA1_8>='\u0000' && LA1_8<=',')||(LA1_8>='.' && LA1_8<='\uFFFF')) ) {s = 2;}
+                        else if ( ((LA2_5>='\u0000' && LA2_5<='=')||(LA2_5>='?' && LA2_5<='\uFFFF')) ) {s = 2;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA1_1 = input.LA(1);
+                        int LA2_6 = input.LA(1);
 
                         s = -1;
-                        if ( (LA1_1=='-') ) {s = 3;}
+                        if ( (LA2_6=='8') ) {s = 7;}
 
-                        else if ( ((LA1_1>='\u0000' && LA1_1<=',')||(LA1_1>='.' && LA1_1<='\uFFFF')) ) {s = 2;}
+                        else if ( ((LA2_6>='\u0000' && LA2_6<='7')||(LA2_6>='9' && LA2_6<='\uFFFF')) ) {s = 2;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA1_3 = input.LA(1);
+                        int LA2_3 = input.LA(1);
 
                         s = -1;
-                        if ( (LA1_3=='-') ) {s = 4;}
+                        if ( (LA2_3=='-') ) {s = 4;}
 
-                        else if ( ((LA1_3>='\u0000' && LA1_3<=',')||(LA1_3>='.' && LA1_3<='\uFFFF')) ) {s = 2;}
+                        else if ( ((LA2_3>='\u0000' && LA2_3<=',')||(LA2_3>='.' && LA2_3<='\uFFFF')) ) {s = 2;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA1_0 = input.LA(1);
+                        int LA2_4 = input.LA(1);
 
                         s = -1;
-                        if ( (LA1_0=='\n') ) {s = 1;}
+                        if ( (LA2_4=='-') ) {s = 5;}
 
-                        else if ( ((LA1_0>='\u0000' && LA1_0<='\t')||(LA1_0>='\u000B' && LA1_0<='\uFFFF')) ) {s = 2;}
+                        else if ( ((LA2_4>='\u0000' && LA2_4<=',')||(LA2_4>='.' && LA2_4<='\uFFFF')) ) {s = 2;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA1_4 = input.LA(1);
+                        int LA2_1 = input.LA(1);
 
                         s = -1;
-                        if ( (LA1_4=='-') ) {s = 5;}
+                        if ( (LA2_1=='-') ) {s = 3;}
 
-                        else if ( ((LA1_4>='\u0000' && LA1_4<=',')||(LA1_4>='.' && LA1_4<='\uFFFF')) ) {s = 2;}
+                        else if ( ((LA2_1>='\u0000' && LA2_1<=',')||(LA2_1>='.' && LA2_1<='\uFFFF')) ) {s = 2;}
 
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 1, _s, input);
+                new NoViableAltException(getDescription(), 2, _s, input);
             error(nvae);
             throw nvae;
         }
     }
-    static final String DFA8_eotS =
+    static final String DFA9_eotS =
         "\2\uffff\2\43\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\61\1\62\4\43\1\70\1\43\11\uffff\2\43\3\uffff\1\43\3\uffff\3\43\12\uffff\4\43\2\uffff\6\43\1\113\7\43\1\123\2\43\1\127\1\uffff\1\130\4\43\1\135\1\43\2\uffff\1\43\1\142\2\uffff\4\43\1\uffff\1\43\4\uffff\11\43\1\161\4\43\1\uffff\12\43\1\u0080\3\43\1\uffff\1\43\1\u0085\1\u0086\1\43\2\uffff\1\43\1\u0089\1\uffff";
-    static final String DFA8_eofS =
+    static final String DFA9_eofS =
         "\u008a\uffff";
-    static final String DFA8_minS =
+    static final String DFA9_minS =
         "\1\11\1\uffff\1\164\1\151\12\55\1\157\1\165\1\151\1\154\1\57\1\155\11\uffff\1\151\1\157\3\uffff\1\55\3\uffff\1\164\1\160\1\154\12\uffff\1\165\1\164\1\142\1\141\2\uffff\1\146\3\164\1\55\1\160\1\55\1\145\1\162\1\160\1\162\2\163\1\145\1\55\1\56\1\70\1\55\1\uffff\1\55\1\143\1\165\1\141\1\163\1\55\1\156\1\uffff\1\143\1\74\1\55\2\uffff\1\145\1\164\1\162\1\55\1\uffff\1\144\4\uffff\2\55\1\171\1\143\1\163\2\146\1\55\1\157\1\55\2\157\1\152\1\156\1\uffff\2\154\1\141\1\164\2\144\1\162\1\141\2\145\1\55\1\151\2\162\1\uffff\1\156\2\55\1\145\2\uffff\1\162\1\55\1\uffff";
-    static final String DFA8_maxS =
+    static final String DFA9_maxS =
         "\1\175\1\uffff\2\164\12\172\1\157\1\165\1\151\1\154\1\57\1\170\11\uffff\1\151\1\157\3\uffff\1\55\3\uffff\1\164\1\160\1\154\12\uffff\1\165\1\164\1\142\1\141\2\uffff\1\146\3\164\1\55\1\160\1\172\1\145\1\162\1\160\1\162\2\163\1\145\1\172\1\56\1\70\1\172\1\uffff\1\172\1\143\1\165\1\141\1\163\1\172\1\156\1\uffff\1\160\1\74\1\172\2\uffff\1\145\1\164\1\162\1\55\1\uffff\1\144\4\uffff\2\55\1\171\1\143\1\163\2\146\1\55\1\157\1\172\2\157\1\152\1\156\1\uffff\2\154\1\141\1\164\2\144\1\162\1\141\2\145\1\172\1\151\2\162\1\uffff\1\156\2\172\1\145\2\uffff\1\162\1\172\1\uffff";
-    static final String DFA8_acceptS =
+    static final String DFA9_acceptS =
         "\1\uffff\1\1\22\uffff\1\26\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\2\uffff\1\43\1\44\1\46\1\uffff\1\50\1\51\1\52\3\uffff\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\4\uffff\1\40\1\24\22\uffff\1\4\7\uffff\1\41\3\uffff\1\2\1\5\4\uffff\1\25\1\uffff\1\42\1\45\1\47\1\3\16\uffff\1\27\16\uffff\1\22\4\uffff\1\20\1\21\2\uffff\1\23";
-    static final String DFA8_specialS =
+    static final String DFA9_specialS =
         "\u008a\uffff}>";
-    static final String[] DFA8_transitionS = {
+    static final String[] DFA9_transitionS = {
             "\2\45\2\uffff\1\45\22\uffff\1\45\1\uffff\1\44\1\24\1\27\2\uffff\1\44\1\37\1\40\1\41\1\uffff\1\26\1\42\1\25\1\22\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\32\1\1\1\uffff\1\30\2\uffff\1\31\32\43\3\uffff\2\43\1\uffff\2\43\1\21\1\36\1\23\1\3\1\35\1\2\3\43\1\20\2\43\1\17\3\43\1\16\7\43\1\33\1\uffff\1\34",
             "",
             "\1\46",
@@ -1795,34 +1814,34 @@ public class InternalXemfsLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA8_eot = DFA.unpackEncodedString(DFA8_eotS);
-    static final short[] DFA8_eof = DFA.unpackEncodedString(DFA8_eofS);
-    static final char[] DFA8_min = DFA.unpackEncodedStringToUnsignedChars(DFA8_minS);
-    static final char[] DFA8_max = DFA.unpackEncodedStringToUnsignedChars(DFA8_maxS);
-    static final short[] DFA8_accept = DFA.unpackEncodedString(DFA8_acceptS);
-    static final short[] DFA8_special = DFA.unpackEncodedString(DFA8_specialS);
-    static final short[][] DFA8_transition;
+    static final short[] DFA9_eot = DFA.unpackEncodedString(DFA9_eotS);
+    static final short[] DFA9_eof = DFA.unpackEncodedString(DFA9_eofS);
+    static final char[] DFA9_min = DFA.unpackEncodedStringToUnsignedChars(DFA9_minS);
+    static final char[] DFA9_max = DFA.unpackEncodedStringToUnsignedChars(DFA9_maxS);
+    static final short[] DFA9_accept = DFA.unpackEncodedString(DFA9_acceptS);
+    static final short[] DFA9_special = DFA.unpackEncodedString(DFA9_specialS);
+    static final short[][] DFA9_transition;
 
     static {
-        int numStates = DFA8_transitionS.length;
-        DFA8_transition = new short[numStates][];
+        int numStates = DFA9_transitionS.length;
+        DFA9_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA8_transition[i] = DFA.unpackEncodedString(DFA8_transitionS[i]);
+            DFA9_transition[i] = DFA.unpackEncodedString(DFA9_transitionS[i]);
         }
     }
 
-    class DFA8 extends DFA {
+    class DFA9 extends DFA {
 
-        public DFA8(BaseRecognizer recognizer) {
+        public DFA9(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 8;
-            this.eot = DFA8_eot;
-            this.eof = DFA8_eof;
-            this.min = DFA8_min;
-            this.max = DFA8_max;
-            this.accept = DFA8_accept;
-            this.special = DFA8_special;
-            this.transition = DFA8_transition;
+            this.decisionNumber = 9;
+            this.eot = DFA9_eot;
+            this.eof = DFA9_eof;
+            this.min = DFA9_min;
+            this.max = DFA9_max;
+            this.accept = DFA9_accept;
+            this.special = DFA9_special;
+            this.transition = DFA9_transition;
         }
         public String getDescription() {
             return "1:1: Tokens : ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | RULE_STRING_CONTENT | RULE_ID | RULE_STRING | RULE_WS );";
