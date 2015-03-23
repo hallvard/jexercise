@@ -61,7 +61,7 @@ StringContentProvider:
 
 AbstractStringContents: PropertyValueString | VerbatimStringContents;
 
-terminal STRING_CONTENT: '---8<---\n' -> '\n--->8---';
+terminal STRING_CONTENT: '---8<---'('\r')?'\n' -> '\n--->8---';
 
 VerbatimStringContents:
 	stringContent = (STRING | STRING_CONTENT)

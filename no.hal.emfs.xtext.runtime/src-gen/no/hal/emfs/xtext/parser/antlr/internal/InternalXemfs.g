@@ -2446,7 +2446,7 @@ ruleClasspathEntryKind returns [Enumerator current=null]
 
 
 
-RULE_STRING_CONTENT : '---8<---\n' ( options {greedy=false;} : . )*'\n--->8---';
+RULE_STRING_CONTENT : '---8<---' '\r'? '\n' ( options {greedy=false;} : . )*'\n--->8---';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9')+;
 

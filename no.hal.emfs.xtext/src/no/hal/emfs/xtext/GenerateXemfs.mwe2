@@ -8,7 +8,7 @@ var grammarURI = "classpath:/no/hal/emfs/xtext/Xemfs.xtext"
 var fileExtensions = "xemfs"
 var projectName = "no.hal.emfs.xtext"
 var runtimeProject = "../${projectName}"
-var generateXtendStub = true
+var generateXtendStub = false
 
 Workflow {
 	bean = StandaloneSetup {

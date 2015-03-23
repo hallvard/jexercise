@@ -1685,7 +1685,7 @@ public class XemfsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal STRING_CONTENT:
-	//	"---8<---\n"->"\n--->8---";
+	//	"---8<---" "\r"? "\n"->"\n--->8---";
 	public TerminalRule getSTRING_CONTENTRule() {
 		return tSTRING_CONTENT;
 	} 
