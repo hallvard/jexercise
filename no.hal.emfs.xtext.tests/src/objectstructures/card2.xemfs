@@ -1,7 +1,5 @@
 emfs $testspath="no.hal.jex.collection/src-gen/objectstructures"
 /
-libs/jexercise-standalone.jar @ git@github.com:hallvard/jexercise/no.hal.jex.standalone/jexercise-standalone.jar;
-	;
 src/objectstructures/
 	Card.java*
 ---8<---
@@ -12,7 +10,7 @@ public class Card {
 --->8---
 	CardDeck.java*;
 	CardHand.java*;
-	;
+;
 ;
 tests/objectstructures/
 	CardTest.java 		@ git@github.com:hallvard/jexercise/$testspath/CardTest.java;
@@ -26,6 +24,7 @@ tests/objectstructures/
 	library-jar libs/jexercise-standalone.jar
 	source-folder src
 	source-folder tests
+	source-folder /jexercisestandalone
 	class-container org.eclipse.jdt.launching.JRE_CONTAINER
 	output-folder bin
 ;
