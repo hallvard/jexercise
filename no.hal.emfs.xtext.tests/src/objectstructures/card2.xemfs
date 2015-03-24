@@ -21,7 +21,6 @@ tests/objectstructures/
 .project: dot.project #java;
 
 .classpath: dot.classpath
-	library-jar libs/jexercise-standalone.jar
 	source-folder src
 	source-folder tests
 	source-folder /jexercisestandalone
