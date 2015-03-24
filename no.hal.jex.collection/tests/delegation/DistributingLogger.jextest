@@ -26,7 +26,7 @@ sequence logToInfo{
 }
 
 sequence logToWarn{
-	"Skriver en melding til WARNING" -- infoLogger.formatString = formatString, logger.log(ILogger.WARNING, "Dette er en advarsel.", null) -->
+	"Skriver en melding til WARNING" -- warnLogger.formatString = formatString, logger.log(ILogger.WARNING, "Dette er en advarsel.", null) -->
 	state {
 		infoStream == ""
 		warnStream == String.format(formatString, ILogger.WARNING, "Dette er en advarsel.", null)
@@ -37,7 +37,7 @@ sequence logToWarn{
 sequence logToError{
 	instance Exception exception = new IllegalStateException
 	
-	"Skriver en melding til ERROR" -- infoLogger.formatString = formatString, logger.log(ILogger.ERROR, "Dette er en feilmelding.", exception) -->
+	"Skriver en melding til ERROR" -- errorLogger.formatString = formatString, logger.log(ILogger.ERROR, "Dette er en feilmelding.", exception) -->
 	state {
 		infoStream == ""
 		warnStream == ""

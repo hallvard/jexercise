@@ -102,7 +102,7 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Skriver en melding til WARNING: infoLogger.formatString = formatString, logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Skriver en melding til WARNING: warnLogger.formatString = formatString, logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)</li>\n\t\t</ul>\n")
   public void testLogToWarn() {
     _transition_exprAction__logToWarn_transitions0_actions0();
     _transition_exprAction__logToWarn_transitions0_actions1();
@@ -110,7 +110,7 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Skriver en melding til ERROR: infoLogger.formatString = formatString, logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "DistributingLogger(delegation.ILogger,delegation.ILogger,delegation.ILogger);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Skriver en melding til ERROR: errorLogger.formatString = formatString, logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)</li>\n\t\t</ul>\n")
   public void testLogToError() {
     Exception exception = _init__logToError_exception();
     _transition_exprAction__logToError_transitions0_actions0(exception);
@@ -176,9 +176,9 @@ public class DistributingLoggerTest extends TestCase {
   private void _transition_exprAction__logToWarn_transitions0_actions0() {
     try {
       
-      this.infoLogger.setFormatString(this.formatString);
+      this.warnLogger.setFormatString(this.formatString);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("infoLogger.formatString = formatString failed: " + error.getMessage());
+      fail("warnLogger.formatString = formatString failed: " + error.getMessage());
     }
     
   }
@@ -202,14 +202,14 @@ public class DistributingLoggerTest extends TestCase {
     
     boolean _equals = this.operator_equals(
       this.infoStream, "");
-    assertTrue("infoStream == \"\" failed after infoLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", _equals);
+    assertTrue("infoStream == \"\" failed after warnLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", _equals);
     
     String _format = String.format(this.formatString, ILogger.WARNING, "Dette er en advarsel.", null);
     boolean _equals_1 = this.operator_equals(
       this.warnStream, _format);
-    assertTrue("warnStream == String.format(formatString, ILogger.WARNING, \"Dette er en advarsel.\", null) failed after infoLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", _equals_1);
+    assertTrue("warnStream == String.format(formatString, ILogger.WARNING, \"Dette er en advarsel.\", null) failed after warnLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", _equals_1);
     
-    assertTrue("errorStream == \"\" failed after infoLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", this.operator_equals(
+    assertTrue("errorStream == \"\" failed after warnLogger.formatString = formatString ,logger.log(ILogger.WARNING, \"Dette er en advarsel.\", null)", this.operator_equals(
       this.errorStream, ""));
     
   }
@@ -222,9 +222,9 @@ public class DistributingLoggerTest extends TestCase {
   private void _transition_exprAction__logToError_transitions0_actions0(final Exception exception) {
     try {
       
-      this.infoLogger.setFormatString(this.formatString);
+      this.errorLogger.setFormatString(this.formatString);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("infoLogger.formatString = formatString failed: " + error.getMessage());
+      fail("errorLogger.formatString = formatString failed: " + error.getMessage());
     }
     
   }
@@ -248,14 +248,14 @@ public class DistributingLoggerTest extends TestCase {
     
     boolean _equals = this.operator_equals(
       this.infoStream, "");
-    assertTrue("infoStream == \"\" failed after infoLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", _equals);
+    assertTrue("infoStream == \"\" failed after errorLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", _equals);
     
     boolean _equals_1 = this.operator_equals(
       this.warnStream, "");
-    assertTrue("warnStream == \"\" failed after infoLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", _equals_1);
+    assertTrue("warnStream == \"\" failed after errorLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", _equals_1);
     
     String _format = String.format(this.formatString, ILogger.ERROR, "Dette er en feilmelding.", exception);
-    assertTrue("errorStream == String.format(formatString, ILogger.ERROR, \"Dette er en feilmelding.\", exception) failed after infoLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", this.operator_equals(
+    assertTrue("errorStream == String.format(formatString, ILogger.ERROR, \"Dette er en feilmelding.\", exception) failed after errorLogger.formatString = formatString ,logger.log(ILogger.ERROR, \"Dette er en feilmelding.\", exception)", this.operator_equals(
       this.errorStream, _format));
     
   }
