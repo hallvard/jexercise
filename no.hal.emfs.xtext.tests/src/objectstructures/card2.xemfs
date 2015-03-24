@@ -14,8 +14,8 @@ public class Card {
 ;
 tests/objectstructures/
 	CardTest.java 		@ git@github.com:hallvard/jexercise/$testspath/CardTest.java;
-	CardDeckTest.java 	@ git@github.com:hallvard/jexercise/$testspath/CardTest.java;
-	CardHandTest.java 	@ git@github.com:hallvard/jexercise/$testspath/CardTest.java;
+	CardDeckTest.java 	@ git@github.com:hallvard/jexercise/$testspath/CardDeckTest.java;
+	CardHandTest.java 	@ git@github.com:hallvard/jexercise/$testspath/CardHandTest.java;
 	;
 ;
 .project: dot.project #java;
