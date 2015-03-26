@@ -35,7 +35,7 @@ sequence addElement {
 
 val int pos1 = -1, int pos2 = -1
 
-method void addElement(int element, int pos) {
+method void addElement(int pos, int element) {
 	pos1 = pos
 	observableList.addElement(pos, element)
 	assertEquals(pos1, pos2)
@@ -43,15 +43,15 @@ method void addElement(int element, int pos) {
 
 sequence listListener {
 	-- observableList.addObservableListListener([list, pos | pos2 = pos]),
-	addElement(5, 0) -->
+	addElement(0, 5) -->
 	state {
 		observableList ?= #[5]
 	}
-	-- addElement(6, 1) -->
+	-- addElement(1, 6) -->
 	state {
 		observableList ?= #[5, 6]
 	}
-	-- addElement(2, 0) -->
+	-- addElement(0, 2) -->
 	state {
 		observableList ?= #[2, 5, 6]
 	}

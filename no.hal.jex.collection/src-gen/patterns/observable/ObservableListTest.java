@@ -41,7 +41,7 @@ public class ObservableListTest extends TestCase {
     
   }
   
-  private void addElement(final int element, final int pos) {
+  private void addElement(final int pos, final int element) {
     this.pos1 = pos;
     this.observableList.addElement(pos, Integer.valueOf(element));
     TestCase.assertEquals(this.pos1, this.pos2);
@@ -90,7 +90,7 @@ public class ObservableListTest extends TestCase {
     
   }
   
-  @JExercise(tests = "void addObservableListListener(patterns.observable.ObservableListListener)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>observableList.addObservableListListener([list, pos | pos2 = pos]), addElement(5, 0)</li>\n\t\t<li>addElement(6, 1)</li>\n\t\t<li>addElement(2, 0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "void addObservableListListener(patterns.observable.ObservableListListener)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>observableList.addObservableListListener([list, pos | pos2 = pos]), addElement(0, 5)</li>\n\t\t<li>addElement(1, 6)</li>\n\t\t<li>addElement(0, 2)</li>\n\t\t</ul>\n")
   public void testListListener() {
     _transition_exprAction__listListener_transitions0_actions0();
     _transition_exprAction__listListener_transitions0_actions1();
@@ -235,9 +235,9 @@ public class ObservableListTest extends TestCase {
   private void _transition_exprAction__listListener_transitions0_actions1() {
     try {
       
-      this.addElement(5, 0);
+      this.addElement(0, 5);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("addElement(5, 0) failed: " + error.getMessage());
+      fail("addElement(0, 5) failed: " + error.getMessage());
     }
     
   }
@@ -253,7 +253,7 @@ public class ObservableListTest extends TestCase {
       this.operator_assertEquals(
         this.observableList, new int[] { 5 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("observableList ?= #[5] failed after observableList.addObservableListListener([list, pos | pos2 = pos]) ,addElement(5, 0): " + error.getMessage());
+      fail("observableList ?= #[5] failed after observableList.addObservableListListener([list, pos | pos2 = pos]) ,addElement(0, 5): " + error.getMessage());
     }
     
   }
@@ -261,9 +261,9 @@ public class ObservableListTest extends TestCase {
   private void _transition_exprAction__listListener_transitions1_actions0() {
     try {
       
-      this.addElement(6, 1);
+      this.addElement(1, 6);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("addElement(6, 1) failed: " + error.getMessage());
+      fail("addElement(1, 6) failed: " + error.getMessage());
     }
     
   }
@@ -279,7 +279,7 @@ public class ObservableListTest extends TestCase {
       this.operator_assertEquals(
         this.observableList, new int[] { 5, 6 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("observableList ?= #[5, 6] failed after addElement(6, 1): " + error.getMessage());
+      fail("observableList ?= #[5, 6] failed after addElement(1, 6): " + error.getMessage());
     }
     
   }
@@ -287,9 +287,9 @@ public class ObservableListTest extends TestCase {
   private void _transition_exprAction__listListener_transitions2_actions0() {
     try {
       
-      this.addElement(2, 0);
+      this.addElement(0, 2);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("addElement(2, 0) failed: " + error.getMessage());
+      fail("addElement(0, 2) failed: " + error.getMessage());
     }
     
   }
@@ -305,7 +305,7 @@ public class ObservableListTest extends TestCase {
       this.operator_assertEquals(
         this.observableList, new int[] { 2, 5, 6 });
       } catch (junit.framework.AssertionFailedError error) {
-      fail("observableList ?= #[2, 5, 6] failed after addElement(2, 0): " + error.getMessage());
+      fail("observableList ?= #[2, 5, 6] failed after addElement(0, 2): " + error.getMessage());
     }
     
   }
