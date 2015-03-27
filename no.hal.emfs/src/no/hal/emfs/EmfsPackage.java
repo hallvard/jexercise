@@ -648,13 +648,40 @@ public interface EmfsPackage extends EPackage {
 	int ABSTRACT_STRING_CONTENT_PROVIDER__FILE = ABSTRACT_BYTES_CONTENT_PROVIDER__FILE;
 
 	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_CONTENT_PROVIDER__TAGS = ABSTRACT_BYTES_CONTENT_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_CONTENT_PROVIDER__PROPERTIES = ABSTRACT_BYTES_CONTENT_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Writeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_CONTENT_PROVIDER__WRITEABLE = ABSTRACT_BYTES_CONTENT_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Abstract String Content Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_STRING_CONTENT_PROVIDER_FEATURE_COUNT = ABSTRACT_BYTES_CONTENT_PROVIDER_FEATURE_COUNT + 0;
+	int ABSTRACT_STRING_CONTENT_PROVIDER_FEATURE_COUNT = ABSTRACT_BYTES_CONTENT_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link no.hal.emfs.impl.StringContentProviderImpl <em>String Content Provider</em>}' class.
@@ -674,6 +701,33 @@ public interface EmfsPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_CONTENT_PROVIDER__FILE = ABSTRACT_STRING_CONTENT_PROVIDER__FILE;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONTENT_PROVIDER__TAGS = ABSTRACT_STRING_CONTENT_PROVIDER__TAGS;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONTENT_PROVIDER__PROPERTIES = ABSTRACT_STRING_CONTENT_PROVIDER__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Writeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONTENT_PROVIDER__WRITEABLE = ABSTRACT_STRING_CONTENT_PROVIDER__WRITEABLE;
 
 	/**
 	 * The feature id for the '<em><b>String Contents</b></em>' containment reference list.
@@ -704,13 +758,40 @@ public interface EmfsPackage extends EPackage {
 	int ABSTRACT_STRING_CONTENTS = 14;
 
 	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_CONTENTS__TAGS = TAGS_OWNER__TAGS;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_CONTENTS__PROPERTIES = TAGS_OWNER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Writeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_CONTENTS__WRITEABLE = TAGS_OWNER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Abstract String Contents</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_STRING_CONTENTS_FEATURE_COUNT = 0;
+	int ABSTRACT_STRING_CONTENTS_FEATURE_COUNT = TAGS_OWNER_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link no.hal.emfs.impl.VerbatimStringContentsImpl <em>Verbatim String Contents</em>}' class.
@@ -721,6 +802,33 @@ public interface EmfsPackage extends EPackage {
 	 * @generated
 	 */
 	int VERBATIM_STRING_CONTENTS = 15;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERBATIM_STRING_CONTENTS__TAGS = ABSTRACT_STRING_CONTENTS__TAGS;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERBATIM_STRING_CONTENTS__PROPERTIES = ABSTRACT_STRING_CONTENTS__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Writeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERBATIM_STRING_CONTENTS__WRITEABLE = ABSTRACT_STRING_CONTENTS__WRITEABLE;
 
 	/**
 	 * The feature id for the '<em><b>String Content</b></em>' attribute.
@@ -749,6 +857,33 @@ public interface EmfsPackage extends EPackage {
 	 * @generated
 	 */
 	int PROPERTY_VALUE_STRING = 16;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_VALUE_STRING__TAGS = ABSTRACT_STRING_CONTENTS__TAGS;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_VALUE_STRING__PROPERTIES = ABSTRACT_STRING_CONTENTS__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Writeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_VALUE_STRING__WRITEABLE = ABSTRACT_STRING_CONTENTS__WRITEABLE;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -1128,6 +1263,33 @@ public interface EmfsPackage extends EPackage {
 	int DOT_CLASSPATH_FILE_CONTENT_PROVIDER__FILE = ABSTRACT_STRING_CONTENT_PROVIDER__FILE;
 
 	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOT_CLASSPATH_FILE_CONTENT_PROVIDER__TAGS = ABSTRACT_STRING_CONTENT_PROVIDER__TAGS;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOT_CLASSPATH_FILE_CONTENT_PROVIDER__PROPERTIES = ABSTRACT_STRING_CONTENT_PROVIDER__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Writeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOT_CLASSPATH_FILE_CONTENT_PROVIDER__WRITEABLE = ABSTRACT_STRING_CONTENT_PROVIDER__WRITEABLE;
+
+	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1300,6 +1462,33 @@ public interface EmfsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DOT_PROJECT_FILE_CONTENT_PROVIDER__FILE = ABSTRACT_STRING_CONTENT_PROVIDER__FILE;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOT_PROJECT_FILE_CONTENT_PROVIDER__TAGS = ABSTRACT_STRING_CONTENT_PROVIDER__TAGS;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOT_PROJECT_FILE_CONTENT_PROVIDER__PROPERTIES = ABSTRACT_STRING_CONTENT_PROVIDER__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Writeable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOT_PROJECT_FILE_CONTENT_PROVIDER__WRITEABLE = ABSTRACT_STRING_CONTENT_PROVIDER__WRITEABLE;
 
 	/**
 	 * The feature id for the '<em><b>Keys</b></em>' attribute list.
@@ -1716,6 +1905,17 @@ public interface EmfsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAbstractStringContents();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.emfs.AbstractStringContents#isWriteable <em>Writeable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Writeable</em>'.
+	 * @see no.hal.emfs.AbstractStringContents#isWriteable()
+	 * @see #getAbstractStringContents()
+	 * @generated
+	 */
+	EAttribute getAbstractStringContents_Writeable();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.emfs.VerbatimStringContents <em>Verbatim String Contents</em>}'.
@@ -2503,6 +2703,14 @@ public interface EmfsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ABSTRACT_STRING_CONTENTS = eINSTANCE.getAbstractStringContents();
+
+		/**
+		 * The meta object literal for the '<em><b>Writeable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_STRING_CONTENTS__WRITEABLE = eINSTANCE.getAbstractStringContents_Writeable();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.emfs.impl.VerbatimStringContentsImpl <em>Verbatim String Contents</em>}' class.

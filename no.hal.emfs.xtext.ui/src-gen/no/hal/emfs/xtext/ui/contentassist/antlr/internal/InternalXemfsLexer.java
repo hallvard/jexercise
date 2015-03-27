@@ -40,13 +40,14 @@ public class InternalXemfsLexer extends Lexer {
     public static final int T__43=43;
     public static final int T__40=40;
     public static final int T__41=41;
+    public static final int T__46=46;
     public static final int T__44=44;
     public static final int T__45=45;
     public static final int RULE_STRING_CONTENT=5;
     public static final int T__30=30;
     public static final int T__31=31;
-    public static final int T__32=32;
     public static final int RULE_STRING=4;
+    public static final int T__32=32;
     public static final int T__33=33;
     public static final int T__34=34;
     public static final int T__35=35;
@@ -664,10 +665,11 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:40:7: ( '{' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:40:9: '{'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:40:7: ( '---' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:40:9: '---'
             {
-            match('{'); 
+            match("---"); 
+
 
             }
 
@@ -684,10 +686,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:41:7: ( '}' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:41:9: '}'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:41:7: ( '{' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:41:9: '{'
             {
-            match('}'); 
+            match('{'); 
 
             }
 
@@ -704,11 +706,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:42:7: ( '//' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:42:9: '//'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:42:7: ( '}' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:42:9: '}'
             {
-            match("//"); 
-
+            match('}'); 
 
             }
 
@@ -725,10 +726,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:43:7: ( 'git' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:43:9: 'git'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:43:7: ( '//' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:43:9: '//'
             {
-            match("git"); 
+            match("//"); 
 
 
             }
@@ -746,10 +747,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:44:7: ( 'dot.classpath' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:44:9: 'dot.classpath'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:44:7: ( 'git' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:44:9: 'git'
             {
-            match("dot.classpath"); 
+            match("git"); 
 
 
             }
@@ -767,10 +768,11 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:45:7: ( '(' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:45:9: '('
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:45:7: ( 'dot.classpath' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:45:9: 'dot.classpath'
             {
-            match('('); 
+            match("dot.classpath"); 
+
 
             }
 
@@ -787,10 +789,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:46:7: ( ')' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:46:9: ')'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:46:7: ( '(' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:46:9: '('
             {
-            match(')'); 
+            match('('); 
 
             }
 
@@ -807,11 +809,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:47:7: ( 'dot.project' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:47:9: 'dot.project'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:47:7: ( ')' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:47:9: ')'
             {
-            match("dot.project"); 
-
+            match(')'); 
 
             }
 
@@ -828,10 +829,11 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:48:7: ( '*' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:48:9: '*'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:48:7: ( 'dot.project' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:48:9: 'dot.project'
             {
-            match('*'); 
+            match("dot.project"); 
+
 
             }
 
@@ -843,17 +845,37 @@ public class InternalXemfsLexer extends Lexer {
     }
     // $ANTLR end "T__45"
 
+    // $ANTLR start "T__46"
+    public final void mT__46() throws RecognitionException {
+        try {
+            int _type = T__46;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:49:7: ( '*' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:49:9: '*'
+            {
+            match('*'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__46"
+
     // $ANTLR start "RULE_STRING_CONTENT"
     public final void mRULE_STRING_CONTENT() throws RecognitionException {
         try {
             int _type = RULE_STRING_CONTENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6561:21: ( '---8<---' ( '\\r' )? '\\n' ( options {greedy=false; } : . )* '\\n--->8---' )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6561:23: '---8<---' ( '\\r' )? '\\n' ( options {greedy=false; } : . )* '\\n--->8---'
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6917:21: ( '8<---' ( '\\r' )? '\\n' ( options {greedy=false; } : . )* '\\n--->8' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6917:23: '8<---' ( '\\r' )? '\\n' ( options {greedy=false; } : . )* '\\n--->8'
             {
-            match("---8<---"); 
+            match("8<---"); 
 
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6561:34: ( '\\r' )?
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6917:31: ( '\\r' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -862,7 +884,7 @@ public class InternalXemfsLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6561:34: '\\r'
+                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6917:31: '\\r'
                     {
                     match('\r'); 
 
@@ -872,14 +894,68 @@ public class InternalXemfsLexer extends Lexer {
             }
 
             match('\n'); 
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6561:45: ( options {greedy=false; } : . )*
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6917:42: ( options {greedy=false; } : . )*
             loop2:
             do {
                 int alt2=2;
-                alt2 = dfa2.predict(input);
+                int LA2_0 = input.LA(1);
+
+                if ( (LA2_0=='\n') ) {
+                    int LA2_1 = input.LA(2);
+
+                    if ( (LA2_1=='-') ) {
+                        int LA2_3 = input.LA(3);
+
+                        if ( (LA2_3=='-') ) {
+                            int LA2_4 = input.LA(4);
+
+                            if ( (LA2_4=='-') ) {
+                                int LA2_5 = input.LA(5);
+
+                                if ( (LA2_5=='>') ) {
+                                    int LA2_6 = input.LA(6);
+
+                                    if ( (LA2_6=='8') ) {
+                                        alt2=2;
+                                    }
+                                    else if ( ((LA2_6>='\u0000' && LA2_6<='7')||(LA2_6>='9' && LA2_6<='\uFFFF')) ) {
+                                        alt2=1;
+                                    }
+
+
+                                }
+                                else if ( ((LA2_5>='\u0000' && LA2_5<='=')||(LA2_5>='?' && LA2_5<='\uFFFF')) ) {
+                                    alt2=1;
+                                }
+
+
+                            }
+                            else if ( ((LA2_4>='\u0000' && LA2_4<=',')||(LA2_4>='.' && LA2_4<='\uFFFF')) ) {
+                                alt2=1;
+                            }
+
+
+                        }
+                        else if ( ((LA2_3>='\u0000' && LA2_3<=',')||(LA2_3>='.' && LA2_3<='\uFFFF')) ) {
+                            alt2=1;
+                        }
+
+
+                    }
+                    else if ( ((LA2_1>='\u0000' && LA2_1<=',')||(LA2_1>='.' && LA2_1<='\uFFFF')) ) {
+                        alt2=1;
+                    }
+
+
+                }
+                else if ( ((LA2_0>='\u0000' && LA2_0<='\t')||(LA2_0>='\u000B' && LA2_0<='\uFFFF')) ) {
+                    alt2=1;
+                }
+
+
                 switch (alt2) {
             	case 1 :
-            	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6561:73: .
+            	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6917:70: .
             	    {
             	    matchAny(); 
 
@@ -891,7 +967,7 @@ public class InternalXemfsLexer extends Lexer {
                 }
             } while (true);
 
-            match("\n--->8---"); 
+            match("\n--->8"); 
 
 
             }
@@ -909,10 +985,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6563:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+ )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6563:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6919:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+ )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6919:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6563:11: ( '^' )?
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6919:11: ( '^' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -921,7 +997,7 @@ public class InternalXemfsLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6563:11: '^'
+                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6919:11: '^'
                     {
                     match('^'); 
 
@@ -930,7 +1006,7 @@ public class InternalXemfsLexer extends Lexer {
 
             }
 
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6563:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6919:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -984,10 +1060,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1005,10 +1081,10 @@ public class InternalXemfsLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1024,7 +1100,7 @@ public class InternalXemfsLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1040,7 +1116,7 @@ public class InternalXemfsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1065,10 +1141,10 @@ public class InternalXemfsLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -1084,7 +1160,7 @@ public class InternalXemfsLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1100,7 +1176,7 @@ public class InternalXemfsLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6565:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6921:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1143,10 +1219,10 @@ public class InternalXemfsLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6567:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6567:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6923:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6923:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6567:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:6923:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt8=0;
             loop8:
             do {
@@ -1196,8 +1272,8 @@ public class InternalXemfsLexer extends Lexer {
     // $ANTLR end "RULE_WS"
 
     public void mTokens() throws RecognitionException {
-        // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:8: ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | RULE_STRING_CONTENT | RULE_ID | RULE_STRING | RULE_WS )
-        int alt9=42;
+        // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:8: ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | RULE_STRING_CONTENT | RULE_ID | RULE_STRING | RULE_WS )
+        int alt9=43;
         alt9 = dfa9.predict(input);
         switch (alt9) {
             case 1 :
@@ -1467,28 +1543,35 @@ public class InternalXemfsLexer extends Lexer {
                 }
                 break;
             case 39 :
-                // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:236: RULE_STRING_CONTENT
+                // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:236: T__46
+                {
+                mT__46(); 
+
+                }
+                break;
+            case 40 :
+                // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:242: RULE_STRING_CONTENT
                 {
                 mRULE_STRING_CONTENT(); 
 
                 }
                 break;
-            case 40 :
-                // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:256: RULE_ID
+            case 41 :
+                // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:262: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 41 :
-                // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:264: RULE_STRING
+            case 42 :
+                // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:270: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 42 :
-                // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:276: RULE_WS
+            case 43 :
+                // ../no.hal.emfs.xtext.ui/src-gen/no/hal/emfs/xtext/ui/contentassist/antlr/internal/InternalXemfs.g:1:282: RULE_WS
                 {
                 mRULE_WS(); 
 
@@ -1500,181 +1583,21 @@ public class InternalXemfsLexer extends Lexer {
     }
 
 
-    protected DFA2 dfa2 = new DFA2(this);
     protected DFA9 dfa9 = new DFA9(this);
-    static final String DFA2_eotS =
-        "\13\uffff";
-    static final String DFA2_eofS =
-        "\13\uffff";
-    static final String DFA2_minS =
-        "\2\0\1\uffff\7\0\1\uffff";
-    static final String DFA2_maxS =
-        "\2\uffff\1\uffff\7\uffff\1\uffff";
-    static final String DFA2_acceptS =
-        "\2\uffff\1\1\7\uffff\1\2";
-    static final String DFA2_specialS =
-        "\1\3\1\10\1\uffff\1\6\1\7\1\4\1\5\1\1\1\2\1\0\1\uffff}>";
-    static final String[] DFA2_transitionS = {
-            "\12\2\1\1\ufff5\2",
-            "\55\2\1\3\uffd2\2",
-            "",
-            "\55\2\1\4\uffd2\2",
-            "\55\2\1\5\uffd2\2",
-            "\76\2\1\6\uffc1\2",
-            "\70\2\1\7\uffc7\2",
-            "\55\2\1\10\uffd2\2",
-            "\55\2\1\11\uffd2\2",
-            "\55\2\1\12\uffd2\2",
-            ""
-    };
-
-    static final short[] DFA2_eot = DFA.unpackEncodedString(DFA2_eotS);
-    static final short[] DFA2_eof = DFA.unpackEncodedString(DFA2_eofS);
-    static final char[] DFA2_min = DFA.unpackEncodedStringToUnsignedChars(DFA2_minS);
-    static final char[] DFA2_max = DFA.unpackEncodedStringToUnsignedChars(DFA2_maxS);
-    static final short[] DFA2_accept = DFA.unpackEncodedString(DFA2_acceptS);
-    static final short[] DFA2_special = DFA.unpackEncodedString(DFA2_specialS);
-    static final short[][] DFA2_transition;
-
-    static {
-        int numStates = DFA2_transitionS.length;
-        DFA2_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA2_transition[i] = DFA.unpackEncodedString(DFA2_transitionS[i]);
-        }
-    }
-
-    static class DFA2 extends DFA {
-
-        public DFA2(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 2;
-            this.eot = DFA2_eot;
-            this.eof = DFA2_eof;
-            this.min = DFA2_min;
-            this.max = DFA2_max;
-            this.accept = DFA2_accept;
-            this.special = DFA2_special;
-            this.transition = DFA2_transition;
-        }
-        public String getDescription() {
-            return "()* loopback of 6561:45: ( options {greedy=false; } : . )*";
-        }
-        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-            IntStream input = _input;
-        	int _s = s;
-            switch ( s ) {
-                    case 0 : 
-                        int LA2_9 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA2_9=='-') ) {s = 10;}
-
-                        else if ( ((LA2_9>='\u0000' && LA2_9<=',')||(LA2_9>='.' && LA2_9<='\uFFFF')) ) {s = 2;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA2_7 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA2_7=='-') ) {s = 8;}
-
-                        else if ( ((LA2_7>='\u0000' && LA2_7<=',')||(LA2_7>='.' && LA2_7<='\uFFFF')) ) {s = 2;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA2_8 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA2_8=='-') ) {s = 9;}
-
-                        else if ( ((LA2_8>='\u0000' && LA2_8<=',')||(LA2_8>='.' && LA2_8<='\uFFFF')) ) {s = 2;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA2_0 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA2_0=='\n') ) {s = 1;}
-
-                        else if ( ((LA2_0>='\u0000' && LA2_0<='\t')||(LA2_0>='\u000B' && LA2_0<='\uFFFF')) ) {s = 2;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA2_5 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA2_5=='>') ) {s = 6;}
-
-                        else if ( ((LA2_5>='\u0000' && LA2_5<='=')||(LA2_5>='?' && LA2_5<='\uFFFF')) ) {s = 2;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA2_6 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA2_6=='8') ) {s = 7;}
-
-                        else if ( ((LA2_6>='\u0000' && LA2_6<='7')||(LA2_6>='9' && LA2_6<='\uFFFF')) ) {s = 2;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA2_3 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA2_3=='-') ) {s = 4;}
-
-                        else if ( ((LA2_3>='\u0000' && LA2_3<=',')||(LA2_3>='.' && LA2_3<='\uFFFF')) ) {s = 2;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA2_4 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA2_4=='-') ) {s = 5;}
-
-                        else if ( ((LA2_4>='\u0000' && LA2_4<=',')||(LA2_4>='.' && LA2_4<='\uFFFF')) ) {s = 2;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA2_1 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA2_1=='-') ) {s = 3;}
-
-                        else if ( ((LA2_1>='\u0000' && LA2_1<=',')||(LA2_1>='.' && LA2_1<='\uFFFF')) ) {s = 2;}
-
-                        if ( s>=0 ) return s;
-                        break;
-            }
-            NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 2, _s, input);
-            error(nvae);
-            throw nvae;
-        }
-    }
     static final String DFA9_eotS =
-        "\2\uffff\2\43\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\61\1\62\4\43\1\70\1\43\11\uffff\2\43\3\uffff\1\43\3\uffff\3\43\12\uffff\4\43\2\uffff\6\43\1\113\7\43\1\123\2\43\1\127\1\uffff\1\130\4\43\1\135\1\43\2\uffff\1\43\1\142\2\uffff\4\43\1\uffff\1\43\4\uffff\11\43\1\161\4\43\1\uffff\12\43\1\u0080\3\43\1\uffff\1\43\1\u0085\1\u0086\1\43\2\uffff\1\43\1\u0089\1\uffff";
+        "\2\uffff\2\43\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\62\1\63\4\43\1\71\1\43\7\uffff\1\43\2\uffff\2\43\6\uffff\3\43\13\uffff\4\43\2\uffff\6\43\1\114\7\43\1\124\1\125\1\43\1\130\1\uffff\1\131\4\43\1\136\1\43\3\uffff\1\142\2\uffff\4\43\1\uffff\1\43\3\uffff\11\43\1\161\4\43\1\uffff\12\43\1\u0080\3\43\1\uffff\1\43\1\u0085\1\u0086\1\43\2\uffff\1\43\1\u0089\1\uffff";
     static final String DFA9_eofS =
         "\u008a\uffff";
     static final String DFA9_minS =
-        "\1\11\1\uffff\1\164\1\151\12\55\1\157\1\165\1\151\1\154\1\57\1\155\11\uffff\1\151\1\157\3\uffff\1\55\3\uffff\1\164\1\160\1\154\12\uffff\1\165\1\164\1\142\1\141\2\uffff\1\146\3\164\1\55\1\160\1\55\1\145\1\162\1\160\1\162\2\163\1\145\1\55\1\56\1\70\1\55\1\uffff\1\55\1\143\1\165\1\141\1\163\1\55\1\156\1\uffff\1\143\1\74\1\55\2\uffff\1\145\1\164\1\162\1\55\1\uffff\1\144\4\uffff\2\55\1\171\1\143\1\163\2\146\1\55\1\157\1\55\2\157\1\152\1\156\1\uffff\2\154\1\141\1\164\2\144\1\162\1\141\2\145\1\55\1\151\2\162\1\uffff\1\156\2\55\1\145\2\uffff\1\162\1\55\1\uffff";
+        "\1\11\1\uffff\1\164\1\151\12\55\1\157\1\165\1\151\1\154\1\57\1\155\7\uffff\1\55\2\uffff\1\151\1\157\6\uffff\1\164\1\160\1\154\13\uffff\1\165\1\164\1\142\1\141\2\uffff\1\146\1\164\1\55\2\164\1\160\1\55\1\145\1\162\1\160\1\162\2\163\1\145\2\55\1\56\1\55\1\uffff\1\55\1\143\1\165\1\141\1\163\1\55\1\156\2\uffff\1\143\1\55\2\uffff\1\145\1\164\1\162\1\55\1\uffff\1\144\3\uffff\2\55\1\171\1\143\1\163\2\146\1\55\1\157\1\55\2\157\1\152\1\156\1\uffff\2\154\1\141\1\164\2\144\1\162\1\141\2\145\1\55\1\151\2\162\1\uffff\1\156\2\55\1\145\2\uffff\1\162\1\55\1\uffff";
     static final String DFA9_maxS =
-        "\1\175\1\uffff\2\164\12\172\1\157\1\165\1\151\1\154\1\57\1\170\11\uffff\1\151\1\157\3\uffff\1\55\3\uffff\1\164\1\160\1\154\12\uffff\1\165\1\164\1\142\1\141\2\uffff\1\146\3\164\1\55\1\160\1\172\1\145\1\162\1\160\1\162\2\163\1\145\1\172\1\56\1\70\1\172\1\uffff\1\172\1\143\1\165\1\141\1\163\1\172\1\156\1\uffff\1\160\1\74\1\172\2\uffff\1\145\1\164\1\162\1\55\1\uffff\1\144\4\uffff\2\55\1\171\1\143\1\163\2\146\1\55\1\157\1\172\2\157\1\152\1\156\1\uffff\2\154\1\141\1\164\2\144\1\162\1\141\2\145\1\172\1\151\2\162\1\uffff\1\156\2\172\1\145\2\uffff\1\162\1\172\1\uffff";
+        "\1\175\1\uffff\2\164\12\172\1\157\1\165\1\151\1\154\1\57\1\170\7\uffff\1\55\2\uffff\1\151\1\157\6\uffff\1\164\1\160\1\154\13\uffff\1\165\1\164\1\142\1\141\2\uffff\1\146\1\164\1\55\2\164\1\160\1\172\1\145\1\162\1\160\1\162\2\163\1\145\2\172\1\56\1\172\1\uffff\1\172\1\143\1\165\1\141\1\163\1\172\1\156\2\uffff\1\160\1\172\2\uffff\1\145\1\164\1\162\1\55\1\uffff\1\144\3\uffff\2\55\1\171\1\143\1\163\2\146\1\55\1\157\1\172\2\157\1\152\1\156\1\uffff\2\154\1\141\1\164\2\144\1\162\1\141\2\145\1\172\1\151\2\162\1\uffff\1\156\2\172\1\145\2\uffff\1\162\1\172\1\uffff";
     static final String DFA9_acceptS =
-        "\1\uffff\1\1\22\uffff\1\26\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\2\uffff\1\43\1\44\1\46\1\uffff\1\50\1\51\1\52\3\uffff\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\4\uffff\1\40\1\24\22\uffff\1\4\7\uffff\1\41\3\uffff\1\2\1\5\4\uffff\1\25\1\uffff\1\42\1\45\1\47\1\3\16\uffff\1\27\16\uffff\1\22\4\uffff\1\20\1\21\2\uffff\1\23";
+        "\1\uffff\1\1\22\uffff\1\26\1\30\1\31\1\32\1\33\1\34\1\35\1\uffff\1\37\1\40\2\uffff\1\44\1\45\1\47\1\51\1\52\1\53\3\uffff\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\50\1\16\1\17\4\uffff\1\41\1\24\22\uffff\1\4\7\uffff\1\36\1\42\2\uffff\1\2\1\5\4\uffff\1\25\1\uffff\1\43\1\46\1\3\16\uffff\1\27\16\uffff\1\22\4\uffff\1\20\1\21\2\uffff\1\23";
     static final String DFA9_specialS =
         "\u008a\uffff}>";
     static final String[] DFA9_transitionS = {
-            "\2\45\2\uffff\1\45\22\uffff\1\45\1\uffff\1\44\1\24\1\27\2\uffff\1\44\1\37\1\40\1\41\1\uffff\1\26\1\42\1\25\1\22\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\32\1\1\1\uffff\1\30\2\uffff\1\31\32\43\3\uffff\2\43\1\uffff\2\43\1\21\1\36\1\23\1\3\1\35\1\2\3\43\1\20\2\43\1\17\3\43\1\16\7\43\1\33\1\uffff\1\34",
+            "\2\45\2\uffff\1\45\22\uffff\1\45\1\uffff\1\44\1\24\1\27\2\uffff\1\44\1\40\1\41\1\42\1\uffff\1\26\1\33\1\25\1\22\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\32\1\1\1\uffff\1\30\2\uffff\1\31\32\43\3\uffff\2\43\1\uffff\2\43\1\21\1\37\1\23\1\3\1\36\1\2\3\43\1\20\2\43\1\17\3\43\1\16\7\43\1\34\1\uffff\1\35",
             "",
             "\1\46",
             "\1\50\12\uffff\1\47",
@@ -1686,14 +1609,14 @@ public class InternalXemfsLexer extends Lexer {
             "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
             "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
             "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\43\2\uffff\12\43\2\uffff\1\61\4\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
             "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\1\63",
             "\1\64",
             "\1\65",
             "\1\66",
             "\1\67",
-            "\1\71\12\uffff\1\72",
+            "\1\70",
+            "\1\72\12\uffff\1\73",
             "",
             "",
             "",
@@ -1701,65 +1624,66 @@ public class InternalXemfsLexer extends Lexer {
             "",
             "",
             "",
-            "",
-            "",
-            "\1\73",
             "\1\74",
             "",
             "",
-            "",
             "\1\75",
-            "",
-            "",
-            "",
             "\1\76",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\77",
             "\1\100",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\101",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\102",
             "\1\103",
             "\1\104",
-            "",
-            "",
             "\1\105",
+            "",
+            "",
             "\1\106",
             "\1\107",
             "\1\110",
             "\1\111",
             "\1\112",
+            "\1\113",
             "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\1\114",
             "\1\115",
             "\1\116",
             "\1\117",
             "\1\120",
             "\1\121",
             "\1\122",
+            "\1\123",
             "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\1\124",
-            "\1\125",
-            "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\22\43\1\126\7\43",
+            "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\126",
+            "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\22\43\1\127\7\43",
             "",
             "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\1\131",
             "\1\132",
             "\1\133",
             "\1\134",
+            "\1\135",
             "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\1\136",
+            "\1\137",
             "",
-            "\1\137\14\uffff\1\140",
-            "\1\141",
+            "",
+            "\1\140\14\uffff\1\141",
             "\1\43\2\uffff\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
             "",
             "",
@@ -1769,7 +1693,6 @@ public class InternalXemfsLexer extends Lexer {
             "\1\146",
             "",
             "\1\147",
-            "",
             "",
             "",
             "",
@@ -1844,7 +1767,7 @@ public class InternalXemfsLexer extends Lexer {
             this.transition = DFA9_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | RULE_STRING_CONTENT | RULE_ID | RULE_STRING | RULE_WS );";
+            return "1:1: Tokens : ( T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | RULE_STRING_CONTENT | RULE_ID | RULE_STRING | RULE_WS );";
         }
     }
  

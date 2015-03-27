@@ -589,98 +589,150 @@ public class XemfsGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class VerbatimStringContentsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VerbatimStringContents");
-		private final Assignment cStringContentAssignment = (Assignment)rule.eContents().get(1);
-		private final Alternatives cStringContentAlternatives_0 = (Alternatives)cStringContentAssignment.eContents().get(0);
-		private final RuleCall cStringContentSTRINGTerminalRuleCall_0_0 = (RuleCall)cStringContentAlternatives_0.eContents().get(0);
-		private final RuleCall cStringContentSTRING_CONTENTTerminalRuleCall_0_1 = (RuleCall)cStringContentAlternatives_0.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cHyphenMinusHyphenMinusHyphenMinusKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cWriteableAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final Keyword cWriteableAsteriskKeyword_0_1_0 = (Keyword)cWriteableAssignment_0_1.eContents().get(0);
+		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
+		private final Keyword cNumberSignKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
+		private final Assignment cTagsAssignment_0_2_1 = (Assignment)cGroup_0_2.eContents().get(1);
+		private final RuleCall cTagsIDTerminalRuleCall_0_2_1_0 = (RuleCall)cTagsAssignment_0_2_1.eContents().get(0);
+		private final Assignment cPropertiesAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cPropertiesPropertyParserRuleCall_0_3_0 = (RuleCall)cPropertiesAssignment_0_3.eContents().get(0);
+		private final Assignment cStringContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cStringContentAlternatives_1_0 = (Alternatives)cStringContentAssignment_1.eContents().get(0);
+		private final RuleCall cStringContentSTRINGTerminalRuleCall_1_0_0 = (RuleCall)cStringContentAlternatives_1_0.eContents().get(0);
+		private final RuleCall cStringContentSTRING_CONTENTTerminalRuleCall_1_0_1 = (RuleCall)cStringContentAlternatives_1_0.eContents().get(1);
 		
 		//VerbatimStringContents:
-		//	stringContent=(STRING | STRING_CONTENT);
+		//	("---" writeable?="*"? ("#" tags+=ID)* properties+=Property*)? stringContent=(STRING | STRING_CONTENT);
 		public ParserRule getRule() { return rule; }
 
+		//("---" writeable?="*"? ("#" tags+=ID)* properties+=Property*)? stringContent=(STRING | STRING_CONTENT)
+		public Group getGroup() { return cGroup; }
+
+		//("---" writeable?="*"? ("#" tags+=ID)* properties+=Property*)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"---"
+		public Keyword getHyphenMinusHyphenMinusHyphenMinusKeyword_0_0() { return cHyphenMinusHyphenMinusHyphenMinusKeyword_0_0; }
+
+		//writeable?="*"?
+		public Assignment getWriteableAssignment_0_1() { return cWriteableAssignment_0_1; }
+
+		//"*"
+		public Keyword getWriteableAsteriskKeyword_0_1_0() { return cWriteableAsteriskKeyword_0_1_0; }
+
+		//("#" tags+=ID)*
+		public Group getGroup_0_2() { return cGroup_0_2; }
+
+		//"#"
+		public Keyword getNumberSignKeyword_0_2_0() { return cNumberSignKeyword_0_2_0; }
+
+		//tags+=ID
+		public Assignment getTagsAssignment_0_2_1() { return cTagsAssignment_0_2_1; }
+
+		//ID
+		public RuleCall getTagsIDTerminalRuleCall_0_2_1_0() { return cTagsIDTerminalRuleCall_0_2_1_0; }
+
+		//properties+=Property*
+		public Assignment getPropertiesAssignment_0_3() { return cPropertiesAssignment_0_3; }
+
+		//Property
+		public RuleCall getPropertiesPropertyParserRuleCall_0_3_0() { return cPropertiesPropertyParserRuleCall_0_3_0; }
+
 		//stringContent=(STRING | STRING_CONTENT)
-		public Assignment getStringContentAssignment() { return cStringContentAssignment; }
+		public Assignment getStringContentAssignment_1() { return cStringContentAssignment_1; }
 
 		//STRING | STRING_CONTENT
-		public Alternatives getStringContentAlternatives_0() { return cStringContentAlternatives_0; }
+		public Alternatives getStringContentAlternatives_1_0() { return cStringContentAlternatives_1_0; }
 
 		//STRING
-		public RuleCall getStringContentSTRINGTerminalRuleCall_0_0() { return cStringContentSTRINGTerminalRuleCall_0_0; }
+		public RuleCall getStringContentSTRINGTerminalRuleCall_1_0_0() { return cStringContentSTRINGTerminalRuleCall_1_0_0; }
 
 		//STRING_CONTENT
-		public RuleCall getStringContentSTRING_CONTENTTerminalRuleCall_0_1() { return cStringContentSTRING_CONTENTTerminalRuleCall_0_1; }
+		public RuleCall getStringContentSTRING_CONTENTTerminalRuleCall_1_0_1() { return cStringContentSTRING_CONTENTTerminalRuleCall_1_0_1; }
 	}
 
 	public class PropertyValueStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertyValueString");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDollarSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cPropertyNameAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cPropertyNameIDTerminalRuleCall_1_0_0 = (RuleCall)cPropertyNameAssignment_1_0.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Assignment cPropertyNameAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cPropertyNameEmfsNameParserRuleCall_1_1_1_0 = (RuleCall)cPropertyNameAssignment_1_1_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_1_1_2 = (Keyword)cGroup_1_1.eContents().get(2);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cDefaultValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final Alternatives cDefaultValueAlternatives_2_1_0 = (Alternatives)cDefaultValueAssignment_2_1.eContents().get(0);
-		private final RuleCall cDefaultValueSTRINGTerminalRuleCall_2_1_0_0 = (RuleCall)cDefaultValueAlternatives_2_1_0.eContents().get(0);
-		private final RuleCall cDefaultValueEmfsNameParserRuleCall_2_1_0_1 = (RuleCall)cDefaultValueAlternatives_2_1_0.eContents().get(1);
+		private final Assignment cWriteableAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cWriteableAsteriskKeyword_1_0 = (Keyword)cWriteableAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cPropertyNameAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cPropertyNameIDTerminalRuleCall_2_0_0 = (RuleCall)cPropertyNameAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cPropertyNameAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cPropertyNameEmfsNameParserRuleCall_2_1_1_0 = (RuleCall)cPropertyNameAssignment_2_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_1_2 = (Keyword)cGroup_2_1.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cColonKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cDefaultValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final Alternatives cDefaultValueAlternatives_3_1_0 = (Alternatives)cDefaultValueAssignment_3_1.eContents().get(0);
+		private final RuleCall cDefaultValueSTRINGTerminalRuleCall_3_1_0_0 = (RuleCall)cDefaultValueAlternatives_3_1_0.eContents().get(0);
+		private final RuleCall cDefaultValueEmfsNameParserRuleCall_3_1_0_1 = (RuleCall)cDefaultValueAlternatives_3_1_0.eContents().get(1);
 		
 		//PropertyValueString:
-		//	"$" (propertyName=ID | "{" propertyName=EmfsName "}") (":" defaultValue=(STRING | EmfsName))?;
+		//	"$" writeable?="*"? (propertyName=ID | "{" propertyName=EmfsName "}") (":" defaultValue=(STRING | EmfsName))?;
 		public ParserRule getRule() { return rule; }
 
-		//"$" (propertyName=ID | "{" propertyName=EmfsName "}") (":" defaultValue=(STRING | EmfsName))?
+		//"$" writeable?="*"? (propertyName=ID | "{" propertyName=EmfsName "}") (":" defaultValue=(STRING | EmfsName))?
 		public Group getGroup() { return cGroup; }
 
 		//"$"
 		public Keyword getDollarSignKeyword_0() { return cDollarSignKeyword_0; }
 
+		//writeable?="*"?
+		public Assignment getWriteableAssignment_1() { return cWriteableAssignment_1; }
+
+		//"*"
+		public Keyword getWriteableAsteriskKeyword_1_0() { return cWriteableAsteriskKeyword_1_0; }
+
 		//propertyName=ID | "{" propertyName=EmfsName "}"
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
 		//propertyName=ID
-		public Assignment getPropertyNameAssignment_1_0() { return cPropertyNameAssignment_1_0; }
+		public Assignment getPropertyNameAssignment_2_0() { return cPropertyNameAssignment_2_0; }
 
 		//ID
-		public RuleCall getPropertyNameIDTerminalRuleCall_1_0_0() { return cPropertyNameIDTerminalRuleCall_1_0_0; }
+		public RuleCall getPropertyNameIDTerminalRuleCall_2_0_0() { return cPropertyNameIDTerminalRuleCall_2_0_0; }
 
 		//"{" propertyName=EmfsName "}"
-		public Group getGroup_1_1() { return cGroup_1_1; }
+		public Group getGroup_2_1() { return cGroup_2_1; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1_1_0() { return cLeftCurlyBracketKeyword_1_1_0; }
+		public Keyword getLeftCurlyBracketKeyword_2_1_0() { return cLeftCurlyBracketKeyword_2_1_0; }
 
 		//propertyName=EmfsName
-		public Assignment getPropertyNameAssignment_1_1_1() { return cPropertyNameAssignment_1_1_1; }
+		public Assignment getPropertyNameAssignment_2_1_1() { return cPropertyNameAssignment_2_1_1; }
 
 		//EmfsName
-		public RuleCall getPropertyNameEmfsNameParserRuleCall_1_1_1_0() { return cPropertyNameEmfsNameParserRuleCall_1_1_1_0; }
+		public RuleCall getPropertyNameEmfsNameParserRuleCall_2_1_1_0() { return cPropertyNameEmfsNameParserRuleCall_2_1_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_1_1_2() { return cRightCurlyBracketKeyword_1_1_2; }
+		public Keyword getRightCurlyBracketKeyword_2_1_2() { return cRightCurlyBracketKeyword_2_1_2; }
 
 		//(":" defaultValue=(STRING | EmfsName))?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//":"
-		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
+		public Keyword getColonKeyword_3_0() { return cColonKeyword_3_0; }
 
 		//defaultValue=(STRING | EmfsName)
-		public Assignment getDefaultValueAssignment_2_1() { return cDefaultValueAssignment_2_1; }
+		public Assignment getDefaultValueAssignment_3_1() { return cDefaultValueAssignment_3_1; }
 
 		//STRING | EmfsName
-		public Alternatives getDefaultValueAlternatives_2_1_0() { return cDefaultValueAlternatives_2_1_0; }
+		public Alternatives getDefaultValueAlternatives_3_1_0() { return cDefaultValueAlternatives_3_1_0; }
 
 		//STRING
-		public RuleCall getDefaultValueSTRINGTerminalRuleCall_2_1_0_0() { return cDefaultValueSTRINGTerminalRuleCall_2_1_0_0; }
+		public RuleCall getDefaultValueSTRINGTerminalRuleCall_3_1_0_0() { return cDefaultValueSTRINGTerminalRuleCall_3_1_0_0; }
 
 		//EmfsName
-		public RuleCall getDefaultValueEmfsNameParserRuleCall_2_1_0_1() { return cDefaultValueEmfsNameParserRuleCall_2_1_0_1; }
+		public RuleCall getDefaultValueEmfsNameParserRuleCall_3_1_0_1() { return cDefaultValueEmfsNameParserRuleCall_3_1_0_1; }
 	}
 
 	public class WrappingStringContentProviderElements extends AbstractParserRuleElementFinder {
@@ -1695,13 +1747,13 @@ public class XemfsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal STRING_CONTENT:
-	//	"---8<---" "\r"? "\n"->"\n--->8---";
+	//	"8<---" "\r"? "\n"->"\n--->8";
 	public TerminalRule getSTRING_CONTENTRule() {
 		return tSTRING_CONTENT;
 	} 
 
 	//VerbatimStringContents:
-	//	stringContent=(STRING | STRING_CONTENT);
+	//	("---" writeable?="*"? ("#" tags+=ID)* properties+=Property*)? stringContent=(STRING | STRING_CONTENT);
 	public VerbatimStringContentsElements getVerbatimStringContentsAccess() {
 		return pVerbatimStringContents;
 	}
@@ -1711,7 +1763,7 @@ public class XemfsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PropertyValueString:
-	//	"$" (propertyName=ID | "{" propertyName=EmfsName "}") (":" defaultValue=(STRING | EmfsName))?;
+	//	"$" writeable?="*"? (propertyName=ID | "{" propertyName=EmfsName "}") (":" defaultValue=(STRING | EmfsName))?;
 	public PropertyValueStringElements getPropertyValueStringAccess() {
 		return pPropertyValueString;
 	}

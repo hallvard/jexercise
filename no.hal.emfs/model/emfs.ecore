@@ -75,17 +75,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="byteContents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractStringContentProvider" abstract="true"
-      eSuperTypes="#//AbstractBytesContentProvider #//AbstractStringContents">
-    <eOperations name="setStringContent">
-      <eParameters name="contents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-  </eClassifiers>
+      eSuperTypes="#//AbstractBytesContentProvider #//AbstractStringContents"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringContentProvider" eSuperTypes="#//AbstractStringContentProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="stringContents" upperBound="-1"
         eType="#//AbstractStringContents" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractStringContents" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractStringContents" abstract="true"
+      eSuperTypes="#//TagsOwner #//PropertyOwner">
     <eOperations name="getStringContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="setStringContent">
+      <eParameters name="contents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="writeable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VerbatimStringContents" eSuperTypes="#//AbstractStringContents">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

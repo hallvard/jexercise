@@ -260,7 +260,7 @@ public abstract class AbstractXemfsSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     ((propertyName=ID | propertyName=EmfsName) (defaultValue=STRING | defaultValue=EmfsName)?)
+	 *     (writeable?='*'? (propertyName=ID | propertyName=EmfsName) (defaultValue=STRING | defaultValue=EmfsName)?)
 	 */
 	protected void sequence_PropertyValueString(EObject context, PropertyValueString semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -296,7 +296,7 @@ public abstract class AbstractXemfsSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     (stringContent=STRING | stringContent=STRING_CONTENT)
+	 *     ((writeable?='*'? tags+=ID* properties+=Property*)? (stringContent=STRING | stringContent=STRING_CONTENT))
 	 */
 	protected void sequence_VerbatimStringContents(EObject context, VerbatimStringContents semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

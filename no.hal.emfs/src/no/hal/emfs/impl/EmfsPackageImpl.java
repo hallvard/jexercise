@@ -639,6 +639,15 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAbstractStringContents_Writeable() {
+		return (EAttribute)abstractStringContentsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVerbatimStringContents() {
 		return verbatimStringContentsEClass;
 	}
@@ -1105,6 +1114,7 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		createEReference(stringContentProviderEClass, STRING_CONTENT_PROVIDER__STRING_CONTENTS);
 
 		abstractStringContentsEClass = createEClass(ABSTRACT_STRING_CONTENTS);
+		createEAttribute(abstractStringContentsEClass, ABSTRACT_STRING_CONTENTS__WRITEABLE);
 
 		verbatimStringContentsEClass = createEClass(VERBATIM_STRING_CONTENTS);
 		createEAttribute(verbatimStringContentsEClass, VERBATIM_STRING_CONTENTS__STRING_CONTENT);
@@ -1208,6 +1218,8 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		abstractStringContentProviderEClass.getESuperTypes().add(this.getAbstractBytesContentProvider());
 		abstractStringContentProviderEClass.getESuperTypes().add(this.getAbstractStringContents());
 		stringContentProviderEClass.getESuperTypes().add(this.getAbstractStringContentProvider());
+		abstractStringContentsEClass.getESuperTypes().add(this.getTagsOwner());
+		abstractStringContentsEClass.getESuperTypes().add(this.getPropertyOwner());
 		verbatimStringContentsEClass.getESuperTypes().add(this.getAbstractStringContents());
 		propertyValueStringEClass.getESuperTypes().add(this.getAbstractStringContents());
 		wrappingStringContentProviderEClass.getESuperTypes().add(this.getEmfsFileContentProvider());
@@ -1278,15 +1290,16 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 
 		initEClass(abstractStringContentProviderEClass, AbstractStringContentProvider.class, "AbstractStringContentProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(abstractStringContentProviderEClass, null, "setStringContent", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "contents", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(stringContentProviderEClass, StringContentProvider.class, "StringContentProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStringContentProvider_StringContents(), this.getAbstractStringContents(), null, "stringContents", null, 0, -1, StringContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractStringContentsEClass, AbstractStringContents.class, "AbstractStringContents", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAbstractStringContents_Writeable(), ecorePackage.getEBoolean(), "writeable", null, 0, 1, AbstractStringContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(abstractStringContentsEClass, ecorePackage.getEString(), "getStringContent", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(abstractStringContentsEClass, null, "setStringContent", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "contents", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(verbatimStringContentsEClass, VerbatimStringContents.class, "VerbatimStringContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVerbatimStringContents_StringContent(), ecorePackage.getEString(), "stringContent", null, 0, 1, VerbatimStringContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

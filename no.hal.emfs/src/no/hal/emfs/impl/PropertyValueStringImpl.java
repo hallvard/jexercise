@@ -3,8 +3,10 @@
 package no.hal.emfs.impl;
 
 import no.hal.emfs.EmfsPackage;
+import no.hal.emfs.Property;
 import no.hal.emfs.PropertyValueString;
 import no.hal.emfs.util.PropertyResolver;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -217,10 +219,18 @@ public class PropertyValueStringImpl extends AbstractStringContentsImpl implemen
 	
 	@Override
 	public String getStringContent() {
-		Object value = propertyResolver.getProperty(this, getPropertyName());
+		Object value = propertyResolver.getPropertyValue(this, getPropertyName());
 		if (value != null) {
 			return String.valueOf(value);
 		}
 		return getDefaultValue();
+	}
+	
+	@Override
+	public void setStringContent(String contents) {
+		Property property = propertyResolver.getProperty(this, getPropertyName());
+		if (property != null) {
+			property.setValue(contents);
+		}
 	}
 } //PropertyValueStringImpl

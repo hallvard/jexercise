@@ -14,12 +14,5 @@ package no.hal.emfs;
  * @generated
  */
 public interface AbstractStringContentProvider extends AbstractBytesContentProvider, AbstractStringContents {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void setStringContent(String contents);
 
 } // AbstractStringContentProvider

@@ -38,7 +38,28 @@ public class PropertyResolver {
 		return findProperty(eObject, propertyName) != null;
 	}
 	
-	public Object getProperty(EObject eObject, String propertyName) {
+	public Property getProperty(EObject eObject, String propertyName) {
+		while (! (eObject instanceof PropertyOwner)) {
+			if (eObject == null) {
+				return null;
+			}
+			eObject = eObject.eContainer();
+		}
+		PropertyOwner propertyOwner = (PropertyOwner) eObject;
+		Property property = findProperty(propertyOwner, propertyName);
+		if (property != null && property.getValue() != null) {
+			return property;
+		}
+		if (includeContainer && propertyOwner.eContainer() instanceof PropertyOwner) {
+			property = getProperty(((PropertyOwner) propertyOwner.eContainer()), propertyName);
+			if (property != null) {
+				return property;
+			}
+		}
+		return null;
+	}
+	
+	public Object getPropertyValue(EObject eObject, String propertyName) {
 		while (! (eObject instanceof PropertyOwner)) {
 			if (eObject == null) {
 				return null;
@@ -63,7 +84,7 @@ public class PropertyResolver {
 			}
 		}
 		if (includeContainer && propertyOwner.eContainer() instanceof PropertyOwner) {
-			Object value = getProperty(((PropertyOwner) propertyOwner.eContainer()), propertyName);
+			Object value = getPropertyValue(((PropertyOwner) propertyOwner.eContainer()), propertyName);
 			if (value != null) {
 				return value;
 			}
@@ -101,7 +122,7 @@ public class PropertyResolver {
 					if (pos2 >= pos1) {
 						String propertyName = s.substring(pos1 + 1, pos2);
 						start = pos2 + 1;
-						Object propertyValue = propertyResolver.getProperty(eObject, propertyName);
+						Object propertyValue = propertyResolver.getPropertyValue(eObject, propertyName);
 						if (propertyValue != null) {
 							builder.append(propertyValue);
 						}
@@ -113,7 +134,7 @@ public class PropertyResolver {
 					}
 					String propertyName = s.substring(pos1, pos2);
 					start = pos2;
-					Object propertyValue = propertyResolver.getProperty(eObject, propertyName);
+					Object propertyValue = propertyResolver.getPropertyValue(eObject, propertyName);
 					if (propertyValue != null) {
 						builder.append(propertyValue);
 					}

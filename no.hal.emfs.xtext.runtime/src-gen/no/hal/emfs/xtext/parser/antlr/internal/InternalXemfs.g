@@ -1054,12 +1054,71 @@ ruleVerbatimStringContents returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+((	otherlv_0='---' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getVerbatimStringContentsAccess().getHyphenMinusHyphenMinusHyphenMinusKeyword_0_0());
+    }
 (
 (
+		lv_writeable_1_0=	'*' 
+    {
+        newLeafNode(lv_writeable_1_0, grammarAccess.getVerbatimStringContentsAccess().getWriteableAsteriskKeyword_0_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getVerbatimStringContentsRule());
+	        }
+       		setWithLastConsumed($current, "writeable", true, "*");
+	    }
+
+)
+)?(	otherlv_2='#' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getVerbatimStringContentsAccess().getNumberSignKeyword_0_2_0());
+    }
 (
-		lv_stringContent_0_1=RULE_STRING
+(
+		lv_tags_3_0=RULE_ID
 		{
-			newLeafNode(lv_stringContent_0_1, grammarAccess.getVerbatimStringContentsAccess().getStringContentSTRINGTerminalRuleCall_0_0()); 
+			newLeafNode(lv_tags_3_0, grammarAccess.getVerbatimStringContentsAccess().getTagsIDTerminalRuleCall_0_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getVerbatimStringContentsRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"tags",
+        		lv_tags_3_0, 
+        		"ID");
+	    }
+
+)
+))*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getVerbatimStringContentsAccess().getPropertiesPropertyParserRuleCall_0_3_0()); 
+	    }
+		lv_properties_4_0=ruleProperty		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getVerbatimStringContentsRule());
+	        }
+       		add(
+       			$current, 
+       			"properties",
+        		lv_properties_4_0, 
+        		"Property");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*)?(
+(
+(
+		lv_stringContent_5_1=RULE_STRING
+		{
+			newLeafNode(lv_stringContent_5_1, grammarAccess.getVerbatimStringContentsAccess().getStringContentSTRINGTerminalRuleCall_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1068,13 +1127,13 @@ ruleVerbatimStringContents returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"stringContent",
-        		lv_stringContent_0_1, 
+        		lv_stringContent_5_1, 
         		"STRING");
 	    }
 
-    |		lv_stringContent_0_2=RULE_STRING_CONTENT
+    |		lv_stringContent_5_2=RULE_STRING_CONTENT
 		{
-			newLeafNode(lv_stringContent_0_2, grammarAccess.getVerbatimStringContentsAccess().getStringContentSTRING_CONTENTTerminalRuleCall_0_1()); 
+			newLeafNode(lv_stringContent_5_2, grammarAccess.getVerbatimStringContentsAccess().getStringContentSTRING_CONTENTTerminalRuleCall_1_0_1()); 
 		}
 		{
 	        if ($current==null) {
@@ -1083,14 +1142,14 @@ ruleVerbatimStringContents returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"stringContent",
-        		lv_stringContent_0_2, 
+        		lv_stringContent_5_2, 
         		"STRING_CONTENT");
 	    }
 
 )
 
 )
-)
+))
 ;
 
 
@@ -1115,11 +1174,26 @@ rulePropertyValueString returns [EObject current=null]
     {
     	newLeafNode(otherlv_0, grammarAccess.getPropertyValueStringAccess().getDollarSignKeyword_0());
     }
-((
 (
-		lv_propertyName_1_0=RULE_ID
+(
+		lv_writeable_1_0=	'*' 
+    {
+        newLeafNode(lv_writeable_1_0, grammarAccess.getPropertyValueStringAccess().getWriteableAsteriskKeyword_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPropertyValueStringRule());
+	        }
+       		setWithLastConsumed($current, "writeable", true, "*");
+	    }
+
+)
+)?((
+(
+		lv_propertyName_2_0=RULE_ID
 		{
-			newLeafNode(lv_propertyName_1_0, grammarAccess.getPropertyValueStringAccess().getPropertyNameIDTerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_propertyName_2_0, grammarAccess.getPropertyValueStringAccess().getPropertyNameIDTerminalRuleCall_2_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1128,48 +1202,48 @@ rulePropertyValueString returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"propertyName",
-        		lv_propertyName_1_0, 
+        		lv_propertyName_2_0, 
         		"ID");
 	    }
 
 )
 )
-    |(	otherlv_2='{' 
+    |(	otherlv_3='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getPropertyValueStringAccess().getLeftCurlyBracketKeyword_1_1_0());
+    	newLeafNode(otherlv_3, grammarAccess.getPropertyValueStringAccess().getLeftCurlyBracketKeyword_2_1_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPropertyValueStringAccess().getPropertyNameEmfsNameParserRuleCall_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getPropertyValueStringAccess().getPropertyNameEmfsNameParserRuleCall_2_1_1_0()); 
 	    }
-		lv_propertyName_3_0=ruleEmfsName		{
+		lv_propertyName_4_0=ruleEmfsName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPropertyValueStringRule());
 	        }
        		set(
        			$current, 
        			"propertyName",
-        		lv_propertyName_3_0, 
+        		lv_propertyName_4_0, 
         		"EmfsName");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_4='}' 
+)	otherlv_5='}' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getPropertyValueStringAccess().getRightCurlyBracketKeyword_1_1_2());
+    	newLeafNode(otherlv_5, grammarAccess.getPropertyValueStringAccess().getRightCurlyBracketKeyword_2_1_2());
     }
-))(	otherlv_5=':' 
+))(	otherlv_6=':' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getPropertyValueStringAccess().getColonKeyword_2_0());
+    	newLeafNode(otherlv_6, grammarAccess.getPropertyValueStringAccess().getColonKeyword_3_0());
     }
 (
 (
 (
-		lv_defaultValue_6_1=RULE_STRING
+		lv_defaultValue_7_1=RULE_STRING
 		{
-			newLeafNode(lv_defaultValue_6_1, grammarAccess.getPropertyValueStringAccess().getDefaultValueSTRINGTerminalRuleCall_2_1_0_0()); 
+			newLeafNode(lv_defaultValue_7_1, grammarAccess.getPropertyValueStringAccess().getDefaultValueSTRINGTerminalRuleCall_3_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1178,21 +1252,21 @@ rulePropertyValueString returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"defaultValue",
-        		lv_defaultValue_6_1, 
+        		lv_defaultValue_7_1, 
         		"STRING");
 	    }
 
     |		{ 
-	        newCompositeNode(grammarAccess.getPropertyValueStringAccess().getDefaultValueEmfsNameParserRuleCall_2_1_0_1()); 
+	        newCompositeNode(grammarAccess.getPropertyValueStringAccess().getDefaultValueEmfsNameParserRuleCall_3_1_0_1()); 
 	    }
-		lv_defaultValue_6_2=ruleEmfsName		{
+		lv_defaultValue_7_2=ruleEmfsName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPropertyValueStringRule());
 	        }
        		set(
        			$current, 
        			"defaultValue",
-        		lv_defaultValue_6_2, 
+        		lv_defaultValue_7_2, 
         		"EmfsName");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2461,7 +2535,7 @@ ruleClasspathEntryKind returns [Enumerator current=null]
 
 
 
-RULE_STRING_CONTENT : '---8<---' '\r'? '\n' ( options {greedy=false;} : . )*'\n--->8---';
+RULE_STRING_CONTENT : '8<---' '\r'? '\n' ( options {greedy=false;} : . )*'\n--->8';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_'|'-'|'0'..'9')+;
 

@@ -19,12 +19,14 @@ public abstract class AbstractXemfsSyntacticSequencer extends AbstractSyntacticS
 	protected XemfsGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_EmfsContainer_SemicolonKeyword_5_q;
 	protected AbstractElementAlias match_EmfsRoot_EmfsKeyword_1_0_q;
+	protected AbstractElementAlias match_VerbatimStringContents_HyphenMinusHyphenMinusHyphenMinusKeyword_0_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (XemfsGrammarAccess) access;
 		match_EmfsContainer_SemicolonKeyword_5_q = new TokenAlias(false, true, grammarAccess.getEmfsContainerAccess().getSemicolonKeyword_5());
 		match_EmfsRoot_EmfsKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getEmfsRootAccess().getEmfsKeyword_1_0());
+		match_VerbatimStringContents_HyphenMinusHyphenMinusHyphenMinusKeyword_0_0_q = new TokenAlias(false, true, grammarAccess.getVerbatimStringContentsAccess().getHyphenMinusHyphenMinusHyphenMinusKeyword_0_0());
 	}
 	
 	@Override
@@ -43,6 +45,8 @@ public abstract class AbstractXemfsSyntacticSequencer extends AbstractSyntacticS
 				emit_EmfsContainer_SemicolonKeyword_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_EmfsRoot_EmfsKeyword_1_0_q.equals(syntax))
 				emit_EmfsRoot_EmfsKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_VerbatimStringContents_HyphenMinusHyphenMinusHyphenMinusKeyword_0_0_q.equals(syntax))
+				emit_VerbatimStringContents_HyphenMinusHyphenMinusHyphenMinusKeyword_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -60,6 +64,14 @@ public abstract class AbstractXemfsSyntacticSequencer extends AbstractSyntacticS
 	 *     'emfs'?
 	 */
 	protected void emit_EmfsRoot_EmfsKeyword_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     '---'?
+	 */
+	protected void emit_VerbatimStringContents_HyphenMinusHyphenMinusHyphenMinusKeyword_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

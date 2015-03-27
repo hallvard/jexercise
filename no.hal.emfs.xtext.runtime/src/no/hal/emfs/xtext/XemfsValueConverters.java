@@ -20,7 +20,7 @@ public class XemfsValueConverters extends DefaultTerminalConverters {
 
 	@ValueConverter(rule = "STRING_CONTENT")
 	public IValueConverter<String> STRING_CONTENT() {
-		return new FixValueConverter("---8<---", "\n--->8---") {
+		return new FixValueConverter("8<---", "\n--->8") {
 			@Override
 			protected String removePrefix(String string) {
 				String removed = super.removePrefix(string);

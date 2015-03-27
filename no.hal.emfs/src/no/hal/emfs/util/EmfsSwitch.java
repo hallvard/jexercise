@@ -179,6 +179,8 @@ public class EmfsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseAbstractBytesContentProvider(abstractStringContentProvider);
 				if (result == null) result = caseAbstractStringContents(abstractStringContentProvider);
 				if (result == null) result = caseEmfsFileContentProvider(abstractStringContentProvider);
+				if (result == null) result = caseTagsOwner(abstractStringContentProvider);
+				if (result == null) result = casePropertyOwner(abstractStringContentProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -189,12 +191,16 @@ public class EmfsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseAbstractBytesContentProvider(stringContentProvider);
 				if (result == null) result = caseAbstractStringContents(stringContentProvider);
 				if (result == null) result = caseEmfsFileContentProvider(stringContentProvider);
+				if (result == null) result = caseTagsOwner(stringContentProvider);
+				if (result == null) result = casePropertyOwner(stringContentProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EmfsPackage.ABSTRACT_STRING_CONTENTS: {
 				AbstractStringContents abstractStringContents = (AbstractStringContents)theEObject;
 				T result = caseAbstractStringContents(abstractStringContents);
+				if (result == null) result = caseTagsOwner(abstractStringContents);
+				if (result == null) result = casePropertyOwner(abstractStringContents);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -202,6 +208,8 @@ public class EmfsSwitch<T> extends Switch<T> {
 				VerbatimStringContents verbatimStringContents = (VerbatimStringContents)theEObject;
 				T result = caseVerbatimStringContents(verbatimStringContents);
 				if (result == null) result = caseAbstractStringContents(verbatimStringContents);
+				if (result == null) result = caseTagsOwner(verbatimStringContents);
+				if (result == null) result = casePropertyOwner(verbatimStringContents);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -209,6 +217,8 @@ public class EmfsSwitch<T> extends Switch<T> {
 				PropertyValueString propertyValueString = (PropertyValueString)theEObject;
 				T result = casePropertyValueString(propertyValueString);
 				if (result == null) result = caseAbstractStringContents(propertyValueString);
+				if (result == null) result = caseTagsOwner(propertyValueString);
+				if (result == null) result = casePropertyOwner(propertyValueString);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -269,6 +279,8 @@ public class EmfsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseAbstractBytesContentProvider(dotClasspathFileContentProvider);
 				if (result == null) result = caseAbstractStringContents(dotClasspathFileContentProvider);
 				if (result == null) result = caseEmfsFileContentProvider(dotClasspathFileContentProvider);
+				if (result == null) result = caseTagsOwner(dotClasspathFileContentProvider);
+				if (result == null) result = casePropertyOwner(dotClasspathFileContentProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -292,6 +304,8 @@ public class EmfsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseAbstractBytesContentProvider(dotProjectFileContentProvider);
 				if (result == null) result = caseAbstractStringContents(dotProjectFileContentProvider);
 				if (result == null) result = caseEmfsFileContentProvider(dotProjectFileContentProvider);
+				if (result == null) result = caseTagsOwner(dotProjectFileContentProvider);
+				if (result == null) result = casePropertyOwner(dotProjectFileContentProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
