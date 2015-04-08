@@ -64,9 +64,8 @@ public class ImportHelper extends ImportHelperOptions {
 	}
 
 	protected IContainer ensureContainer(EmfsContainer emfsContainer, IContainer target, IProgressMonitor monitor) throws Exception {
-		String name = emfsContainer.getName();
-		if (name != null) {
-			target = ensureFolder(name, target, monitor);
+		if (emfsContainer.getName() != null) {
+			target = ensureFolder(emfsContainer, target, monitor);
 		}
 		if (emfsContainer.getContentProvider() != null) {
 			ensureContainer(emfsContainer.getContentProvider(), target, monitor);
@@ -85,8 +84,8 @@ public class ImportHelper extends ImportHelperOptions {
 		}
 	}
 
-	protected IFolder ensureFolder(String name, IContainer target, IProgressMonitor monitor) throws Exception {
-		IFolder folder = target.getFolder(new Path(name));
+	protected IFolder ensureFolder(EmfsContainer emfsContainer, IContainer target, IProgressMonitor monitor) throws Exception {
+		IFolder folder = target.getFolder(new Path(emfsContainer.getName()));
 		if (! folder.exists()) {
 			try {
 				folder.create(IResource.NONE, true, null);
@@ -125,24 +124,28 @@ public class ImportHelper extends ImportHelperOptions {
 			EmfsFile emfsFile = (EmfsFile) emfsResource;
 			if (name != null) {
 				IFile file = target.getFile(new Path(name));
-				if (! file.exists()) {
-					InputStream inputStream = getContentInputStream(emfsFile);
-					if (inputStream != null) {
-						try {
-							file.create(inputStream, true, null);
-						} catch (CoreException e) {
-							throwException(file, target, e, monitor);
-						}
-					}
-				} else if (this.overwrite) {
-					InputStream inputStream = getContentInputStream(emfsFile);
-					if (inputStream != null) {
-						file.setContents(inputStream, true, false, null);
-					}
-				}
+				ensureFile(emfsFile, file, target, monitor);
 			}
 			if (monitor != null) {
 				monitor.worked(1);
+			}
+		}
+	}
+
+	protected void ensureFile(EmfsFile emfsFile, IFile file, IContainer target, IProgressMonitor monitor) throws Exception {
+		if (! file.exists()) {
+			InputStream inputStream = getContentInputStream(emfsFile);
+			if (inputStream != null) {
+				try {
+					file.create(inputStream, true, null);
+				} catch (CoreException e) {
+					throwException(file, target, e, monitor);
+				}
+			}
+		} else if (this.overwrite) {
+			InputStream inputStream = getContentInputStream(emfsFile);
+			if (inputStream != null) {
+				file.setContents(inputStream, true, false, null);
 			}
 		}
 	}
