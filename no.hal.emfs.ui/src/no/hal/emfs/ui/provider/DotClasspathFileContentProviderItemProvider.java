@@ -97,7 +97,8 @@ public class DotClasspathFileContentProviderItemProvider extends AbstractStringC
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DotClasspathFileContentProvider_type");
+		DotClasspathFileContentProvider dotClasspathFileContentProvider = (DotClasspathFileContentProvider)object;
+		return getString("_UI_DotClasspathFileContentProvider_type") + " " + dotClasspathFileContentProvider.isWriteable();
 	}
 	
 

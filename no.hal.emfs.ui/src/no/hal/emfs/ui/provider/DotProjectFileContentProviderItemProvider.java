@@ -113,7 +113,8 @@ public class DotProjectFileContentProviderItemProvider extends AbstractStringCon
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DotProjectFileContentProvider_type");
+		DotProjectFileContentProvider dotProjectFileContentProvider = (DotProjectFileContentProvider)object;
+		return getString("_UI_DotProjectFileContentProvider_type") + " " + dotProjectFileContentProvider.isWriteable();
 	}
 	
 
