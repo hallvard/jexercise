@@ -61,14 +61,15 @@ StringContentProvider:
 
 AbstractStringContents: PropertyValueString | VerbatimStringContents;
 
-terminal STRING_CONTENT: '---8<---'('\r')?'\n' -> '\n--->8---';
+terminal STRING_CONTENT: '8<---'('\r')?'\n' -> '\n--->8';
 
 VerbatimStringContents:
+	('---' (writeable ?= '*')? ('#' tags += ID)* (properties += Property)*)?
 	stringContent = (STRING | STRING_CONTENT)
 ;
 
 PropertyValueString:
-	'$' ((propertyName = ID) | ('{' (propertyName = EmfsName) '}'))
+	'$' (writeable ?= '*')? ((propertyName = ID) | ('{' (propertyName = EmfsName) '}'))
 	(':' defaultValue = (STRING | EmfsName))?
 ;
 
