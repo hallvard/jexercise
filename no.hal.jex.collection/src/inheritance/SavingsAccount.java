@@ -1,9 +1,9 @@
 package inheritance;
 
-public class SavingsAccount implements Account{
+public class SavingsAccount implements Account {
 	
-	protected double balance;
-	protected double interest;
+	private double balance;
+	private double interest;
 	
 	public SavingsAccount(double interest) {
 		this.balance = 0;

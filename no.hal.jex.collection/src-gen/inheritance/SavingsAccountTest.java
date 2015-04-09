@@ -99,7 +99,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__balanceField_transitions0_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    assertTrue("savingsAccount.getBalance() == 100.0 failed after savingsAccount.deposit(100.0)", this.operator_equals(_balance, 100.0));
+    assertTrue("savingsAccount.balance == 100.0 failed after savingsAccount.deposit(100.0)", this.operator_equals(_balance, 100.0));
     
   }
   
@@ -131,7 +131,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__depositAndWithdraw_transitions0_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    assertTrue("savingsAccount.getBalance() == 60.0 failed after savingsAccount.deposit(100.0) ,savingsAccount.withdraw(40.0)", this.operator_equals(_balance, 60.0));
+    assertTrue("savingsAccount.balance == 60.0 failed after savingsAccount.deposit(100.0) ,savingsAccount.withdraw(40.0)", this.operator_equals(_balance, 60.0));
     
   }
   
@@ -163,7 +163,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__depositAndWithdrawIllegalStateOrInput_transitions1_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    assertTrue("savingsAccount.getBalance() == 10.0 failed", this.operator_equals(_balance, 10.0));
+    assertTrue("savingsAccount.balance == 10.0 failed", this.operator_equals(_balance, 10.0));
     
   }
   
@@ -195,7 +195,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__depositAndWithdrawIllegalStateOrInput_transitions3_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    assertTrue("savingsAccount.getBalance() == 20.0 failed", this.operator_equals(_balance, 20.0));
+    assertTrue("savingsAccount.balance == 20.0 failed", this.operator_equals(_balance, 20.0));
     
   }
   
@@ -227,7 +227,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__depositAndWithdrawIllegalStateOrInput_transitions5_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    assertTrue("savingsAccount.getBalance() == 30.0 failed", this.operator_equals(_balance, 30.0));
+    assertTrue("savingsAccount.balance == 30.0 failed", this.operator_equals(_balance, 30.0));
     
   }
   
@@ -259,7 +259,7 @@ public class SavingsAccountTest extends TestCase {
   private void _test__endYearUpdate_transitions0_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
-    assertTrue("savingsAccount.getBalance() == 100.0 * (1 + 0.10) failed after savingsAccount.deposit(100.0) ,savingsAccount.endYearUpdate()", this.operator_equals(_balance, (100.0 * (1 + 0.10))));
+    assertTrue("savingsAccount.balance == 100.0 * (1 + 0.10) failed after savingsAccount.deposit(100.0) ,savingsAccount.endYearUpdate()", this.operator_equals(_balance, (100.0 * (1 + 0.10))));
     
   }
   

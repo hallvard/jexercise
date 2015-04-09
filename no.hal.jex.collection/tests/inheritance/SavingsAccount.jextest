@@ -8,7 +8,7 @@ sequence balanceField {
 	savingsAccount.deposit(100.0)
 	-->
 	state {
-		savingsAccount.getBalance() == 100.0
+		savingsAccount.balance == 100.0
 	}
 }
 
@@ -17,7 +17,7 @@ sequence depositAndWithdraw {
 	savingsAccount.deposit(100.0), savingsAccount.withdraw(40.0)
 	-->
 	state {
-		savingsAccount.getBalance() == 60.0
+		savingsAccount.balance == 60.0
 	}
 }
 
@@ -26,21 +26,21 @@ sequence depositAndWithdrawIllegalStateOrInput {
 	savingsAccount.deposit(10.0), savingsAccount.deposit(-100.0) throws IllegalArgumentException
 	-->
 	state {
-		savingsAccount.getBalance() == 10.0
+		savingsAccount.balance == 10.0
 	}
 	
 	--
 	savingsAccount.deposit(10.0), savingsAccount.withdraw(-100.0) throws IllegalArgumentException
 	-->
 	state {
-		savingsAccount.getBalance() == 20.0
+		savingsAccount.balance == 20.0
 	}
 	
 	--
 	savingsAccount.deposit(10.0), savingsAccount.withdraw(40.0) throws IllegalStateException
 	-->
 	state {
-		savingsAccount.getBalance() == 30.0
+		savingsAccount.balance == 30.0
 	}
 }
 
@@ -49,7 +49,7 @@ sequence endYearUpdate{
 	savingsAccount.deposit(100.0), savingsAccount.endYearUpdate()
 	-->
 	state {
-		savingsAccount.getBalance() == 100.0 * (1 + 0.10)
+		savingsAccount.balance == 100.0 * (1 + 0.10)
 	}
 }
 
