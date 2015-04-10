@@ -2,6 +2,8 @@
  */
 package no.hal.emfs;
 
+import no.hal.emfs.util.StringAccumulator;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -61,5 +63,13 @@ public interface AbstractStringContents extends TagsOwner, PropertyOwner {
 	 * @generated
 	 */
 	void setStringContent(String contents);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model accumulatorDataType="no.hal.emfs.EStringAccumulator<A>"
+	 * @generated
+	 */
+	<A> A accumulate(StringAccumulator<A> accumulator, A initialValue);
 
 } // AbstractStringContents

@@ -9,6 +9,7 @@ import no.hal.emfs.EmfsPackage;
 import no.hal.emfs.Property;
 import no.hal.emfs.PropertyOwner;
 import no.hal.emfs.TagsOwner;
+import no.hal.emfs.util.StringAccumulator;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -156,6 +157,15 @@ public abstract class AbstractStringContentProviderImpl extends AbstractBytesCon
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public <A> A accumulate(StringAccumulator<A> accumulator, A initialValue) {
+		return accumulator.accumulate(initialValue, getStringContent(), this);
 	}
 
 	/**

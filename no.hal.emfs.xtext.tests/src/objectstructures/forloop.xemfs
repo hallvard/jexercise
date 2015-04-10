@@ -1,9 +1,9 @@
 emfs
 /
 src/iteration/
-	ForLoop1.java* #java #test $editableFragment="2"
----8<---
-package tests;
+	ForLoop1.java* #java #test
+8<---
+package iteration;
 
 import junit.framework.TestCase;
 
@@ -11,14 +11,14 @@ public class ForLoop1 extends TestCase {
 
 	private int forLoop1(int... numbers) {
 		int sum = 0;
---->8---
----8<---
+--->8
+---*8<---
 	// Skriv en løkke som summerer alle tallene i en array-variabel kalt 'numbers'.
 	// Resultatet skal etter løkka er ferdig legges i variabelen 'sum'
 	// Du kan anta at begge disse variablene allerede er deklarert,
 	// altså int[] number og int sum
---->8---
----8<---
+--->8
+8<---
 		return sum;
 	}
 	
@@ -29,7 +29,7 @@ public class ForLoop1 extends TestCase {
 		assertEquals("Prøvde med ingen nummer!", 0, forLoop1());
 	}
 }
---->8---
+--->8
 	;
 ;
 .project: dot.project #java;

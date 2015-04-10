@@ -1559,6 +1559,17 @@ public interface EmfsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>EString Accumulator</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.emfs.util.StringAccumulator
+	 * @see no.hal.emfs.impl.EmfsPackageImpl#getEStringAccumulator()
+	 * @generated
+	 */
+	int ESTRING_ACCUMULATOR = 32;
+
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.emfs.EmfsResource <em>Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2388,6 +2399,17 @@ public interface EmfsPackage extends EPackage {
 	EDataType getEOutputStream();
 
 	/**
+	 * Returns the meta object for data type '{@link no.hal.emfs.util.StringAccumulator <em>EString Accumulator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EString Accumulator</em>'.
+	 * @see no.hal.emfs.util.StringAccumulator
+	 * @model instanceClass="no.hal.emfs.util.StringAccumulator" serializeable="false" typeParameters="A"
+	 * @generated
+	 */
+	EDataType getEStringAccumulator();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3097,6 +3119,16 @@ public interface EmfsPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType EOUTPUT_STREAM = eINSTANCE.getEOutputStream();
+
+		/**
+		 * The meta object literal for the '<em>EString Accumulator</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.emfs.util.StringAccumulator
+		 * @see no.hal.emfs.impl.EmfsPackageImpl#getEStringAccumulator()
+		 * @generated
+		 */
+		EDataType ESTRING_ACCUMULATOR = eINSTANCE.getEStringAccumulator();
 
 	}
 

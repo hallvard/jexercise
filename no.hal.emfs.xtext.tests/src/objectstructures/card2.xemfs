@@ -2,12 +2,12 @@ emfs $testspath="no.hal.jex.collection/src-gen/objectstructures"
 /
 src/objectstructures/
 	Card.java*
----8<---
+8<---
 package objectstructures;
 
 public class Card {
 }
---->8---
+--->8
 	CardDeck.java*;
 	CardHand.java*;
 ;

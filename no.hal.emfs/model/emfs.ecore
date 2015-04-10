@@ -86,7 +86,23 @@
     <eOperations name="setStringContent">
       <eParameters name="contents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="accumulate">
+      <eGenericType eTypeParameter="#//AbstractStringContents/accumulate/A"/>
+      <eTypeParameters name="A"/>
+      <eParameters name="accumulator">
+        <eGenericType eClassifier="#//EStringAccumulator">
+          <eTypeArguments eTypeParameter="#//AbstractStringContents/accumulate/A"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="initialValue">
+        <eGenericType eTypeParameter="#//AbstractStringContents/accumulate/A"/>
+      </eParameters>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="writeable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EStringAccumulator" instanceClassName="no.hal.emfs.util.StringAccumulator"
+      serializable="false">
+    <eTypeParameters name="A"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VerbatimStringContents" eSuperTypes="#//AbstractStringContents">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

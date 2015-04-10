@@ -36,13 +36,16 @@ import no.hal.emfs.URLContentProvider;
 import no.hal.emfs.VerbatimStringContents;
 import no.hal.emfs.WrappingStringContentProvider;
 import no.hal.emfs.util.ImportSupport;
+import no.hal.emfs.util.StringAccumulator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -275,6 +278,13 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 	 * @generated
 	 */
 	private EDataType eOutputStreamEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType eStringAccumulatorEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1044,6 +1054,15 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getEStringAccumulator() {
+		return eStringAccumulatorEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EmfsFactory getEmfsFactory() {
 		return (EmfsFactory)getEFactoryInstance();
 	}
@@ -1176,6 +1195,7 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		importSupportEDataType = createEDataType(IMPORT_SUPPORT);
 		eInputStreamEDataType = createEDataType(EINPUT_STREAM);
 		eOutputStreamEDataType = createEDataType(EOUTPUT_STREAM);
+		eStringAccumulatorEDataType = createEDataType(ESTRING_ACCUMULATOR);
 	}
 
 	/**
@@ -1202,6 +1222,7 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		setNsURI(eNS_URI);
 
 		// Create type parameters
+		addETypeParameter(eStringAccumulatorEDataType, "A");
 
 		// Set bounds for type parameters
 
@@ -1301,6 +1322,17 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		op = addEOperation(abstractStringContentsEClass, null, "setStringContent", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "contents", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(abstractStringContentsEClass, null, "accumulate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		ETypeParameter t1 = addETypeParameter(op, "A");
+		EGenericType g1 = createEGenericType(this.getEStringAccumulator());
+		EGenericType g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "accumulator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		addEParameter(op, g1, "initialValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		initEOperation(op, g1);
+
 		initEClass(verbatimStringContentsEClass, VerbatimStringContents.class, "VerbatimStringContents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVerbatimStringContents_StringContent(), ecorePackage.getEString(), "stringContent", null, 0, 1, VerbatimStringContents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1367,6 +1399,7 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		initEDataType(importSupportEDataType, ImportSupport.class, "ImportSupport", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(eInputStreamEDataType, InputStream.class, "EInputStream", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(eOutputStreamEDataType, OutputStream.class, "EOutputStream", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(eStringAccumulatorEDataType, StringAccumulator.class, "EStringAccumulator", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

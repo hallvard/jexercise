@@ -10,6 +10,7 @@ import no.hal.emfs.EmfsFactory;
 import no.hal.emfs.EmfsPackage;
 import no.hal.emfs.StringContentProvider;
 import no.hal.emfs.VerbatimStringContents;
+import no.hal.emfs.util.StringAccumulator;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.ECollections;
@@ -169,4 +170,12 @@ public class StringContentProviderImpl extends AbstractStringContentProviderImpl
 		ECollections.setEList(getStringContents(), Arrays.asList(verbatimStringContents));
 	}
 
+	@Override
+	public <A> A accumulate(StringAccumulator<A> accumulator, A initialValue) {
+		A acc = initialValue;
+		for (AbstractStringContents stringContent : getStringContents()) {
+			acc = stringContent.accumulate(accumulator, acc);
+		}
+		return acc;
+	}
 } //StringContentProviderImpl
