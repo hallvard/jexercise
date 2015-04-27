@@ -2,13 +2,10 @@ package no.hal.jex.jextest.ui.builder;
 
 import no.hal.jex.jextest.jvmmodel.Util;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.xtext.builder.BuilderParticipant;
-import org.eclipse.xtext.linking.impl.XtextLinkingDiagnostic;
-import org.eclipse.xtext.validation.EObjectDiagnosticImpl;
 import org.eclipse.xtext.xbase.XExpression;
 
 import com.google.inject.Inject;

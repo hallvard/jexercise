@@ -103,7 +103,7 @@ public class NewJextestFileWizard extends Wizard implements INewWizard {
 	}
 	
 	protected InputStream getInitialContents(String templateName, Map<String, String> variables) {
-		InputStream templateStream = getClass().getResourceAsStream(templateName + NewJextestFileWizardPage.JEXTEST_EXTENSION);
+		InputStream templateStream = getClass().getResourceAsStream(templateName + NewJextestFileWizardPage.JEXTEST_EXTENSION + "~");
 
 		StringBuilder contents = new StringBuilder();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(templateStream));

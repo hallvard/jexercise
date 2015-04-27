@@ -18,7 +18,9 @@ Require-Bundle: no.hal.jex.jextest;visibility:=reexport,
  org.eclipse.xtext.ui.codetemplates.ui,
  org.eclipse.compare,
  org.eclipse.jdt.core;bundle-version="3.9.2",
- org.eclipse.jdt.junit;bundle-version="3.7.200"
+ org.eclipse.jdt.junit;bundle-version="3.7.200",
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.jdt.debug.ui
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

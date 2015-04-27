@@ -251,7 +251,9 @@
    <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
-            class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+            class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+            fileExtensions="jextest"
+            >
       </participant>
    </extension>
    <extension
@@ -487,17 +489,29 @@
    </extension>
    <extension point="org.eclipse.ui.popupMenus">
       <viewerContribution
-         targetID="example.rulerContextMenuId"
+         targetID="no.hal.jex.jextest.JexTest.ide.rulerContextMenu"
          id="no.hal.jex.jextest.JexTest.ide.RulerPopupActions">
          <action
             label="Toggle Breakpoint"
             class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
-            menubarPath="additions"
+            menubarPath="debug"
             id="no.hal.jex.jextest.JexTest.ide.rulerContextMenu.toggleBreakpointAction">
+         </action>
+         <action
+            label="Not used"
+            class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:org.eclipse.debug.ui.actions.RulerEnableDisableBreakpointActionDelegate"
+            menubarPath="debug"
+            id="no.hal.jex.jextest.JexTest.ide.rulerContextMenu.enableDisableBreakpointAction">
+         </action>
+         <action
+           label="Breakpoint Properties"
+           helpContextId="breakpoint_properties_action_context"
+           class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:org.eclipse.jdt.debug.ui.actions.JavaBreakpointPropertiesRulerActionDelegate"
+           menubarPath="group.properties"
+           id="no.hal.jex.jextest.JexTest.ide.rulerContextMenu.openBreapointPropertiesAction">
          </action>
       </viewerContribution>
    </extension>
-   
     <!-- Introduce Local Variable Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 
@@ -523,6 +537,30 @@
          </command>
       </menuContribution>
    </extension>  
+   <!-- Open implementation -->
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            class="no.hal.jex.jextest.ui.JexTestExecutableExtensionFactory:org.eclipse.xtext.xbase.ui.navigation.OpenImplementationHandler"
+            commandId="org.eclipse.xtext.xbase.ui.OpenImplementationCommand">
+            <activeWhen>
+				<reference
+					definitionId="no.hal.jex.jextest.JexTest.Editor.opened">
+				</reference>
+			</activeWhen>
+      </handler>
+   </extension>
+ <extension point="org.eclipse.ui.menus">
+       <menuContribution
+            locationURI="menu:navigate?after=open.ext4">
+         <command commandId="org.eclipse.xtext.xbase.ui.OpenImplementationCommand">
+		<visibleWhen checkEnabled="false">
+              <reference
+                 definitionId="no.hal.jex.jextest.JexTest.Editor.opened">
+              </reference>
+		</visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
 
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="no.hal.jex.jextest.JexTest.compare.contentViewers"
