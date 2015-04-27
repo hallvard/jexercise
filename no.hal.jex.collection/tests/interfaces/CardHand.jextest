@@ -1,0 +1,48 @@
+test interfaces.CardHand
+
+import java.util.Collection
+import java.util.Iterator
+
+instance CardHand hand
+instance Card s1 = new Card('S', 1), Card c2 = new Card('C', 2)
+instance Collection<Card> expected = #[s1, c2] 
+
+sequence cardContainer {
+	-- hand.addCard(s1), hand.addCard(c2), hand.iterator -->
+	state {
+		hand ?= expected
+	}
+}
+
+sequence handIterator {
+	-- hand.addCard(s1), hand.addCard(c2), hand.iterator -->
+	state {
+		hand ?= expected.iterator
+	}
+}
+
+method boolean operator_assertEquals(CardContainer it, Collection<Card> expected) {
+	expected.size ?= cardCount
+	val expectedIt = expected.iterator
+	var i = 0
+	while (expectedIt.hasNext) {
+		val expectedCard = expectedIt.next
+		val actualCard = getCard(i)
+		expectedCard.suit ?= actualCard.suit
+		expectedCard.face ?= actualCard.face
+		i = i + 1
+	}
+	true
+}
+
+method boolean operator_assertEquals(Iterable<Card> actual, Iterator<Card> expected) {
+	val actualIt = actual.iterator
+	while (expected.hasNext) {
+		assertTrue(actualIt.hasNext)
+		val expectedCard = expected.next
+		val actualCard = actualIt.next
+		expectedCard.suit ?= actualCard.suit
+		expectedCard.face ?= actualCard.face
+	}
+	true
+}

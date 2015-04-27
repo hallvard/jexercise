@@ -29,11 +29,15 @@ sequence deal {
 }
 
 method boolean ?= (CardDeck it, Collection<String> toStrings) {
-	cardCount ?= toStrings.size
+	if (! (cardCount ?= toStrings.size)) {
+		return false
+	}
 	var i = 0
 	for (toString : toStrings) {
 		val card = getCard(i)
-		String.valueOf(card.suit) + card.face ?= toString 
+		if (! (String.valueOf(card.suit) + card.face ?= toString)) {
+			return false
+		} 
 		i = i + 1
 	}
 	true

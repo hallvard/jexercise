@@ -18,8 +18,8 @@ public class RPNCalcTest extends TestCase {
 	}
 
 	@JExercise(
-		tests="void push(Double);double pop(); double peek(int)",
-		description="The push(Double) method puts the Double argument on the stack. The pop() method returns the element on the top of the stack. The peek(int) method returns Double at the position of the argument."
+		tests="void push(double); double pop(); double peek(int)",
+		description="The push(double) method puts the double argument on the stack. The pop() method returns the element on the top of the stack. The peek(int) method returns double at the position of the argument."
 	)
 	public void testPushPopPeek() {
 		// Push

@@ -42,6 +42,8 @@ public class RPN {
 		return operandStack.pop();
 	}
 	
+	//
+
 	double pop(double def) {
 		if (operandStack.isEmpty()) {
 			return def;

@@ -31,7 +31,11 @@ public class CardDeckTest extends TestCase {
     {
       int _cardCount = it.getCardCount();
       int _size = toStrings.size();
-      JextestExtensions.operator_assertEquals(_cardCount, _size);
+      boolean _assertEquals = JextestExtensions.operator_assertEquals(_cardCount, _size);
+      boolean _not = (!_assertEquals);
+      if (_not) {
+        return false;
+      }
       int i = 0;
       for (final String toString : toStrings) {
         {
@@ -40,7 +44,11 @@ public class CardDeckTest extends TestCase {
           String _valueOf = String.valueOf(_suit);
           int _face = card.getFace();
           String _plus = (_valueOf + Integer.valueOf(_face));
-          JextestExtensions.operator_assertEquals(_plus, toString);
+          boolean _assertEquals_1 = JextestExtensions.operator_assertEquals(_plus, toString);
+          boolean _not_1 = (!_assertEquals_1);
+          if (_not_1) {
+            return false;
+          }
           i = (i + 1);
         }
       }

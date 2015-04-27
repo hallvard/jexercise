@@ -1,0 +1,19 @@
+test interfaces.Person1
+
+instance String h = "Hallvard", String t = "Trætteberg", String j = "Jens" 
+instance person1 = new Person1(h, t)
+
+sequence Person1 {
+	-->
+	state person1 {
+		givenName == h
+		familyName == t
+		fullName == h + " " + t
+	}
+	-- person1.givenName = j -->
+	state person1 {
+		givenName == j
+		familyName == t
+		fullName == j + " " + t
+	}
+}

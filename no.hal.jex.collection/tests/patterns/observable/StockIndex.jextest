@@ -40,7 +40,7 @@ sequence changePrice {
 		indexN { index == facebookPrice3 + applePrice }
 }
 
-method boolean operator_equals(double n1, double n2) {
+method boolean == (double n1, double n2) {
 	val epsilon = 0.000001d
 	n1 + epsilon >= n2 && n1 - epsilon <= n2
 }

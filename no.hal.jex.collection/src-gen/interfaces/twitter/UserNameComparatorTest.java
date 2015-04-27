@@ -45,7 +45,7 @@ public class UserNameComparatorTest extends TestCase {
     
   }
   
-  @JExercise(tests = "UserNameComparator()", description = "<h3>Sammenligner TwitterAccounts p\u00E5 username.</h3>Tests \r\n\t\tinitialization\r\n")
+  @JExercise(tests = "UserNameComparator()", description = "<h3>Sammenligner TwitterAccounts p\u00E5 username.</h3>Tests \n\t\tinitialization\n")
   public void testCompare() {
     _test__compare_transitions0_effect_state();
     

@@ -7,35 +7,35 @@ instance Iterator<Double> iterator2 = #[5.0,  3.0].iterator
 instance Iterator<Double> iteratorShort = #[5.0].iterator
 
 sequence computeResultsMultiplication "BinaryOperator som multipliserer" {
-	instance binaryIterator = new BinaryComputingIterator(iterator1, iterator2,  [x, y | x * y] )
+	instance binaryIterator = new BinaryComputingIterator(iterator1, iterator2,  [x, y | x * y])
 	"Sjekker første verdi" -- binaryIterator.next ?=  2.5 --> state {   binaryIterator.hasNext }
 	"Sjekker andre verdi"  -- binaryIterator.next ?= -6.0 --> state { ! binaryIterator.hasNext }
 }
 
 sequence computeResultsAddition "BinaryOperator som adderer" {
-	instance binaryIterator = new BinaryComputingIterator(iterator1, iterator2,  [x, y | x + y] )
+	instance binaryIterator = new BinaryComputingIterator(iterator1, iterator2,  [x, y | x + y])
 	"Sjekker første verdi" -- binaryIterator.next ?= 5.5 --> state {   binaryIterator.hasNext }
 	"Sjekker andre verdi"  -- binaryIterator.next ?= 1.0 --> state { ! binaryIterator.hasNext }
 }
 
 sequence computeResultsWithShortIterator "Multiplisering med ujevnt antall verdier i interne iteratorer"{
-	instance binaryIterator = new BinaryComputingIterator(iterator1, iteratorShort,  [x, y | x * y] )
+	instance binaryIterator = new BinaryComputingIterator(iterator1, iteratorShort,  [x, y | x * y])
 	"Henter verdi" -- binaryIterator.next ?= 2.5 --> state { ! binaryIterator.hasNext }
 }
 
 sequence computeResultsWithShortIteratorAndDefault "Multiplisering med ujevnt antall verdier i interne iteratorer og default"{
-	instance binaryIterator = new BinaryComputingIterator(iterator1, iteratorShort, null, 2.0, [x, y | x * y] )
+	instance binaryIterator = new BinaryComputingIterator(iterator1, iteratorShort, null, 2.0, [x, y | x * y])
 	"Sjekker første verdi" -- binaryIterator.next ?=  2.5 --> state {   binaryIterator.hasNext }
 	"Sjekker andre verdi"  -- binaryIterator.next ?= -4.0 --> state { ! binaryIterator.hasNext }
 }
 
 sequence computeResultsWithEmptyIterator "Multiplisering med tomme interne iteratorer"{
-	instance binaryIterator = new BinaryComputingIterator(#[].iterator, #[].iterator,  [x, y | x * y] )
+	instance binaryIterator = new BinaryComputingIterator(#[].iterator, #[].iterator,  [x, y | x * y])
 	--> state { ! binaryIterator.hasNext }
 }
 
 sequence computeResultsWithEmptyIteratorAndDefault "Multiplisering med tomme interne iteratorer og default"{
-	instance binaryIterator = new BinaryComputingIterator(#[].iterator, #[].iterator, 1.0, 2.0, [x, y | x * y] )
+	instance binaryIterator = new BinaryComputingIterator(#[].iterator, #[].iterator, 1.0, 2.0, [x, y | x * y])
 	--> state { ! binaryIterator.hasNext }
 }
 

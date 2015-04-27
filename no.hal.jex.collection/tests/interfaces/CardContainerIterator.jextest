@@ -1,0 +1,27 @@
+test interfaces.CardContainerIterator
+
+import java.util.Iterator
+
+instance CardContainerIterator cardContainerIterator = new CardContainerIterator(new CardDeck(2))
+instance
+	Card s1 = new Card('S', 1), Card s2 = new Card('S', 2),
+	Card h1 = new Card('H', 1), Card h2 = new Card('H', 2),
+	Card d1 = new Card('D', 1), Card d2 = new Card('D', 2),
+	Card c1 = new Card('C', 1), Card c2 = new Card('C', 2)
+
+sequence cardContainerIterator {
+	-->
+	state {
+		testCards(cardContainerIterator, #[s1, s2, h1, h2, d1, d2, c1, c2].iterator)
+	}
+}
+
+static method void testCards(Iterator<Card> actual, Iterator<Card> expected) {
+	while (expected.hasNext) {
+		assertTrue(actual.hasNext)
+		val expectedCard = expected.next
+		val actualCard = actual.next
+		expectedCard.suit ?= actualCard.suit
+		expectedCard.face ?= actualCard.face
+	}
+}

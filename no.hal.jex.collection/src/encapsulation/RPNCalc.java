@@ -72,7 +72,7 @@ public class RPNCalc {
 			push(d2 - d1);
 			break;
 		} 
-		case '*': { 
+		case '*': {
 			// pop two operands and push the product, missing values default to 1.0
 			double d1 = pop(1.0), d2 = pop(1.0);
 			push(d2 * d1);

@@ -45,7 +45,7 @@ public class TweetsCountComparatorTest extends TestCase {
     
   }
   
-  @JExercise(tests = "TweetsCountComparator()", description = "<h3>Sammenligner TwitterAccounts p\u00E5 antall tweets.</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Tweeter: mostTweet.tweet(\"tweet\"), mostTweet.tweet(\"tweet\"), lessTweet1.tweet(\"tweet\"), lessTweet2.tweet(\"tweet\")</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "TweetsCountComparator()", description = "<h3>Sammenligner TwitterAccounts p\u00E5 antall tweets.</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Tweeter: mostTweet.tweet(\"tweet\"), mostTweet.tweet(\"tweet\"), lessTweet1.tweet(\"tweet\"), lessTweet2.tweet(\"tweet\")</li>\n\t\t</ul>\n")
   public void testCompare() {
     _transition_exprAction__compare_transitions0_actions0();
     _transition_exprAction__compare_transitions0_actions1();

@@ -29,13 +29,13 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "TwitterAccount(String)", description = "<h3>Konstrukt\u00F8r</h3>Tests \r\n\t\tinitialization\r\n")
+  @JExercise(tests = "TwitterAccount(String)", description = "<h3>Konstrukt\u00F8r</h3>Tests \n\t\tinitialization\n")
   public void testConstructor() {
     _test__constructor_transitions0_effect_state();
     
   }
   
-  @JExercise(tests = "TwitterAccount(String);void follow(interfaces.twitter.TwitterAccount)", description = "<h3>F\u00F8lge en annen bruker</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Nils f\u00F8lger Ole: nils.follow(ole)</li>\r\n\t\t<li>Ole f\u00F8lger Nils: ole.follow(nils)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "TwitterAccount(String);void follow(interfaces.twitter.TwitterAccount)", description = "<h3>F\u00F8lge en annen bruker</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Nils f\u00F8lger Ole: nils.follow(ole)</li>\n\t\t<li>Ole f\u00F8lger Nils: ole.follow(nils)</li>\n\t\t</ul>\n")
   public void testFollow() {
     _transition_exprAction__follow_transitions0_actions0();
     _test__follow_transitions0_effect_state();
@@ -44,7 +44,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "TwitterAccount(String);void unfollow(interfaces.twitter.TwitterAccount);void follow(interfaces.twitter.TwitterAccount)", description = "<h3>Slutte \u00E5 f\u00F8lge en annen bruker</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Nils slutter \u00E5 f\u00F8lge Ole uten \u00E5 f\u00F8lge han fra f\u00F8r: nils.unfollow(ole)</li>\r\n\t\t<li>Nils f\u00F8lger Ole: nils.follow(ole)</li>\r\n\t\t<li>Nils slutter \u00E5 f\u00F8lge Ole: nils.unfollow(ole)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "TwitterAccount(String);void unfollow(interfaces.twitter.TwitterAccount);void follow(interfaces.twitter.TwitterAccount)", description = "<h3>Slutte \u00E5 f\u00F8lge en annen bruker</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Nils slutter \u00E5 f\u00F8lge Ole uten \u00E5 f\u00F8lge han fra f\u00F8r: nils.unfollow(ole)</li>\n\t\t<li>Nils f\u00F8lger Ole: nils.follow(ole)</li>\n\t\t<li>Nils slutter \u00E5 f\u00F8lge Ole: nils.unfollow(ole)</li>\n\t\t</ul>\n")
   public void testUnfollow() {
     _transition_exprAction__unfollow_transitions0_actions0();
     _test__unfollow_transitions0_effect_state();
@@ -55,7 +55,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "TwitterAccount(String);void tweet(String)", description = "<h3>Opprette ny tweet</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Nils tvitrer: nils.tweet(\"Kvitre!\")</li>\r\n\t\t<li>Nils tvitrer en gang til: nils.tweet(\"Kvitre igjen!\")</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "TwitterAccount(String);void tweet(String)", description = "<h3>Opprette ny tweet</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Nils tvitrer: nils.tweet(\"Kvitre!\")</li>\n\t\t<li>Nils tvitrer en gang til: nils.tweet(\"Kvitre igjen!\")</li>\n\t\t</ul>\n")
   public void testNewTweet() {
     _transition_exprAction__newTweet_transitions0_actions0();
     _test__newTweet_transitions0_effect_state();
@@ -64,7 +64,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "TwitterAccount(String);interfaces.twitter.Tweet getTweet(int);void tweet(String)", description = "<h3>Hente tweet fra feil indeks</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>nils.getTweet(1)</li>\r\n\t\t<li>nils.getTweet(-1)</li>\r\n\t\t<li>nils.tweet(\"Kvitre!\")</li>\r\n\t\t<li>nils.getTweet(2)</li>\r\n\t\t<li>nils.getTweet(-1)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "TwitterAccount(String);interfaces.twitter.Tweet getTweet(int);void tweet(String)", description = "<h3>Hente tweet fra feil indeks</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>nils.getTweet(1)</li>\n\t\t<li>nils.getTweet(-1)</li>\n\t\t<li>nils.tweet(\"Kvitre!\")</li>\n\t\t<li>nils.getTweet(2)</li>\n\t\t<li>nils.getTweet(-1)</li>\n\t\t</ul>\n")
   public void testGetTweetIllegal() {
     try {
       _transition_exprAction__getTweetIllegal_transitions0_actions0();
@@ -95,7 +95,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "TwitterAccount(String);void tweet(String);void retweet(interfaces.twitter.Tweet);interfaces.twitter.Tweet getTweet(int)", description = "<h3>Retweete noen andres tweet</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Nils tvitrer: nils.tweet(\"Kvitre!\")</li>\r\n\t\t<li>Ole retweeter Nils: ole.retweet(nils.getTweet(1))</li>\r\n\t\t<li>Kari retweeter Ole sin retweet: kari.retweet(ole.getTweet(1))</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "TwitterAccount(String);void tweet(String);void retweet(interfaces.twitter.Tweet);interfaces.twitter.Tweet getTweet(int)", description = "<h3>Retweete noen andres tweet</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Nils tvitrer: nils.tweet(\"Kvitre!\")</li>\n\t\t<li>Ole retweeter Nils: ole.retweet(nils.getTweet(1))</li>\n\t\t<li>Kari retweeter Ole sin retweet: kari.retweet(ole.getTweet(1))</li>\n\t\t</ul>\n")
   public void testRetweet() {
     TwitterAccount kari = _init__retweet_kari();
     _transition_exprAction__retweet_transitions0_actions0(kari);

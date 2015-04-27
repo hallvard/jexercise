@@ -3,7 +3,7 @@ package inheritance;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class CardContainerImpl implements CardContainer {
+public class CardContainerImpl implements CardContainer, Iterable<Card> {
 
 	private int maxCardCount;
 	protected ArrayList<Card> cards;

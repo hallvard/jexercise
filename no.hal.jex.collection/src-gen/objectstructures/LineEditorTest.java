@@ -1,9 +1,9 @@
 package objectstructures;
 
-import com.google.common.base.Objects;
 import java.util.Collections;
 import java.util.List;
 import junit.framework.TestCase;
+import no.hal.jex.jextest.extensions.JextestExtensions;
 import no.hal.jex.runtime.JExercise;
 import objectstructures.LineEditor;
 import objectstructures.Region;
@@ -66,12 +66,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private boolean operator_equals(final LineEditor lineEditor, final String s) {
+  private boolean operator_assertEquals(final LineEditor lineEditor, final String s) {
     String _string = lineEditor.toString();
-    return Objects.equal(_string, s);
+    return JextestExtensions.operator_assertEquals(_string, s);
   }
   
-  private boolean operator_equals(final LineEditor lineEditor, final List<Integer> regions) {
+  private boolean operator_assertEquals(final LineEditor lineEditor, final List<Integer> regions) {
     int _regionCount = lineEditor.getRegionCount();
     int _multiply = (_regionCount * 2);
     int _size = regions.size();
@@ -85,14 +85,14 @@ public class LineEditorTest extends TestCase {
         boolean _and = false;
         int _startPos = it.getStartPos();
         Integer _get = regions.get((i * 2));
-        boolean _equals = (_startPos == (_get).intValue());
-        if (!_equals) {
+        boolean _assertEquals = JextestExtensions.operator_assertEquals(_startPos, (_get).intValue());
+        if (!_assertEquals) {
           _and = false;
         } else {
           int _endPos = it.getEndPos();
           Integer _get_1 = regions.get(((i * 2) + 1));
-          boolean _equals_1 = (_endPos == (_get_1).intValue());
-          _and = _equals_1;
+          boolean _assertEquals_1 = JextestExtensions.operator_assertEquals(_endPos, (_get_1).intValue());
+          _and = _assertEquals_1;
         }
         boolean _not = (!_and);
         if (_not) {
@@ -103,17 +103,17 @@ public class LineEditorTest extends TestCase {
     return true;
   }
   
-  private boolean operator_equals(final LineEditor lineEditor, final Pair<String, List<Integer>> textRegions) {
+  private boolean operator_assertEquals(final LineEditor lineEditor, final Pair<String, List<Integer>> textRegions) {
     boolean _and = false;
     String _string = lineEditor.toString();
     String _key = textRegions.getKey();
-    boolean _equals = Objects.equal(_string, _key);
-    if (!_equals) {
+    boolean _assertEquals = JextestExtensions.operator_assertEquals(_string, _key);
+    if (!_assertEquals) {
       _and = false;
     } else {
       List<Integer> _value = textRegions.getValue();
-      boolean _equals_1 = this.operator_equals(lineEditor, _value);
-      _and = _equals_1;
+      boolean _assertEquals_1 = this.operator_assertEquals(lineEditor, _value);
+      _and = _assertEquals_1;
     }
     return _and;
   }
@@ -310,27 +310,27 @@ public class LineEditorTest extends TestCase {
   
   private void _test__toString_transitions0_effect_state_objectTests0_test() {
     
-    boolean _equals = this.operator_equals(
+    boolean _assertEquals = this.operator_assertEquals(
       this.empty, "|>");
-    assertTrue("empty == \"|>\" failed", _equals);
+    assertTrue("empty ?= \"|>\" failed", _assertEquals);
     
-    boolean _equals_1 = this.operator_equals(
+    boolean _assertEquals_1 = this.operator_assertEquals(
       this.left, "|>Hallvard");
-    assertTrue("left == \"|>Hallvard\" failed", _equals_1);
+    assertTrue("left ?= \"|>Hallvard\" failed", _assertEquals_1);
     
-    boolean _equals_2 = this.operator_equals(
+    boolean _assertEquals_2 = this.operator_assertEquals(
       this.middle, "Hall|>vard");
-    assertTrue("middle == \"Hall|>vard\" failed", _equals_2);
+    assertTrue("middle ?= \"Hall|>vard\" failed", _assertEquals_2);
     
-    boolean _equals_3 = this.operator_equals(
+    boolean _assertEquals_3 = this.operator_assertEquals(
       this.regionLeft, "Hal|lv>ard");
-    assertTrue("regionLeft == \"Hal|lv>ard\" failed", _equals_3);
+    assertTrue("regionLeft ?= \"Hal|lv>ard\" failed", _assertEquals_3);
     
-    boolean _equals_4 = this.operator_equals(
+    boolean _assertEquals_4 = this.operator_assertEquals(
       this.regionRight, "Hal<lv|ard");
-    assertTrue("regionRight == \"Hal<lv|ard\" failed", _equals_4);
+    assertTrue("regionRight ?= \"Hal<lv|ard\" failed", _assertEquals_4);
     
-    assertTrue("right == \"Hallvard|>\" failed", this.operator_equals(
+    assertTrue("right ?= \"Hallvard|>\" failed", this.operator_assertEquals(
       this.right, "Hallvard|>"));
     
   }
@@ -402,27 +402,27 @@ public class LineEditorTest extends TestCase {
   
   private void _test__left_transitions0_effect_state_objectTests0_test() {
     
-    boolean _equals = this.operator_equals(
+    boolean _assertEquals = this.operator_assertEquals(
       this.empty, "|>");
-    assertTrue("empty == \"|>\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", _equals);
+    assertTrue("empty ?= \"|>\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", _assertEquals);
     
-    boolean _equals_1 = this.operator_equals(
+    boolean _assertEquals_1 = this.operator_assertEquals(
       this.left, "|>Hallvard");
-    assertTrue("left == \"|>Hallvard\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", _equals_1);
+    assertTrue("left ?= \"|>Hallvard\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", _assertEquals_1);
     
-    boolean _equals_2 = this.operator_equals(
+    boolean _assertEquals_2 = this.operator_assertEquals(
       this.middle, "Hal|>lvard");
-    assertTrue("middle == \"Hal|>lvard\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", _equals_2);
+    assertTrue("middle ?= \"Hal|>lvard\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", _assertEquals_2);
     
-    boolean _equals_3 = this.operator_equals(
+    boolean _assertEquals_3 = this.operator_assertEquals(
       this.regionLeft, "Hal|>lvard");
-    assertTrue("regionLeft == \"Hal|>lvard\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", _equals_3);
+    assertTrue("regionLeft ?= \"Hal|>lvard\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", _assertEquals_3);
     
-    boolean _equals_4 = this.operator_equals(
+    boolean _assertEquals_4 = this.operator_assertEquals(
       this.regionRight, "Hal|>lvard");
-    assertTrue("regionRight == \"Hal|>lvard\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", _equals_4);
+    assertTrue("regionRight ?= \"Hal|>lvard\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", _assertEquals_4);
     
-    assertTrue("right == \"Hallvar|>d\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", this.operator_equals(
+    assertTrue("right ?= \"Hallvar|>d\" failed after empty.left(false) ,left.left(false) ,middle.left(false) ,regionLeft.left(false) ,regionRight.left(false) ,right.left(false)", this.operator_assertEquals(
       this.right, "Hallvar|>d"));
     
   }
@@ -494,27 +494,27 @@ public class LineEditorTest extends TestCase {
   
   private void _test__right_transitions0_effect_state_objectTests0_test() {
     
-    boolean _equals = this.operator_equals(
+    boolean _assertEquals = this.operator_assertEquals(
       this.empty, "|>");
-    assertTrue("empty == \"|>\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", _equals);
+    assertTrue("empty ?= \"|>\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", _assertEquals);
     
-    boolean _equals_1 = this.operator_equals(
+    boolean _assertEquals_1 = this.operator_assertEquals(
       this.left, "H|>allvard");
-    assertTrue("left == \"H|>allvard\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", _equals_1);
+    assertTrue("left ?= \"H|>allvard\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", _assertEquals_1);
     
-    boolean _equals_2 = this.operator_equals(
+    boolean _assertEquals_2 = this.operator_assertEquals(
       this.middle, "Hallv|>ard");
-    assertTrue("middle == \"Hallv|>ard\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", _equals_2);
+    assertTrue("middle ?= \"Hallv|>ard\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", _assertEquals_2);
     
-    boolean _equals_3 = this.operator_equals(
+    boolean _assertEquals_3 = this.operator_assertEquals(
       this.regionLeft, "Hallv|>ard");
-    assertTrue("regionLeft == \"Hallv|>ard\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", _equals_3);
+    assertTrue("regionLeft ?= \"Hallv|>ard\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", _assertEquals_3);
     
-    boolean _equals_4 = this.operator_equals(
+    boolean _assertEquals_4 = this.operator_assertEquals(
       this.regionRight, "Hallv|>ard");
-    assertTrue("regionRight == \"Hallv|>ard\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", _equals_4);
+    assertTrue("regionRight ?= \"Hallv|>ard\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", _assertEquals_4);
     
-    assertTrue("right == \"Hallvard|>\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", this.operator_equals(
+    assertTrue("right ?= \"Hallvard|>\" failed after empty.right(false) ,left.right(false) ,middle.right(false) ,regionLeft.right(false) ,regionRight.right(false) ,right.right(false)", this.operator_assertEquals(
       this.right, "Hallvard|>"));
     
   }
@@ -586,27 +586,27 @@ public class LineEditorTest extends TestCase {
   
   private void _test__replaceRegion_transitions0_effect_state_objectTests0_test() {
     
-    boolean _equals = this.operator_equals(
+    boolean _assertEquals = this.operator_assertEquals(
       this.empty, "?!|>");
-    assertTrue("empty == \"?!|>\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", _equals);
+    assertTrue("empty ?= \"?!|>\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", _assertEquals);
     
-    boolean _equals_1 = this.operator_equals(
+    boolean _assertEquals_1 = this.operator_assertEquals(
       this.left, "?!|>Hallvard");
-    assertTrue("left == \"?!|>Hallvard\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", _equals_1);
+    assertTrue("left ?= \"?!|>Hallvard\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", _assertEquals_1);
     
-    boolean _equals_2 = this.operator_equals(
+    boolean _assertEquals_2 = this.operator_assertEquals(
       this.middle, "Hall?!|>vard");
-    assertTrue("middle == \"Hall?!|>vard\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", _equals_2);
+    assertTrue("middle ?= \"Hall?!|>vard\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", _assertEquals_2);
     
-    boolean _equals_3 = this.operator_equals(
+    boolean _assertEquals_3 = this.operator_assertEquals(
       this.regionLeft, "Hal?!|>ard");
-    assertTrue("regionLeft == \"Hal?!|>ard\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", _equals_3);
+    assertTrue("regionLeft ?= \"Hal?!|>ard\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", _assertEquals_3);
     
-    boolean _equals_4 = this.operator_equals(
+    boolean _assertEquals_4 = this.operator_assertEquals(
       this.regionRight, "Hal?!|>ard");
-    assertTrue("regionRight == \"Hal?!|>ard\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", _equals_4);
+    assertTrue("regionRight ?= \"Hal?!|>ard\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", _assertEquals_4);
     
-    assertTrue("right == \"Hallvard?!|>\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", this.operator_equals(
+    assertTrue("right ?= \"Hallvard?!|>\" failed after empty.replaceRegion(\"?!\") ,left.replaceRegion(\"?!\") ,middle.replaceRegion(\"?!\") ,regionLeft.replaceRegion(\"?!\") ,regionRight.replaceRegion(\"?!\") ,right.replaceRegion(\"?!\")", this.operator_assertEquals(
       this.right, "Hallvard?!|>"));
     
   }
@@ -678,27 +678,27 @@ public class LineEditorTest extends TestCase {
   
   private void _test__deleteLeft_transitions0_effect_state_objectTests0_test() {
     
-    boolean _equals = this.operator_equals(
+    boolean _assertEquals = this.operator_assertEquals(
       this.empty, "|>");
-    assertTrue("empty == \"|>\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", _equals);
+    assertTrue("empty ?= \"|>\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", _assertEquals);
     
-    boolean _equals_1 = this.operator_equals(
+    boolean _assertEquals_1 = this.operator_assertEquals(
       this.left, "|>Hallvard");
-    assertTrue("left == \"|>Hallvard\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", _equals_1);
+    assertTrue("left ?= \"|>Hallvard\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", _assertEquals_1);
     
-    boolean _equals_2 = this.operator_equals(
+    boolean _assertEquals_2 = this.operator_assertEquals(
       this.middle, "Hal|>vard");
-    assertTrue("middle == \"Hal|>vard\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", _equals_2);
+    assertTrue("middle ?= \"Hal|>vard\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", _assertEquals_2);
     
-    boolean _equals_3 = this.operator_equals(
+    boolean _assertEquals_3 = this.operator_assertEquals(
       this.regionLeft, "Hal|>ard");
-    assertTrue("regionLeft == \"Hal|>ard\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", _equals_3);
+    assertTrue("regionLeft ?= \"Hal|>ard\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", _assertEquals_3);
     
-    boolean _equals_4 = this.operator_equals(
+    boolean _assertEquals_4 = this.operator_assertEquals(
       this.regionRight, "Hal|>ard");
-    assertTrue("regionRight == \"Hal|>ard\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", _equals_4);
+    assertTrue("regionRight ?= \"Hal|>ard\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", _assertEquals_4);
     
-    assertTrue("right == \"Hallvar|>\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", this.operator_equals(
+    assertTrue("right ?= \"Hallvar|>\" failed after empty.deleteLeft ,left.deleteLeft ,middle.deleteLeft ,regionLeft.deleteLeft ,regionRight.deleteLeft ,right.deleteLeft", this.operator_assertEquals(
       this.right, "Hallvar|>"));
     
   }
@@ -770,27 +770,27 @@ public class LineEditorTest extends TestCase {
   
   private void _test__deleteRight_transitions0_effect_state_objectTests0_test() {
     
-    boolean _equals = this.operator_equals(
+    boolean _assertEquals = this.operator_assertEquals(
       this.empty, "|>");
-    assertTrue("empty == \"|>\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", _equals);
+    assertTrue("empty ?= \"|>\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", _assertEquals);
     
-    boolean _equals_1 = this.operator_equals(
+    boolean _assertEquals_1 = this.operator_assertEquals(
       this.left, "|>allvard");
-    assertTrue("left == \"|>allvard\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", _equals_1);
+    assertTrue("left ?= \"|>allvard\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", _assertEquals_1);
     
-    boolean _equals_2 = this.operator_equals(
+    boolean _assertEquals_2 = this.operator_assertEquals(
       this.middle, "Hall|>ard");
-    assertTrue("middle == \"Hall|>ard\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", _equals_2);
+    assertTrue("middle ?= \"Hall|>ard\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", _assertEquals_2);
     
-    boolean _equals_3 = this.operator_equals(
+    boolean _assertEquals_3 = this.operator_assertEquals(
       this.regionLeft, "Hal|>ard");
-    assertTrue("regionLeft == \"Hal|>ard\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", _equals_3);
+    assertTrue("regionLeft ?= \"Hal|>ard\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", _assertEquals_3);
     
-    boolean _equals_4 = this.operator_equals(
+    boolean _assertEquals_4 = this.operator_assertEquals(
       this.regionRight, "Hal|>ard");
-    assertTrue("regionRight == \"Hal|>ard\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", _equals_4);
+    assertTrue("regionRight ?= \"Hal|>ard\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", _assertEquals_4);
     
-    assertTrue("right == \"Hallvard|>\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", this.operator_equals(
+    assertTrue("right ?= \"Hallvard|>\" failed after empty.deleteRight ,left.deleteRight ,middle.deleteRight ,regionLeft.deleteRight ,regionRight.deleteRight ,right.deleteRight", this.operator_assertEquals(
       this.right, "Hallvard|>"));
     
   }
@@ -863,32 +863,32 @@ public class LineEditorTest extends TestCase {
   private void _test__insertTag_transitions0_effect_state_objectTests0_test() {
     
     Pair<String, List<Integer>> _mappedTo = Pair.<String, List<Integer>>of("|>[0,0:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(0), Integer.valueOf(0))));
-    boolean _equals = this.operator_equals(
+    boolean _assertEquals = this.operator_assertEquals(
       this.empty, _mappedTo);
-    assertTrue("empty == \"|>[0,0:?!>\" -> #[0,0] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", _equals);
+    assertTrue("empty ?= \"|>[0,0:?!>\" -> #[0,0] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", _assertEquals);
     
     Pair<String, List<Integer>> _mappedTo_1 = Pair.<String, List<Integer>>of("|>Hallvard[0,0:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(0), Integer.valueOf(0))));
-    boolean _equals_1 = this.operator_equals(
+    boolean _assertEquals_1 = this.operator_assertEquals(
       this.left, _mappedTo_1);
-    assertTrue("left == \"|>Hallvard[0,0:?!>\" -> #[0,0] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", _equals_1);
+    assertTrue("left ?= \"|>Hallvard[0,0:?!>\" -> #[0,0] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", _assertEquals_1);
     
     Pair<String, List<Integer>> _mappedTo_2 = Pair.<String, List<Integer>>of("Hall|>vard[4,4:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(4), Integer.valueOf(4))));
-    boolean _equals_2 = this.operator_equals(
+    boolean _assertEquals_2 = this.operator_assertEquals(
       this.middle, _mappedTo_2);
-    assertTrue("middle == \"Hall|>vard[4,4:?!>\" -> #[4,4] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", _equals_2);
+    assertTrue("middle ?= \"Hall|>vard[4,4:?!>\" -> #[4,4] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", _assertEquals_2);
     
     Pair<String, List<Integer>> _mappedTo_3 = Pair.<String, List<Integer>>of("Hal|lv>ard[3,5:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(5))));
-    boolean _equals_3 = this.operator_equals(
+    boolean _assertEquals_3 = this.operator_assertEquals(
       this.regionLeft, _mappedTo_3);
-    assertTrue("regionLeft == \"Hal|lv>ard[3,5:?!>\" -> #[3,5] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", _equals_3);
+    assertTrue("regionLeft ?= \"Hal|lv>ard[3,5:?!>\" -> #[3,5] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", _assertEquals_3);
     
     Pair<String, List<Integer>> _mappedTo_4 = Pair.<String, List<Integer>>of("Hal<lv|ard[3,5:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(5))));
-    boolean _equals_4 = this.operator_equals(
+    boolean _assertEquals_4 = this.operator_assertEquals(
       this.regionRight, _mappedTo_4);
-    assertTrue("regionRight == \"Hal<lv|ard[3,5:?!>\" -> #[3,5] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", _equals_4);
+    assertTrue("regionRight ?= \"Hal<lv|ard[3,5:?!>\" -> #[3,5] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", _assertEquals_4);
     
     Pair<String, List<Integer>> _mappedTo_5 = Pair.<String, List<Integer>>of("Hallvard|>[8,8:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(8), Integer.valueOf(8))));
-    assertTrue("right == \"Hallvard|>[8,8:?!>\" -> #[8,8] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", this.operator_equals(
+    assertTrue("right ?= \"Hallvard|>[8,8:?!>\" -> #[8,8] failed after empty.insertTag(\"?!\") ,left.insertTag(\"?!\") ,middle.insertTag(\"?!\") ,regionLeft.insertTag(\"?!\") ,regionRight.insertTag(\"?!\") ,right.insertTag(\"?!\")", this.operator_assertEquals(
       this.right, _mappedTo_5));
     
   }
@@ -911,8 +911,8 @@ public class LineEditorTest extends TestCase {
   private void _test__insertTagEdit_transitions0_effect_state_objectTests0_test(final LineEditor it) {
     
     Pair<String, List<Integer>> _mappedTo = Pair.<String, List<Integer>>of("Hal|lv>ard[3,5:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(5))));
-    boolean _equals = this.operator_equals(it, _mappedTo);
-    assertTrue("it == \"Hal|lv>ard[3,5:?!>\" -> #[3,5] failed after regionLeft.insertTag(\"?!\")", _equals);
+    boolean _assertEquals = this.operator_assertEquals(it, _mappedTo);
+    assertTrue("it ?= \"Hal|lv>ard[3,5:?!>\" -> #[3,5] failed after regionLeft.insertTag(\"?!\")", _assertEquals);
     
     int _regionCount = it.getRegionCount();
     assertEquals("regionCount == 1 failed after regionLeft.insertTag(\"?!\")", 1, _regionCount);
@@ -940,8 +940,8 @@ public class LineEditorTest extends TestCase {
   private void _test__insertTagEdit_transitions1_effect_state_objectTests0_test(final LineEditor it) {
     
     Pair<String, List<Integer>> _mappedTo = Pair.<String, List<Integer>>of("Hal|>lvard[3,5:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(5))));
-    boolean _equals = this.operator_equals(it, _mappedTo);
-    assertTrue("it == \"Hal|>lvard[3,5:?!>\" -> #[3,5] failed after regionLeft.left(false)", _equals);
+    boolean _assertEquals = this.operator_assertEquals(it, _mappedTo);
+    assertTrue("it ?= \"Hal|>lvard[3,5:?!>\" -> #[3,5] failed after regionLeft.left(false)", _assertEquals);
     
     String _regionText = it.getRegionText(0);
     assertEquals("getRegionText(0) == \"lv\" failed after regionLeft.left(false)", "lv", _regionText);
@@ -966,8 +966,8 @@ public class LineEditorTest extends TestCase {
   private void _test__insertTagEdit_transitions2_effect_state_objectTests0_test(final LineEditor it) {
     
     Pair<String, List<Integer>> _mappedTo = Pair.<String, List<Integer>>of("Halxy|>lvard[3,7:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(7))));
-    boolean _equals = this.operator_equals(it, _mappedTo);
-    assertTrue("it == \"Halxy|>lvard[3,7:?!>\" -> #[3,7] failed after regionLeft.replaceRegion(\"xy\")", _equals);
+    boolean _assertEquals = this.operator_assertEquals(it, _mappedTo);
+    assertTrue("it ?= \"Halxy|>lvard[3,7:?!>\" -> #[3,7] failed after regionLeft.replaceRegion(\"xy\")", _assertEquals);
     
     String _regionText = it.getRegionText(0);
     assertEquals("getRegionText(0) == \"xylv\" failed after regionLeft.replaceRegion(\"xy\")", "xylv", _regionText);
@@ -992,8 +992,8 @@ public class LineEditorTest extends TestCase {
   private void _test__insertTagEdit_transitions3_effect_state_objectTests0_test(final LineEditor it) {
     
     Pair<String, List<Integer>> _mappedTo = Pair.<String, List<Integer>>of("Halx|>lvard[3,6:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(6))));
-    boolean _equals = this.operator_equals(it, _mappedTo);
-    assertTrue("it == \"Halx|>lvard[3,6:?!>\" -> #[3,6] failed after regionLeft.deleteLeft()", _equals);
+    boolean _assertEquals = this.operator_assertEquals(it, _mappedTo);
+    assertTrue("it ?= \"Halx|>lvard[3,6:?!>\" -> #[3,6] failed after regionLeft.deleteLeft()", _assertEquals);
     
     String _regionText = it.getRegionText(0);
     assertEquals("getRegionText(0) == \"xlv\" failed after regionLeft.deleteLeft()", "xlv", _regionText);

@@ -1,0 +1,13 @@
+test interfaces.NamedComparator
+
+sequence namedComparator {
+	instance Person1 ht = new Person1("Hallvard", "Trætteberg")
+	instance Person2 jt = new Person2("Jens Trætteberg")
+
+	-- compare(jt, ht) > 0 -->
+	state {
+		compare(ht, ht) == 0
+		compare(ht, jt) < 0
+		compare(jt, jt) == 0
+	}
+}

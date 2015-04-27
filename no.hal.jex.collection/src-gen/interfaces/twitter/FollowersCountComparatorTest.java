@@ -45,7 +45,7 @@ public class FollowersCountComparatorTest extends TestCase {
     
   }
   
-  @JExercise(tests = "FollowersCountComparator()", description = "<h3>Sammenligner TwitterAccounts p\u00E5 antall f\u00F8lgere.</h3>Tests \r\n\t\tthe following sequence:\r\n\t\t<ul>\r\n\t\t<li>Legger til f\u00F8lgere: aaron.follow(ben), ben.follow(aaron)</li>\r\n\t\t<li>Legger til en ekstra f\u00F8lger: charlie.follow(ben)</li>\r\n\t\t</ul>\r\n")
+  @JExercise(tests = "FollowersCountComparator()", description = "<h3>Sammenligner TwitterAccounts p\u00E5 antall f\u00F8lgere.</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Legger til f\u00F8lgere: aaron.follow(ben), ben.follow(aaron)</li>\n\t\t<li>Legger til en ekstra f\u00F8lger: charlie.follow(ben)</li>\n\t\t</ul>\n")
   public void testCompare() {
     _transition_exprAction__compare_transitions0_actions0();
     _transition_exprAction__compare_transitions0_actions1();
