@@ -8,6 +8,8 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
 
+import org.eclipse.xtext.xbase.XExpression;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Tested Class</b></em>'.
@@ -21,6 +23,8 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedClass#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedClass#getSuperClass <em>Super Class</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedClass#getSuperInterfaces <em>Super Interfaces</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.TestedClass#getDescription <em>Description</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.TestedClass#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedClass#getMethods <em>Methods</em>}</li>
  * </ul>
  * </p>
@@ -150,6 +154,58 @@ public interface TestedClass extends EObject
    * @generated
    */
   EList<JvmParameterizedTypeReference> getSuperInterfaces();
+
+  /**
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTestedClass_Description()
+   * @model
+   * @generated
+   */
+  String getDescription();
+
+  /**
+   * Sets the value of the '{@link no.hal.jex.jextest.jexTest.TestedClass#getDescription <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Invariant</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Invariant</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Invariant</em>' containment reference.
+   * @see #setInvariant(XExpression)
+   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTestedClass_Invariant()
+   * @model containment="true"
+   * @generated
+   */
+  XExpression getInvariant();
+
+  /**
+   * Sets the value of the '{@link no.hal.jex.jextest.jexTest.TestedClass#getInvariant <em>Invariant</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Invariant</em>' containment reference.
+   * @see #getInvariant()
+   * @generated
+   */
+  void setInvariant(XExpression value);
 
   /**
    * Returns the value of the '<em><b>Methods</b></em>' containment reference list.

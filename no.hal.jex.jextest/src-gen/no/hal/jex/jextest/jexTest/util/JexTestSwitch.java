@@ -79,6 +79,7 @@ public class JexTestSwitch<T> extends Switch<T>
       {
         JexTestSuite jexTestSuite = (JexTestSuite)theEObject;
         T result = caseJexTestSuite(jexTestSuite);
+        if (result == null) result = caseTestMemberContext(jexTestSuite);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -86,6 +87,7 @@ public class JexTestSwitch<T> extends Switch<T>
       {
         JexTestCase jexTestCase = (JexTestCase)theEObject;
         T result = caseJexTestCase(jexTestCase);
+        if (result == null) result = caseTestMemberContext(jexTestCase);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -93,6 +95,13 @@ public class JexTestSwitch<T> extends Switch<T>
       {
         Instance instance = (Instance)theEObject;
         T result = caseInstance(instance);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JexTestPackage.TEST_MEMBER_CONTEXT:
+      {
+        TestMemberContext testMemberContext = (TestMemberContext)theEObject;
+        T result = caseTestMemberContext(testMemberContext);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -124,6 +133,13 @@ public class JexTestSwitch<T> extends Switch<T>
         JexTestSequence jexTestSequence = (JexTestSequence)theEObject;
         T result = caseJexTestSequence(jexTestSequence);
         if (result == null) result = caseStateTestContext(jexTestSequence);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JexTestPackage.JVM_OPERATION_REF:
+      {
+        JvmOperationRef jvmOperationRef = (JvmOperationRef)theEObject;
+        T result = caseJvmOperationRef(jvmOperationRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -314,6 +330,22 @@ public class JexTestSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Test Member Context</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Test Member Context</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTestMemberContext(TestMemberContext object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>State Test Context</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -373,6 +405,22 @@ public class JexTestSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseJexTestSequence(JexTestSequence object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Jvm Operation Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Jvm Operation Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJvmOperationRef(JvmOperationRef object)
   {
     return null;
   }

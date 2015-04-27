@@ -4,9 +4,8 @@ package no.hal.jex.jextest.jexTest.impl;
 
 import java.util.Collection;
 
-import no.hal.jex.jextest.jexTest.JexTestCase;
 import no.hal.jex.jextest.jexTest.JexTestPackage;
-import no.hal.jex.jextest.jexTest.JexTestSuite;
+import no.hal.jex.jextest.jexTest.JvmOperationRef;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,62 +16,65 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Suite</b></em>'.
+ * An implementation of the model object '<em><b>Jvm Operation Ref</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestSuiteImpl#getSuiteClassName <em>Suite Class Name</em>}</li>
- *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestSuiteImpl#getTestCases <em>Test Cases</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.JvmOperationRefImpl#getMethodName <em>Method Name</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.JvmOperationRefImpl#getParameterTypes <em>Parameter Types</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSuite
+public class JvmOperationRefImpl extends MinimalEObjectImpl.Container implements JvmOperationRef
 {
   /**
-   * The default value of the '{@link #getSuiteClassName() <em>Suite Class Name</em>}' attribute.
+   * The default value of the '{@link #getMethodName() <em>Method Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSuiteClassName()
+   * @see #getMethodName()
    * @generated
    * @ordered
    */
-  protected static final String SUITE_CLASS_NAME_EDEFAULT = null;
+  protected static final String METHOD_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getSuiteClassName() <em>Suite Class Name</em>}' attribute.
+   * The cached value of the '{@link #getMethodName() <em>Method Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSuiteClassName()
+   * @see #getMethodName()
    * @generated
    * @ordered
    */
-  protected String suiteClassName = SUITE_CLASS_NAME_EDEFAULT;
+  protected String methodName = METHOD_NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTestCases() <em>Test Cases</em>}' containment reference list.
+   * The cached value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTestCases()
+   * @see #getParameterTypes()
    * @generated
    * @ordered
    */
-  protected EList<JexTestCase> testCases;
+  protected EList<JvmParameterizedTypeReference> parameterTypes;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected JexTestSuiteImpl()
+  protected JvmOperationRefImpl()
   {
     super();
   }
@@ -85,7 +87,7 @@ public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSu
   @Override
   protected EClass eStaticClass()
   {
-    return JexTestPackage.Literals.JEX_TEST_SUITE;
+    return JexTestPackage.Literals.JVM_OPERATION_REF;
   }
 
   /**
@@ -93,9 +95,9 @@ public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSu
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getSuiteClassName()
+  public String getMethodName()
   {
-    return suiteClassName;
+    return methodName;
   }
 
   /**
@@ -103,12 +105,12 @@ public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSu
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSuiteClassName(String newSuiteClassName)
+  public void setMethodName(String newMethodName)
   {
-    String oldSuiteClassName = suiteClassName;
-    suiteClassName = newSuiteClassName;
+    String oldMethodName = methodName;
+    methodName = newMethodName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.JEX_TEST_SUITE__SUITE_CLASS_NAME, oldSuiteClassName, suiteClassName));
+      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.JVM_OPERATION_REF__METHOD_NAME, oldMethodName, methodName));
   }
 
   /**
@@ -116,13 +118,13 @@ public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSu
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<JexTestCase> getTestCases()
+  public EList<JvmParameterizedTypeReference> getParameterTypes()
   {
-    if (testCases == null)
+    if (parameterTypes == null)
     {
-      testCases = new EObjectContainmentEList<JexTestCase>(JexTestCase.class, this, JexTestPackage.JEX_TEST_SUITE__TEST_CASES);
+      parameterTypes = new EObjectContainmentEList<JvmParameterizedTypeReference>(JvmParameterizedTypeReference.class, this, JexTestPackage.JVM_OPERATION_REF__PARAMETER_TYPES);
     }
-    return testCases;
+    return parameterTypes;
   }
 
   /**
@@ -135,8 +137,8 @@ public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSu
   {
     switch (featureID)
     {
-      case JexTestPackage.JEX_TEST_SUITE__TEST_CASES:
-        return ((InternalEList<?>)getTestCases()).basicRemove(otherEnd, msgs);
+      case JexTestPackage.JVM_OPERATION_REF__PARAMETER_TYPES:
+        return ((InternalEList<?>)getParameterTypes()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -151,10 +153,10 @@ public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSu
   {
     switch (featureID)
     {
-      case JexTestPackage.JEX_TEST_SUITE__SUITE_CLASS_NAME:
-        return getSuiteClassName();
-      case JexTestPackage.JEX_TEST_SUITE__TEST_CASES:
-        return getTestCases();
+      case JexTestPackage.JVM_OPERATION_REF__METHOD_NAME:
+        return getMethodName();
+      case JexTestPackage.JVM_OPERATION_REF__PARAMETER_TYPES:
+        return getParameterTypes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -170,12 +172,12 @@ public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSu
   {
     switch (featureID)
     {
-      case JexTestPackage.JEX_TEST_SUITE__SUITE_CLASS_NAME:
-        setSuiteClassName((String)newValue);
+      case JexTestPackage.JVM_OPERATION_REF__METHOD_NAME:
+        setMethodName((String)newValue);
         return;
-      case JexTestPackage.JEX_TEST_SUITE__TEST_CASES:
-        getTestCases().clear();
-        getTestCases().addAll((Collection<? extends JexTestCase>)newValue);
+      case JexTestPackage.JVM_OPERATION_REF__PARAMETER_TYPES:
+        getParameterTypes().clear();
+        getParameterTypes().addAll((Collection<? extends JvmParameterizedTypeReference>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -191,11 +193,11 @@ public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSu
   {
     switch (featureID)
     {
-      case JexTestPackage.JEX_TEST_SUITE__SUITE_CLASS_NAME:
-        setSuiteClassName(SUITE_CLASS_NAME_EDEFAULT);
+      case JexTestPackage.JVM_OPERATION_REF__METHOD_NAME:
+        setMethodName(METHOD_NAME_EDEFAULT);
         return;
-      case JexTestPackage.JEX_TEST_SUITE__TEST_CASES:
-        getTestCases().clear();
+      case JexTestPackage.JVM_OPERATION_REF__PARAMETER_TYPES:
+        getParameterTypes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -211,10 +213,10 @@ public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSu
   {
     switch (featureID)
     {
-      case JexTestPackage.JEX_TEST_SUITE__SUITE_CLASS_NAME:
-        return SUITE_CLASS_NAME_EDEFAULT == null ? suiteClassName != null : !SUITE_CLASS_NAME_EDEFAULT.equals(suiteClassName);
-      case JexTestPackage.JEX_TEST_SUITE__TEST_CASES:
-        return testCases != null && !testCases.isEmpty();
+      case JexTestPackage.JVM_OPERATION_REF__METHOD_NAME:
+        return METHOD_NAME_EDEFAULT == null ? methodName != null : !METHOD_NAME_EDEFAULT.equals(methodName);
+      case JexTestPackage.JVM_OPERATION_REF__PARAMETER_TYPES:
+        return parameterTypes != null && !parameterTypes.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -230,10 +232,10 @@ public class JexTestSuiteImpl extends TestMemberContextImpl implements JexTestSu
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (suiteClassName: ");
-    result.append(suiteClassName);
+    result.append(" (methodName: ");
+    result.append(methodName);
     result.append(')');
     return result.toString();
   }
 
-} //JexTestSuiteImpl
+} //JvmOperationRefImpl

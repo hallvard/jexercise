@@ -11,13 +11,13 @@ import org.eclipse.xtext.common.types.JvmAnnotationReference
 import org.eclipse.xtext.common.types.JvmConstructor
 import org.eclipse.xtext.common.types.JvmExecutable
 import org.eclipse.xtext.common.types.JvmGenericType
+import org.eclipse.xtext.common.types.JvmOperation
 import org.eclipse.xtext.common.types.JvmType
+import org.eclipse.xtext.common.types.TypesFactory
 import org.eclipse.xtext.xbase.XAbstractFeatureCall
 import org.eclipse.xtext.xbase.XConstructorCall
 import org.eclipse.xtext.xbase.XExpression
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociations
-import org.eclipse.xtext.common.types.TypesFactory
-import org.eclipse.xtext.common.types.JvmOperation
 
 class TestAnnotationsSupport {
 
@@ -60,25 +60,31 @@ class TestAnnotationsSupport {
 		val testsBuffer = new StringBuilder()
 		val testCase = sequence.ancestor(JexTestCase)
 		val testedClass = testCase.testedJvmType
-		val testedMembers = <JvmExecutable>newArrayList
-		if (testCase.instances.empty) {
-			addDefaultConstructor(testedClass, testedMembers)
-		} else {
-			for (instance : testCase.instances) {
+		val resolvedOperations = resolveOperatorRefs(sequence.tested)
+		if (resolvedOperations.exists[it == null]) {
+			return
+		}
+		val testedMembers = <JvmExecutable>newArrayList(resolvedOperations)
+		if (testedMembers.empty) {
+			if (testCase.instances.empty) {
+				addDefaultConstructor(testedClass, testedMembers)
+			} else {
+				for (instance : testCase.instances) {
+					instance.collectUsedMembers(testedClass, testedMembers)
+				}
+			}
+			for (instance : sequence.instances) {
 				instance.collectUsedMembers(testedClass, testedMembers)
 			}
-		}
-		for (instance : sequence.instances) {
-			instance.collectUsedMembers(testedClass, testedMembers)
-		}
-		for (transition : sequence.transitions) {
-			for (action : transition.actions) {
-				var XExpression expr = null
-				if (action instanceof TransitionExpressionAction) {
-					expr = action.expr;
-				}
-				if (expr != null) {
-					expr.collectUsedMembers(testedClass, testedMembers)
+			for (transition : sequence.transitions) {
+				for (action : transition.actions) {
+					var XExpression expr = null
+					if (action instanceof TransitionExpressionAction) {
+						expr = action.expr;
+					}
+					if (expr != null) {
+						expr.collectUsedMembers(testedClass, testedMembers)
+					}
 				}
 			}
 		}
@@ -108,7 +114,7 @@ class TestAnnotationsSupport {
 		}
 		sequence.toAnnotationStringValues(jexerciseAnnotation, "description", descriptionBuffer.toString)
 	}
-
+	
 	def void addDescription(StringBuilder buffer, String description, String... tags) {
 		if (description != null) {
 			val tagList = newArrayList(tags)			

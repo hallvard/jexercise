@@ -33,7 +33,6 @@ import org.eclipse.xtext.xbase.XExpression;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link no.hal.jex.jextest.jexTest.impl.MethodImpl#isStatic <em>Static</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.MethodImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.MethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.MethodImpl#getParameters <em>Parameters</em>}</li>
@@ -45,26 +44,6 @@ import org.eclipse.xtext.xbase.XExpression;
  */
 public class MethodImpl extends MinimalEObjectImpl.Container implements Method
 {
-  /**
-   * The default value of the '{@link #isStatic() <em>Static</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isStatic()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean STATIC_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isStatic() <em>Static</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isStatic()
-   * @generated
-   * @ordered
-   */
-  protected boolean static_ = STATIC_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -134,29 +113,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   protected EClass eStaticClass()
   {
     return JexTestPackage.Literals.METHOD;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isStatic()
-  {
-    return static_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStatic(boolean newStatic)
-  {
-    boolean oldStatic = static_;
-    static_ = newStatic;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.METHOD__STATIC, oldStatic, static_));
   }
 
   /**
@@ -322,8 +278,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case JexTestPackage.METHOD__STATIC:
-        return isStatic();
       case JexTestPackage.METHOD__RETURN_TYPE:
         return getReturnType();
       case JexTestPackage.METHOD__NAME:
@@ -347,9 +301,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case JexTestPackage.METHOD__STATIC:
-        setStatic((Boolean)newValue);
-        return;
       case JexTestPackage.METHOD__RETURN_TYPE:
         setReturnType((JvmTypeReference)newValue);
         return;
@@ -377,9 +328,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case JexTestPackage.METHOD__STATIC:
-        setStatic(STATIC_EDEFAULT);
-        return;
       case JexTestPackage.METHOD__RETURN_TYPE:
         setReturnType((JvmTypeReference)null);
         return;
@@ -406,8 +354,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   {
     switch (featureID)
     {
-      case JexTestPackage.METHOD__STATIC:
-        return static_ != STATIC_EDEFAULT;
       case JexTestPackage.METHOD__RETURN_TYPE:
         return returnType != null;
       case JexTestPackage.METHOD__NAME:
@@ -431,9 +377,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (static: ");
-    result.append(static_);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
     result.append(')');
     return result.toString();

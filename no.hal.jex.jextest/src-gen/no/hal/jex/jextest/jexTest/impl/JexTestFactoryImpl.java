@@ -67,10 +67,12 @@ public class JexTestFactoryImpl extends EFactoryImpl implements JexTestFactory
       case JexTestPackage.JEX_TEST_SUITE: return createJexTestSuite();
       case JexTestPackage.JEX_TEST_CASE: return createJexTestCase();
       case JexTestPackage.INSTANCE: return createInstance();
+      case JexTestPackage.TEST_MEMBER_CONTEXT: return createTestMemberContext();
       case JexTestPackage.STATE_TEST_CONTEXT: return createStateTestContext();
       case JexTestPackage.PROPERTIES_TEST_OWNER: return createPropertiesTestOwner();
       case JexTestPackage.STATE_FUNCTION: return createStateFunction();
       case JexTestPackage.JEX_TEST_SEQUENCE: return createJexTestSequence();
+      case JexTestPackage.JVM_OPERATION_REF: return createJvmOperationRef();
       case JexTestPackage.STATE: return createState();
       case JexTestPackage.OBJECT_TEST: return createObjectTest();
       case JexTestPackage.TRANSITION: return createTransition();
@@ -132,6 +134,17 @@ public class JexTestFactoryImpl extends EFactoryImpl implements JexTestFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public TestMemberContext createTestMemberContext()
+  {
+    TestMemberContextImpl testMemberContext = new TestMemberContextImpl();
+    return testMemberContext;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public StateTestContext createStateTestContext()
   {
     StateTestContextImpl stateTestContext = new StateTestContextImpl();
@@ -169,6 +182,17 @@ public class JexTestFactoryImpl extends EFactoryImpl implements JexTestFactory
   {
     JexTestSequenceImpl jexTestSequence = new JexTestSequenceImpl();
     return jexTestSequence;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JvmOperationRef createJvmOperationRef()
+  {
+    JvmOperationRefImpl jvmOperationRef = new JvmOperationRefImpl();
+    return jvmOperationRef;
   }
 
   /**

@@ -7,9 +7,13 @@ import "http://www.eclipse.org/xtext/xbase/Xbase" as xbase
 generate jexTest "http://www.hal.no/jex/jextest/JexTest"
 
 JexTestSuite:
-	{JexTestSuite} 'suite'?
-	('package' pack = QName)?
+	{JexTestSuite} ('suite' suiteClassName = QName)?
 	(importSection = XImportSection)?
+	(
+		(('instance' | 'val') (instances += Instance) (',' instances += Instance)*) |
+		(stateFunctions += StateFunction) |
+		(methods += Method)
+	)*
 	(testCases += JexTestCase)*
 ;
 
@@ -24,32 +28,45 @@ JexTestCase:
 
 	(importSection = XImportSection)?
 	(
-	(('instance' | 'val') (instances += Instance) (',' instances += Instance)*) |
-	(stateFunctions += StateFunction) |
-	(testSequences += JexTestSequence) |
-	(methods += Method)
+		(('instance' | 'val') (instances += SuiteInstance) (',' instances += SuiteInstance)*) |
+		(stateFunctions += StateFunction) |
+		(testSequences += JexTestSequence) |
+		(methods += Method)
 	)*
 	;
+
+SuiteInstance returns Instance:
+	type = JvmTypeReference name = ID ('=' expr = XExpression)?
+;
 
 Instance:
 	(type = JvmTypeReference)? name = ID ('=' expr = XExpression)?
 ;
+
+TestMemberContext: JexTestSuite | JexTestCase;
 
 StateTestContext: StateFunction | JexTestSequence;
 
 PropertiesTestOwner: StateFunction | ObjectTest;
 
 StateFunction:
-	'state' 'method' (type = JvmParameterizedTypeReference)? name = ID (description = STRING)? '(' (parameters += Parameter (',' parameters += Parameter)*)? ')'
+	'state' 'method' (type = JvmParameterizedTypeReference)? name = ID (description = STRING)?
+	'(' (parameters += Parameter (',' parameters += Parameter)*)? ')'
 	test = PropertiesTest
 ;
 
 JexTestSequence:
 	'sequence' name = ID (description = STRING)?
+	('tests' (tested += JvmOperationRef (',' tested += JvmOperationRef)*)?)?
 	'{'
 		(('instance' | 'val') (instances += Instance) (',' instances += Instance)*)*
 		(transitions += Transition)*
 	'}'
+;
+
+JvmOperationRef:
+	methodName = ID
+	('(' (parameterTypes += JvmParameterizedTypeReference (',' parameterTypes += JvmParameterizedTypeReference)*)? ')')?
 ;
 
 QName: ID + ('.' ID)*;
@@ -111,7 +128,7 @@ TransitionOutputEffect:
 ;
 
 Method:
-	(static?='static')? 'method' (returnType = JvmTypeReference)? name = (ID | OpEquality | OpCompare)
+	'method' (returnType = JvmTypeReference)? name = (ID | OpEquality | OpCompare)
 	'(' (parameters += Parameter (',' parameters += Parameter)*)? ')'
 	body = XExpression	
 ;
@@ -126,13 +143,21 @@ TestedClass:
 	((interface ?= 'interface') | (abstract ?= 'abstract' 'class'?) | 'class') name = QName
 	('extends' superClass = JvmParameterizedTypeReference)?
 	('implements' superInterfaces += JvmParameterizedTypeReference (',' superInterfaces += JvmParameterizedTypeReference)*)?
+	(description = STRING)?
+	('=>' invariant = XExpression)?
 	'{'
 		(methods += TestedOperation)*
 	'}'
 ;
 
 TestedOperation:
-	(TestedConstructor | TestedMethod) '(' (parameters += Parameter (',' parameters += Parameter)*)? ')'
+	(TestedConstructor | TestedMethod) '(' (parameterTypes += ParameterType (',' parameterTypes += ParameterType)*)? ')'
+	(description = STRING)?
+	('<=' preExpression = XExpression)?
+	('=>' postExpression = XExpression)?
+;
+ParameterType returns Parameter:
+	type = JvmTypeReference (vararg ?= '...')?
 ;
 
 TestedConstructor:

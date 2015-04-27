@@ -8,8 +8,7 @@
   <genPackages prefix="JexTest" basePackage="no.hal.jex.jextest" disposableProviderFactory="true"
       fileExtensions="jextest" ecorePackage="JexTest.ecore#/">
     <genClasses ecoreClass="JexTest.ecore#//JexTestSuite">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//JexTestSuite/pack"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JexTestSuite/importSection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//JexTestSuite/suiteClassName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JexTestSuite/testCases"/>
     </genClasses>
     <genClasses ecoreClass="JexTest.ecore#//JexTestCase">
@@ -18,16 +17,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//JexTestCase/testClassName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//JexTestCase/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//JexTestCase/url"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JexTestCase/importSection"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JexTestCase/instances"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JexTestCase/stateFunctions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JexTestCase/testSequences"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JexTestCase/methods"/>
     </genClasses>
     <genClasses ecoreClass="JexTest.ecore#//Instance">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//Instance/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//Instance/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//Instance/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="JexTest.ecore#//TestMemberContext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestMemberContext/importSection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestMemberContext/instances"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestMemberContext/stateFunctions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestMemberContext/methods"/>
     </genClasses>
     <genClasses ecoreClass="JexTest.ecore#//StateTestContext">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//StateTestContext/name"/>
@@ -41,8 +42,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//StateFunction/parameters"/>
     </genClasses>
     <genClasses ecoreClass="JexTest.ecore#//JexTestSequence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JexTestSequence/tested"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JexTestSequence/instances"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JexTestSequence/transitions"/>
+    </genClasses>
+    <genClasses ecoreClass="JexTest.ecore#//JvmOperationRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//JvmOperationRef/methodName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//JvmOperationRef/parameterTypes"/>
     </genClasses>
     <genClasses ecoreClass="JexTest.ecore#//State">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//State/name"/>
@@ -82,7 +88,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//TransitionOutputEffect/pattern"/>
     </genClasses>
     <genClasses ecoreClass="JexTest.ecore#//Method">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//Method/static"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//Method/returnType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//Method/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//Method/parameters"/>
@@ -99,10 +104,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//TestedClass/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestedClass/superClass"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestedClass/superInterfaces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//TestedClass/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestedClass/invariant"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestedClass/methods"/>
     </genClasses>
     <genClasses ecoreClass="JexTest.ecore#//TestedOperation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestedOperation/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestedOperation/parameterTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JexTest.ecore#//TestedOperation/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestedOperation/preExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JexTest.ecore#//TestedOperation/postExpression"/>
     </genClasses>
     <genClasses ecoreClass="JexTest.ecore#//TestedConstructor"/>
     <genClasses ecoreClass="JexTest.ecore#//TestedMethod">

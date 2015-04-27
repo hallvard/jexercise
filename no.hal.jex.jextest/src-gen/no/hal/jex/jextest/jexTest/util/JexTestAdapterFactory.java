@@ -93,6 +93,11 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
         return createInstanceAdapter();
       }
       @Override
+      public Adapter caseTestMemberContext(TestMemberContext object)
+      {
+        return createTestMemberContextAdapter();
+      }
+      @Override
       public Adapter caseStateTestContext(StateTestContext object)
       {
         return createStateTestContextAdapter();
@@ -111,6 +116,11 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
       public Adapter caseJexTestSequence(JexTestSequence object)
       {
         return createJexTestSequenceAdapter();
+      }
+      @Override
+      public Adapter caseJvmOperationRef(JvmOperationRef object)
+      {
+        return createJvmOperationRefAdapter();
       }
       @Override
       public Adapter caseState(State object)
@@ -280,6 +290,21 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.TestMemberContext <em>Test Member Context</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see no.hal.jex.jextest.jexTest.TestMemberContext
+   * @generated
+   */
+  public Adapter createTestMemberContextAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.StateTestContext <em>State Test Context</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -335,6 +360,21 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createJexTestSequenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.JvmOperationRef <em>Jvm Operation Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see no.hal.jex.jextest.jexTest.JvmOperationRef
+   * @generated
+   */
+  public Adapter createJvmOperationRefAdapter()
   {
     return null;
   }

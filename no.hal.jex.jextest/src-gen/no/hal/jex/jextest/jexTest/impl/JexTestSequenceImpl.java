@@ -7,6 +7,7 @@ import java.util.Collection;
 import no.hal.jex.jextest.jexTest.Instance;
 import no.hal.jex.jextest.jexTest.JexTestPackage;
 import no.hal.jex.jextest.jexTest.JexTestSequence;
+import no.hal.jex.jextest.jexTest.JvmOperationRef;
 import no.hal.jex.jextest.jexTest.Transition;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestSequenceImpl#getTested <em>Tested</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestSequenceImpl#getInstances <em>Instances</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestSequenceImpl#getTransitions <em>Transitions</em>}</li>
  * </ul>
@@ -35,6 +37,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class JexTestSequenceImpl extends StateTestContextImpl implements JexTestSequence
 {
+  /**
+   * The cached value of the '{@link #getTested() <em>Tested</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTested()
+   * @generated
+   * @ordered
+   */
+  protected EList<JvmOperationRef> tested;
+
   /**
    * The cached value of the '{@link #getInstances() <em>Instances</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -81,6 +93,20 @@ public class JexTestSequenceImpl extends StateTestContextImpl implements JexTest
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<JvmOperationRef> getTested()
+  {
+    if (tested == null)
+    {
+      tested = new EObjectContainmentEList<JvmOperationRef>(JvmOperationRef.class, this, JexTestPackage.JEX_TEST_SEQUENCE__TESTED);
+    }
+    return tested;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Instance> getInstances()
   {
     if (instances == null)
@@ -114,6 +140,8 @@ public class JexTestSequenceImpl extends StateTestContextImpl implements JexTest
   {
     switch (featureID)
     {
+      case JexTestPackage.JEX_TEST_SEQUENCE__TESTED:
+        return ((InternalEList<?>)getTested()).basicRemove(otherEnd, msgs);
       case JexTestPackage.JEX_TEST_SEQUENCE__INSTANCES:
         return ((InternalEList<?>)getInstances()).basicRemove(otherEnd, msgs);
       case JexTestPackage.JEX_TEST_SEQUENCE__TRANSITIONS:
@@ -132,6 +160,8 @@ public class JexTestSequenceImpl extends StateTestContextImpl implements JexTest
   {
     switch (featureID)
     {
+      case JexTestPackage.JEX_TEST_SEQUENCE__TESTED:
+        return getTested();
       case JexTestPackage.JEX_TEST_SEQUENCE__INSTANCES:
         return getInstances();
       case JexTestPackage.JEX_TEST_SEQUENCE__TRANSITIONS:
@@ -151,6 +181,10 @@ public class JexTestSequenceImpl extends StateTestContextImpl implements JexTest
   {
     switch (featureID)
     {
+      case JexTestPackage.JEX_TEST_SEQUENCE__TESTED:
+        getTested().clear();
+        getTested().addAll((Collection<? extends JvmOperationRef>)newValue);
+        return;
       case JexTestPackage.JEX_TEST_SEQUENCE__INSTANCES:
         getInstances().clear();
         getInstances().addAll((Collection<? extends Instance>)newValue);
@@ -173,6 +207,9 @@ public class JexTestSequenceImpl extends StateTestContextImpl implements JexTest
   {
     switch (featureID)
     {
+      case JexTestPackage.JEX_TEST_SEQUENCE__TESTED:
+        getTested().clear();
+        return;
       case JexTestPackage.JEX_TEST_SEQUENCE__INSTANCES:
         getInstances().clear();
         return;
@@ -193,6 +230,8 @@ public class JexTestSequenceImpl extends StateTestContextImpl implements JexTest
   {
     switch (featureID)
     {
+      case JexTestPackage.JEX_TEST_SEQUENCE__TESTED:
+        return tested != null && !tested.isEmpty();
       case JexTestPackage.JEX_TEST_SEQUENCE__INSTANCES:
         return instances != null && !instances.isEmpty();
       case JexTestPackage.JEX_TEST_SEQUENCE__TRANSITIONS:

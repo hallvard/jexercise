@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
 
+import org.eclipse.xtext.xbase.XExpression;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Tested Class</b></em>'.
@@ -36,6 +38,8 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedClassImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedClassImpl#getSuperClass <em>Super Class</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedClassImpl#getSuperInterfaces <em>Super Interfaces</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedClassImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedClassImpl#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedClassImpl#getMethods <em>Methods</em>}</li>
  * </ul>
  * </p>
@@ -123,6 +127,36 @@ public class TestedClassImpl extends MinimalEObjectImpl.Container implements Tes
    * @ordered
    */
   protected EList<JvmParameterizedTypeReference> superInterfaces;
+
+  /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getInvariant() <em>Invariant</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInvariant()
+   * @generated
+   * @ordered
+   */
+  protected XExpression invariant;
 
   /**
    * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
@@ -291,6 +325,77 @@ public class TestedClassImpl extends MinimalEObjectImpl.Container implements Tes
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.TESTED_CLASS__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public XExpression getInvariant()
+  {
+    return invariant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInvariant(XExpression newInvariant, NotificationChain msgs)
+  {
+    XExpression oldInvariant = invariant;
+    invariant = newInvariant;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JexTestPackage.TESTED_CLASS__INVARIANT, oldInvariant, newInvariant);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInvariant(XExpression newInvariant)
+  {
+    if (newInvariant != invariant)
+    {
+      NotificationChain msgs = null;
+      if (invariant != null)
+        msgs = ((InternalEObject)invariant).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.TESTED_CLASS__INVARIANT, null, msgs);
+      if (newInvariant != null)
+        msgs = ((InternalEObject)newInvariant).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.TESTED_CLASS__INVARIANT, null, msgs);
+      msgs = basicSetInvariant(newInvariant, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.TESTED_CLASS__INVARIANT, newInvariant, newInvariant));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<TestedOperation> getMethods()
   {
     if (methods == null)
@@ -314,6 +419,8 @@ public class TestedClassImpl extends MinimalEObjectImpl.Container implements Tes
         return basicSetSuperClass(null, msgs);
       case JexTestPackage.TESTED_CLASS__SUPER_INTERFACES:
         return ((InternalEList<?>)getSuperInterfaces()).basicRemove(otherEnd, msgs);
+      case JexTestPackage.TESTED_CLASS__INVARIANT:
+        return basicSetInvariant(null, msgs);
       case JexTestPackage.TESTED_CLASS__METHODS:
         return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
     }
@@ -340,6 +447,10 @@ public class TestedClassImpl extends MinimalEObjectImpl.Container implements Tes
         return getSuperClass();
       case JexTestPackage.TESTED_CLASS__SUPER_INTERFACES:
         return getSuperInterfaces();
+      case JexTestPackage.TESTED_CLASS__DESCRIPTION:
+        return getDescription();
+      case JexTestPackage.TESTED_CLASS__INVARIANT:
+        return getInvariant();
       case JexTestPackage.TESTED_CLASS__METHODS:
         return getMethods();
     }
@@ -372,6 +483,12 @@ public class TestedClassImpl extends MinimalEObjectImpl.Container implements Tes
       case JexTestPackage.TESTED_CLASS__SUPER_INTERFACES:
         getSuperInterfaces().clear();
         getSuperInterfaces().addAll((Collection<? extends JvmParameterizedTypeReference>)newValue);
+        return;
+      case JexTestPackage.TESTED_CLASS__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
+      case JexTestPackage.TESTED_CLASS__INVARIANT:
+        setInvariant((XExpression)newValue);
         return;
       case JexTestPackage.TESTED_CLASS__METHODS:
         getMethods().clear();
@@ -406,6 +523,12 @@ public class TestedClassImpl extends MinimalEObjectImpl.Container implements Tes
       case JexTestPackage.TESTED_CLASS__SUPER_INTERFACES:
         getSuperInterfaces().clear();
         return;
+      case JexTestPackage.TESTED_CLASS__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
+      case JexTestPackage.TESTED_CLASS__INVARIANT:
+        setInvariant((XExpression)null);
+        return;
       case JexTestPackage.TESTED_CLASS__METHODS:
         getMethods().clear();
         return;
@@ -433,6 +556,10 @@ public class TestedClassImpl extends MinimalEObjectImpl.Container implements Tes
         return superClass != null;
       case JexTestPackage.TESTED_CLASS__SUPER_INTERFACES:
         return superInterfaces != null && !superInterfaces.isEmpty();
+      case JexTestPackage.TESTED_CLASS__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case JexTestPackage.TESTED_CLASS__INVARIANT:
+        return invariant != null;
       case JexTestPackage.TESTED_CLASS__METHODS:
         return methods != null && !methods.isEmpty();
     }
@@ -456,6 +583,8 @@ public class TestedClassImpl extends MinimalEObjectImpl.Container implements Tes
     result.append(abstract_);
     result.append(", name: ");
     result.append(name);
+    result.append(", description: ");
+    result.append(description);
     result.append(')');
     return result.toString();
   }

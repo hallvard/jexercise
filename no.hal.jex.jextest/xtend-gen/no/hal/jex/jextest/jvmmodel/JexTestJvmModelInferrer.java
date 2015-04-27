@@ -10,6 +10,7 @@ import java.util.List;
 import no.hal.jex.jextest.jexTest.Instance;
 import no.hal.jex.jextest.jexTest.JexTestCase;
 import no.hal.jex.jextest.jexTest.JexTestSequence;
+import no.hal.jex.jextest.jexTest.JexTestSuite;
 import no.hal.jex.jextest.jexTest.Method;
 import no.hal.jex.jextest.jexTest.ObjectTest;
 import no.hal.jex.jextest.jexTest.Parameter;
@@ -17,6 +18,7 @@ import no.hal.jex.jextest.jexTest.PropertiesTest;
 import no.hal.jex.jextest.jexTest.State;
 import no.hal.jex.jextest.jexTest.StateFunction;
 import no.hal.jex.jextest.jexTest.StateTestContext;
+import no.hal.jex.jextest.jexTest.TestMemberContext;
 import no.hal.jex.jextest.jexTest.TestedClass;
 import no.hal.jex.jextest.jexTest.TestedConstructor;
 import no.hal.jex.jextest.jexTest.TestedMethod;
@@ -105,309 +107,402 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
   @Extension
   private TestAnnotationsSupport _testAnnotationsSupport;
   
-  protected void _infer(final JexTestCase testCase, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
-    String _elvis = null;
-    String _testClassName = testCase.getTestClassName();
-    if (_testClassName != null) {
-      _elvis = _testClassName;
-    } else {
-      String _testedClassName = this._util.testedClassName(testCase);
-      String _plus = (_testedClassName + "Test");
-      _elvis = _plus;
+  protected void _infer(final JexTestSuite testSuite, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    EList<JexTestCase> _testCases = testSuite.getTestCases();
+    for (final JexTestCase testCase : _testCases) {
+      this.inferTestCase(testCase, acceptor);
     }
-    final String className = _elvis;
-    String _prependPackageName = this._util.prependPackageName(className, testCase);
-    final JvmGenericType jvmClass = this._jvmTypesBuilder.toClass(testCase, _prependPackageName);
+    String _suiteClassName = testSuite.getSuiteClassName();
+    final JvmGenericType jvmClass = this._jvmTypesBuilder.toClass(testSuite, _suiteClassName);
     EList<JvmTypeReference> _superTypes = jvmClass.getSuperTypes();
     JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef("junit.framework.TestCase");
     this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
-    EList<TestedClass> _testedClasses = testCase.getTestedClasses();
-    for (final TestedClass testedClass : _testedClasses) {
-      this.inferTestedClass(testedClass, acceptor);
-    }
     final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
       public void apply(final JvmGenericType it) {
-        final JvmAnnotationReference jexerciseTestCaseAnnotation = JexTestJvmModelInferrer.this._annotationTypesBuilder.annotationRef("no.hal.jex.runtime.JExercise");
-        JexTestJvmModelInferrer.this._testAnnotationsSupport.generateTestClassAnntations(testCase, jexerciseTestCaseAnnotation);
-        EList<JvmAnnotationReference> _annotations = it.getAnnotations();
-        JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, jexerciseTestCaseAnnotation);
-        boolean _isDefaultInstanceTest = JexTestJvmModelInferrer.this._util.isDefaultInstanceTest(testCase);
-        if (_isDefaultInstanceTest) {
-          EList<JvmMember> _members = jvmClass.getMembers();
-          String _defaultInstanceName = JexTestJvmModelInferrer.this._util.defaultInstanceName(testCase);
-          JvmTypeReference _testedJvmTypeRef = JexTestJvmModelInferrer.this._util.testedJvmTypeRef(testCase);
-          final Procedure1<JvmField> _function = new Procedure1<JvmField>() {
-            public void apply(final JvmField it) {
-              it.setVisibility(JvmVisibility.PRIVATE);
-            }
-          };
-          JvmField _field = JexTestJvmModelInferrer.this._jvmTypesBuilder.toField(testCase, _defaultInstanceName, _testedJvmTypeRef, _function);
-          JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
-        } else {
-          EList<Instance> _instances = testCase.getInstances();
-          for (final Instance instance : _instances) {
-            {
-              final JvmTypeReference type = JexTestJvmModelInferrer.this._util.jvmType(instance);
-              EList<JvmMember> _members_1 = jvmClass.getMembers();
-              String _name = instance.getName();
-              final Procedure1<JvmField> _function_1 = new Procedure1<JvmField>() {
-                public void apply(final JvmField it) {
-                  it.setVisibility(JvmVisibility.PRIVATE);
-                }
-              };
-              JvmField _field_1 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toField(instance, _name, type, _function_1);
-              JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members_1, _field_1);
-              EList<JvmMember> _members_2 = it.getMembers();
-              String _name_1 = instance.getName();
-              String _plus = ("_init_" + _name_1);
-              JvmOperation _inferTestInstanceInitMethod = JexTestJvmModelInferrer.this.inferTestInstanceInitMethod(_plus, instance);
-              JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _inferTestInstanceInitMethod);
-            }
-          }
-        }
-        EList<JvmMember> _members_1 = jvmClass.getMembers();
-        JvmTypeReference _typeRef = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
-        final Procedure1<JvmOperation> _function_1 = new Procedure1<JvmOperation>() {
+        EList<JvmMember> _members = jvmClass.getMembers();
+        JvmTypeReference _typeRef = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef("junit.framework.Test");
+        final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
           public void apply(final JvmOperation it) {
-            it.setVisibility(JvmVisibility.PROTECTED);
-            EList<JvmAnnotationReference> _annotations = it.getAnnotations();
-            JvmAnnotationReference _annotationRef = JexTestJvmModelInferrer.this._annotationTypesBuilder.annotationRef(Override.class);
-            JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
-            final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
-              public void apply(final ITreeAppendable it) {
-                JexTestJvmModelInferrer.this.generateSetUpMethodBody(testCase, it);
-              }
-            };
-            JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
-          }
-        };
-        JvmOperation _method = JexTestJvmModelInferrer.this._jvmTypesBuilder.toMethod(testCase, "setUp", _typeRef, _function_1);
-        JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _method);
-        EList<Method> _methods = testCase.getMethods();
-        for (final Method method : _methods) {
-          {
-            String _elvis = null;
-            String _name = method.getName();
-            QualifiedName _create = QualifiedName.create(_name);
-            QualifiedName _methodName = JexTestJvmModelInferrer.this._operatorMapping.getMethodName(_create);
-            String _string = null;
-            if (_methodName!=null) {
-              _string=_methodName.toString();
-            }
-            if (_string != null) {
-              _elvis = _string;
-            } else {
-              String _name_1 = method.getName();
-              _elvis = _name_1;
-            }
-            final String methodName = _elvis;
-            boolean _notEquals = (!Objects.equal(methodName, null));
-            if (_notEquals) {
-              EList<JvmMember> _members_2 = it.getMembers();
-              JvmTypeReference _returnType = method.getReturnType();
-              final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
-                public void apply(final JvmOperation it) {
-                  it.setVisibility(JvmVisibility.PRIVATE);
-                  boolean _isStatic = method.isStatic();
-                  it.setStatic(_isStatic);
-                  EList<Parameter> _parameters = method.getParameters();
-                  JexTestJvmModelInferrer.this.initParameters(it, _parameters);
-                  XExpression _body = method.getBody();
-                  JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _body);
-                }
-              };
-              JvmOperation _method_1 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toMethod(method, methodName, _returnType, _function_2);
-              JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method_1);
-            }
-          }
-        }
-        EList<StateFunction> _stateFunctions = testCase.getStateFunctions();
-        for (final StateFunction stateFunction : _stateFunctions) {
-          String _name = stateFunction.getName();
-          boolean _notEquals = (!Objects.equal(_name, null));
-          if (_notEquals) {
-            String _name_1 = stateFunction.getName();
-            JvmTypeReference _typeRef_1 = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
-            final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
-              public void apply(final JvmOperation it) {
-                it.setVisibility(JvmVisibility.PRIVATE);
-                EList<JvmFormalParameter> _parameters = it.getParameters();
-                JvmTypeReference _elvis = null;
-                JvmParameterizedTypeReference _type = stateFunction.getType();
-                if (_type != null) {
-                  _elvis = _type;
-                } else {
-                  JvmTypeReference _testedJvmTypeRef = JexTestJvmModelInferrer.this._util.testedJvmTypeRef(testCase);
-                  _elvis = _testedJvmTypeRef;
-                }
-                JvmFormalParameter _parameter = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(stateFunction, "it", _elvis);
-                JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
-                EList<Parameter> _parameters_1 = stateFunction.getParameters();
-                JexTestJvmModelInferrer.this.initParameters(it, _parameters_1);
-                final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
-                  public void apply(final ITreeAppendable it) {
-                    XBlockExpression _test = stateFunction.getTest();
-                    JexTestJvmModelInferrer.this.generateTestHelperMethodCall("_test_", ((PropertiesTest) _test), it);
-                  }
-                };
-                JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
-              }
-            };
-            final JvmOperation stateMethod = JexTestJvmModelInferrer.this._jvmTypesBuilder.toMethod(stateFunction, _name_1, _typeRef_1, _function_2);
-            EList<JvmMember> _members_2 = it.getMembers();
-            JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, stateMethod);
-            XBlockExpression _test = stateFunction.getTest();
-            boolean _notEquals_1 = (!Objects.equal(_test, null));
-            if (_notEquals_1) {
-              XBlockExpression _test_1 = stateFunction.getTest();
-              JexTestJvmModelInferrer.this.inferPropertiesTestMethods(((PropertiesTest) _test_1), jvmClass);
-            }
-          }
-        }
-        final ArrayList<Pair<JexTestSequence, JvmOperation>> testMethods = CollectionLiterals.<Pair<JexTestSequence, JvmOperation>>newArrayList();
-        EList<JexTestSequence> _testSequences = testCase.getTestSequences();
-        for (final JexTestSequence sequence : _testSequences) {
-          String _name_2 = sequence.getName();
-          boolean _notEquals_2 = (!Objects.equal(_name_2, null));
-          if (_notEquals_2) {
-            String _name_3 = sequence.getName();
-            String _firstUpper = StringExtensions.toFirstUpper(_name_3);
-            String _plus = ("test" + _firstUpper);
-            JvmTypeReference _typeRef_2 = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
-            final Procedure1<JvmOperation> _function_3 = new Procedure1<JvmOperation>() {
-              public void apply(final JvmOperation it) {
-                it.setVisibility(JvmVisibility.PUBLIC);
-                final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
-                  public void apply(final ITreeAppendable it) {
-                    EList<Instance> _instances = sequence.getInstances();
-                    for (final Instance instance : _instances) {
-                      JexTestJvmModelInferrer.this.generateLocalInstance(instance, it);
-                    }
-                    EList<Transition> _transitions = sequence.getTransitions();
-                    for (final Transition transition : _transitions) {
-                      JexTestJvmModelInferrer.this.generateTransition(transition, it);
-                    }
-                  }
-                };
-                JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
-              }
-            };
-            final JvmOperation testMethod = JexTestJvmModelInferrer.this._jvmTypesBuilder.toMethod(sequence, _plus, _typeRef_2, _function_3);
-            Pair<JexTestSequence, JvmOperation> _mappedTo = Pair.<JexTestSequence, JvmOperation>of(sequence, testMethod);
-            testMethods.add(_mappedTo);
-            EList<JvmMember> _members_3 = it.getMembers();
-            JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, testMethod);
-          }
-        }
-        EList<JvmMember> _members_4 = it.getMembers();
-        final Function1<Pair<JexTestSequence, JvmOperation>, JvmOperation> _function_4 = new Function1<Pair<JexTestSequence, JvmOperation>, JvmOperation>() {
-          public JvmOperation apply(final Pair<JexTestSequence, JvmOperation> it) {
-            return it.getValue();
-          }
-        };
-        List<JvmMember> _map = ListExtensions.<Pair<JexTestSequence, JvmOperation>, JvmMember>map(testMethods, _function_4);
-        JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmMember>operator_add(_members_4, _map);
-        EList<JexTestSequence> _testSequences_1 = testCase.getTestSequences();
-        for (final JexTestSequence sequence_1 : _testSequences_1) {
-          {
-            EList<Instance> _instances_1 = sequence_1.getInstances();
-            for (final Instance instance_1 : _instances_1) {
-              EList<JvmMember> _members_5 = it.getMembers();
-              String _relativeName = JexTestJvmModelInferrer.this._util.<JexTestSequence>relativeName(instance_1, JexTestSequence.class);
-              String _plus_1 = ("_init_" + _relativeName);
-              JvmOperation _inferTestInstanceInitMethod = JexTestJvmModelInferrer.this.inferTestInstanceInitMethod(_plus_1, instance_1);
-              JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _inferTestInstanceInitMethod);
-            }
-            EList<Transition> _transitions = sequence_1.getTransitions();
-            for (final Transition transition : _transitions) {
-              {
-                boolean _and = false;
-                TransitionSource _source = transition.getSource();
-                boolean _notEquals_3 = (!Objects.equal(_source, null));
-                if (!_notEquals_3) {
-                  _and = false;
-                } else {
-                  TransitionSource _source_1 = transition.getSource();
-                  State _state = _source_1.getState();
-                  boolean _notEquals_4 = (!Objects.equal(_state, null));
-                  _and = _notEquals_4;
-                }
-                if (_and) {
-                  TransitionSource _source_2 = transition.getSource();
-                  State _state_1 = _source_2.getState();
-                  JexTestJvmModelInferrer.this.inferStateTestMethods(sequence_1, _state_1, jvmClass);
-                }
-                EList<TransitionAction> _actions = transition.getActions();
-                Iterable<TransitionExpressionAction> _filter = Iterables.<TransitionExpressionAction>filter(_actions, TransitionExpressionAction.class);
-                for (final TransitionExpressionAction action : _filter) {
-                  {
-                    EList<JvmMember> _members_6 = it.getMembers();
-                    JvmOperation _inferActionMethod = JexTestJvmModelInferrer.this.inferActionMethod(sequence_1, action);
-                    JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_6, _inferActionMethod);
-                    XExpression _times = action.getTimes();
-                    boolean _notEquals_5 = (!Objects.equal(_times, null));
-                    if (_notEquals_5) {
-                      EList<JvmMember> _members_7 = it.getMembers();
-                      XExpression _times_1 = action.getTimes();
-                      JvmOperation _inferTestHelperMethod = JexTestJvmModelInferrer.this.inferTestHelperMethod(sequence_1, "_transition_exprAction_times_", action, _times_1, null);
-                      JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_7, _inferTestHelperMethod);
-                    }
-                  }
-                }
-                TransitionEffect _effect = transition.getEffect();
-                if ((_effect instanceof TransitionTargetEffect)) {
-                  TransitionEffect _effect_1 = transition.getEffect();
-                  final TransitionTargetEffect targetEffect = ((TransitionTargetEffect) _effect_1);
-                  State _state_2 = targetEffect.getState();
-                  boolean _notEquals_5 = (!Objects.equal(_state_2, null));
-                  if (_notEquals_5) {
-                    State _state_3 = targetEffect.getState();
-                    JexTestJvmModelInferrer.this.inferStateTestMethods(sequence_1, _state_3, jvmClass);
-                  }
-                }
-              }
-            }
-          }
-        }
-        for (final Pair<JexTestSequence, JvmOperation> sequenceMethod : testMethods) {
-          {
-            final JvmAnnotationReference jexerciseTestMethodAnnotation = JexTestJvmModelInferrer.this._annotationTypesBuilder.annotationRef("no.hal.jex.runtime.JExercise");
-            JexTestSequence _key = sequenceMethod.getKey();
-            JexTestJvmModelInferrer.this._testAnnotationsSupport.generateTestMethodAnntations(_key, jexerciseTestMethodAnnotation);
-            JvmOperation _value = sequenceMethod.getValue();
-            EList<JvmAnnotationReference> _annotations_1 = _value.getAnnotations();
-            JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations_1, jexerciseTestMethodAnnotation);
-          }
-        }
-        EList<JvmMember> _members_5 = it.getMembers();
-        JvmTypeReference _typeRef_3 = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
-        final Procedure1<JvmOperation> _function_5 = new Procedure1<JvmOperation>() {
-          public void apply(final JvmOperation it) {
-            it.setVisibility(JvmVisibility.PUBLIC);
             it.setStatic(true);
-            EList<JvmFormalParameter> _parameters = it.getParameters();
-            JvmTypeReference _typeRef = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(String.class);
-            JvmTypeReference _addArrayTypeDimension = JexTestJvmModelInferrer.this._jvmTypesBuilder.addArrayTypeDimension(_typeRef);
-            JvmFormalParameter _parameter = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(testCase, "args", _addArrayTypeDimension);
-            JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+            it.setVisibility(JvmVisibility.PUBLIC);
             final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
               public void apply(final ITreeAppendable it) {
                 StringConcatenation _builder = new StringConcatenation();
-                _builder.append("no.hal.jex.standalone.JexStandalone.main(");
-                String _simpleName = jvmClass.getSimpleName();
-                _builder.append(_simpleName, "");
-                _builder.append(".class);");
+                _builder.append("junit.framework.TestSuite suite = new junit.framework.TestSuite(\"");
+                String _suiteClassName = testSuite.getSuiteClassName();
+                _builder.append(_suiteClassName, "");
+                _builder.append("\");");
+                _builder.newLineIfNotEmpty();
+                {
+                  EList<JexTestCase> _testCases = testSuite.getTestCases();
+                  for(final JexTestCase testCase : _testCases) {
+                    _builder.append("\t");
+                    _builder.append("suite.addTestSuite(");
+                    String _testCaseClassName = JexTestJvmModelInferrer.this.testCaseClassName(testCase);
+                    _builder.append(_testCaseClassName, "\t");
+                    _builder.append(".class);");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+                _builder.append("return suite;");
+                _builder.newLine();
                 it.append(_builder);
               }
             };
             JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
           }
         };
-        JvmOperation _method_1 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toMethod(testCase, "main", _typeRef_3, _function_5);
-        JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _method_1);
+        JvmOperation _method = JexTestJvmModelInferrer.this._jvmTypesBuilder.toMethod(testSuite, "suite", _typeRef, _function);
+        JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+        EList<Instance> _instances = testSuite.getInstances();
+        for (final Instance instance : _instances) {
+          EList<JvmMember> _members_1 = jvmClass.getMembers();
+          String _name = instance.getName();
+          JvmTypeReference _jvmType = JexTestJvmModelInferrer.this._util.jvmType(instance);
+          final Procedure1<JvmField> _function_1 = new Procedure1<JvmField>() {
+            public void apply(final JvmField it) {
+              it.setVisibility(JvmVisibility.DEFAULT);
+              it.setStatic(true);
+              XExpression _expr = instance.getExpr();
+              JexTestJvmModelInferrer.this._jvmTypesBuilder.setInitializer(it, _expr);
+            }
+          };
+          JvmField _field = JexTestJvmModelInferrer.this._jvmTypesBuilder.toField(instance, _name, _jvmType, _function_1);
+          JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members_1, _field);
+        }
+        EList<StateFunction> _stateFunctions = testSuite.getStateFunctions();
+        for (final StateFunction stateFunction : _stateFunctions) {
+          JexTestJvmModelInferrer.this.inferStateFunctionMethods(stateFunction, jvmClass, true);
+        }
+        EList<Method> _methods = testSuite.getMethods();
+        for (final Method method : _methods) {
+          JexTestJvmModelInferrer.this.inferMethod(jvmClass, method, true);
+        }
       }
     };
     acceptor.<JvmGenericType>accept(jvmClass, _function);
+  }
+  
+  public boolean inferMethod(final JvmGenericType jvmClass, final Method method, final boolean isSuite) {
+    boolean _xblockexpression = false;
+    {
+      String _elvis = null;
+      String _name = method.getName();
+      QualifiedName _create = QualifiedName.create(_name);
+      QualifiedName _methodName = this._operatorMapping.getMethodName(_create);
+      String _string = null;
+      if (_methodName!=null) {
+        _string=_methodName.toString();
+      }
+      if (_string != null) {
+        _elvis = _string;
+      } else {
+        String _name_1 = method.getName();
+        _elvis = _name_1;
+      }
+      final String methodName = _elvis;
+      boolean _xifexpression = false;
+      boolean _notEquals = (!Objects.equal(methodName, null));
+      if (_notEquals) {
+        EList<JvmMember> _members = jvmClass.getMembers();
+        JvmTypeReference _returnType = method.getReturnType();
+        final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+          public void apply(final JvmOperation it) {
+            JvmVisibility _xifexpression = null;
+            if (isSuite) {
+              _xifexpression = JvmVisibility.DEFAULT;
+            } else {
+              _xifexpression = JvmVisibility.PRIVATE;
+            }
+            it.setVisibility(_xifexpression);
+            it.setStatic(isSuite);
+            EList<Parameter> _parameters = method.getParameters();
+            JexTestJvmModelInferrer.this.initParameters(it, _parameters);
+            XExpression _body = method.getBody();
+            JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _body);
+          }
+        };
+        JvmOperation _method = this._jvmTypesBuilder.toMethod(method, methodName, _returnType, _function);
+        _xifexpression = this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public String testCaseClassName(final JexTestCase testCase) {
+    String _elvis = null;
+    String _testedClassName = this._util.testedClassName(testCase);
+    if (_testedClassName != null) {
+      _elvis = _testedClassName;
+    } else {
+      String _testedClassName_1 = this._util.testedClassName(testCase);
+      _elvis = _testedClassName_1;
+    }
+    return (_elvis + "Test");
+  }
+  
+  protected void _infer(final JexTestCase testCase, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
+    this.inferTestCase(testCase, acceptor);
+  }
+  
+  public JvmGenericType inferTestCase(final JexTestCase testCase, final IJvmDeclaredTypeAcceptor acceptor) {
+    JvmGenericType _xblockexpression = null;
+    {
+      String _testCaseClassName = this.testCaseClassName(testCase);
+      String _prependPackageName = this._util.prependPackageName(_testCaseClassName, testCase);
+      final JvmGenericType jvmClass = this._jvmTypesBuilder.toClass(testCase, _prependPackageName);
+      EList<JvmTypeReference> _superTypes = jvmClass.getSuperTypes();
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef("junit.framework.TestCase");
+      this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
+      EList<TestedClass> _testedClasses = testCase.getTestedClasses();
+      for (final TestedClass testedClass : _testedClasses) {
+        this.inferTestedClass(testedClass, acceptor);
+      }
+      final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
+        public void apply(final JvmGenericType it) {
+          final JvmAnnotationReference jexerciseTestCaseAnnotation = JexTestJvmModelInferrer.this._annotationTypesBuilder.annotationRef("no.hal.jex.runtime.JExercise");
+          JexTestJvmModelInferrer.this._testAnnotationsSupport.generateTestClassAnntations(testCase, jexerciseTestCaseAnnotation);
+          EList<JvmAnnotationReference> _annotations = it.getAnnotations();
+          JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, jexerciseTestCaseAnnotation);
+          final JexTestSuite testSuite = JexTestJvmModelInferrer.this._util.<JexTestSuite>ancestor(testCase, JexTestSuite.class);
+          boolean _notEquals = (!Objects.equal(testSuite, null));
+          if (_notEquals) {
+            EList<Instance> _instances = testSuite.getInstances();
+            for (final Instance instance : _instances) {
+              EList<JvmMember> _members = jvmClass.getMembers();
+              String _name = instance.getName();
+              JvmTypeReference _jvmType = JexTestJvmModelInferrer.this._util.jvmType(instance);
+              final Procedure1<JvmField> _function = new Procedure1<JvmField>() {
+                public void apply(final JvmField it) {
+                  it.setVisibility(JvmVisibility.PRIVATE);
+                  final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+                    public void apply(final ITreeAppendable it) {
+                      String _suiteClassName = testSuite.getSuiteClassName();
+                      String _plus = (_suiteClassName + ".");
+                      String _name = instance.getName();
+                      String _plus_1 = (_plus + _name);
+                      it.append(_plus_1);
+                    }
+                  };
+                  JexTestJvmModelInferrer.this._jvmTypesBuilder.setInitializer(it, _function);
+                }
+              };
+              JvmField _field = JexTestJvmModelInferrer.this._jvmTypesBuilder.toField(instance, _name, _jvmType, _function);
+              JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members, _field);
+            }
+            EList<StateFunction> _stateFunctions = testSuite.getStateFunctions();
+            for (final StateFunction stateFunction : _stateFunctions) {
+              JexTestJvmModelInferrer.this.inferStateFunctionMethods(stateFunction, jvmClass, false);
+            }
+          }
+          boolean _isDefaultInstanceTest = JexTestJvmModelInferrer.this._util.isDefaultInstanceTest(testCase);
+          if (_isDefaultInstanceTest) {
+            EList<JvmMember> _members_1 = jvmClass.getMembers();
+            String _defaultInstanceName = JexTestJvmModelInferrer.this._util.defaultInstanceName(testCase);
+            JvmTypeReference _testedJvmTypeRef = JexTestJvmModelInferrer.this._util.testedJvmTypeRef(testCase);
+            final Procedure1<JvmField> _function_1 = new Procedure1<JvmField>() {
+              public void apply(final JvmField it) {
+                it.setVisibility(JvmVisibility.PRIVATE);
+              }
+            };
+            JvmField _field_1 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toField(testCase, _defaultInstanceName, _testedJvmTypeRef, _function_1);
+            JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members_1, _field_1);
+          } else {
+            EList<Instance> _instances_1 = testCase.getInstances();
+            for (final Instance instance_1 : _instances_1) {
+              {
+                final JvmTypeReference type = JexTestJvmModelInferrer.this._util.jvmType(instance_1);
+                EList<JvmMember> _members_2 = jvmClass.getMembers();
+                String _name_1 = instance_1.getName();
+                final Procedure1<JvmField> _function_2 = new Procedure1<JvmField>() {
+                  public void apply(final JvmField it) {
+                    it.setVisibility(JvmVisibility.PRIVATE);
+                  }
+                };
+                JvmField _field_2 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toField(instance_1, _name_1, type, _function_2);
+                JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members_2, _field_2);
+                EList<JvmMember> _members_3 = it.getMembers();
+                String _name_2 = instance_1.getName();
+                String _plus = ("_init_" + _name_2);
+                JvmOperation _inferTestInstanceInitMethod = JexTestJvmModelInferrer.this.inferTestInstanceInitMethod(_plus, instance_1);
+                JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _inferTestInstanceInitMethod);
+              }
+            }
+          }
+          EList<JvmMember> _members_2 = jvmClass.getMembers();
+          JvmTypeReference _typeRef = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
+          final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
+            public void apply(final JvmOperation it) {
+              it.setVisibility(JvmVisibility.PROTECTED);
+              EList<JvmAnnotationReference> _annotations = it.getAnnotations();
+              JvmAnnotationReference _annotationRef = JexTestJvmModelInferrer.this._annotationTypesBuilder.annotationRef(Override.class);
+              JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
+              final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+                public void apply(final ITreeAppendable it) {
+                  JexTestJvmModelInferrer.this.generateSetUpMethodBody(testCase, it);
+                }
+              };
+              JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
+            }
+          };
+          JvmOperation _method = JexTestJvmModelInferrer.this._jvmTypesBuilder.toMethod(testCase, "setUp", _typeRef, _function_2);
+          JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method);
+          EList<Method> _methods = testCase.getMethods();
+          for (final Method method : _methods) {
+            JexTestJvmModelInferrer.this.inferMethod(jvmClass, method, false);
+          }
+          EList<StateFunction> _stateFunctions_1 = testCase.getStateFunctions();
+          for (final StateFunction stateFunction_1 : _stateFunctions_1) {
+            JexTestJvmModelInferrer.this.inferStateFunctionMethods(stateFunction_1, jvmClass, false);
+          }
+          final ArrayList<Pair<JexTestSequence, JvmOperation>> testMethods = CollectionLiterals.<Pair<JexTestSequence, JvmOperation>>newArrayList();
+          EList<JexTestSequence> _testSequences = testCase.getTestSequences();
+          for (final JexTestSequence sequence : _testSequences) {
+            String _name_1 = sequence.getName();
+            boolean _notEquals_1 = (!Objects.equal(_name_1, null));
+            if (_notEquals_1) {
+              String _name_2 = sequence.getName();
+              String _firstUpper = StringExtensions.toFirstUpper(_name_2);
+              String _plus = ("test" + _firstUpper);
+              JvmTypeReference _typeRef_1 = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
+              final Procedure1<JvmOperation> _function_3 = new Procedure1<JvmOperation>() {
+                public void apply(final JvmOperation it) {
+                  it.setVisibility(JvmVisibility.PUBLIC);
+                  final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+                    public void apply(final ITreeAppendable it) {
+                      EList<Instance> _instances = sequence.getInstances();
+                      for (final Instance instance : _instances) {
+                        JexTestJvmModelInferrer.this.generateLocalInstance(instance, it);
+                      }
+                      EList<Transition> _transitions = sequence.getTransitions();
+                      for (final Transition transition : _transitions) {
+                        JexTestJvmModelInferrer.this.generateTransition(transition, it);
+                      }
+                    }
+                  };
+                  JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
+                }
+              };
+              final JvmOperation testMethod = JexTestJvmModelInferrer.this._jvmTypesBuilder.toMethod(sequence, _plus, _typeRef_1, _function_3);
+              Pair<JexTestSequence, JvmOperation> _mappedTo = Pair.<JexTestSequence, JvmOperation>of(sequence, testMethod);
+              testMethods.add(_mappedTo);
+              EList<JvmMember> _members_3 = it.getMembers();
+              JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, testMethod);
+            }
+          }
+          EList<JvmMember> _members_4 = it.getMembers();
+          final Function1<Pair<JexTestSequence, JvmOperation>, JvmOperation> _function_4 = new Function1<Pair<JexTestSequence, JvmOperation>, JvmOperation>() {
+            public JvmOperation apply(final Pair<JexTestSequence, JvmOperation> it) {
+              return it.getValue();
+            }
+          };
+          List<JvmOperation> _map = ListExtensions.<Pair<JexTestSequence, JvmOperation>, JvmOperation>map(testMethods, _function_4);
+          JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmMember>operator_add(_members_4, _map);
+          EList<JexTestSequence> _testSequences_1 = testCase.getTestSequences();
+          for (final JexTestSequence sequence_1 : _testSequences_1) {
+            {
+              EList<Instance> _instances_2 = sequence_1.getInstances();
+              for (final Instance instance_2 : _instances_2) {
+                EList<JvmMember> _members_5 = it.getMembers();
+                String _relativeName = JexTestJvmModelInferrer.this._util.<JexTestSequence>relativeName(instance_2, JexTestSequence.class);
+                String _plus_1 = ("_init_" + _relativeName);
+                JvmOperation _inferTestInstanceInitMethod = JexTestJvmModelInferrer.this.inferTestInstanceInitMethod(_plus_1, instance_2);
+                JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _inferTestInstanceInitMethod);
+              }
+              EList<Transition> _transitions = sequence_1.getTransitions();
+              for (final Transition transition : _transitions) {
+                {
+                  boolean _and = false;
+                  TransitionSource _source = transition.getSource();
+                  boolean _notEquals_2 = (!Objects.equal(_source, null));
+                  if (!_notEquals_2) {
+                    _and = false;
+                  } else {
+                    TransitionSource _source_1 = transition.getSource();
+                    State _state = _source_1.getState();
+                    boolean _notEquals_3 = (!Objects.equal(_state, null));
+                    _and = _notEquals_3;
+                  }
+                  if (_and) {
+                    TransitionSource _source_2 = transition.getSource();
+                    State _state_1 = _source_2.getState();
+                    JexTestJvmModelInferrer.this.inferStateTestMethods(sequence_1, _state_1, jvmClass);
+                  }
+                  EList<TransitionAction> _actions = transition.getActions();
+                  Iterable<TransitionExpressionAction> _filter = Iterables.<TransitionExpressionAction>filter(_actions, TransitionExpressionAction.class);
+                  for (final TransitionExpressionAction action : _filter) {
+                    {
+                      EList<JvmMember> _members_6 = it.getMembers();
+                      JvmOperation _inferActionMethod = JexTestJvmModelInferrer.this.inferActionMethod(sequence_1, action);
+                      JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_6, _inferActionMethod);
+                      XExpression _times = action.getTimes();
+                      boolean _notEquals_4 = (!Objects.equal(_times, null));
+                      if (_notEquals_4) {
+                        EList<JvmMember> _members_7 = it.getMembers();
+                        XExpression _times_1 = action.getTimes();
+                        JvmOperation _inferTestHelperMethod = JexTestJvmModelInferrer.this.inferTestHelperMethod(sequence_1, "_transition_exprAction_times_", action, _times_1, null);
+                        JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_7, _inferTestHelperMethod);
+                      }
+                    }
+                  }
+                  TransitionEffect _effect = transition.getEffect();
+                  if ((_effect instanceof TransitionTargetEffect)) {
+                    TransitionEffect _effect_1 = transition.getEffect();
+                    final TransitionTargetEffect targetEffect = ((TransitionTargetEffect) _effect_1);
+                    State _state_2 = targetEffect.getState();
+                    boolean _notEquals_4 = (!Objects.equal(_state_2, null));
+                    if (_notEquals_4) {
+                      State _state_3 = targetEffect.getState();
+                      JexTestJvmModelInferrer.this.inferStateTestMethods(sequence_1, _state_3, jvmClass);
+                    }
+                  }
+                }
+              }
+            }
+          }
+          for (final Pair<JexTestSequence, JvmOperation> sequenceMethod : testMethods) {
+            {
+              final JvmAnnotationReference jexerciseTestMethodAnnotation = JexTestJvmModelInferrer.this._annotationTypesBuilder.annotationRef("no.hal.jex.runtime.JExercise");
+              JexTestSequence _key = sequenceMethod.getKey();
+              JexTestJvmModelInferrer.this._testAnnotationsSupport.generateTestMethodAnntations(_key, jexerciseTestMethodAnnotation);
+              JvmOperation _value = sequenceMethod.getValue();
+              EList<JvmAnnotationReference> _annotations_1 = _value.getAnnotations();
+              JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations_1, jexerciseTestMethodAnnotation);
+            }
+          }
+          EList<JvmMember> _members_5 = it.getMembers();
+          JvmTypeReference _typeRef_2 = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
+          final Procedure1<JvmOperation> _function_5 = new Procedure1<JvmOperation>() {
+            public void apply(final JvmOperation it) {
+              it.setVisibility(JvmVisibility.PUBLIC);
+              it.setStatic(true);
+              EList<JvmFormalParameter> _parameters = it.getParameters();
+              JvmTypeReference _typeRef = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(String.class);
+              JvmTypeReference _addArrayTypeDimension = JexTestJvmModelInferrer.this._jvmTypesBuilder.addArrayTypeDimension(_typeRef);
+              JvmFormalParameter _parameter = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(testCase, "args", _addArrayTypeDimension);
+              JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+              final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+                public void apply(final ITreeAppendable it) {
+                  StringConcatenation _builder = new StringConcatenation();
+                  _builder.append("no.hal.jex.standalone.JexStandalone.main(");
+                  String _simpleName = jvmClass.getSimpleName();
+                  _builder.append(_simpleName, "");
+                  _builder.append(".class);");
+                  it.append(_builder);
+                }
+              };
+              JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
+            }
+          };
+          JvmOperation _method_1 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toMethod(testCase, "main", _typeRef_2, _function_5);
+          JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _method_1);
+        }
+      };
+      acceptor.<JvmGenericType>accept(jvmClass, _function);
+      _xblockexpression = jvmClass;
+    }
+    return _xblockexpression;
   }
   
   public IJvmDeclaredTypeAcceptor.IPostIndexingInitializing<JvmGenericType> inferTestedClass(final TestedClass testedClass, final IJvmDeclaredTypeAcceptor acceptor) {
@@ -468,8 +563,8 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           }
           final JvmExecutable jvmMethod = _xifexpression;
           jvmMethod.setVisibility(JvmVisibility.PUBLIC);
-          EList<Parameter> _parameters = op.getParameters();
-          this.initParameters(jvmMethod, _parameters);
+          EList<Parameter> _parameterTypes = op.getParameterTypes();
+          this.initParameters(jvmMethod, _parameterTypes);
           EList<JvmMember> _members = jvmTestedClass.getMembers();
           this._jvmTypesBuilder.<JvmExecutable>operator_add(_members, jvmMethod);
         }
@@ -536,11 +631,18 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
   }
   
   public void initParameters(final JvmExecutable op, final Iterable<Parameter> parameters) {
+    int paramNum = 1;
     for (final Parameter parameter : parameters) {
       {
+        String _elvis = null;
         String _name = parameter.getName();
+        if (_name != null) {
+          _elvis = _name;
+        } else {
+          _elvis = ("arg" + Integer.valueOf(paramNum));
+        }
         JvmTypeReference _type = parameter.getType();
-        final JvmFormalParameter formalParameter = this._jvmTypesBuilder.toParameter(parameter, _name, _type);
+        final JvmFormalParameter formalParameter = this._jvmTypesBuilder.toParameter(parameter, _elvis, _type);
         boolean _isVararg = parameter.isVararg();
         if (_isVararg) {
           JvmTypeReference _parameterType = formalParameter.getParameterType();
@@ -550,6 +652,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
         }
         EList<JvmFormalParameter> _parameters = op.getParameters();
         this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, formalParameter);
+        paramNum++;
       }
     }
   }
@@ -586,6 +689,82 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       }
     }
     return _xifexpression;
+  }
+  
+  public void inferStateFunctionMethods(final StateFunction stateFunction, final JvmGenericType jvmClass, final boolean isSuite) {
+    final TestMemberContext testMemberContext = this._util.<TestMemberContext>ancestor(stateFunction, TestMemberContext.class);
+    boolean _and = false;
+    String _name = stateFunction.getName();
+    boolean _notEquals = (!Objects.equal(_name, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      boolean _or = false;
+      JvmParameterizedTypeReference _type = stateFunction.getType();
+      boolean _notEquals_1 = (!Objects.equal(_type, null));
+      if (_notEquals_1) {
+        _or = true;
+      } else {
+        _or = (testMemberContext instanceof JexTestCase);
+      }
+      _and = _or;
+    }
+    if (_and) {
+      EList<JvmMember> _members = jvmClass.getMembers();
+      String _name_1 = stateFunction.getName();
+      JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
+      final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+        public void apply(final JvmOperation it) {
+          JvmVisibility _xifexpression = null;
+          if (isSuite) {
+            _xifexpression = JvmVisibility.DEFAULT;
+          } else {
+            _xifexpression = JvmVisibility.PRIVATE;
+          }
+          it.setVisibility(_xifexpression);
+          it.setStatic(isSuite);
+          EList<JvmFormalParameter> _parameters = it.getParameters();
+          JvmTypeReference _elvis = null;
+          JvmParameterizedTypeReference _type = stateFunction.getType();
+          if (_type != null) {
+            _elvis = _type;
+          } else {
+            JvmTypeReference _testedJvmTypeRef = JexTestJvmModelInferrer.this._util.testedJvmTypeRef(((JexTestCase) testMemberContext));
+            _elvis = _testedJvmTypeRef;
+          }
+          JvmFormalParameter _parameter = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(stateFunction, "it", _elvis);
+          JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+          EList<Parameter> _parameters_1 = stateFunction.getParameters();
+          JexTestJvmModelInferrer.this.initParameters(it, _parameters_1);
+          final JvmOperation method = it;
+          final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+            public void apply(final ITreeAppendable it) {
+              boolean _and = false;
+              if (!(!isSuite)) {
+                _and = false;
+              } else {
+                _and = (testMemberContext instanceof JexTestSuite);
+              }
+              if (_and) {
+                JexTestJvmModelInferrer.this.generateSuiteMethodCall(((JexTestSuite) testMemberContext), method, it);
+              } else {
+                XBlockExpression _test = stateFunction.getTest();
+                JexTestJvmModelInferrer.this.generateTestHelperMethodCall("_test_", ((PropertiesTest) _test), it);
+              }
+            }
+          };
+          JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
+        }
+      };
+      JvmOperation _method = this._jvmTypesBuilder.toMethod(stateFunction, _name_1, _typeRef, _function);
+      this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+      XBlockExpression _test = stateFunction.getTest();
+      boolean _notEquals_2 = (!Objects.equal(_test, null));
+      if (_notEquals_2) {
+        XBlockExpression _test_1 = stateFunction.getTest();
+        this.inferPropertiesTestMethods(((PropertiesTest) _test_1), jvmClass);
+      }
+    }
   }
   
   public void inferStateTestMethods(final StateTestContext stateTestContext, final State state, final JvmGenericType jvmClass) {
@@ -634,6 +813,8 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
     final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
       public void apply(final JvmOperation it) {
         it.setVisibility(JvmVisibility.PRIVATE);
+        TestMemberContext _ancestor = JexTestJvmModelInferrer.this._util.<TestMemberContext>ancestor(innerStateTestContext, TestMemberContext.class);
+        it.setStatic((_ancestor instanceof JexTestSuite));
         final JvmTypeReference instanceType = JexTestJvmModelInferrer.this._util.jvmInstanceType(context);
         boolean _notEquals = (!Objects.equal(instanceType, null));
         if (_notEquals) {
@@ -645,8 +826,8 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
         if ((stateTestContext instanceof StateFunction)) {
           EList<Parameter> _parameters_1 = ((StateFunction)stateTestContext).getParameters();
           JexTestJvmModelInferrer.this.initParameters(it, _parameters_1);
-          StateTestContext _ancestor = JexTestJvmModelInferrer.this._util.<StateTestContext>ancestor(stateTestContext, StateTestContext.class);
-          stateTestContext = _ancestor;
+          StateTestContext _ancestor_1 = JexTestJvmModelInferrer.this._util.<StateTestContext>ancestor(stateTestContext, StateTestContext.class);
+          stateTestContext = _ancestor_1;
         }
         if ((stateTestContext instanceof JexTestSequence)) {
           EList<Instance> _instances = ((JexTestSequence)stateTestContext).getInstances();
@@ -721,8 +902,8 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       StateTestContext stateTestContext = this._util.<StateTestContext>ancestor(eObject, StateTestContext.class);
       if ((stateTestContext instanceof StateFunction)) {
         EList<Parameter> _parameters = ((StateFunction)stateTestContext).getParameters();
-        final Function1<Parameter, String> _function = new Function1<Parameter, String>() {
-          public String apply(final Parameter it) {
+        final Function1<Parameter, CharSequence> _function = new Function1<Parameter, CharSequence>() {
+          public CharSequence apply(final Parameter it) {
             return it.getName();
           }
         };
@@ -733,8 +914,8 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       }
       if ((stateTestContext instanceof JexTestSequence)) {
         EList<Instance> _instances = ((JexTestSequence)stateTestContext).getInstances();
-        final Function1<Instance, String> _function_1 = new Function1<Instance, String>() {
-          public String apply(final Instance it) {
+        final Function1<Instance, CharSequence> _function_1 = new Function1<Instance, CharSequence>() {
+          public CharSequence apply(final Instance it) {
             return it.getName();
           }
         };
@@ -750,6 +931,25 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
         _xifexpression = appendable.newLine();
       }
       _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public ITreeAppendable generateSuiteMethodCall(final JexTestSuite testSuite, final JvmExecutable op, final ITreeAppendable appendable) {
+    ITreeAppendable _xblockexpression = null;
+    {
+      String _suiteClassName = testSuite.getSuiteClassName();
+      String _plus = (_suiteClassName + ".");
+      String _simpleName = op.getSimpleName();
+      final String suiteMethodName = (_plus + _simpleName);
+      EList<JvmFormalParameter> _parameters = op.getParameters();
+      final Function1<JvmFormalParameter, CharSequence> _function = new Function1<JvmFormalParameter, CharSequence>() {
+        public CharSequence apply(final JvmFormalParameter it) {
+          return it.getName();
+        }
+      };
+      String _join = IterableExtensions.<JvmFormalParameter>join(_parameters, (suiteMethodName + "("), ",", ");", _function);
+      _xblockexpression = appendable.append(_join);
     }
     return _xblockexpression;
   }
@@ -1020,7 +1220,8 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       }
     }
     try {
-      if (isVoid) {
+      boolean _equals = Objects.equal(assertMethodName, null);
+      if (_equals) {
         ITreeAppendable _append = appendable.append("try {");
         ITreeAppendable _increaseIndentation = _append.increaseIndentation();
         _increaseIndentation.newLine();
@@ -1031,7 +1232,8 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
         if (_notEquals) {
           _or_1 = true;
         } else {
-          _or_1 = (!isVoid);
+          boolean _notEquals_1 = (!Objects.equal(assertMethodName, null));
+          _or_1 = _notEquals_1;
         }
         this._xbaseCompiler.toJavaStatement(subExpr, appendable, _or_1);
       }
@@ -1044,8 +1246,8 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       if ((!(owner instanceof TransitionAction))) {
         final Transition transition = this._util.<Transition>ancestor(expr, Transition.class);
         boolean _and_2 = false;
-        boolean _notEquals_1 = (!Objects.equal(transition, null));
-        if (!_notEquals_1) {
+        boolean _notEquals_2 = (!Objects.equal(transition, null));
+        if (!_notEquals_2) {
           _and_2 = false;
         } else {
           EList<TransitionAction> _actions = transition.getActions();
@@ -1060,45 +1262,43 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           message = _plus;
         }
       }
-      if (isVoid) {
-        final String errorVar = appendable.declareSyntheticVariable(owner, "error");
+      boolean _notEquals_3 = (!Objects.equal(assertMethodName, null));
+      if (_notEquals_3) {
         StringConcatenation _builder_1 = new StringConcatenation();
-        _builder_1.append("} catch (junit.framework.AssertionFailedError ");
-        _builder_1.append(errorVar, "");
-        _builder_1.append(") {");
-        ITreeAppendable _append_1 = appendable.append(_builder_1);
-        _append_1.newLine();
-        StringConcatenation _builder_2 = new StringConcatenation();
-        _builder_2.append("fail(\"");
+        _builder_1.append(assertMethodName, "");
+        _builder_1.append("(\"");
         String _quote = this._util.quote(message, "\"");
-        _builder_2.append(_quote, "");
-        _builder_2.append(": \" + ");
-        _builder_2.append(errorVar, "");
-        _builder_2.append(".getMessage());");
-        ITreeAppendable _append_2 = appendable.append(_builder_2);
-        ITreeAppendable _decreaseIndentation = _append_2.decreaseIndentation();
-        _decreaseIndentation.newLine();
-        ITreeAppendable _append_3 = appendable.append("}");
-        _append_3.newLine();
-      } else {
-        boolean _notEquals_2 = (!Objects.equal(assertMethodName, null));
-        if (_notEquals_2) {
-          StringConcatenation _builder_3 = new StringConcatenation();
-          _builder_3.append(assertMethodName, "");
-          _builder_3.append("(\"");
-          String _quote_1 = this._util.quote(message, "\"");
-          _builder_3.append(_quote_1, "");
-          _builder_3.append("\"");
-          appendable.append(_builder_3);
-          for (final XExpression subExpr_1 : exprs) {
-            {
-              appendable.append(", ");
-              this._xbaseCompiler.toJavaExpression(subExpr_1, appendable);
-            }
+        _builder_1.append(_quote, "");
+        _builder_1.append("\"");
+        appendable.append(_builder_1);
+        for (final XExpression subExpr_1 : exprs) {
+          {
+            appendable.append(", ");
+            this._xbaseCompiler.toJavaExpression(subExpr_1, appendable);
           }
-          ITreeAppendable _append_4 = appendable.append(");");
-          _append_4.newLine();
         }
+        ITreeAppendable _append_1 = appendable.append(");");
+        _append_1.newLine();
+      } else {
+        final String errorVar = appendable.declareSyntheticVariable(owner, "error");
+        StringConcatenation _builder_2 = new StringConcatenation();
+        _builder_2.append("} catch (junit.framework.AssertionFailedError ");
+        _builder_2.append(errorVar, "");
+        _builder_2.append(") {");
+        ITreeAppendable _append_2 = appendable.append(_builder_2);
+        _append_2.newLine();
+        StringConcatenation _builder_3 = new StringConcatenation();
+        _builder_3.append("fail(\"");
+        String _quote_1 = this._util.quote(message, "\"");
+        _builder_3.append(_quote_1, "");
+        _builder_3.append(": \" + ");
+        _builder_3.append(errorVar, "");
+        _builder_3.append(".getMessage());");
+        ITreeAppendable _append_3 = appendable.append(_builder_3);
+        ITreeAppendable _decreaseIndentation = _append_3.decreaseIndentation();
+        _decreaseIndentation.newLine();
+        ITreeAppendable _append_4 = appendable.append("}");
+        _append_4.newLine();
       }
     } catch (final Throwable _t) {
       if (_t instanceof RuntimeException) {
@@ -1113,6 +1313,9 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
   public void infer(final EObject testCase, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     if (testCase instanceof JexTestCase) {
       _infer((JexTestCase)testCase, acceptor, isPreIndexingPhase);
+      return;
+    } else if (testCase instanceof JexTestSuite) {
+      _infer((JexTestSuite)testCase, acceptor, isPreIndexingPhase);
       return;
     } else if (testCase != null) {
       _infer(testCase, acceptor, isPreIndexingPhase);

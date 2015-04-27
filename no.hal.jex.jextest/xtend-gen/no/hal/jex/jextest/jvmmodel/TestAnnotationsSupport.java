@@ -9,6 +9,7 @@ import java.util.Set;
 import no.hal.jex.jextest.jexTest.Instance;
 import no.hal.jex.jextest.jexTest.JexTestCase;
 import no.hal.jex.jextest.jexTest.JexTestSequence;
+import no.hal.jex.jextest.jexTest.JvmOperationRef;
 import no.hal.jex.jextest.jexTest.TestedClass;
 import no.hal.jex.jextest.jexTest.Transition;
 import no.hal.jex.jextest.jexTest.TransitionAction;
@@ -135,16 +136,27 @@ public class TestAnnotationsSupport {
     return _xblockexpression;
   }
   
-  public boolean generateTestMethodAnntations(final JexTestSequence sequence, final JvmAnnotationReference jexerciseAnnotation) {
-    boolean _xblockexpression = false;
-    {
-      final StringBuilder testsBuffer = new StringBuilder();
-      final JexTestCase testCase = this._util.<JexTestCase>ancestor(sequence, JexTestCase.class);
-      final JvmType testedClass = this.testedJvmType(testCase);
-      final ArrayList<JvmExecutable> testedMembers = CollectionLiterals.<JvmExecutable>newArrayList();
+  public void generateTestMethodAnntations(final JexTestSequence sequence, final JvmAnnotationReference jexerciseAnnotation) {
+    final StringBuilder testsBuffer = new StringBuilder();
+    final JexTestCase testCase = this._util.<JexTestCase>ancestor(sequence, JexTestCase.class);
+    final JvmType testedClass = this.testedJvmType(testCase);
+    EList<JvmOperationRef> _tested = sequence.getTested();
+    final Iterable<JvmOperation> resolvedOperations = this._util.resolveOperatorRefs(_tested);
+    final Function1<JvmOperation, Boolean> _function = new Function1<JvmOperation, Boolean>() {
+      public Boolean apply(final JvmOperation it) {
+        return Boolean.valueOf(Objects.equal(it, null));
+      }
+    };
+    boolean _exists = IterableExtensions.<JvmOperation>exists(resolvedOperations, _function);
+    if (_exists) {
+      return;
+    }
+    final ArrayList<JvmExecutable> testedMembers = CollectionLiterals.<JvmExecutable>newArrayList(((JvmExecutable[])Conversions.unwrapArray(resolvedOperations, JvmExecutable.class)));
+    boolean _isEmpty = testedMembers.isEmpty();
+    if (_isEmpty) {
       EList<Instance> _instances = testCase.getInstances();
-      boolean _isEmpty = _instances.isEmpty();
-      if (_isEmpty) {
+      boolean _isEmpty_1 = _instances.isEmpty();
+      if (_isEmpty_1) {
         this.addDefaultConstructor(testedClass, testedMembers);
       } else {
         EList<Instance> _instances_1 = testCase.getInstances();
@@ -173,83 +185,82 @@ public class TestAnnotationsSupport {
           }
         }
       }
-      final int size = testsBuffer.length();
-      for (final JvmExecutable op : testedMembers) {
-        {
-          int _length = testsBuffer.length();
-          boolean _greaterThan = (_length > size);
-          if (_greaterThan) {
-            testsBuffer.append(";");
-          }
-          this._util.appendMethodSignature(testsBuffer, op);
-        }
-      }
-      final StringBuilder descriptionBuffer = new StringBuilder();
-      String _description = sequence.getDescription();
-      this.addDescription(descriptionBuffer, _description, "h3");
-      EList<Transition> _transitions_1 = sequence.getTransitions();
-      final Function1<Transition, Boolean> _function = new Function1<Transition, Boolean>() {
-        public Boolean apply(final Transition it) {
-          EList<TransitionAction> _actions = it.getActions();
-          boolean _isEmpty = _actions.isEmpty();
-          return Boolean.valueOf((!_isEmpty));
-        }
-      };
-      final Iterable<Transition> transitionExpressions = IterableExtensions.<Transition>filter(_transitions_1, _function);
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Tests ");
-      _builder.newLine();
-      {
-        boolean _isEmpty_1 = IterableExtensions.isEmpty(transitionExpressions);
-        if (_isEmpty_1) {
-          _builder.append("\t\t");
-          _builder.append("initialization");
-          _builder.newLine();
-        } else {
-          _builder.append("\t\t");
-          _builder.append("the following sequence:");
-          _builder.newLine();
-          _builder.append("\t\t");
-          _builder.append("<ul>");
-          _builder.newLine();
-          {
-            for(final Transition transition_1 : transitionExpressions) {
-              _builder.append("\t\t");
-              _builder.append("<li>");
-              {
-                String _description_1 = transition_1.getDescription();
-                boolean _notEquals = (!Objects.equal(_description_1, null));
-                if (_notEquals) {
-                  String _description_2 = transition_1.getDescription();
-                  _builder.append(_description_2, "\t\t");
-                  _builder.append(": ");
-                }
-              }
-              EList<TransitionAction> _actions_1 = transition_1.getActions();
-              String _asSourceText = this._util.asSourceText(_actions_1, ", ");
-              _builder.append(_asSourceText, "\t\t");
-              _builder.append("</li>");
-              _builder.newLineIfNotEmpty();
-            }
-          }
-          _builder.append("\t\t");
-          _builder.append("</ul>");
-          _builder.newLine();
-          _builder.append("\t\t");
-        }
-      }
-      descriptionBuffer.append(_builder);
-      int _length = testsBuffer.length();
-      boolean _greaterThan = (_length > 0);
-      if (_greaterThan) {
-        String _string = testsBuffer.toString();
-        String _removeJavaLang = this._util.removeJavaLang(_string);
-        this.toAnnotationStringValues(sequence, jexerciseAnnotation, "tests", _removeJavaLang);
-      }
-      String _string_1 = descriptionBuffer.toString();
-      _xblockexpression = this.toAnnotationStringValues(sequence, jexerciseAnnotation, "description", _string_1);
     }
-    return _xblockexpression;
+    final int size = testsBuffer.length();
+    for (final JvmExecutable op : testedMembers) {
+      {
+        int _length = testsBuffer.length();
+        boolean _greaterThan = (_length > size);
+        if (_greaterThan) {
+          testsBuffer.append(";");
+        }
+        this._util.appendMethodSignature(testsBuffer, op);
+      }
+    }
+    final StringBuilder descriptionBuffer = new StringBuilder();
+    String _description = sequence.getDescription();
+    this.addDescription(descriptionBuffer, _description, "h3");
+    EList<Transition> _transitions_1 = sequence.getTransitions();
+    final Function1<Transition, Boolean> _function_1 = new Function1<Transition, Boolean>() {
+      public Boolean apply(final Transition it) {
+        EList<TransitionAction> _actions = it.getActions();
+        boolean _isEmpty = _actions.isEmpty();
+        return Boolean.valueOf((!_isEmpty));
+      }
+    };
+    final Iterable<Transition> transitionExpressions = IterableExtensions.<Transition>filter(_transitions_1, _function_1);
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Tests ");
+    _builder.newLine();
+    {
+      boolean _isEmpty_2 = IterableExtensions.isEmpty(transitionExpressions);
+      if (_isEmpty_2) {
+        _builder.append("\t\t");
+        _builder.append("initialization");
+        _builder.newLine();
+      } else {
+        _builder.append("\t\t");
+        _builder.append("the following sequence:");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("<ul>");
+        _builder.newLine();
+        {
+          for(final Transition transition_1 : transitionExpressions) {
+            _builder.append("\t\t");
+            _builder.append("<li>");
+            {
+              String _description_1 = transition_1.getDescription();
+              boolean _notEquals = (!Objects.equal(_description_1, null));
+              if (_notEquals) {
+                String _description_2 = transition_1.getDescription();
+                _builder.append(_description_2, "\t\t");
+                _builder.append(": ");
+              }
+            }
+            EList<TransitionAction> _actions_1 = transition_1.getActions();
+            String _asSourceText = this._util.asSourceText(_actions_1, ", ");
+            _builder.append(_asSourceText, "\t\t");
+            _builder.append("</li>");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t\t");
+        _builder.append("</ul>");
+        _builder.newLine();
+        _builder.append("\t\t");
+      }
+    }
+    descriptionBuffer.append(_builder);
+    int _length = testsBuffer.length();
+    boolean _greaterThan = (_length > 0);
+    if (_greaterThan) {
+      String _string = testsBuffer.toString();
+      String _removeJavaLang = this._util.removeJavaLang(_string);
+      this.toAnnotationStringValues(sequence, jexerciseAnnotation, "tests", _removeJavaLang);
+    }
+    String _string_1 = descriptionBuffer.toString();
+    this.toAnnotationStringValues(sequence, jexerciseAnnotation, "description", _string_1);
   }
   
   public void addDescription(final StringBuilder buffer, final String description, final String... tags) {

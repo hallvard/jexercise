@@ -1,9 +1,11 @@
 package no.hal.jex.jextest.jvmmodel
 
 import com.google.inject.Inject
+import java.util.Collection
 import no.hal.jex.jextest.jexTest.Instance
 import no.hal.jex.jextest.jexTest.JexTestCase
 import no.hal.jex.jextest.jexTest.JexTestSuite
+import no.hal.jex.jextest.jexTest.JvmOperationRef
 import no.hal.jex.jextest.jexTest.ObjectTest
 import no.hal.jex.jextest.jexTest.PropertiesTestOwner
 import no.hal.jex.jextest.jexTest.StateFunction
@@ -11,9 +13,12 @@ import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.common.types.JvmConstructor
+import org.eclipse.xtext.common.types.JvmDeclaredType
 import org.eclipse.xtext.common.types.JvmExecutable
 import org.eclipse.xtext.common.types.JvmField
+import org.eclipse.xtext.common.types.JvmFormalParameter
 import org.eclipse.xtext.common.types.JvmOperation
+import org.eclipse.xtext.common.types.JvmParameterizedTypeReference
 import org.eclipse.xtext.common.types.JvmType
 import org.eclipse.xtext.common.types.JvmTypeReference
 import org.eclipse.xtext.diagnostics.AbstractDiagnostic
@@ -70,15 +75,22 @@ class Util {
    	}	
 
 	def prependPackageName (String name, EObject context) {
-		val packOwner = ancestor(context, JexTestSuite)
-		if (packOwner != null && packOwner.pack != null) packOwner.pack + "." + name else name  
+		if (name.lastIndexOf('.') < 0) {
+			val packOwner = ancestor(context, JexTestSuite)
+			if (packOwner != null && name.lastIndexOf('.') < 0) {
+				val pos = packOwner.suiteClassName.lastIndexOf('.')
+				if (pos >= 0) {
+					return packOwner.suiteClassName.substring(0, pos + 1) + name  
+				}
+			}
+		}
+		name  
 	}
 
 	def testedClassName(JexTestCase testCase) {
 		testCase.testedClassRef ?.qualifiedName ?: testCase.testedClasses.head.name
 	}
 
-	
 	// 
 	
 	@Inject extension JvmTypesBuilder
@@ -173,8 +185,10 @@ class Util {
 	
 	def appendMethodSignature(StringBuilder buffer, JvmExecutable op) {
 		if (op instanceof JvmOperation) {
-			appendSignatureType(buffer, op.returnType)
-			buffer.append(" ")
+			if (op.returnType != null) {
+				appendSignatureType(buffer, op.returnType)
+				buffer.append(" ")
+			}
 		}
 		buffer.append(op.simpleName)
 		buffer.append("(")
@@ -222,5 +236,32 @@ class Util {
 	
 	def generateUnsupportedOperationException(EObject problem, ITreeAppendable appendable) {
 		appendable.append("throw new UnsupportedOperationException(\"Test wouldn't compile, due to missing or erroneous code.\");");
+	}
+	
+	//
+	
+	def resolveOperatorRefs(Collection<JvmOperationRef> refs) {
+		refs.map[resolveOperatorRef]
+	}
+
+	def resolveOperatorRef(JvmOperationRef opRef) {
+		val opOwner = defaultInstanceType(opRef)
+		(opOwner.type as JvmDeclaredType).members.filter(JvmOperation).findFirst[
+			simpleName == opRef.methodName && matchParameterTypes(parameters, opRef.parameterTypes)
+		]
+	}
+
+	def matchParameterTypes(Collection<JvmFormalParameter> formalParameters, Collection<JvmParameterizedTypeReference> parameterTypes) {
+		if (formalParameters.size != parameterTypes.size) {
+			return false
+		}
+		val it1 = formalParameters.iterator
+		val it2 = parameterTypes.iterator
+		while (it1.hasNext && it2.hasNext) {
+			if (it1.next.parameterType.identifier != it2.next.identifier) {
+				return false
+			}
+		}
+		true
 	}
 }

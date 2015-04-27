@@ -11,6 +11,10 @@ import no.hal.jex.jextest.jexTest.StateFunction
 import no.hal.jex.jextest.jexTest.JexTestPackage
 import org.eclipse.emf.ecore.EStructuralFeature
 import no.hal.jex.jextest.jexTest.Method
+import no.hal.jex.jextest.jexTest.JexTestSequence
+import com.google.inject.Inject
+import no.hal.jex.jextest.jvmmodel.Util
+import no.hal.jex.jextest.jexTest.JvmOperationRef
 
 //import org.eclipse.xtext.validation.Check
 
@@ -47,5 +51,20 @@ class JexTestValidator extends AbstractJexTestValidator {
 	@Check
 	def checkVarargIsLast(Method method) {
 		checkVarargIsLast(method.parameters, JexTestPackage.Literals.METHOD__PARAMETERS)
+	}
+
+	@Inject
+	private extension Util
+	
+	@Check
+	def jvmOperationRefExists(JexTestSequence sequence) {
+		var index = 0
+		for (JvmOperationRef opRef : sequence.tested) {
+			if (resolveOperatorRef(opRef) == null) {
+				error('Cannot resolve method/constructor reference', JexTestPackage.Literals.JEX_TEST_SEQUENCE__TESTED, index)
+			}
+			index++
+		}
+		true
 	}
 }

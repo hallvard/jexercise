@@ -7,6 +7,7 @@ import no.hal.jex.jextest.jexTest.JexTestCase;
 import no.hal.jex.jextest.jexTest.JexTestPackage;
 import no.hal.jex.jextest.jexTest.JexTestSequence;
 import no.hal.jex.jextest.jexTest.JexTestSuite;
+import no.hal.jex.jextest.jexTest.JvmOperationRef;
 import no.hal.jex.jextest.jexTest.Method;
 import no.hal.jex.jextest.jexTest.ObjectTest;
 import no.hal.jex.jextest.jexTest.Parameter;
@@ -96,7 +97,8 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case JexTestPackage.JEX_TEST_CASE:
-				if(context == grammarAccess.getJexTestCaseRule()) {
+				if(context == grammarAccess.getJexTestCaseRule() ||
+				   context == grammarAccess.getTestMemberContextRule()) {
 					sequence_JexTestCase(context, (JexTestCase) semanticObject); 
 					return; 
 				}
@@ -109,8 +111,15 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case JexTestPackage.JEX_TEST_SUITE:
-				if(context == grammarAccess.getJexTestSuiteRule()) {
+				if(context == grammarAccess.getJexTestSuiteRule() ||
+				   context == grammarAccess.getTestMemberContextRule()) {
 					sequence_JexTestSuite(context, (JexTestSuite) semanticObject); 
+					return; 
+				}
+				else break;
+			case JexTestPackage.JVM_OPERATION_REF:
+				if(context == grammarAccess.getJvmOperationRefRule()) {
+					sequence_JvmOperationRef(context, (JvmOperationRef) semanticObject); 
 					return; 
 				}
 				else break;
@@ -128,7 +137,11 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case JexTestPackage.PARAMETER:
-				if(context == grammarAccess.getParameterRule()) {
+				if(context == grammarAccess.getParameterTypeRule()) {
+					sequence_ParameterType(context, (Parameter) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getParameterRule()) {
 					sequence_Parameter(context, (Parameter) semanticObject); 
 					return; 
 				}
@@ -1362,7 +1375,13 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING? (instances+=Instance instances+=Instance*)* transitions+=Transition*)
+	 *     (
+	 *         name=ID 
+	 *         description=STRING? 
+	 *         (tested+=JvmOperationRef tested+=JvmOperationRef*)? 
+	 *         (instances+=Instance instances+=Instance*)* 
+	 *         transitions+=Transition*
+	 *     )
 	 */
 	protected void sequence_JexTestSequence(EObject context, JexTestSequence semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1371,7 +1390,12 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (pack=QName? importSection=XImportSection? testCases+=JexTestCase*)
+	 *     (
+	 *         suiteClassName=QName? 
+	 *         importSection=XImportSection? 
+	 *         ((instances+=Instance instances+=Instance*) | stateFunctions+=StateFunction | methods+=Method)* 
+	 *         testCases+=JexTestCase*
+	 *     )
 	 */
 	protected void sequence_JexTestSuite(EObject context, JexTestSuite semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1380,13 +1404,16 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         static?='static'? 
-	 *         returnType=JvmTypeReference? 
-	 *         (name=ID | name=OpEquality | name=OpCompare) 
-	 *         (parameters+=Parameter parameters+=Parameter*)? 
-	 *         body=XExpression
-	 *     )
+	 *     (methodName=ID (parameterTypes+=JvmParameterizedTypeReference parameterTypes+=JvmParameterizedTypeReference*)?)
+	 */
+	protected void sequence_JvmOperationRef(EObject context, JvmOperationRef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (returnType=JvmTypeReference? (name=ID | name=OpEquality | name=OpCompare) (parameters+=Parameter parameters+=Parameter*)? body=XExpression)
 	 */
 	protected void sequence_Method(EObject context, Method semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1398,6 +1425,15 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (instance=[Instance|ID]? test=PropertiesTest)
 	 */
 	protected void sequence_ObjectTest(EObject context, ObjectTest semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=JvmTypeReference vararg?='...'?)
+	 */
+	protected void sequence_ParameterType(EObject context, Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1445,6 +1481,8 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	 *         name=QName 
 	 *         superClass=JvmParameterizedTypeReference? 
 	 *         (superInterfaces+=JvmParameterizedTypeReference superInterfaces+=JvmParameterizedTypeReference*)? 
+	 *         description=STRING? 
+	 *         invariant=XExpression? 
 	 *         methods+=TestedOperation*
 	 *     )
 	 */
@@ -1473,7 +1511,15 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (abstract?='abstract'? returnType=JvmParameterizedTypeReference name=ID (parameters+=Parameter parameters+=Parameter*)?)
+	 *     (
+	 *         abstract?='abstract'? 
+	 *         returnType=JvmParameterizedTypeReference 
+	 *         name=ID 
+	 *         (parameterTypes+=ParameterType parameterTypes+=ParameterType*)? 
+	 *         description=STRING? 
+	 *         preExpression=XExpression? 
+	 *         postExpression=XExpression?
+	 *     )
 	 */
 	protected void sequence_TestedMethod_TestedOperation(EObject context, TestedMethod semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1482,7 +1528,7 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((parameters+=Parameter parameters+=Parameter*)?)
+	 *     ((parameterTypes+=ParameterType parameterTypes+=ParameterType*)? description=STRING? preExpression=XExpression? postExpression=XExpression?)
 	 */
 	protected void sequence_TestedOperation(EObject context, TestedConstructor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -50,6 +50,15 @@ public interface JexTestFactory extends EFactory
   Instance createInstance();
 
   /**
+   * Returns a new object of class '<em>Test Member Context</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Test Member Context</em>'.
+   * @generated
+   */
+  TestMemberContext createTestMemberContext();
+
+  /**
    * Returns a new object of class '<em>State Test Context</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -84,6 +93,15 @@ public interface JexTestFactory extends EFactory
    * @generated
    */
   JexTestSequence createJexTestSequence();
+
+  /**
+   * Returns a new object of class '<em>Jvm Operation Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Jvm Operation Ref</em>'.
+   * @generated
+   */
+  JvmOperationRef createJvmOperationRef();
 
   /**
    * Returns a new object of class '<em>State</em>'.

@@ -1,11 +1,15 @@
 package no.hal.jex.jextest.jvmmodel;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Set;
 import no.hal.jex.jextest.jexTest.Instance;
 import no.hal.jex.jextest.jexTest.JexTestCase;
 import no.hal.jex.jextest.jexTest.JexTestSuite;
+import no.hal.jex.jextest.jexTest.JvmOperationRef;
 import no.hal.jex.jextest.jexTest.ObjectTest;
 import no.hal.jex.jextest.jexTest.PropertiesTestOwner;
 import no.hal.jex.jextest.jexTest.StateFunction;
@@ -22,6 +26,7 @@ import org.eclipse.xtext.common.types.JvmExecutable;
 import org.eclipse.xtext.common.types.JvmField;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmIdentifiableElement;
+import org.eclipse.xtext.common.types.JvmMember;
 import org.eclipse.xtext.common.types.JvmOperation;
 import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
 import org.eclipse.xtext.common.types.JvmType;
@@ -123,25 +128,30 @@ public class Util {
   public String prependPackageName(final String name, final EObject context) {
     String _xblockexpression = null;
     {
-      final JexTestSuite packOwner = this.<JexTestSuite>ancestor(context, JexTestSuite.class);
-      String _xifexpression = null;
-      boolean _and = false;
-      boolean _notEquals = (!Objects.equal(packOwner, null));
-      if (!_notEquals) {
-        _and = false;
-      } else {
-        String _pack = packOwner.getPack();
-        boolean _notEquals_1 = (!Objects.equal(_pack, null));
-        _and = _notEquals_1;
+      int _lastIndexOf = name.lastIndexOf(".");
+      boolean _lessThan = (_lastIndexOf < 0);
+      if (_lessThan) {
+        final JexTestSuite packOwner = this.<JexTestSuite>ancestor(context, JexTestSuite.class);
+        boolean _and = false;
+        boolean _notEquals = (!Objects.equal(packOwner, null));
+        if (!_notEquals) {
+          _and = false;
+        } else {
+          int _lastIndexOf_1 = name.lastIndexOf(".");
+          boolean _lessThan_1 = (_lastIndexOf_1 < 0);
+          _and = _lessThan_1;
+        }
+        if (_and) {
+          String _suiteClassName = packOwner.getSuiteClassName();
+          final int pos = _suiteClassName.lastIndexOf(".");
+          if ((pos >= 0)) {
+            String _suiteClassName_1 = packOwner.getSuiteClassName();
+            String _substring = _suiteClassName_1.substring(0, (pos + 1));
+            return (_substring + name);
+          }
+        }
       }
-      if (_and) {
-        String _pack_1 = packOwner.getPack();
-        String _plus = (_pack_1 + ".");
-        _xifexpression = (_plus + name);
-      } else {
-        _xifexpression = name;
-      }
-      _xblockexpression = _xifexpression;
+      _xblockexpression = name;
     }
     return _xblockexpression;
   }
@@ -353,8 +363,8 @@ public class Util {
   }
   
   public String asSourceText(final EList<? extends EObject> eObjects, final String separator) {
-    final Function1<EObject, String> _function = new Function1<EObject, String>() {
-      public String apply(final EObject it) {
+    final Function1<EObject, CharSequence> _function = new Function1<EObject, CharSequence>() {
+      public CharSequence apply(final EObject it) {
         return Util.this.asSourceText(it);
       }
     };
@@ -375,8 +385,12 @@ public class Util {
     {
       if ((op instanceof JvmOperation)) {
         JvmTypeReference _returnType = ((JvmOperation)op).getReturnType();
-        this.appendSignatureType(buffer, _returnType);
-        buffer.append(" ");
+        boolean _notEquals = (!Objects.equal(_returnType, null));
+        if (_notEquals) {
+          JvmTypeReference _returnType_1 = ((JvmOperation)op).getReturnType();
+          this.appendSignatureType(buffer, _returnType_1);
+          buffer.append(" ");
+        }
       }
       String _simpleName = op.getSimpleName();
       buffer.append(_simpleName);
@@ -448,5 +462,70 @@ public class Util {
   
   public ITreeAppendable generateUnsupportedOperationException(final EObject problem, final ITreeAppendable appendable) {
     return appendable.append("throw new UnsupportedOperationException(\"Test wouldn\'t compile, due to missing or erroneous code.\");");
+  }
+  
+  public Iterable<JvmOperation> resolveOperatorRefs(final Collection<JvmOperationRef> refs) {
+    final Function1<JvmOperationRef, JvmOperation> _function = new Function1<JvmOperationRef, JvmOperation>() {
+      public JvmOperation apply(final JvmOperationRef it) {
+        return Util.this.resolveOperatorRef(it);
+      }
+    };
+    return IterableExtensions.<JvmOperationRef, JvmOperation>map(refs, _function);
+  }
+  
+  public JvmOperation resolveOperatorRef(final JvmOperationRef opRef) {
+    JvmOperation _xblockexpression = null;
+    {
+      final JvmTypeReference opOwner = this.defaultInstanceType(opRef);
+      JvmType _type = opOwner.getType();
+      EList<JvmMember> _members = ((JvmDeclaredType) _type).getMembers();
+      Iterable<JvmOperation> _filter = Iterables.<JvmOperation>filter(_members, JvmOperation.class);
+      final Function1<JvmOperation, Boolean> _function = new Function1<JvmOperation, Boolean>() {
+        public Boolean apply(final JvmOperation it) {
+          boolean _and = false;
+          String _simpleName = it.getSimpleName();
+          String _methodName = opRef.getMethodName();
+          boolean _equals = Objects.equal(_simpleName, _methodName);
+          if (!_equals) {
+            _and = false;
+          } else {
+            EList<JvmFormalParameter> _parameters = it.getParameters();
+            EList<JvmParameterizedTypeReference> _parameterTypes = opRef.getParameterTypes();
+            boolean _matchParameterTypes = Util.this.matchParameterTypes(_parameters, _parameterTypes);
+            _and = _matchParameterTypes;
+          }
+          return Boolean.valueOf(_and);
+        }
+      };
+      _xblockexpression = IterableExtensions.<JvmOperation>findFirst(_filter, _function);
+    }
+    return _xblockexpression;
+  }
+  
+  public boolean matchParameterTypes(final Collection<JvmFormalParameter> formalParameters, final Collection<JvmParameterizedTypeReference> parameterTypes) {
+    boolean _xblockexpression = false;
+    {
+      int _size = formalParameters.size();
+      int _size_1 = parameterTypes.size();
+      boolean _notEquals = (_size != _size_1);
+      if (_notEquals) {
+        return false;
+      }
+      final Iterator<JvmFormalParameter> it1 = formalParameters.iterator();
+      final Iterator<JvmParameterizedTypeReference> it2 = parameterTypes.iterator();
+      while ((it1.hasNext() && it2.hasNext())) {
+        JvmFormalParameter _next = it1.next();
+        JvmTypeReference _parameterType = _next.getParameterType();
+        String _identifier = _parameterType.getIdentifier();
+        JvmParameterizedTypeReference _next_1 = it2.next();
+        String _identifier_1 = _next_1.getIdentifier();
+        boolean _notEquals_1 = (!Objects.equal(_identifier, _identifier_1));
+        if (_notEquals_1) {
+          return false;
+        }
+      }
+      _xblockexpression = true;
+    }
+    return _xblockexpression;
   }
 }

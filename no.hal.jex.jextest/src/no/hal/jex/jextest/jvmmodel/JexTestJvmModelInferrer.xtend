@@ -36,6 +36,9 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.IJvmModelAssociator
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.eclipse.xtext.xbase.scoping.featurecalls.OperatorMapping
+import no.hal.jex.jextest.jexTest.JexTestSuite
+import no.hal.jex.jextest.jexTest.Method
+import no.hal.jex.jextest.jexTest.TestMemberContext
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -53,9 +56,64 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 	@Inject extension Util
 	@Inject extension TestAnnotationsSupport
 
+	def dispatch void infer(JexTestSuite testSuite, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+		for (testCase : testSuite.testCases) {
+			testCase.inferTestCase(acceptor)
+		}
+		val jvmClass = testSuite.toClass(testSuite.suiteClassName)
+		jvmClass.superTypes += typeRef("junit.framework.TestCase")
+		acceptor.accept(jvmClass) [
+			jvmClass.members += testSuite.toMethod("suite", typeRef("junit.framework.Test")) [
+				static = true
+				visibility = JvmVisibility.PUBLIC
+				body = [
+					append('''
+					junit.framework.TestSuite suite = new junit.framework.TestSuite("«testSuite.suiteClassName»");
+						«FOR testCase : testSuite.testCases»
+							suite.addTestSuite(«testCase.testCaseClassName».class);
+						«ENDFOR»
+					return suite;
+					''')
+				]
+			]
+			for (instance : testSuite.instances) {
+				jvmClass.members += instance.toField(instance.name, instance.jvmType) [
+					visibility = JvmVisibility.DEFAULT
+					static = true
+					initializer = instance.expr
+				]
+			}
+			for (stateFunction : testSuite.stateFunctions) {
+				inferStateFunctionMethods(stateFunction, jvmClass, true)
+			}
+			for (method : testSuite.methods) {
+				inferMethod(jvmClass, method, true)
+			}
+		]
+	}
+
+	def inferMethod(JvmGenericType jvmClass, Method method, boolean isSuite) {
+		val methodName = getMethodName(QualifiedName.create(method.name))?.toString ?: method.name
+		if (methodName != null) {
+			jvmClass.members += method.toMethod(methodName, method.returnType) [
+				visibility = if (isSuite) JvmVisibility.DEFAULT else JvmVisibility.PRIVATE
+				static = isSuite
+				initParameters(method.parameters)
+				body = method.body
+			]
+		}
+	}
+
+	def testCaseClassName(JexTestCase testCase) {
+		(testCase.testedClassName ?: testCase.testedClassName) + "Test"
+	}
+
 	def dispatch void infer(JexTestCase testCase, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-		val className = testCase.testClassName ?: testCase.testedClassName + "Test"
-		val jvmClass = testCase.toClass(className.prependPackageName(testCase))
+		inferTestCase(testCase, acceptor)
+	}
+
+	def JvmGenericType inferTestCase(JexTestCase testCase, IJvmDeclaredTypeAcceptor acceptor) {
+		val jvmClass = testCase.toClass(testCase.testCaseClassName.prependPackageName(testCase))
 		jvmClass.superTypes += typeRef("junit.framework.TestCase")
 		
 		for (testedClass : testCase.testedClasses) {
@@ -66,6 +124,21 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 			val jexerciseTestCaseAnnotation = annotationRef("no.hal.jex.runtime.JExercise")
 			testCase.generateTestClassAnntations(jexerciseTestCaseAnnotation)
 			annotations += jexerciseTestCaseAnnotation
+			
+			val testSuite = ancestor(testCase, JexTestSuite)
+			if (testSuite != null) {
+				for (instance : testSuite.instances) {
+					jvmClass.members += instance.toField(instance.name, instance.jvmType) [
+						visibility = JvmVisibility.PRIVATE
+						initializer = [
+							append(testSuite.suiteClassName + '.' + instance.name)
+						]
+					]
+				}
+				for (stateFunction : testSuite.stateFunctions) {
+					inferStateFunctionMethods(stateFunction, jvmClass, false)
+				}
+			}
 			
 			if (testCase.defaultInstanceTest) {
 				jvmClass.members += testCase.toField(defaultInstanceName(testCase), testCase.testedJvmTypeRef) [
@@ -90,32 +163,11 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 			]
 						
 			for (method : testCase.methods) {
-				val methodName = getMethodName(QualifiedName.create(method.name))?.toString ?: method.name
-				if (methodName != null) {
-					members += method.toMethod(methodName, method.returnType) [
-						visibility = JvmVisibility.PRIVATE
-						static = method.static
-						initParameters(method.parameters)
-						body = method.body
-					]
-				}
+				inferMethod(jvmClass, method, false)
 			}
 
 			for (stateFunction : testCase.stateFunctions) {
-				if (stateFunction.name != null) {
-					val stateMethod = stateFunction.toMethod(stateFunction.name, typeRef(void)) [
-						visibility = JvmVisibility.PRIVATE
-						parameters += stateFunction.toParameter("it", stateFunction.type ?: testCase.testedJvmTypeRef)
-						initParameters(stateFunction.parameters)
-						body = [
-							generateTestHelperMethodCall("_test_", (stateFunction.test as PropertiesTest), it)
-						]
-					]
-					members += stateMethod
-					if (stateFunction.test != null) {
-						(stateFunction.test as PropertiesTest).inferPropertiesTestMethods(jvmClass)
-					}
-				}
+				inferStateFunctionMethods(stateFunction, jvmClass, false)
 			}
 			// create the test methods first
 			val testMethods = <Pair<JexTestSequence, JvmOperation>>newArrayList
@@ -177,6 +229,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 				]
 			]
 		]
+		jvmClass
 	}
 	
 	def inferTestedClass(TestedClass testedClass, IJvmDeclaredTypeAcceptor acceptor) {
@@ -199,7 +252,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 					]
 				}
 			jvmMethod.visibility = JvmVisibility.PUBLIC
-			initParameters(jvmMethod, op.parameters)
+			initParameters(jvmMethod, op.parameterTypes)
 			jvmTestedClass.members += jvmMethod
 		}
 		acceptor.accept(jvmTestedClass)
@@ -235,13 +288,15 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def initParameters(JvmExecutable op, Iterable<Parameter> parameters) {
+		var paramNum = 1
 		for (parameter : parameters) {
-			val formalParameter = parameter.toParameter(parameter.name, parameter.type)
+			val formalParameter = parameter.toParameter(parameter.name ?: ("arg" + paramNum), parameter.type)
 			if (parameter.vararg) {
 				formalParameter.parameterType = formalParameter.parameterType.addArrayTypeDimension
 				op.varArgs = true
 			}
 			op.parameters += formalParameter
+			paramNum++
 		}
 	}
 
@@ -256,6 +311,31 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 			}
 		}
 	}
+
+	def inferStateFunctionMethods(StateFunction stateFunction, JvmGenericType jvmClass, boolean isSuite) {
+		val testMemberContext = stateFunction.ancestor(TestMemberContext)
+		if (stateFunction.name != null && (stateFunction.type != null || testMemberContext instanceof JexTestCase)) {
+			jvmClass.members += stateFunction.toMethod(stateFunction.name, typeRef(void)) [
+				visibility = if (isSuite) JvmVisibility.DEFAULT else JvmVisibility.PRIVATE
+				static = isSuite
+				parameters += stateFunction.toParameter("it", stateFunction.type ?: (testMemberContext as JexTestCase).testedJvmTypeRef)
+				initParameters(stateFunction.parameters)
+				val method = it
+				body = [
+					if ((! isSuite) && testMemberContext instanceof JexTestSuite) {
+						generateSuiteMethodCall(testMemberContext as JexTestSuite, method, it)
+					} else {
+						generateTestHelperMethodCall("_test_", (stateFunction.test as PropertiesTest), it)
+					}
+				]
+			]
+			if (stateFunction.test != null) {
+				(stateFunction.test as PropertiesTest).inferPropertiesTestMethods(jvmClass)
+			}
+		}
+	}
+
+	 
 
 	def void inferStateTestMethods(StateTestContext stateTestContext, State state, JvmGenericType jvmClass) {
 		jvmClass.members += stateTestContext.inferTestHelperMethod("_test_", state) [
@@ -281,6 +361,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 	def inferTestHelperMethod(StateTestContext innerStateTestContext, String name, JvmTypeReference type, EObject context) {
 		context.toMethod(name, type) [
 			visibility = JvmVisibility.PRIVATE
+			static = ancestor(innerStateTestContext, TestMemberContext) instanceof JexTestSuite
 			val instanceType = jvmInstanceType(context)
 			if (instanceType != null) {
 				parameters += context.toParameter("it", instanceType)
@@ -342,6 +423,11 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 		if (newline) {
 			appendable.newLine
 		}
+	}
+
+	def generateSuiteMethodCall(JexTestSuite testSuite, JvmExecutable op, ITreeAppendable appendable) {
+		val suiteMethodName = testSuite.suiteClassName + '.' + op.simpleName
+		appendable.append(op.parameters.join(suiteMethodName + '(', ',', ');') [name])
 	}
 
 	def generateTestHelperMethodCall(String prefix, EObject eObject, ITreeAppendable appendable) {
@@ -455,7 +541,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 		var exprs = #[expr]
 		var String assertMethodName = null
 		val type = expr.jvmType(owner) ?: typeRef(void)
-		val isVoid = type.qualifiedName == "void"
+		val isVoid = (type.qualifiedName == "void")
 		val isLogical = type.qualifiedName == "boolean"
 		val isOperator = (expr instanceof XUnaryOperation || expr instanceof XBinaryOperation)
 		if ((! explicitBoolean) || (isOperator && isLogical)) {
@@ -479,11 +565,11 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 			}
 		}
 		try {
-			if (isVoid) {
+			if (assertMethodName == null) {
 				appendable.append("try {").increaseIndentation.newLine
 			}
 			for (subExpr : exprs) {
-				subExpr.toJavaStatement(appendable, subExpr != expr || (! isVoid))
+				subExpr.toJavaStatement(appendable, subExpr != expr || (assertMethodName != null))
 			}
 			appendable.newLine
 			var message = '''«expr.asSourceText» failed'''
@@ -493,18 +579,18 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 					message = message + " after " + transition.actions.asSourceText(' ,')
 				}
 			}
-			if (isVoid) {
-				val errorVar = appendable.declareSyntheticVariable(owner, "error")
-				appendable.append('''} catch (junit.framework.AssertionFailedError «errorVar») {''').newLine
-				appendable.append('''fail("«message.quote("\"")»: " + «errorVar».getMessage());''').decreaseIndentation.newLine
-				appendable.append("}").newLine
-			} else if (assertMethodName != null) {
+			if (assertMethodName != null) {
 				appendable.append('''«assertMethodName»("«message.quote("\"")»"''')
 				for (subExpr : exprs) {
 					appendable.append(", ")
 					subExpr.toJavaExpression(appendable)
 				}
 				appendable.append(");").newLine
+			} else {
+				val errorVar = appendable.declareSyntheticVariable(owner, "error")
+				appendable.append('''} catch (junit.framework.AssertionFailedError «errorVar») {''').newLine
+				appendable.append('''fail("«message.quote("\"")»: " + «errorVar».getMessage());''').decreaseIndentation.newLine
+				appendable.append("}").newLine
 			}
 		} catch (RuntimeException re) {
 			generateUnsupportedOperationException(owner, appendable)

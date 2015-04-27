@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link no.hal.jex.jextest.jexTest.JexTestSequence#getTested <em>Tested</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestSequence#getInstances <em>Instances</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestSequence#getTransitions <em>Transitions</em>}</li>
  * </ul>
@@ -23,6 +24,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface JexTestSequence extends StateTestContext
 {
+  /**
+   * Returns the value of the '<em><b>Tested</b></em>' containment reference list.
+   * The list contents are of type {@link no.hal.jex.jextest.jexTest.JvmOperationRef}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tested</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tested</em>' containment reference list.
+   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getJexTestSequence_Tested()
+   * @model containment="true"
+   * @generated
+   */
+  EList<JvmOperationRef> getTested();
+
   /**
    * Returns the value of the '<em><b>Instances</b></em>' containment reference list.
    * The list contents are of type {@link no.hal.jex.jextest.jexTest.Instance}.

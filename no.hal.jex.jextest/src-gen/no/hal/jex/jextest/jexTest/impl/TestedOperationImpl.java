@@ -8,6 +8,7 @@ import no.hal.jex.jextest.jexTest.JexTestPackage;
 import no.hal.jex.jextest.jexTest.Parameter;
 import no.hal.jex.jextest.jexTest.TestedOperation;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,10 +16,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.xtext.xbase.XExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +31,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getParameterTypes <em>Parameter Types</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getPreExpression <em>Pre Expression</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getPostExpression <em>Post Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,14 +43,54 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class TestedOperationImpl extends MinimalEObjectImpl.Container implements TestedOperation
 {
   /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+   * The cached value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameters()
+   * @see #getParameterTypes()
    * @generated
    * @ordered
    */
-  protected EList<Parameter> parameters;
+  protected EList<Parameter> parameterTypes;
+
+  /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getPreExpression() <em>Pre Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPreExpression()
+   * @generated
+   * @ordered
+   */
+  protected XExpression preExpression;
+
+  /**
+   * The cached value of the '{@link #getPostExpression() <em>Post Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPostExpression()
+   * @generated
+   * @ordered
+   */
+  protected XExpression postExpression;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,13 +118,132 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Parameter> getParameters()
+  public EList<Parameter> getParameterTypes()
   {
-    if (parameters == null)
+    if (parameterTypes == null)
     {
-      parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, JexTestPackage.TESTED_OPERATION__PARAMETERS);
+      parameterTypes = new EObjectContainmentEList<Parameter>(Parameter.class, this, JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES);
     }
-    return parameters;
+    return parameterTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.TESTED_OPERATION__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public XExpression getPreExpression()
+  {
+    return preExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPreExpression(XExpression newPreExpression, NotificationChain msgs)
+  {
+    XExpression oldPreExpression = preExpression;
+    preExpression = newPreExpression;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION, oldPreExpression, newPreExpression);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPreExpression(XExpression newPreExpression)
+  {
+    if (newPreExpression != preExpression)
+    {
+      NotificationChain msgs = null;
+      if (preExpression != null)
+        msgs = ((InternalEObject)preExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION, null, msgs);
+      if (newPreExpression != null)
+        msgs = ((InternalEObject)newPreExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION, null, msgs);
+      msgs = basicSetPreExpression(newPreExpression, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION, newPreExpression, newPreExpression));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public XExpression getPostExpression()
+  {
+    return postExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPostExpression(XExpression newPostExpression, NotificationChain msgs)
+  {
+    XExpression oldPostExpression = postExpression;
+    postExpression = newPostExpression;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JexTestPackage.TESTED_OPERATION__POST_EXPRESSION, oldPostExpression, newPostExpression);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPostExpression(XExpression newPostExpression)
+  {
+    if (newPostExpression != postExpression)
+    {
+      NotificationChain msgs = null;
+      if (postExpression != null)
+        msgs = ((InternalEObject)postExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.TESTED_OPERATION__POST_EXPRESSION, null, msgs);
+      if (newPostExpression != null)
+        msgs = ((InternalEObject)newPostExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.TESTED_OPERATION__POST_EXPRESSION, null, msgs);
+      msgs = basicSetPostExpression(newPostExpression, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.TESTED_OPERATION__POST_EXPRESSION, newPostExpression, newPostExpression));
   }
 
   /**
@@ -90,8 +256,12 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case JexTestPackage.TESTED_OPERATION__PARAMETERS:
-        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+      case JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES:
+        return ((InternalEList<?>)getParameterTypes()).basicRemove(otherEnd, msgs);
+      case JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION:
+        return basicSetPreExpression(null, msgs);
+      case JexTestPackage.TESTED_OPERATION__POST_EXPRESSION:
+        return basicSetPostExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,8 +276,14 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case JexTestPackage.TESTED_OPERATION__PARAMETERS:
-        return getParameters();
+      case JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES:
+        return getParameterTypes();
+      case JexTestPackage.TESTED_OPERATION__DESCRIPTION:
+        return getDescription();
+      case JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION:
+        return getPreExpression();
+      case JexTestPackage.TESTED_OPERATION__POST_EXPRESSION:
+        return getPostExpression();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -123,9 +299,18 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case JexTestPackage.TESTED_OPERATION__PARAMETERS:
-        getParameters().clear();
-        getParameters().addAll((Collection<? extends Parameter>)newValue);
+      case JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES:
+        getParameterTypes().clear();
+        getParameterTypes().addAll((Collection<? extends Parameter>)newValue);
+        return;
+      case JexTestPackage.TESTED_OPERATION__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
+      case JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION:
+        setPreExpression((XExpression)newValue);
+        return;
+      case JexTestPackage.TESTED_OPERATION__POST_EXPRESSION:
+        setPostExpression((XExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +326,17 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case JexTestPackage.TESTED_OPERATION__PARAMETERS:
-        getParameters().clear();
+      case JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES:
+        getParameterTypes().clear();
+        return;
+      case JexTestPackage.TESTED_OPERATION__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
+      case JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION:
+        setPreExpression((XExpression)null);
+        return;
+      case JexTestPackage.TESTED_OPERATION__POST_EXPRESSION:
+        setPostExpression((XExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +352,33 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case JexTestPackage.TESTED_OPERATION__PARAMETERS:
-        return parameters != null && !parameters.isEmpty();
+      case JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES:
+        return parameterTypes != null && !parameterTypes.isEmpty();
+      case JexTestPackage.TESTED_OPERATION__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION:
+        return preExpression != null;
+      case JexTestPackage.TESTED_OPERATION__POST_EXPRESSION:
+        return postExpression != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (description: ");
+    result.append(description);
+    result.append(')');
+    return result.toString();
   }
 
 } //TestedOperationImpl
