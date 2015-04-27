@@ -6,13 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: no.hal.emfs.xtext; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
- org.eclipse.xtext.generator;resolution:=optional,
- org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
- no.hal.emfs,
- org.eclipse.xtext.util,
- org.antlr.runtime,
- org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
- org.eclipse.emf.mwe2.launch;bundle-version="2.7.0"
+ no.hal.emfs
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

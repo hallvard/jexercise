@@ -5,7 +5,6 @@ Bundle-Vendor: Hallvard Traetteberg
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: no.hal.emfs.xtext.runtime;singleton:=true
 Bundle-ActivationPolicy: lazy
-Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: no.hal.emfs.xtext,
  no.hal.emfs.xtext.services,
@@ -16,7 +15,4 @@ Export-Package: no.hal.emfs.xtext,
  no.hal.emfs.xtext.scoping,
  no.hal.emfs.xtext.formatting
 Require-Bundle: no.hal.emfs,
- org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
- org.antlr.runtime,
- org.eclipse.xtext;bundle-version="2.7.2",
- org.eclipse.xtext.util
+ org.eclipse.xtext;bundle-version="2.7.2"
