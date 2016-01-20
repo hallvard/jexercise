@@ -112,7 +112,7 @@ public class AccountTest extends TestCase {
   }
   
   private void _transition_exprAction__addInterest_transitions0_actions0(final Account it) {
-    
+    it.interestRate = 5;
     
   }
   
