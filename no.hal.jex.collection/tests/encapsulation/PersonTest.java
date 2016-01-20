@@ -15,7 +15,6 @@ public class PersonTest extends TestCase {
 	private Person person;
 	private Date birthday;
 
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -60,7 +59,7 @@ public class PersonTest extends TestCase {
 	)
 	public void testSetBirthday() {
 		try {
-			Date birth = new Date(115,11,31);
+			Date birth = new Date(2050,11,31);
 			person.setBirthday(birth);
 			fail("The birthday cannot be in the future");
 		} catch (Exception e) {
