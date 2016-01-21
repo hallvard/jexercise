@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Lecture sharing UI
+Bundle-SymbolicName: no.hal.learning.sharing.ui;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: no.hal.learning.sharing.ui.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.9.1",
+ no.hal.learning.sharing;bundle-version="0.1.0",
+ org.eclipse.ui,
+ org.eclipse.ui.ide;bundle-version="3.10.1",
+ org.eclipse.paho.client.mqttv3;bundle-version="1.0",
+ no.hal.emf.ui.utils;bundle-version="0.1.1",
+ org.eclipse.emf.edit;bundle-version="2.11.1",
+ no.hal.emfs.ui;bundle-version="0.1.0",
+ no.hal.learning.exercise.model;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: no.hal.learning.sharing.emfs,
+ no.hal.learning.sharing.exercise,
+ no.hal.learning.sharing.ui,
+ no.hal.learning.sharing.ui.views
