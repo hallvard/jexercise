@@ -53,25 +53,26 @@ public class PersonTest extends TestCase {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	@JExercise(
 		tests="void setBirthday(Date)",
 		description="The setBirthday(Date) should set birthday to input argument, given that the birthday is on a valid format."
 	)
 	public void testSetBirthday() {
+		long today = new Date().getTime();
+		long offset = 1000L * 60L * 60L * 24L * 100L; // About 100 days
 		try {
-			Date birth = new Date(115,11,31);
-			person.setBirthday(birth);
+			Date theFuture = new Date(today + offset);
+			person.setBirthday(theFuture);
 			fail("The birthday cannot be in the future");
 		} catch (Exception e) {
 			testExceptionAndValue(e, IllegalArgumentException.class, birthday, person.getBirthday());
 		}
-		Date birthday2 = new Date(93, 11, 12);
+		Date thePast = new Date(today - offset);
 		try {
-			person.setBirthday(birthday2);
-			assertEquals(birthday2, person.getBirthday());	
+			person.setBirthday(thePast);
+			assertEquals(thePast, person.getBirthday());
 		} catch (Exception e) {
-			fail(birthday2 + " is a valid birthday");
+			fail(thePast + " is a valid birthday");
 		}
 	}
 	
