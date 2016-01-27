@@ -85,7 +85,7 @@ public class PersonTest extends TestCase {
 		String email = person.getEmail();
 		testInvalidEmail("ola.nordmann@ntnu", email, IllegalArgumentException.class);
 		testInvalidEmail("ola.nordmann(at)ntnu.no", email, IllegalArgumentException.class);
-		testInvalidEmail("espen.askeladd@eventyr.no", email, IllegalStateException.class);
+		testInvalidEmail("espen.askeladd@eventyr.no", email, IllegalArgumentException.class);
 		try {
 			person.setEmail("ola.nordmann@ntnu.no");
 			assertEquals("ola.nordmann@ntnu.no", person.getEmail());
