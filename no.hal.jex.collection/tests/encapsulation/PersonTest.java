@@ -86,13 +86,38 @@ public class PersonTest extends TestCase {
 		testInvalidEmail("ola.nordmann@ntnu", email, IllegalArgumentException.class);
 		testInvalidEmail("ola.nordmann(at)ntnu.no", email, IllegalArgumentException.class);
 		testInvalidEmail("espen.askeladd@eventyr.no", email, IllegalArgumentException.class);
-		try {
-			person.setEmail("ola.nordmann@ntnu.no");
-			assertEquals("ola.nordmann@ntnu.no", person.getEmail());
-		} catch (Exception e) {
-			fail("ola.nordmann@ntnu.no is a valid email");
-		}
-	}
+		testInvalidEmail("ola.nordmann@asd,-;:_*@¨+´`\\(){}[]=/&%$#¡!.?|®¥¢‰¶.no", email, IllegalArgumentException.class);
+        	testValidEmail("ola.nordmann@ntnu.no");
+
+        	for (String cTLD : invalidCTLDs) {
+            		testInvalidEmail("ola.nordmann@ntnu." + cTLD, "ola.nordmann@ntnu.no", IllegalArgumentException.class);
+        	}
+
+        	for (String cTLD : cTLDs) {
+        	    	testValidEmail("ola.nordmann@" + generateValidDomain() + "." + cTLD);
+        	}
+
+    	}
+
+    	private String generateValidDomain() {
+        	int length = random.nextInt(63) + 1;
+        	String validCharacters = "abcdefghijklmnopqrstuvwxyz0123456789";
+        	String domain = "";
+        	for (int currentChar = 0; currentChar < length; currentChar++) {
+            		int character = random.nextInt(36);
+            		domain += validCharacters.substring(character, character + 1);
+        	}
+        	return domain;
+    	}
+
+    	private void testValidEmail(String email) {
+        	try {
+        	 	person.setEmail(email);
+        	 	assertEquals(email, person.getEmail());
+        	} catch (Exception e) {
+            		fail(email + " is a valid email");
+        	}
+    	}
 
 	private void testInvalidEmail(String invalidEmail, String existingEmail, Class<? extends Exception> ex) {
 		try {
