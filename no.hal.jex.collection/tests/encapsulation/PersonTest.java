@@ -35,6 +35,7 @@ public class PersonTest extends TestCase {
 		String name = person.getName();
 		testInvalidName("Ola", name);
 		testInvalidName("O N", name);
+		testInvalidName("Ola Mellom Nordmann", name);
 		testInvalidName("O. Nordmann", name);
 		try {
 			person.setName("Espen Askeladd");
