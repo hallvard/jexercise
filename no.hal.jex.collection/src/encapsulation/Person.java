@@ -1,6 +1,8 @@
 package encapsulation;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class Person {
 
@@ -9,6 +11,7 @@ public class Person {
 	private Date birthday;
 	private char gender;
 	private String ssn;
+	private List<String> validCTLDs = Arrays.asList("ad", "ae", "af", "ag", "ai", "al", "am", "ao", "aq", "ar", "as", "at", "au", "aw", "ax", "az", "ba", "bb", "bd", "be", "bf", "bg", "bh", "bi", "bj", "bl", "bm", "bn", "bo", "bq", "br", "bs", "bt", "bv", "bw", "by", "bz", "ca", "cc", "cd", "cf", "cg", "ch", "ci", "ck", "cl", "cm", "cn", "co", "cr", "cu", "cv", "cw", "cx", "cy", "cz", "de", "dj", "dk", "dm", "do", "dz", "ec", "ee", "eg", "eh", "er", "es", "et", "fi", "fj", "fk", "fm", "fo", "fr", "ga", "gb", "gd", "ge", "gf", "gg", "gh", "gi", "gl", "gm", "gn", "gp", "gq", "gr", "gs", "gt", "gu", "gw", "gy", "hk", "hm", "hn", "hr", "ht", "hu", "id", "ie", "il", "im", "in", "io", "iq", "ir", "is", "it", "je", "jm", "jo", "jp", "ke", "kg", "kh", "ki", "km", "kn", "kp", "kr", "kw", "ky", "kz", "la", "lb", "lc", "li", "lk", "lr", "ls", "lt", "lu", "lv", "ly", "ma", "mc", "md", "me", "mf", "mg", "mh", "mk", "ml", "mm", "mn", "mo", "mp", "mq", "mr", "ms", "mt", "mu", "mv", "mw", "mx", "my", "mz", "na", "nc", "ne", "nf", "ng", "ni", "nl", "no", "np", "nr", "nu", "nz", "om", "pa", "pe", "pf", "pg", "ph", "pk", "pl", "pm", "pn", "pr", "ps", "pt", "pw", "py", "qa", "re", "ro", "rs", "ru", "rw", "sa", "sb", "sc", "sd", "se", "sg", "sh", "si", "sj", "sk", "sl", "sm", "sn", "so", "sr", "ss", "st", "sv", "sx", "sy", "sz", "tc", "td", "tf", "tg", "th", "tj", "tk", "tl", "tm", "tn", "to", "tr", "tt", "tv", "tw", "tz", "ua", "ug", "um", "us", "uy", "uz", "va", "vc", "ve", "vg", "vi", "vn", "vu", "wf", "ws", "ye", "yt", "za", "zm", "zw");
 
 	// birthday methods
 	
@@ -16,7 +19,6 @@ public class Person {
 		return birthday;
 	}
 
-	@SuppressWarnings("deprecation")
 	public void setBirthday(Date birthday) {
 		if (! birthday.before(new Date())) {
 			throw new IllegalArgumentException(birthday + " is in the future");
@@ -55,6 +57,19 @@ public class Person {
 		}
 		while (pos < end) {
 			if (! Character.isLetter(s.charAt(pos))) {
+				return false;
+			}
+			pos++;
+		}
+		return true;
+	}
+	
+	private boolean isLettersOrDigitsOnly(String s, int pos, int end) {
+		if (end < 0) {
+			end = s.length() + end + 1;
+		}
+		while (pos < end) {
+			if (! Character.isLetterOrDigit(s.charAt(pos))) {
 				return false;
 			}
 			pos++;
@@ -115,7 +130,7 @@ public class Person {
 		if (domainParts.length != 2) {
 			throw new IllegalArgumentException("The domain part should include two words separated with .");
 		}
-		if (! isLettersOnly(domainParts[0], 0, -1)) {
+		if (! isLettersOrDigitsOnly(domainParts[0], 0, -1)) { 
 			throw new IllegalArgumentException("The first part of " + parts[1] + " contains a non-letter character");
 		}
 		int countryCodeLength = domainParts[1].length();
@@ -124,6 +139,9 @@ public class Person {
 		}
 		if (! isLettersOnly(domainParts[1], 0, -1)) {
 			throw new IllegalArgumentException("The country code part of " + domainParts[1] + " contains a non-letter character");
+		}
+		if (! validCTLDs.contains(domainParts[1])){
+			throw new IllegalArgumentException("The country code " + domainParts[1] + " is not a valid top level domain");
 		}
 	}
 	
