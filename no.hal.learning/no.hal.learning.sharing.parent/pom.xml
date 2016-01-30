@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>no.hal.learning.sharing.parent</artifactId>
+  <packaging>pom</packaging>
+
+  <parent>
+  	<groupId>no.hal.learning</groupId>
+  	<artifactId>no.hal.learning</artifactId>
+  	<version>0.1.0-SNAPSHOT</version>
+  	<relativePath>..</relativePath>
+  </parent>
+
+	<properties>
+		<xtext-version>2.9.1</xtext-version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>xtext</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/${xtext-version}/</url>
+		</repository>
+		<repository>
+			<id>Eclipse Paho Repo</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/paho</url>
+		</repository>
+	</repositories>
+
+  <modules>
+  	<module>no.hal.learning.sharing</module>
+  	<module>no.hal.learning.sharing.tests</module>
+  	<module>no.hal.learning.sharing.ui</module>
+  </modules>
+</project>

@@ -1,0 +1,57 @@
+test patterns.observable.StopWatch
+
+instance stopWatch = new StopWatch()
+instance int changedCount = 0
+instance changedStopWatch
+instance int whatChanged = 0
+
+instance StopWatchListener stopWatchListener = [stopWatch, what |
+	changedCount++;
+	changedStopWatch = stopWatch;
+	whatChanged = what;
+]
+
+sequence tickedListener {
+ 	-- stopWatch.addStopWatchListener(stopWatchListener) --> 
+	state stopWatch {
+		ticks == 0
+	}
+	"1 time unit passes" -- stopWatch.tick(1) -->
+	state {
+		stopWatch.ticks == 1
+		changedCount == 1
+		changedStopWatch == stopWatch
+		whatChanged == 1 // StopWatchListener.TICKED
+	}
+}
+
+sequence startedLappedStoppedListener {
+ 	-- stopWatch.addStopWatchListener(stopWatchListener) --> 
+	state stopWatch {
+		ticks == 0
+		! isStarted
+	}
+	"Start watch" -- stopWatch.start() -->
+	state {
+		stopWatch.ticks == 0
+		stopWatch.isStarted
+		changedCount == 1
+		changedStopWatch == stopWatch
+		whatChanged == 2 // StopWatchListener.STARTED
+	}
+	"Lap watch" -- changedStopWatch = null, stopWatch.lap() -->
+	state {
+		stopWatch.ticks == 0
+		changedCount == 2
+		changedStopWatch == stopWatch
+		whatChanged == 4 // StopWatchListener.LAPPED
+	}
+	"Stop watch" -- changedStopWatch = null, stopWatch.stop() -->
+	state {
+		stopWatch.ticks == 0
+		stopWatch.isStopped
+		changedCount == 3
+		changedStopWatch == stopWatch
+		whatChanged == 8 // StopWatchListener.STOPPED
+	}
+}

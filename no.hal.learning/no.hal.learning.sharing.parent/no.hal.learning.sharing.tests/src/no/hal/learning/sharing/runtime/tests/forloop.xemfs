@@ -1,0 +1,42 @@
+emfs
+/
+src/iteration/
+	ForLoop1.java* #java #test
+8<---
+package iteration;
+
+import junit.framework.TestCase;
+
+public class ForLoop1 extends TestCase {
+
+	private int forLoop1(int... numbers) {
+		int sum = 0;
+--->8
+---*8<---
+	// Skriv en løkke som summerer alle tallene i en array-variabel kalt 'numbers'.
+	// Resultatet skal etter løkka er ferdig legges i variabelen 'sum'
+	// Du kan anta at begge disse variablene allerede er deklarert,
+	// altså int[] number og int sum
+--->8
+8<---
+		return sum;
+	}
+	
+	public void testForLoop1() {
+		assertEquals("Prøvde med numrene 1, 2, 3, 4", 10, forLoop1(1, 2, 3, 4));
+		assertEquals("Prøvde med numrene 1, 2, 3, 4, 5", 15, forLoop1(1, 2, 3, 4, 5));
+		assertEquals("Prøvde med bare ett nummer: 1", 1, forLoop1(1));
+		assertEquals("Prøvde med ingen nummer!", 0, forLoop1());
+	}
+}
+--->8
+	;
+;
+.project: dot.project #java;
+
+.classpath: dot.classpath
+	source-folder src
+	source-folder /jexercisestandalone
+	class-container org.eclipse.jdt.launching.JRE_CONTAINER
+	output-folder bin
+;

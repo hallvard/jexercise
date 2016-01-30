@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.lecture.sharing/src" modelPluginID="no.hal.lecture.sharing"
+    modelName="Sharing" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore.change/model/Change.genmodel#//change ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>sharing.ecore</foreignModel>
+  <genPackages prefix="Sharing" basePackage="no.hal.lecture" resource="XMI" disposableProviderFactory="true"
+      ecorePackage="sharing.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sharing.ecore#//ShareMode">
+      <genEnumLiterals ecoreEnumLiteral="sharing.ecore#//ShareMode/OUT"/>
+      <genEnumLiterals ecoreEnumLiteral="sharing.ecore#//ShareMode/IN"/>
+      <genEnumLiterals ecoreEnumLiteral="sharing.ecore#//ShareMode/IN_OUT"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="sharing.ecore#//EEditingDomain"/>
+    <genDataTypes ecoreDataType="sharing.ecore#//ECommand"/>
+    <genDataTypes ecoreDataType="sharing.ecore#//EURI"/>
+    <genClasses ecoreClass="sharing.ecore#//AbstractShare">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sharing.ecore#//AbstractShare/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sharing.ecore#//AbstractShare/owner"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sharing.ecore#//AbstractShare/sharer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sharing.ecore#//AbstractShare/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="sharing.ecore#//ShareModel">
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference sharing.ecore#//ShareModel/eObjects"/>
+    </genClasses>
+    <genClasses ecoreClass="sharing.ecore#//ShareEdits">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sharing.ecore#//ShareEdits/edits"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sharing.ecore#//ModelEdit">
+      <genOperations ecoreOperation="sharing.ecore#//ModelEdit/performEdit"/>
+      <genOperations ecoreOperation="sharing.ecore#//ModelEdit/createEditCommand">
+        <genParameters ecoreParameter="sharing.ecore#//ModelEdit/createEditCommand/editingDomain"/>
+      </genOperations>
+      <genOperations ecoreOperation="sharing.ecore#//ModelEdit/createSerializableEdit">
+        <genParameters ecoreParameter="sharing.ecore#//ModelEdit/createSerializableEdit/uri"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sharing.ecore#//AbstractModelEdit">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sharing.ecore#//AbstractModelEdit/eObject"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sharing.ecore#//AbstractFeatureEdit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sharing.ecore#//AbstractFeatureEdit/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sharing.ecore#//AbstractFeatureEdit/index"/>
+      <genOperations ecoreOperation="sharing.ecore#//AbstractFeatureEdit/getStructuralFeature"/>
+      <genOperations ecoreOperation="sharing.ecore#//AbstractFeatureEdit/getValue"/>
+    </genClasses>
+    <genClasses ecoreClass="sharing.ecore#//AbstractAttributeEdit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sharing.ecore#//AbstractAttributeEdit/value"/>
+    </genClasses>
+    <genClasses ecoreClass="sharing.ecore#//AbstractReferenceEdit">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sharing.ecore#//AbstractReferenceEdit/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sharing.ecore#//SetFeatureEdit"/>
+    <genClasses ecoreClass="sharing.ecore#//SetAttributeEdit"/>
+    <genClasses ecoreClass="sharing.ecore#//SetReferenceEdit"/>
+    <genClasses image="false" ecoreClass="sharing.ecore#//AddFeatureEdit"/>
+    <genClasses ecoreClass="sharing.ecore#//AddAttributeEdit"/>
+    <genClasses ecoreClass="sharing.ecore#//AddReferenceEdit"/>
+    <genClasses ecoreClass="sharing.ecore#//RemoveFeatureEdit"/>
+    <genClasses ecoreClass="sharing.ecore#//ChangeEdit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sharing.ecore#//ChangeEdit/change"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

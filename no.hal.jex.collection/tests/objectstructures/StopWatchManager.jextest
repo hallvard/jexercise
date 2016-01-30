@@ -1,0 +1,101 @@
+import java.util.Collection
+import objectstructures.StopWatchManager
+
+test class objectstructures.StopWatchManager {
+	new()
+	StopWatch newStopWatch(String name)
+	void removeStopWatch(String name)
+	void tick(int milliSeconds)
+	StopWatch getStopWatch(String name)
+	Collection<StopWatch> getAllWatches()
+	Collection<StopWatch> getStartedWatches()
+	Collection<StopWatch> getStoppedWatches()
+}
+
+instance stopWatchManager = new StopWatchManager
+
+sequence ticks {
+	instance StopWatch sw1 = stopWatchManager.newStopWatch("SW 1")
+	instance StopWatch sw2 = stopWatchManager.newStopWatch("SW 2")
+	
+	"1 time unit passes" -- tick(1) -->
+	state
+		sw1 { ticks == 1 }
+		sw2 { ticks == 1 }
+	"4 time units passes"-- tick(4) -->
+	state
+		sw1 { ticks == 5 }
+		sw2 { ticks == 5 }
+}
+
+sequence newRemoveStopWatches {
+	-->
+	state {
+		allWatches.size == 0
+	}
+	-- newStopWatch("SW 1") -->
+	state {
+		allWatches.size == 1
+		getStopWatch("SW 1") != null
+	}
+	-- newStopWatch("SW 2") -->
+	state {
+		allWatches.size == 2
+		getStopWatch("SW 1") != null
+		getStopWatch("SW 2") != null
+	}
+	-- removeStopWatch("SW 1") -->
+	state {
+		allWatches.size == 1
+		getStopWatch("SW 1") == null
+		getStopWatch("SW 2") != null
+	}
+	-- removeStopWatch("SW 2") -->
+	state {
+		allWatches.size == 0
+		getStopWatch("SW 1") == null
+		getStopWatch("SW 2") == null
+	}
+}
+
+sequence startedStoppedWatches {
+	-->
+	state {
+		startedWatches.size == 0
+		stoppedWatches.size == 0
+	}
+	-- newStopWatch("SW 1").start() -->
+	state {
+		startedWatches.size == 1
+		startedWatches.contains(getStopWatch("SW 1"))
+		getStopWatch("SW 1").isStarted
+		stoppedWatches.size == 0
+	}
+	-- newStopWatch("SW 2").start() -->
+	state {
+		startedWatches.size == 2
+		startedWatches.contains(getStopWatch("SW 1"))
+		getStopWatch("SW 1").isStarted
+		startedWatches.contains(getStopWatch("SW 2"))
+		getStopWatch("SW 2").isStarted
+		stoppedWatches.size == 0
+		! getStopWatch("SW 1").isStopped
+		! getStopWatch("SW 2").isStopped
+	}
+	-- getStopWatch("SW 2").stop() -->
+	state {
+		stoppedWatches.size == 1
+		! stoppedWatches.contains(getStopWatch("SW 1"))
+		! getStopWatch("SW 1").isStopped
+		stoppedWatches.contains(getStopWatch("SW 2"))
+		getStopWatch("SW 2").isStopped
+	}
+	-- getStopWatch("SW 1").stop() -->
+	state {
+		stoppedWatches.size == 2
+		stoppedWatches.contains(getStopWatch("SW 1"))
+		getStopWatch("SW 1").isStopped
+		stoppedWatches.contains(getStopWatch("SW 2"))
+		getStopWatch("SW 2").isStopped
+	}
+}

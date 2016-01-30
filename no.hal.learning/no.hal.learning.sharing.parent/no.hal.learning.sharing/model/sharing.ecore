@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sharing" nsURI="platform:/plugin/no.hal.learning.sharing/model/sharing.model"
+    nsPrefix="emf-sharing">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractShare">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="owner" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sharer" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="#//ShareMode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ShareMode">
+    <eLiterals name="OUT" value="1" literal="OUT"/>
+    <eLiterals name="IN" value="2" literal="IN"/>
+    <eLiterals name="IN_OUT" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShareModel" eSuperTypes="#//AbstractShare">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eObjects" upperBound="-1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShareEdits" eSuperTypes="#//AbstractShare">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edits" upperBound="-1"
+        eType="#//ModelEdit" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EEditingDomain" instanceClassName="org.eclipse.emf.edit.domain.EditingDomain"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ECommand" instanceClassName="org.eclipse.emf.common.command.Command"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="EURI" instanceClassName="org.eclipse.emf.common.util.URI"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelEdit" abstract="true" interface="true">
+    <eOperations name="performEdit"/>
+    <eOperations name="createEditCommand" eType="#//ECommand">
+      <eParameters name="editingDomain" eType="#//EEditingDomain"/>
+    </eOperations>
+    <eOperations name="createSerializableEdit" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EResource">
+      <eParameters name="uri" eType="#//EURI"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractModelEdit" abstract="true" eSuperTypes="#//ModelEdit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractFeatureEdit" abstract="true"
+      eSuperTypes="#//AbstractModelEdit">
+    <eOperations name="getStructuralFeature" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+    <eOperations name="getValue" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="feature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractAttributeEdit" eSuperTypes="#//AbstractFeatureEdit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractReferenceEdit" eSuperTypes="#//AbstractFeatureEdit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SetFeatureEdit" abstract="true" eSuperTypes="#//AbstractFeatureEdit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SetAttributeEdit" eSuperTypes="#//SetFeatureEdit #//AbstractAttributeEdit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SetReferenceEdit" eSuperTypes="#//SetFeatureEdit #//AbstractReferenceEdit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AddFeatureEdit" abstract="true" eSuperTypes="#//AbstractFeatureEdit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AddAttributeEdit" eSuperTypes="#//AddFeatureEdit #//AbstractAttributeEdit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AddReferenceEdit" eSuperTypes="#//AddFeatureEdit #//AbstractReferenceEdit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveFeatureEdit" eSuperTypes="#//AbstractFeatureEdit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeEdit" eSuperTypes="#//AbstractModelEdit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="change" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore.change/model/Change.ecore#//ChangeDescription"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureDiffChange" abstract="true" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore.change/model/Change.ecore#//FeatureChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringFeatureDiffChange" eSuperTypes="#//FeatureDiffChange">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>

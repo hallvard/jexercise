@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.emfs/model/emfs.ecore"
+            class="no.hal.learning.sharing.emfs.EmfsPublishingAdapterFactory"
+            supportedTypes=
+              "no.hal.learning.sharing.runtime.PublishingAdapter"/>
+   </extension>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.emfs/model/emfs-sync.ecore"
+            class="no.hal.learning.sharing.emfs.EmfsPublishingAdapterFactory"
+            supportedTypes=
+              "no.hal.learning.sharing.runtime.PublishingAdapter"/>
+   </extension>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
+            class="no.hal.learning.sharing.exercise.ExercisePublishingAdapterFactory"
+            supportedTypes=
+              "no.hal.learning.sharing.runtime.PublishingAdapter"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.learning.sharing/model/sharing.ecore"
+            class="no.hal.learning.sharing.ui.views.util.SharingViewerAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectViewerAdapter"/>
+   </extension>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.emfs/model/emfs-sync.ecore"
+            class="no.hal.learning.sharing.emfs.EmfsEObjectUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
+<!--
+   <extension point="org.eclipse.ui.commands">
+		<command id="no.hal.learning.sharing.ui.commands.PublishResources"
+            name="Publish resources">
+    	</command>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="no.hal.learning.sharing.ui.commands.PublishResourcesCommandHandler"
+            commandId="no.hal.learning.sharing.ui.commands.PublishResources">
+        <activeWhen>
+			<with variable="selection">
+				<iterate operator="or">
+					<adapt type="org.eclipse.core.resources.IResource"/>
+					<! <instanceof value="org.eclipse.core.resources.IResource"/> >
+				</iterate>
+			</with>
+		</activeWhen> 
+      </handler>
+   </extension>
+	<extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <menu id="no.hal.learning.sharing.ui.commands" label="Lecture">
+	        <command id="no.hal.learning.sharing.ui.commands.PublishResources" commandId="no.hal.learning.sharing.ui.commands.PublishResources"/>
+         </menu>
+      </menuContribution>
+   </extension>
+-->
+   
+    <extension point="org.eclipse.ui.views">
+      <category
+            name="Learning"
+            id="no.hal.learning.sharing.ui">
+      </category>
+      <view
+            name="Publish"
+            category="no.hal.learning.sharing.ui"
+            class="no.hal.learning.sharing.ui.views.PublishingView"
+            id="no.hal.learning.sharing.ui.views.PublishingView">
+      </view>
+      <view
+            name="Subscribe"
+            category="no.hal.learning.sharing.ui"
+            class="no.hal.learning.sharing.ui.views.SubscribingView"
+            id="no.hal.learning.sharing.ui.views.SubscribingView">
+      </view>
+   </extension>
+   
+</plugin>

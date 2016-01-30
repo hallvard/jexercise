@@ -1,0 +1,51 @@
+test patterns.observable.StopWatchManager
+
+instance stopWatchManager = new StopWatchManager()
+instance int changedCount = 0
+instance StopWatch changedStopWatch
+instance int whatChanged = 0
+
+instance StopWatchListener stopWatchListener = [stopWatch, what |
+	changedCount++;
+	changedStopWatch = stopWatch;
+	whatChanged = what;
+]
+
+sequence tickedListener {
+ 	-- stopWatchManager.newStopWatch("SW 1"), stopWatchManager.addStopWatchListener(stopWatchListener) --> 
+	state {
+	}
+	"1 time unit passes" -- stopWatchManager.tick(1) -->
+	state {
+		changedCount == 1
+		changedStopWatch == stopWatchManager.getStopWatch("SW 1")
+		whatChanged == 1 // StopWatchListener.TICKED
+	}
+}
+
+sequence startedLappedStoppedListener {
+ 	-- stopWatchManager.newStopWatch("SW 1"), stopWatchManager.addStopWatchListener(stopWatchListener) --> 
+	state {
+		! stopWatchManager.getStopWatch("SW 1").isStarted
+	}
+	"Start watch" -- stopWatchManager.getStopWatch("SW 1").start() -->
+	state {
+		stopWatchManager.getStopWatch("SW 1").isStarted
+		changedCount == 1
+		changedStopWatch == stopWatchManager.getStopWatch("SW 1")
+		whatChanged == 2 // StopWatchListener.STARTED
+	}
+	"Lap watch" -- changedStopWatch = null, stopWatchManager.getStopWatch("SW 1").lap() -->
+	state {
+		changedCount == 2
+		changedStopWatch == stopWatchManager.getStopWatch("SW 1")
+		whatChanged == 4 // StopWatchListener.LAPPED
+	}
+	"Stop watch" -- changedStopWatch = null, stopWatchManager.getStopWatch("SW 1").stop() -->
+	state {
+		stopWatchManager.getStopWatch("SW 1").isStopped
+		changedCount == 3
+		changedStopWatch == stopWatchManager.getStopWatch("SW 1")
+		whatChanged == 8 // StopWatchListener.STOPPED
+	}
+}
