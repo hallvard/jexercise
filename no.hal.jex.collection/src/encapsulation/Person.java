@@ -104,11 +104,11 @@ public class Person {
 		int pos = this.name.indexOf(' ');
 		String givenName = this.name.substring(0, pos);
 		if (! nameParts[0].equalsIgnoreCase(givenName)) {
-			throw new IllegalStateException("The first name of email (" + nameParts[0] + ") does not match given name (" + givenName + ")");
+			throw new IllegalArgumentException("The first name of email (" + nameParts[0] + ") does not match given name (" + givenName + ")");
 		}		
 		String familyName = this.name.substring(pos + 1);
 		if (! nameParts[1].equalsIgnoreCase(familyName)) {
-			throw new IllegalStateException("The second name of email (" + nameParts[1] + ") does not match family name (" + familyName + ")");
+			throw new IllegalArgumentException("The second name of email (" + nameParts[1] + ") does not match family name (" + familyName + ")");
 		}
 		String[] domainParts = parts[1].split("\\.");
 		if (domainParts.length != 2) {
