@@ -16,7 +16,6 @@ public class Person {
 		return birthday;
 	}
 
-	@SuppressWarnings("deprecation")
 	public void setBirthday(Date birthday) {
 		if (! birthday.before(new Date())) {
 			throw new IllegalArgumentException(birthday + " is in the future");
