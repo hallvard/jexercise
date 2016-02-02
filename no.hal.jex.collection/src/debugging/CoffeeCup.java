@@ -1,18 +1,14 @@
 package debugging;
 
-import java.util.Random;
-
 public class CoffeeCup {
 
 	private double capacity;
 	private double currentVolume;
-	private Random rand;
 	
 	
 	public CoffeeCup() {
 		this.capacity = 0.0;
 		this.currentVolume = 0.0;
-		rand = new Random(123456789L);
 	}
 	
 	public CoffeeCup(double capacity, double currentVolume){
@@ -28,7 +24,6 @@ public class CoffeeCup {
 		else{
 			throw new IllegalArgumentException("Illegal volume given.");
 		}
-		rand = new Random(987654321L);
 	}
 	
 	private boolean isValidCapacity(double capacity){
@@ -65,10 +60,6 @@ public class CoffeeCup {
 		else{
 			throw new IllegalArgumentException("You can't drink that much coffee!");
 		}
-	}
-	
-	public double nextDouble(){
-		return rand.nextDouble();
 	}
 	
 	public void fillCoffee(double volume){
