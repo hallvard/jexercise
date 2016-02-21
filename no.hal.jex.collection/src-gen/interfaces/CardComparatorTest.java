@@ -2,6 +2,7 @@ package interfaces;
 
 import interfaces.Card;
 import interfaces.CardComparator;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import junit.framework.TestCase;
@@ -70,7 +71,8 @@ public class CardComparatorTest extends TestCase {
   private List<Card> cards;
   
   private List<Card> _init_cards() {
-    return Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.s1, this.s13, this.h1, this.h13, this.d1, this.d13, this.c1, this.c13));
+    ArrayList<Card> _newArrayList = CollectionLiterals.<Card>newArrayList(this.s1, this.s13, this.h1, this.h13, this.d1, this.d13, this.c1, this.c13);
+    return _newArrayList;
   }
   
   @Override

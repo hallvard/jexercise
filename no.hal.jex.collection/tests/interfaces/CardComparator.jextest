@@ -10,7 +10,7 @@ instance
 	Card c1 = new Card('C', 1), Card c13 = new Card('C', 13)
 
 instance 
-	List<Card> cards = #[s1, s13, h1, h13, d1, d13, c1, c13]
+	List<Card> cards = CollectionLiterals.newArrayList(s1, s13, h1, h13, d1, d13, c1, c13)
 
 sequence normal {
 	-- Collections.sort(cards, new CardComparator(false, ' ')) -->
