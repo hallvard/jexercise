@@ -70,7 +70,7 @@ public class CardComparatorTest extends TestCase {
   private List<Card> cards;
   
   private List<Card> _init_cards() {
-    return Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.s1, this.s13, this.h1, this.h13, this.d1, this.d13, this.c1, this.c13));
+    return CollectionLiterals.<Card>newArrayList(this.s1, this.s13, this.h1, this.h13, this.d1, this.d13, this.c1, this.c13);
   }
   
   @Override
