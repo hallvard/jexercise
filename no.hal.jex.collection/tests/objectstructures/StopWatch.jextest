@@ -1,0 +1,125 @@
+test class objectstructures.StopWatch {
+	void tick(int milliSeconds)
+	void start()
+	boolean isStarted()
+	void lap()
+	void stop()
+	boolean isStopped()
+
+	int getTicks()
+	int getTime()
+	int getLapTime()
+	int getLastLapTime()
+}
+
+sequence ticks {
+ 	--> 
+	state {
+		ticks == 0
+	}
+	"1 time unit passes" -- tick(1) -->
+	state {
+		ticks == 1
+	}
+	"4 time units passes"-- tick(4) -->
+	state {
+		ticks == 5
+	}
+}
+
+sequence startTickStop {
+	-->
+	state {
+		! isStarted
+		! isStopped
+	}
+	"Start timer" -- start() -->
+	state {
+		isStarted
+		! isStopped
+		time == 0
+	}
+	"3 time units passes" -- tick(3) -->
+	state {
+		ticks == 3
+		time == 3
+	}
+	"5 time units passes" -- tick(5) -->
+	state {
+		ticks == 8
+		time == 8
+	}
+	"Stop timer" -- stop() -->
+	state {
+		ticks == 8
+		isStarted
+		isStopped
+		time == 8
+	}	
+}
+
+sequence tickStartStopTick {
+	"4 time units passes" -- tick(4) -->
+	state {
+		ticks == 4
+		time == -1
+	}
+	"Start timer" -- start() -->
+	state {
+		ticks == 4
+		isStarted
+		! isStopped
+		time == 0
+	}
+	"Stop timer" -- stop() -->
+	state {
+		ticks == 4
+		isStarted
+		isStopped
+		time == 0
+	}	
+	"7 time units passes" -- tick(7) -->
+	state {
+		ticks == 11
+		time == 0
+	}
+}
+	
+sequence startLapStop {
+	-->
+	state {
+		lapTime == -1
+	}
+	"Start timer" -- start -->
+	state {
+		isStarted
+		! isStopped
+		time == 0
+		lapTime == 0
+	}
+	"3 time units passes" -- tick(3) -->
+	state {
+		time == 3
+		lapTime == 3
+	}
+	"Stop implicit lap and start new one" -- lap -->
+	state {
+		time == 3
+		lapTime == 0
+		lastLapTime == 3
+	}
+	"2 time units passes" -- tick(2) -->
+	state {
+		time == 5
+		lastLapTime == 3
+		lapTime == 2
+	}
+	"Stop timer and implicitly lap" -- stop -->
+	state {
+		isStarted
+		isStopped
+		time == 5
+		lastLapTime == 2
+		lapTime == 0
+	}
+}
