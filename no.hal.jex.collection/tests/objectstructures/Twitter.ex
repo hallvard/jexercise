@@ -2,28 +2,20 @@
 <exercise:Exercise xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:exercise="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore" xmlns:jdt="platform:/plugin/no.hal.learning.exercise.jdt/model/jdt-exercise.ecore" xmlns:junit="platform:/plugin/no.hal.learning.exercise.junit/model/junit-exercise.ecore" xmlns:workbench="platform:/plugin/no.hal.learning.exercise.workbench/model/workbench-exercise.ecore">
   <parts xsi:type="exercise:ExercisePart" title="StopWatch and StopWatchManager">
     <tasks xsi:type="exercise:Task">
-      <q xsi:type="exercise:StringQuestion" question="Write source code for the Card class."/>
-      <a xsi:type="jdt:JdtSourceEditAnswer" className="objectstructures.Card"/>
+      <q xsi:type="exercise:StringQuestion" question="Write source code for the Tweet class."/>
+      <a xsi:type="jdt:JdtSourceEditAnswer" className="objectstructures.Tweet"/>
     </tasks>
     <tasks xsi:type="exercise:Task">
-      <q xsi:type="exercise:StringQuestion" question="Write source code for the CardDeck class."/>
-      <a xsi:type="jdt:JdtSourceEditAnswer" className="objectstructures.CardDeck"/>
+      <q xsi:type="exercise:StringQuestion" question="Write source code for the TwitterAccount class."/>
+      <a xsi:type="jdt:JdtSourceEditAnswer" className="objectstructures.TwitterAccount"/>
     </tasks>
     <tasks xsi:type="exercise:Task">
-      <q xsi:type="exercise:StringQuestion" question="Write source code for the CardHand class."/>
-      <a xsi:type="jdt:JdtSourceEditAnswer" className="objectstructures.StopWatchManager"/>
+      <q xsi:type="exercise:StringQuestion" question="Run the TweetTest JUnit test."/>
+      <a xsi:type="junit:JunitTestAnswer" testRunName="objectstructures.TweetTest"/>
     </tasks>
     <tasks xsi:type="exercise:Task">
-      <q xsi:type="exercise:StringQuestion" question="Run the CardTest JUnit test."/>
-      <a xsi:type="junit:JunitTestAnswer" testRunName="objectstructures.CardTest"/>
-    </tasks>
-    <tasks xsi:type="exercise:Task">
-      <q xsi:type="exercise:StringQuestion" question="Run the CardDeckTest JUnit test."/>
-      <a xsi:type="junit:JunitTestAnswer" testRunName="objectstructures.CardDeckTest"/>
-    </tasks>
-    <tasks xsi:type="exercise:Task">
-      <q xsi:type="exercise:StringQuestion" question="Run the CardHandTest JUnit test."/>
-      <a xsi:type="junit:JunitTestAnswer" testRunName="objectstructures.CardHandTest"/>
+      <q xsi:type="exercise:StringQuestion" question="Run the TwitterAccountTest JUnit test."/>
+      <a xsi:type="junit:JunitTestAnswer" testRunName="objectstructures.TwitterAccountTest"/>
     </tasks>
   </parts>
   <parts xsi:type="exercise:ExercisePart" title="Tool usage">
