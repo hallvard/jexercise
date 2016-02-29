@@ -1,6 +1,5 @@
-package delegation;
+package interfaces;
 
-import delegation.BinaryComputingIterator;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.function.BinaryOperator;
@@ -8,6 +7,8 @@ import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.DoubleExtensions;
+
+import interfaces.BinaryComputingIterator;
 
 @JExercise(description = "Tests delegation.BinaryComputingIterator")
 @SuppressWarnings("all")

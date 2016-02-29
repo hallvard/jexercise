@@ -1,4 +1,4 @@
-test delegation.BinaryComputingIterator
+test interfaces.BinaryComputingIterator
 
 import java.util.Iterator
 

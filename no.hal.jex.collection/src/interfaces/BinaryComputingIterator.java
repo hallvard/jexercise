@@ -1,4 +1,4 @@
-package delegation;
+package interfaces;
 
 
 import java.util.Iterator;
