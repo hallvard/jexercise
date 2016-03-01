@@ -1,8 +1,12 @@
 package no.hal.learning.exercise.jdt.adapter;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
+import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchListener;
+import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.swt.widgets.Composite;
 
 import no.hal.emf.ui.parts.adapters.EObjectUIAdapter;
@@ -48,22 +52,13 @@ public class JdtLaunchTaskProposalAdapter extends TaskProposalUIAdapter<JdtLaunc
 		
 		protected boolean acceptLaunch(ILaunch launch) {
 			String className = getProposal().getAnswer().getClassName();
-			String launchName = launch.getLaunchConfiguration().getName();
-			// find base launch name
-			int pos = launchName.indexOf(' ');
-			if (pos < 0) {
-				pos = launchName.indexOf('(');
-			}
-			if (pos > 0) {
-				launchName = launchName.substring(0, pos);
-			}
-			// strip off package
-			pos = className.lastIndexOf('.');
-			if (pos >= 0) {
-				className = className.substring(pos + 1);
-			}
-			if ((! isEmpty(className)) && (! launchName.equals(className))) {
-				return false;
+			ILaunchConfiguration launchConfig = launch.getLaunchConfiguration();
+			try {
+				String mainType = launchConfig.getAttribute(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, "");
+				if ((! isEmpty(mainType)) && (! mainType.equals(className))) {
+					return false;
+				}
+			} catch (CoreException e) {
 			}
 			String mode = getProposal().getAnswer().getMode();
 			String launchMode = launch.getLaunchMode();
