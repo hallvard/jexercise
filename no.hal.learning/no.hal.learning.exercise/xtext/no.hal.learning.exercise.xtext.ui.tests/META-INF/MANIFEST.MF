@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: no.hal.learning.exercise.xtext.ui.tests
+Bundle-Vendor: no.hal
+Bundle-Version: 0.1.0.qualifier
+Bundle-SymbolicName: no.hal.learning.exercise.xtext.ui.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: no.hal.learning.exercise.xtext.ui,
+ no.hal.learning.exercise.workbench,
+ no.hal.learning.exercise.junit,
+ no.hal.learning.exercise.model,
+ org.junit;bundle-version="4.7.0",
+ org.eclipse.xtext.junit4,
+ org.eclipse.xtext.xbase.junit,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.workbench;resolution:=optional
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: no.hal.learning.exercise.xtext.ui.tests
+Import-Package: no.hal.learning.exercise.xtext.ui.internal,
+ org.hamcrest.core,
+ org.junit;version="4.5.0",
+ org.junit.runner;version="4.5.0",
+ org.junit.runner.manipulation;version="4.5.0",
+ org.junit.runner.notification;version="4.5.0",
+ org.junit.runners;version="4.5.0",
+ org.junit.runners.model;version="4.5.0"

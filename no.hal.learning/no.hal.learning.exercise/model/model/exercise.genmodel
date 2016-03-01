@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.learning.exercise.model/src" editDirectory="/no.hal.learning.exercise.model.ui/src"
+    editorDirectory="/no.hal.learning.exercise.model.ui/src" modelPluginID="no.hal.learning.exercise.model"
+    modelName="Exercise" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="no.hal.learning.exercise.model.ui" editorPluginID="no.hal.learning.exercise.model.ui"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>exercise.ecore</foreignModel>
+  <genPackages prefix="Exercise" basePackage="no.hal.learning" disposableProviderFactory="true"
+      multipleEditorPages="false" extensibleProviderFactory="true" fileExtensions="ex"
+      ecorePackage="exercise.ecore#/">
+    <genDataTypes ecoreDataType="exercise.ecore#//RGB"/>
+    <genClasses ecoreClass="exercise.ecore#//Exercise">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Exercise/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Exercise/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//Exercise/parts"/>
+      <genOperations ecoreOperation="exercise.ecore#//Exercise/createProposals"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ExerciseProposals">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//ExerciseProposals/exercise"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//ExerciseProposals/proposals"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//ExerciseProposals/allProposals"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="exercise.ecore#//AbstractExercisePart">
+      <genOperations ecoreOperation="exercise.ecore#//AbstractExercisePart/getTasks"/>
+      <genOperations ecoreOperation="exercise.ecore#//AbstractExercisePart/getTitle"/>
+      <genOperations ecoreOperation="exercise.ecore#//AbstractExercisePart/createProposals"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ExercisePartProposals">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//ExercisePartProposals/proposals"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//ExercisePartProposals/exercisePart"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ExercisePartRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//ExercisePartRef/partRef"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ExercisePart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//ExercisePart/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//ExercisePart/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//ExercisePart/tasks"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="exercise.ecore#//AbstractTask">
+      <genOperations ecoreOperation="exercise.ecore#//AbstractTask/getA"/>
+      <genOperations ecoreOperation="exercise.ecore#//AbstractTask/getQ"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//TaskRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//TaskRef/taskRef"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Task/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//Task/q"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//Task/a"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="exercise.ecore#//Question"/>
+    <genClasses ecoreClass="exercise.ecore#//StringQuestion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringQuestion/question"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//StyledStringQuestion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//StyledStringQuestion/styledStrings"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//StyledString">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//StyledString/charStyle"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference exercise.ecore#//StyledString/effectiveCharStyle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StyledString/prefix"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//StyledString/styledString"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StyledString/suffix"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//CharStyle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/italic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/bold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/family"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/foreground"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/background"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="exercise.ecore#//Answer">
+      <genOperations ecoreOperation="exercise.ecore#//Answer/accept">
+        <genParameters ecoreParameter="exercise.ecore#//Answer/accept/proposal"/>
+      </genOperations>
+      <genOperations ecoreOperation="exercise.ecore#//Answer/validate">
+        <genParameters ecoreParameter="exercise.ecore#//Answer/validate/proposal"/>
+      </genOperations>
+      <genOperations ecoreOperation="exercise.ecore#//Answer/createProposal"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//Proposal">
+      <genTypeParameters ecoreTypeParameter="exercise.ecore#//Proposal/A"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//Proposal/question"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//Proposal/answer"/>
+      <genOperations ecoreOperation="exercise.ecore#//Proposal/getProposal"/>
+      <genOperations ecoreOperation="exercise.ecore#//Proposal/accept"/>
+      <genOperations ecoreOperation="exercise.ecore#//Proposal/validate"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="exercise.ecore#//OptionAnswer"/>
+    <genClasses image="false" ecoreClass="exercise.ecore#//SimpleAnswer">
+      <genTypeParameters ecoreTypeParameter="exercise.ecore#//SimpleAnswer/T"/>
+      <genOperations ecoreOperation="exercise.ecore#//SimpleAnswer/getValue"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//SimpleProposal">
+      <genTypeParameters ecoreTypeParameter="exercise.ecore#//SimpleProposal/A"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//SimpleProposal/proposal"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//StringAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringAnswer/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringAnswer/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringAnswer/regexp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringAnswer/ignoreCase"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//NumberAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//NumberAnswer/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//NumberAnswer/errorMargin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//NumberAnswer/range"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//NumberRange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//NumberRange/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//NumberRange/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//NumberRange/step"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//BooleanAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//BooleanAnswer/value"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//OptionsAnswer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//OptionsAnswer/options"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//OptionsProposal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//OptionsProposal/indices"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//Option">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Option/correct"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//Option/option"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//SingleOptionsAnswer"/>
+    <genClasses ecoreClass="exercise.ecore#//ManyOptionsAnswer"/>
+    <genClasses ecoreClass="exercise.ecore#//TaskAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskAnswer/requiredCount"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//TaskProposal">
+      <genTypeParameters ecoreTypeParameter="exercise.ecore#//TaskProposal/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskProposal/completion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskProposal/proof"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskProposal/attemptCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskProposal/performedCount"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

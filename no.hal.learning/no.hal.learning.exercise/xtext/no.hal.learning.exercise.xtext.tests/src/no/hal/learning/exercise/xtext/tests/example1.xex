@@ -1,0 +1,15 @@
+exercise
+
+part hal "Questions about hal"
+"What is Hallvard's family name" "Trætteberg"
+"How old is he" 48
+"Do you think that is old" no
+"Which programming languages does he know" [x] "Java" [x] "C++" [] "C#"
+"Which programming language does he like best" (x) "Java" () "C++" () "C#"
+
+part jonespi "Questions about jonespi"
+"What is Jon Espen's family name" "Ingvaldsen"
+"How old is he" 37
+"Do you think that is old" no
+"Which programming languages does he know" [x] "Java" [] "C++" [] "C#"
+"Which programming language does he like best" (x) "Java" () "C++" () "C#"

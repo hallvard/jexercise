@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz:Quiz xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:junit="platform:/plugin/no.hal.quiz.junit/model/quiz-junit.ecore" xmlns:quiz="platform:/plugin/no.hal.quiz.model/model/quiz.ecore">
+  <parts xsi:type="quiz:QuizPart" name="" title="Junit">
+    <questions xsi:type="quiz:QA">
+      <q xsi:type="quiz:StringQuestion" question="Complete the Counter class and run CounterTest."/>
+      <a xsi:type="junit:JunitTestAnswer" testRunName="CounterTest">
+        <methodNames>testCounter</methodNames>
+        <methodNames>testCount</methodNames>
+      </a>
+    </questions>
+  </parts>
+</quiz:Quiz>

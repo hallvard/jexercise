@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated checkstyle-exercise -->
+      <package
+            uri="platform:/plugin/no.hal.learning.exercise.checkstyle/model/checkstyle-exercise.ecore"
+            class="no.hal.learning.exercise.checkstyle.CheckstylePackage"
+            genModel="model/checkstyle-exercise.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.learning.exercise.checkstyle/model/checkstyle-exercise.ecore"
+            class="no.hal.learning.exercise.checkstyle.adapter.CheckstyleUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="workbench" nsURI="platform:/plugin/no.hal.learning.exercise.workbench/model/workbench-exercise.ecore"
+    nsPrefix="workbench">
+  <eClassifiers xsi:type="ecore:EClass" name="WorkbenchTaskAnswer" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskAnswer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PartTaskAnswer" eSuperTypes="#//WorkbenchTaskAnswer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PartTaskProposal">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskProposal">
+      <eTypeArguments eClassifier="#//PartTaskAnswer"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PerspectiveTaskAnswer" eSuperTypes="#//WorkbenchTaskAnswer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PerspectiveTaskProposal">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskProposal">
+      <eTypeArguments eClassifier="#//PerspectiveTaskAnswer"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommandExecutionAnswer" eSuperTypes="#//WorkbenchTaskAnswer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CommandExecutionProposal">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskProposal">
+      <eTypeArguments eClassifier="#//CommandExecutionAnswer"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DebugEventAnswer" eSuperTypes="#//WorkbenchTaskAnswer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DebugEventProposal">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskProposal">
+      <eTypeArguments eClassifier="#//DebugEventAnswer"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+</ecore:EPackage>

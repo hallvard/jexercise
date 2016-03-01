@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
+            class="no.hal.learning.exercise.views.ExerciseViewAdapterFactory"
+            supportedTypes=
+              "no.hal.learning.exercise.views.plot.TaskProposalPlotViewerAdapter"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.views">
+	     <view id="no.hal.learning.exercise.views.ExerciseView"
+	     	name="Exercise view"
+	     	allowMultiple="false"
+	     	class="no.hal.learning.exercise.views.ExerciseView">
+	     </view>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+		<command id="no.hal.learning.exercise.ui.commands.OpenExerciseView"
+            name="Open Exercise View">
+    	</command>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="no.hal.learning.exercise.views.OpenExerciseViewCommandHandler"
+            commandId="no.hal.learning.exercise.ui.commands.OpenExerciseView">
+        <activeWhen>
+			<with variable="selection">
+				<iterate operator="or">
+					<instanceof value="org.eclipse.core.resources.IFile"/>
+				</iterate>
+			</with>
+		</activeWhen> 
+      </handler>
+   </extension>
+
+	<extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <menu id="no.hal.learning.exercise.ui.commands" label="Exercise">
+	        <command id="no.hal.learning.exercise.ui.commands.OpenExerciseView" commandId="no.hal.learning.exercise.ui.commands.OpenExerciseView"/>
+         </menu>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated exercise -->
+      <factory
+            uri="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
+            class="no.hal.learning.exercise.provider.ExerciseItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+      		uri="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
+            class="no.hal.learning.exercise.views.adapters.ExerciseViewerAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectViewerAdapter"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+   			uri="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
+            class="no.hal.learning.exercise.views.adapters.ExerciseUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated exercise -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="no.hal.learning.exercise.presentation.ExerciseModelWizardID"
+            name="%_UI_ExerciseModelWizard_label"
+            class="no.hal.learning.exercise.presentation.ExerciseModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ExerciseModelFile.gif">
+         <description>%_UI_ExerciseModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated exercise -->
+      <editor
+            id="no.hal.learning.exercise.presentation.ExerciseEditorID"
+            name="%_UI_ExerciseEditor_label"
+            icon="icons/full/obj16/ExerciseModelFile.gif"
+            extensions="ex"
+            class="no.hal.learning.exercise.presentation.ExerciseEditor"
+            contributorClass="no.hal.learning.exercise.presentation.ExerciseActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

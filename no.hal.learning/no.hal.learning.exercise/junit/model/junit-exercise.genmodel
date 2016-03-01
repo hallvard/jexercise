@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.learning.exercise.junit/src" modelPluginID="no.hal.learning.exercise.junit"
+    modelName="Junit-exercise" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../no.hal.learning.exercise.model/model/exercise.genmodel#//exercise"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>junit-exercise.ecore</foreignModel>
+  <genPackages prefix="Junit" basePackage="no.hal.learning.exercise" disposableProviderFactory="true"
+      childCreationExtenders="true" ecorePackage="junit-exercise.ecore#/">
+    <genClasses ecoreClass="junit-exercise.ecore#//JunitTestAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute junit-exercise.ecore#//JunitTestAnswer/testRunName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute junit-exercise.ecore#//JunitTestAnswer/methodNames"/>
+    </genClasses>
+    <genClasses ecoreClass="junit-exercise.ecore#//JunitTestProposal"/>
+  </genPackages>
+</genmodel:GenModel>

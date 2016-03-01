@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jdt-exercise -->
+      <package
+            uri="platform:/plugin/no.hal.learning.exercise.jdt/model/jdt-exercise.ecore"
+            class="no.hal.learning.exercise.jdt.JdtPackage"
+            genModel="model/jdt-exercise.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.learning.exercise.jdt/model/jdt-exercise.ecore"
+            class="no.hal.learning.exercise.jdt.adapter.JdtUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: no.hal.learning.exercise.xtext.ide
+Bundle-Vendor: no.hal
+Bundle-Version: 0.1.0.qualifier
+Bundle-SymbolicName: no.hal.learning.exercise.xtext.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: no.hal.learning.exercise.xtext,
+ no.hal.learning.exercise.workbench,
+ no.hal.learning.exercise.junit,
+ no.hal.learning.exercise.model,
+ org.eclipse.xtext.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: no.hal.learning.exercise.xtext.ide.contentassist.antlr.internal,
+ no.hal.learning.exercise.xtext.ide.contentassist.antlr
+Import-Package: no.hal.learning.exercise.xtext.services
+
