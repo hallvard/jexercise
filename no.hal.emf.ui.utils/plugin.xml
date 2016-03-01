@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="no.hal.emf.ui.properties.EObjectPropertyPage"
+            id="no.hal.emf.ui.properties.properties.EObjectPropertyPage"
+            name="EObject Page"
+            >
+         <enabledWhen>
+            <instanceof
+                  value="org.eclipse.emf.ecore.EObject">
+            </instanceof>
+         </enabledWhen>
+      </page>
+   </extension>
+
+
+  <extension point="org.eclipse.ui.commands">
+      <command
+            id="no.hal.emf.ui.utils.NudgeEObjectCommand"
+            name="Move EObject (up or down)">
+            <commandParameter
+                  id="no.hal.emf.ui.utils.NudgeEObjectCommand.movementDelta"
+                  name="movementDelta"
+                  optional="true">
+            </commandParameter>
+            <commandParameter
+                  id="no.hal.emf.ui.utils.NudgeEObjectCommand.shouldCopy"
+                  name="shouldCopy"
+                  optional="true">
+            </commandParameter>
+      </command>
+   </extension>
+   
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            class="no.hal.emf.ui.commands.NudgeEObjectCommandHandler"
+            commandId="no.hal.emf.ui.utils.NudgeEObjectCommand">
+      </handler>
+   </extension>
+   
+	<extension point="org.eclipse.ui.bindings">
+      <key commandId="no.hal.emf.ui.utils.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M3+PAGE_UP"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.movementDelta" value="0x80000000"/>
+      </key>
+      <key commandId="no.hal.emf.ui.utils.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M1+M3+PAGE_UP"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.movementDelta" value="0x80000000"/>
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.shouldCopy" value="true"/>
+      </key>
+      <key commandId="no.hal.emf.ui.utils.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M3+ARROW_UP"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.movementDelta" value="-1"/>
+      </key>
+      <key commandId="no.hal.emf.ui.utils.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M1+M3+ARROW_UP"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.movementDelta" value="-1"/>
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.shouldCopy" value="true"/>
+      </key>
+      <key commandId="no.hal.emf.ui.utils.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M3+ARROW_DOWN"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.movementDelta" value="1"/>
+      </key>
+      <key commandId="no.hal.emf.ui.utils.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M1+M3+ARROW_DOWN"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.movementDelta" value="1"/>
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.shouldCopy" value="true"/>
+      </key>
+      <key commandId="no.hal.emf.ui.utils.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M3+PAGE_DOWN"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.movementDelta" value="0x7fffffff"/>
+      </key>
+      <key commandId="no.hal.emf.ui.utils.NudgeEObjectCommand"
+           contextId="org.eclipse.ui.contexts.window"
+           sequence="M1+M3+PAGE_DOWN"
+           schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.movementDelta" value="0x7fffffff"/>
+           <parameter id="no.hal.emf.ui.utils.NudgeEObjectCommand.shouldCopy" value="true"/>
+      </key>
+   </extension>
+   
+</plugin>

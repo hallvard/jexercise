@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>no.hal.emf.ui.utils</groupId>
+  <artifactId>no.hal.emf.ui.utils</artifactId>
+  <version>0.1.1-SNAPSHOT</version>
+  <packaging>eclipse-plugin</packaging>
+  
+    <properties>
+		<maven-version>3.3</maven-version>
+		<tycho-version>0.24.0</tycho-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>eclipse-mars</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/mars</url>
+		</repository>
+	</repositories>
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+
+    <plugins>
+   		<plugin>
+			<groupId>org.eclipse.tycho</groupId>
+			<artifactId>tycho-maven-plugin</artifactId>
+			<version>${tycho-version}</version>
+			<extensions>true</extensions>
+		</plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
