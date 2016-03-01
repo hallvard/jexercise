@@ -36,7 +36,7 @@ sequence swinger "Partnerskap med etterfølgende kombinert brudd og nytt partner
 
 	instance
 		p3 = new Partner("3"),
-		p4 = new Partner("4")
+		p4 = new Partner("5")
 
 	"Partnerskap inngås" -- p1.setPartner(p2), p3.setPartner(p4) -->
 	state

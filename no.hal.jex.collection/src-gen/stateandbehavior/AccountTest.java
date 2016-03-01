@@ -117,7 +117,8 @@ public class AccountTest extends TestCase {
       it.interestRate = 5;
       } catch (junit.framework.AssertionFailedError error) {
       fail("interestRate = 5 failed: " + error.getMessage());
-    }    
+    }
+    
   }
   
   private void _test__addInterest_transitions0_effect_state(final Account it) {

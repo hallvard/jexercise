@@ -76,7 +76,8 @@ public class VotingMachineTest extends TestCase {
   private int _init__domacratVotes_votes() {
     double _random = Math.random();
     double _multiply = (_random * 100000);
-    return (10 + ((int) _multiply));
+    int _plus = (10 + ((int) _multiply));
+    return _plus;
   }
   
   private void _transition_exprAction__domacratVotes_transitions0_actions0(final VotingMachine it, final int votes) {
@@ -111,7 +112,8 @@ public class VotingMachineTest extends TestCase {
   private int _init__republicanVotes_votes() {
     double _random = Math.random();
     double _multiply = (_random * 100000);
-    return (10 + ((int) _multiply));
+    int _plus = (10 + ((int) _multiply));
+    return _plus;
   }
   
   private void _transition_exprAction__republicanVotes_transitions0_actions0(final VotingMachine it, final int votes) {
@@ -146,13 +148,15 @@ public class VotingMachineTest extends TestCase {
   private int _init__clearVotes_democratVotes() {
     double _random = Math.random();
     double _multiply = (_random * 100000);
-    return (10 + ((int) _multiply));
+    int _plus = (10 + ((int) _multiply));
+    return _plus;
   }
   
   private int _init__clearVotes_republicanVotes() {
     double _random = Math.random();
     double _multiply = (_random * 100000);
-    return (10 + ((int) _multiply));
+    int _plus = (10 + ((int) _multiply));
+    return _plus;
   }
   
   private void _transition_exprAction__clearVotes_transitions0_actions0(final VotingMachine it, final int democratVotes, final int republicanVotes) {

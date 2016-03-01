@@ -6,21 +6,23 @@ import no.hal.jex.standalone.JexStandalone;
 import junit.framework.TestCase;
 
 @JExercise(
-		description="Digits contains an ordered collection of Digit object can be incremented. The digits all start as zero and wraps when reaching the maximally representable value.",
+		description="Digits contains an ordered collection of Digit object that can be incremented. The digits all start as zero and wraps when reaching the maximally representable value.",
 		markupLanguage="textile"
 		)
 public class DigitsTest extends TestCase {
 
 	private Digits digit;
+	private int digitCount;
 	
 	protected void setUp() throws Exception {
+		digitCount = 2;
 	}
 	
 	@JExercise(
 			tests="Digits(int,int)",
 			description="The value starts at zero.")
 	public void testDigit() {
-		digit = new Digits(10,2);
+		digit = new Digits(10, digitCount);
 		assertEquals(0, digit.toInt());
 	}
 	
@@ -38,8 +40,9 @@ public class DigitsTest extends TestCase {
 			boolean overflow = digit.increment();
 			i++;
 			if (checkValue) {
-				assertEquals(i % base == 0, overflow);
-				assertEquals(i % base, digit.toInt());
+				int combinedBase = (int) Math.pow(base, digitCount);
+				assertEquals(i % combinedBase == 0, overflow);
+				assertEquals(i % combinedBase, digit.toInt());
 			}
 			if (checkToString) {
 				assertEquals(String.valueOf(digits.charAt(i % base)),  digit.toString().toUpperCase());

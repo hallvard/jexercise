@@ -137,8 +137,12 @@ public class CardHandTest extends TestCase {
   }
   
   private void _transition_exprAction__dealPlay_transitions1_actions0(final CardHand it, final CardDeck deck) {
-    
-    Card _play = it.play(1);
+    try {
+      
+      it.play(1);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("play(1) failed: " + error.getMessage());
+    }
     
   }
   
@@ -154,8 +158,12 @@ public class CardHandTest extends TestCase {
   }
   
   private void _transition_exprAction__dealPlay_transitions2_actions0(final CardHand it, final CardDeck deck) {
-    
-    Card _play = it.play(0);
+    try {
+      
+      it.play(0);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("play(0) failed: " + error.getMessage());
+    }
     
   }
   
@@ -171,8 +179,12 @@ public class CardHandTest extends TestCase {
   }
   
   private void _transition_exprAction__dealPlay_transitions3_actions0(final CardHand it, final CardDeck deck) {
-    
-    Card _play = it.play(0);
+    try {
+      
+      it.play(0);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("play(0) failed: " + error.getMessage());
+    }
     
   }
   

@@ -188,8 +188,8 @@ public class LineEditor {
 			case 'R': lineEditor.right(true); break;
 			case 'd': lineEditor.deleteLeft(); break;
 			case 'D': lineEditor.deleteRight(); break;
-			case '\"': lineEditor.replaceRegion(line.substring(1));
-			default: lineEditor.replaceRegion(line);
+			case '\"': lineEditor.replaceRegion(line.substring(1)); break;
+			default: lineEditor.replaceRegion(line); break;
 			}
 			System.out.println(lineEditor);
 		}

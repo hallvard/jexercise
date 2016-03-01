@@ -13,7 +13,6 @@ public class StopWatchManager implements StopWatchListener {
 		StopWatch stopWatch = new StopWatch();
 		stopWatches.put(name, stopWatch);
 		stopWatch.addStopWatchListener(this);
-		stopWatch.addStopWatchListener(this);
 		return stopWatch;
 	}
 

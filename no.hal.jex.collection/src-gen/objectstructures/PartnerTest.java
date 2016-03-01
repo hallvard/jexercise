@@ -199,7 +199,7 @@ public class PartnerTest extends TestCase {
   }
   
   private Partner _init__swinger_p4() {
-    Partner _partner = new Partner("4");
+    Partner _partner = new Partner("5");
     return _partner;
   }
   
