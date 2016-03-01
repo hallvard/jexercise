@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/no.hal.learning.exercise.feature_0.1.0.qualifier.jar" id="no.hal.learning.exercise.feature" version="0.1.0.qualifier">
+      <category name="no.hal.learning.exercise"/>
+   </feature>
+   <category-def name="no.hal.learning.exercise" label="Learning exercise"/>
+</site>
