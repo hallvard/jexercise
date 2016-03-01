@@ -10,6 +10,7 @@
 
 <plugin>
 
+<!--
    <extension point="org.eclipse.ui.newWizards">
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
@@ -24,7 +25,7 @@
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
-
+-->
    <extension point="org.eclipse.ui.editors">
       <editor
             id="no.hal.jex.JexEditor"

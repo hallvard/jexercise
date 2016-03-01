@@ -1,7 +1,5 @@
 package no.hal.jex.ui;
 
-import no.hal.jex.resource.JexResource;
-
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 

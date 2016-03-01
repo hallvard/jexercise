@@ -25,7 +25,7 @@ public abstract class AbstractCreateJexZipAction implements IObjectActionDelegat
 
 	public void setActiveEditor(IAction action, IEditorPart targetPart) {
 		if (targetPart != null && targetPart.getEditorInput() instanceof FileEditorInput) {
-			setJexFile(((FileEditorInput)targetPart.getEditorInput()).getFile()); 
+			setJexFile(((FileEditorInput) targetPart.getEditorInput()).getFile()); 
 		}
 	}
 	
