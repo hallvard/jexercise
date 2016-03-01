@@ -12,6 +12,7 @@ import no.hal.jex.JavaElement;
 import no.hal.jex.JavaField;
 import no.hal.jex.JavaMethod;
 import no.hal.jex.JavaPack;
+import no.hal.jex.eval.AbstractRequirementChecker;
 
 public class ReflectionHelper {
 	
@@ -50,6 +51,11 @@ public class ReflectionHelper {
 						if (ReflectiveRequirementChecker.validateTypes(null, jexMethod.getParameters(), null, cons.getGenericParameterTypes()) == Boolean.TRUE) {
 							return cons;
 						}
+					}
+					// if we're looking for an empty constructur, we must check for the default one
+					if (AbstractRequirementChecker.isEmptyConstructor(jexMethod) && javaConstructors.length == 0) {
+						// return the jex method itself, as a signal it's the desired and default element
+						return jexMethod;
 					}
 				} else {
 					Method method = findMethod(javaClass, jexMethod);

@@ -22,7 +22,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jdt.core.IAnnotatable;
 import org.eclipse.jdt.core.IAnnotation;
 import org.eclipse.jdt.core.ICompilationUnit;
@@ -163,6 +162,33 @@ public class JdtHelper {
 		return null;
 	}
 	
+	public static boolean hasDefaultConstructorOnly(JavaElement jexElement) {
+		IJavaProject javaProject = getJavaProject(jexElement.eResource().getURI());
+		if (javaProject == null) {
+			return false;
+		}
+		if (jexElement instanceof JavaMethod) {
+			jexElement = ((JavaMethod) jexElement).getOwner();
+		}
+		if (jexElement instanceof JavaClass) {
+			IJavaElement jdtClass = findJdtElement(jexElement, javaProject);
+			if (! (jdtClass instanceof IParent)) {
+				return false;
+			}
+			String name = jdtClass.getElementName();
+			List<IMember> jdtMembers = findJavaMembers((IParent) jdtClass, name, IJavaElement.METHOD, IMethod.class);
+			if (jdtMembers != null) {
+				for (IMember jdtMember : jdtMembers) {
+					if (jdtMember instanceof IMethod && name.equals(name)) {
+						return false;
+					}
+				}
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	private static IJavaElement findJdtElement(JavaElement jexElement, IJavaProject project) {
 		if (jexElement instanceof JavaClass) {
 			String name = ((JavaClass) jexElement).getFullName();
@@ -178,7 +204,7 @@ public class JdtHelper {
 			if (! (jdtClass instanceof IParent)) {
 				return null;
 			}
-			List<IMember> jdtMembers = JdtHelper.findJavaMembers((IParent) jdtClass, jexMethod.getSimpleName(), IJavaElement.METHOD, IMethod.class);
+			List<IMember> jdtMembers = findJavaMembers((IParent) jdtClass, jexMethod.getSimpleName(), IJavaElement.METHOD, IMethod.class);
 			if (jdtMembers != null) {
 				for (IMember jdtMember : jdtMembers) {
 					if (jdtMember instanceof IMethod && JdtRequirementChecker.validateTypes(jexMethod.getReturnType(), jexMethod.getParameters(), (IMethod) jdtMember) == Boolean.TRUE) {

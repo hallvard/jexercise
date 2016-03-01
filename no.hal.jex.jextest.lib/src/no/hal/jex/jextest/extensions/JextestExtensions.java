@@ -2,6 +2,7 @@ package no.hal.jex.jextest.extensions;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import junit.framework.TestCase;
 
@@ -76,6 +77,22 @@ public class JextestExtensions {
 				break;
 			}
 			TestCase.assertEquals("Objects at position " + count + " differed", expected.next(), actual.next());
+		}
+		return true;
+	}
+
+	public static <T> boolean operator_assertEquals(IndexedCollection<T> actual, Iterator<T> expected) {
+		int count = 0;
+		while (true) {
+			T element = null;
+			try {
+				element = actual.getElement(count);
+			} catch (NoSuchElementException e) {
+				TestCase.assertFalse("Iterator provided only " + count + " elements, expected more", expected.hasNext());
+				break;
+			}
+			TestCase.assertTrue("Iterator provided (at least) " + count + " elements, expected less", expected.hasNext());
+			TestCase.assertEquals("Objects at position " + count + " differed", expected.next(), element);
 		}
 		return true;
 	}

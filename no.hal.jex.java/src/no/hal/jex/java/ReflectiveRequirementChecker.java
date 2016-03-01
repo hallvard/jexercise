@@ -52,7 +52,6 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 	}
 	
 	private BaseTestRunnerProvider baseTestRunnerProvider = new BaseTestRunnerProvider() {
-		@Override
 		public BaseTestRunner createBaseTestRunner(JUnitTest junitTest) {
 			return new BaseTestRunnerStub();
 		}
@@ -300,18 +299,21 @@ public class ReflectiveRequirementChecker extends AbstractRequirementChecker {
 	
 	private final static Map<String, Integer> MODIFIERS_MAP = new HashMap<String, Integer>();
 	static {
-		MODIFIERS_MAP.put("public", Modifier.PUBLIC);
-		MODIFIERS_MAP.put("private", Modifier.PRIVATE);
-		MODIFIERS_MAP.put("protected", Modifier.PROTECTED);
-		MODIFIERS_MAP.put("final", Modifier.FINAL);
-		MODIFIERS_MAP.put("static", Modifier.STATIC);
-		MODIFIERS_MAP.put("abstract", Modifier.ABSTRACT);
+		MODIFIERS_MAP.put("public", 	Modifier.PUBLIC);
+		MODIFIERS_MAP.put("private", 	Modifier.PRIVATE);
+		MODIFIERS_MAP.put("protected", 	Modifier.PROTECTED);
+		MODIFIERS_MAP.put("final", 		Modifier.FINAL);
+		MODIFIERS_MAP.put("static", 	Modifier.STATIC);
+		MODIFIERS_MAP.put("abstract", 	Modifier.ABSTRACT);
 	};
 	
 	protected int getRealModifiers(Member jexMember) {
 		Object javaElement = getRealJavaElement(jexMember);
 		if (javaElement instanceof java.lang.reflect.Member) {
 			return ((java.lang.reflect.Member) javaElement).getModifiers();
+		} else if (AbstractRequirementChecker.isEmptyConstructor(jexMember)) {
+			// this happens if jexMember is the default constructor
+			return Modifier.PUBLIC;
 		}
 		return -1;
 	}

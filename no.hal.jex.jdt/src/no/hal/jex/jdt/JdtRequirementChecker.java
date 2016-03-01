@@ -12,6 +12,7 @@ import no.hal.jex.Member;
 import no.hal.jex.eval.AbstractRequirementChecker;
 import no.hal.jex.impl.MemberImpl;
 
+import org.eclipse.jdt.core.Flags;
 import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IMember;
@@ -23,7 +24,13 @@ import org.eclipse.jdt.core.Signature;
 public class JdtRequirementChecker extends AbstractRequirementChecker {
 
 	protected Object getRealJavaElement(JavaElement jexElement) {
-		return JdtHelper.getJdtElement(jexElement);
+		IJavaElement jdtElement = JdtHelper.getJdtElement(jexElement);
+		if (jdtElement == null && AbstractRequirementChecker.isEmptyConstructor(jexElement)) {
+			if (JdtHelper.hasDefaultConstructorOnly(jexElement)) {
+				return jexElement;
+			}
+		}
+		return jdtElement;
 	}
 
 	//
@@ -155,6 +162,9 @@ public class JdtRequirementChecker extends AbstractRequirementChecker {
 				return ((IMember) jdtElement).getFlags();
 			} catch (JavaModelException e) {
 			}
+		} else if (AbstractRequirementChecker.isEmptyConstructor(jexMember)) {
+			// this happens if jexMember is the default constructor
+			return Flags.AccPublic;
 		}
 		return -1;
 	}

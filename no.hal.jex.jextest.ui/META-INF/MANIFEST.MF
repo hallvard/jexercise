@@ -23,10 +23,11 @@ Require-Bundle: no.hal.jex.jextest;visibility:=reexport,
  org.eclipse.jdt.debug.ui
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.jex.jextest.ui.contentassist,
  no.hal.jex.jextest.ui.contentassist.antlr,
  no.hal.jex.jextest.ui.internal,
  no.hal.jex.jextest.ui.launch,
- no.hal.jex.jextest.ui.quickfix
+ no.hal.jex.jextest.ui.quickfix,
+ no.hal.jex.jextest.ui.contentassist.antlr.internal
 Bundle-Activator: no.hal.jex.jextest.ui.internal.JexTestActivator
