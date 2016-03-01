@@ -89,7 +89,7 @@ public class Util {
             } else {
               _xifexpression = "";
             }
-            String _plus = (_name + ((Comparable<?>)_xifexpression));
+            String _plus = (_name + _xifexpression);
             childName = _plus;
           }
         }
@@ -364,6 +364,7 @@ public class Util {
   
   public String asSourceText(final EList<? extends EObject> eObjects, final String separator) {
     final Function1<EObject, CharSequence> _function = new Function1<EObject, CharSequence>() {
+      @Override
       public CharSequence apply(final EObject it) {
         return Util.this.asSourceText(it);
       }
@@ -466,6 +467,7 @@ public class Util {
   
   public Iterable<JvmOperation> resolveOperatorRefs(final Collection<JvmOperationRef> refs) {
     final Function1<JvmOperationRef, JvmOperation> _function = new Function1<JvmOperationRef, JvmOperation>() {
+      @Override
       public JvmOperation apply(final JvmOperationRef it) {
         return Util.this.resolveOperatorRef(it);
       }
@@ -481,6 +483,7 @@ public class Util {
       EList<JvmMember> _members = ((JvmDeclaredType) _type).getMembers();
       Iterable<JvmOperation> _filter = Iterables.<JvmOperation>filter(_members, JvmOperation.class);
       final Function1<JvmOperation, Boolean> _function = new Function1<JvmOperation, Boolean>() {
+        @Override
         public Boolean apply(final JvmOperation it) {
           boolean _and = false;
           String _simpleName = it.getSimpleName();

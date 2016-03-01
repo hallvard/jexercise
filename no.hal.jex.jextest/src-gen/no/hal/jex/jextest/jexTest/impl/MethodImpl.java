@@ -32,13 +32,13 @@ import org.eclipse.xtext.xbase.XExpression;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.MethodImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.MethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.MethodImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.MethodImpl#getBody <em>Body</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

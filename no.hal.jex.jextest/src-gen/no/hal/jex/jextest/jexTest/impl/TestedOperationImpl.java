@@ -30,13 +30,13 @@ import org.eclipse.xtext.xbase.XExpression;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getParameterTypes <em>Parameter Types</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getPreExpression <em>Pre Expression</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getPostExpression <em>Post Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

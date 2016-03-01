@@ -30,13 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionImpl#getSource <em>Source</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionImpl#getEffect <em>Effect</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

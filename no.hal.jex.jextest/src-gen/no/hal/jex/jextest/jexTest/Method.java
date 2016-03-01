@@ -17,13 +17,13 @@ import org.eclipse.xtext.xbase.XExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.Method#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Method#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Method#getParameters <em>Parameters</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Method#getBody <em>Body</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getMethod()
  * @model

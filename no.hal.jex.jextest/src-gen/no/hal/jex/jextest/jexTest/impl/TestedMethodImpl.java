@@ -21,12 +21,12 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedMethodImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedMethodImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedMethodImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

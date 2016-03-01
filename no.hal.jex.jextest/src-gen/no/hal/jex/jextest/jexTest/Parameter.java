@@ -13,12 +13,12 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.Parameter#getType <em>Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Parameter#isVararg <em>Vararg</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Parameter#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getParameter()
  * @model

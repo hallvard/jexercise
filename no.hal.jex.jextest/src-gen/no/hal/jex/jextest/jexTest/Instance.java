@@ -15,12 +15,12 @@ import org.eclipse.xtext.xbase.XExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.Instance#getType <em>Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Instance#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Instance#getExpr <em>Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getInstance()
  * @model

@@ -11,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestSequence#getTested <em>Tested</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestSequence#getInstances <em>Instances</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestSequence#getTransitions <em>Transitions</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getJexTestSequence()
  * @model

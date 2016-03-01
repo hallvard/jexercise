@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionTargetEffectImpl#getState <em>State</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionTargetEffectImpl#getStateRef <em>State Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

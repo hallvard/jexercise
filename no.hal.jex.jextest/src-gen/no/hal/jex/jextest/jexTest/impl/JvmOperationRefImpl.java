@@ -29,11 +29,11 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JvmOperationRefImpl#getMethodName <em>Method Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JvmOperationRefImpl#getParameterTypes <em>Parameter Types</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

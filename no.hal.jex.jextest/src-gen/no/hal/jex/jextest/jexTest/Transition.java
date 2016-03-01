@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.Transition#getSource <em>Source</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Transition#getDescription <em>Description</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Transition#getActions <em>Actions</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Transition#getEffect <em>Effect</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTransition()
  * @model

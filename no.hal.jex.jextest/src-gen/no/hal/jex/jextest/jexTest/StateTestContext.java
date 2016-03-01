@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.StateTestContext#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.StateTestContext#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getStateTestContext()
  * @model

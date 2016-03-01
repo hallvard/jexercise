@@ -26,12 +26,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestSequenceImpl#getTested <em>Tested</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestSequenceImpl#getInstances <em>Instances</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestSequenceImpl#getTransitions <em>Transitions</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

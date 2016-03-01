@@ -21,10 +21,10 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionExceptionEffectImpl#getExceptionClass <em>Exception Class</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

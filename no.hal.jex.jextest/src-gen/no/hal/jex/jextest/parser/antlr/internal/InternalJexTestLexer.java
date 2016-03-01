@@ -12,70 +12,9 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalJexTestLexer extends Lexer {
-    public static final int RULE_ID=5;
-    public static final int T__29=29;
-    public static final int T__28=28;
-    public static final int T__27=27;
-    public static final int T__26=26;
-    public static final int T__25=25;
-    public static final int T__24=24;
-    public static final int T__23=23;
-    public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=12;
-    public static final int T__21=21;
-    public static final int T__20=20;
-    public static final int EOF=-1;
-    public static final int T__93=93;
-    public static final int T__19=19;
-    public static final int T__94=94;
-    public static final int T__91=91;
-    public static final int T__92=92;
     public static final int RULE_HEX=6;
-    public static final int T__16=16;
-    public static final int T__90=90;
-    public static final int T__15=15;
-    public static final int T__18=18;
-    public static final int T__17=17;
-    public static final int T__14=14;
-    public static final int T__13=13;
-    public static final int RULE_DECIMAL=8;
-    public static final int T__99=99;
-    public static final int T__98=98;
-    public static final int T__97=97;
-    public static final int T__96=96;
-    public static final int T__95=95;
-    public static final int T__80=80;
-    public static final int T__81=81;
-    public static final int T__82=82;
-    public static final int T__83=83;
-    public static final int T__85=85;
-    public static final int T__84=84;
-    public static final int T__87=87;
-    public static final int T__86=86;
-    public static final int T__89=89;
-    public static final int T__88=88;
-    public static final int RULE_ML_COMMENT=9;
-    public static final int RULE_STRING=4;
-    public static final int T__71=71;
-    public static final int T__72=72;
-    public static final int T__70=70;
-    public static final int T__76=76;
-    public static final int T__75=75;
-    public static final int T__74=74;
-    public static final int T__73=73;
-    public static final int T__79=79;
-    public static final int T__78=78;
-    public static final int T__77=77;
-    public static final int T__68=68;
-    public static final int T__69=69;
-    public static final int T__66=66;
-    public static final int T__67=67;
-    public static final int T__64=64;
-    public static final int T__65=65;
-    public static final int T__62=62;
-    public static final int T__63=63;
-    public static final int T__61=61;
-    public static final int T__60=60;
+    public static final int T__50=50;
+    public static final int T__59=59;
     public static final int T__55=55;
     public static final int T__56=56;
     public static final int T__57=57;
@@ -84,36 +23,97 @@ public class InternalJexTestLexer extends Lexer {
     public static final int T__52=52;
     public static final int T__53=53;
     public static final int T__54=54;
-    public static final int T__103=103;
-    public static final int T__59=59;
-    public static final int T__104=104;
+    public static final int T__60=60;
+    public static final int T__61=61;
+    public static final int RULE_ID=5;
     public static final int RULE_INT=7;
-    public static final int T__50=50;
-    public static final int T__42=42;
-    public static final int T__43=43;
-    public static final int T__40=40;
-    public static final int T__41=41;
-    public static final int T__46=46;
-    public static final int T__47=47;
-    public static final int T__44=44;
-    public static final int T__45=45;
-    public static final int T__48=48;
-    public static final int T__49=49;
-    public static final int T__102=102;
-    public static final int T__101=101;
-    public static final int T__100=100;
-    public static final int RULE_SL_COMMENT=10;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
+    public static final int T__66=66;
+    public static final int RULE_ML_COMMENT=9;
+    public static final int T__67=67;
+    public static final int T__68=68;
+    public static final int T__69=69;
+    public static final int T__62=62;
+    public static final int T__63=63;
+    public static final int T__64=64;
+    public static final int T__65=65;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
     public static final int T__33=33;
     public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
-    public static final int T__37=37;
-    public static final int T__38=38;
-    public static final int T__39=39;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int T__48=48;
+    public static final int T__49=49;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
+    public static final int T__91=91;
+    public static final int T__100=100;
+    public static final int T__92=92;
+    public static final int T__93=93;
+    public static final int T__102=102;
+    public static final int T__94=94;
+    public static final int T__101=101;
+    public static final int T__90=90;
+    public static final int T__19=19;
+    public static final int T__15=15;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int T__99=99;
+    public static final int T__13=13;
+    public static final int T__14=14;
+    public static final int T__95=95;
+    public static final int T__96=96;
+    public static final int T__97=97;
+    public static final int T__98=98;
+    public static final int RULE_DECIMAL=8;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
+    public static final int T__20=20;
+    public static final int T__21=21;
+    public static final int T__70=70;
+    public static final int T__71=71;
+    public static final int T__72=72;
+    public static final int RULE_STRING=4;
+    public static final int RULE_SL_COMMENT=10;
+    public static final int T__77=77;
+    public static final int T__78=78;
+    public static final int T__79=79;
+    public static final int T__73=73;
+    public static final int EOF=-1;
+    public static final int T__74=74;
+    public static final int T__75=75;
+    public static final int T__76=76;
+    public static final int T__80=80;
+    public static final int T__81=81;
+    public static final int T__82=82;
+    public static final int T__83=83;
     public static final int RULE_WS=11;
+    public static final int RULE_ANY_OTHER=12;
+    public static final int T__88=88;
+    public static final int T__89=89;
+    public static final int T__84=84;
+    public static final int T__104=104;
+    public static final int T__85=85;
+    public static final int T__103=103;
+    public static final int T__86=86;
+    public static final int T__87=87;
 
     // delegates
     // delegators
@@ -126,15 +126,15 @@ public class InternalJexTestLexer extends Lexer {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g"; }
+    public String getGrammarFileName() { return "InternalJexTest.g"; }
 
     // $ANTLR start "T__13"
     public final void mT__13() throws RecognitionException {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:11:7: ( 'suite' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:11:9: 'suite'
+            // InternalJexTest.g:11:7: ( 'suite' )
+            // InternalJexTest.g:11:9: 'suite'
             {
             match("suite"); 
 
@@ -154,8 +154,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:12:7: ( 'instance' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:12:9: 'instance'
+            // InternalJexTest.g:12:7: ( 'instance' )
+            // InternalJexTest.g:12:9: 'instance'
             {
             match("instance"); 
 
@@ -175,8 +175,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:13:7: ( 'val' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:13:9: 'val'
+            // InternalJexTest.g:13:7: ( 'val' )
+            // InternalJexTest.g:13:9: 'val'
             {
             match("val"); 
 
@@ -196,8 +196,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:14:7: ( ',' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:14:9: ','
+            // InternalJexTest.g:14:7: ( ',' )
+            // InternalJexTest.g:14:9: ','
             {
             match(','); 
 
@@ -216,8 +216,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:15:7: ( 'test' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:15:9: 'test'
+            // InternalJexTest.g:15:7: ( 'test' )
+            // InternalJexTest.g:15:9: 'test'
             {
             match("test"); 
 
@@ -237,8 +237,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:16:7: ( 'with' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:16:9: 'with'
+            // InternalJexTest.g:16:7: ( 'with' )
+            // InternalJexTest.g:16:9: 'with'
             {
             match("with"); 
 
@@ -258,8 +258,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:17:7: ( '@' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:17:9: '@'
+            // InternalJexTest.g:17:7: ( '@' )
+            // InternalJexTest.g:17:9: '@'
             {
             match('@'); 
 
@@ -278,8 +278,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:18:7: ( '=' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:18:9: '='
+            // InternalJexTest.g:18:7: ( '=' )
+            // InternalJexTest.g:18:9: '='
             {
             match('='); 
 
@@ -298,8 +298,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:19:7: ( 'state' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:19:9: 'state'
+            // InternalJexTest.g:19:7: ( 'state' )
+            // InternalJexTest.g:19:9: 'state'
             {
             match("state"); 
 
@@ -319,8 +319,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:20:7: ( 'method' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:20:9: 'method'
+            // InternalJexTest.g:20:7: ( 'method' )
+            // InternalJexTest.g:20:9: 'method'
             {
             match("method"); 
 
@@ -340,8 +340,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:21:7: ( '(' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:21:9: '('
+            // InternalJexTest.g:21:7: ( '(' )
+            // InternalJexTest.g:21:9: '('
             {
             match('('); 
 
@@ -360,8 +360,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:22:7: ( ')' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:22:9: ')'
+            // InternalJexTest.g:22:7: ( ')' )
+            // InternalJexTest.g:22:9: ')'
             {
             match(')'); 
 
@@ -380,8 +380,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:23:7: ( 'sequence' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:23:9: 'sequence'
+            // InternalJexTest.g:23:7: ( 'sequence' )
+            // InternalJexTest.g:23:9: 'sequence'
             {
             match("sequence"); 
 
@@ -401,8 +401,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:24:7: ( 'tests' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:24:9: 'tests'
+            // InternalJexTest.g:24:7: ( 'tests' )
+            // InternalJexTest.g:24:9: 'tests'
             {
             match("tests"); 
 
@@ -422,8 +422,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:25:7: ( '{' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:25:9: '{'
+            // InternalJexTest.g:25:7: ( '{' )
+            // InternalJexTest.g:25:9: '{'
             {
             match('{'); 
 
@@ -442,8 +442,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:26:7: ( '}' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:26:9: '}'
+            // InternalJexTest.g:26:7: ( '}' )
+            // InternalJexTest.g:26:9: '}'
             {
             match('}'); 
 
@@ -462,8 +462,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:27:7: ( '.' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:27:9: '.'
+            // InternalJexTest.g:27:7: ( '.' )
+            // InternalJexTest.g:27:9: '.'
             {
             match('.'); 
 
@@ -482,8 +482,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:28:7: ( '#' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:28:9: '#'
+            // InternalJexTest.g:28:7: ( '#' )
+            // InternalJexTest.g:28:9: '#'
             {
             match('#'); 
 
@@ -502,8 +502,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:29:7: ( ';' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:29:9: ';'
+            // InternalJexTest.g:29:7: ( ';' )
+            // InternalJexTest.g:29:9: ';'
             {
             match(';'); 
 
@@ -522,8 +522,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:30:7: ( '--' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:30:9: '--'
+            // InternalJexTest.g:30:7: ( '--' )
+            // InternalJexTest.g:30:9: '--'
             {
             match("--"); 
 
@@ -543,8 +543,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:31:7: ( '-->' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:31:9: '-->'
+            // InternalJexTest.g:31:7: ( '-->' )
+            // InternalJexTest.g:31:9: '-->'
             {
             match("-->"); 
 
@@ -564,8 +564,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:32:7: ( 'throws' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:32:9: 'throws'
+            // InternalJexTest.g:32:7: ( 'throws' )
+            // InternalJexTest.g:32:9: 'throws'
             {
             match("throws"); 
 
@@ -585,8 +585,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:33:7: ( '...' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:33:9: '...'
+            // InternalJexTest.g:33:7: ( '...' )
+            // InternalJexTest.g:33:9: '...'
             {
             match("..."); 
 
@@ -606,8 +606,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:34:7: ( 'interface' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:34:9: 'interface'
+            // InternalJexTest.g:34:7: ( 'interface' )
+            // InternalJexTest.g:34:9: 'interface'
             {
             match("interface"); 
 
@@ -627,8 +627,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:35:7: ( 'abstract' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:35:9: 'abstract'
+            // InternalJexTest.g:35:7: ( 'abstract' )
+            // InternalJexTest.g:35:9: 'abstract'
             {
             match("abstract"); 
 
@@ -648,8 +648,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:36:7: ( 'class' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:36:9: 'class'
+            // InternalJexTest.g:36:7: ( 'class' )
+            // InternalJexTest.g:36:9: 'class'
             {
             match("class"); 
 
@@ -669,8 +669,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:37:7: ( 'extends' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:37:9: 'extends'
+            // InternalJexTest.g:37:7: ( 'extends' )
+            // InternalJexTest.g:37:9: 'extends'
             {
             match("extends"); 
 
@@ -690,8 +690,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:38:7: ( 'implements' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:38:9: 'implements'
+            // InternalJexTest.g:38:7: ( 'implements' )
+            // InternalJexTest.g:38:9: 'implements'
             {
             match("implements"); 
 
@@ -711,8 +711,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:39:7: ( '=>' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:39:9: '=>'
+            // InternalJexTest.g:39:7: ( '=>' )
+            // InternalJexTest.g:39:9: '=>'
             {
             match("=>"); 
 
@@ -732,8 +732,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:40:7: ( '<=' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:40:9: '<='
+            // InternalJexTest.g:40:7: ( '<=' )
+            // InternalJexTest.g:40:9: '<='
             {
             match("<="); 
 
@@ -753,8 +753,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:41:7: ( 'new' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:41:9: 'new'
+            // InternalJexTest.g:41:7: ( 'new' )
+            // InternalJexTest.g:41:9: 'new'
             {
             match("new"); 
 
@@ -774,8 +774,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:42:7: ( '++' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:42:9: '++'
+            // InternalJexTest.g:42:7: ( '++' )
+            // InternalJexTest.g:42:9: '++'
             {
             match("++"); 
 
@@ -795,8 +795,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:43:7: ( '==' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:43:9: '=='
+            // InternalJexTest.g:43:7: ( '==' )
+            // InternalJexTest.g:43:9: '=='
             {
             match("=="); 
 
@@ -816,8 +816,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:44:7: ( '!=' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:44:9: '!='
+            // InternalJexTest.g:44:7: ( '!=' )
+            // InternalJexTest.g:44:9: '!='
             {
             match("!="); 
 
@@ -837,8 +837,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:45:7: ( '===' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:45:9: '==='
+            // InternalJexTest.g:45:7: ( '===' )
+            // InternalJexTest.g:45:9: '==='
             {
             match("==="); 
 
@@ -858,8 +858,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:46:7: ( '!==' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:46:9: '!=='
+            // InternalJexTest.g:46:7: ( '!==' )
+            // InternalJexTest.g:46:9: '!=='
             {
             match("!=="); 
 
@@ -879,8 +879,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:47:7: ( '?=' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:47:9: '?='
+            // InternalJexTest.g:47:7: ( '?=' )
+            // InternalJexTest.g:47:9: '?='
             {
             match("?="); 
 
@@ -900,8 +900,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:48:7: ( '+=' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:48:9: '+='
+            // InternalJexTest.g:48:7: ( '+=' )
+            // InternalJexTest.g:48:9: '+='
             {
             match("+="); 
 
@@ -921,8 +921,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:49:7: ( '-=' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:49:9: '-='
+            // InternalJexTest.g:49:7: ( '-=' )
+            // InternalJexTest.g:49:9: '-='
             {
             match("-="); 
 
@@ -942,8 +942,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:50:7: ( '*=' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:50:9: '*='
+            // InternalJexTest.g:50:7: ( '*=' )
+            // InternalJexTest.g:50:9: '*='
             {
             match("*="); 
 
@@ -963,8 +963,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:51:7: ( '/=' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:51:9: '/='
+            // InternalJexTest.g:51:7: ( '/=' )
+            // InternalJexTest.g:51:9: '/='
             {
             match("/="); 
 
@@ -984,8 +984,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:52:7: ( '%=' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:52:9: '%='
+            // InternalJexTest.g:52:7: ( '%=' )
+            // InternalJexTest.g:52:9: '%='
             {
             match("%="); 
 
@@ -1005,8 +1005,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:53:7: ( '<' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:53:9: '<'
+            // InternalJexTest.g:53:7: ( '<' )
+            // InternalJexTest.g:53:9: '<'
             {
             match('<'); 
 
@@ -1025,8 +1025,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:54:7: ( '>' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:54:9: '>'
+            // InternalJexTest.g:54:7: ( '>' )
+            // InternalJexTest.g:54:9: '>'
             {
             match('>'); 
 
@@ -1045,8 +1045,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:55:7: ( '>=' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:55:9: '>='
+            // InternalJexTest.g:55:7: ( '>=' )
+            // InternalJexTest.g:55:9: '>='
             {
             match(">="); 
 
@@ -1066,8 +1066,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:56:7: ( '||' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:56:9: '||'
+            // InternalJexTest.g:56:7: ( '||' )
+            // InternalJexTest.g:56:9: '||'
             {
             match("||"); 
 
@@ -1087,8 +1087,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:57:7: ( '&&' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:57:9: '&&'
+            // InternalJexTest.g:57:7: ( '&&' )
+            // InternalJexTest.g:57:9: '&&'
             {
             match("&&"); 
 
@@ -1108,8 +1108,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:58:7: ( 'instanceof' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:58:9: 'instanceof'
+            // InternalJexTest.g:58:7: ( 'instanceof' )
+            // InternalJexTest.g:58:9: 'instanceof'
             {
             match("instanceof"); 
 
@@ -1129,8 +1129,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:59:7: ( '->' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:59:9: '->'
+            // InternalJexTest.g:59:7: ( '->' )
+            // InternalJexTest.g:59:9: '->'
             {
             match("->"); 
 
@@ -1150,8 +1150,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:60:7: ( '..<' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:60:9: '..<'
+            // InternalJexTest.g:60:7: ( '..<' )
+            // InternalJexTest.g:60:9: '..<'
             {
             match("..<"); 
 
@@ -1171,8 +1171,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:61:7: ( '..' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:61:9: '..'
+            // InternalJexTest.g:61:7: ( '..' )
+            // InternalJexTest.g:61:9: '..'
             {
             match(".."); 
 
@@ -1192,8 +1192,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:62:7: ( '<>' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:62:9: '<>'
+            // InternalJexTest.g:62:7: ( '<>' )
+            // InternalJexTest.g:62:9: '<>'
             {
             match("<>"); 
 
@@ -1213,8 +1213,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:63:7: ( '?:' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:63:9: '?:'
+            // InternalJexTest.g:63:7: ( '?:' )
+            // InternalJexTest.g:63:9: '?:'
             {
             match("?:"); 
 
@@ -1234,8 +1234,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:64:7: ( '+' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:64:9: '+'
+            // InternalJexTest.g:64:7: ( '+' )
+            // InternalJexTest.g:64:9: '+'
             {
             match('+'); 
 
@@ -1254,8 +1254,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:65:7: ( '-' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:65:9: '-'
+            // InternalJexTest.g:65:7: ( '-' )
+            // InternalJexTest.g:65:9: '-'
             {
             match('-'); 
 
@@ -1274,8 +1274,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:66:7: ( '*' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:66:9: '*'
+            // InternalJexTest.g:66:7: ( '*' )
+            // InternalJexTest.g:66:9: '*'
             {
             match('*'); 
 
@@ -1294,8 +1294,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:67:7: ( '**' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:67:9: '**'
+            // InternalJexTest.g:67:7: ( '**' )
+            // InternalJexTest.g:67:9: '**'
             {
             match("**"); 
 
@@ -1315,8 +1315,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:68:7: ( '/' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:68:9: '/'
+            // InternalJexTest.g:68:7: ( '/' )
+            // InternalJexTest.g:68:9: '/'
             {
             match('/'); 
 
@@ -1335,8 +1335,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:69:7: ( '%' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:69:9: '%'
+            // InternalJexTest.g:69:7: ( '%' )
+            // InternalJexTest.g:69:9: '%'
             {
             match('%'); 
 
@@ -1355,8 +1355,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:70:7: ( '!' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:70:9: '!'
+            // InternalJexTest.g:70:7: ( '!' )
+            // InternalJexTest.g:70:9: '!'
             {
             match('!'); 
 
@@ -1375,8 +1375,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:71:7: ( 'as' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:71:9: 'as'
+            // InternalJexTest.g:71:7: ( 'as' )
+            // InternalJexTest.g:71:9: 'as'
             {
             match("as"); 
 
@@ -1396,8 +1396,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:72:7: ( '::' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:72:9: '::'
+            // InternalJexTest.g:72:7: ( '::' )
+            // InternalJexTest.g:72:9: '::'
             {
             match("::"); 
 
@@ -1417,8 +1417,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:73:7: ( '?.' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:73:9: '?.'
+            // InternalJexTest.g:73:7: ( '?.' )
+            // InternalJexTest.g:73:9: '?.'
             {
             match("?."); 
 
@@ -1438,8 +1438,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:74:7: ( '[' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:74:9: '['
+            // InternalJexTest.g:74:7: ( '[' )
+            // InternalJexTest.g:74:9: '['
             {
             match('['); 
 
@@ -1458,8 +1458,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:75:7: ( ']' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:75:9: ']'
+            // InternalJexTest.g:75:7: ( ']' )
+            // InternalJexTest.g:75:9: ']'
             {
             match(']'); 
 
@@ -1478,8 +1478,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:76:7: ( '|' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:76:9: '|'
+            // InternalJexTest.g:76:7: ( '|' )
+            // InternalJexTest.g:76:9: '|'
             {
             match('|'); 
 
@@ -1498,8 +1498,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:77:7: ( 'if' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:77:9: 'if'
+            // InternalJexTest.g:77:7: ( 'if' )
+            // InternalJexTest.g:77:9: 'if'
             {
             match("if"); 
 
@@ -1519,8 +1519,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:78:7: ( 'else' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:78:9: 'else'
+            // InternalJexTest.g:78:7: ( 'else' )
+            // InternalJexTest.g:78:9: 'else'
             {
             match("else"); 
 
@@ -1540,8 +1540,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:79:7: ( 'switch' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:79:9: 'switch'
+            // InternalJexTest.g:79:7: ( 'switch' )
+            // InternalJexTest.g:79:9: 'switch'
             {
             match("switch"); 
 
@@ -1561,8 +1561,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:80:7: ( ':' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:80:9: ':'
+            // InternalJexTest.g:80:7: ( ':' )
+            // InternalJexTest.g:80:9: ':'
             {
             match(':'); 
 
@@ -1581,8 +1581,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:81:7: ( 'default' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:81:9: 'default'
+            // InternalJexTest.g:81:7: ( 'default' )
+            // InternalJexTest.g:81:9: 'default'
             {
             match("default"); 
 
@@ -1602,8 +1602,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:82:7: ( 'case' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:82:9: 'case'
+            // InternalJexTest.g:82:7: ( 'case' )
+            // InternalJexTest.g:82:9: 'case'
             {
             match("case"); 
 
@@ -1623,8 +1623,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:83:7: ( 'for' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:83:9: 'for'
+            // InternalJexTest.g:83:7: ( 'for' )
+            // InternalJexTest.g:83:9: 'for'
             {
             match("for"); 
 
@@ -1644,8 +1644,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:84:7: ( 'while' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:84:9: 'while'
+            // InternalJexTest.g:84:7: ( 'while' )
+            // InternalJexTest.g:84:9: 'while'
             {
             match("while"); 
 
@@ -1665,8 +1665,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:85:7: ( 'do' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:85:9: 'do'
+            // InternalJexTest.g:85:7: ( 'do' )
+            // InternalJexTest.g:85:9: 'do'
             {
             match("do"); 
 
@@ -1686,8 +1686,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:86:7: ( 'var' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:86:9: 'var'
+            // InternalJexTest.g:86:7: ( 'var' )
+            // InternalJexTest.g:86:9: 'var'
             {
             match("var"); 
 
@@ -1707,8 +1707,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:87:7: ( 'static' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:87:9: 'static'
+            // InternalJexTest.g:87:7: ( 'static' )
+            // InternalJexTest.g:87:9: 'static'
             {
             match("static"); 
 
@@ -1728,8 +1728,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:88:7: ( 'import' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:88:9: 'import'
+            // InternalJexTest.g:88:7: ( 'import' )
+            // InternalJexTest.g:88:9: 'import'
             {
             match("import"); 
 
@@ -1749,8 +1749,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:89:7: ( 'extension' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:89:9: 'extension'
+            // InternalJexTest.g:89:7: ( 'extension' )
+            // InternalJexTest.g:89:9: 'extension'
             {
             match("extension"); 
 
@@ -1770,8 +1770,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:90:7: ( 'super' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:90:9: 'super'
+            // InternalJexTest.g:90:7: ( 'super' )
+            // InternalJexTest.g:90:9: 'super'
             {
             match("super"); 
 
@@ -1791,8 +1791,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:91:7: ( 'false' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:91:9: 'false'
+            // InternalJexTest.g:91:7: ( 'false' )
+            // InternalJexTest.g:91:9: 'false'
             {
             match("false"); 
 
@@ -1812,8 +1812,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:92:7: ( 'true' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:92:9: 'true'
+            // InternalJexTest.g:92:7: ( 'true' )
+            // InternalJexTest.g:92:9: 'true'
             {
             match("true"); 
 
@@ -1833,8 +1833,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:93:7: ( 'null' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:93:9: 'null'
+            // InternalJexTest.g:93:7: ( 'null' )
+            // InternalJexTest.g:93:9: 'null'
             {
             match("null"); 
 
@@ -1854,8 +1854,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:94:7: ( 'typeof' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:94:9: 'typeof'
+            // InternalJexTest.g:94:7: ( 'typeof' )
+            // InternalJexTest.g:94:9: 'typeof'
             {
             match("typeof"); 
 
@@ -1875,8 +1875,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:95:7: ( 'throw' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:95:9: 'throw'
+            // InternalJexTest.g:95:7: ( 'throw' )
+            // InternalJexTest.g:95:9: 'throw'
             {
             match("throw"); 
 
@@ -1896,8 +1896,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:96:7: ( 'return' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:96:9: 'return'
+            // InternalJexTest.g:96:7: ( 'return' )
+            // InternalJexTest.g:96:9: 'return'
             {
             match("return"); 
 
@@ -1917,8 +1917,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:97:7: ( 'try' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:97:9: 'try'
+            // InternalJexTest.g:97:7: ( 'try' )
+            // InternalJexTest.g:97:9: 'try'
             {
             match("try"); 
 
@@ -1938,8 +1938,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:98:8: ( 'finally' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:98:10: 'finally'
+            // InternalJexTest.g:98:8: ( 'finally' )
+            // InternalJexTest.g:98:10: 'finally'
             {
             match("finally"); 
 
@@ -1959,8 +1959,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:99:8: ( 'synchronized' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:99:10: 'synchronized'
+            // InternalJexTest.g:99:8: ( 'synchronized' )
+            // InternalJexTest.g:99:10: 'synchronized'
             {
             match("synchronized"); 
 
@@ -1980,8 +1980,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:100:8: ( 'catch' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:100:10: 'catch'
+            // InternalJexTest.g:100:8: ( 'catch' )
+            // InternalJexTest.g:100:10: 'catch'
             {
             match("catch"); 
 
@@ -2001,8 +2001,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:101:8: ( '?' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:101:10: '?'
+            // InternalJexTest.g:101:8: ( '?' )
+            // InternalJexTest.g:101:10: '?'
             {
             match('?'); 
 
@@ -2021,8 +2021,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:102:8: ( '&' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:102:10: '&'
+            // InternalJexTest.g:102:8: ( '&' )
+            // InternalJexTest.g:102:10: '&'
             {
             match('&'); 
 
@@ -2041,10 +2041,10 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = RULE_HEX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // InternalJexTest.g:8488:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
+            // InternalJexTest.g:8488:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             {
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:12: ( '0x' | '0X' )
+            // InternalJexTest.g:8488:12: ( '0x' | '0X' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -2072,7 +2072,7 @@ public class InternalJexTestLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:13: '0x'
+                    // InternalJexTest.g:8488:13: '0x'
                     {
                     match("0x"); 
 
@@ -2080,7 +2080,7 @@ public class InternalJexTestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:18: '0X'
+                    // InternalJexTest.g:8488:18: '0X'
                     {
                     match("0X"); 
 
@@ -2090,7 +2090,7 @@ public class InternalJexTestLexer extends Lexer {
 
             }
 
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // InternalJexTest.g:8488:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             int cnt2=0;
             loop2:
             do {
@@ -2104,7 +2104,7 @@ public class InternalJexTestLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:
+            	    // InternalJexTest.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='f') ) {
             	        input.consume();
@@ -2128,7 +2128,7 @@ public class InternalJexTestLexer extends Lexer {
                 cnt2++;
             } while (true);
 
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // InternalJexTest.g:8488:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -2137,10 +2137,10 @@ public class InternalJexTestLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // InternalJexTest.g:8488:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     {
                     match('#'); 
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // InternalJexTest.g:8488:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -2158,7 +2158,7 @@ public class InternalJexTestLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:64: ( 'b' | 'B' ) ( 'i' | 'I' )
+                            // InternalJexTest.g:8488:64: ( 'b' | 'B' ) ( 'i' | 'I' )
                             {
                             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                                 input.consume();
@@ -2182,7 +2182,7 @@ public class InternalJexTestLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8409:84: ( 'l' | 'L' )
+                            // InternalJexTest.g:8488:84: ( 'l' | 'L' )
                             {
                             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                                 input.consume();
@@ -2221,11 +2221,11 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8411:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8411:12: '0' .. '9' ( '0' .. '9' | '_' )*
+            // InternalJexTest.g:8490:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
+            // InternalJexTest.g:8490:12: '0' .. '9' ( '0' .. '9' | '_' )*
             {
             matchRange('0','9'); 
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8411:21: ( '0' .. '9' | '_' )*
+            // InternalJexTest.g:8490:21: ( '0' .. '9' | '_' )*
             loop5:
             do {
                 int alt5=2;
@@ -2238,7 +2238,7 @@ public class InternalJexTestLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:
+            	    // InternalJexTest.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||input.LA(1)=='_' ) {
             	        input.consume();
@@ -2274,11 +2274,11 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = RULE_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8413:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8413:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // InternalJexTest.g:8492:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
+            // InternalJexTest.g:8492:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             {
             mRULE_INT(); 
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8413:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
+            // InternalJexTest.g:8492:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2287,7 +2287,7 @@ public class InternalJexTestLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8413:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
+                    // InternalJexTest.g:8492:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -2298,7 +2298,7 @@ public class InternalJexTestLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8413:36: ( '+' | '-' )?
+                    // InternalJexTest.g:8492:36: ( '+' | '-' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -2307,7 +2307,7 @@ public class InternalJexTestLexer extends Lexer {
                     }
                     switch (alt6) {
                         case 1 :
-                            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:
+                            // InternalJexTest.g:
                             {
                             if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                                 input.consume();
@@ -2331,7 +2331,7 @@ public class InternalJexTestLexer extends Lexer {
 
             }
 
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8413:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // InternalJexTest.g:8492:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             int alt8=3;
             int LA8_0 = input.LA(1);
 
@@ -2343,7 +2343,7 @@ public class InternalJexTestLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8413:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
+                    // InternalJexTest.g:8492:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
                     {
                     if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                         input.consume();
@@ -2367,7 +2367,7 @@ public class InternalJexTestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8413:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
+                    // InternalJexTest.g:8492:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
                     {
                     if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='L'||input.LA(1)=='d'||input.LA(1)=='f'||input.LA(1)=='l' ) {
                         input.consume();
@@ -2400,10 +2400,10 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8415:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8415:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // InternalJexTest.g:8494:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
+            // InternalJexTest.g:8494:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             {
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8415:11: ( '^' )?
+            // InternalJexTest.g:8494:11: ( '^' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -2412,7 +2412,7 @@ public class InternalJexTestLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8415:11: '^'
+                    // InternalJexTest.g:8494:11: '^'
                     {
                     match('^'); 
 
@@ -2430,7 +2430,7 @@ public class InternalJexTestLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8415:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // InternalJexTest.g:8494:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             loop10:
             do {
                 int alt10=2;
@@ -2443,7 +2443,7 @@ public class InternalJexTestLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:
+            	    // InternalJexTest.g:
             	    {
             	    if ( input.LA(1)=='$'||(input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -2479,10 +2479,10 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? ) )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
+            // InternalJexTest.g:8496:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? ) )
+            // InternalJexTest.g:8496:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
             {
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
+            // InternalJexTest.g:8496:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )? | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )? )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -2500,10 +2500,10 @@ public class InternalJexTestLexer extends Lexer {
             }
             switch (alt15) {
                 case 1 :
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )?
+                    // InternalJexTest.g:8496:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* ( '\"' )?
                     {
                     match('\"'); 
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalJexTest.g:8496:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -2519,7 +2519,7 @@ public class InternalJexTestLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:21: '\\\\' .
+                    	    // InternalJexTest.g:8496:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2527,7 +2527,7 @@ public class InternalJexTestLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalJexTest.g:8496:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2547,7 +2547,7 @@ public class InternalJexTestLexer extends Lexer {
                         }
                     } while (true);
 
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:44: ( '\"' )?
+                    // InternalJexTest.g:8496:44: ( '\"' )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -2556,7 +2556,7 @@ public class InternalJexTestLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:44: '\"'
+                            // InternalJexTest.g:8496:44: '\"'
                             {
                             match('\"'); 
 
@@ -2569,10 +2569,10 @@ public class InternalJexTestLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:49: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )?
+                    // InternalJexTest.g:8496:49: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* ( '\\'' )?
                     {
                     match('\''); 
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:54: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalJexTest.g:8496:54: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop13:
                     do {
                         int alt13=3;
@@ -2588,7 +2588,7 @@ public class InternalJexTestLexer extends Lexer {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:55: '\\\\' .
+                    	    // InternalJexTest.g:8496:55: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2596,7 +2596,7 @@ public class InternalJexTestLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:62: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalJexTest.g:8496:62: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2616,7 +2616,7 @@ public class InternalJexTestLexer extends Lexer {
                         }
                     } while (true);
 
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:79: ( '\\'' )?
+                    // InternalJexTest.g:8496:79: ( '\\'' )?
                     int alt14=2;
                     int LA14_0 = input.LA(1);
 
@@ -2625,7 +2625,7 @@ public class InternalJexTestLexer extends Lexer {
                     }
                     switch (alt14) {
                         case 1 :
-                            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8417:79: '\\''
+                            // InternalJexTest.g:8496:79: '\\''
                             {
                             match('\''); 
 
@@ -2656,12 +2656,12 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8419:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8419:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalJexTest.g:8498:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalJexTest.g:8498:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8419:24: ( options {greedy=false; } : . )*
+            // InternalJexTest.g:8498:24: ( options {greedy=false; } : . )*
             loop16:
             do {
                 int alt16=2;
@@ -2686,7 +2686,7 @@ public class InternalJexTestLexer extends Lexer {
 
                 switch (alt16) {
             	case 1 :
-            	    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8419:52: .
+            	    // InternalJexTest.g:8498:52: .
             	    {
             	    matchAny(); 
 
@@ -2716,12 +2716,12 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8421:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8421:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalJexTest.g:8500:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalJexTest.g:8500:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8421:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalJexTest.g:8500:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop17:
             do {
                 int alt17=2;
@@ -2734,7 +2734,7 @@ public class InternalJexTestLexer extends Lexer {
 
                 switch (alt17) {
             	case 1 :
-            	    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8421:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalJexTest.g:8500:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2754,7 +2754,7 @@ public class InternalJexTestLexer extends Lexer {
                 }
             } while (true);
 
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8421:40: ( ( '\\r' )? '\\n' )?
+            // InternalJexTest.g:8500:40: ( ( '\\r' )? '\\n' )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -2763,9 +2763,9 @@ public class InternalJexTestLexer extends Lexer {
             }
             switch (alt19) {
                 case 1 :
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8421:41: ( '\\r' )? '\\n'
+                    // InternalJexTest.g:8500:41: ( '\\r' )? '\\n'
                     {
-                    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8421:41: ( '\\r' )?
+                    // InternalJexTest.g:8500:41: ( '\\r' )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -2774,7 +2774,7 @@ public class InternalJexTestLexer extends Lexer {
                     }
                     switch (alt18) {
                         case 1 :
-                            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8421:41: '\\r'
+                            // InternalJexTest.g:8500:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2806,10 +2806,10 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8423:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8423:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJexTest.g:8502:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalJexTest.g:8502:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8423:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJexTest.g:8502:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt20=0;
             loop20:
             do {
@@ -2823,7 +2823,7 @@ public class InternalJexTestLexer extends Lexer {
 
                 switch (alt20) {
             	case 1 :
-            	    // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:
+            	    // InternalJexTest.g:
             	    {
             	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
             	        input.consume();
@@ -2863,8 +2863,8 @@ public class InternalJexTestLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8425:16: ( . )
-            // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:8425:18: .
+            // InternalJexTest.g:8504:16: ( . )
+            // InternalJexTest.g:8504:18: .
             {
             matchAny(); 
 
@@ -2879,712 +2879,712 @@ public class InternalJexTestLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // InternalJexTest.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt21=101;
         alt21 = dfa21.predict(input);
         switch (alt21) {
             case 1 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:10: T__13
+                // InternalJexTest.g:1:10: T__13
                 {
                 mT__13(); 
 
                 }
                 break;
             case 2 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:16: T__14
+                // InternalJexTest.g:1:16: T__14
                 {
                 mT__14(); 
 
                 }
                 break;
             case 3 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:22: T__15
+                // InternalJexTest.g:1:22: T__15
                 {
                 mT__15(); 
 
                 }
                 break;
             case 4 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:28: T__16
+                // InternalJexTest.g:1:28: T__16
                 {
                 mT__16(); 
 
                 }
                 break;
             case 5 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:34: T__17
+                // InternalJexTest.g:1:34: T__17
                 {
                 mT__17(); 
 
                 }
                 break;
             case 6 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:40: T__18
+                // InternalJexTest.g:1:40: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
             case 7 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:46: T__19
+                // InternalJexTest.g:1:46: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
             case 8 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:52: T__20
+                // InternalJexTest.g:1:52: T__20
                 {
                 mT__20(); 
 
                 }
                 break;
             case 9 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:58: T__21
+                // InternalJexTest.g:1:58: T__21
                 {
                 mT__21(); 
 
                 }
                 break;
             case 10 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:64: T__22
+                // InternalJexTest.g:1:64: T__22
                 {
                 mT__22(); 
 
                 }
                 break;
             case 11 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:70: T__23
+                // InternalJexTest.g:1:70: T__23
                 {
                 mT__23(); 
 
                 }
                 break;
             case 12 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:76: T__24
+                // InternalJexTest.g:1:76: T__24
                 {
                 mT__24(); 
 
                 }
                 break;
             case 13 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:82: T__25
+                // InternalJexTest.g:1:82: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
             case 14 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:88: T__26
+                // InternalJexTest.g:1:88: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
             case 15 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:94: T__27
+                // InternalJexTest.g:1:94: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
             case 16 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:100: T__28
+                // InternalJexTest.g:1:100: T__28
                 {
                 mT__28(); 
 
                 }
                 break;
             case 17 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:106: T__29
+                // InternalJexTest.g:1:106: T__29
                 {
                 mT__29(); 
 
                 }
                 break;
             case 18 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:112: T__30
+                // InternalJexTest.g:1:112: T__30
                 {
                 mT__30(); 
 
                 }
                 break;
             case 19 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:118: T__31
+                // InternalJexTest.g:1:118: T__31
                 {
                 mT__31(); 
 
                 }
                 break;
             case 20 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:124: T__32
+                // InternalJexTest.g:1:124: T__32
                 {
                 mT__32(); 
 
                 }
                 break;
             case 21 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:130: T__33
+                // InternalJexTest.g:1:130: T__33
                 {
                 mT__33(); 
 
                 }
                 break;
             case 22 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:136: T__34
+                // InternalJexTest.g:1:136: T__34
                 {
                 mT__34(); 
 
                 }
                 break;
             case 23 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:142: T__35
+                // InternalJexTest.g:1:142: T__35
                 {
                 mT__35(); 
 
                 }
                 break;
             case 24 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:148: T__36
+                // InternalJexTest.g:1:148: T__36
                 {
                 mT__36(); 
 
                 }
                 break;
             case 25 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:154: T__37
+                // InternalJexTest.g:1:154: T__37
                 {
                 mT__37(); 
 
                 }
                 break;
             case 26 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:160: T__38
+                // InternalJexTest.g:1:160: T__38
                 {
                 mT__38(); 
 
                 }
                 break;
             case 27 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:166: T__39
+                // InternalJexTest.g:1:166: T__39
                 {
                 mT__39(); 
 
                 }
                 break;
             case 28 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:172: T__40
+                // InternalJexTest.g:1:172: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
             case 29 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:178: T__41
+                // InternalJexTest.g:1:178: T__41
                 {
                 mT__41(); 
 
                 }
                 break;
             case 30 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:184: T__42
+                // InternalJexTest.g:1:184: T__42
                 {
                 mT__42(); 
 
                 }
                 break;
             case 31 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:190: T__43
+                // InternalJexTest.g:1:190: T__43
                 {
                 mT__43(); 
 
                 }
                 break;
             case 32 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:196: T__44
+                // InternalJexTest.g:1:196: T__44
                 {
                 mT__44(); 
 
                 }
                 break;
             case 33 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:202: T__45
+                // InternalJexTest.g:1:202: T__45
                 {
                 mT__45(); 
 
                 }
                 break;
             case 34 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:208: T__46
+                // InternalJexTest.g:1:208: T__46
                 {
                 mT__46(); 
 
                 }
                 break;
             case 35 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:214: T__47
+                // InternalJexTest.g:1:214: T__47
                 {
                 mT__47(); 
 
                 }
                 break;
             case 36 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:220: T__48
+                // InternalJexTest.g:1:220: T__48
                 {
                 mT__48(); 
 
                 }
                 break;
             case 37 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:226: T__49
+                // InternalJexTest.g:1:226: T__49
                 {
                 mT__49(); 
 
                 }
                 break;
             case 38 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:232: T__50
+                // InternalJexTest.g:1:232: T__50
                 {
                 mT__50(); 
 
                 }
                 break;
             case 39 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:238: T__51
+                // InternalJexTest.g:1:238: T__51
                 {
                 mT__51(); 
 
                 }
                 break;
             case 40 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:244: T__52
+                // InternalJexTest.g:1:244: T__52
                 {
                 mT__52(); 
 
                 }
                 break;
             case 41 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:250: T__53
+                // InternalJexTest.g:1:250: T__53
                 {
                 mT__53(); 
 
                 }
                 break;
             case 42 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:256: T__54
+                // InternalJexTest.g:1:256: T__54
                 {
                 mT__54(); 
 
                 }
                 break;
             case 43 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:262: T__55
+                // InternalJexTest.g:1:262: T__55
                 {
                 mT__55(); 
 
                 }
                 break;
             case 44 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:268: T__56
+                // InternalJexTest.g:1:268: T__56
                 {
                 mT__56(); 
 
                 }
                 break;
             case 45 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:274: T__57
+                // InternalJexTest.g:1:274: T__57
                 {
                 mT__57(); 
 
                 }
                 break;
             case 46 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:280: T__58
+                // InternalJexTest.g:1:280: T__58
                 {
                 mT__58(); 
 
                 }
                 break;
             case 47 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:286: T__59
+                // InternalJexTest.g:1:286: T__59
                 {
                 mT__59(); 
 
                 }
                 break;
             case 48 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:292: T__60
+                // InternalJexTest.g:1:292: T__60
                 {
                 mT__60(); 
 
                 }
                 break;
             case 49 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:298: T__61
+                // InternalJexTest.g:1:298: T__61
                 {
                 mT__61(); 
 
                 }
                 break;
             case 50 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:304: T__62
+                // InternalJexTest.g:1:304: T__62
                 {
                 mT__62(); 
 
                 }
                 break;
             case 51 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:310: T__63
+                // InternalJexTest.g:1:310: T__63
                 {
                 mT__63(); 
 
                 }
                 break;
             case 52 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:316: T__64
+                // InternalJexTest.g:1:316: T__64
                 {
                 mT__64(); 
 
                 }
                 break;
             case 53 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:322: T__65
+                // InternalJexTest.g:1:322: T__65
                 {
                 mT__65(); 
 
                 }
                 break;
             case 54 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:328: T__66
+                // InternalJexTest.g:1:328: T__66
                 {
                 mT__66(); 
 
                 }
                 break;
             case 55 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:334: T__67
+                // InternalJexTest.g:1:334: T__67
                 {
                 mT__67(); 
 
                 }
                 break;
             case 56 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:340: T__68
+                // InternalJexTest.g:1:340: T__68
                 {
                 mT__68(); 
 
                 }
                 break;
             case 57 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:346: T__69
+                // InternalJexTest.g:1:346: T__69
                 {
                 mT__69(); 
 
                 }
                 break;
             case 58 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:352: T__70
+                // InternalJexTest.g:1:352: T__70
                 {
                 mT__70(); 
 
                 }
                 break;
             case 59 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:358: T__71
+                // InternalJexTest.g:1:358: T__71
                 {
                 mT__71(); 
 
                 }
                 break;
             case 60 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:364: T__72
+                // InternalJexTest.g:1:364: T__72
                 {
                 mT__72(); 
 
                 }
                 break;
             case 61 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:370: T__73
+                // InternalJexTest.g:1:370: T__73
                 {
                 mT__73(); 
 
                 }
                 break;
             case 62 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:376: T__74
+                // InternalJexTest.g:1:376: T__74
                 {
                 mT__74(); 
 
                 }
                 break;
             case 63 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:382: T__75
+                // InternalJexTest.g:1:382: T__75
                 {
                 mT__75(); 
 
                 }
                 break;
             case 64 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:388: T__76
+                // InternalJexTest.g:1:388: T__76
                 {
                 mT__76(); 
 
                 }
                 break;
             case 65 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:394: T__77
+                // InternalJexTest.g:1:394: T__77
                 {
                 mT__77(); 
 
                 }
                 break;
             case 66 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:400: T__78
+                // InternalJexTest.g:1:400: T__78
                 {
                 mT__78(); 
 
                 }
                 break;
             case 67 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:406: T__79
+                // InternalJexTest.g:1:406: T__79
                 {
                 mT__79(); 
 
                 }
                 break;
             case 68 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:412: T__80
+                // InternalJexTest.g:1:412: T__80
                 {
                 mT__80(); 
 
                 }
                 break;
             case 69 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:418: T__81
+                // InternalJexTest.g:1:418: T__81
                 {
                 mT__81(); 
 
                 }
                 break;
             case 70 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:424: T__82
+                // InternalJexTest.g:1:424: T__82
                 {
                 mT__82(); 
 
                 }
                 break;
             case 71 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:430: T__83
+                // InternalJexTest.g:1:430: T__83
                 {
                 mT__83(); 
 
                 }
                 break;
             case 72 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:436: T__84
+                // InternalJexTest.g:1:436: T__84
                 {
                 mT__84(); 
 
                 }
                 break;
             case 73 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:442: T__85
+                // InternalJexTest.g:1:442: T__85
                 {
                 mT__85(); 
 
                 }
                 break;
             case 74 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:448: T__86
+                // InternalJexTest.g:1:448: T__86
                 {
                 mT__86(); 
 
                 }
                 break;
             case 75 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:454: T__87
+                // InternalJexTest.g:1:454: T__87
                 {
                 mT__87(); 
 
                 }
                 break;
             case 76 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:460: T__88
+                // InternalJexTest.g:1:460: T__88
                 {
                 mT__88(); 
 
                 }
                 break;
             case 77 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:466: T__89
+                // InternalJexTest.g:1:466: T__89
                 {
                 mT__89(); 
 
                 }
                 break;
             case 78 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:472: T__90
+                // InternalJexTest.g:1:472: T__90
                 {
                 mT__90(); 
 
                 }
                 break;
             case 79 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:478: T__91
+                // InternalJexTest.g:1:478: T__91
                 {
                 mT__91(); 
 
                 }
                 break;
             case 80 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:484: T__92
+                // InternalJexTest.g:1:484: T__92
                 {
                 mT__92(); 
 
                 }
                 break;
             case 81 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:490: T__93
+                // InternalJexTest.g:1:490: T__93
                 {
                 mT__93(); 
 
                 }
                 break;
             case 82 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:496: T__94
+                // InternalJexTest.g:1:496: T__94
                 {
                 mT__94(); 
 
                 }
                 break;
             case 83 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:502: T__95
+                // InternalJexTest.g:1:502: T__95
                 {
                 mT__95(); 
 
                 }
                 break;
             case 84 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:508: T__96
+                // InternalJexTest.g:1:508: T__96
                 {
                 mT__96(); 
 
                 }
                 break;
             case 85 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:514: T__97
+                // InternalJexTest.g:1:514: T__97
                 {
                 mT__97(); 
 
                 }
                 break;
             case 86 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:520: T__98
+                // InternalJexTest.g:1:520: T__98
                 {
                 mT__98(); 
 
                 }
                 break;
             case 87 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:526: T__99
+                // InternalJexTest.g:1:526: T__99
                 {
                 mT__99(); 
 
                 }
                 break;
             case 88 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:532: T__100
+                // InternalJexTest.g:1:532: T__100
                 {
                 mT__100(); 
 
                 }
                 break;
             case 89 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:539: T__101
+                // InternalJexTest.g:1:539: T__101
                 {
                 mT__101(); 
 
                 }
                 break;
             case 90 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:546: T__102
+                // InternalJexTest.g:1:546: T__102
                 {
                 mT__102(); 
 
                 }
                 break;
             case 91 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:553: T__103
+                // InternalJexTest.g:1:553: T__103
                 {
                 mT__103(); 
 
                 }
                 break;
             case 92 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:560: T__104
+                // InternalJexTest.g:1:560: T__104
                 {
                 mT__104(); 
 
                 }
                 break;
             case 93 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:567: RULE_HEX
+                // InternalJexTest.g:1:567: RULE_HEX
                 {
                 mRULE_HEX(); 
 
                 }
                 break;
             case 94 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:576: RULE_INT
+                // InternalJexTest.g:1:576: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
             case 95 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:585: RULE_DECIMAL
+                // InternalJexTest.g:1:585: RULE_DECIMAL
                 {
                 mRULE_DECIMAL(); 
 
                 }
                 break;
             case 96 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:598: RULE_ID
+                // InternalJexTest.g:1:598: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 97 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:606: RULE_STRING
+                // InternalJexTest.g:1:606: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 98 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:618: RULE_ML_COMMENT
+                // InternalJexTest.g:1:618: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 99 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:634: RULE_SL_COMMENT
+                // InternalJexTest.g:1:634: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 100 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:650: RULE_WS
+                // InternalJexTest.g:1:650: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 101 :
-                // ../no.hal.jex.jextest/src-gen/no/hal/jex/jextest/parser/antlr/internal/InternalJexTest.g:1:658: RULE_ANY_OTHER
+                // InternalJexTest.g:1:658: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3598,15 +3598,15 @@ public class InternalJexTestLexer extends Lexer {
 
     protected DFA21 dfa21 = new DFA21(this);
     static final String DFA21_eotS =
-        "\1\uffff\3\63\1\uffff\2\63\1\uffff\1\102\1\63\4\uffff\1\111\2\uffff\1\117\3\63\1\130\1\63\1\135\1\137\1\143\1\146\1\152\1\154\1\156\1\160\1\162\1\164\2\uffff\3\63\2\176\1\55\5\uffff\5\63\1\uffff\2\63\1\u008c\1\63\1\uffff\6\63\2\uffff\1\u0097\1\uffff\1\63\4\uffff\1\u009b\3\uffff\1\u009d\3\uffff\1\63\1\u009f\4\63\3\uffff\2\63\3\uffff\1\u00a8\30\uffff\1\63\1\u00aa\4\63\2\uffff\1\176\3\uffff\11\63\1\uffff\1\u00b9\1\u00ba\3\63\1\u00be\3\63\2\uffff\1\63\5\uffff\1\63\1\uffff\5\63\1\u00c9\1\63\2\uffff\1\63\1\uffff\1\u00cc\15\63\2\uffff\1\u00dc\1\63\1\u00de\1\uffff\1\63\1\u00e0\4\63\1\u00e5\2\63\1\u00e8\1\uffff\1\u00e9\1\63\1\uffff\3\63\1\u00ee\1\u00ef\1\u00f0\10\63\1\u00f9\1\uffff\1\u00fb\1\uffff\1\63\1\uffff\1\u00fd\2\63\1\u0100\1\uffff\1\u0101\1\63\2\uffff\1\63\1\u0105\2\63\3\uffff\1\u0108\1\63\1\u010a\4\63\1\u010f\1\uffff\1\u0110\1\uffff\1\u0111\1\uffff\1\u0112\1\63\2\uffff\3\63\1\uffff\1\63\1\u0118\1\uffff\1\63\1\uffff\4\63\4\uffff\1\63\1\u011f\1\63\1\u0121\1\u0122\1\uffff\1\u0123\1\63\1\u0126\2\63\1\u0129\1\uffff\1\63\3\uffff\2\63\1\uffff\1\u012d\1\63\1\uffff\1\u012f\1\63\1\u0131\1\uffff\1\u0132\1\uffff\1\63\2\uffff\1\u0134\1\uffff";
+        "\1\uffff\3\63\1\uffff\2\63\1\uffff\1\102\1\63\4\uffff\1\111\2\uffff\1\117\3\63\1\130\1\63\1\135\1\137\1\143\1\146\1\152\1\154\1\156\1\160\1\162\1\164\2\uffff\3\63\2\177\1\55\5\uffff\5\63\1\uffff\2\63\1\u008c\1\63\1\uffff\6\63\2\uffff\1\u0097\1\uffff\1\63\4\uffff\1\u009b\3\uffff\1\u009d\3\uffff\1\63\1\u009f\4\63\3\uffff\2\63\3\uffff\1\u00a8\30\uffff\1\63\1\u00aa\4\63\1\uffff\1\177\4\uffff\11\63\1\uffff\1\u00b9\1\u00ba\3\63\1\u00be\3\63\2\uffff\1\63\5\uffff\1\63\1\uffff\5\63\1\u00c9\1\63\2\uffff\1\63\1\uffff\1\u00cc\15\63\2\uffff\1\u00dc\1\63\1\u00de\1\uffff\1\63\1\u00e0\4\63\1\u00e5\2\63\1\u00e8\1\uffff\1\u00e9\1\63\1\uffff\3\63\1\u00ee\1\u00ef\1\u00f0\10\63\1\u00f9\1\uffff\1\u00fb\1\uffff\1\63\1\uffff\1\u00fd\2\63\1\u0100\1\uffff\1\u0101\1\63\2\uffff\1\63\1\u0105\2\63\3\uffff\1\u0108\1\63\1\u010a\4\63\1\u010f\1\uffff\1\u0110\1\uffff\1\u0111\1\uffff\1\u0112\1\63\2\uffff\3\63\1\uffff\1\63\1\u0118\1\uffff\1\63\1\uffff\4\63\4\uffff\1\63\1\u011f\1\63\1\u0121\1\u0122\1\uffff\1\u0123\1\63\1\u0126\2\63\1\u0129\1\uffff\1\63\3\uffff\2\63\1\uffff\1\u012d\1\63\1\uffff\1\u012f\1\63\1\u0131\1\uffff\1\u0132\1\uffff\1\63\2\uffff\1\u0134\1\uffff";
     static final String DFA21_eofS =
         "\u0135\uffff";
     static final String DFA21_minS =
-        "\1\0\1\145\1\146\1\141\1\uffff\1\145\1\150\1\uffff\1\75\1\145\4\uffff\1\56\2\uffff\1\55\1\142\1\141\1\154\1\75\1\145\1\53\1\75\1\56\2\52\2\75\1\174\1\46\1\72\2\uffff\1\145\1\141\1\145\2\60\1\44\5\uffff\1\151\1\141\1\161\1\151\1\156\1\uffff\1\163\1\160\1\44\1\154\1\uffff\1\163\1\162\1\165\1\160\1\164\1\151\2\uffff\1\75\1\uffff\1\164\4\uffff\1\56\3\uffff\1\76\3\uffff\1\163\1\44\1\141\1\163\1\164\1\163\3\uffff\1\167\1\154\3\uffff\1\75\30\uffff\1\146\1\44\1\162\1\154\1\156\1\164\2\uffff\1\60\3\uffff\1\164\1\145\1\164\1\165\1\164\1\143\1\164\1\145\1\154\1\uffff\2\44\1\164\1\157\1\145\1\44\1\145\1\150\1\154\2\uffff\1\150\5\uffff\1\164\1\uffff\1\163\1\145\1\143\2\145\1\44\1\154\2\uffff\1\141\1\uffff\1\44\1\163\1\141\1\165\1\145\1\162\2\145\1\143\1\150\1\141\1\162\1\145\1\162\2\uffff\1\44\1\167\1\44\1\uffff\1\157\1\44\1\145\1\157\1\162\1\163\1\44\1\150\1\156\1\44\1\uffff\1\44\1\165\1\uffff\1\145\1\154\1\162\3\44\1\143\1\156\1\150\1\162\1\156\1\146\1\155\1\164\1\44\1\uffff\1\44\1\uffff\1\146\1\uffff\1\44\1\144\1\141\1\44\1\uffff\1\44\1\144\2\uffff\1\154\1\44\1\154\1\156\3\uffff\1\44\1\143\1\44\1\157\1\143\1\141\1\145\1\44\1\uffff\1\44\1\uffff\1\44\1\uffff\1\44\1\143\2\uffff\1\163\1\151\1\164\1\uffff\1\171\1\44\1\uffff\1\145\1\uffff\1\156\1\145\1\143\1\156\4\uffff\1\164\1\44\1\157\2\44\1\uffff\1\44\1\151\1\44\1\145\1\164\1\44\1\uffff\1\156\3\uffff\1\172\1\146\1\uffff\1\44\1\163\1\uffff\1\44\1\145\1\44\1\uffff\1\44\1\uffff\1\144\2\uffff\1\44\1\uffff";
+        "\1\0\1\145\1\146\1\141\1\uffff\1\145\1\150\1\uffff\1\75\1\145\4\uffff\1\56\2\uffff\1\55\1\142\1\141\1\154\1\75\1\145\1\53\1\75\1\56\2\52\2\75\1\174\1\46\1\72\2\uffff\1\145\1\141\1\145\2\60\1\44\5\uffff\1\151\1\141\1\161\1\151\1\156\1\uffff\1\163\1\160\1\44\1\154\1\uffff\1\163\1\162\1\165\1\160\1\164\1\151\2\uffff\1\75\1\uffff\1\164\4\uffff\1\56\3\uffff\1\76\3\uffff\1\163\1\44\1\141\1\163\1\164\1\163\3\uffff\1\167\1\154\3\uffff\1\75\30\uffff\1\146\1\44\1\162\1\154\1\156\1\164\1\uffff\1\60\4\uffff\1\164\1\145\1\164\1\165\1\164\1\143\1\164\1\145\1\154\1\uffff\2\44\1\164\1\157\1\145\1\44\1\145\1\150\1\154\2\uffff\1\150\5\uffff\1\164\1\uffff\1\163\1\145\1\143\2\145\1\44\1\154\2\uffff\1\141\1\uffff\1\44\1\163\1\141\1\165\1\145\1\162\2\145\1\143\1\150\1\141\1\162\1\145\1\162\2\uffff\1\44\1\167\1\44\1\uffff\1\157\1\44\1\145\1\157\1\162\1\163\1\44\1\150\1\156\1\44\1\uffff\1\44\1\165\1\uffff\1\145\1\154\1\162\3\44\1\143\1\156\1\150\1\162\1\156\1\146\1\155\1\164\1\44\1\uffff\1\44\1\uffff\1\146\1\uffff\1\44\1\144\1\141\1\44\1\uffff\1\44\1\144\2\uffff\1\154\1\44\1\154\1\156\3\uffff\1\44\1\143\1\44\1\157\1\143\1\141\1\145\1\44\1\uffff\1\44\1\uffff\1\44\1\uffff\1\44\1\143\2\uffff\1\163\1\151\1\164\1\uffff\1\171\1\44\1\uffff\1\145\1\uffff\1\156\1\145\1\143\1\156\4\uffff\1\164\1\44\1\157\2\44\1\uffff\1\44\1\151\1\44\1\145\1\164\1\44\1\uffff\1\156\3\uffff\1\172\1\146\1\uffff\1\44\1\163\1\uffff\1\44\1\145\1\44\1\uffff\1\44\1\uffff\1\144\2\uffff\1\44\1\uffff";
     static final String DFA21_maxS =
-        "\1\uffff\1\171\1\156\1\141\1\uffff\1\171\1\151\1\uffff\1\76\1\145\4\uffff\1\56\2\uffff\1\76\1\163\1\154\1\170\1\76\1\165\7\75\1\174\1\46\1\72\2\uffff\2\157\1\145\1\170\1\154\1\172\5\uffff\1\160\1\141\1\161\1\151\1\156\1\uffff\1\164\1\160\1\172\1\162\1\uffff\1\163\1\162\1\171\1\160\1\164\1\151\2\uffff\1\75\1\uffff\1\164\4\uffff\1\74\3\uffff\1\76\3\uffff\1\163\1\172\1\141\2\164\1\163\3\uffff\1\167\1\154\3\uffff\1\75\30\uffff\1\146\1\172\1\162\1\154\1\156\1\164\2\uffff\1\154\3\uffff\1\164\1\145\1\164\1\165\1\164\1\143\1\164\1\145\1\157\1\uffff\2\172\1\164\1\157\1\145\1\172\1\145\1\150\1\154\2\uffff\1\150\5\uffff\1\164\1\uffff\1\163\1\145\1\143\2\145\1\172\1\154\2\uffff\1\141\1\uffff\1\172\1\163\1\141\1\165\1\145\1\162\1\151\1\145\1\143\1\150\1\141\1\162\1\145\1\162\2\uffff\1\172\1\167\1\172\1\uffff\1\157\1\172\1\145\1\157\1\162\1\163\1\172\1\150\1\156\1\172\1\uffff\1\172\1\165\1\uffff\1\145\1\154\1\162\3\172\1\143\1\156\1\150\1\162\1\156\1\146\1\155\1\164\1\172\1\uffff\1\172\1\uffff\1\146\1\uffff\1\172\1\144\1\141\1\172\1\uffff\1\172\1\163\2\uffff\1\154\1\172\1\154\1\156\3\uffff\1\172\1\143\1\172\1\157\1\143\1\141\1\145\1\172\1\uffff\1\172\1\uffff\1\172\1\uffff\1\172\1\143\2\uffff\1\163\1\151\1\164\1\uffff\1\171\1\172\1\uffff\1\145\1\uffff\1\156\1\145\1\143\1\156\4\uffff\1\164\1\172\1\157\2\172\1\uffff\1\172\1\151\1\172\1\145\1\164\1\172\1\uffff\1\156\3\uffff\1\172\1\146\1\uffff\1\172\1\163\1\uffff\1\172\1\145\1\172\1\uffff\1\172\1\uffff\1\144\2\uffff\1\172\1\uffff";
+        "\1\uffff\1\171\1\156\1\141\1\uffff\1\171\1\151\1\uffff\1\76\1\145\4\uffff\1\56\2\uffff\1\76\1\163\1\154\1\170\1\76\1\165\7\75\1\174\1\46\1\72\2\uffff\2\157\1\145\1\170\1\154\1\172\5\uffff\1\160\1\141\1\161\1\151\1\156\1\uffff\1\164\1\160\1\172\1\162\1\uffff\1\163\1\162\1\171\1\160\1\164\1\151\2\uffff\1\75\1\uffff\1\164\4\uffff\1\74\3\uffff\1\76\3\uffff\1\163\1\172\1\141\2\164\1\163\3\uffff\1\167\1\154\3\uffff\1\75\30\uffff\1\146\1\172\1\162\1\154\1\156\1\164\1\uffff\1\154\4\uffff\1\164\1\145\1\164\1\165\1\164\1\143\1\164\1\145\1\157\1\uffff\2\172\1\164\1\157\1\145\1\172\1\145\1\150\1\154\2\uffff\1\150\5\uffff\1\164\1\uffff\1\163\1\145\1\143\2\145\1\172\1\154\2\uffff\1\141\1\uffff\1\172\1\163\1\141\1\165\1\145\1\162\1\151\1\145\1\143\1\150\1\141\1\162\1\145\1\162\2\uffff\1\172\1\167\1\172\1\uffff\1\157\1\172\1\145\1\157\1\162\1\163\1\172\1\150\1\156\1\172\1\uffff\1\172\1\165\1\uffff\1\145\1\154\1\162\3\172\1\143\1\156\1\150\1\162\1\156\1\146\1\155\1\164\1\172\1\uffff\1\172\1\uffff\1\146\1\uffff\1\172\1\144\1\141\1\172\1\uffff\1\172\1\163\2\uffff\1\154\1\172\1\154\1\156\3\uffff\1\172\1\143\1\172\1\157\1\143\1\141\1\145\1\172\1\uffff\1\172\1\uffff\1\172\1\uffff\1\172\1\143\2\uffff\1\163\1\151\1\164\1\uffff\1\171\1\172\1\uffff\1\145\1\uffff\1\156\1\145\1\143\1\156\4\uffff\1\164\1\172\1\157\2\172\1\uffff\1\172\1\151\1\172\1\145\1\164\1\172\1\uffff\1\156\3\uffff\1\172\1\146\1\uffff\1\172\1\163\1\uffff\1\172\1\145\1\172\1\uffff\1\172\1\uffff\1\144\2\uffff\1\172\1\uffff";
     static final String DFA21_acceptS =
-        "\4\uffff\1\4\2\uffff\1\7\2\uffff\1\13\1\14\1\17\1\20\1\uffff\1\22\1\23\20\uffff\1\100\1\101\6\uffff\1\140\2\141\1\144\1\145\5\uffff\1\140\4\uffff\1\4\6\uffff\1\7\1\35\1\uffff\1\10\1\uffff\1\13\1\14\1\17\1\20\1\uffff\1\21\1\22\1\23\1\uffff\1\47\1\61\1\67\6\uffff\1\36\1\64\1\53\2\uffff\1\40\1\46\1\66\1\uffff\1\74\1\45\1\65\1\77\1\133\1\50\1\71\1\70\1\51\1\142\1\143\1\72\1\52\1\73\1\55\1\54\1\56\1\102\1\57\1\134\1\76\1\106\1\100\1\101\6\uffff\1\135\1\136\1\uffff\1\137\1\141\1\144\11\uffff\1\103\11\uffff\1\43\1\41\1\uffff\1\27\1\62\1\63\1\25\1\24\1\uffff\1\75\7\uffff\1\44\1\42\1\uffff\1\113\16\uffff\1\3\1\114\3\uffff\1\127\12\uffff\1\37\2\uffff\1\111\17\uffff\1\5\1\uffff\1\122\1\uffff\1\6\4\uffff\1\110\2\uffff\1\104\1\123\4\uffff\1\1\1\120\1\11\10\uffff\1\16\1\uffff\1\125\1\uffff\1\112\2\uffff\1\32\1\132\3\uffff\1\121\2\uffff\1\115\1\uffff\1\105\4\uffff\1\116\1\26\1\124\1\12\5\uffff\1\126\6\uffff\1\33\1\uffff\1\107\1\130\1\15\2\uffff\1\2\2\uffff\1\31\3\uffff\1\30\1\uffff\1\117\1\uffff\1\60\1\34\1\uffff\1\131";
+        "\4\uffff\1\4\2\uffff\1\7\2\uffff\1\13\1\14\1\17\1\20\1\uffff\1\22\1\23\20\uffff\1\100\1\101\6\uffff\1\140\2\141\1\144\1\145\5\uffff\1\140\4\uffff\1\4\6\uffff\1\7\1\35\1\uffff\1\10\1\uffff\1\13\1\14\1\17\1\20\1\uffff\1\21\1\22\1\23\1\uffff\1\47\1\61\1\67\6\uffff\1\36\1\64\1\53\2\uffff\1\40\1\46\1\66\1\uffff\1\74\1\45\1\65\1\77\1\133\1\50\1\71\1\70\1\51\1\142\1\143\1\72\1\52\1\73\1\55\1\54\1\56\1\102\1\57\1\134\1\76\1\106\1\100\1\101\6\uffff\1\135\1\uffff\1\136\1\137\1\141\1\144\11\uffff\1\103\11\uffff\1\43\1\41\1\uffff\1\27\1\62\1\63\1\25\1\24\1\uffff\1\75\7\uffff\1\44\1\42\1\uffff\1\113\16\uffff\1\3\1\114\3\uffff\1\127\12\uffff\1\37\2\uffff\1\111\17\uffff\1\5\1\uffff\1\122\1\uffff\1\6\4\uffff\1\110\2\uffff\1\104\1\123\4\uffff\1\1\1\120\1\11\10\uffff\1\16\1\uffff\1\125\1\uffff\1\112\2\uffff\1\32\1\132\3\uffff\1\121\2\uffff\1\115\1\uffff\1\105\4\uffff\1\116\1\26\1\124\1\12\5\uffff\1\126\6\uffff\1\33\1\uffff\1\107\1\130\1\15\2\uffff\1\2\2\uffff\1\31\3\uffff\1\30\1\uffff\1\117\1\uffff\1\60\1\34\1\uffff\1\131";
     static final String DFA21_specialS =
         "\1\0\u0134\uffff}>";
     static final String[] DFA21_transitionS = {
@@ -3648,8 +3648,8 @@ public class InternalJexTestLexer extends Lexer {
             "\1\167\11\uffff\1\170",
             "\1\172\7\uffff\1\173\5\uffff\1\171",
             "\1\174",
-            "\12\177\10\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080\13\uffff\1\175\6\uffff\1\177\2\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080\13\uffff\1\175",
-            "\12\177\10\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080\22\uffff\1\177\2\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080",
+            "\12\176\10\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080\13\uffff\1\175\6\uffff\1\176\2\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080\13\uffff\1\175",
+            "\12\176\10\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080\22\uffff\1\176\2\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080",
             "\1\63\34\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "",
             "",
@@ -3736,8 +3736,8 @@ public class InternalJexTestLexer extends Lexer {
             "\1\u00ad",
             "\1\u00ae",
             "",
+            "\12\176\10\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080\22\uffff\1\176\2\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080",
             "",
-            "\12\177\10\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080\22\uffff\1\177\2\uffff\1\u0080\1\uffff\3\u0080\5\uffff\1\u0080",
             "",
             "",
             "",

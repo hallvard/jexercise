@@ -15,13 +15,13 @@ import org.eclipse.xtext.xbase.XExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedOperation#getParameterTypes <em>Parameter Types</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedOperation#getDescription <em>Description</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedOperation#getPreExpression <em>Pre Expression</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedOperation#getPostExpression <em>Post Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTestedOperation()
  * @model

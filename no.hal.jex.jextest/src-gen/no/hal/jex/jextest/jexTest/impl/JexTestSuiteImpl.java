@@ -27,11 +27,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestSuiteImpl#getSuiteClassName <em>Suite Class Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.JexTestSuiteImpl#getTestCases <em>Test Cases</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -13,10 +13,10 @@ import org.eclipse.xtext.xbase.XBlockExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.PropertiesTestOwner#getTest <em>Test</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getPropertiesTestOwner()
  * @model

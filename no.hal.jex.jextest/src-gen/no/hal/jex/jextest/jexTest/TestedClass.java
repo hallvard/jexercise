@@ -17,6 +17,7 @@ import org.eclipse.xtext.xbase.XExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedClass#isInterface <em>Interface</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedClass#isAbstract <em>Abstract</em>}</li>
@@ -27,7 +28,6 @@ import org.eclipse.xtext.xbase.XExpression;
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedClass#getInvariant <em>Invariant</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedClass#getMethods <em>Methods</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTestedClass()
  * @model

@@ -15,13 +15,13 @@ import org.eclipse.xtext.xtype.XImportSection;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestMemberContext#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestMemberContext#getInstances <em>Instances</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestMemberContext#getStateFunctions <em>State Functions</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestMemberContext#getMethods <em>Methods</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTestMemberContext()
  * @model

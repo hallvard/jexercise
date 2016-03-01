@@ -22,12 +22,12 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.ParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.ParameterImpl#isVararg <em>Vararg</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.ParameterImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -24,12 +24,12 @@ import org.eclipse.xtext.xbase.XExpression;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.InstanceImpl#getType <em>Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.InstanceImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.InstanceImpl#getExpr <em>Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

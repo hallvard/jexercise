@@ -10,11 +10,11 @@ package no.hal.jex.jextest.jexTest;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.TransitionTargetEffect#getState <em>State</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TransitionTargetEffect#getStateRef <em>State Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTransitionTargetEffect()
  * @model

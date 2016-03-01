@@ -15,11 +15,11 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.JvmOperationRef#getMethodName <em>Method Name</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.JvmOperationRef#getParameterTypes <em>Parameter Types</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getJvmOperationRef()
  * @model

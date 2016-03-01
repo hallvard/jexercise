@@ -11,11 +11,11 @@ import org.eclipse.xtext.xbase.XExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.TransitionExpressionAction#getExpr <em>Expr</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TransitionExpressionAction#getTimes <em>Times</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTransitionExpressionAction()
  * @model

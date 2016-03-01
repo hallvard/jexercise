@@ -29,6 +29,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
  */
 @SuppressWarnings("all")
 public class JexTestValidator extends AbstractJexTestValidator {
+  @Override
   public void checkInnerExpressions(final XExpression expr) {
   }
   

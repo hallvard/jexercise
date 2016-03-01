@@ -22,10 +22,10 @@ import org.eclipse.xtext.xbase.XBlockExpression;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.PropertiesTestOwnerImpl#getTest <em>Test</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

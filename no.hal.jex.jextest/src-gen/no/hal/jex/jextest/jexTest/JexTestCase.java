@@ -13,6 +13,7 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestedClasses <em>Tested Classes</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestedClassRef <em>Tested Class Ref</em>}</li>
@@ -21,7 +22,6 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestCase#getUrl <em>Url</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.JexTestCase#getTestSequences <em>Test Sequences</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getJexTestCase()
  * @model

@@ -118,14 +118,17 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
     JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef("junit.framework.TestCase");
     this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
     final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
+      @Override
       public void apply(final JvmGenericType it) {
         EList<JvmMember> _members = jvmClass.getMembers();
         JvmTypeReference _typeRef = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef("junit.framework.Test");
         final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+          @Override
           public void apply(final JvmOperation it) {
             it.setStatic(true);
             it.setVisibility(JvmVisibility.PUBLIC);
             final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+              @Override
               public void apply(final ITreeAppendable it) {
                 StringConcatenation _builder = new StringConcatenation();
                 _builder.append("junit.framework.TestSuite suite = new junit.framework.TestSuite(\"");
@@ -160,6 +163,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           String _name = instance.getName();
           JvmTypeReference _jvmType = JexTestJvmModelInferrer.this._util.jvmType(instance);
           final Procedure1<JvmField> _function_1 = new Procedure1<JvmField>() {
+            @Override
             public void apply(final JvmField it) {
               it.setVisibility(JvmVisibility.DEFAULT);
               it.setStatic(true);
@@ -207,6 +211,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
         EList<JvmMember> _members = jvmClass.getMembers();
         JvmTypeReference _returnType = method.getReturnType();
         final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+          @Override
           public void apply(final JvmOperation it) {
             JvmVisibility _xifexpression = null;
             if (isSuite) {
@@ -260,6 +265,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
         this.inferTestedClass(testedClass, acceptor);
       }
       final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
+        @Override
         public void apply(final JvmGenericType it) {
           final JvmAnnotationReference jexerciseTestCaseAnnotation = JexTestJvmModelInferrer.this._annotationTypesBuilder.annotationRef("no.hal.jex.runtime.JExercise");
           JexTestJvmModelInferrer.this._testAnnotationsSupport.generateTestClassAnntations(testCase, jexerciseTestCaseAnnotation);
@@ -274,9 +280,11 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
               String _name = instance.getName();
               JvmTypeReference _jvmType = JexTestJvmModelInferrer.this._util.jvmType(instance);
               final Procedure1<JvmField> _function = new Procedure1<JvmField>() {
+                @Override
                 public void apply(final JvmField it) {
                   it.setVisibility(JvmVisibility.PRIVATE);
                   final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+                    @Override
                     public void apply(final ITreeAppendable it) {
                       String _suiteClassName = testSuite.getSuiteClassName();
                       String _plus = (_suiteClassName + ".");
@@ -302,6 +310,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
             String _defaultInstanceName = JexTestJvmModelInferrer.this._util.defaultInstanceName(testCase);
             JvmTypeReference _testedJvmTypeRef = JexTestJvmModelInferrer.this._util.testedJvmTypeRef(testCase);
             final Procedure1<JvmField> _function_1 = new Procedure1<JvmField>() {
+              @Override
               public void apply(final JvmField it) {
                 it.setVisibility(JvmVisibility.PRIVATE);
               }
@@ -316,6 +325,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
                 EList<JvmMember> _members_2 = jvmClass.getMembers();
                 String _name_1 = instance_1.getName();
                 final Procedure1<JvmField> _function_2 = new Procedure1<JvmField>() {
+                  @Override
                   public void apply(final JvmField it) {
                     it.setVisibility(JvmVisibility.PRIVATE);
                   }
@@ -333,12 +343,14 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           EList<JvmMember> _members_2 = jvmClass.getMembers();
           JvmTypeReference _typeRef = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
           final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
+            @Override
             public void apply(final JvmOperation it) {
               it.setVisibility(JvmVisibility.PROTECTED);
               EList<JvmAnnotationReference> _annotations = it.getAnnotations();
               JvmAnnotationReference _annotationRef = JexTestJvmModelInferrer.this._annotationTypesBuilder.annotationRef(Override.class);
               JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotationRef);
               final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+                @Override
                 public void apply(final ITreeAppendable it) {
                   JexTestJvmModelInferrer.this.generateSetUpMethodBody(testCase, it);
                 }
@@ -367,9 +379,11 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
               String _plus = ("test" + _firstUpper);
               JvmTypeReference _typeRef_1 = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
               final Procedure1<JvmOperation> _function_3 = new Procedure1<JvmOperation>() {
+                @Override
                 public void apply(final JvmOperation it) {
                   it.setVisibility(JvmVisibility.PUBLIC);
                   final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+                    @Override
                     public void apply(final ITreeAppendable it) {
                       EList<Instance> _instances = sequence.getInstances();
                       for (final Instance instance : _instances) {
@@ -393,6 +407,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           }
           EList<JvmMember> _members_4 = it.getMembers();
           final Function1<Pair<JexTestSequence, JvmOperation>, JvmOperation> _function_4 = new Function1<Pair<JexTestSequence, JvmOperation>, JvmOperation>() {
+            @Override
             public JvmOperation apply(final Pair<JexTestSequence, JvmOperation> it) {
               return it.getValue();
             }
@@ -474,6 +489,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           EList<JvmMember> _members_5 = it.getMembers();
           JvmTypeReference _typeRef_2 = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
           final Procedure1<JvmOperation> _function_5 = new Procedure1<JvmOperation>() {
+            @Override
             public void apply(final JvmOperation it) {
               it.setVisibility(JvmVisibility.PUBLIC);
               it.setStatic(true);
@@ -483,6 +499,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
               JvmFormalParameter _parameter = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(testCase, "args", _addArrayTypeDimension);
               JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
               final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+                @Override
                 public void apply(final ITreeAppendable it) {
                   StringConcatenation _builder = new StringConcatenation();
                   _builder.append("no.hal.jex.standalone.JexStandalone.main(");
@@ -511,6 +528,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       String _name = testedClass.getName();
       String _prependPackageName = this._util.prependPackageName(_name, testedClass);
       final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
+        @Override
         public void apply(final JvmGenericType it) {
           boolean _isInterface = testedClass.isInterface();
           it.setInterface(_isInterface);
@@ -535,6 +553,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           JvmExecutable _xifexpression = null;
           if ((op instanceof TestedConstructor)) {
             final Procedure1<JvmConstructor> _function_1 = new Procedure1<JvmConstructor>() {
+              @Override
               public void apply(final JvmConstructor it) {
               }
             };
@@ -545,6 +564,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
               String _name_1 = ((TestedMethod)op).getName();
               JvmParameterizedTypeReference _returnType = ((TestedMethod)op).getReturnType();
               final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
+                @Override
                 public void apply(final JvmOperation it) {
                   boolean _or = false;
                   boolean _isAbstract = ((TestedMethod)op).isAbstract();
@@ -581,6 +601,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
     {
       JvmTypeReference _jvmType = this._util.jvmType(instance);
       final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+        @Override
         public void apply(final JvmOperation it) {
           it.setVisibility(JvmVisibility.PRIVATE);
         }
@@ -590,6 +611,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       boolean _equals = Objects.equal(_expr, null);
       if (_equals) {
         final Procedure1<ITreeAppendable> _function_1 = new Procedure1<ITreeAppendable>() {
+          @Override
           public void apply(final ITreeAppendable it) {
             it.append("return new ");
             JvmTypeReference _jvmType = JexTestJvmModelInferrer.this._util.jvmType(instance);
@@ -605,6 +627,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           this._jvmTypesBuilder.setBody(method, _expr_1);
         } else {
           final Procedure1<ITreeAppendable> _function_2 = new Procedure1<ITreeAppendable>() {
+            @Override
             public void apply(final ITreeAppendable it) {
               XExpression _expr = instance.getExpr();
               boolean _hasDiagnostic = JexTestJvmModelInferrer.this._util.hasDiagnostic(_expr);
@@ -714,6 +737,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       String _name_1 = stateFunction.getName();
       JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
       final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+        @Override
         public void apply(final JvmOperation it) {
           JvmVisibility _xifexpression = null;
           if (isSuite) {
@@ -738,6 +762,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           JexTestJvmModelInferrer.this.initParameters(it, _parameters_1);
           final JvmOperation method = it;
           final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+            @Override
             public void apply(final ITreeAppendable it) {
               boolean _and = false;
               if (!(!isSuite)) {
@@ -770,6 +795,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
   public void inferStateTestMethods(final StateTestContext stateTestContext, final State state, final JvmGenericType jvmClass) {
     EList<JvmMember> _members = jvmClass.getMembers();
     final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+      @Override
       public void apply(final ITreeAppendable it) {
         final ITreeAppendable appendable = it;
         EList<ObjectTest> _objectTests = state.getObjectTests();
@@ -798,6 +824,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       XExpression _expr = action.getExpr();
       this._iJvmModelAssociator.associateLogicalContainer(_expr, method);
       final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+        @Override
         public void apply(final ITreeAppendable it) {
           XExpression _expr = action.getExpr();
           JexTestJvmModelInferrer.this.generateAssertCall(action, _expr, it, true);
@@ -811,6 +838,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
   
   public JvmOperation inferTestHelperMethod(final StateTestContext innerStateTestContext, final String name, final JvmTypeReference type, final EObject context) {
     final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+      @Override
       public void apply(final JvmOperation it) {
         it.setVisibility(JvmVisibility.PRIVATE);
         TestMemberContext _ancestor = JexTestJvmModelInferrer.this._util.<TestMemberContext>ancestor(innerStateTestContext, TestMemberContext.class);
@@ -873,6 +901,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
       final JvmOperation method = this.inferTestHelperMethod(stateTestContext, _plus, _typeRef, context);
       final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+        @Override
         public void apply(final ITreeAppendable it) {
           initializer.apply(it);
         }
@@ -903,6 +932,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       if ((stateTestContext instanceof StateFunction)) {
         EList<Parameter> _parameters = ((StateFunction)stateTestContext).getParameters();
         final Function1<Parameter, CharSequence> _function = new Function1<Parameter, CharSequence>() {
+          @Override
           public CharSequence apply(final Parameter it) {
             return it.getName();
           }
@@ -915,6 +945,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       if ((stateTestContext instanceof JexTestSequence)) {
         EList<Instance> _instances = ((JexTestSequence)stateTestContext).getInstances();
         final Function1<Instance, CharSequence> _function_1 = new Function1<Instance, CharSequence>() {
+          @Override
           public CharSequence apply(final Instance it) {
             return it.getName();
           }
@@ -944,6 +975,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       final String suiteMethodName = (_plus + _simpleName);
       EList<JvmFormalParameter> _parameters = op.getParameters();
       final Function1<JvmFormalParameter, CharSequence> _function = new Function1<JvmFormalParameter, CharSequence>() {
+        @Override
         public CharSequence apply(final JvmFormalParameter it) {
           return it.getName();
         }
@@ -1127,6 +1159,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
     final JvmOperation propertiesMethod = this.inferTestHelperMethod(_ancestor, _plus, returnType, ((EObject) pt));
     this._iJvmModelAssociator.associateLogicalContainer(pt, propertiesMethod);
     final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+      @Override
       public void apply(final ITreeAppendable it) {
         EList<XExpression> _expressions = pt.getExpressions();
         for (final XExpression expr : _expressions) {

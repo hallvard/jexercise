@@ -32,13 +32,13 @@ import org.eclipse.xtext.xtype.XImportSection;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestMemberContextImpl#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestMemberContextImpl#getInstances <em>Instances</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestMemberContextImpl#getStateFunctions <em>State Functions</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestMemberContextImpl#getMethods <em>Methods</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

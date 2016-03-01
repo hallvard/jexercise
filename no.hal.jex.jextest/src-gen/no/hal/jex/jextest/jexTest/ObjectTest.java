@@ -10,10 +10,10 @@ package no.hal.jex.jextest.jexTest;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.ObjectTest#getInstance <em>Instance</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getObjectTest()
  * @model

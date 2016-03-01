@@ -32,12 +32,12 @@ import org.eclipse.xtext.xbase.XBlockExpression;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.StateFunctionImpl#getTest <em>Test</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.StateFunctionImpl#getType <em>Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.StateFunctionImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

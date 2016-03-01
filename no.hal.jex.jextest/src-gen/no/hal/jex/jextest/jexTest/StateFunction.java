@@ -13,11 +13,11 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.StateFunction#getType <em>Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.StateFunction#getParameters <em>Parameters</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getStateFunction()
  * @model

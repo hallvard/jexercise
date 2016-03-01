@@ -3,8 +3,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.jex.jextest/src-gen" editDirectory="/no.hal.jex.jextest.edit/src"
     editorDirectory="/no.hal.jex.jextest.editor/src" modelPluginID="no.hal.jex.jextest"
     forceOverwrite="true" modelName="JexTest" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    complianceLevel="5.0" copyrightFields="false" editPluginID="no.hal.jex.jextest.edit"
-    editorPluginID="no.hal.jex.jextest.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype">
+    complianceLevel="6.0" copyrightFields="false" editPluginID="no.hal.jex.jextest.edit"
+    editorPluginID="no.hal.jex.jextest.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype">
   <genPackages prefix="JexTest" basePackage="no.hal.jex.jextest" disposableProviderFactory="true"
       fileExtensions="jextest" ecorePackage="JexTest.ecore#/">
     <genClasses ecoreClass="JexTest.ecore#//JexTestSuite">

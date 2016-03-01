@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.TransitionSource#getState <em>State</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TransitionSource#getStateRef <em>State Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTransitionSource()
  * @model

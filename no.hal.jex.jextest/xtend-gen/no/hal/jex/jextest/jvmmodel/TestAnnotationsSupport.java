@@ -89,6 +89,7 @@ public class TestAnnotationsSupport {
       EList<JvmMember> _members = _annotation.getMembers();
       Iterable<JvmOperation> _filter = Iterables.<JvmOperation>filter(_members, JvmOperation.class);
       final Function1<JvmOperation, Boolean> _function = new Function1<JvmOperation, Boolean>() {
+        @Override
         public Boolean apply(final JvmOperation it) {
           String _simpleName = it.getSimpleName();
           return Boolean.valueOf(Objects.equal(_simpleName, valueName));
@@ -143,6 +144,7 @@ public class TestAnnotationsSupport {
     EList<JvmOperationRef> _tested = sequence.getTested();
     final Iterable<JvmOperation> resolvedOperations = this._util.resolveOperatorRefs(_tested);
     final Function1<JvmOperation, Boolean> _function = new Function1<JvmOperation, Boolean>() {
+      @Override
       public Boolean apply(final JvmOperation it) {
         return Boolean.valueOf(Objects.equal(it, null));
       }
@@ -202,6 +204,7 @@ public class TestAnnotationsSupport {
     this.addDescription(descriptionBuffer, _description, "h3");
     EList<Transition> _transitions_1 = sequence.getTransitions();
     final Function1<Transition, Boolean> _function_1 = new Function1<Transition, Boolean>() {
+      @Override
       public Boolean apply(final Transition it) {
         EList<TransitionAction> _actions = it.getActions();
         boolean _isEmpty = _actions.isEmpty();

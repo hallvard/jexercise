@@ -11,12 +11,12 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedMethod#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedMethod#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedMethod#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTestedMethod()
  * @model
