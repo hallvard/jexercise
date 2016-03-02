@@ -57,7 +57,7 @@ public class JunitTaskProposalAdapter extends TaskProposalUIAdapter<JunitTestAns
 	protected class JunitSessionListener extends TestRunListener implements Runnable {
 		
 		@Override
-		public void sessionLaunched(ITestRunSession session) {
+		public void sessionStarted(ITestRunSession session) {
 			if (! acceptTestRunSession(session)) {
 				return;
 			}
@@ -77,7 +77,7 @@ public class JunitTaskProposalAdapter extends TaskProposalUIAdapter<JunitTestAns
 				if (isEmpty(testRunName) || (testClassName != null && testClassName.equals(testRunName))) {
 					return true;
 				}
-			}			
+			}
 			String sessionName = session.getTestRunName();
 			return isEmpty(testRunName) || sessionName.equals(testRunName);
 		}
@@ -110,7 +110,7 @@ public class JunitTaskProposalAdapter extends TaskProposalUIAdapter<JunitTestAns
 				return;
 			}
 			taskEvent = JunitFactory.eINSTANCE.createJunitTestEvent();
-			taskEvent.setTimestamp(System.currentTimeMillis());
+			taskEvent.setTimestamp(getTimestamp());
 			taskEvent.setSuccessCount(this.successCount);
 			taskEvent.setFailureCount(this.failureCount);
 			taskEvent.setErrorCount(this.errorCount);

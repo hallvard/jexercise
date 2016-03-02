@@ -53,6 +53,7 @@ public abstract class WorkbenchTaskProposalAdapter<A extends WorkbenchTaskAnswer
 			String answerAction = getProposal().getAnswer().getAction();
 			boolean performed = (isEmpty(answerElement) || answerElement.equals(id)) && (isEmpty(answerAction) || answerAction.equals(action));
 			if (performed) {
+				timestamp = getTimestamp();
 				performedCount++;
 				updateProposal();
 			}
@@ -65,10 +66,15 @@ public abstract class WorkbenchTaskProposalAdapter<A extends WorkbenchTaskAnswer
 
 		@Override
 		public void run() {
-			double completion = ((double) getProposal().getAnswer().getRequiredCount()) / this.performedCount;
 			TaskEvent taskEvent = ExerciseFactory.eINSTANCE.createTaskEvent();
 			taskEvent.setTimestamp(this.timestamp);
-			taskEvent.setCompletion(completion);
+			
+			double completion = -1;
+			double requiredCount = (double) getProposal().getAnswer().getRequiredCount();
+			if (requiredCount > 0) {
+				completion = this.performedCount / requiredCount;
+				taskEvent.setCompletion(completion);
+			}
 			getProposal().getAttempts().add(taskEvent);
 			getProposal().setPerformedCount(this.performedCount);
 			getProposal().setCompletion(completion);

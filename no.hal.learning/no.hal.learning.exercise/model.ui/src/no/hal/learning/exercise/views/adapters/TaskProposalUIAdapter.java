@@ -35,6 +35,10 @@ public abstract class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjec
 		return super.isChangeNotification(notification) && notification.getFeature() == ExercisePackage.eINSTANCE.getTaskProposal_Attempts();
 	}
 
+	protected long getTimestamp() {
+		return System.currentTimeMillis();
+	}
+	
 	protected TaskEvent getLastAttempt() {
 		EList<TaskEvent> attempts = getProposal().getAttempts();
 		return (attempts.size() > 0 ? attempts.get(attempts.size() - 1) : null);

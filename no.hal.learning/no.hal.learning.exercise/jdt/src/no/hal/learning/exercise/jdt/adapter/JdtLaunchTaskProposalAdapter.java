@@ -74,7 +74,7 @@ public class JdtLaunchTaskProposalAdapter extends TaskProposalUIAdapter<JdtLaunc
 				return;
 			}
 			taskEvent = JdtFactory.eINSTANCE.createJdtLaunchEvent();
-			taskEvent.setTimestamp(System.currentTimeMillis());
+			taskEvent.setTimestamp(getTimestamp());
 			taskEvent.setMode(launch.getLaunchMode());
 			updateProposal();
 		}

@@ -122,7 +122,7 @@ public class JdtSourceEditTaskProposalAdapter extends TaskProposalUIAdapter<JdtS
 			IFile file = (IFile) cu.getResource();
 			this.filePath = file.getFullPath();
 			taskEvent = JdtFactory.eINSTANCE.createJdtSourceEditEvent();
-			taskEvent.setTimestamp(System.currentTimeMillis());
+			taskEvent.setTimestamp(getTimestamp());
 			BufferedReader reader = null;
 			try {
 				reader = new BufferedReader(new InputStreamReader(file.getContents()));
