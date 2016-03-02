@@ -1,0 +1,11 @@
+<project name="no.hal.learning.updatesite">
+	<property name="project.artifactId">no.hal.learning.updatesite</property>
+	<property name="project.version">0.1.0</property>
+	<property name="www.build-artifacts.root">/var/www/build-artifacts</property>
+	<property name="www.p2.root">${www.build-artifacts.root}/p2</property>
+  	<target name="deploy">
+  		<copy todir="${www.p2.root}/${project.artifactId}/${project.version}">
+			<fileset dir="target/repository"/>
+		</copy>
+  	</target>
+</project>

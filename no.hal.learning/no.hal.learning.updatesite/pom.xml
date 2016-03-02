@@ -10,11 +10,6 @@
   	<relativePath>..</relativePath>
   </parent>
   
-  <properties>
-  	<www.build-artifacts.root>/var/www/build-artifacts</www.build-artifacts.root>
-  	<www.p2.root>${www.build-artifacts.root}/p2</www.p2.root>
-  </properties>
-  
   <build>
     <plugins>
       <plugin>
@@ -26,25 +21,6 @@
           <createArtifactRepository>true</createArtifactRepository>
         </configuration>
       </plugin>
-		<plugin>
-	        <artifactId>maven-antrun-plugin</artifactId>
-	        <version>1.8</version>
-	        <executions>
-	          <execution>
-	            <phase>deploy</phase>
-	            <configuration>
-	              <target>
-	              	<copy todir="${www.p2.root}/${project.artifactId}/${project.version}">
-    					<fileset dir="target/repository"/>
-  					</copy>
-	              </target>
-	            </configuration>
-	            <goals>
-	              <goal>run</goal>
-	            </goals>
-	          </execution>
-	        </executions>
-	      </plugin>
-      </plugins>
+     </plugins>
   </build>
 </project>
