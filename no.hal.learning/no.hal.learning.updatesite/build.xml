@@ -1,8 +1,8 @@
 <project name="no.hal.learning.updatesite">
-	<property name="project.artifactId">no.hal.learning.updatesite</property>
-	<property name="project.version">0.1.0</property>
+	<property name="project.artifactId" value="no.hal.learning.updatesite"/>
+	<property name="project.version" value="0.1.0"/>
   	<target name="deploy">
-  		<copy todir="${www.p2.root}/${project.artifactId}/${project.version}">
+  		<copy todir="${www.p2.root}/${project.artifactId}/${project.version}-${version.qualifier}">
 			<fileset dir="target/repository"/>
 		</copy>
   	</target>
