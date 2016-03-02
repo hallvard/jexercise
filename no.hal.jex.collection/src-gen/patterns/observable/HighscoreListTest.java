@@ -50,7 +50,7 @@ public class HighscoreListTest extends TestCase {
     for (final int element : elements) {
       {
         int _element = highscoreList.getElement(i);
-        JextestExtensions.operator_assertEquals(element, _element);
+        JextestExtensions.operator_assertEquals(_element, element);
         i++;
       }
     }

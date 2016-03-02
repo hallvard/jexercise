@@ -108,7 +108,7 @@ method operator_assertEquals(HighscoreList highscoreList, int[] elements) {
 	elements.length ?= highscoreList.size()
 	var i = 0
 	for (element : elements) {
-		element ?= highscoreList.getElement(i)
+		highscoreList.getElement(i) ?= element
 		i++
 	}
 }
