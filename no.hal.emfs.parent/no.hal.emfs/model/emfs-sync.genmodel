@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.emfs/src" editDirectory="/no.hal.emfs.ui/src"
+    editorDirectory="" modelPluginID="no.hal.emfs" modelName="Emfs-sync" editPluginClass="SyncUIPlugin"
+    editorPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="no.hal.emfs.ui" editorPluginID="no.hal.emfs.ui" usedGenPackages="emfs.genmodel#//emfs"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>emfs-sync.ecore</foreignModel>
+  <genPackages prefix="Sync" basePackage="no.hal.emfs" resource="XMI" disposableProviderFactory="true"
+      fileExtensions="emfsync" ecorePackage="emfs-sync.ecore#/">
+    <genClasses ecoreClass="emfs-sync.ecore#//ExportSpec">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//ExportSpec/rules"/>
+    </genClasses>
+    <genClasses ecoreClass="emfs-sync.ecore#//PathRule">
+      <genTypeParameters ecoreTypeParameter="emfs-sync.ecore#//PathRule/R"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//PathRule/path"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute emfs-sync.ecore#//PathRule/fullPath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//PathRule/targetPath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//PathRule/includes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//PathRule/excludes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//PathRule/tags"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//PathRule/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="emfs-sync.ecore#//ExportRule"/>
+    <genClasses image="false" ecoreClass="emfs-sync.ecore#//ResourcePath">
+      <genOperations ecoreOperation="emfs-sync.ecore#//ResourcePath/getPath"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="emfs-sync.ecore#//ResourceCondition">
+      <genOperations ecoreOperation="emfs-sync.ecore#//ResourceCondition/accept">
+        <genParameters ecoreParameter="emfs-sync.ecore#//ResourceCondition/accept/resource"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="emfs-sync.ecore#//CompositeResourceCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//CompositeResourceCondition/conditions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs-sync.ecore#//CompositeResourceCondition/shortCircuitValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="emfs-sync.ecore#//StringCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs-sync.ecore#//StringCondition/prefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs-sync.ecore#//StringCondition/suffix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs-sync.ecore#//StringCondition/regex"/>
+      <genOperations ecoreOperation="emfs-sync.ecore#//StringCondition/accept">
+        <genParameters ecoreParameter="emfs-sync.ecore#//StringCondition/accept/value"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="emfs-sync.ecore#//NameCondition"/>
+    <genClasses ecoreClass="emfs-sync.ecore#//FullPathCondition"/>
+    <genClasses ecoreClass="emfs-sync.ecore#//TagsCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs-sync.ecore#//TagsCondition/includes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs-sync.ecore#//TagsCondition/excludes"/>
+    </genClasses>
+    <genClasses ecoreClass="emfs-sync.ecore#//PropertiesCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//PropertiesCondition/includes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//PropertiesCondition/excludes"/>
+    </genClasses>
+    <genClasses ecoreClass="emfs-sync.ecore#//RelativePath">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute emfs-sync.ecore#//RelativePath/segments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//RelativePath/container"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute emfs-sync.ecore#//RelativePath/fullPath"/>
+    </genClasses>
+    <genClasses ecoreClass="emfs-sync.ecore#//ImportSpec">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//ImportSpec/rules"/>
+    </genClasses>
+    <genClasses ecoreClass="emfs-sync.ecore#//ImportRule"/>
+    <genClasses ecoreClass="emfs-sync.ecore#//EmfsResourceRule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference emfs-sync.ecore#//EmfsResourceRule/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="emfs-sync.ecore#//TagsRule"/>
+    <genClasses ecoreClass="emfs-sync.ecore#//PropertiesRule"/>
+  </genPackages>
+</genmodel:GenModel>

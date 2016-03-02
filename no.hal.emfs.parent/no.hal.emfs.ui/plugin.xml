@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated emfs -->
+      <factory
+            uri="platform:/plugin/no.hal.emfs/model/emfs.ecore"
+            class="no.hal.emfs.ui.provider.EmfsItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+<!--
+   <extension point="org.eclipse.ui.newWizards">
+       @generated emfs NOT
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="no.hal.emfs.ui.presentation.EmfsModelWizardID"
+            name="%_UI_EmfsModelWizard_label"
+            class="no.hal.emfs.ui.presentation.EmfsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/emfs.png">
+         <description>%_UI_EmfsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+-->
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated emfs NOT -->
+      <editor
+            id="no.hal.emfs.ui.presentation.EmfsEditorID"
+            name="%_UI_EmfsEditor_label"
+            icon="icons/emfs.png"
+            extensions="emfs"
+            class="no.hal.emfs.ui.presentation.EmfsEditor"
+            contributorClass="no.hal.emfs.ui.presentation.EmfsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated emfs NOT -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="no.hal.emfs.ui.EmfsModelWizardID"
+            name="%_UI_EmfsModelWizard_label"
+            class="no.hal.emfs.ui.EmfsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/emfs.png">
+         <description>%_UI_EmfsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated emfs NOT -->
+      <editor
+            id="no.hal.emfs.ui.EmfsEditorID"
+            name="%_UI_EmfsEditor_label"
+            icon="icons/emfs.png"
+            extensions="emfs"
+            class="no.hal.emfs.ui.EmfsEditor"
+            contributorClass="no.hal.emfs.ui.EmfsActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.commands">
+		<command id="no.hal.emfs.ui.commands.ConvertToXmi"
+            name="Convert to XMI">
+    	</command>
+		<command id="no.hal.emfs.ui.commands.ExportEmfs"
+            name="Import Resources into Project">
+    	</command>
+		<command id="no.hal.emfs.ui.commands.LinkEmfs"
+            name="Link to Resource">
+    	</command>
+		<command id="no.hal.emfs.ui.commands.CreateEmfsFromEmfsSync"
+            name="Create Emfs from EmfsSync">
+    	</command>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="no.hal.emfs.ui.commands.ConvertToXmiCommandHandler"
+            commandId="no.hal.emfs.ui.commands.ConvertToXmi">
+        <activeWhen>
+			<with variable="selection">
+				<iterate operator="or">
+					<instanceof value="org.eclipse.core.resources.IFile"/>
+				</iterate>
+			</with>
+		</activeWhen> 
+      </handler>
+      <handler
+            class="no.hal.emfs.ui.commands.ExportCommandHandler"
+            commandId="no.hal.emfs.ui.commands.ExportEmfs">
+        <activeWhen>
+			<with variable="selection">
+				<iterate operator="or">
+					<instanceof value="org.eclipse.core.resources.IFile"/>
+				</iterate>
+			</with>
+		</activeWhen> 
+      </handler>
+      <handler
+            class="no.hal.emfs.ui.commands.LinkEmfsCommandHandler"
+            commandId="no.hal.emfs.ui.commands.LinkEmfs">
+        <activeWhen>
+			<with variable="selection">
+				<iterate operator="or">
+					<instanceof value="org.eclipse.core.resources.IFile"/>
+				</iterate>
+			</with>
+		</activeWhen> 
+      </handler>
+      <handler
+            class="no.hal.emfs.ui.commands.CreateEmfsFromEmfsyncCommandHandler"
+            commandId="no.hal.emfs.ui.commands.CreateEmfsFromEmfsSync">
+        <activeWhen>
+			<with variable="selection">
+				<iterate operator="or">
+					<instanceof value="org.eclipse.core.resources.IFile"/>
+				</iterate>
+			</with>
+		</activeWhen> 
+      </handler>
+   </extension>
+
+	<extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <menu id="no.hal.emfs.ui.commands" label="EMFS">
+	        <command id="no.hal.emfs.ui.commands.ConvertToXmi" 	commandId="no.hal.emfs.ui.commands.ConvertToXmi"/>
+	        <command id="no.hal.emfs.ui.commands.ImportEmfs" 	commandId="no.hal.emfs.ui.commands.ExportEmfs"/>
+	        <command id="no.hal.emfs.ui.commands.LinkEmfs" 		commandId="no.hal.emfs.ui.commands.LinkEmfs"/>
+	        <command id="no.hal.emfs.ui.commands.CreateEmfsFromEmfsSync" 		commandId="no.hal.emfs.ui.commands.CreateEmfsFromEmfsSync"/>
+         </menu>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated emfs-sync -->
+      <factory
+            uri="platform:/plugin/no.hal.emfs/model/emfs-sync.ecore"
+            class="no.hal.emfs.sync.provider.SyncItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.emfs/model/emfs-sync.ecore"
+            class="no.hal.emfs.ui.views.ExportSpecEObjectUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
+</plugin>

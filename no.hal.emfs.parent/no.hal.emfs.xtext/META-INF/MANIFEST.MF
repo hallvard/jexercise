@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMFS grammar and parser
+Bundle-Vendor: Hallvard Traetteberg
+Bundle-Version: 0.1.0.qualifier
+Bundle-SymbolicName: no.hal.emfs.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;bundle-version="2.9.1";visibility:=reexport,
+ no.hal.emfs,
+ org.eclipse.xtext.util;bundle-version="2.9.1"
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: no.hal.emfs.xtext,
+ no.hal.emfs.xtext.services,
+ no.hal.emfs.xtext.serializer,
+ no.hal.emfs.xtext.parser.antlr,
+ no.hal.emfs.xtext.parser.antlr.internal

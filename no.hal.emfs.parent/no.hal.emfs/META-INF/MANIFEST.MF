@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMF-model for EFS provider
+Bundle-SymbolicName: no.hal.emfs;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: Hallvard
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.9.0",
+ org.eclipse.emf.ecore;visibility:=reexport,
+ no.hal.emfs;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: no.hal.emfs,
+ no.hal.emfs.exporter,
+ no.hal.emfs.impl,
+ no.hal.emfs.importer,
+ no.hal.emfs.sync,
+ no.hal.emfs.sync.impl,
+ no.hal.emfs.sync.util,
+ no.hal.emfs.util
+Bundle-ActivationPolicy: lazy

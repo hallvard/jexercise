@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sync" nsURI="platform:/plugin/no.hal.emfs/model/emfs-sync.ecore"
+    nsPrefix="emfsSync">
+  <eClassifiers xsi:type="ecore:EClass" name="ExportSpec">
+    <eGenericSuperTypes eClassifier="#//PortSpec">
+      <eTypeArguments eClassifier="#//ExportRule"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PortSpec">
+    <eTypeParameters name="R">
+      <eBounds eClassifier="#//PathRule">
+        <eTypeArguments eTypeParameter="#//PortSpec/R"/>
+      </eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        containment="true">
+      <eGenericType eTypeParameter="#//PortSpec/R"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="ecore:EClass emfs.ecore#//EmfsResource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRefs" upperBound="-1"
+        eType="ecore:EClass emfs.ecore#//EmfsResource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PathRule" eSuperTypes="#//EmfsResourceRule">
+    <eTypeParameters name="R">
+      <eBounds eClassifier="#//PathRule">
+        <eTypeArguments eTypeParameter="#//PathRule/R"/>
+      </eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//ResourcePath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetPath" eType="#//ResourcePath"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
+        containment="true">
+      <eGenericType eTypeParameter="#//PathRule/R"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="excludes" upperBound="-1"
+        containment="true">
+      <eGenericType eTypeParameter="#//PathRule/R"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//TagsRule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//PropertiesRule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExportRule">
+    <eGenericSuperTypes eClassifier="#//PathRule">
+      <eTypeArguments eClassifier="#//ExportRule"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourcePath" abstract="true" interface="true">
+    <eOperations name="getPath" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceCondition" abstract="true" interface="true">
+    <eOperations name="accept" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="resource" eType="ecore:EClass emfs.ecore#//EmfsResource"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeResourceCondition" eSuperTypes="#//ResourceCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
+        eType="#//ResourceCondition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortCircuitValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringCondition" abstract="true" eSuperTypes="#//ResourceCondition">
+    <eOperations name="accept" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NameCondition" eSuperTypes="#//StringCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FullPathCondition" eSuperTypes="#//StringCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TagsCondition" eSuperTypes="#//ResourceCondition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="includes" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="excludes" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertiesCondition" eSuperTypes="#//ResourceCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
+        eType="ecore:EClass emfs.ecore#//Property" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="excludes" upperBound="-1"
+        eType="ecore:EClass emfs.ecore#//Property" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelativePath" eSuperTypes="#//ResourcePath">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="segments" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//ResourcePath"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportSpec">
+    <eGenericSuperTypes eClassifier="#//PortSpec">
+      <eTypeArguments eClassifier="#//ImportRule"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportRule">
+    <eGenericSuperTypes eClassifier="#//PathRule">
+      <eTypeArguments eClassifier="#//ImportRule"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EmfsResourceRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//ResourceCondition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TagsRule" eSuperTypes="#//EmfsResourceRule emfs.ecore#//TagsOwner"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertiesRule" eSuperTypes="#//EmfsResourceRule emfs.ecore#//PropertyOwner"/>
+</ecore:EPackage>
