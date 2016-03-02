@@ -28,9 +28,13 @@ public class PlotPath {
 		Iterator<Float> it = xys.iterator();
 		float x = it.next(), y = it.next();
 		path.moveTo(x, y);
-		while (it.hasNext()) {
-			x = it.next(); y = it.next();
-			path.lineTo(x, y);
+		if (! it.hasNext()) {
+			path.lineTo(x - 3, y);
+		} else {
+			while (it.hasNext()) {
+				x = it.next(); y = it.next();
+				path.lineTo(x, y);
+			}
 		}
 		return path;
 	}

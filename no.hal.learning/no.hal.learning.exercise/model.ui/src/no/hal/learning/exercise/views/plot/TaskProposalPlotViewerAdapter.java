@@ -208,6 +208,7 @@ public class TaskProposalPlotViewerAdapter extends EObjectViewerAdapterImpl<Exer
 		plotTransformController.updateView();
 		plotTransformController.revealMaximum(false);
 		updatePlot();
+		treeViewer.refresh();
 	}
 
 	protected void updatePlot() {
@@ -361,6 +362,7 @@ public class TaskProposalPlotViewerAdapter extends EObjectViewerAdapterImpl<Exer
 				PlotData plotData = findPlotData(proposal, null, true);
 				if (plotPath != null || plotData != null) {
 					plotData.setData(proposal, null, colorId, null, plotPath);
+					plotCount++;
 				}
 			}
 			num++;
