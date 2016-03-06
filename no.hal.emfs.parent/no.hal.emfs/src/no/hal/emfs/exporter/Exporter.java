@@ -72,17 +72,19 @@ public class Exporter extends AbstractPorter<ExportRule> {
 					}
 				}
 				String resourceName = path.lastSegment();
-				if (emfsResource instanceof EmfsContainer) {
-					resource = ensureFolder((EmfsContainer) emfsResource, container, monitor);
-				} else if (emfsResource instanceof EmfsFile) {
-					IFile file = container.getFile(new Path(resourceName));
-					ensureFile((EmfsFile) emfsResource, file, container, monitor);
-					count++;
-					resource = file;
-				} else {
-					return count;
+				if (resourceName != null) {
+					if (emfsResource instanceof EmfsContainer) {
+						resource = ensureFolder((EmfsContainer) emfsResource, container, monitor);
+					} else if (emfsResource instanceof EmfsFile) {
+						IFile file = container.getFile(new Path(resourceName));
+						ensureFile((EmfsFile) emfsResource, file, container, monitor);
+						count++;
+						resource = file;
+					} else {
+						return count;
+					}
+					initResource(resource, emfsResource, rule, true);
 				}
-				initResource(resource, emfsResource, rule, true);
 			} catch (Exception e) {
 			}
 		}
