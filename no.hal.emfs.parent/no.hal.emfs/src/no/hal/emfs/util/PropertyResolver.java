@@ -85,7 +85,7 @@ public class PropertyResolver {
 		if (property != null) {
 			Object value = getPropertyValue(property);
 			if (value != null) {
-				return property;
+				return value;
 			}
 		}
 		if (includeFeatures) {
