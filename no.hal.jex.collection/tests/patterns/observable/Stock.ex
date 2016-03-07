@@ -47,10 +47,7 @@
       <q xsi:type="exercise:StringQuestion" question="Use the Variables view"/>
       <a xsi:type="workbench:PartTaskAnswer" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
     </tasks>
-    <tasks xsi:type="exercise:Task">
-         <q xsi:type="exercise:StringQuestion" question=“Run TrafficLightController class."/>
-         <a xsi:type="jdt:JdtLaunchAnswer" className="testing.TrafficLightController"/>
-       </tasks>
+    
   </parts>
   
 </exercise:Exercise>
