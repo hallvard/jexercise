@@ -48,23 +48,20 @@
         <q xsi:type="exercise:StringQuestion" question="Use the Variables view"/>
         <a xsi:type="workbench:PartTaskAnswer" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
       </tasks>
+          <tasks xsi:type="exercise:Task">
+     <q xsi:type="exercise:StringQuestion" question="Run the Printer class."/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.Printer"/>
+   </tasks>
+   <tasks xsi:type="exercise:Task">
+     <q xsi:type="exercise:StringQuestion" question="Run the Manager class."/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.Manager"/>
+   </tasks>
+   <tasks xsi:type="exercise:Task">
+     <q xsi:type="exercise:StringQuestion" question="Run the Clerk class."/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.Clerk"/>
+   </tasks>
     </parts>
+
   </exercise:Exercise>
-  <exercise:ExerciseProposals exercise="/0">
-    <proposals exercisePart="/0/@parts.0">
-      <proposals xsi:type="jdt:JdtSourceEditProposal" question="/0/@parts.0/@tasks.0/@q" answer="/0/@parts.0/@tasks.0/@a"/>
-      <proposals xsi:type="jdt:JdtSourceEditProposal" question="/0/@parts.0/@tasks.1/@q" answer="/0/@parts.0/@tasks.1/@a"/>
-      <proposals xsi:type="junit:JunitTestProposal" question="/0/@parts.0/@tasks.2/@q" answer="/0/@parts.0/@tasks.2/@a"/>
-      <proposals xsi:type="jdt:JdtSourceEditProposal" question="/0/@parts.0/@tasks.3/@q" answer="/0/@parts.0/@tasks.3/@a"/>
-      <proposals xsi:type="junit:JunitTestProposal" question="/0/@parts.0/@tasks.4/@q" answer="/0/@parts.0/@tasks.4/@a"/>
-      <proposals xsi:type="jdt:JdtSourceEditProposal" question="/0/@parts.0/@tasks.5/@q" answer="/0/@parts.0/@tasks.5/@a"/>
-      <proposals xsi:type="junit:JunitTestProposal" question="/0/@parts.0/@tasks.6/@q" answer="/0/@parts.0/@tasks.6/@a"/>
-    </proposals>
-    <proposals exercisePart="/0/@parts.1">
-      <proposals xsi:type="workbench:DebugEventProposal" question="/0/@parts.1/@tasks.0/@q" answer="/0/@parts.1/@tasks.0/@a"/>
-      <proposals xsi:type="workbench:CommandExecutionProposal" question="/0/@parts.1/@tasks.1/@q" answer="/0/@parts.1/@tasks.1/@a"/>
-      <proposals xsi:type="workbench:CommandExecutionProposal" question="/0/@parts.1/@tasks.2/@q" answer="/0/@parts.1/@tasks.2/@a"/>
-      <proposals xsi:type="workbench:PartTaskProposal" question="/0/@parts.1/@tasks.3/@q" answer="/0/@parts.1/@tasks.3/@a"/>
-    </proposals>
-  </exercise:ExerciseProposals>
+ 
 </xmi:XMI>

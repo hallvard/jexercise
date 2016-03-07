@@ -27,7 +27,10 @@
        <q xsi:type="exercise:StringQuestion" question="Run the Stock Index JUnit test."/>
        <a xsi:type="junit:JunitTestAnswer" testRunName="patterns.observable.StockIndexTest"/>
      </tasks>
-
+	 <tasks xsi:type="exercise:Task">
+     <q xsi:type="exercise:StringQuestion" question="Run The Stock class."/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.Stocks"/>
+   </tasks>
 
   </parts>
   <parts xsi:type="exercise:ExercisePart" title="Tool usage">
@@ -47,7 +50,7 @@
       <q xsi:type="exercise:StringQuestion" question="Use the Variables view"/>
       <a xsi:type="workbench:PartTaskAnswer" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
     </tasks>
-    
+   
   </parts>
   
 </exercise:Exercise>
