@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:exercise="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore" xmlns:jdt="platform:/plugin/no.hal.learning.exercise.jdt/model/jdt-exercise.ecore" xmlns:junit="platform:/plugin/no.hal.learning.exercise.junit/model/junit-exercise.ecore" xmlns:workbench="platform:/plugin/no.hal.learning.exercise.workbench/model/workbench-exercise.ecore">
-  <exercise:Exercise>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:exercise="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore" xmlns:jdt="platform:/plugin/no.hal.learning.exercise.jdt/model/jdt-exercise.ecore" xmlns:junit="platform:/plugin/no.hal.learning.exercise.junit/model/junit-exercise.ecore" xmlns:workbench="platform:/plugin/no.hal.learning.exercise.workbench/model/workbench-exercise.ecore">
+ <exercise:Exercise>
   <parts xsi:type="exercise:ExercisePart" title="Logger">
     <tasks xsi:type="exercise:Task">
       <q xsi:type="exercise:StringQuestion" question="Write source code for the ILogger Interface."/>
@@ -55,10 +55,8 @@
       <q xsi:type="exercise:StringQuestion" question="Use the Variables view"/>
       <a xsi:type="workbench:PartTaskAnswer" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
     </tasks>
-    <tasks xsi:type="exercise:Task">
-         <q xsi:type="exercise:StringQuestion" question=“Run TrafficLightController class."/>
-         <a xsi:type="jdt:JdtLaunchAnswer" className="testing.TrafficLightController"/>
-       </tasks>
+   
   </parts>
   
 </exercise:Exercise>
+</xmi:XMI>
