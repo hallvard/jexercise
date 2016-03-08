@@ -12,7 +12,7 @@
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the Clerk JUnit test."/>
-        <a xsi:type="junit:JunitTestAnswer" testRunName="delegation.office.Clerk"/>
+        <a xsi:type="junit:JunitTestAnswer" testRunName="delegation.office.ClerkTest"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write source code for the Printer Class."/>
@@ -20,7 +20,7 @@
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the Printer JUnit test."/>
-        <a xsi:type="junit:JunitTestAnswer" testRunName="delegation.office.Printer"/>
+        <a xsi:type="junit:JunitTestAnswer" testRunName="delegation.office.PrinterTest"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write source code for the Manager Class."/>
@@ -28,7 +28,7 @@
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the Manager JUnit test."/>
-        <a xsi:type="junit:JunitTestAnswer" testRunName="delegation.office.Manager"/>
+        <a xsi:type="junit:JunitTestAnswer" testRunName="delegation.office.ManagerTest"/>
       </tasks>
     </parts>
     <parts xsi:type="exercise:ExercisePart" title="Tool usage">
