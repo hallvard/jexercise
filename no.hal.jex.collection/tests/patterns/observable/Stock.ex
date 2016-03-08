@@ -20,7 +20,7 @@
     <parts xsi:type="exercise:ExercisePart" title="StockIndex">
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write source code for the StockIndex class."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="ppatterns.observable.StockIndex"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.StockIndex"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the StockIndex JUnit test."/>
