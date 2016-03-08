@@ -8,7 +8,7 @@
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write source code for the Clerk Class."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="delegation.StreamLogger"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="delegation.office.Clerk"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the Clerk JUnit test."/>
@@ -16,7 +16,7 @@
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write source code for the Printer Class."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="delegation.FilteringLogger"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="delegation.office.Printer"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the Printer JUnit test."/>
@@ -24,7 +24,7 @@
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write source code for the Manager Class."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="delegation.DistributingLogger"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="delegation.office.Manager"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the Manager JUnit test."/>
