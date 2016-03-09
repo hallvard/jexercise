@@ -28,7 +28,7 @@
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run The Stock class."/>
-        <a xsi:type="jdt:JdtLaunchAnswer" className="testing.Stock"/>
+        <a xsi:type="jdt:JdtLaunchAnswer" className="patterns.observable.Stock"/>
       </tasks>
     </parts>
     <parts xsi:type="exercise:ExercisePart" title="Tool usage">

@@ -55,7 +55,7 @@
       </tasks>
        <tasks xsi:type="exercise:Task">
      <q xsi:type="exercise:StringQuestion" question="Run the HighscoreList class."/>
-     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.HighscoreList"/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="patterns.observable.HighscoreList"/>
    </tasks>
     </parts>
   </exercise:Exercise>

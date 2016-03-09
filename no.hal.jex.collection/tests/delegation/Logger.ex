@@ -52,18 +52,17 @@
       </tasks>
        <tasks xsi:type="exercise:Task">
      <q xsi:type="exercise:StringQuestion" question="Run the FilteringLogger class."/>
-     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.FilteringLogger"/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="delegation.FilteringLogger"/>
    </tasks>
    <tasks xsi:type="exercise:Task">
      <q xsi:type="exercise:StringQuestion" question="Run the StreamLogger class."/>
-     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.StreamLogger"/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="delegation.StreamLogger"/>
    </tasks>
    <tasks xsi:type="exercise:Task">
      <q xsi:type="exercise:StringQuestion" question="Run the DistributingLogger class."/>
-     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.DistributingLogger"/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="delegation.DistributingLogger"/>
    </tasks>
     </parts>
-   
   </exercise:Exercise>
 
 </xmi:XMI>

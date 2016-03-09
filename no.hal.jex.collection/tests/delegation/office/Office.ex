@@ -50,18 +50,17 @@
       </tasks>
           <tasks xsi:type="exercise:Task">
      <q xsi:type="exercise:StringQuestion" question="Run the Printer class."/>
-     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.Printer"/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="delegation.office.Printer"/>
    </tasks>
    <tasks xsi:type="exercise:Task">
      <q xsi:type="exercise:StringQuestion" question="Run the Manager class."/>
-     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.Manager"/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="delegation.office.Manager"/>
    </tasks>
    <tasks xsi:type="exercise:Task">
      <q xsi:type="exercise:StringQuestion" question="Run the Clerk class."/>
-     <a xsi:type="jdt:JdtLaunchAnswer" className="testing.Clerk"/>
+     <a xsi:type="jdt:JdtLaunchAnswer" className="delegation.office.Clerk"/>
    </tasks>
     </parts>
-
   </exercise:Exercise>
  
 </xmi:XMI>
