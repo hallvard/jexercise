@@ -4,17 +4,17 @@
     <parts xsi:type="exercise:ExercisePart" title="Highscore List">
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write source code for the HighscoreListListener interface."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.HighScoreListListener"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.HighscoreListListener"/>
       </tasks>
     </parts>
     <parts xsi:type="exercise:ExercisePart" title="HighScoreList">
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write source code for the HighScoreList class."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.HighScoreList"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.HighscoreList"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the HighScoreList JUnit test."/>
-        <a xsi:type="junit:JunitTestAnswer" testRunName="patterns.observable.HighScoreListTest"/>
+        <a xsi:type="junit:JunitTestAnswer" testRunName="patterns.observable.HighscoreListTest"/>
       </tasks>
     </parts>
     <parts xsi:type="exercise:ExercisePart" title="Observable Highscore List">
@@ -28,7 +28,7 @@
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write source code for the ObservableHighscorelist class."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.observableHighscoreList"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.ObservableHighscoreList"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the ObservableHighscoreList JUnit test."/>
