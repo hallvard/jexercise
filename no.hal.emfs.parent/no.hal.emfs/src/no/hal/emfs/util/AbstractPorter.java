@@ -1,8 +1,10 @@
 package no.hal.emfs.util;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
@@ -11,6 +13,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import no.hal.emfs.EmfsResource;
 import no.hal.emfs.Property;
+import no.hal.emfs.exporter.Exporter;
 import no.hal.emfs.sync.ImportRule;
 import no.hal.emfs.sync.PathRule;
 import no.hal.emfs.sync.PortSpec;
@@ -157,4 +160,35 @@ public class AbstractPorter<R extends PathRule<R>> {
 		}
 		return path;
 	}
+	
+	//
+	
+	public interface Listener {
+		public int UNDEFINED = 0, HANDLED = 1, IMPORTED = 2, EXPORTED = 4, CREATED = 8, UPDATED = 16;
+		public void resourceHandled(EmfsResource emfsResource, IResource resource, int what);
+	}
+	
+	private Collection<Listener> listeners = null;
+	
+	public void addListener(Listener listener) {
+		if (listeners == null) {
+			listeners = new ArrayList<Exporter.Listener>();
+		}
+		if (! listeners.contains(listener)) {
+			listeners.add(listener);
+		}
+	}
+
+	public void removeListener(Listener listener) {
+		if (listeners != null) {
+			listeners.remove(listener);
+		}
+	}
+	
+	protected void fireResourceHandled(EmfsResource emfsResource, IResource resource, int what) {
+		for (Listener listener : listeners) {
+			listener.resourceHandled(emfsResource, resource, what);
+		}
+	}
+
 }

@@ -150,15 +150,19 @@ public class Exporter extends AbstractPorter<ExportRule> {
 			try {
 				project.create(null);
 				project.open(null);
+				fireResourceHandled(emfsContainer, project, Listener.HANDLED | Listener.EXPORTED);
 			} catch (Exception e) {
 				throwException(project, target, e, monitor);
 			}
 			return project;
 		} else {
 			IFolder folder = target.getFolder(new Path(name));
-			if (! folder.exists()) {
+			if (folder.exists()) {
+				fireResourceHandled(emfsContainer, folder, Listener.HANDLED | Listener.EXPORTED | Listener.UPDATED);
+			} else {
 				try {
 					folder.create(IResource.NONE, true, null);
+					fireResourceHandled(emfsContainer, folder, Listener.HANDLED | Listener.EXPORTED | Listener.CREATED);
 				} catch (CoreException e) {
 					throwException(folder, target, e, monitor);
 				}
@@ -185,6 +189,7 @@ public class Exporter extends AbstractPorter<ExportRule> {
 			if (inputStream != null) {
 				try {
 					file.create(inputStream, true, null);
+					fireResourceHandled(emfsFile, file, Listener.HANDLED | Listener.EXPORTED | Listener.CREATED);
 				} catch (CoreException e) {
 					throwException(file, target, e, monitor);
 				}
@@ -193,6 +198,7 @@ public class Exporter extends AbstractPorter<ExportRule> {
 			InputStream inputStream = getContentInputStream(emfsFile);
 			if (inputStream != null) {
 				file.setContents(inputStream, true, false, null);
+				fireResourceHandled(emfsFile, file, Listener.HANDLED | Listener.EXPORTED | Listener.UPDATED);
 			}
 		}
 	}
@@ -220,4 +226,4 @@ public class Exporter extends AbstractPorter<ExportRule> {
 			throw this.exceptionClass.getConstructor(exceptionConstructorClasses).newInstance(args);
 		}
 	}
-}
+ }
