@@ -15,6 +15,10 @@
         <a xsi:type="jdt:JdtSourceEditAnswer" className="inheritance.CardHand"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
+        <q xsi:type="exercise:StringQuestion" question="Write the source code for the CardContainer interface."/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="inheritance.CardContainer"/>
+      </tasks>
+      <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the CardDeckTest JUnit test."/>
         <a xsi:type="junit:JunitTestAnswer" testRunName="inheritance.CardDeckTest"/>
       </tasks>

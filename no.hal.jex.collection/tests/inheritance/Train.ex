@@ -19,6 +19,10 @@
         <a xsi:type="jdt:JdtSourceEditAnswer" className="inheritance.Train"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
+        <q xsi:type="exercise:StringQuestion" question="Run the TrainCarTest JUnit test."/>
+        <a xsi:type="junit:JunitTestAnswer" testRunName="inheritance.TrainCarTest"/>
+      </tasks>
+      <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the TrainTest JUnit test."/>
         <a xsi:type="junit:JunitTestAnswer" testRunName="inheritance.TrainTest"/>
       </tasks>

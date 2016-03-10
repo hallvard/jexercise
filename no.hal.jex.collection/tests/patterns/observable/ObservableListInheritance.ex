@@ -4,27 +4,27 @@
     <parts xsi:type="exercise:ExercisePart" title="ObservableList">
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write the source code for the abstract ObservableList superclass."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="inheritance.ObservableList"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.ObservableList"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write the source code for the ObservableHighscoreList class."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="inheritance.ObservableHighscoreList"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.ObservableHighscoreList"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write the source code for the ObservableListListener interface."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="inheritance.ObservableListListener"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.ObservableListListener"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Write the source code for the ObservableHighscoreListProgram class."/>
-        <a xsi:type="jdt:JdtSourceEditAnswer" className="inheritance.ObservableHighscoreListProgram"/>
+        <a xsi:type="jdt:JdtSourceEditAnswer" className="patterns.observable.ObservableHighscoreListProgram"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the ObservableHighscoreList JUnit test."/>
-        <a xsi:type="junit:JunitTestAnswer" testRunName="inheritance.ObservableHighscoreListTest"/>
+        <a xsi:type="junit:JunitTestAnswer" testRunName="patterns.observable.ObservableHighscoreListTest"/>
       </tasks>
       <tasks xsi:type="exercise:Task">
         <q xsi:type="exercise:StringQuestion" question="Run the ObservableList JUnit test."/>
-        <a xsi:type="junit:JunitTestAnswer" testRunName="inheritance.ObservableListTest"/>
+        <a xsi:type="junit:JunitTestAnswer" testRunName="patterns.observable.ObservableListTest"/>
       </tasks>
     </parts>
     <parts xsi:type="exercise:ExercisePart" title="Tool usage">
@@ -46,11 +46,11 @@
       </tasks>
        <tasks xsi:type="exercise:Task">
          <q xsi:type="exercise:StringQuestion" question="Run the ObservableHighscoreList class."/>
-         <a xsi:type="jdt:JdtLaunchAnswer" className="inheritance.ObservableHighscoreList"/>
+         <a xsi:type="jdt:JdtLaunchAnswer" className="patterns.observable.ObservableHighscoreList"/>
        </tasks>
        <tasks xsi:type="exercise:Task">
          <q xsi:type="exercise:StringQuestion" question="Run the ObservableHighscoreListProgram class."/>
-         <a xsi:type="jdt:JdtLaunchAnswer" className="inheritance.ObservableHighscoreListProgram"/>
+         <a xsi:type="jdt:JdtLaunchAnswer" className="patterns.observable.ObservableHighscoreListProgram"/>
        </tasks>
     </parts>
   </exercise:Exercise>
