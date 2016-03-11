@@ -1,0 +1,143 @@
+import inheritance.SimpleCalculator
+
+test SimpleCalculator
+
+sequence simpleAddition "Tester enkel addisjon" {
+	state {
+		!hasOutput
+	}
+	"Gir inn 3.5" -- takeInputNumber(3.5)
+	--> state {
+		!hasOutput
+	}
+	"Gir operator +" -- takeInputOperator('+')
+	--> state {
+		!hasOutput
+	}
+	"Gir inn 4" -- takeInputNumber(4.0)
+	--> state {
+		hasOutput
+		output == 7.5
+	}
+}
+
+sequence simpleSubtraction "Tester enkel subtraksjon" {
+	state {
+		!hasOutput
+	}
+	"Gir inn 4.7" -- takeInputNumber(4.7)
+	--> state {
+		!hasOutput
+	}
+	"Gir operator -" -- takeInputOperator('-')
+	--> state {
+		!hasOutput
+	}
+	"Gir inn 8.1" -- takeInputNumber(8.1)
+	--> state {
+		hasOutput
+		output == -3.4
+	}
+}
+
+sequence simpleMultiplication "Tester enkel multiplikasjon" {
+	state {
+		!hasOutput
+	}
+	"Gir inn 1.5" -- takeInputNumber(1.5)
+	--> state {
+		!hasOutput
+	}
+	"Gir operator *" -- takeInputOperator('*')
+	--> state {
+		!hasOutput
+	}
+	"Gir inn 2" -- takeInputNumber(2.0)
+	--> state {
+		hasOutput
+		output == 3.0
+	}
+}
+
+sequence simpleDivision "Tester enkel divisjon" {
+	state {
+		!hasOutput
+	}
+	"Gir inn 11.5" -- takeInputNumber(10.5)
+	--> state {
+		!hasOutput
+	}
+	"Gir operator /" -- takeInputOperator('/')
+	--> state {
+		!hasOutput
+	}
+	"Gir inn 3" -- takeInputNumber(3.0)
+	--> state {
+		hasOutput
+		output == 3.5
+	}
+}
+
+sequence noResult "Tester riktig håndtering av å prøve å hente resultatet for tidlig" {
+	-- getOutput throws IllegalStateException
+	"Gir inn 2" -- takeInputNumber(2.0) --> state {}
+	-- getOutput throws IllegalStateException
+	"Gir operator +" -- takeInputOperator('+') --> state {}
+	-- getOutput throws IllegalStateException
+}
+
+sequence illegalOperator "Tester riktig håndtering av udefinert operator" {
+	"Gir inn 3" -- takeInputNumber(3.0) --> state {}
+	"Gir operator $" -- setOperator('$') throws IllegalArgumentException
+}
+
+sequence missingOperator "Tester å gi inn to tall på rad uten operator" {
+	-- takeInputNumber(5), takeInputNumber(4) throws IllegalStateException
+}
+
+sequence twoSeparateCalculations "Tester to regnestykker etter hverandre" {
+	"Regner ut 2.5 + 3.5" -- takeInputNumber(2.5), takeInputOperator('+'), takeInputNumber(3.5)
+	--> state {
+		hasOutput
+		output == 6
+	}
+	"Gir inn 4.5" -- takeInputNumber(4.5)
+	--> state {
+		!hasOutput
+	}
+	-- getOutput throws IllegalStateException
+	"Gir operator *" -- takeInputOperator('*') -->
+	state {
+		!hasOutput
+	}
+	-- getOutput throws IllegalStateException
+	"Gir inn 2" -- takeInputNumber(2)
+	--> state {
+		hasOutput
+		output == 9
+	}
+}
+
+sequence chainedCalculation "Tester sammenhengende regnestykker: (3.5+1.1)*2.5" {
+	"Regner ut 3.5 + 1.1" -- takeInputNumber(3.5), takeInputOperator('+'), takeInputNumber(1.1)
+	--> state {
+		hasOutput
+		output == 4.6
+	}
+	"Gir operator *" -- takeInputOperator('*')
+	--> state {
+		!hasOutput
+	}
+	-- getOutput throws IllegalStateException
+	"Gir inn 2.5" -- takeInputNumber(2.5)
+	--> state {
+		hasOutput
+		output == 11.5
+	}
+}
+
+method == (double d1, double d2) {
+    val epsilon = 0.000001d
+    d1 >= d2 - epsilon && d1 <= d2 + epsilon
+}
+
