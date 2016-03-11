@@ -30,5 +30,23 @@
       <a xsi:type="junit:JunitTestAnswer" testRunName="interfaces.twitter.TweetsCountComparatorTest"/>
     </tasks>
   </parts>
+  <parts xsi:type="exercise:ExercisePart" title="Tool usage">
+    <tasks xsi:type="exercise:Task">
+      <q xsi:type="exercise:StringQuestion" question="Use breakpoints to debug code."/>
+      <a xsi:type="workbench:DebugEventAnswer" action="suspend.breakpoint"/>
+    </tasks>
+    <tasks xsi:type="exercise:Task">
+      <q xsi:type="exercise:StringQuestion" question="Use the debug command Step Over"/>
+      <a xsi:type="workbench:CommandExecutionAnswer" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+    </tasks>
+    <tasks xsi:type="exercise:Task">
+      <q xsi:type="exercise:StringQuestion" question="Use the debug command Step Into"/>
+      <a xsi:type="workbench:CommandExecutionAnswer" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+    </tasks>
+    <tasks xsi:type="exercise:Task">
+      <q xsi:type="exercise:StringQuestion" question="Use the Variables view"/>
+      <a xsi:type="workbench:PartTaskAnswer" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+    </tasks>
+  </parts>
   
 </exercise:Exercise>
