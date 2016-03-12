@@ -2,31 +2,34 @@ package inheritance;
 
 import java.util.Stack;
 
-public class RPNCalculator extends AbstractCalculator {
-
-	private Stack<Double> stack = new Stack<Double>();
+public class RPNCalculator extends SimpleCalculator {
+	
+	private Stack<Double> stack = new Stack<>();
+	private boolean calculated = false;
 
 	@Override
-	public String toString() {
-		return stack.toString();
+	public void takeInputNumber(double number) {
+		stack.push(number);
+		calculated = false;
 	}
 
 	@Override
-	protected double[] provideArguments(int arity) {
-		if (arity > stack.size()) {
-			throw new IllegalStateException("The stack only has " + stack.size() + " values, but " + arity + " were requested");
-		}
-		double[] arguments = new double[arity];
-		for (int pos = arity - 1; pos >= 0; pos--) {
-			arguments[pos] = stack.pop();
-		}
-		return arguments;
+	public void takeInputOperator(char operator) {
+		if(stack.size() < 2)
+			throw new IllegalStateException();
+		double a = stack.pop();
+		double b = stack.pop();
+		setLeftOperand(b);
+		setOperator(operator);
+		setRightOperand(a);
+		stack.push(getResult());
+		calculated = true;
 	}
 
 	@Override
-	protected void acceptValues(double... values) {
-		for (int i = 0; i < values.length; i++) {
-			stack.push(values[i]);
-		}
+	public boolean hasOutput() {
+		return calculated;
 	}
+	
+	
 }

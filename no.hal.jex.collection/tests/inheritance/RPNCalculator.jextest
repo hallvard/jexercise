@@ -1,0 +1,56 @@
+import inheritance.RPNCalculator
+
+test RPNCalculator
+
+sequence simpleAddition "Tester å legge sammen to tall" {
+	state {
+		!hasOutput
+	}
+	-- takeInputNumber(2.5)
+	--> state {
+		!hasOutput
+	}
+	-- takeInputNumber(1.2)
+	--> state {
+		!hasOutput
+	}
+	-- takeInputOperator('+')
+	--> state {
+		hasOutput
+		output == 3.7
+	}
+}
+
+sequence complexCalculation "Regner ut ((1.1 + 2.1) * (7.0 / 2.0)" {
+	-- takeInputNumber(2.1), takeInputNumber(1.1), takeInputOperator('+')
+	--> state {
+		hasOutput
+		output == 3.2
+	}
+	-- takeInputNumber(7.0)
+	--> state {
+		!hasOutput
+	}
+	-- getOutput() throws IllegalStateException
+	-- takeInputNumber(2.0)
+	--> state {
+		!hasOutput
+	}
+	-- getOutput() throws IllegalStateException
+	-- takeInputOperator('/')
+	--> state {
+		hasOutput
+		output == 3.5
+	}
+	-- takeInputOperator('*')
+	--> state {
+		hasOutput
+		output == 11.2
+	}
+	
+}
+
+method == (double d1, double d2) {
+    val epsilon = 0.000001d
+    d1 >= d2 - epsilon && d1 <= d2 + epsilon
+}
