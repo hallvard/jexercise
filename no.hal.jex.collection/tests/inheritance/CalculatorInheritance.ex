@@ -14,6 +14,14 @@
         <q xsi:type="exercise:StringQuestion" question="Write the source code for the CalculatorProgram class."/>
         <a xsi:type="jdt:JdtSourceEditAnswer" className="inheritance.CalculatorProgram"/>
       </tasks>
+      <tasks xsi:type="exercise:Task">
+        <q xsi:type="exercise:StringQuestion" question="Run the SimpleCalculatorTest JUnit test."/>
+        <a xsi:type="junit:JunitTestAnswer" testRunName="inheritance.SimpleCalculatorTest"/>
+      </tasks>
+      <tasks xsi:type="exercise:Task">
+        <q xsi:type="exercise:StringQuestion" question="Run the RPNCalculatorTest JUnit test."/>
+        <a xsi:type="junit:JunitTestAnswer" testRunName="inheritance.RPNCalculatorTest"/>
+      </tasks>
     </parts>
     <parts xsi:type="exercise:ExercisePart" title="Tool usage">
       <tasks xsi:type="exercise:Task">
