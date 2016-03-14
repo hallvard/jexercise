@@ -1,7 +1,7 @@
-test delegation.office.Manager
-
-import java.util.Arrays
 import java.util.ArrayList
+import java.util.Arrays
+
+test delegation.office.Manager
 
 instance Printer printer = new Printer()
 instance Clerk clerk = new Clerk(printer)
@@ -10,7 +10,8 @@ instance Manager manager = new Manager(Arrays.asList(clerk))
 
 
 sequence noEmployeesConstructor{
-	"Lager Manager med tom Employee-samling"-- new Manager(new ArrayList<Employee>) throws IllegalArgumentException
+	"Lager Manager med tom Employee-samling"--
+	new Manager(new ArrayList<Employee>) throws IllegalArgumentException
 }
 
 sequence resourceCount{
@@ -34,7 +35,7 @@ sequence doCalculations{
 		clerk.taskCount == 0
 		manager.taskCount == 0
 	}
-	"Gjør en beregning" -- manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 -->
+	"Gjør en beregning" -- manager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5 -->
 	state{
 		clerk.taskCount == 1
 		manager.taskCount == 1
@@ -62,7 +63,7 @@ sequence taskCount{
 		manager.taskCount == 1
 		clerk.taskCount == 1
 	} 
-	"Gjør en beregning" -- manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 -->
+	"Gjør en beregning" -- manager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5 -->
 	state{
 		manager.taskCount == 2
 		clerk.taskCount == 2
@@ -83,7 +84,7 @@ sequence severalClerks{
 		multiManager.taskCount == 1
 		(clerk.taskCount == 1 || secondClerk.taskCount == 1) && (clerk.taskCount == 0 || secondClerk.taskCount == 0)
 	}
-	"Gjør en beregning" -- multiManager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 -->
+	"Gjør en beregning" -- multiManager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5 -->
 	state{
 		multiManager.taskCount == 2
 	} 

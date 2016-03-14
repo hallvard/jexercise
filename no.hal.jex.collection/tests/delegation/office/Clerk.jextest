@@ -8,11 +8,11 @@ sequence doCalculations {
 	state {
 		clerk.taskCount == 0
 	}
-	"Gjør en beregning" -- clerk.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 -->
+	"Gjør en beregning" -- clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5 -->
 	state {
 		clerk.taskCount == 1
 	}
-	"Gjør en beregning" -- clerk.doCalculations([x, y | x / y ], 2.0, 4.0) ?= 0.5 -->
+	"Gjør en beregning" -- clerk.doCalculations([double x, double y | x / y ], 2.0, 4.0) ?= 0.5 -->
 	state{
 		clerk.taskCount == 2
 	}
@@ -46,7 +46,7 @@ sequence taskCount {
 	state{
 		clerk.taskCount == 1
 	} 
-	"Gjør en beregning" -- clerk.doCalculations([x, y | x + y ], 2.0, 3.5) -->
+	"Gjør en beregning" -- clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5) -->
 	state{
 		clerk.taskCount == 2
 	} 

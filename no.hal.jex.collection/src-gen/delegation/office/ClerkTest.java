@@ -7,7 +7,6 @@ import java.util.function.BinaryOperator;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import org.eclipse.xtext.xbase.lib.Conversions;
-import org.eclipse.xtext.xbase.lib.DoubleExtensions;
 
 @JExercise(description = "Tests delegation.office.Clerk")
 @SuppressWarnings("all")
@@ -38,7 +37,7 @@ public class ClerkTest extends TestCase {
     return true;
   }
   
-  @JExercise(tests = "Clerk(delegation.office.Printer);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Gj\u00F8r en beregning: clerk.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t<li>Gj\u00F8r en beregning: clerk.doCalculations([x, y | x / y ], 2.0, 4.0) ?= 0.5</li>\n\t\t</ul>\n")
+  @JExercise(tests = "Clerk(delegation.office.Printer);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Gj\u00F8r en beregning: clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t<li>Gj\u00F8r en beregning: clerk.doCalculations([double x, double y | x / y ], 2.0, 4.0) ?= 0.5</li>\n\t\t</ul>\n")
   public void testDoCalculations() {
     _test__doCalculations_transitions0_effect_state();
     _transition_exprAction__doCalculations_transitions1_actions0();
@@ -58,7 +57,7 @@ public class ClerkTest extends TestCase {
     
   }
   
-  @JExercise(tests = "Clerk(delegation.office.Printer);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: clerk.printDocument(\"dokument1\")</li>\n\t\t<li>Gj\u00F8r en beregning: clerk.doCalculations([x, y | x + y ], 2.0, 3.5)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "Clerk(delegation.office.Printer);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: clerk.printDocument(\"dokument1\")</li>\n\t\t<li>Gj\u00F8r en beregning: clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5)</li>\n\t\t</ul>\n")
   public void testTaskCount() {
     _test__taskCount_transitions0_effect_state();
     _transition_exprAction__taskCount_transitions1_actions0();
@@ -90,12 +89,12 @@ public class ClerkTest extends TestCase {
     
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
       public Double apply(final Double x, final Double y) {
-        return Double.valueOf(DoubleExtensions.operator_plus(x, y));
+        return Double.valueOf((x + y));
       }
     };
     double _doCalculations = this.clerk.doCalculations(_function, 2.0, 3.5);
     boolean _assertEquals = this.operator_assertEquals(_doCalculations, 5.5);
-    assertTrue("clerk.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 failed", Boolean.valueOf(_assertEquals));
+    assertTrue("clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5 failed", Boolean.valueOf(_assertEquals));
     
   }
   
@@ -107,7 +106,7 @@ public class ClerkTest extends TestCase {
   private void _test__doCalculations_transitions1_effect_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
-    assertEquals("clerk.taskCount == 1 failed after clerk.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5", 1, _taskCount);
+    assertEquals("clerk.taskCount == 1 failed after clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5", 1, _taskCount);
     
   }
   
@@ -115,12 +114,12 @@ public class ClerkTest extends TestCase {
     
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
       public Double apply(final Double x, final Double y) {
-        return Double.valueOf(DoubleExtensions.operator_divide(x, y));
+        return Double.valueOf((x / y));
       }
     };
     double _doCalculations = this.clerk.doCalculations(_function, 2.0, 4.0);
     boolean _assertEquals = this.operator_assertEquals(_doCalculations, 0.5);
-    assertTrue("clerk.doCalculations([x, y | x / y ], 2.0, 4.0) ?= 0.5 failed", Boolean.valueOf(_assertEquals));
+    assertTrue("clerk.doCalculations([double x, double y | x / y ], 2.0, 4.0) ?= 0.5 failed", Boolean.valueOf(_assertEquals));
     
   }
   
@@ -132,7 +131,7 @@ public class ClerkTest extends TestCase {
   private void _test__doCalculations_transitions2_effect_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
-    assertEquals("clerk.taskCount == 2 failed after clerk.doCalculations([x, y | x / y ], 2.0, 4.0) ?= 0.5", 2, _taskCount);
+    assertEquals("clerk.taskCount == 2 failed after clerk.doCalculations([double x, double y | x / y ], 2.0, 4.0) ?= 0.5", 2, _taskCount);
     
   }
   
@@ -247,12 +246,12 @@ public class ClerkTest extends TestCase {
       
       final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
         public Double apply(final Double x, final Double y) {
-          return Double.valueOf(DoubleExtensions.operator_plus(x, y));
+          return Double.valueOf((x + y));
         }
       };
       this.clerk.doCalculations(_function, 2.0, 3.5);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("clerk.doCalculations([x, y | x + y ], 2.0, 3.5) failed: " + error.getMessage());
+      fail("clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5) failed: " + error.getMessage());
     }
     
   }
@@ -265,7 +264,7 @@ public class ClerkTest extends TestCase {
   private void _test__taskCount_transitions2_effect_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
-    assertEquals("clerk.taskCount == 2 failed after clerk.doCalculations([x, y | x + y ], 2.0, 3.5)", 2, _taskCount);
+    assertEquals("clerk.taskCount == 2 failed after clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5)", 2, _taskCount);
     
   }
   

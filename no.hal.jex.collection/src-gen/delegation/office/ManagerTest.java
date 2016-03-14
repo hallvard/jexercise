@@ -12,7 +12,6 @@ import java.util.function.BinaryOperator;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import org.eclipse.xtext.xbase.lib.Conversions;
-import org.eclipse.xtext.xbase.lib.DoubleExtensions;
 
 @JExercise(description = "Tests delegation.office.Manager")
 @SuppressWarnings("all")
@@ -86,7 +85,7 @@ public class ManagerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Gj\u00F8r en beregning: manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t</ul>\n")
+  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Gj\u00F8r en beregning: manager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t</ul>\n")
   public void testDoCalculations() {
     _test__doCalculations_transitions0_effect_state();
     _transition_exprAction__doCalculations_transitions1_actions0();
@@ -101,7 +100,7 @@ public class ManagerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: manager.printDocument(\"dokument\")</li>\n\t\t<li>Gj\u00F8r en beregning: manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t</ul>\n")
+  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: manager.printDocument(\"dokument\")</li>\n\t\t<li>Gj\u00F8r en beregning: manager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t</ul>\n")
   public void testTaskCount() {
     _test__taskCount_transitions0_effect_state();
     _transition_exprAction__taskCount_transitions1_actions0();
@@ -111,7 +110,7 @@ public class ManagerTest extends TestCase {
     
   }
   
-  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: multiManager.printDocument(\"dokument\")</li>\n\t\t<li>Gj\u00F8r en beregning: multiManager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t</ul>\n")
+  @JExercise(tests = "Manager(java.util.Collection<delegation.office.Employee>);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: multiManager.printDocument(\"dokument\")</li>\n\t\t<li>Gj\u00F8r en beregning: multiManager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t</ul>\n")
   public void testSeveralClerks() {
     Manager multiManager = _init__severalClerks_multiManager();
     _test__severalClerks_transitions0_effect_state(multiManager);
@@ -190,12 +189,12 @@ public class ManagerTest extends TestCase {
     
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
       public Double apply(final Double x, final Double y) {
-        return Double.valueOf(DoubleExtensions.operator_plus(x, y));
+        return Double.valueOf((x + y));
       }
     };
     double _doCalculations = this.manager.doCalculations(_function, 2.0, 3.5);
     boolean _assertEquals = this.operator_assertEquals(_doCalculations, 5.5);
-    assertTrue("manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 failed", Boolean.valueOf(_assertEquals));
+    assertTrue("manager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5 failed", Boolean.valueOf(_assertEquals));
     
   }
   
@@ -207,10 +206,10 @@ public class ManagerTest extends TestCase {
   private void _test__doCalculations_transitions1_effect_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
-    assertEquals("clerk.taskCount == 1 failed after manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5", 1, _taskCount);
+    assertEquals("clerk.taskCount == 1 failed after manager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5", 1, _taskCount);
     
     int _taskCount_1 = this.manager.getTaskCount();
-    assertEquals("manager.taskCount == 1 failed after manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5", 1, _taskCount_1);
+    assertEquals("manager.taskCount == 1 failed after manager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5", 1, _taskCount_1);
     
   }
   
@@ -291,12 +290,12 @@ public class ManagerTest extends TestCase {
     
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
       public Double apply(final Double x, final Double y) {
-        return Double.valueOf(DoubleExtensions.operator_plus(x, y));
+        return Double.valueOf((x + y));
       }
     };
     double _doCalculations = this.manager.doCalculations(_function, 2.0, 3.5);
     boolean _assertEquals = this.operator_assertEquals(_doCalculations, 5.5);
-    assertTrue("manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 failed", Boolean.valueOf(_assertEquals));
+    assertTrue("manager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5 failed", Boolean.valueOf(_assertEquals));
     
   }
   
@@ -308,10 +307,10 @@ public class ManagerTest extends TestCase {
   private void _test__taskCount_transitions2_effect_state_objectTests0_test() {
     
     int _taskCount = this.manager.getTaskCount();
-    assertEquals("manager.taskCount == 2 failed after manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5", 2, _taskCount);
+    assertEquals("manager.taskCount == 2 failed after manager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5", 2, _taskCount);
     
     int _taskCount_1 = this.clerk.getTaskCount();
-    assertEquals("clerk.taskCount == 2 failed after manager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5", 2, _taskCount_1);
+    assertEquals("clerk.taskCount == 2 failed after manager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5", 2, _taskCount_1);
     
   }
   
@@ -393,12 +392,12 @@ public class ManagerTest extends TestCase {
     
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
       public Double apply(final Double x, final Double y) {
-        return Double.valueOf(DoubleExtensions.operator_plus(x, y));
+        return Double.valueOf((x + y));
       }
     };
     double _doCalculations = multiManager.doCalculations(_function, 2.0, 3.5);
     boolean _assertEquals = this.operator_assertEquals(_doCalculations, 5.5);
-    assertTrue("multiManager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5 failed", Boolean.valueOf(_assertEquals));
+    assertTrue("multiManager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5 failed", Boolean.valueOf(_assertEquals));
     
   }
   
@@ -410,7 +409,7 @@ public class ManagerTest extends TestCase {
   private void _test__severalClerks_transitions2_effect_state_objectTests0_test(final Manager multiManager) {
     
     int _taskCount = multiManager.getTaskCount();
-    assertEquals("multiManager.taskCount == 2 failed after multiManager.doCalculations([x, y | x + y ], 2.0, 3.5) ?= 5.5", 2, _taskCount);
+    assertEquals("multiManager.taskCount == 2 failed after multiManager.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5", 2, _taskCount);
     
   }
   
