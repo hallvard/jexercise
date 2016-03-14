@@ -76,29 +76,31 @@ public class StockIndexTest extends TestCase {
     return _xblockexpression;
   }
   
-  @JExercise(tests = "StockIndex(String,patterns.observable.Stock[])", description = "<h3>Tests constructor with no Stock-objects as argument</h3>Tests \n\t\tinitialization\n")
+  @JExercise(tests = "StockIndex(String,patterns.observable.Stock[])", description = "<h3>Tests constructor with 0, 1 and 2 arguments</h3>Tests \n\t\tinitialization\n")
   public void testConstructor() {
     _test__constructor_transitions0_effect_state();
     
   }
   
-  @JExercise(tests = "StockIndex(String,patterns.observable.Stock[]);void addStock(patterns.observable.Stock)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>index0.addStock(facebook)</li>\n\t\t<li>index0.addStock(facebook)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "StockIndex(String,patterns.observable.Stock[]);void addStock(patterns.observable.Stock)", description = "<h3>Tests addStock </h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>index0.addStock(facebook)</li>\n\t\t<li>index0.addStock(facebook)</li>\n\t\t</ul>\n")
   public void testAddStock() {
-    _transition_exprAction__addStock_transitions0_actions0();
     _test__addStock_transitions0_effect_state();
     _transition_exprAction__addStock_transitions1_actions0();
     _test__addStock_transitions1_effect_state();
+    _transition_exprAction__addStock_transitions2_actions0();
+    _test__addStock_transitions2_effect_state();
     
   }
   
   @JExercise(tests = "StockIndex(String,patterns.observable.Stock[]);void removeStock(patterns.observable.Stock)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>indexN.removeStock(apple)</li>\n\t\t<li>indexN.removeStock(apple)</li>\n\t\t<li>indexN.removeStock(facebook)</li>\n\t\t</ul>\n")
   public void testRemoveStock() {
-    _transition_exprAction__removeStock_transitions0_actions0();
     _test__removeStock_transitions0_effect_state();
     _transition_exprAction__removeStock_transitions1_actions0();
     _test__removeStock_transitions1_effect_state();
     _transition_exprAction__removeStock_transitions2_actions0();
     _test__removeStock_transitions2_effect_state();
+    _transition_exprAction__removeStock_transitions3_actions0();
+    _test__removeStock_transitions3_effect_state();
     
   }
   
@@ -141,16 +143,6 @@ public class StockIndexTest extends TestCase {
     
   }
   
-  private void _transition_exprAction__addStock_transitions0_actions0() {
-    try {
-      
-      this.index0.addStock(this.facebook);
-      } catch (junit.framework.AssertionFailedError error) {
-      fail("index0.addStock(facebook) failed: " + error.getMessage());
-    }
-    
-  }
-  
   private void _test__addStock_transitions0_effect_state() {
     _test__addStock_transitions0_effect_state_objectTests0_test(index0);
     
@@ -159,7 +151,7 @@ public class StockIndexTest extends TestCase {
   private void _test__addStock_transitions0_effect_state_objectTests0_test(final StockIndex it) {
     
     double _index = it.getIndex();
-    assertTrue("index == facebookPrice failed after index0.addStock(facebook)", this.operator_equals(_index, this.facebookPrice));
+    assertTrue("index == 0.0 failed", this.operator_equals(_index, 0.0));
     
   }
   
@@ -185,13 +177,25 @@ public class StockIndexTest extends TestCase {
     
   }
   
-  private void _transition_exprAction__removeStock_transitions0_actions0() {
+  private void _transition_exprAction__addStock_transitions2_actions0() {
     try {
       
-      this.indexN.removeStock(this.apple);
+      this.index0.addStock(this.facebook);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("indexN.removeStock(apple) failed: " + error.getMessage());
+      fail("index0.addStock(facebook) failed: " + error.getMessage());
     }
+    
+  }
+  
+  private void _test__addStock_transitions2_effect_state() {
+    _test__addStock_transitions2_effect_state_objectTests0_test(index0);
+    
+  }
+  
+  private void _test__addStock_transitions2_effect_state_objectTests0_test(final StockIndex it) {
+    
+    double _index = it.getIndex();
+    assertTrue("index == facebookPrice failed after index0.addStock(facebook)", this.operator_equals(_index, this.facebookPrice));
     
   }
   
@@ -203,7 +207,7 @@ public class StockIndexTest extends TestCase {
   private void _test__removeStock_transitions0_effect_state_objectTests0_test(final StockIndex it) {
     
     double _index = it.getIndex();
-    assertTrue("index == facebookPrice failed after indexN.removeStock(apple)", this.operator_equals(_index, this.facebookPrice));
+    assertTrue("index == facebookPrice + applePrice failed", this.operator_equals(_index, (this.facebookPrice + this.applePrice)));
     
   }
   
@@ -232,9 +236,9 @@ public class StockIndexTest extends TestCase {
   private void _transition_exprAction__removeStock_transitions2_actions0() {
     try {
       
-      this.indexN.removeStock(this.facebook);
+      this.indexN.removeStock(this.apple);
       } catch (junit.framework.AssertionFailedError error) {
-      fail("indexN.removeStock(facebook) failed: " + error.getMessage());
+      fail("indexN.removeStock(apple) failed: " + error.getMessage());
     }
     
   }
@@ -245,6 +249,28 @@ public class StockIndexTest extends TestCase {
   }
   
   private void _test__removeStock_transitions2_effect_state_objectTests0_test(final StockIndex it) {
+    
+    double _index = it.getIndex();
+    assertTrue("index == facebookPrice failed after indexN.removeStock(apple)", this.operator_equals(_index, this.facebookPrice));
+    
+  }
+  
+  private void _transition_exprAction__removeStock_transitions3_actions0() {
+    try {
+      
+      this.indexN.removeStock(this.facebook);
+      } catch (junit.framework.AssertionFailedError error) {
+      fail("indexN.removeStock(facebook) failed: " + error.getMessage());
+    }
+    
+  }
+  
+  private void _test__removeStock_transitions3_effect_state() {
+    _test__removeStock_transitions3_effect_state_objectTests0_test(indexN);
+    
+  }
+  
+  private void _test__removeStock_transitions3_effect_state_objectTests0_test(final StockIndex it) {
     
     double _index = it.getIndex();
     assertTrue("index == 0.0 failed after indexN.removeStock(facebook)", this.operator_equals(_index, 0.0));
