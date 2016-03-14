@@ -4,8 +4,6 @@
  */
 package fraction;
 
-import fraction.Fraction;
-import junit.framework.Assert;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 
@@ -42,8 +40,8 @@ public class FractionTest extends TestCase {
 			)
 	public void testFraction() {
 		Fraction fraction = new Fraction(4, 5);
-		Assert.assertEquals(4, fraction.getNumerator());
-		Assert.assertEquals(5, fraction.getDenominator());
+		assertEquals(4, fraction.getNumerator());
+		assertEquals(5, fraction.getDenominator());
 	}
 
 	@JExercise(
@@ -52,7 +50,7 @@ public class FractionTest extends TestCase {
 			)
 	public void testToString() {
 		Fraction fraction = new Fraction(4, 5);
-		Assert.assertEquals("4/5", fraction.toString());
+		assertEquals("4/5", fraction.toString());
 	}
 
 	@JExercise(
@@ -61,7 +59,7 @@ public class FractionTest extends TestCase {
 			)
 	public void testAsDouble() {
 		Fraction fraction = new Fraction(1, 8);
-		Assert.assertEquals(1.0/8.0, fraction.asDouble());
+		assertEquals(1.0/8.0, fraction.asDouble());
 	}
 
 	@JExercise(
@@ -82,8 +80,8 @@ public class FractionTest extends TestCase {
 			)
 	public void testSimplify() {
 		Fraction fraction = new Fraction(2, -8);
-		Assert.assertEquals(-1, fraction.getNumerator());
-		Assert.assertEquals(4, fraction.getDenominator());
+		assertEquals(-1, fraction.getNumerator());
+		assertEquals(4, fraction.getDenominator());
 	}
 
 	@JExercise(
@@ -95,7 +93,7 @@ public class FractionTest extends TestCase {
 		Fraction fraction1 = new Fraction(3, 2);
 		Fraction fraction2 = new Fraction(3, 2);
 		Fraction result = fraction1.add(fraction2);
-		Assert.assertEquals(3.0, result.asDouble());
+		assertEquals(3.0, result.asDouble());
 	}
 
 	@JExercise(
@@ -107,7 +105,7 @@ public class FractionTest extends TestCase {
 		Fraction fraction1 = new Fraction(3, 2);
 		Fraction fraction2 = new Fraction(2, 1);
 		Fraction result = fraction1.multiply(fraction2);
-		Assert.assertEquals(3.0, result.asDouble());
+		assertEquals(3.0, result.asDouble());
 	}
 
 	@JExercise(
@@ -119,7 +117,7 @@ public class FractionTest extends TestCase {
 		Fraction fraction1 = new Fraction(5, 2);
 		Fraction fraction2 = new Fraction(3, 2);
 		Fraction result = fraction1.substract(fraction2);
-		Assert.assertEquals(1.0, result.asDouble());
+		assertEquals(1.0, result.asDouble());
 	}
 
 	@JExercise(
@@ -131,6 +129,6 @@ public class FractionTest extends TestCase {
 		Fraction fraction1 = new Fraction(18, 2);
 		Fraction fraction2 = new Fraction(3, 1);
 		Fraction result = fraction1.divide(fraction2);
-		Assert.assertEquals(3.0, result.asDouble());
+		assertEquals(3.0, result.asDouble());
 	}
 }
