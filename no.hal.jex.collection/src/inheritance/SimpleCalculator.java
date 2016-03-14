@@ -1,64 +1,67 @@
 package inheritance;
 
-class SimpleCalculator extends AbstractCalculator {
+public class SimpleCalculator {
 	
-	private Double left = Double.NaN, right = Double.NaN;
-
-	@Override
-	public String toString() {
-		return "[" + left + ", " + right + "]";
-	}
+	private Double leftOperand, rightOperand;
+	private Character operator;
 	
-	private int getArgumentCount() {
-		return (Double.isNaN(left) ? 0 : 1) + (Double.isNaN(right) ? 0 : 1);
+	protected void setLeftOperand(double operand) {
+		leftOperand = operand;
+		operator = null;
+		rightOperand = null;
 	}
 	
-	@Override
-	protected double[] provideArguments(int arity) {
-		int argCount = getArgumentCount();
-		if (arity > argCount) {
-			throw new IllegalArgumentException("Can only provide upto " + argCount + " values");
-		}
-		double[] values = values();
-		switch (arity) {
-		case 2:
-			values = values(left, right);
-			left = Double.NaN;
-			right = Double.NaN;
-			break;
-		case 1:
-			if (Double.isNaN(right)) {
-				values = values(left);
-				left = Double.NaN;
-			} else {
-				values = values(right);
-				right = Double.NaN;
-			}
-			break;
-		}
-		return values;
+	protected void setRightOperand(double operand) {
+		if(leftOperand == null || operator == null)
+			throw new IllegalStateException();
+		
+		rightOperand = operand;
 	}
-
-	@Override
-	protected void acceptValues(double... values) {
-		int argCount = getArgumentCount();
-		if (argCount + values.length > 2) {
-			throw new IllegalArgumentException("Can only accept upto " + (values.length - argCount) + " values");
-		}
-		switch (values.length) {
-		case 2:
-			left = values[0];
-			right = values[1];
-			break;
-		case 1:
-			if (argCount == 1) {
-				right = values[0];
-			} else {
-				left = values[0];
-			}
-			break;
-		case 0:
-			break;
+	
+	protected void setOperator(char operator) {
+		if("+-*/".indexOf(operator) == -1)
+			throw new IllegalArgumentException();
+		if(leftOperand == null)
+			throw new IllegalStateException();
+		
+		this.operator = operator;
+		rightOperand = null;
+	}
+	
+	protected double getResult() {
+		switch(operator) {
+		case '+': return leftOperand + rightOperand;
+		case '-': return leftOperand - rightOperand;
+		case '*': return leftOperand * rightOperand;
+		case '/': return leftOperand / rightOperand;
+		default: throw new IllegalStateException();
 		}
 	}
+	
+	public void takeInputNumber(double number) {
+		if(leftOperand == null || hasOutput()) {
+			setLeftOperand(number);
+		}
+		else {
+			setRightOperand(number);
+		}
+	}
+	
+	public void takeInputOperator(char operator) {
+		if(hasOutput())
+			setLeftOperand(getResult());
+		setOperator(operator);
+	}
+	
+	public boolean hasOutput() {
+		return rightOperand != null;
+	}
+	
+	public double getOutput() {
+		if(!hasOutput())
+			throw new IllegalStateException();
+		
+		return getResult();
+	}
+	
 }
