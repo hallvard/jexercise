@@ -1,8 +1,7 @@
 package encapsulation;
 
-import no.hal.jex.runtime.JExercise;
-import no.hal.jex.standalone.JexStandalone;
 import junit.framework.TestCase;
+import no.hal.jex.runtime.JExercise;
 
 @JExercise(
 	description="A Calculator must contain two double fields for first and second operand, a char for operand and methods for setting these fields and calculating the result."
@@ -108,9 +107,5 @@ public class CalculatorTest extends TestCase {
 			caught = true;
 		}
 		assertTrue("calculateResult should throw IllegalStateException if the calculation is division by 0.", caught);
-	}
-
-	public static void main(String[] args) {
-		JexStandalone.main(CalculatorTest.class);
 	}
 }

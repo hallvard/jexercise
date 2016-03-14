@@ -1,8 +1,8 @@
 package encapsulation;
 
+import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
-import junit.framework.TestCase;
 
 @JExercise(
 	description="The Location class must contain two integer fields named x and y, that represent the x, y coordinates of the current location."

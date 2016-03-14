@@ -1,7 +1,7 @@
 package encapsulation;
 
-import no.hal.jex.runtime.JExercise;
 import junit.framework.TestCase;
+import no.hal.jex.runtime.JExercise;
 
 @JExercise(
 		description="A Rectangle is a ..."

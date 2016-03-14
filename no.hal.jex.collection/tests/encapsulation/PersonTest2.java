@@ -1,6 +1,7 @@
 package encapsulation;
 
 import java.util.Date;
+
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
 
