@@ -1,7 +1,5 @@
 package sokoban.sokoban3;
 
-import java.util.Arrays;
-
 public class Direction {
 
 	public final int dx, dy;

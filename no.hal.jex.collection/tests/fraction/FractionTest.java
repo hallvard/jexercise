@@ -4,7 +4,6 @@
  */
 package fraction;
 
-import fraction.Fraction;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
