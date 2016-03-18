@@ -1,5 +1,10 @@
 package no.hal.confluence.ui.views;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -174,7 +179,24 @@ public class ConfluenceWikiView extends ViewPart implements BrowserView, Locatio
 					s = domContent;
 				} else if (! domOnly) {
 					if (content == null) {
-						content = getContent();
+						// content = getContent();
+						// the following workaround is needed because when using IE as the
+						// internal browser, the HTML we receive from getContent() is not as expected
+						// thus we have to get it manually
+						try {
+							URL url = new URL(getLocation());
+							BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
+							StringBuilder contentBuilder = new StringBuilder();
+							String line = null;
+							while ((line = bufferedReader.readLine()) != null) {
+								contentBuilder.append(line);
+								contentBuilder.append('\n');
+							}
+							bufferedReader.close();
+							content = contentBuilder.toString();
+						} catch (IOException e) {
+							Activator.logError("Exception when getting web page source using a stream for " + resourceExtractor, e);
+						}
 					}
 					s = content;
 				}
