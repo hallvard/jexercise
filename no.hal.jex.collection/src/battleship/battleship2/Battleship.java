@@ -13,7 +13,7 @@ public class Battleship {
 	private Collection<ShipType> shipTypes = new ArrayList<>();
 	private Collection<Ship> ships = new ArrayList<>();
 	
-	public void init(String level) {
+	public void init() {
 		/*
 		String[] lines = level.split("\n");
 

@@ -38,7 +38,6 @@ public class BattleshipPersistence {
         for (int i = 0; i < 2; i++) {
 
             String hits = lines.get(1 + i * 3);
-            System.out.println("hits: " + hits);
             List<String> shipTypeInfo = Arrays.asList(lines.get(2 + i * 3).split(","));
             List<String> shipInfo = Arrays.asList(lines.get(3 + i * 3).split(","));
 
