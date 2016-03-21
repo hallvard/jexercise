@@ -1,33 +1,31 @@
-package grensesnitt;
+package interfaces;
 
-import interfaces.Digits;
+import interfaces.Digit;
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
 import junit.framework.TestCase;
 
 @JExercise(
-		description="Digits contains an ordered collection of Digit object that can be incremented. The digits all start as zero and wraps when reaching the maximally representable value.",
+		description="Digit contains an _int_ value that can be incremented. The value starts as zero and wraps when reaching the *base* value (provided to the constructor).",
 		markupLanguage="textile"
 		)
-public class DigitsTest extends TestCase {
+public class DigitTest extends TestCase {
 
-	private Digits digit;
-	private int digitCount;
+	private Digit digit;
 	
 	protected void setUp() throws Exception {
-		digitCount = 2;
 	}
 	
 	@JExercise(
-			tests="Digits(int,int)",
+			tests="Digit(int)",
 			description="The value starts at zero.")
 	public void testDigit() {
-		digit = new Digits(10, digitCount);
+		digit = new Digit(10);
 		assertEquals(0, digit.toInt());
 	}
 	
 	private void testIncrement(int base, boolean checkValue, boolean checkToString) {
-		digit = new Digits(base, 2);
+		digit = new Digit(base);
 		int i = 0;
 		String digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		while (i < base) {
@@ -40,9 +38,8 @@ public class DigitsTest extends TestCase {
 			boolean overflow = digit.increment();
 			i++;
 			if (checkValue) {
-				int combinedBase = (int) Math.pow(base, digitCount);
-				assertEquals(i % combinedBase == 0, overflow);
-				assertEquals(i % combinedBase, digit.toInt());
+				assertEquals(i % base == 0, overflow);
+				assertEquals(i % base, digit.toInt());
 			}
 			if (checkToString) {
 				assertEquals(String.valueOf(digits.charAt(i % base)),  digit.toString().toUpperCase());
@@ -75,6 +72,6 @@ public class DigitsTest extends TestCase {
 	//
 
 	public static void main(String[] args) {
-		JexStandalone.main(DigitsTest.class);
+		JexStandalone.main(DigitTest.class);
 	}
 }

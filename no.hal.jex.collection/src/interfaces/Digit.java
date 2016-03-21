@@ -17,10 +17,12 @@ public class Digit implements Incrementable {
 		return base;
 	}
 	
+	@Override
 	public int toInt() {
 		return value;
 	}
 
+	@Override
 	public boolean increment() {
 		value += 1;
 		if (value == base) {
