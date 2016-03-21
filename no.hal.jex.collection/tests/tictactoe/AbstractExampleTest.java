@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 import junit.framework.TestCase;
 import no.hal.jex.runtime.CapturingSystemOutStream;
-import no.hal.jex.runtime.MultiFilterOutputStream;
 
 public abstract class AbstractExampleTest extends TestCase {
 
