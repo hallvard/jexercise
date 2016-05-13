@@ -168,6 +168,16 @@ public abstract class AbstractStringContentProviderImpl extends AbstractBytesCon
 		return accumulator.accumulate(initialValue, getStringContent(), this);
 	}
 
+	@Override
+	public byte[] getByteContents() {
+		return getStringContent().getBytes();
+	}
+
+	@Override
+	public void setByteContents(byte[] contents) {
+		setStringContent(new String(contents));
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -335,16 +345,6 @@ public abstract class AbstractStringContentProviderImpl extends AbstractBytesCon
 		result.append(writeable);
 		result.append(')');
 		return result.toString();
-	}
-
-	@Override
-	public byte[] getByteContents() {
-		return getStringContent().getBytes();
-	}
-
-	@Override
-	public void setByteContents(byte[] contents) {
-		setStringContent(new String(contents));
 	}
 
 	//

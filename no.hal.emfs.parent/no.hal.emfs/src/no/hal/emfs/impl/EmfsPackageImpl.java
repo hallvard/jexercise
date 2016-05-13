@@ -1808,7 +1808,7 @@ public class EmfsPackageImpl extends EPackageImpl implements EmfsPackage {
 		  (getAbstractClasspathEntry_Path(), 
 		   source, 
 		   new String[] {
-			 "java", "org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-${major}.${minor}",
+			 "java", "org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-${major}.${minor}",
 			 "junit", "org.eclipse.jdt.junit.JUNIT_CONTAINER/${major}",
 			 "plugins", "org.eclipse.pde.core.requiredPlugins"
 		   });

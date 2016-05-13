@@ -666,6 +666,26 @@ public interface EmfsPackage extends EPackage {
 	int ABSTRACT_STRING_CONTENT_PROVIDER = 12;
 
 	/**
+	 * The meta object id for the '{@link no.hal.emfs.impl.StringContentProviderImpl <em>String Content Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.emfs.impl.StringContentProviderImpl
+	 * @see no.hal.emfs.impl.EmfsPackageImpl#getStringContentProvider()
+	 * @generated
+	 */
+	int STRING_CONTENT_PROVIDER = 13;
+
+	/**
+	 * The meta object id for the '{@link no.hal.emfs.impl.AbstractStringContentsImpl <em>Abstract String Contents</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.emfs.impl.AbstractStringContentsImpl
+	 * @see no.hal.emfs.impl.EmfsPackageImpl#getAbstractStringContents()
+	 * @generated
+	 */
+	int ABSTRACT_STRING_CONTENTS = 14;
+
+	/**
 	 * The feature id for the '<em><b>File</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -709,16 +729,6 @@ public interface EmfsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ABSTRACT_STRING_CONTENT_PROVIDER_FEATURE_COUNT = ABSTRACT_BYTES_CONTENT_PROVIDER_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link no.hal.emfs.impl.StringContentProviderImpl <em>String Content Provider</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.emfs.impl.StringContentProviderImpl
-	 * @see no.hal.emfs.impl.EmfsPackageImpl#getStringContentProvider()
-	 * @generated
-	 */
-	int STRING_CONTENT_PROVIDER = 13;
 
 	/**
 	 * The feature id for the '<em><b>File</b></em>' container reference.
@@ -773,16 +783,6 @@ public interface EmfsPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_CONTENT_PROVIDER_FEATURE_COUNT = ABSTRACT_STRING_CONTENT_PROVIDER_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link no.hal.emfs.impl.AbstractStringContentsImpl <em>Abstract String Contents</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.emfs.impl.AbstractStringContentsImpl
-	 * @see no.hal.emfs.impl.EmfsPackageImpl#getAbstractStringContents()
-	 * @generated
-	 */
-	int ABSTRACT_STRING_CONTENTS = 14;
 
 	/**
 	 * The feature id for the '<em><b>Tags</b></em>' attribute list.

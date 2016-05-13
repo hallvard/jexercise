@@ -51,7 +51,7 @@ public interface AbstractClasspathEntry extends EObject {
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see no.hal.emfs.EmfsPackage#getAbstractClasspathEntry_Path()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="platform:/plugin/no.hal.emfs/model/emfs.ecore java='org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-${major}.${minor}' junit='org.eclipse.jdt.junit.JUNIT_CONTAINER/${major}' plugins='org.eclipse.pde.core.requiredPlugins'"
+	 *        annotation="platform:/plugin/no.hal.emfs/model/emfs.ecore java='org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-${major}.${minor}' junit='org.eclipse.jdt.junit.JUNIT_CONTAINER/${major}' plugins='org.eclipse.pde.core.requiredPlugins'"
 	 * @generated
 	 */
 	String getPath();

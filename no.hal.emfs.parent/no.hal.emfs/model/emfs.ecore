@@ -163,7 +163,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="platform:/plugin/no.hal.emfs/model/emfs.ecore">
-        <details key="java" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-${major}.${minor}"/>
+        <details key="java" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-${major}.${minor}"/>
         <details key="junit" value="org.eclipse.jdt.junit.JUNIT_CONTAINER/${major}"/>
         <details key="plugins" value="org.eclipse.pde.core.requiredPlugins"/>
       </eAnnotations>
