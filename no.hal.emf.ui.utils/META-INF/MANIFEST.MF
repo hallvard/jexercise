@@ -17,5 +17,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.emf.ui.commands,
  no.hal.emf.ui.parts,
  no.hal.emf.ui.parts.adapters,
+ no.hal.emf.ui.parts.plot,
  no.hal.emf.ui.properties,
  no.hal.emf.ui.utils
+Bundle-ClassPath: libs/exp4j-0.4.6-SNAPSHOT.jar,
+ .

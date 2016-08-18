@@ -1,5 +1,6 @@
 package no.hal.emf.ui.parts.adapters;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.swt.widgets.Composite;
@@ -31,7 +32,7 @@ public class EObjectViewerAdapterHelper extends EObjectAdapterHelper {
 		return false;
 	}
 
-	public void updateView(Iterable<? extends EObject> eObjects, Class<? extends EObjectViewerAdapter<?, ?>> adapterClass) {
+	public void updateView(EList<? extends EObject> eObjects, Class<? extends EObjectViewerAdapter<?, ?>> adapterClass) {
 		for (EObject eObject : eObjects) {
 			updateView(eObject, adapterClass);
 		}

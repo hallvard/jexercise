@@ -6,11 +6,13 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.jface.action.Action;
@@ -187,11 +189,16 @@ public abstract class EObjectsView extends AbstractEObjectView {
 			}
 		});
 		IItemLabelProvider labelProvider = getLabelProvider(eObject);
-		String label = labelProvider.getText(eObject);
+		String label = labelProvider.getText(eObject), toolTip = null;
 		if (eObject.eResource() != null) {
-			label = eObject.eResource().getURI().lastSegment(); 
+			URI uri = eObject.eResource().getURI();
+			label = uri.lastSegment();
+			toolTip = uri.toPlatformString(true);
 		}
 		tab.setText(label != null ? label : eObject.eClass().getName() + num++);
+		if (toolTip != null) {
+			tab.setToolTipText(toolTip);
+		}
 		Composite composite = createEObjectComposite(tabFolder);
 		getAdapterHelper().initView(eObject, EObjectUIAdapter.class, composite);
 		tab.setControl(composite);
@@ -246,5 +253,59 @@ public abstract class EObjectsView extends AbstractEObjectView {
 			eObject.eResource().save(null);
 		} catch (IOException e) {
 		}
+	}
+	
+	//
+	
+	private class AutoSaver extends EContentAdapter implements Runnable {
+
+		private EObject eObject;
+		private int changeCount, changeCounter = 0;
+		private boolean async;
+	
+		public AutoSaver(EObject eObject, int changeCount, boolean async) {
+			this.eObject = eObject;
+			this.changeCount = changeCount;
+			this.async = async;
+			eObject.eAdapters().add(this);
+		}
+
+		protected boolean isChangeNotification(Notification notification) {
+			return notification.getNotifier() == eObject;
+		}
+		
+		@Override
+		public void notifyChanged(Notification notification) {
+			if ((! notification.isTouch()) && isChangeNotification(notification) && (! tabFolder.isDisposed())) {
+				if (changeCounter >= 0) {
+					this.changeCounter++;
+					if (changeCounter >= changeCount) {
+						this.changeCounter = -1;
+						if (async) {
+							tabFolder.getDisplay().asyncExec(this);
+						} else {
+							save();
+						}
+					}
+					save();
+				}
+			}
+		}
+		
+		private void save() {
+			if (changeCounter < 0) {
+				saveEObjectResource(this.eObject);
+				changeCounter = 0;
+			}
+		}
+
+		@Override
+		public void run() {
+			save();
+		}
+	}
+	
+	protected void autoSave(EObject eObject, int changeCount, boolean async) {
+		new AutoSaver(eObject, changeCount, async);
 	}
 }
