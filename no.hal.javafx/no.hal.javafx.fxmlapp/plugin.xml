@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="no.hal.javafx.fxmlapp.launch.FxmlLaunchableTester"
+            id="no.hal.javafx.fxmlapp.launch.FxmlLaunchableTester"
+            namespace="no.hal.javafx.fxmlapp.launch"
+            properties="hasController"
+            type="org.eclipse.core.resources.IResource"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="no.hal.javafx.fxmlapp.launch.FxmlApplicationLaunchDelegate"
+            delegateDescription="FXML application launch configuration type"
+            delegateName="FXML application launch configuration type"
+            id="no.hal.javafx.fxmlapp.launch.FxmlApplication"
+            modes="run, debug"
+            name="FXML application"
+		>
+      </launchConfigurationType>   
+   </extension>
+   
+   <extension
+         point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+            class="no.hal.javafx.fxmlapp.launch.FxmlApplicationLaunchShortcut"
+            description="A launch shortcut for FXML applications"
+            id="no.hal.javafx.fxmlapp.launch.FxmlApplicationLaunchShortcut"
+            label="FXML application"
+            icon="platform:/plugin/org.eclipse.fx.ide.fxml/icons/page_white_code_red.png"
+            modes="run, debug">
+         <contextualLaunch>
+           <enablement>
+             <with variable="selection">
+               <count value="1"/>
+                <iterate>
+	              	<and>
+    	              <adapt type="org.eclipse.core.resources.IResource">
+                   	    <test property="org.eclipse.core.resources.extension" value="fxml"/>
+	                  </adapt>
+	           	      <test property="no.hal.javafx.fxmlapp.launch.hasController"/>
+	                </and>
+                </iterate>
+               </with>
+           </enablement>
+  		 </contextualLaunch>
+         <configurationType id="no.hal.javafx.fxmlapp.launch.FxmlApplication"/>
+         <description description="Run an FXML application" mode="run"/>
+         <description description="Debug an FXML application" mode="debug"/>
+      </shortcut>
+	</extension>
+
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            icon="platform:/plugin/org.eclipse.fx.ide.fxml/icons/page_white_code_red.png"
+            configTypeID="no.hal.javafx.fxmlapp.launch.FxmlApplication"
+            id="no.hal.javafx.fxmlapp.launch.FxmlApplication.image">
+      </launchConfigurationTypeImage>
+   </extension>
+
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            type="no.hal.javafx.fxmlapp.launch.FxmlApplication"
+            class="no.hal.javafx.fxmlapp.launch.FxmlApplicationTabGroup"
+            id="no.hal.javafx.fxmlapp.launch.FxmlApplication.tabGroup">
+            <launchMode mode="debug" perspective="org.eclipse.debug.ui.DebugPerspective"/>
+            <launchMode mode="run"/>
+      </launchConfigurationTabGroup>
+   </extension>
+
+</plugin>

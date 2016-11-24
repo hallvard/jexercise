@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="Pane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml" fx:controller="no.hal.javafx.fxmlapp.lib.SimpleController"
+	onKeyPressed="#handleKeyPressed" onKeyReleased="#handleKeyReleased">
+    <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButton" fx:id="button"/>
+    <Label text="A pretty long label" layoutX="126" layoutY="120" minHeight="16" minWidth="200" fx:id="label"/>
+</AnchorPane>

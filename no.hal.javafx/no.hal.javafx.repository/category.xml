@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/no.hal.javafx.fxmlapp.feature_0.0.1.qualifier.jar" id="no.hal.javafx.fxmlapp.feature" version="0.0.1.qualifier">
+      <category name="no.hal.javafx"/>
+   </feature>
+   <category-def name="no.hal.javafx" label="JavaFX stuff"/>
+</site>
