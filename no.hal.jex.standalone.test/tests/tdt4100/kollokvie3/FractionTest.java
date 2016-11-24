@@ -6,7 +6,7 @@ package tdt4100.kollokvie3;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
-import no.hal.jex.eval.JExercise;
+import no.hal.jex.runtime.JExercise;
 
 /**
  *
