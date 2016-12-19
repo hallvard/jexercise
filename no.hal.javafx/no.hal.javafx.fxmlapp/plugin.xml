@@ -74,4 +74,10 @@
       </launchConfigurationTabGroup>
    </extension>
 
+	<extension point="org.eclipse.jdt.core.classpathVariableInitializer">            
+	   <classpathVariableInitializer                                          
+	      variable="PLUGINS"                                                        
+	      class="no.hal.javafx.fxmlapp.config.PluginsVariableInitializer"/>                           
+	</extension>
+
 </plugin>
