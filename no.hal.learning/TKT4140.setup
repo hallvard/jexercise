@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="tdt4100"
-    label="TDT4100">
+    name="tkt4140"
+    label="TKT4140">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -48,5 +48,5 @@
     </setupTask>
     <description>TDT4100 for Neon.</description>
   </version>
-  <description>TDT4100 provides cool stuff.</description>
+  <description>TKT4140 provides cool stuff.</description>
 </setup:Product>
