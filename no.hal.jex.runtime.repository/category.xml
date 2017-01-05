@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/no.hal.jex.runtime.feature_1.1.0.qualifier.jar" id="no.hal.jex.runtime.feature" version="1.1.0.qualifier">
+      <category name="no.hal.jex.jextest.runtime.feature"/>
+   </feature>
+   <category-def name="no.hal.jex.jextest.runtime.feature" label="JExercise runtime"/>
+</site>

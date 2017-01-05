@@ -43,9 +43,7 @@
 					<execution>
 						<goals>
 							<goal>compile</goal>
-							<!-- <goal>testCompile</goal> -->
 						</goals>
-						<!-- optionally you can configure a different target folder -->
 						<configuration>
 							<outputDirectory>xtend-gen</outputDirectory>
 						</configuration>
@@ -54,11 +52,6 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source/>
-					<target/>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
