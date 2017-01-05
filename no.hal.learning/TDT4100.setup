@@ -51,6 +51,8 @@
           name="no.hal.javafx.fxmlapp.feature.feature.group"/>
       <requirement
           name="org.python.pydev.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/neon"/>
       <repository
