@@ -40,11 +40,9 @@
       <requirement
           name="org.python.pydev.feature.feature.group"/>
       <requirement
-          name="no.hal.emfs.feature.feature.group"
-          versionRange="[0.1.0.201701052246,0.1.0.201701052246]"/>
+          name="no.hal.emfs.feature.feature.group"/>
       <requirement
-          name="no.hal.confluence.feature.feature.group"
-          versionRange="[0.1.0.201701052248,0.1.0.201701052248]"/>
+          name="no.hal.confluence.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/neon"/>
       <repository
