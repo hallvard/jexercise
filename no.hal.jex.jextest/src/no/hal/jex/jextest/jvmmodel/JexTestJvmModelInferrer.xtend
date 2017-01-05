@@ -58,9 +58,14 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 
 	def dispatch void infer(JexTestSuite testSuite, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
 		for (testCase : testSuite.testCases) {
-			testCase.inferTestCase(acceptor)
+			if (testCase != null) {
+				testCase.inferTestCase(acceptor)
+			}
 		}
 		val jvmClass = testSuite.toClass(testSuite.suiteClassName)
+		if (jvmClass == null) {
+			return
+		}
 		jvmClass.superTypes += typeRef("junit.framework.TestCase")
 		acceptor.accept(jvmClass) [
 			jvmClass.members += testSuite.toMethod("suite", typeRef("junit.framework.Test")) [
@@ -98,7 +103,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 			jvmClass.members += method.toMethod(methodName, method.returnType) [
 				visibility = if (isSuite) JvmVisibility.DEFAULT else JvmVisibility.PRIVATE
 				static = isSuite
-				initParameters(method.parameters)
+				initParameters(method.parameters.parameters)
 				body = method.body
 			]
 		}
@@ -204,8 +209,8 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 							members += sequence.inferTestHelperMethod("_transition_exprAction_times_", action, action.times, null)
 						}
 					}
-					if (transition.effect instanceof TransitionTargetEffect) {
-						val targetEffect = transition.effect as TransitionTargetEffect
+					if (transition.effects.head instanceof TransitionTargetEffect) {
+						val targetEffect = transition.effects.head as TransitionTargetEffect
 						if (targetEffect.state != null) {
 							sequence.inferStateTestMethods(targetEffect.state, jvmClass)
 						}
@@ -218,7 +223,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 				sequenceMethod.key.generateTestMethodAnntations(jexerciseTestMethodAnnotation)
 				sequenceMethod.value.annotations += jexerciseTestMethodAnnotation
 			}
-			
+
 			// add a main method that starts the standalone version of JExercise
 			members += testCase.toMethod("main", typeRef(void)) [
 				visibility = JvmVisibility.PUBLIC
@@ -252,7 +257,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 					]
 				}
 			jvmMethod.visibility = JvmVisibility.PUBLIC
-			initParameters(jvmMethod, op.parameterTypes)
+			initParameters(jvmMethod, op.parameters.parameters)
 			jvmTestedClass.members += jvmMethod
 		}
 		acceptor.accept(jvmTestedClass)
@@ -455,7 +460,7 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 		if (transition.source != null) {
 			generateStateTesterCall(transition.source.state, transition.source.stateRef, appendable)
 		}
-		generateTransitionActionsEffect(transition.effect, transition, appendable)
+		generateTransitionActionsEffect(transition.effects.head, transition, appendable)
 	}
 
 	def dispatch void generateTransitionActionsEffect(TransitionEffect effect, Transition transition, ITreeAppendable appendable) {
@@ -464,12 +469,12 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 		}
 	}
 	def dispatch void generateTransitionActionsEffect(TransitionExceptionEffect effect, Transition transition, ITreeAppendable appendable) {
-		if (transition.effect instanceof TransitionExceptionEffect) {
+		if (transition.effects.head instanceof TransitionExceptionEffect) {
 			appendable.append("try {").increaseIndentation.newLine
 		}
 		_generateTransitionActionsEffect(effect as TransitionEffect, transition, appendable)
-		if (transition.effect instanceof TransitionExceptionEffect) {
-			val exceptionClass = (transition.effect as TransitionExceptionEffect).exceptionClass
+		if (transition.effects.head instanceof TransitionExceptionEffect) {
+			val exceptionClass = (transition.effects.head as TransitionExceptionEffect).exceptionClass
 			val exceptionClassName = exceptionClass.qualifiedName.removeJavaLang
 			val message = '''«exceptionClassName» should be thrown after «transition.actions.asSourceText(', ')»'''
 			appendable.append('''fail("«message.quote("\"")»");''')

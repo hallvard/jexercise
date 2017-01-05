@@ -1,54 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="jars" name="Create runnable jar for standalone usage">
+<project default="runtime-jar" name="Create runnable jar for standalone usage">
 
     <property name="standalone-project" value="${basedir}"/>
     <property name="collection-project" value="${basedir}/../no.hal.jex.collection"/>
     <property name="examples-project" value="${basedir}/../no.hal.jex.examples"/>
     <property name="plugin-dir" value="/Applications/Eclipse Mars Modeling/Contents/Eclipse/plugins"/>
     <property name="junit-version" value="4.11.0.v201303080030"/>
-    <property name="ecore-version" value="2.11.1.v20150508-0538"/>
     <property name="guava-version" value="15.0.0.v201403281430"/>
     <property name="xbase-version" value="2.9.1.v201512180746"/>
     <property name="xtend-version" value="2.9.1.v201512180746"/>
 	
 	<target name="runtime-jar">
         <jar destfile="${standalone-project}/jexercise-runtime.jar" filesetmanifest="mergewithoutmain">
-            <zipfileset excludes="META-INF/*.SF" src="${basedir}/target/no.hal.jex.runtime-0.9.0-SNAPSHOT.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="${plugin-dir}/org.junit_${junit-version}/junit.jar"/>
-        </jar>
-		<!--
-		<copy file="${standalone-project}/jexercise-runtime.jar" todir="${collection-project}/libs" overwrite="true"/>
-		<copy file="${standalone-project}/jexercise-runtime.jar" todir="${examples-project}/libs" overwrite="true"/>
-		-->
-    </target>
-	
-	<target name="standalone-jar" depends="runtime-jar">
-        <jar destfile="${standalone-project}/jexercise-standalone.jar" filesetmanifest="mergewithoutmain">
-            <manifest>
-                <attribute name="Main-Class" value="no.hal.jex.swing.JexExercisePanel"/>
-                <attribute name="Class-Path" value="."/>
-            </manifest>
-        	
-        	<zipfileset src="${standalone-project}/jexercise-runtime.jar"/>
-
-        	<zipfileset excludes="META-INF/*.SF" src="${basedir}/target/no.hal.jex.standalone-0.9.0-SNAPSHOT.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="${basedir}/../no.hal.jex/target/no.hal.jex-1.1.0-SNAPSHOT.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="${basedir}/../no.hal.jex.jextest.lib/target/no.hal.jex.jextest.lib-0.9.0-SNAPSHOT.jar"/>
-
-        	<zipfileset excludes="META-INF/*.SF" src="${basedir}/../no.hal.jex.java/target/no.hal.jex.java-1.1.0-SNAPSHOT.jar"/>
-
-        	<zipfileset excludes="META-INF/*.SF" src="${plugin-dir}/org.eclipse.emf.ecore_${ecore-version}.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="${plugin-dir}/org.eclipse.emf.common_${ecore-version}.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="${plugin-dir}/org.eclipse.emf.ecore.xmi_${ecore-version}.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="${plugin-dir}/com.google.guava_${guava-version}.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="${plugin-dir}/org.eclipse.xtext.xbase.lib_${xbase-version}.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="${plugin-dir}/org.eclipse.xtend.lib_${xtend-version}.jar"/>
         </jar>
-		<copy file="${standalone-project}/jexercise-standalone.jar" todir="${collection-project}/libs" overwrite="true"/>
-		<copy file="${standalone-project}/jexercise-standalone.jar" todir="${examples-project}/libs" overwrite="true"/>
-    </target>
-
-	<target name="jars" depends="runtime-jar, standalone-jar">
+		<copy file="${standalone-project}/jexercise-runtime.jar" todir="${collection-project}/libs" overwrite="true"/>
+		<copy file="${standalone-project}/jexercise-runtime.jar" todir="${examples-project}/libs" overwrite="true"/>
     </target>
 	
 </project>

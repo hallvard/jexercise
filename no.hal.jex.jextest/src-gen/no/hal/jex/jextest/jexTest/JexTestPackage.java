@@ -692,13 +692,13 @@ public interface JexTestPackage extends EPackage
   int TRANSITION__ACTIONS = 2;
 
   /**
-   * The feature id for the '<em><b>Effect</b></em>' containment reference.
+   * The feature id for the '<em><b>Effects</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSITION__EFFECT = 3;
+  int TRANSITION__EFFECTS = 3;
 
   /**
    * The number of structural features of the '<em>Transition</em>' class.
@@ -850,6 +850,25 @@ public interface JexTestPackage extends EPackage
   int TRANSITION_EFFECT_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.TransitionEffect2Impl <em>Transition Effect2</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see no.hal.jex.jextest.jexTest.impl.TransitionEffect2Impl
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionEffect2()
+   * @generated
+   */
+  int TRANSITION_EFFECT2 = 17;
+
+  /**
+   * The number of structural features of the '<em>Transition Effect2</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION_EFFECT2_FEATURE_COUNT = TRANSITION_EFFECT_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.TransitionTargetEffectImpl <em>Transition Target Effect</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -857,7 +876,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionTargetEffect()
    * @generated
    */
-  int TRANSITION_TARGET_EFFECT = 17;
+  int TRANSITION_TARGET_EFFECT = 18;
 
   /**
    * The feature id for the '<em><b>State</b></em>' containment reference.
@@ -894,7 +913,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionExceptionEffect()
    * @generated
    */
-  int TRANSITION_EXCEPTION_EFFECT = 18;
+  int TRANSITION_EXCEPTION_EFFECT = 19;
 
   /**
    * The feature id for the '<em><b>Exception Class</b></em>' containment reference.
@@ -903,7 +922,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSITION_EXCEPTION_EFFECT__EXCEPTION_CLASS = TRANSITION_EFFECT_FEATURE_COUNT + 0;
+  int TRANSITION_EXCEPTION_EFFECT__EXCEPTION_CLASS = TRANSITION_EFFECT2_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Transition Exception Effect</em>' class.
@@ -912,7 +931,7 @@ public interface JexTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TRANSITION_EXCEPTION_EFFECT_FEATURE_COUNT = TRANSITION_EFFECT_FEATURE_COUNT + 1;
+  int TRANSITION_EXCEPTION_EFFECT_FEATURE_COUNT = TRANSITION_EFFECT2_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.TransitionOutputEffectImpl <em>Transition Output Effect</em>}' class.
@@ -922,7 +941,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionOutputEffect()
    * @generated
    */
-  int TRANSITION_OUTPUT_EFFECT = 19;
+  int TRANSITION_OUTPUT_EFFECT = 20;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' attribute.
@@ -943,6 +962,70 @@ public interface JexTestPackage extends EPackage
   int TRANSITION_OUTPUT_EFFECT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.TransitionCallbackEffectImpl <em>Transition Callback Effect</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see no.hal.jex.jextest.jexTest.impl.TransitionCallbackEffectImpl
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionCallbackEffect()
+   * @generated
+   */
+  int TRANSITION_CALLBACK_EFFECT = 21;
+
+  /**
+   * The feature id for the '<em><b>Instance</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION_CALLBACK_EFFECT__INSTANCE = TRANSITION_EFFECT2_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Callback Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION_CALLBACK_EFFECT__CALLBACK_CLASS = TRANSITION_EFFECT2_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Method Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION_CALLBACK_EFFECT__METHOD_NAME = TRANSITION_EFFECT2_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION_CALLBACK_EFFECT__PARAMETERS = TRANSITION_EFFECT2_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION_CALLBACK_EFFECT__ARGUMENTS = TRANSITION_EFFECT2_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Transition Callback Effect</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION_CALLBACK_EFFECT_FEATURE_COUNT = TRANSITION_EFFECT2_FEATURE_COUNT + 5;
+
+  /**
    * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.MethodImpl <em>Method</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -950,7 +1033,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getMethod()
    * @generated
    */
-  int METHOD = 20;
+  int METHOD = 22;
 
   /**
    * The feature id for the '<em><b>Return Type</b></em>' containment reference.
@@ -971,7 +1054,7 @@ public interface JexTestPackage extends EPackage
   int METHOD__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -998,6 +1081,34 @@ public interface JexTestPackage extends EPackage
   int METHOD_FEATURE_COUNT = 4;
 
   /**
+   * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.ParameterListImpl <em>Parameter List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see no.hal.jex.jextest.jexTest.impl.ParameterListImpl
+   * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getParameterList()
+   * @generated
+   */
+  int PARAMETER_LIST = 23;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_LIST__PARAMETERS = 0;
+
+  /**
+   * The number of structural features of the '<em>Parameter List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_LIST_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link no.hal.jex.jextest.jexTest.impl.ParameterImpl <em>Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1005,7 +1116,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 21;
+  int PARAMETER = 24;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1051,7 +1162,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedClass()
    * @generated
    */
-  int TESTED_CLASS = 22;
+  int TESTED_CLASS = 25;
 
   /**
    * The feature id for the '<em><b>Interface</b></em>' attribute.
@@ -1142,16 +1253,16 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedOperation()
    * @generated
    */
-  int TESTED_OPERATION = 23;
+  int TESTED_OPERATION = 26;
 
   /**
-   * The feature id for the '<em><b>Parameter Types</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TESTED_OPERATION__PARAMETER_TYPES = 0;
+  int TESTED_OPERATION__PARAMETERS = 0;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1197,16 +1308,16 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedConstructor()
    * @generated
    */
-  int TESTED_CONSTRUCTOR = 24;
+  int TESTED_CONSTRUCTOR = 27;
 
   /**
-   * The feature id for the '<em><b>Parameter Types</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TESTED_CONSTRUCTOR__PARAMETER_TYPES = TESTED_OPERATION__PARAMETER_TYPES;
+  int TESTED_CONSTRUCTOR__PARAMETERS = TESTED_OPERATION__PARAMETERS;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1252,16 +1363,16 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTestedMethod()
    * @generated
    */
-  int TESTED_METHOD = 25;
+  int TESTED_METHOD = 28;
 
   /**
-   * The feature id for the '<em><b>Parameter Types</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TESTED_METHOD__PARAMETER_TYPES = TESTED_OPERATION__PARAMETER_TYPES;
+  int TESTED_METHOD__PARAMETERS = TESTED_OPERATION__PARAMETERS;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1334,7 +1445,7 @@ public interface JexTestPackage extends EPackage
    * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getPropertiesTest()
    * @generated
    */
-  int PROPERTIES_TEST = 26;
+  int PROPERTIES_TEST = 29;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -1828,15 +1939,15 @@ public interface JexTestPackage extends EPackage
   EReference getTransition_Actions();
 
   /**
-   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.Transition#getEffect <em>Effect</em>}'.
+   * Returns the meta object for the containment reference list '{@link no.hal.jex.jextest.jexTest.Transition#getEffects <em>Effects</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Effect</em>'.
-   * @see no.hal.jex.jextest.jexTest.Transition#getEffect()
+   * @return the meta object for the containment reference list '<em>Effects</em>'.
+   * @see no.hal.jex.jextest.jexTest.Transition#getEffects()
    * @see #getTransition()
    * @generated
    */
-  EReference getTransition_Effect();
+  EReference getTransition_Effects();
 
   /**
    * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.TransitionSource <em>Transition Source</em>}'.
@@ -1944,6 +2055,16 @@ public interface JexTestPackage extends EPackage
   EClass getTransitionEffect();
 
   /**
+   * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.TransitionEffect2 <em>Transition Effect2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Transition Effect2</em>'.
+   * @see no.hal.jex.jextest.jexTest.TransitionEffect2
+   * @generated
+   */
+  EClass getTransitionEffect2();
+
+  /**
    * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.TransitionTargetEffect <em>Transition Target Effect</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2018,6 +2139,71 @@ public interface JexTestPackage extends EPackage
   EAttribute getTransitionOutputEffect_Pattern();
 
   /**
+   * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.TransitionCallbackEffect <em>Transition Callback Effect</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Transition Callback Effect</em>'.
+   * @see no.hal.jex.jextest.jexTest.TransitionCallbackEffect
+   * @generated
+   */
+  EClass getTransitionCallbackEffect();
+
+  /**
+   * Returns the meta object for the reference '{@link no.hal.jex.jextest.jexTest.TransitionCallbackEffect#getInstance <em>Instance</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Instance</em>'.
+   * @see no.hal.jex.jextest.jexTest.TransitionCallbackEffect#getInstance()
+   * @see #getTransitionCallbackEffect()
+   * @generated
+   */
+  EReference getTransitionCallbackEffect_Instance();
+
+  /**
+   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.TransitionCallbackEffect#getCallbackClass <em>Callback Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Callback Class</em>'.
+   * @see no.hal.jex.jextest.jexTest.TransitionCallbackEffect#getCallbackClass()
+   * @see #getTransitionCallbackEffect()
+   * @generated
+   */
+  EReference getTransitionCallbackEffect_CallbackClass();
+
+  /**
+   * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.TransitionCallbackEffect#getMethodName <em>Method Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Method Name</em>'.
+   * @see no.hal.jex.jextest.jexTest.TransitionCallbackEffect#getMethodName()
+   * @see #getTransitionCallbackEffect()
+   * @generated
+   */
+  EAttribute getTransitionCallbackEffect_MethodName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.TransitionCallbackEffect#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameters</em>'.
+   * @see no.hal.jex.jextest.jexTest.TransitionCallbackEffect#getParameters()
+   * @see #getTransitionCallbackEffect()
+   * @generated
+   */
+  EReference getTransitionCallbackEffect_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.TransitionCallbackEffect#getArguments <em>Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Arguments</em>'.
+   * @see no.hal.jex.jextest.jexTest.TransitionCallbackEffect#getArguments()
+   * @see #getTransitionCallbackEffect()
+   * @generated
+   */
+  EReference getTransitionCallbackEffect_Arguments();
+
+  /**
    * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.Method <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2050,10 +2236,10 @@ public interface JexTestPackage extends EPackage
   EAttribute getMethod_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link no.hal.jex.jextest.jexTest.Method#getParameters <em>Parameters</em>}'.
+   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.Method#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @return the meta object for the containment reference '<em>Parameters</em>'.
    * @see no.hal.jex.jextest.jexTest.Method#getParameters()
    * @see #getMethod()
    * @generated
@@ -2070,6 +2256,27 @@ public interface JexTestPackage extends EPackage
    * @generated
    */
   EReference getMethod_Body();
+
+  /**
+   * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.ParameterList <em>Parameter List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter List</em>'.
+   * @see no.hal.jex.jextest.jexTest.ParameterList
+   * @generated
+   */
+  EClass getParameterList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link no.hal.jex.jextest.jexTest.ParameterList#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see no.hal.jex.jextest.jexTest.ParameterList#getParameters()
+   * @see #getParameterList()
+   * @generated
+   */
+  EReference getParameterList_Parameters();
 
   /**
    * Returns the meta object for class '{@link no.hal.jex.jextest.jexTest.Parameter <em>Parameter</em>}'.
@@ -2223,15 +2430,15 @@ public interface JexTestPackage extends EPackage
   EClass getTestedOperation();
 
   /**
-   * Returns the meta object for the containment reference list '{@link no.hal.jex.jextest.jexTest.TestedOperation#getParameterTypes <em>Parameter Types</em>}'.
+   * Returns the meta object for the containment reference '{@link no.hal.jex.jextest.jexTest.TestedOperation#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameter Types</em>'.
-   * @see no.hal.jex.jextest.jexTest.TestedOperation#getParameterTypes()
+   * @return the meta object for the containment reference '<em>Parameters</em>'.
+   * @see no.hal.jex.jextest.jexTest.TestedOperation#getParameters()
    * @see #getTestedOperation()
    * @generated
    */
-  EReference getTestedOperation_ParameterTypes();
+  EReference getTestedOperation_Parameters();
 
   /**
    * Returns the meta object for the attribute '{@link no.hal.jex.jextest.jexTest.TestedOperation#getDescription <em>Description</em>}'.
@@ -2729,12 +2936,12 @@ public interface JexTestPackage extends EPackage
     EReference TRANSITION__ACTIONS = eINSTANCE.getTransition_Actions();
 
     /**
-     * The meta object literal for the '<em><b>Effect</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Effects</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRANSITION__EFFECT = eINSTANCE.getTransition_Effect();
+    EReference TRANSITION__EFFECTS = eINSTANCE.getTransition_Effects();
 
     /**
      * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.TransitionSourceImpl <em>Transition Source</em>}' class.
@@ -2827,6 +3034,16 @@ public interface JexTestPackage extends EPackage
     EClass TRANSITION_EFFECT = eINSTANCE.getTransitionEffect();
 
     /**
+     * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.TransitionEffect2Impl <em>Transition Effect2</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see no.hal.jex.jextest.jexTest.impl.TransitionEffect2Impl
+     * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionEffect2()
+     * @generated
+     */
+    EClass TRANSITION_EFFECT2 = eINSTANCE.getTransitionEffect2();
+
+    /**
      * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.TransitionTargetEffectImpl <em>Transition Target Effect</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2889,6 +3106,56 @@ public interface JexTestPackage extends EPackage
     EAttribute TRANSITION_OUTPUT_EFFECT__PATTERN = eINSTANCE.getTransitionOutputEffect_Pattern();
 
     /**
+     * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.TransitionCallbackEffectImpl <em>Transition Callback Effect</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see no.hal.jex.jextest.jexTest.impl.TransitionCallbackEffectImpl
+     * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getTransitionCallbackEffect()
+     * @generated
+     */
+    EClass TRANSITION_CALLBACK_EFFECT = eINSTANCE.getTransitionCallbackEffect();
+
+    /**
+     * The meta object literal for the '<em><b>Instance</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION_CALLBACK_EFFECT__INSTANCE = eINSTANCE.getTransitionCallbackEffect_Instance();
+
+    /**
+     * The meta object literal for the '<em><b>Callback Class</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION_CALLBACK_EFFECT__CALLBACK_CLASS = eINSTANCE.getTransitionCallbackEffect_CallbackClass();
+
+    /**
+     * The meta object literal for the '<em><b>Method Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TRANSITION_CALLBACK_EFFECT__METHOD_NAME = eINSTANCE.getTransitionCallbackEffect_MethodName();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION_CALLBACK_EFFECT__PARAMETERS = eINSTANCE.getTransitionCallbackEffect_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION_CALLBACK_EFFECT__ARGUMENTS = eINSTANCE.getTransitionCallbackEffect_Arguments();
+
+    /**
      * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.MethodImpl <em>Method</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2915,7 +3182,7 @@ public interface JexTestPackage extends EPackage
     EAttribute METHOD__NAME = eINSTANCE.getMethod_Name();
 
     /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2929,6 +3196,24 @@ public interface JexTestPackage extends EPackage
      * @generated
      */
     EReference METHOD__BODY = eINSTANCE.getMethod_Body();
+
+    /**
+     * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.ParameterListImpl <em>Parameter List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see no.hal.jex.jextest.jexTest.impl.ParameterListImpl
+     * @see no.hal.jex.jextest.jexTest.impl.JexTestPackageImpl#getParameterList()
+     * @generated
+     */
+    EClass PARAMETER_LIST = eINSTANCE.getParameterList();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER_LIST__PARAMETERS = eINSTANCE.getParameterList_Parameters();
 
     /**
      * The meta object literal for the '{@link no.hal.jex.jextest.jexTest.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -3049,12 +3334,12 @@ public interface JexTestPackage extends EPackage
     EClass TESTED_OPERATION = eINSTANCE.getTestedOperation();
 
     /**
-     * The meta object literal for the '<em><b>Parameter Types</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TESTED_OPERATION__PARAMETER_TYPES = eINSTANCE.getTestedOperation_ParameterTypes();
+    EReference TESTED_OPERATION__PARAMETERS = eINSTANCE.getTestedOperation_Parameters();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

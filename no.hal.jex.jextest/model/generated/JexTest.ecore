@@ -77,8 +77,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//TransitionAction" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="effect" eType="#//TransitionEffect"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effects" upperBound="-1"
+        eType="#//TransitionEffect" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransitionSource">
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"
@@ -96,26 +96,41 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransitionEffect"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionEffect2" eSuperTypes="#//TransitionEffect"/>
   <eClassifiers xsi:type="ecore:EClass" name="TransitionTargetEffect" eSuperTypes="#//TransitionEffect">
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//State"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stateRef" eType="#//State"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TransitionExceptionEffect" eSuperTypes="#//TransitionEffect">
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionExceptionEffect" eSuperTypes="#//TransitionEffect2">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exceptionClass" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmParameterizedTypeReference"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransitionOutputEffect">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionCallbackEffect" eSuperTypes="#//TransitionEffect2">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//Instance"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="callbackClass" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmParameterizedTypeReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="methodName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" eType="#//ParameterList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xbase.ecore#//XBlockExpression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Method">
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" eType="#//ParameterList"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
@@ -139,8 +154,8 @@
         eType="#//TestedOperation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestedOperation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypes" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" eType="#//ParameterList"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preExpression" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
         containment="true"/>

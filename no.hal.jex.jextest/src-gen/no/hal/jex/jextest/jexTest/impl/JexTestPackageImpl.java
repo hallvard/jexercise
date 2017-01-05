@@ -12,6 +12,7 @@ import no.hal.jex.jextest.jexTest.JvmOperationRef;
 import no.hal.jex.jextest.jexTest.Method;
 import no.hal.jex.jextest.jexTest.ObjectTest;
 import no.hal.jex.jextest.jexTest.Parameter;
+import no.hal.jex.jextest.jexTest.ParameterList;
 import no.hal.jex.jextest.jexTest.PropertiesTest;
 import no.hal.jex.jextest.jexTest.PropertiesTestOwner;
 import no.hal.jex.jextest.jexTest.State;
@@ -24,7 +25,9 @@ import no.hal.jex.jextest.jexTest.TestedMethod;
 import no.hal.jex.jextest.jexTest.TestedOperation;
 import no.hal.jex.jextest.jexTest.Transition;
 import no.hal.jex.jextest.jexTest.TransitionAction;
+import no.hal.jex.jextest.jexTest.TransitionCallbackEffect;
 import no.hal.jex.jextest.jexTest.TransitionEffect;
+import no.hal.jex.jextest.jexTest.TransitionEffect2;
 import no.hal.jex.jextest.jexTest.TransitionExceptionEffect;
 import no.hal.jex.jextest.jexTest.TransitionExpressionAction;
 import no.hal.jex.jextest.jexTest.TransitionInputAction;
@@ -177,6 +180,13 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass transitionEffect2EClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass transitionTargetEffectEClass = null;
 
   /**
@@ -198,7 +208,21 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass transitionCallbackEffectEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass methodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -754,7 +778,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTransition_Effect()
+  public EReference getTransition_Effects()
   {
     return (EReference)transitionEClass.getEStructuralFeatures().get(3);
   }
@@ -864,6 +888,16 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getTransitionEffect2()
+  {
+    return transitionEffect2EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTransitionTargetEffect()
   {
     return transitionTargetEffectEClass;
@@ -934,6 +968,66 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getTransitionCallbackEffect()
+  {
+    return transitionCallbackEffectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransitionCallbackEffect_Instance()
+  {
+    return (EReference)transitionCallbackEffectEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransitionCallbackEffect_CallbackClass()
+  {
+    return (EReference)transitionCallbackEffectEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTransitionCallbackEffect_MethodName()
+  {
+    return (EAttribute)transitionCallbackEffectEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransitionCallbackEffect_Parameters()
+  {
+    return (EReference)transitionCallbackEffectEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransitionCallbackEffect_Arguments()
+  {
+    return (EReference)transitionCallbackEffectEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMethod()
   {
     return methodEClass;
@@ -977,6 +1071,26 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
   public EReference getMethod_Body()
   {
     return (EReference)methodEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParameterList()
+  {
+    return parameterListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameterList_Parameters()
+  {
+    return (EReference)parameterListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1124,7 +1238,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTestedOperation_ParameterTypes()
+  public EReference getTestedOperation_Parameters()
   {
     return (EReference)testedOperationEClass.getEStructuralFeatures().get(0);
   }
@@ -1304,7 +1418,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     createEReference(transitionEClass, TRANSITION__SOURCE);
     createEAttribute(transitionEClass, TRANSITION__DESCRIPTION);
     createEReference(transitionEClass, TRANSITION__ACTIONS);
-    createEReference(transitionEClass, TRANSITION__EFFECT);
+    createEReference(transitionEClass, TRANSITION__EFFECTS);
 
     transitionSourceEClass = createEClass(TRANSITION_SOURCE);
     createEReference(transitionSourceEClass, TRANSITION_SOURCE__STATE);
@@ -1321,6 +1435,8 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
 
     transitionEffectEClass = createEClass(TRANSITION_EFFECT);
 
+    transitionEffect2EClass = createEClass(TRANSITION_EFFECT2);
+
     transitionTargetEffectEClass = createEClass(TRANSITION_TARGET_EFFECT);
     createEReference(transitionTargetEffectEClass, TRANSITION_TARGET_EFFECT__STATE);
     createEReference(transitionTargetEffectEClass, TRANSITION_TARGET_EFFECT__STATE_REF);
@@ -1331,11 +1447,21 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     transitionOutputEffectEClass = createEClass(TRANSITION_OUTPUT_EFFECT);
     createEAttribute(transitionOutputEffectEClass, TRANSITION_OUTPUT_EFFECT__PATTERN);
 
+    transitionCallbackEffectEClass = createEClass(TRANSITION_CALLBACK_EFFECT);
+    createEReference(transitionCallbackEffectEClass, TRANSITION_CALLBACK_EFFECT__INSTANCE);
+    createEReference(transitionCallbackEffectEClass, TRANSITION_CALLBACK_EFFECT__CALLBACK_CLASS);
+    createEAttribute(transitionCallbackEffectEClass, TRANSITION_CALLBACK_EFFECT__METHOD_NAME);
+    createEReference(transitionCallbackEffectEClass, TRANSITION_CALLBACK_EFFECT__PARAMETERS);
+    createEReference(transitionCallbackEffectEClass, TRANSITION_CALLBACK_EFFECT__ARGUMENTS);
+
     methodEClass = createEClass(METHOD);
     createEReference(methodEClass, METHOD__RETURN_TYPE);
     createEAttribute(methodEClass, METHOD__NAME);
     createEReference(methodEClass, METHOD__PARAMETERS);
     createEReference(methodEClass, METHOD__BODY);
+
+    parameterListEClass = createEClass(PARAMETER_LIST);
+    createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERS);
 
     parameterEClass = createEClass(PARAMETER);
     createEReference(parameterEClass, PARAMETER__TYPE);
@@ -1353,7 +1479,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     createEReference(testedClassEClass, TESTED_CLASS__METHODS);
 
     testedOperationEClass = createEClass(TESTED_OPERATION);
-    createEReference(testedOperationEClass, TESTED_OPERATION__PARAMETER_TYPES);
+    createEReference(testedOperationEClass, TESTED_OPERATION__PARAMETERS);
     createEAttribute(testedOperationEClass, TESTED_OPERATION__DESCRIPTION);
     createEReference(testedOperationEClass, TESTED_OPERATION__PRE_EXPRESSION);
     createEReference(testedOperationEClass, TESTED_OPERATION__POST_EXPRESSION);
@@ -1409,8 +1535,10 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     jexTestSequenceEClass.getESuperTypes().add(this.getStateTestContext());
     objectTestEClass.getESuperTypes().add(this.getPropertiesTestOwner());
     transitionExpressionActionEClass.getESuperTypes().add(this.getTransitionAction());
+    transitionEffect2EClass.getESuperTypes().add(this.getTransitionEffect());
     transitionTargetEffectEClass.getESuperTypes().add(this.getTransitionEffect());
-    transitionExceptionEffectEClass.getESuperTypes().add(this.getTransitionEffect());
+    transitionExceptionEffectEClass.getESuperTypes().add(this.getTransitionEffect2());
+    transitionCallbackEffectEClass.getESuperTypes().add(this.getTransitionEffect2());
     testedConstructorEClass.getESuperTypes().add(this.getTestedOperation());
     testedMethodEClass.getESuperTypes().add(this.getTestedOperation());
     propertiesTestEClass.getESuperTypes().add(theXbasePackage.getXBlockExpression());
@@ -1471,7 +1599,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     initEReference(getTransition_Source(), this.getTransitionSource(), null, "source", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTransition_Description(), ecorePackage.getEString(), "description", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_Actions(), this.getTransitionAction(), null, "actions", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTransition_Effect(), this.getTransitionEffect(), null, "effect", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_Effects(), this.getTransitionEffect(), null, "effects", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(transitionSourceEClass, TransitionSource.class, "TransitionSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTransitionSource_State(), this.getState(), null, "state", null, 0, 1, TransitionSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1488,6 +1616,8 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
 
     initEClass(transitionEffectEClass, TransitionEffect.class, "TransitionEffect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(transitionEffect2EClass, TransitionEffect2.class, "TransitionEffect2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(transitionTargetEffectEClass, TransitionTargetEffect.class, "TransitionTargetEffect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTransitionTargetEffect_State(), this.getState(), null, "state", null, 0, 1, TransitionTargetEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransitionTargetEffect_StateRef(), this.getState(), null, "stateRef", null, 0, 1, TransitionTargetEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1498,11 +1628,21 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     initEClass(transitionOutputEffectEClass, TransitionOutputEffect.class, "TransitionOutputEffect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTransitionOutputEffect_Pattern(), ecorePackage.getEString(), "pattern", null, 0, 1, TransitionOutputEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(transitionCallbackEffectEClass, TransitionCallbackEffect.class, "TransitionCallbackEffect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTransitionCallbackEffect_Instance(), this.getInstance(), null, "instance", null, 0, 1, TransitionCallbackEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransitionCallbackEffect_CallbackClass(), theTypesPackage.getJvmParameterizedTypeReference(), null, "callbackClass", null, 0, 1, TransitionCallbackEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransitionCallbackEffect_MethodName(), ecorePackage.getEString(), "methodName", null, 0, 1, TransitionCallbackEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransitionCallbackEffect_Parameters(), this.getParameterList(), null, "parameters", null, 0, 1, TransitionCallbackEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransitionCallbackEffect_Arguments(), theXbasePackage.getXBlockExpression(), null, "arguments", null, 0, 1, TransitionCallbackEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMethod_ReturnType(), theTypesPackage.getJvmTypeReference(), null, "returnType", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethod_Name(), ecorePackage.getEString(), "name", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMethod_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethod_Parameters(), this.getParameterList(), null, "parameters", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethod_Body(), theXbasePackage.getXExpression(), null, "body", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterListEClass, ParameterList.class, "ParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameterList_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParameter_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1520,7 +1660,7 @@ public class JexTestPackageImpl extends EPackageImpl implements JexTestPackage
     initEReference(getTestedClass_Methods(), this.getTestedOperation(), null, "methods", null, 0, -1, TestedClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(testedOperationEClass, TestedOperation.class, "TestedOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTestedOperation_ParameterTypes(), this.getParameter(), null, "parameterTypes", null, 0, -1, TestedOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTestedOperation_Parameters(), this.getParameterList(), null, "parameters", null, 0, 1, TestedOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTestedOperation_Description(), ecorePackage.getEString(), "description", null, 0, 1, TestedOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTestedOperation_PreExpression(), theXbasePackage.getXExpression(), null, "preExpression", null, 0, 1, TestedOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTestedOperation_PostExpression(), theXbasePackage.getXExpression(), null, "postExpression", null, 0, 1, TestedOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

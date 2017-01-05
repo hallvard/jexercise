@@ -1,18 +1,34 @@
 package no.hal.jex.standalone;
 
-import no.hal.jex.swing.JexExercisePanel;
+import java.lang.reflect.Method;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.textui.TestRunner;
 
 public class JexStandalone {
 
 	public static void main(Class<?> testClass) {
-		main(testClass.getName());
+		if (TestCase.class.isAssignableFrom(testClass)) {
+			TestRunner.run((Class<? extends TestCase>) testClass);
+		} else {
+			Test test = testFor(testClass);
+			if (test != null) {
+				TestRunner.run(test);
+			} else {
+				System.err.println("No test for " + testClass);
+			}
+		}
 	}
-	public static void main(String testClassName) {
-		main(new String[]{testClassName});
-	}
-	public static void main(String[] args) {
-		String testClassName = (args.length >= 1 ? args[0] : null);
-		String classPath = (args.length >= 2 ? args[1] : ".");
-		JexExercisePanel.main(new String[]{testClassName, classPath});
+	
+	private static Test testFor(Class<?> testClass) {
+		try {
+			Method suiteMethod = testClass.getMethod("suite", new Class[0]);
+			if (suiteMethod != null) {
+				return (Test) suiteMethod.invoke(null, new Object[0]);
+			}
+		} catch (Exception e) {
+		}
+		return null;
 	}
 }

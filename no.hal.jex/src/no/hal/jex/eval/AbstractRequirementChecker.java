@@ -5,10 +5,10 @@ import java.util.Map;
 import no.hal.jex.AbstractRequirement;
 import no.hal.jex.JUnitTest;
 import no.hal.jex.JavaElement;
+import no.hal.jex.JavaMethod;
 import no.hal.jex.JavaRequirement;
 import no.hal.jex.Member;
 import no.hal.jex.Requirement;
-import no.hal.jex.TestRunnable;
 import no.hal.jex.impl.JexFactoryImpl;
 
 import org.eclipse.emf.ecore.ENamedElement;
@@ -129,9 +129,17 @@ public abstract class AbstractRequirementChecker {
 		return (jexElement instanceof Member ? validateJexMember((Member) jexElement, requireModifiers, requireTypes) : Boolean.FALSE);
 	}
 
+	public static boolean isEmptyConstructor(JavaElement jexMember) {
+		if (! (jexMember instanceof JavaMethod)) {
+			return false;
+		}
+		JavaMethod jexMethod = (JavaMethod) jexMember;
+		return jexMethod.getOwner() != null && jexMethod.getOwner().getSimpleName().equals(jexMethod.getSimpleName()) && jexMethod.getParameters().isEmpty();
+	}
+	
 	protected Boolean validateJexMember(Member jexMember, boolean requireModifiers, boolean requireTypes) {
-		Object javaElement = getRealJavaElement(jexMember);
-		if (jexMember.getRequired() != Boolean.FALSE ? javaElement == null : javaElement != null) {
+		boolean hasJavaElement = getRealJavaElement(jexMember) != null;
+		if ((jexMember.getRequired() != Boolean.FALSE) != hasJavaElement) {
 			return Boolean.FALSE;
 		}
 		Boolean modifierResult = (requireModifiers ? correctModifiers(jexMember) : Boolean.TRUE);

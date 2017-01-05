@@ -133,8 +133,23 @@ public class Util {
       if (_lessThan) {
         final JexTestSuite packOwner = this.<JexTestSuite>ancestor(context, JexTestSuite.class);
         boolean _and = false;
+        boolean _and_1 = false;
+        boolean _and_2 = false;
         boolean _notEquals = (!Objects.equal(packOwner, null));
         if (!_notEquals) {
+          _and_2 = false;
+        } else {
+          String _suiteClassName = packOwner.getSuiteClassName();
+          boolean _notEquals_1 = (!Objects.equal(_suiteClassName, null));
+          _and_2 = _notEquals_1;
+        }
+        if (!_and_2) {
+          _and_1 = false;
+        } else {
+          boolean _notEquals_2 = (!Objects.equal(name, null));
+          _and_1 = _notEquals_2;
+        }
+        if (!_and_1) {
           _and = false;
         } else {
           int _lastIndexOf_1 = name.lastIndexOf(".");
@@ -142,11 +157,11 @@ public class Util {
           _and = _lessThan_1;
         }
         if (_and) {
-          String _suiteClassName = packOwner.getSuiteClassName();
-          final int pos = _suiteClassName.lastIndexOf(".");
-          if ((pos >= 0)) {
-            String _suiteClassName_1 = packOwner.getSuiteClassName();
-            String _substring = _suiteClassName_1.substring(0, (pos + 1));
+          String _suiteClassName_1 = packOwner.getSuiteClassName();
+          final int pos = _suiteClassName_1.lastIndexOf(".");
+          if ((pos > 0)) {
+            String _suiteClassName_2 = packOwner.getSuiteClassName();
+            String _substring = _suiteClassName_2.substring(0, (pos + 1));
             return (_substring + name);
           }
         }

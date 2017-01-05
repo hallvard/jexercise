@@ -1,0 +1,10 @@
+/
+.classpath: dot.classpath
+	source-folder src
+	output-folder bin
+	class-container java (1.7)
+;
+
+.project: dot.project
+	#java
+;

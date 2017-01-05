@@ -1,0 +1,23 @@
+/src/stateandbehavior/
+	Account.java @ git@hallvard/jexercise/no.hal.jex.collection/src/stateandbehavior/Account.java;
+	Account2.java
+---8<---
+package stateandbehavior;
+
+public class Account2 {
+}
+--->8---
+;
+;
+tests/stateandbehavior/ extends git@hallvard/jexercise/no.hal.jex.collection/src-gen/stateandbehavior;
+	;
+
+.classpath: dot.classpath
+	source-folder src
+	output-folder bin
+	class-container java (1.7)
+;
+
+.project: dot.project
+	#java
+;

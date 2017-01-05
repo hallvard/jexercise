@@ -36,7 +36,7 @@ JexTestCase:
 	;
 
 SuiteInstance returns Instance:
-	type = JvmTypeReference name = ID ('=' expr = XExpression)?
+	(type = JvmTypeReference)? name = ID ('=' expr = XExpression)?
 ;
 
 Instance:
@@ -96,10 +96,10 @@ Transition:
 		(description = STRING)? '--'
 		(actions += TransitionAction) (',' actions += TransitionAction)*
 		// effect part
-		(effect = TransitionEffect)
+		(effects += TransitionEffect)
 	) |
 	// initial state
-	effect = TransitionTargetEffect
+	effects += TransitionTargetEffect
 	;
 
 TransitionSource:
@@ -115,7 +115,8 @@ TransitionInputAction:
 	'inputs' input = STRING
 ;
 
-TransitionEffect: TransitionTargetEffect | TransitionExceptionEffect; // | TransitionOutputEffect;
+TransitionEffect: TransitionTargetEffect | TransitionEffect2;
+TransitionEffect2: TransitionExceptionEffect | TransitionCallbackEffect; // | TransitionOutputEffect;
 
 TransitionTargetEffect:
 	'-->' (state = State | ('#' stateRef = [State | ID]))
@@ -127,12 +128,22 @@ TransitionOutputEffect:
  	'outputs' pattern = STRING
 ;
 
+TransitionCallbackEffect:
+ 	'callback'
+ 	instance = [Instance | ID] 'to'
+ 	(callbackClass = JvmParameterizedTypeReference '.')? methodName = ID (parameters = ParameterList)?
+ 	arguments = PropertiesTest
+;
+
 Method:
 	'method' (returnType = JvmTypeReference)? name = (ID | OpEquality | OpCompare)
-	'(' (parameters += Parameter (',' parameters += Parameter)*)? ')'
+	parameters = ParameterList
 	body = XExpression	
 ;
 
+ParameterList:
+	{ParameterList} '(' (parameters += Parameter (',' parameters += Parameter)*)? ')'
+;
 Parameter:
 	type = JvmTypeReference (vararg ?= '...')? name = ID
 ;
@@ -151,13 +162,11 @@ TestedClass:
 ;
 
 TestedOperation:
-	(TestedConstructor | TestedMethod) '(' (parameterTypes += ParameterType (',' parameterTypes += ParameterType)*)? ')'
+	(TestedConstructor | TestedMethod)
+	parameters = ParameterList
 	(description = STRING)?
 	('<=' preExpression = XExpression)?
 	('=>' postExpression = XExpression)?
-;
-ParameterType returns Parameter:
-	type = JvmTypeReference (vararg ?= '...')?
 ;
 
 TestedConstructor:

@@ -1,0 +1,29 @@
+/src/no/hal/ $user=hal
+TestClass.java @ https://raw.githubusercontent.com/hallvard/jexercise/master/no.hal.jex.collection/src-gen/delegation/MergingIteratorTest.java;
+TestClassTest.java @ git @ hallvard/jexercise/no.hal.jex.collection/src-gen/delegation/MergingIteratorTest.java;
+
+provider/
+Test2.java
+---8<---
+public class Test2 {
+	public static void main(String[] args) {
+	}
+}
+--->8---
+Test3.java
+---8<---
+package no.hal.provider;
+
+public class Test3 {
+	public static void main(String[] args) {
+--->8---
+"
+		System.out.println(\"Hello world, "
+$user 
+"\");
+"
+---8<---
+	}
+}
+--->8---
+ 

@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionImpl#getSource <em>Source</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionImpl#getActions <em>Actions</em>}</li>
- *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionImpl#getEffect <em>Effect</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.TransitionImpl#getEffects <em>Effects</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,14 +83,14 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
   protected EList<TransitionAction> actions;
 
   /**
-   * The cached value of the '{@link #getEffect() <em>Effect</em>}' containment reference.
+   * The cached value of the '{@link #getEffects() <em>Effects</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEffect()
+   * @see #getEffects()
    * @generated
    * @ordered
    */
-  protected TransitionEffect effect;
+  protected EList<TransitionEffect> effects;
 
   /**
    * <!-- begin-user-doc -->
@@ -203,47 +203,13 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * <!-- end-user-doc -->
    * @generated
    */
-  public TransitionEffect getEffect()
+  public EList<TransitionEffect> getEffects()
   {
-    return effect;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetEffect(TransitionEffect newEffect, NotificationChain msgs)
-  {
-    TransitionEffect oldEffect = effect;
-    effect = newEffect;
-    if (eNotificationRequired())
+    if (effects == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JexTestPackage.TRANSITION__EFFECT, oldEffect, newEffect);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      effects = new EObjectContainmentEList<TransitionEffect>(TransitionEffect.class, this, JexTestPackage.TRANSITION__EFFECTS);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setEffect(TransitionEffect newEffect)
-  {
-    if (newEffect != effect)
-    {
-      NotificationChain msgs = null;
-      if (effect != null)
-        msgs = ((InternalEObject)effect).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.TRANSITION__EFFECT, null, msgs);
-      if (newEffect != null)
-        msgs = ((InternalEObject)newEffect).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.TRANSITION__EFFECT, null, msgs);
-      msgs = basicSetEffect(newEffect, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.TRANSITION__EFFECT, newEffect, newEffect));
+    return effects;
   }
 
   /**
@@ -260,8 +226,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
         return basicSetSource(null, msgs);
       case JexTestPackage.TRANSITION__ACTIONS:
         return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
-      case JexTestPackage.TRANSITION__EFFECT:
-        return basicSetEffect(null, msgs);
+      case JexTestPackage.TRANSITION__EFFECTS:
+        return ((InternalEList<?>)getEffects()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -282,8 +248,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
         return getDescription();
       case JexTestPackage.TRANSITION__ACTIONS:
         return getActions();
-      case JexTestPackage.TRANSITION__EFFECT:
-        return getEffect();
+      case JexTestPackage.TRANSITION__EFFECTS:
+        return getEffects();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -309,8 +275,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
         getActions().clear();
         getActions().addAll((Collection<? extends TransitionAction>)newValue);
         return;
-      case JexTestPackage.TRANSITION__EFFECT:
-        setEffect((TransitionEffect)newValue);
+      case JexTestPackage.TRANSITION__EFFECTS:
+        getEffects().clear();
+        getEffects().addAll((Collection<? extends TransitionEffect>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -335,8 +302,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
       case JexTestPackage.TRANSITION__ACTIONS:
         getActions().clear();
         return;
-      case JexTestPackage.TRANSITION__EFFECT:
-        setEffect((TransitionEffect)null);
+      case JexTestPackage.TRANSITION__EFFECTS:
+        getEffects().clear();
         return;
     }
     super.eUnset(featureID);
@@ -358,8 +325,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case JexTestPackage.TRANSITION__ACTIONS:
         return actions != null && !actions.isEmpty();
-      case JexTestPackage.TRANSITION__EFFECT:
-        return effect != null;
+      case JexTestPackage.TRANSITION__EFFECTS:
+        return effects != null && !effects.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -2,8 +2,6 @@
  */
 package no.hal.jex.jextest.jexTest;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.xtext.common.types.JvmTypeReference;
@@ -84,20 +82,30 @@ public interface Method extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link no.hal.jex.jextest.jexTest.Parameter}.
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameters</em>' containment reference list.
+   * @return the value of the '<em>Parameters</em>' containment reference.
+   * @see #setParameters(ParameterList)
    * @see no.hal.jex.jextest.jexTest.JexTestPackage#getMethod_Parameters()
    * @model containment="true"
    * @generated
    */
-  EList<Parameter> getParameters();
+  ParameterList getParameters();
+
+  /**
+   * Sets the value of the '{@link no.hal.jex.jextest.jexTest.Method#getParameters <em>Parameters</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parameters</em>' containment reference.
+   * @see #getParameters()
+   * @generated
+   */
+  void setParameters(ParameterList value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

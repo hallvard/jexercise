@@ -14,6 +14,7 @@ import no.hal.jex.jextest.jexTest.JexTestSuite;
 import no.hal.jex.jextest.jexTest.Method;
 import no.hal.jex.jextest.jexTest.ObjectTest;
 import no.hal.jex.jextest.jexTest.Parameter;
+import no.hal.jex.jextest.jexTest.ParameterList;
 import no.hal.jex.jextest.jexTest.PropertiesTest;
 import no.hal.jex.jextest.jexTest.State;
 import no.hal.jex.jextest.jexTest.StateFunction;
@@ -110,10 +111,17 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
   protected void _infer(final JexTestSuite testSuite, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     EList<JexTestCase> _testCases = testSuite.getTestCases();
     for (final JexTestCase testCase : _testCases) {
-      this.inferTestCase(testCase, acceptor);
+      boolean _notEquals = (!Objects.equal(testCase, null));
+      if (_notEquals) {
+        this.inferTestCase(testCase, acceptor);
+      }
     }
     String _suiteClassName = testSuite.getSuiteClassName();
     final JvmGenericType jvmClass = this._jvmTypesBuilder.toClass(testSuite, _suiteClassName);
+    boolean _equals = Objects.equal(jvmClass, null);
+    if (_equals) {
+      return;
+    }
     EList<JvmTypeReference> _superTypes = jvmClass.getSuperTypes();
     JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef("junit.framework.TestCase");
     this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _typeRef);
@@ -221,8 +229,9 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
             }
             it.setVisibility(_xifexpression);
             it.setStatic(isSuite);
-            EList<Parameter> _parameters = method.getParameters();
-            JexTestJvmModelInferrer.this.initParameters(it, _parameters);
+            ParameterList _parameters = method.getParameters();
+            EList<Parameter> _parameters_1 = _parameters.getParameters();
+            JexTestJvmModelInferrer.this.initParameters(it, _parameters_1);
             XExpression _body = method.getBody();
             JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _body);
           }
@@ -461,10 +470,12 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
                       }
                     }
                   }
-                  TransitionEffect _effect = transition.getEffect();
-                  if ((_effect instanceof TransitionTargetEffect)) {
-                    TransitionEffect _effect_1 = transition.getEffect();
-                    final TransitionTargetEffect targetEffect = ((TransitionTargetEffect) _effect_1);
+                  EList<TransitionEffect> _effects = transition.getEffects();
+                  TransitionEffect _head = IterableExtensions.<TransitionEffect>head(_effects);
+                  if ((_head instanceof TransitionTargetEffect)) {
+                    EList<TransitionEffect> _effects_1 = transition.getEffects();
+                    TransitionEffect _head_1 = IterableExtensions.<TransitionEffect>head(_effects_1);
+                    final TransitionTargetEffect targetEffect = ((TransitionTargetEffect) _head_1);
                     State _state_2 = targetEffect.getState();
                     boolean _notEquals_4 = (!Objects.equal(_state_2, null));
                     if (_notEquals_4) {
@@ -583,8 +594,9 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           }
           final JvmExecutable jvmMethod = _xifexpression;
           jvmMethod.setVisibility(JvmVisibility.PUBLIC);
-          EList<Parameter> _parameterTypes = op.getParameterTypes();
-          this.initParameters(jvmMethod, _parameterTypes);
+          ParameterList _parameters = op.getParameters();
+          EList<Parameter> _parameters_1 = _parameters.getParameters();
+          this.initParameters(jvmMethod, _parameters_1);
           EList<JvmMember> _members = jvmTestedClass.getMembers();
           this._jvmTypesBuilder.<JvmExecutable>operator_add(_members, jvmMethod);
         }
@@ -1037,8 +1049,9 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       State _stateRef = _source_2.getStateRef();
       this.generateStateTesterCall(_state, _stateRef, appendable);
     }
-    TransitionEffect _effect = transition.getEffect();
-    this.generateTransitionActionsEffect(_effect, transition, appendable);
+    EList<TransitionEffect> _effects = transition.getEffects();
+    TransitionEffect _head = IterableExtensions.<TransitionEffect>head(_effects);
+    this.generateTransitionActionsEffect(_head, transition, appendable);
   }
   
   protected void _generateTransitionActionsEffect(final TransitionEffect effect, final Transition transition, final ITreeAppendable appendable) {
@@ -1049,17 +1062,20 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
   }
   
   protected void _generateTransitionActionsEffect(final TransitionExceptionEffect effect, final Transition transition, final ITreeAppendable appendable) {
-    TransitionEffect _effect = transition.getEffect();
-    if ((_effect instanceof TransitionExceptionEffect)) {
+    EList<TransitionEffect> _effects = transition.getEffects();
+    TransitionEffect _head = IterableExtensions.<TransitionEffect>head(_effects);
+    if ((_head instanceof TransitionExceptionEffect)) {
       ITreeAppendable _append = appendable.append("try {");
       ITreeAppendable _increaseIndentation = _append.increaseIndentation();
       _increaseIndentation.newLine();
     }
     this._generateTransitionActionsEffect(((TransitionEffect) effect), transition, appendable);
-    TransitionEffect _effect_1 = transition.getEffect();
-    if ((_effect_1 instanceof TransitionExceptionEffect)) {
-      TransitionEffect _effect_2 = transition.getEffect();
-      final JvmParameterizedTypeReference exceptionClass = ((TransitionExceptionEffect) _effect_2).getExceptionClass();
+    EList<TransitionEffect> _effects_1 = transition.getEffects();
+    TransitionEffect _head_1 = IterableExtensions.<TransitionEffect>head(_effects_1);
+    if ((_head_1 instanceof TransitionExceptionEffect)) {
+      EList<TransitionEffect> _effects_2 = transition.getEffects();
+      TransitionEffect _head_2 = IterableExtensions.<TransitionEffect>head(_effects_2);
+      final JvmParameterizedTypeReference exceptionClass = ((TransitionExceptionEffect) _head_2).getExceptionClass();
       String _qualifiedName = exceptionClass.getQualifiedName();
       final String exceptionClassName = this._util.removeJavaLang(_qualifiedName);
       StringConcatenation _builder = new StringConcatenation();

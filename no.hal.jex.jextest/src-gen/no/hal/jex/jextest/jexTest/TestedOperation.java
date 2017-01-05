@@ -2,8 +2,6 @@
  */
 package no.hal.jex.jextest.jexTest;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.xtext.xbase.XExpression;
@@ -17,7 +15,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.hal.jex.jextest.jexTest.TestedOperation#getParameterTypes <em>Parameter Types</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.TestedOperation#getParameters <em>Parameters</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedOperation#getDescription <em>Description</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedOperation#getPreExpression <em>Pre Expression</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.TestedOperation#getPostExpression <em>Post Expression</em>}</li>
@@ -30,20 +28,30 @@ import org.eclipse.xtext.xbase.XExpression;
 public interface TestedOperation extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Parameter Types</b></em>' containment reference list.
-   * The list contents are of type {@link no.hal.jex.jextest.jexTest.Parameter}.
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Parameter Types</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameter Types</em>' containment reference list.
-   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTestedOperation_ParameterTypes()
+   * @return the value of the '<em>Parameters</em>' containment reference.
+   * @see #setParameters(ParameterList)
+   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTestedOperation_Parameters()
    * @model containment="true"
    * @generated
    */
-  EList<Parameter> getParameterTypes();
+  ParameterList getParameters();
+
+  /**
+   * Sets the value of the '{@link no.hal.jex.jextest.jexTest.TestedOperation#getParameters <em>Parameters</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parameters</em>' containment reference.
+   * @see #getParameters()
+   * @generated
+   */
+  void setParameters(ParameterList value);
 
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.

@@ -176,6 +176,15 @@ public interface JexTestFactory extends EFactory
   TransitionEffect createTransitionEffect();
 
   /**
+   * Returns a new object of class '<em>Transition Effect2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Transition Effect2</em>'.
+   * @generated
+   */
+  TransitionEffect2 createTransitionEffect2();
+
+  /**
    * Returns a new object of class '<em>Transition Target Effect</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -203,6 +212,15 @@ public interface JexTestFactory extends EFactory
   TransitionOutputEffect createTransitionOutputEffect();
 
   /**
+   * Returns a new object of class '<em>Transition Callback Effect</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Transition Callback Effect</em>'.
+   * @generated
+   */
+  TransitionCallbackEffect createTransitionCallbackEffect();
+
+  /**
    * Returns a new object of class '<em>Method</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -210,6 +228,15 @@ public interface JexTestFactory extends EFactory
    * @generated
    */
   Method createMethod();
+
+  /**
+   * Returns a new object of class '<em>Parameter List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter List</em>'.
+   * @generated
+   */
+  ParameterList createParameterList();
 
   /**
    * Returns a new object of class '<em>Parameter</em>'.

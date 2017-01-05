@@ -13,6 +13,7 @@ import no.hal.jex.jextest.jexTest.JexTestSuite;
 import no.hal.jex.jextest.jexTest.JvmOperationRef;
 import no.hal.jex.jextest.jexTest.Method;
 import no.hal.jex.jextest.jexTest.ObjectTest;
+import no.hal.jex.jextest.jexTest.ParameterList;
 import no.hal.jex.jextest.jexTest.PropertiesTest;
 import no.hal.jex.jextest.jexTest.State;
 import no.hal.jex.jextest.jexTest.StateFunction;
@@ -20,6 +21,7 @@ import no.hal.jex.jextest.jexTest.TestedClass;
 import no.hal.jex.jextest.jexTest.TestedConstructor;
 import no.hal.jex.jextest.jexTest.TestedMethod;
 import no.hal.jex.jextest.jexTest.Transition;
+import no.hal.jex.jextest.jexTest.TransitionCallbackEffect;
 import no.hal.jex.jextest.jexTest.TransitionExceptionEffect;
 import no.hal.jex.jextest.jexTest.TransitionExpressionAction;
 import no.hal.jex.jextest.jexTest.TransitionInputAction;
@@ -125,15 +127,11 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 				sequence_ObjectTest(context, (ObjectTest) semanticObject); 
 				return; 
 			case JexTestPackage.PARAMETER:
-				if (rule == grammarAccess.getParameterTypeRule()) {
-					sequence_ParameterType(context, (no.hal.jex.jextest.jexTest.Parameter) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getParameterRule()) {
-					sequence_Parameter(context, (no.hal.jex.jextest.jexTest.Parameter) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Parameter(context, (no.hal.jex.jextest.jexTest.Parameter) semanticObject); 
+				return; 
+			case JexTestPackage.PARAMETER_LIST:
+				sequence_ParameterList(context, (ParameterList) semanticObject); 
+				return; 
 			case JexTestPackage.PROPERTIES_TEST:
 				sequence_PropertiesTest(context, (PropertiesTest) semanticObject); 
 				return; 
@@ -168,6 +166,9 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 				else break;
 			case JexTestPackage.TRANSITION:
 				sequence_Transition(context, (Transition) semanticObject); 
+				return; 
+			case JexTestPackage.TRANSITION_CALLBACK_EFFECT:
+				sequence_TransitionCallbackEffect(context, (TransitionCallbackEffect) semanticObject); 
 				return; 
 			case JexTestPackage.TRANSITION_EXCEPTION_EFFECT:
 				sequence_TransitionExceptionEffect(context, (TransitionExceptionEffect) semanticObject); 
@@ -517,7 +518,7 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	 *     Method returns Method
 	 *
 	 * Constraint:
-	 *     (returnType=JvmTypeReference? (name=ID | name=OpEquality | name=OpCompare) (parameters+=Parameter parameters+=Parameter*)? body=XExpression)
+	 *     (returnType=JvmTypeReference? (name=ID | name=OpEquality | name=OpCompare) parameters=ParameterList body=XExpression)
 	 */
 	protected void sequence_Method(ISerializationContext context, Method semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -539,12 +540,12 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ParameterType returns Parameter
+	 *     ParameterList returns ParameterList
 	 *
 	 * Constraint:
-	 *     (type=JvmTypeReference vararg?='...'?)
+	 *     (parameters+=Parameter parameters+=Parameter*)?
 	 */
-	protected void sequence_ParameterType(ISerializationContext context, no.hal.jex.jextest.jexTest.Parameter semanticObject) {
+	protected void sequence_ParameterList(ISerializationContext context, ParameterList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -604,7 +605,7 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	 *     SuiteInstance returns Instance
 	 *
 	 * Constraint:
-	 *     (type=JvmTypeReference name=ID expr=XExpression?)
+	 *     (type=JvmTypeReference? name=ID expr=XExpression?)
 	 */
 	protected void sequence_SuiteInstance(ISerializationContext context, Instance semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -648,7 +649,7 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	 *     TestedOperation returns TestedConstructor
 	 *
 	 * Constraint:
-	 *     ((parameterTypes+=ParameterType parameterTypes+=ParameterType*)? description=STRING? preExpression=XExpression? postExpression=XExpression?)
+	 *     (parameters=ParameterList description=STRING? preExpression=XExpression? postExpression=XExpression?)
 	 */
 	protected void sequence_TestedConstructor_TestedOperation(ISerializationContext context, TestedConstructor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -676,7 +677,7 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	 *         abstract?='abstract'? 
 	 *         returnType=JvmParameterizedTypeReference 
 	 *         name=ID 
-	 *         (parameterTypes+=ParameterType parameterTypes+=ParameterType*)? 
+	 *         parameters=ParameterList 
 	 *         description=STRING? 
 	 *         preExpression=XExpression? 
 	 *         postExpression=XExpression?
@@ -689,7 +690,22 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     TransitionEffect returns TransitionCallbackEffect
+	 *     TransitionEffect2 returns TransitionCallbackEffect
+	 *     TransitionCallbackEffect returns TransitionCallbackEffect
+	 *
+	 * Constraint:
+	 *     (instance=[Instance|ID] callbackClass=JvmParameterizedTypeReference? methodName=ID parameters=ParameterList? arguments=PropertiesTest)
+	 */
+	protected void sequence_TransitionCallbackEffect(ISerializationContext context, TransitionCallbackEffect semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     TransitionEffect returns TransitionExceptionEffect
+	 *     TransitionEffect2 returns TransitionExceptionEffect
 	 *     TransitionExceptionEffect returns TransitionExceptionEffect
 	 *
 	 * Constraint:
@@ -786,8 +802,8 @@ public class JexTestSemanticSequencer extends XbaseSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         (source=TransitionSource? description=STRING? actions+=TransitionAction actions+=TransitionAction* effect=TransitionEffect) | 
-	 *         effect=TransitionTargetEffect
+	 *         (source=TransitionSource? description=STRING? actions+=TransitionAction actions+=TransitionAction* effects+=TransitionEffect) | 
+	 *         effects+=TransitionTargetEffect
 	 *     )
 	 */
 	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {

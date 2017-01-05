@@ -7,15 +7,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import no.hal.confluence.ui.Activator;
-import no.hal.confluence.ui.actions.util.ResourceUtil;
-import no.hal.confluence.ui.preferences.ImportPathsPreferencePage;
-import no.hal.emfs.EmfsContainer;
-import no.hal.emfs.EmfsResource;
-import no.hal.emfs.ui.commands.ImportCommandHandler;
-import no.hal.emfs.ui.provider.EmfsItemProviderAdapterFactory;
-import no.hal.emfs.util.EmfsResourceFactoryImpl;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -51,6 +42,15 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.internal.UIPlugin;
+
+import no.hal.confluence.ui.Activator;
+import no.hal.confluence.ui.actions.util.ResourceUtil;
+import no.hal.confluence.ui.preferences.ImportPathsPreferencePage;
+import no.hal.emfs.EmfsContainer;
+import no.hal.emfs.EmfsResource;
+import no.hal.emfs.exporter.ExportHelper;
+import no.hal.emfs.ui.provider.EmfsItemProviderAdapterFactory;
+import no.hal.emfs.util.EmfsResourceFactoryImpl;
 
 public class EmfsImportView {
 
@@ -164,6 +164,10 @@ public class EmfsImportView {
 		return importAction;
 	}
 
+	public void setJavaProject(String name) {
+		// TODO
+	}
+	
 	public Action getClearAction() {
 		return clearAction;
 	}
@@ -291,9 +295,9 @@ public class EmfsImportView {
 	protected void importResources(Collection<EmfsResource> selected) {
 		final Collection<EmfsResource> emfsResources = new ArrayList<EmfsResource>(), exclude = new ArrayList<EmfsResource>();
 		computeImports(selected, emfsResources, exclude);
-		final ImportCommandHandler.Options options = new ImportCommandHandler.Options();
-		options.exclude = exclude;
-		final int count = ImportCommandHandler.countEmfsResources(emfsResources);
+		final ExportHelper importHelper = new ExportHelper();
+		importHelper.exclude = exclude;
+		final int count = ExportHelper.countEmfsResources(emfsResources);
 		Job job = new Job("Import EMFS resources") {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
@@ -302,11 +306,7 @@ public class EmfsImportView {
 					for (EmfsResource emfsResource : emfsResources) {
 						String targetPathString = resourceTargets.get(emfsResource);
 						IContainer target = ResourceUtil.getContainer(new Path(targetPathString), 0, false);
-//						try {
-							ImportCommandHandler.importResources(emfsResource, target, true, options, null);
-//						} catch (ExecutionException e) {
-//							openErrorDialog("Exception during import", e);
-//						}
+						importHelper.importResources(emfsResource, target, true, null);
 					}
 				} catch (Exception e) {
 					if (monitor != null) {

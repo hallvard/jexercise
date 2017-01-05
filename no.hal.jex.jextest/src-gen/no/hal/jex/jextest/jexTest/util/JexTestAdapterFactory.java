@@ -163,6 +163,11 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
         return createTransitionEffectAdapter();
       }
       @Override
+      public Adapter caseTransitionEffect2(TransitionEffect2 object)
+      {
+        return createTransitionEffect2Adapter();
+      }
+      @Override
       public Adapter caseTransitionTargetEffect(TransitionTargetEffect object)
       {
         return createTransitionTargetEffectAdapter();
@@ -178,9 +183,19 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
         return createTransitionOutputEffectAdapter();
       }
       @Override
+      public Adapter caseTransitionCallbackEffect(TransitionCallbackEffect object)
+      {
+        return createTransitionCallbackEffectAdapter();
+      }
+      @Override
       public Adapter caseMethod(Method object)
       {
         return createMethodAdapter();
+      }
+      @Override
+      public Adapter caseParameterList(ParameterList object)
+      {
+        return createParameterListAdapter();
       }
       @Override
       public Adapter caseParameter(Parameter object)
@@ -500,6 +515,21 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.TransitionEffect2 <em>Transition Effect2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see no.hal.jex.jextest.jexTest.TransitionEffect2
+   * @generated
+   */
+  public Adapter createTransitionEffect2Adapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.TransitionTargetEffect <em>Transition Target Effect</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -545,6 +575,21 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.TransitionCallbackEffect <em>Transition Callback Effect</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see no.hal.jex.jextest.jexTest.TransitionCallbackEffect
+   * @generated
+   */
+  public Adapter createTransitionCallbackEffectAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.Method <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -555,6 +600,21 @@ public class JexTestAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link no.hal.jex.jextest.jexTest.ParameterList <em>Parameter List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see no.hal.jex.jextest.jexTest.ParameterList
+   * @generated
+   */
+  public Adapter createParameterListAdapter()
   {
     return null;
   }

@@ -20,7 +20,7 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  * @model
  * @generated
  */
-public interface TransitionExceptionEffect extends TransitionEffect
+public interface TransitionExceptionEffect extends TransitionEffect2
 {
   /**
    * Returns the value of the '<em><b>Exception Class</b></em>' containment reference.

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emfs:EmfsContainer
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:emfs="platform:/plugin/no.hal.emfs/model/emfs.ecore"
+    name="root">
+  <resources
+      xsi:type="emfs:EmfsContainer"
+      name="examples2">
+    <resources
+        xsi:type="emfs:EmfsFile"
+        name="Example1.java ">
+      <contentProvider
+          xsi:type="emfs:StringContentProvider"
+          stringContents="package example2;&#xA;&#xA;public class Example1 {&#xA;&#x9;public static void main(String[] args) {&#xA;&#x9;&#x9;System.out.println(&quot;Hello wiki!&quot;);&#xA;&#x9;}&#xA;}&#xA;"/>
+    </resources>
+    <resources
+        xsi:type="emfs:EmfsFile"
+        name="Example2.java">
+      <contentProvider
+          xsi:type="emfs:WrappingStringContentProvider"
+          prefix="package example2;&#xA;&#xA;public class Example2 {&#xA;&#x9;public static void main(String[] args) {&#xA;"
+          suffix="&#x9;}&#xA;}&#xA;">
+        <contentProvider
+            xsi:type="emfs:StringContentProvider"
+            stringContents="&#x9;&#x9;System.out.println(&quot;Hello wiki!&quot;);"/>
+      </contentProvider>
+    </resources>
+  </resources>
+  <resources
+      xsi:type="emfs:EmfsContainer"
+      name="objectstructures">
+    <resources
+        xsi:type="emfs:EmfsFile"
+        name="Partner.java">
+      <contentProvider
+          xsi:type="emfs:RawGithubContentProvider"
+          ownerName="hallvard"
+          repoName="jexercise"
+          pathName="/no.hal.jex.collection/src/objectstructures/Partner.java"/>
+    </resources>
+    <resources
+        xsi:type="emfs:EmfsFile"
+        name="Person.java">
+      <contentProvider
+          xsi:type="emfs:RawGithubContentProvider"
+          ownerName="hallvard"
+          repoName="jexercise"
+          pathName="/no.hal.jex.collection/src/objectstructures/Person.java"/>
+    </resources>
+  </resources>
+</emfs:EmfsContainer>

@@ -19,7 +19,26 @@ public class JavaResourceURLResourceClassifier extends AbstractJavaClassResource
 		if (pos < 0) {
 			return false;
 		}
-		String ext = path.substring(pos + 1);
+		String ext = path.substring(pos);
+		if (JAVA_FILE_SUFFIX.equals(ext) || JAVA_TEST_FILE_SUFFIX.equals(ext)) {
+			return false;
+		}
+		// should find position for src folder segment and remove upto and including that part
+		int srcPos = -1;
+		for (String sourceFolderName : sourceFolderNames) {
+			srcPos = path.indexOf(IPath.SEPARATOR + sourceFolderName + IPath.SEPARATOR);
+			if (srcPos >= 0) {
+				srcPos += 1 + sourceFolderName.length();
+				break;
+			}
+		}
+		if (srcPos < 0) {
+			return false;
+		}
+		path = path.substring(srcPos);
+		if (EmfsResourceImpl.getEmfsResource(roots, path, 0) != null) {
+			return false;
+		}
 		EmfsResource packageResource = EmfsResourceImpl.getEmfsResource(roots, path, -1);
 		if (! (packageResource instanceof EmfsContainer)) {
 			return false;

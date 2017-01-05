@@ -81,10 +81,13 @@ public class JexTestFactoryImpl extends EFactoryImpl implements JexTestFactory
       case JexTestPackage.TRANSITION_EXPRESSION_ACTION: return createTransitionExpressionAction();
       case JexTestPackage.TRANSITION_INPUT_ACTION: return createTransitionInputAction();
       case JexTestPackage.TRANSITION_EFFECT: return createTransitionEffect();
+      case JexTestPackage.TRANSITION_EFFECT2: return createTransitionEffect2();
       case JexTestPackage.TRANSITION_TARGET_EFFECT: return createTransitionTargetEffect();
       case JexTestPackage.TRANSITION_EXCEPTION_EFFECT: return createTransitionExceptionEffect();
       case JexTestPackage.TRANSITION_OUTPUT_EFFECT: return createTransitionOutputEffect();
+      case JexTestPackage.TRANSITION_CALLBACK_EFFECT: return createTransitionCallbackEffect();
       case JexTestPackage.METHOD: return createMethod();
+      case JexTestPackage.PARAMETER_LIST: return createParameterList();
       case JexTestPackage.PARAMETER: return createParameter();
       case JexTestPackage.TESTED_CLASS: return createTestedClass();
       case JexTestPackage.TESTED_OPERATION: return createTestedOperation();
@@ -288,6 +291,17 @@ public class JexTestFactoryImpl extends EFactoryImpl implements JexTestFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public TransitionEffect2 createTransitionEffect2()
+  {
+    TransitionEffect2Impl transitionEffect2 = new TransitionEffect2Impl();
+    return transitionEffect2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TransitionTargetEffect createTransitionTargetEffect()
   {
     TransitionTargetEffectImpl transitionTargetEffect = new TransitionTargetEffectImpl();
@@ -321,10 +335,32 @@ public class JexTestFactoryImpl extends EFactoryImpl implements JexTestFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public TransitionCallbackEffect createTransitionCallbackEffect()
+  {
+    TransitionCallbackEffectImpl transitionCallbackEffect = new TransitionCallbackEffectImpl();
+    return transitionCallbackEffect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Method createMethod()
   {
     MethodImpl method = new MethodImpl();
     return method;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParameterList createParameterList()
+  {
+    ParameterListImpl parameterList = new ParameterListImpl();
+    return parameterList;
   }
 
   /**

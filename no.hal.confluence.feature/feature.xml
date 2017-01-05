@@ -17,6 +17,10 @@
       [Enter License Description here.]
    </license>
 
+   <requires>
+      <import feature="no.hal.emfs.feature" version="0.1.0.qualifier"/>
+   </requires>
+
    <plugin
          id="no.hal.confluence.ui"
          download-size="0"
@@ -25,49 +29,7 @@
          unpack="false"/>
 
    <plugin
-         id="no.hal.emfs"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="no.hal.emfs.provider"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="no.hal.emfs.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="no.hal.emfs.xtext"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="no.hal.emfs.xtext.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="no.hal.confluence.java.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="no.hal.emfs.git"
          download-size="0"
          install-size="0"
          version="0.0.0"

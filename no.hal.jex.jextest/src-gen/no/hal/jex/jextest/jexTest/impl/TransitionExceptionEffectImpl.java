@@ -28,7 +28,7 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  *
  * @generated
  */
-public class TransitionExceptionEffectImpl extends TransitionEffectImpl implements TransitionExceptionEffect
+public class TransitionExceptionEffectImpl extends TransitionEffect2Impl implements TransitionExceptionEffect
 {
   /**
    * The cached value of the '{@link #getExceptionClass() <em>Exception Class</em>}' containment reference.

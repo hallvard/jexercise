@@ -12,6 +12,7 @@ import no.hal.jex.jextest.jexTest.JexTestSequence;
 import no.hal.jex.jextest.jexTest.JvmOperationRef;
 import no.hal.jex.jextest.jexTest.Method;
 import no.hal.jex.jextest.jexTest.Parameter;
+import no.hal.jex.jextest.jexTest.ParameterList;
 import no.hal.jex.jextest.jexTest.StateFunction;
 import no.hal.jex.jextest.jvmmodel.Util;
 import no.hal.jex.jextest.validation.AbstractJexTestValidator;
@@ -64,8 +65,9 @@ public class JexTestValidator extends AbstractJexTestValidator {
   
   @Check
   public boolean checkVarargIsLast(final Method method) {
-    EList<Parameter> _parameters = method.getParameters();
-    return this.checkVarargIsLast(_parameters, JexTestPackage.Literals.METHOD__PARAMETERS);
+    ParameterList _parameters = method.getParameters();
+    EList<Parameter> _parameters_1 = _parameters.getParameters();
+    return this.checkVarargIsLast(_parameters_1, JexTestPackage.Literals.METHOD__PARAMETERS);
   }
   
   @Inject

@@ -12,11 +12,11 @@ public class XemfsValueConverters extends DefaultTerminalConverters {
 	public IValueConverter<String> FolderName() {
 		return new FixValueConverter(null, "/");
 	}
-	
-	@ValueConverter(rule = "FileName")
-	public IValueConverter<String> FileName() {
-		return new FixValueConverter(null, null);
-	}
+
+//	@ValueConverter(rule = "FileName")
+//	public IValueConverter<String> FileName() {
+//		return new FixValueConverter(null, null);
+//	}
 
 	@ValueConverter(rule = "STRING_CONTENT")
 	public IValueConverter<String> STRING_CONTENT() {

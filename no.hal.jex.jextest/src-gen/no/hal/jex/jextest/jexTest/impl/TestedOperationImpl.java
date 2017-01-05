@@ -2,25 +2,18 @@
  */
 package no.hal.jex.jextest.jexTest.impl;
 
-import java.util.Collection;
-
 import no.hal.jex.jextest.jexTest.JexTestPackage;
-import no.hal.jex.jextest.jexTest.Parameter;
+import no.hal.jex.jextest.jexTest.ParameterList;
 import no.hal.jex.jextest.jexTest.TestedOperation;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -32,7 +25,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getParameterTypes <em>Parameter Types</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getPreExpression <em>Pre Expression</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.impl.TestedOperationImpl#getPostExpression <em>Post Expression</em>}</li>
@@ -43,14 +36,14 @@ import org.eclipse.xtext.xbase.XExpression;
 public class TestedOperationImpl extends MinimalEObjectImpl.Container implements TestedOperation
 {
   /**
-   * The cached value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' containment reference list.
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameterTypes()
+   * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected EList<Parameter> parameterTypes;
+  protected ParameterList parameters;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -118,13 +111,47 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Parameter> getParameterTypes()
+  public ParameterList getParameters()
   {
-    if (parameterTypes == null)
+    return parameters;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParameters(ParameterList newParameters, NotificationChain msgs)
+  {
+    ParameterList oldParameters = parameters;
+    parameters = newParameters;
+    if (eNotificationRequired())
     {
-      parameterTypes = new EObjectContainmentEList<Parameter>(Parameter.class, this, JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JexTestPackage.TESTED_OPERATION__PARAMETERS, oldParameters, newParameters);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return parameterTypes;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParameters(ParameterList newParameters)
+  {
+    if (newParameters != parameters)
+    {
+      NotificationChain msgs = null;
+      if (parameters != null)
+        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.TESTED_OPERATION__PARAMETERS, null, msgs);
+      if (newParameters != null)
+        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.TESTED_OPERATION__PARAMETERS, null, msgs);
+      msgs = basicSetParameters(newParameters, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.TESTED_OPERATION__PARAMETERS, newParameters, newParameters));
   }
 
   /**
@@ -256,8 +283,8 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES:
-        return ((InternalEList<?>)getParameterTypes()).basicRemove(otherEnd, msgs);
+      case JexTestPackage.TESTED_OPERATION__PARAMETERS:
+        return basicSetParameters(null, msgs);
       case JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION:
         return basicSetPreExpression(null, msgs);
       case JexTestPackage.TESTED_OPERATION__POST_EXPRESSION:
@@ -276,8 +303,8 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES:
-        return getParameterTypes();
+      case JexTestPackage.TESTED_OPERATION__PARAMETERS:
+        return getParameters();
       case JexTestPackage.TESTED_OPERATION__DESCRIPTION:
         return getDescription();
       case JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION:
@@ -293,15 +320,13 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES:
-        getParameterTypes().clear();
-        getParameterTypes().addAll((Collection<? extends Parameter>)newValue);
+      case JexTestPackage.TESTED_OPERATION__PARAMETERS:
+        setParameters((ParameterList)newValue);
         return;
       case JexTestPackage.TESTED_OPERATION__DESCRIPTION:
         setDescription((String)newValue);
@@ -326,8 +351,8 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES:
-        getParameterTypes().clear();
+      case JexTestPackage.TESTED_OPERATION__PARAMETERS:
+        setParameters((ParameterList)null);
         return;
       case JexTestPackage.TESTED_OPERATION__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
@@ -352,8 +377,8 @@ public class TestedOperationImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case JexTestPackage.TESTED_OPERATION__PARAMETER_TYPES:
-        return parameterTypes != null && !parameterTypes.isEmpty();
+      case JexTestPackage.TESTED_OPERATION__PARAMETERS:
+        return parameters != null;
       case JexTestPackage.TESTED_OPERATION__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case JexTestPackage.TESTED_OPERATION__PRE_EXPRESSION:

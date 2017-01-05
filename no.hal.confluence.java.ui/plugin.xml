@@ -57,4 +57,13 @@
 	    />
      </extension>
 
+     <extension
+           point="no.hal.confluence.ui.emfsResourceExtractor"
+			id="no.hal.confluence.java.ui.resources.JavaResourceURLResourceClassifier">
+        <emfsResourceExtractor
+	        contentRegionExtractorClass="no.hal.confluence.ui.resources.util.ContentUrlExtractor"
+	        emfsResourceClassifierClass="no.hal.confluence.java.ui.resources.JavaResourceURLResourceClassifier"
+	    />
+     </extension>
+
 </plugin>

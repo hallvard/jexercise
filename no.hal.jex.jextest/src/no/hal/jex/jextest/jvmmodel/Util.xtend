@@ -77,9 +77,9 @@ class Util {
 	def prependPackageName (String name, EObject context) {
 		if (name.lastIndexOf('.') < 0) {
 			val packOwner = ancestor(context, JexTestSuite)
-			if (packOwner != null && name.lastIndexOf('.') < 0) {
+			if (packOwner != null && packOwner.suiteClassName != null && name != null && name.lastIndexOf('.') < 0) {
 				val pos = packOwner.suiteClassName.lastIndexOf('.')
-				if (pos >= 0) {
+				if (pos > 0) {
 					return packOwner.suiteClassName.substring(0, pos + 1) + name  
 				}
 			}

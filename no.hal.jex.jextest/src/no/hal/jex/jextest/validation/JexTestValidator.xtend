@@ -50,7 +50,7 @@ class JexTestValidator extends AbstractJexTestValidator {
 	
 	@Check
 	def checkVarargIsLast(Method method) {
-		checkVarargIsLast(method.parameters, JexTestPackage.Literals.METHOD__PARAMETERS)
+		checkVarargIsLast(method.parameters.parameters, JexTestPackage.Literals.METHOD__PARAMETERS)
 	}
 
 	@Inject

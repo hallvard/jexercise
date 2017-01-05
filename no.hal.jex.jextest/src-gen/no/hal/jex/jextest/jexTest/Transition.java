@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link no.hal.jex.jextest.jexTest.Transition#getSource <em>Source</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Transition#getDescription <em>Description</em>}</li>
  *   <li>{@link no.hal.jex.jextest.jexTest.Transition#getActions <em>Actions</em>}</li>
- *   <li>{@link no.hal.jex.jextest.jexTest.Transition#getEffect <em>Effect</em>}</li>
+ *   <li>{@link no.hal.jex.jextest.jexTest.Transition#getEffects <em>Effects</em>}</li>
  * </ul>
  *
  * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTransition()
@@ -96,29 +96,19 @@ public interface Transition extends EObject
   EList<TransitionAction> getActions();
 
   /**
-   * Returns the value of the '<em><b>Effect</b></em>' containment reference.
+   * Returns the value of the '<em><b>Effects</b></em>' containment reference list.
+   * The list contents are of type {@link no.hal.jex.jextest.jexTest.TransitionEffect}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Effect</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Effects</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Effect</em>' containment reference.
-   * @see #setEffect(TransitionEffect)
-   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTransition_Effect()
+   * @return the value of the '<em>Effects</em>' containment reference list.
+   * @see no.hal.jex.jextest.jexTest.JexTestPackage#getTransition_Effects()
    * @model containment="true"
    * @generated
    */
-  TransitionEffect getEffect();
-
-  /**
-   * Sets the value of the '{@link no.hal.jex.jextest.jexTest.Transition#getEffect <em>Effect</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Effect</em>' containment reference.
-   * @see #getEffect()
-   * @generated
-   */
-  void setEffect(TransitionEffect value);
+  EList<TransitionEffect> getEffects();
 
 } // Transition

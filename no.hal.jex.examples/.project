@@ -20,4 +20,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>emfs/test3</name>
+			<type>2</type>
+			<locationURI>emfs:/?file:/Users/hal/java/git/jexercise/no.hal.jex.examples/emfs/test3.xemfs</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

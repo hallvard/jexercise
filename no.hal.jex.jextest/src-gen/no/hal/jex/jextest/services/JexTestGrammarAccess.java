@@ -308,13 +308,13 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprXExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
 		//SuiteInstance Instance:
-		//	type=JvmTypeReference name=ID ('=' expr=XExpression)?
+		//	type=JvmTypeReference? name=ID ('=' expr=XExpression)?
 		@Override public ParserRule getRule() { return rule; }
 
-		//type=JvmTypeReference name=ID ('=' expr=XExpression)?
+		//type=JvmTypeReference? name=ID ('=' expr=XExpression)?
 		public Group getGroup() { return cGroup; }
 
-		//type=JvmTypeReference
+		//type=JvmTypeReference?
 		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
 
 		//JvmTypeReference
@@ -898,10 +898,10 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCommaKeyword_0_4_0 = (Keyword)cGroup_0_4.eContents().get(0);
 		private final Assignment cActionsAssignment_0_4_1 = (Assignment)cGroup_0_4.eContents().get(1);
 		private final RuleCall cActionsTransitionActionParserRuleCall_0_4_1_0 = (RuleCall)cActionsAssignment_0_4_1.eContents().get(0);
-		private final Assignment cEffectAssignment_0_5 = (Assignment)cGroup_0.eContents().get(5);
-		private final RuleCall cEffectTransitionEffectParserRuleCall_0_5_0 = (RuleCall)cEffectAssignment_0_5.eContents().get(0);
-		private final Assignment cEffectAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cEffectTransitionTargetEffectParserRuleCall_1_0 = (RuleCall)cEffectAssignment_1.eContents().get(0);
+		private final Assignment cEffectsAssignment_0_5 = (Assignment)cGroup_0.eContents().get(5);
+		private final RuleCall cEffectsTransitionEffectParserRuleCall_0_5_0 = (RuleCall)cEffectsAssignment_0_5.eContents().get(0);
+		private final Assignment cEffectsAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cEffectsTransitionTargetEffectParserRuleCall_1_0 = (RuleCall)cEffectsAssignment_1.eContents().get(0);
 		
 		//Transition:
 		//	source=TransitionSource?
@@ -909,17 +909,17 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		//	description=STRING? '--'
 		//	actions+=TransitionAction (',' actions+=TransitionAction)*
 		//	// effect part
-		//	effect=TransitionEffect | effect=TransitionTargetEffect;
+		//	effects+=TransitionEffect | effects+=TransitionTargetEffect;
 		@Override public ParserRule getRule() { return rule; }
 
 		//source=TransitionSource? // action part
 		//description=STRING? '--' actions+=TransitionAction (',' actions+=TransitionAction)* // effect part
-		//effect=TransitionEffect | effect=TransitionTargetEffect
+		//effects+=TransitionEffect | effects+=TransitionTargetEffect
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//source=TransitionSource? // action part
 		//description=STRING? '--' actions+=TransitionAction (',' actions+=TransitionAction)* // effect part
-		//effect=TransitionEffect
+		//effects+=TransitionEffect
 		public Group getGroup_0() { return cGroup_0; }
 
 		//// optional source
@@ -958,18 +958,18 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getActionsTransitionActionParserRuleCall_0_4_1_0() { return cActionsTransitionActionParserRuleCall_0_4_1_0; }
 
 		//// effect part
-		//effect=TransitionEffect
-		public Assignment getEffectAssignment_0_5() { return cEffectAssignment_0_5; }
+		//effects+=TransitionEffect
+		public Assignment getEffectsAssignment_0_5() { return cEffectsAssignment_0_5; }
 
 		//TransitionEffect
-		public RuleCall getEffectTransitionEffectParserRuleCall_0_5_0() { return cEffectTransitionEffectParserRuleCall_0_5_0; }
+		public RuleCall getEffectsTransitionEffectParserRuleCall_0_5_0() { return cEffectsTransitionEffectParserRuleCall_0_5_0; }
 
 		//// initial state
-		//effect=TransitionTargetEffect
-		public Assignment getEffectAssignment_1() { return cEffectAssignment_1; }
+		//effects+=TransitionTargetEffect
+		public Assignment getEffectsAssignment_1() { return cEffectsAssignment_1; }
 
 		//TransitionTargetEffect
-		public RuleCall getEffectTransitionTargetEffectParserRuleCall_1_0() { return cEffectTransitionTargetEffectParserRuleCall_1_0; }
+		public RuleCall getEffectsTransitionTargetEffectParserRuleCall_1_0() { return cEffectsTransitionTargetEffectParserRuleCall_1_0; }
 	}
 
 	public class TransitionSourceElements extends AbstractParserRuleElementFinder {
@@ -1089,20 +1089,40 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.hal.jex.jextest.JexTest.TransitionEffect");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cTransitionTargetEffectParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTransitionExceptionEffectParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTransitionEffect2ParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//TransitionEffect:
-		//	TransitionTargetEffect | TransitionExceptionEffect;
+		//	TransitionTargetEffect | TransitionEffect2;
 		@Override public ParserRule getRule() { return rule; }
 
-		//TransitionTargetEffect | TransitionExceptionEffect
+		//TransitionTargetEffect | TransitionEffect2
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//TransitionTargetEffect
 		public RuleCall getTransitionTargetEffectParserRuleCall_0() { return cTransitionTargetEffectParserRuleCall_0; }
 
+		//TransitionEffect2
+		public RuleCall getTransitionEffect2ParserRuleCall_1() { return cTransitionEffect2ParserRuleCall_1; }
+	}
+
+	public class TransitionEffect2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.hal.jex.jextest.JexTest.TransitionEffect2");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTransitionExceptionEffectParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTransitionCallbackEffectParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//TransitionEffect2:
+		//	TransitionExceptionEffect | TransitionCallbackEffect;
+		@Override public ParserRule getRule() { return rule; }
+
+		//TransitionExceptionEffect | TransitionCallbackEffect
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//TransitionExceptionEffect
-		public RuleCall getTransitionExceptionEffectParserRuleCall_1() { return cTransitionExceptionEffectParserRuleCall_1; }
+		public RuleCall getTransitionExceptionEffectParserRuleCall_0() { return cTransitionExceptionEffectParserRuleCall_0; }
+
+		//TransitionCallbackEffect
+		public RuleCall getTransitionCallbackEffectParserRuleCall_1() { return cTransitionCallbackEffectParserRuleCall_1; }
 	}
 
 	public class TransitionTargetEffectElements extends AbstractParserRuleElementFinder {
@@ -1202,6 +1222,81 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getPatternSTRINGTerminalRuleCall_1_0() { return cPatternSTRINGTerminalRuleCall_1_0; }
 	}
 
+	public class TransitionCallbackEffectElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.hal.jex.jextest.JexTest.TransitionCallbackEffect");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCallbackKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cInstanceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cInstanceInstanceCrossReference_1_0 = (CrossReference)cInstanceAssignment_1.eContents().get(0);
+		private final RuleCall cInstanceInstanceIDTerminalRuleCall_1_0_1 = (RuleCall)cInstanceInstanceCrossReference_1_0.eContents().get(1);
+		private final Keyword cToKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cCallbackClassAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cCallbackClassJvmParameterizedTypeReferenceParserRuleCall_3_0_0 = (RuleCall)cCallbackClassAssignment_3_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cMethodNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cMethodNameIDTerminalRuleCall_4_0 = (RuleCall)cMethodNameAssignment_4.eContents().get(0);
+		private final Assignment cParametersAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cParametersParameterListParserRuleCall_5_0 = (RuleCall)cParametersAssignment_5.eContents().get(0);
+		private final Assignment cArgumentsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cArgumentsPropertiesTestParserRuleCall_6_0 = (RuleCall)cArgumentsAssignment_6.eContents().get(0);
+		
+		//TransitionCallbackEffect:
+		//	'callback'
+		//	instance=[Instance] 'to' (callbackClass=JvmParameterizedTypeReference '.')? methodName=ID parameters=ParameterList?
+		//	arguments=PropertiesTest;
+		@Override public ParserRule getRule() { return rule; }
+
+		//'callback' instance=[Instance] 'to' (callbackClass=JvmParameterizedTypeReference '.')? methodName=ID
+		//parameters=ParameterList? arguments=PropertiesTest
+		public Group getGroup() { return cGroup; }
+
+		//'callback'
+		public Keyword getCallbackKeyword_0() { return cCallbackKeyword_0; }
+
+		//instance=[Instance]
+		public Assignment getInstanceAssignment_1() { return cInstanceAssignment_1; }
+
+		//[Instance]
+		public CrossReference getInstanceInstanceCrossReference_1_0() { return cInstanceInstanceCrossReference_1_0; }
+
+		//ID
+		public RuleCall getInstanceInstanceIDTerminalRuleCall_1_0_1() { return cInstanceInstanceIDTerminalRuleCall_1_0_1; }
+
+		//'to'
+		public Keyword getToKeyword_2() { return cToKeyword_2; }
+
+		//(callbackClass=JvmParameterizedTypeReference '.')?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//callbackClass=JvmParameterizedTypeReference
+		public Assignment getCallbackClassAssignment_3_0() { return cCallbackClassAssignment_3_0; }
+
+		//JvmParameterizedTypeReference
+		public RuleCall getCallbackClassJvmParameterizedTypeReferenceParserRuleCall_3_0_0() { return cCallbackClassJvmParameterizedTypeReferenceParserRuleCall_3_0_0; }
+
+		//'.'
+		public Keyword getFullStopKeyword_3_1() { return cFullStopKeyword_3_1; }
+
+		//methodName=ID
+		public Assignment getMethodNameAssignment_4() { return cMethodNameAssignment_4; }
+
+		//ID
+		public RuleCall getMethodNameIDTerminalRuleCall_4_0() { return cMethodNameIDTerminalRuleCall_4_0; }
+
+		//parameters=ParameterList?
+		public Assignment getParametersAssignment_5() { return cParametersAssignment_5; }
+
+		//ParameterList
+		public RuleCall getParametersParameterListParserRuleCall_5_0() { return cParametersParameterListParserRuleCall_5_0; }
+
+		//arguments=PropertiesTest
+		public Assignment getArgumentsAssignment_6() { return cArgumentsAssignment_6; }
+
+		//PropertiesTest
+		public RuleCall getArgumentsPropertiesTestParserRuleCall_6_0() { return cArgumentsPropertiesTestParserRuleCall_6_0; }
+	}
+
 	public class MethodElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.hal.jex.jextest.JexTest.Method");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1213,26 +1308,17 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0_0 = (RuleCall)cNameAlternatives_2_0.eContents().get(0);
 		private final RuleCall cNameOpEqualityParserRuleCall_2_0_1 = (RuleCall)cNameAlternatives_2_0.eContents().get(1);
 		private final RuleCall cNameOpCompareParserRuleCall_2_0_2 = (RuleCall)cNameAlternatives_2_0.eContents().get(2);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cParametersAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cParametersParameterParserRuleCall_4_0_0 = (RuleCall)cParametersAssignment_4_0.eContents().get(0);
-		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
-		private final Keyword cCommaKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cParametersAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cParametersParameterParserRuleCall_4_1_1_0 = (RuleCall)cParametersAssignment_4_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cBodyAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cBodyXExpressionParserRuleCall_6_0 = (RuleCall)cBodyAssignment_6.eContents().get(0);
+		private final Assignment cParametersAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cParametersParameterListParserRuleCall_3_0 = (RuleCall)cParametersAssignment_3.eContents().get(0);
+		private final Assignment cBodyAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cBodyXExpressionParserRuleCall_4_0 = (RuleCall)cBodyAssignment_4.eContents().get(0);
 		
 		//Method:
-		//	'method' returnType=JvmTypeReference? name=(ID | OpEquality | OpCompare)
-		//	'(' (parameters+=Parameter (',' parameters+=Parameter)*)? ')'
+		//	'method' returnType=JvmTypeReference? name=(ID | OpEquality | OpCompare) parameters=ParameterList
 		//	body=XExpression;
 		@Override public ParserRule getRule() { return rule; }
 
-		//'method' returnType=JvmTypeReference? name=(ID | OpEquality | OpCompare) '(' (parameters+=Parameter (','
-		//parameters+=Parameter)*)? ')' body=XExpression
+		//'method' returnType=JvmTypeReference? name=(ID | OpEquality | OpCompare) parameters=ParameterList body=XExpression
 		public Group getGroup() { return cGroup; }
 
 		//'method'
@@ -1259,38 +1345,69 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		//OpCompare
 		public RuleCall getNameOpCompareParserRuleCall_2_0_2() { return cNameOpCompareParserRuleCall_2_0_2; }
 
-		//'('
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+		//parameters=ParameterList
+		public Assignment getParametersAssignment_3() { return cParametersAssignment_3; }
 
-		//(parameters+=Parameter (',' parameters+=Parameter)*)?
-		public Group getGroup_4() { return cGroup_4; }
-
-		//parameters+=Parameter
-		public Assignment getParametersAssignment_4_0() { return cParametersAssignment_4_0; }
-
-		//Parameter
-		public RuleCall getParametersParameterParserRuleCall_4_0_0() { return cParametersParameterParserRuleCall_4_0_0; }
-
-		//(',' parameters+=Parameter)*
-		public Group getGroup_4_1() { return cGroup_4_1; }
-
-		//','
-		public Keyword getCommaKeyword_4_1_0() { return cCommaKeyword_4_1_0; }
-
-		//parameters+=Parameter
-		public Assignment getParametersAssignment_4_1_1() { return cParametersAssignment_4_1_1; }
-
-		//Parameter
-		public RuleCall getParametersParameterParserRuleCall_4_1_1_0() { return cParametersParameterParserRuleCall_4_1_1_0; }
-
-		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		//ParameterList
+		public RuleCall getParametersParameterListParserRuleCall_3_0() { return cParametersParameterListParserRuleCall_3_0; }
 
 		//body=XExpression
-		public Assignment getBodyAssignment_6() { return cBodyAssignment_6; }
+		public Assignment getBodyAssignment_4() { return cBodyAssignment_4; }
 
 		//XExpression
-		public RuleCall getBodyXExpressionParserRuleCall_6_0() { return cBodyXExpressionParserRuleCall_6_0; }
+		public RuleCall getBodyXExpressionParserRuleCall_4_0() { return cBodyXExpressionParserRuleCall_4_0; }
+	}
+
+	public class ParameterListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.hal.jex.jextest.JexTest.ParameterList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParameterListAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cParametersAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cParametersParameterParserRuleCall_2_0_0 = (RuleCall)cParametersAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cParametersAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cParametersParameterParserRuleCall_2_1_1_0 = (RuleCall)cParametersAssignment_2_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//ParameterList:
+		//	{ParameterList} '(' (parameters+=Parameter (',' parameters+=Parameter)*)? ')';
+		@Override public ParserRule getRule() { return rule; }
+
+		//{ParameterList} '(' (parameters+=Parameter (',' parameters+=Parameter)*)? ')'
+		public Group getGroup() { return cGroup; }
+
+		//{ParameterList}
+		public Action getParameterListAction_0() { return cParameterListAction_0; }
+
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+
+		//(parameters+=Parameter (',' parameters+=Parameter)*)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//parameters+=Parameter
+		public Assignment getParametersAssignment_2_0() { return cParametersAssignment_2_0; }
+
+		//Parameter
+		public RuleCall getParametersParameterParserRuleCall_2_0_0() { return cParametersParameterParserRuleCall_2_0_0; }
+
+		//(',' parameters+=Parameter)*
+		public Group getGroup_2_1() { return cGroup_2_1; }
+
+		//','
+		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
+
+		//parameters+=Parameter
+		public Assignment getParametersAssignment_2_1_1() { return cParametersAssignment_2_1_1; }
+
+		//Parameter
+		public RuleCall getParametersParameterParserRuleCall_2_1_1_0() { return cParametersParameterParserRuleCall_2_1_1_0; }
+
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 
 	public class ParameterElements extends AbstractParserRuleElementFinder {
@@ -1485,33 +1602,26 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final RuleCall cTestedConstructorParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
 		private final RuleCall cTestedMethodParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cParameterTypesAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cParameterTypesParameterTypeParserRuleCall_2_0_0 = (RuleCall)cParameterTypesAssignment_2_0.eContents().get(0);
-		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
-		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cParameterTypesAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cParameterTypesParameterTypeParserRuleCall_2_1_1_0 = (RuleCall)cParameterTypesAssignment_2_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDescriptionSTRINGTerminalRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cLessThanSignEqualsSignKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cPreExpressionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cPreExpressionXExpressionParserRuleCall_5_1_0 = (RuleCall)cPreExpressionAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cEqualsSignGreaterThanSignKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cPostExpressionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cPostExpressionXExpressionParserRuleCall_6_1_0 = (RuleCall)cPostExpressionAssignment_6_1.eContents().get(0);
+		private final Assignment cParametersAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cParametersParameterListParserRuleCall_1_0 = (RuleCall)cParametersAssignment_1.eContents().get(0);
+		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLessThanSignEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cPreExpressionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPreExpressionXExpressionParserRuleCall_3_1_0 = (RuleCall)cPreExpressionAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cPostExpressionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cPostExpressionXExpressionParserRuleCall_4_1_0 = (RuleCall)cPostExpressionAssignment_4_1.eContents().get(0);
 		
 		//TestedOperation:
-		//	(TestedConstructor | TestedMethod) '(' (parameterTypes+=ParameterType (',' parameterTypes+=ParameterType)*)? ')'
+		//	(TestedConstructor | TestedMethod) parameters=ParameterList
 		//	description=STRING? ('<=' preExpression=XExpression)? ('=>' postExpression=XExpression)?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//(TestedConstructor | TestedMethod) '(' (parameterTypes+=ParameterType (',' parameterTypes+=ParameterType)*)? ')'
-		//description=STRING? ('<=' preExpression=XExpression)? ('=>' postExpression=XExpression)?
+		//(TestedConstructor | TestedMethod) parameters=ParameterList description=STRING? ('<=' preExpression=XExpression)? ('=>'
+		//postExpression=XExpression)?
 		public Group getGroup() { return cGroup; }
 
 		//(TestedConstructor | TestedMethod)
@@ -1523,90 +1633,41 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		//TestedMethod
 		public RuleCall getTestedMethodParserRuleCall_0_1() { return cTestedMethodParserRuleCall_0_1; }
 
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		//parameters=ParameterList
+		public Assignment getParametersAssignment_1() { return cParametersAssignment_1; }
 
-		//(parameterTypes+=ParameterType (',' parameterTypes+=ParameterType)*)?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//parameterTypes+=ParameterType
-		public Assignment getParameterTypesAssignment_2_0() { return cParameterTypesAssignment_2_0; }
-
-		//ParameterType
-		public RuleCall getParameterTypesParameterTypeParserRuleCall_2_0_0() { return cParameterTypesParameterTypeParserRuleCall_2_0_0; }
-
-		//(',' parameterTypes+=ParameterType)*
-		public Group getGroup_2_1() { return cGroup_2_1; }
-
-		//','
-		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
-
-		//parameterTypes+=ParameterType
-		public Assignment getParameterTypesAssignment_2_1_1() { return cParameterTypesAssignment_2_1_1; }
-
-		//ParameterType
-		public RuleCall getParameterTypesParameterTypeParserRuleCall_2_1_1_0() { return cParameterTypesParameterTypeParserRuleCall_2_1_1_0; }
-
-		//')'
-		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+		//ParameterList
+		public RuleCall getParametersParameterListParserRuleCall_1_0() { return cParametersParameterListParserRuleCall_1_0; }
 
 		//description=STRING?
-		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
+		public Assignment getDescriptionAssignment_2() { return cDescriptionAssignment_2; }
 
 		//STRING
-		public RuleCall getDescriptionSTRINGTerminalRuleCall_4_0() { return cDescriptionSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_0() { return cDescriptionSTRINGTerminalRuleCall_2_0; }
 
 		//('<=' preExpression=XExpression)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//'<='
-		public Keyword getLessThanSignEqualsSignKeyword_5_0() { return cLessThanSignEqualsSignKeyword_5_0; }
+		public Keyword getLessThanSignEqualsSignKeyword_3_0() { return cLessThanSignEqualsSignKeyword_3_0; }
 
 		//preExpression=XExpression
-		public Assignment getPreExpressionAssignment_5_1() { return cPreExpressionAssignment_5_1; }
+		public Assignment getPreExpressionAssignment_3_1() { return cPreExpressionAssignment_3_1; }
 
 		//XExpression
-		public RuleCall getPreExpressionXExpressionParserRuleCall_5_1_0() { return cPreExpressionXExpressionParserRuleCall_5_1_0; }
+		public RuleCall getPreExpressionXExpressionParserRuleCall_3_1_0() { return cPreExpressionXExpressionParserRuleCall_3_1_0; }
 
 		//('=>' postExpression=XExpression)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//'=>'
-		public Keyword getEqualsSignGreaterThanSignKeyword_6_0() { return cEqualsSignGreaterThanSignKeyword_6_0; }
+		public Keyword getEqualsSignGreaterThanSignKeyword_4_0() { return cEqualsSignGreaterThanSignKeyword_4_0; }
 
 		//postExpression=XExpression
-		public Assignment getPostExpressionAssignment_6_1() { return cPostExpressionAssignment_6_1; }
+		public Assignment getPostExpressionAssignment_4_1() { return cPostExpressionAssignment_4_1; }
 
 		//XExpression
-		public RuleCall getPostExpressionXExpressionParserRuleCall_6_1_0() { return cPostExpressionXExpressionParserRuleCall_6_1_0; }
-	}
-
-	public class ParameterTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.hal.jex.jextest.JexTest.ParameterType");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
-		private final Assignment cVarargAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cVarargFullStopFullStopFullStopKeyword_1_0 = (Keyword)cVarargAssignment_1.eContents().get(0);
-		
-		//ParameterType Parameter:
-		//	type=JvmTypeReference vararg?='...'?
-		@Override public ParserRule getRule() { return rule; }
-
-		//type=JvmTypeReference vararg?='...'?
-		public Group getGroup() { return cGroup; }
-
-		//type=JvmTypeReference
-		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
-
-		//JvmTypeReference
-		public RuleCall getTypeJvmTypeReferenceParserRuleCall_0_0() { return cTypeJvmTypeReferenceParserRuleCall_0_0; }
-
-		//vararg?='...'?
-		public Assignment getVarargAssignment_1() { return cVarargAssignment_1; }
-
-		//'...'
-		public Keyword getVarargFullStopFullStopFullStopKeyword_1_0() { return cVarargFullStopFullStopFullStopKeyword_1_0; }
+		public RuleCall getPostExpressionXExpressionParserRuleCall_4_1_0() { return cPostExpressionXExpressionParserRuleCall_4_1_0; }
 	}
 
 	public class TestedConstructorElements extends AbstractParserRuleElementFinder {
@@ -1736,14 +1797,16 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final TransitionExpressionActionElements pTransitionExpressionAction;
 	private final TransitionInputActionElements pTransitionInputAction;
 	private final TransitionEffectElements pTransitionEffect;
+	private final TransitionEffect2Elements pTransitionEffect2;
 	private final TransitionTargetEffectElements pTransitionTargetEffect;
 	private final TransitionExceptionEffectElements pTransitionExceptionEffect;
 	private final TransitionOutputEffectElements pTransitionOutputEffect;
+	private final TransitionCallbackEffectElements pTransitionCallbackEffect;
 	private final MethodElements pMethod;
+	private final ParameterListElements pParameterList;
 	private final ParameterElements pParameter;
 	private final TestedClassElements pTestedClass;
 	private final TestedOperationElements pTestedOperation;
-	private final ParameterTypeElements pParameterType;
 	private final TestedConstructorElements pTestedConstructor;
 	private final TestedMethodElements pTestedMethod;
 	private final OpPostfixElements pOpPostfix;
@@ -1782,14 +1845,16 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.pTransitionExpressionAction = new TransitionExpressionActionElements();
 		this.pTransitionInputAction = new TransitionInputActionElements();
 		this.pTransitionEffect = new TransitionEffectElements();
+		this.pTransitionEffect2 = new TransitionEffect2Elements();
 		this.pTransitionTargetEffect = new TransitionTargetEffectElements();
 		this.pTransitionExceptionEffect = new TransitionExceptionEffectElements();
 		this.pTransitionOutputEffect = new TransitionOutputEffectElements();
+		this.pTransitionCallbackEffect = new TransitionCallbackEffectElements();
 		this.pMethod = new MethodElements();
+		this.pParameterList = new ParameterListElements();
 		this.pParameter = new ParameterElements();
 		this.pTestedClass = new TestedClassElements();
 		this.pTestedOperation = new TestedOperationElements();
-		this.pParameterType = new ParameterTypeElements();
 		this.pTestedConstructor = new TestedConstructorElements();
 		this.pTestedMethod = new TestedMethodElements();
 		this.pOpPostfix = new OpPostfixElements();
@@ -1855,7 +1920,7 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SuiteInstance Instance:
-	//	type=JvmTypeReference name=ID ('=' expr=XExpression)?
+	//	type=JvmTypeReference? name=ID ('=' expr=XExpression)?
 	public SuiteInstanceElements getSuiteInstanceAccess() {
 		return pSuiteInstance;
 	}
@@ -1989,7 +2054,7 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	description=STRING? '--'
 	//	actions+=TransitionAction (',' actions+=TransitionAction)*
 	//	// effect part
-	//	effect=TransitionEffect | effect=TransitionTargetEffect;
+	//	effects+=TransitionEffect | effects+=TransitionTargetEffect;
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}
@@ -2040,13 +2105,23 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TransitionEffect:
-	//	TransitionTargetEffect | TransitionExceptionEffect;
+	//	TransitionTargetEffect | TransitionEffect2;
 	public TransitionEffectElements getTransitionEffectAccess() {
 		return pTransitionEffect;
 	}
 	
 	public ParserRule getTransitionEffectRule() {
 		return getTransitionEffectAccess().getRule();
+	}
+
+	//TransitionEffect2:
+	//	TransitionExceptionEffect | TransitionCallbackEffect;
+	public TransitionEffect2Elements getTransitionEffect2Access() {
+		return pTransitionEffect2;
+	}
+	
+	public ParserRule getTransitionEffect2Rule() {
+		return getTransitionEffect2Access().getRule();
 	}
 
 	//// | TransitionOutputEffect;
@@ -2080,9 +2155,20 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransitionOutputEffectAccess().getRule();
 	}
 
+	//TransitionCallbackEffect:
+	//	'callback'
+	//	instance=[Instance] 'to' (callbackClass=JvmParameterizedTypeReference '.')? methodName=ID parameters=ParameterList?
+	//	arguments=PropertiesTest;
+	public TransitionCallbackEffectElements getTransitionCallbackEffectAccess() {
+		return pTransitionCallbackEffect;
+	}
+	
+	public ParserRule getTransitionCallbackEffectRule() {
+		return getTransitionCallbackEffectAccess().getRule();
+	}
+
 	//Method:
-	//	'method' returnType=JvmTypeReference? name=(ID | OpEquality | OpCompare)
-	//	'(' (parameters+=Parameter (',' parameters+=Parameter)*)? ')'
+	//	'method' returnType=JvmTypeReference? name=(ID | OpEquality | OpCompare) parameters=ParameterList
 	//	body=XExpression;
 	public MethodElements getMethodAccess() {
 		return pMethod;
@@ -2090,6 +2176,16 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getMethodRule() {
 		return getMethodAccess().getRule();
+	}
+
+	//ParameterList:
+	//	{ParameterList} '(' (parameters+=Parameter (',' parameters+=Parameter)*)? ')';
+	public ParameterListElements getParameterListAccess() {
+		return pParameterList;
+	}
+	
+	public ParserRule getParameterListRule() {
+		return getParameterListAccess().getRule();
 	}
 
 	//Parameter:
@@ -2120,7 +2216,7 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TestedOperation:
-	//	(TestedConstructor | TestedMethod) '(' (parameterTypes+=ParameterType (',' parameterTypes+=ParameterType)*)? ')'
+	//	(TestedConstructor | TestedMethod) parameters=ParameterList
 	//	description=STRING? ('<=' preExpression=XExpression)? ('=>' postExpression=XExpression)?;
 	public TestedOperationElements getTestedOperationAccess() {
 		return pTestedOperation;
@@ -2128,16 +2224,6 @@ public class JexTestGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTestedOperationRule() {
 		return getTestedOperationAccess().getRule();
-	}
-
-	//ParameterType Parameter:
-	//	type=JvmTypeReference vararg?='...'?
-	public ParameterTypeElements getParameterTypeAccess() {
-		return pParameterType;
-	}
-	
-	public ParserRule getParameterTypeRule() {
-		return getParameterTypeAccess().getRule();
 	}
 
 	//TestedConstructor:

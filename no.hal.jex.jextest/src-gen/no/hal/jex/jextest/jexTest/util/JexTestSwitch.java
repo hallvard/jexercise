@@ -201,6 +201,14 @@ public class JexTestSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case JexTestPackage.TRANSITION_EFFECT2:
+      {
+        TransitionEffect2 transitionEffect2 = (TransitionEffect2)theEObject;
+        T result = caseTransitionEffect2(transitionEffect2);
+        if (result == null) result = caseTransitionEffect(transitionEffect2);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case JexTestPackage.TRANSITION_TARGET_EFFECT:
       {
         TransitionTargetEffect transitionTargetEffect = (TransitionTargetEffect)theEObject;
@@ -213,6 +221,7 @@ public class JexTestSwitch<T> extends Switch<T>
       {
         TransitionExceptionEffect transitionExceptionEffect = (TransitionExceptionEffect)theEObject;
         T result = caseTransitionExceptionEffect(transitionExceptionEffect);
+        if (result == null) result = caseTransitionEffect2(transitionExceptionEffect);
         if (result == null) result = caseTransitionEffect(transitionExceptionEffect);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -224,10 +233,26 @@ public class JexTestSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case JexTestPackage.TRANSITION_CALLBACK_EFFECT:
+      {
+        TransitionCallbackEffect transitionCallbackEffect = (TransitionCallbackEffect)theEObject;
+        T result = caseTransitionCallbackEffect(transitionCallbackEffect);
+        if (result == null) result = caseTransitionEffect2(transitionCallbackEffect);
+        if (result == null) result = caseTransitionEffect(transitionCallbackEffect);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case JexTestPackage.METHOD:
       {
         Method method = (Method)theEObject;
         T result = caseMethod(method);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JexTestPackage.PARAMETER_LIST:
+      {
+        ParameterList parameterList = (ParameterList)theEObject;
+        T result = caseParameterList(parameterList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -554,6 +579,22 @@ public class JexTestSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Transition Effect2</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Transition Effect2</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTransitionEffect2(TransitionEffect2 object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Transition Target Effect</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -602,6 +643,22 @@ public class JexTestSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Transition Callback Effect</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Transition Callback Effect</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTransitionCallbackEffect(TransitionCallbackEffect object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -613,6 +670,22 @@ public class JexTestSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMethod(Method object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameterList(ParameterList object)
   {
     return null;
   }

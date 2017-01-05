@@ -24,7 +24,7 @@ public class XemfsResourceClassifier extends AbstractEmfsResourceClassifier<Stri
 			return false;
 		}
 		EmfsResource emfsResource = readXemfsResource(region);
-		return addXemfsResource(emfsResource, roots, true, true);
+		return (emfsResource != null && addXemfsResource(emfsResource, roots, true, true));
 	}
 
 	public static EmfsResource readXemfsResource(String source) {

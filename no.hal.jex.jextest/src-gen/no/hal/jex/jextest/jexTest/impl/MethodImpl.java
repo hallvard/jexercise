@@ -2,25 +2,18 @@
  */
 package no.hal.jex.jextest.jexTest.impl;
 
-import java.util.Collection;
-
 import no.hal.jex.jextest.jexTest.JexTestPackage;
 import no.hal.jex.jextest.jexTest.Method;
-import no.hal.jex.jextest.jexTest.Parameter;
+import no.hal.jex.jextest.jexTest.ParameterList;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
@@ -75,14 +68,14 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected EList<Parameter> parameters;
+  protected ParameterList parameters;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -191,13 +184,47 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Parameter> getParameters()
+  public ParameterList getParameters()
   {
-    if (parameters == null)
-    {
-      parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, JexTestPackage.METHOD__PARAMETERS);
-    }
     return parameters;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParameters(ParameterList newParameters, NotificationChain msgs)
+  {
+    ParameterList oldParameters = parameters;
+    parameters = newParameters;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JexTestPackage.METHOD__PARAMETERS, oldParameters, newParameters);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParameters(ParameterList newParameters)
+  {
+    if (newParameters != parameters)
+    {
+      NotificationChain msgs = null;
+      if (parameters != null)
+        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.METHOD__PARAMETERS, null, msgs);
+      if (newParameters != null)
+        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JexTestPackage.METHOD__PARAMETERS, null, msgs);
+      msgs = basicSetParameters(newParameters, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, JexTestPackage.METHOD__PARAMETERS, newParameters, newParameters));
   }
 
   /**
@@ -261,7 +288,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
       case JexTestPackage.METHOD__RETURN_TYPE:
         return basicSetReturnType(null, msgs);
       case JexTestPackage.METHOD__PARAMETERS:
-        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+        return basicSetParameters(null, msgs);
       case JexTestPackage.METHOD__BODY:
         return basicSetBody(null, msgs);
     }
@@ -295,7 +322,6 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -308,8 +334,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         setName((String)newValue);
         return;
       case JexTestPackage.METHOD__PARAMETERS:
-        getParameters().clear();
-        getParameters().addAll((Collection<? extends Parameter>)newValue);
+        setParameters((ParameterList)newValue);
         return;
       case JexTestPackage.METHOD__BODY:
         setBody((XExpression)newValue);
@@ -335,7 +360,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
         setName(NAME_EDEFAULT);
         return;
       case JexTestPackage.METHOD__PARAMETERS:
-        getParameters().clear();
+        setParameters((ParameterList)null);
         return;
       case JexTestPackage.METHOD__BODY:
         setBody((XExpression)null);
@@ -359,7 +384,7 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method
       case JexTestPackage.METHOD__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case JexTestPackage.METHOD__PARAMETERS:
-        return parameters != null && !parameters.isEmpty();
+        return parameters != null;
       case JexTestPackage.METHOD__BODY:
         return body != null;
     }
