@@ -37,14 +37,12 @@
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
-				<version>${xtend-version}</version>
+				<version>${xtend-maven-plugin-version}</version>
 				<executions>
 					<execution>
 						<goals>
 							<goal>compile</goal>
-							<!-- <goal>testCompile</goal> -->
 						</goals>
-						<!-- optionally you can configure a different target folder -->
 						<configuration>
 							<outputDirectory>xtend-gen</outputDirectory>
 						</configuration>

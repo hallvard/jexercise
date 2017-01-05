@@ -10,14 +10,13 @@
   <name>no.hal.emfs parent module</name>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven-version>3.3</maven-version>
-		<tycho-version>0.24.0</tycho-version>
-		<xtext-version>2.9.1</xtext-version>
-		<xtend-version>2.9.1</xtend-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven-version>3.3</maven-version>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
+		<tycho-version>0.24.0</tycho-version>
+		<xtext-version>2.9.1</xtext-version>
+		<xtend-maven-plugin-version>2.9.1</xtend-maven-plugin-version>
 	</properties>
 
 	<repositories>
@@ -63,10 +62,10 @@
 		<module>no.hal.emfs</module>
 		<module>no.hal.emfs.git</module>
 		<module>no.hal.emfs.provider</module>
+		<module>../no.hal.emf.ui.utils</module>
 		<module>no.hal.emfs.ui</module>
 		<module>no.hal.emfs.xtext</module>
 		<module>no.hal.emfs.xtext.ui</module>
 		<module>no.hal.emfs.feature</module>
-		<module>../no.hal.emf.ui.utils</module>
 	</modules>
 </project>
