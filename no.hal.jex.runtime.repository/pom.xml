@@ -21,6 +21,44 @@
           <createArtifactRepository>true</createArtifactRepository>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <configuration>
+              <tasks>
+		        <jar destfile="${project.basedir}/target/temp/jexercise-runtime.jar" filesetmanifest="mergewithoutmain">
+					<zipgroupfileset dir="${project.basedir}/target/repository/plugins" includes="*.jar" excludes="org.junit_*"/>
+		        </jar>
+		        <unzip dest="${project.basedir}/target/temp">
+		        	<fileset dir="${project.basedir}/target/repository/plugins" includes="org.junit_*"/>
+		        </unzip>
+		        <jar destfile="${project.basedir}/target/jexercise-runtime.jar" filesetmanifest="mergewithoutmain">
+		        	<zipfileset src="${project.basedir}/target/temp/junit.jar"/>
+		        	<zipfileset src="${project.basedir}/target/temp/jexercise-runtime.jar">
+    					<exclude name="META-INF/*.SF"/>
+    					<exclude name="META-INF/maven/**"/>
+    					<exclude name="com/google/common/cache/**"/>
+    					<exclude name="com/google/common/escape/**"/>
+    					<exclude name="com/google/common/eventbus/**"/>
+    					<exclude name="com/google/common/hash/**"/>
+    					<exclude name="com/google/common/html/**"/>
+    					<exclude name="com/google/common/io/**"/>
+    					<exclude name="com/google/common/net/**"/>
+    					<exclude name="com/google/common/util/concurrent/**"/>
+    					<exclude name="com/google/common/xml/**"/>
+  					</zipfileset>
+		        </jar>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
