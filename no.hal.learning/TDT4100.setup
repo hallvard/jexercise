@@ -53,6 +53,10 @@
           name="org.python.pydev.feature.feature.group"/>
       <requirement
           name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+      <requirement
+          name="no.hal.emfs.feature.feature.group"/>
+      <requirement
+          name="no.hal.confluence.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/neon"/>
       <repository
@@ -63,6 +67,8 @@
           url="http://files.idi.ntnu.no/publish/no.hal.javafx/repository/"/>
       <repository
           url="http://www.pydev.org/updates/"/>
+      <repository
+          url="http://files.idi.ntnu.no/publish/no.hal.jex/repository/"/>
     </setupTask>
     <description>TDT4100 for Neon.</description>
   </version>
