@@ -36,6 +36,8 @@
       <requirement
           name="org.eclipse.jdt.feature.group"/>
       <requirement
+          name="org.eclipse.pde.feature.group"/>
+      <requirement
           name="org.eclipse.egit.feature.group"/>
       <requirement
           name="org.eclipse.oomph.setup.feature.group"/>
