@@ -41,7 +41,7 @@
 		<testSourceDirectory>src</testSourceDirectory>
 		<testResources>
 			<testResource>
-				<directory>tests</directory>
+				<directory>src</directory>
 				<excludes>
 					<exclude>**/*.java</exclude>
 				</excludes>

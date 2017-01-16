@@ -34,7 +34,9 @@
 
 	<modules>
 		<module>no.hal.javafx.fxmlapp.lib</module>
+		<!-- 
 		<module>no.hal.javafx.fxmlapp.lib.test</module>
+		 -->
 		<module>no.hal.javafx.fxmlapp</module>
 		<module>no.hal.javafx.fxmlapp.feature</module>
 		<module>no.hal.javafx.repository</module>
