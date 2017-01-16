@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>no.hal.javafx.fxmlapp.lib.test</artifactId>
+
+	<parent>
+		<groupId>no.hal.javafx</groupId>
+		<artifactId>no.hal.javafx</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<dependencies>
+	    <dependency>
+	      	<groupId>no.hal.javafx</groupId>
+	      	<artifactId>no.hal.javafx.fxmlapp.lib</artifactId>
+	      	<version>0.0.1-SNAPSHOT</version>
+			<scope>test</scope>
+	    </dependency>
+	    <dependency>
+	      	<groupId>junit</groupId>
+	      	<artifactId>junit</artifactId>
+	      	<version>4.11</version>
+			<scope>test</scope>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.testfx</groupId>
+	        <artifactId>testfx-core</artifactId>
+	        <version>4.0.1-alpha</version>
+	        <scope>test</scope>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.testfx</groupId>
+	        <artifactId>testfx-junit</artifactId>
+	        <version>4.0.1-alpha</version>
+	        <scope>test</scope>
+	    </dependency>
+	</dependencies>
+
+	<build>
+		<testSourceDirectory>src</testSourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>tests</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+		<plugins>
+		 <plugin> 
+               <groupId>org.apache.maven.plugins</groupId> 
+               <artifactId>maven-surefire-plugin</artifactId>
+               <configuration>
+					<skipTests>${skip-ui-tests}</skipTests>
+		       </configuration>
+           </plugin> 
+		</plugins>
+	</build>
+</project>

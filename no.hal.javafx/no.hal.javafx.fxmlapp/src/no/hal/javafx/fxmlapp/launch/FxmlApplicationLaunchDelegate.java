@@ -41,7 +41,7 @@ public class FxmlApplicationLaunchDelegate extends JavaLaunchDelegate {
 			if ((! fxmlAttr.startsWith(separator)) && (! projectLocation.endsWith(separator))) {
 				fxmlArg = separator + fxmlArg;
 			}
-			return "--fxml=" + projectLocation + fxmlArg;
+			return "\"--fxml=" + projectLocation + fxmlArg + "\"";
 		}
 		return null;
 	}

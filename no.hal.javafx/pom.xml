@@ -10,6 +10,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-version>3.3</maven-version>
 		<tycho-version>0.24.0</tycho-version>
+		<skip-ui-tests>true</skip-ui-tests>
 	</properties>
 
 	<repositories>
@@ -32,9 +33,10 @@
 	</build>
 
 	<modules>
+		<module>no.hal.javafx.fxmlapp.lib</module>
+		<module>no.hal.javafx.fxmlapp.lib.test</module>
 		<module>no.hal.javafx.fxmlapp</module>
 		<module>no.hal.javafx.fxmlapp.feature</module>
-		<module>no.hal.javafx.fxmlapp.lib</module>
 		<module>no.hal.javafx.repository</module>
 	</modules>
 </project>
