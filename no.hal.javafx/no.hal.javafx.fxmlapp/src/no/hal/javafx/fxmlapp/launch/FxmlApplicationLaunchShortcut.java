@@ -6,6 +6,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
@@ -17,8 +18,8 @@ import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IPathEditorInput;
 import org.eclipse.ui.PlatformUI;
 
 public class FxmlApplicationLaunchShortcut implements ILaunchShortcut2 {
@@ -130,11 +131,10 @@ public class FxmlApplicationLaunchShortcut implements ILaunchShortcut2 {
 
 	@Override
 	public IResource getLaunchableResource(IEditorPart editorPart) {
-		if (editorPart.getEditorInput() instanceof IPathEditorInput) {
-			IPath path = ((IPathEditorInput) editorPart.getEditorInput()).getPath();
-			if ("fxml".equals(path.getFileExtension())) {
-				return ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-			}
+		IEditorInput editorInput = editorPart.getEditorInput();
+		IResource resource = Platform.getAdapterManager().getAdapter(editorInput, IResource.class);
+		if ("fxml".equals(resource.getFileExtension())) {
+			return resource;
 		}
 		return null;
 	}	

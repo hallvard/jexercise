@@ -2,7 +2,7 @@ package no.hal.javafx.fxmlapp.launch;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.Platform;
 
 /**
  * Property tester for context launching menu.
@@ -19,11 +19,9 @@ public class FxmlLaunchableTester extends PropertyTester {
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
 		if (PROPERTY_HAS_CONTROLLER.equals(property)) {
-			if (receiver instanceof IAdaptable) {
-				IResource resource = ((IAdaptable) receiver).getAdapter(IResource.class);
-				if (resource != null) {
-					return hasController(resource);
-				}
+			IResource resource = Platform.getAdapterManager().getAdapter(receiver, IResource.class);
+			if (resource != null) {
+				return hasController(resource);
 			}
 		}
 		return false;

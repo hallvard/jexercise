@@ -8,7 +8,7 @@
             id="no.hal.javafx.fxmlapp.launch.FxmlLaunchableTester"
             namespace="no.hal.javafx.fxmlapp.launch"
             properties="hasController"
-            type="org.eclipse.core.resources.IResource"/>
+            type="org.eclipse.core.runtime.IAdaptable"/>
    </extension>
 
    <extension
