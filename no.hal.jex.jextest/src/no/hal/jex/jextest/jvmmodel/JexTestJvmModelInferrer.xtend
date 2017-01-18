@@ -223,16 +223,6 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 				sequenceMethod.key.generateTestMethodAnntations(jexerciseTestMethodAnnotation)
 				sequenceMethod.value.annotations += jexerciseTestMethodAnnotation
 			}
-
-			// add a main method that starts the standalone version of JExercise
-			members += testCase.toMethod("main", typeRef(void)) [
-				visibility = JvmVisibility.PUBLIC
-				static = true
-				parameters += testCase.toParameter("args", typeRef(String).addArrayTypeDimension)
-				body = [
-					append('''no.hal.jex.standalone.JexStandalone.main(«jvmClass.simpleName».class);''')
-				]
-			]
 		]
 		jvmClass
 	}
@@ -241,7 +231,9 @@ class JexTestJvmModelInferrer extends AbstractModelInferrer {
 		val jvmTestedClass = testedClass.toClass(testedClass.name.prependPackageName(testedClass)) [
 			interface = testedClass.interface
 			abstract = testedClass.abstract
-			superTypes += testedClass.superClass.cloneWithProxies
+			if (testedClass.superClass != null) {
+				superTypes += testedClass.superClass.cloneWithProxies
+			}
 			for (superInterface : testedClass.superInterfaces) {
 				superTypes += superInterface.cloneWithProxies
 			}

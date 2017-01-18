@@ -497,34 +497,6 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
               JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations_1, jexerciseTestMethodAnnotation);
             }
           }
-          EList<JvmMember> _members_5 = it.getMembers();
-          JvmTypeReference _typeRef_2 = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(void.class);
-          final Procedure1<JvmOperation> _function_5 = new Procedure1<JvmOperation>() {
-            @Override
-            public void apply(final JvmOperation it) {
-              it.setVisibility(JvmVisibility.PUBLIC);
-              it.setStatic(true);
-              EList<JvmFormalParameter> _parameters = it.getParameters();
-              JvmTypeReference _typeRef = JexTestJvmModelInferrer.this._typeReferenceBuilder.typeRef(String.class);
-              JvmTypeReference _addArrayTypeDimension = JexTestJvmModelInferrer.this._jvmTypesBuilder.addArrayTypeDimension(_typeRef);
-              JvmFormalParameter _parameter = JexTestJvmModelInferrer.this._jvmTypesBuilder.toParameter(testCase, "args", _addArrayTypeDimension);
-              JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
-              final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
-                @Override
-                public void apply(final ITreeAppendable it) {
-                  StringConcatenation _builder = new StringConcatenation();
-                  _builder.append("no.hal.jex.standalone.JexStandalone.main(");
-                  String _simpleName = jvmClass.getSimpleName();
-                  _builder.append(_simpleName, "");
-                  _builder.append(".class);");
-                  it.append(_builder);
-                }
-              };
-              JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
-            }
-          };
-          JvmOperation _method_1 = JexTestJvmModelInferrer.this._jvmTypesBuilder.toMethod(testCase, "main", _typeRef_2, _function_5);
-          JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _method_1);
         }
       };
       acceptor.<JvmGenericType>accept(jvmClass, _function);
@@ -545,10 +517,14 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           it.setInterface(_isInterface);
           boolean _isAbstract = testedClass.isAbstract();
           it.setAbstract(_isAbstract);
-          EList<JvmTypeReference> _superTypes = it.getSuperTypes();
           JvmParameterizedTypeReference _superClass = testedClass.getSuperClass();
-          JvmTypeReference _cloneWithProxies = JexTestJvmModelInferrer.this._jvmTypesBuilder.cloneWithProxies(_superClass);
-          JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _cloneWithProxies);
+          boolean _notEquals = (!Objects.equal(_superClass, null));
+          if (_notEquals) {
+            EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+            JvmParameterizedTypeReference _superClass_1 = testedClass.getSuperClass();
+            JvmTypeReference _cloneWithProxies = JexTestJvmModelInferrer.this._jvmTypesBuilder.cloneWithProxies(_superClass_1);
+            JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _cloneWithProxies);
+          }
           EList<JvmParameterizedTypeReference> _superInterfaces = testedClass.getSuperInterfaces();
           for (final JvmParameterizedTypeReference superInterface : _superInterfaces) {
             EList<JvmTypeReference> _superTypes_1 = it.getSuperTypes();

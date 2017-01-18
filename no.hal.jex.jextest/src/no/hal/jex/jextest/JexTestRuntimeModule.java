@@ -3,7 +3,9 @@
  */
 package no.hal.jex.jextest;
 
+import org.eclipse.xtext.service.SingletonBinding;
 import org.eclipse.xtext.xbase.compiler.XbaseCompiler;
+import org.eclipse.xtext.xbase.validation.UniqueClassNameValidator;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -25,5 +27,10 @@ public class JexTestRuntimeModule extends no.hal.jex.jextest.AbstractJexTestRunt
 	// contributed by org.eclipse.xtext.generator.xbase.XbaseGeneratorFragment
 	public Class<? extends org.eclipse.xtext.generator.IGenerator> bindIGenerator() {
 		return no.hal.jex.jextest.jvmmodel.JexTestGenerator.class;
+	}
+
+	@SingletonBinding(eager = true)
+	public Class<? extends org.eclipse.xtext.xbase.validation.UniqueClassNameValidator> bindUniqueClassNameValidator() {
+		return no.hal.jex.jextest.validation.UniqueClassNameExceptTestClassValidator.class;
 	}
 }
