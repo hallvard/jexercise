@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Product
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    name="tdt4100"
+    label="TDT4100">
+  <annotation
+      source="http://www.eclipse.org/oomph/setup/BrandingInfo">
+    <detail
+        key="folderName">
+      <value>eclipse</value>
+    </detail>
+    <detail
+        key="folderName.macosx">
+      <value>Eclipse</value>
+    </detail>
+  </annotation>
+  <setupTask
+      xsi:type="setup:InstallationTask"
+      id="installation"/>
+  <version name="neon"
+      label="Neon"
+      requiredJavaVersion="1.7">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="${scope.product.label} (${scope.product.version.label})">
+      <requirement
+          name="org.eclipse.platform.ide"/>
+      <requirement
+          name="org.eclipse.platform.feature.group"/>
+      <requirement
+          name="org.eclipse.rcp.feature.group"/>
+      <requirement
+          name="org.eclipse.jdt.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.feature.group"/>
+      <requirement
+          name="org.eclipse.fx.ide.basic.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.fx.ide.css.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.fx.ide.fxml.feature.feature.group"/>
+      <requirement
+          name="net.sourceforge.plantuml.feature.feature.group"/>
+      <requirement
+          name="no.hal.javafx.fxmlapp.feature.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/releases/neon"/>
+      <repository
+          url="http://download.eclipse.org/efxclipse/updates-released/2.4.0/site"/>
+      <repository
+          url="http://files.idi.ntnu.no/publish/plantuml/repository/"/>
+      <repository
+          url="http://files.idi.ntnu.no/publish/no.hal.javafx/repository/"/>
+    </setupTask>
+    <description>TDT4100 for Neon.</description>
+  </version>
+  <description>TDT4100 provides cool stuff.</description>
+</setup:Product>
