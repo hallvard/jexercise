@@ -112,72 +112,12 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 				return createStringQuestionAdapter();
 			}
 			@Override
-			public Adapter caseStyledStringQuestion(StyledStringQuestion object) {
-				return createStyledStringQuestionAdapter();
-			}
-			@Override
-			public Adapter caseStyledString(StyledString object) {
-				return createStyledStringAdapter();
-			}
-			@Override
-			public Adapter caseCharStyle(CharStyle object) {
-				return createCharStyleAdapter();
-			}
-			@Override
 			public Adapter caseAnswer(Answer object) {
 				return createAnswerAdapter();
 			}
 			@Override
 			public <A extends Answer> Adapter caseProposal(Proposal<A> object) {
 				return createProposalAdapter();
-			}
-			@Override
-			public Adapter caseOptionAnswer(OptionAnswer object) {
-				return createOptionAnswerAdapter();
-			}
-			@Override
-			public <T> Adapter caseSimpleAnswer(SimpleAnswer<T> object) {
-				return createSimpleAnswerAdapter();
-			}
-			@Override
-			public <A extends SimpleAnswer<?>> Adapter caseSimpleProposal(SimpleProposal<A> object) {
-				return createSimpleProposalAdapter();
-			}
-			@Override
-			public Adapter caseStringAnswer(StringAnswer object) {
-				return createStringAnswerAdapter();
-			}
-			@Override
-			public Adapter caseNumberAnswer(NumberAnswer object) {
-				return createNumberAnswerAdapter();
-			}
-			@Override
-			public Adapter caseNumberRange(NumberRange object) {
-				return createNumberRangeAdapter();
-			}
-			@Override
-			public Adapter caseBooleanAnswer(BooleanAnswer object) {
-				return createBooleanAnswerAdapter();
-			}
-			@Override
-			public Adapter caseOptionsAnswer(OptionsAnswer object) {
-				return createOptionsAnswerAdapter();
-			}
-			@Override
-			public Adapter caseOptionsProposal(OptionsProposal object) {
-				return createOptionsProposalAdapter();
-			}
-			@Override
-			public Adapter caseOption(Option object) {
-				return createOptionAdapter();
-			}
-			@Override
-			public Adapter caseSingleOptionsAnswer(SingleOptionsAnswer object) {
-				return createSingleOptionsAnswerAdapter();
-			}
-			@Override
-			public Adapter caseManyOptionsAnswer(ManyOptionsAnswer object) {
-				return createManyOptionsAnswerAdapter();
 			}
 			@Override
 			public Adapter caseTaskAnswer(TaskAnswer object) {
@@ -190,6 +130,30 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTaskEvent(TaskEvent object) {
 				return createTaskEventAdapter();
+			}
+			@Override
+			public <A extends StringEditAnswer> Adapter caseStringEditTaskProposal(StringEditTaskProposal<A> object) {
+				return createStringEditTaskProposalAdapter();
+			}
+			@Override
+			public Adapter caseStringEditAnswer(StringEditAnswer object) {
+				return createStringEditAnswerAdapter();
+			}
+			@Override
+			public Adapter caseAbstractStringEditEvent(AbstractStringEditEvent object) {
+				return createAbstractStringEditEventAdapter();
+			}
+			@Override
+			public Adapter caseAbstractStringEdit(AbstractStringEdit object) {
+				return createAbstractStringEditAdapter();
+			}
+			@Override
+			public Adapter caseStringEdit(StringEdit object) {
+				return createStringEditAdapter();
+			}
+			@Override
+			public Adapter caseReplaceSubstringEdit(ReplaceSubstringEdit object) {
+				return createReplaceSubstringEditAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -366,48 +330,6 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.StyledStringQuestion <em>Styled String Question</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.StyledStringQuestion
-	 * @generated
-	 */
-	public Adapter createStyledStringQuestionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.StyledString <em>Styled String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.StyledString
-	 * @generated
-	 */
-	public Adapter createStyledStringAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.CharStyle <em>Char Style</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.CharStyle
-	 * @generated
-	 */
-	public Adapter createCharStyleAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.Answer <em>Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -432,174 +354,6 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProposalAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.OptionAnswer <em>Option Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.OptionAnswer
-	 * @generated
-	 */
-	public Adapter createOptionAnswerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.SimpleAnswer <em>Simple Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.SimpleAnswer
-	 * @generated
-	 */
-	public Adapter createSimpleAnswerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.SimpleProposal <em>Simple Proposal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.SimpleProposal
-	 * @generated
-	 */
-	public Adapter createSimpleProposalAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.StringAnswer <em>String Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.StringAnswer
-	 * @generated
-	 */
-	public Adapter createStringAnswerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.NumberAnswer <em>Number Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.NumberAnswer
-	 * @generated
-	 */
-	public Adapter createNumberAnswerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.NumberRange <em>Number Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.NumberRange
-	 * @generated
-	 */
-	public Adapter createNumberRangeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.BooleanAnswer <em>Boolean Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.BooleanAnswer
-	 * @generated
-	 */
-	public Adapter createBooleanAnswerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.OptionsAnswer <em>Options Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.OptionsAnswer
-	 * @generated
-	 */
-	public Adapter createOptionsAnswerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.OptionsProposal <em>Options Proposal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.OptionsProposal
-	 * @generated
-	 */
-	public Adapter createOptionsProposalAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.Option <em>Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.Option
-	 * @generated
-	 */
-	public Adapter createOptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.SingleOptionsAnswer <em>Single Options Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.SingleOptionsAnswer
-	 * @generated
-	 */
-	public Adapter createSingleOptionsAnswerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.ManyOptionsAnswer <em>Many Options Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.ManyOptionsAnswer
-	 * @generated
-	 */
-	public Adapter createManyOptionsAnswerAdapter() {
 		return null;
 	}
 
@@ -642,6 +396,90 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTaskEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.StringEditTaskProposal <em>String Edit Task Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.StringEditTaskProposal
+	 * @generated
+	 */
+	public Adapter createStringEditTaskProposalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.StringEditAnswer <em>String Edit Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.StringEditAnswer
+	 * @generated
+	 */
+	public Adapter createStringEditAnswerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.AbstractStringEditEvent <em>Abstract String Edit Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.AbstractStringEditEvent
+	 * @generated
+	 */
+	public Adapter createAbstractStringEditEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.AbstractStringEdit <em>Abstract String Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.AbstractStringEdit
+	 * @generated
+	 */
+	public Adapter createAbstractStringEditAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.StringEdit <em>String Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.StringEdit
+	 * @generated
+	 */
+	public Adapter createStringEditAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.ReplaceSubstringEdit <em>Replace Substring Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.ReplaceSubstringEdit
+	 * @generated
+	 */
+	public Adapter createReplaceSubstringEditAdapter() {
 		return null;
 	}
 

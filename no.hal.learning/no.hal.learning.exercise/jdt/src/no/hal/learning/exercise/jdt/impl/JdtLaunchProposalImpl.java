@@ -37,4 +37,10 @@ public class JdtLaunchProposalImpl extends TaskProposalImpl<JdtLaunchAnswer> imp
 		return JdtPackage.Literals.JDT_LAUNCH_PROPOSAL;
 	}
 
+	//
+	
+	@Override
+	public String getText() {
+		return "Launched " + getAnswer().getClassName();
+	}
 } //JdtLaunchProposalImpl

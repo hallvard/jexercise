@@ -36,4 +36,11 @@ public class PerspectiveTaskProposalImpl extends TaskProposalImpl<PerspectiveTas
 		return WorkbenchPackage.Literals.PERSPECTIVE_TASK_PROPOSAL;
 	}
 
+	//
+	
+	@Override
+	public String getText() {
+		return "Perspective " + getAnswer().getElementId() + " " + getAnswer().getAction();
+	}
+
 } //PerspectiveActivationProposalImpl

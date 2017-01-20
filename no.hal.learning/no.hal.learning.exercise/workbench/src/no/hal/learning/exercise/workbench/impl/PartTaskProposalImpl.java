@@ -36,4 +36,11 @@ public class PartTaskProposalImpl extends TaskProposalImpl<PartTaskAnswer> imple
 		return WorkbenchPackage.Literals.PART_TASK_PROPOSAL;
 	}
 
+	//
+	
+	@Override
+	public String getText() {
+		return "Part " + getAnswer().getElementId() + " " + getAnswer().getAction();
+	}
+
 } //PartActivationProposalImpl

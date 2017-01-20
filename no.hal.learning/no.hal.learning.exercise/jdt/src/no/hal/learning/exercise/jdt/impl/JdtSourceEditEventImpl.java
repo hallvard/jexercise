@@ -2,8 +2,9 @@
  */
 package no.hal.learning.exercise.jdt.impl;
 
-import no.hal.learning.exercise.impl.TaskEventImpl;
-
+import no.hal.learning.exercise.ExerciseFactory;
+import no.hal.learning.exercise.StringEdit;
+import no.hal.learning.exercise.impl.AbstractStringEditEventImpl;
 import no.hal.learning.exercise.jdt.JdtSourceEditEvent;
 import no.hal.learning.exercise.jdt.JdtPackage;
 
@@ -29,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class JdtSourceEditEventImpl extends TaskEventImpl implements JdtSourceEditEvent {
+public class JdtSourceEditEventImpl extends AbstractStringEditEventImpl implements JdtSourceEditEvent {
 	/**
 	 * The default value of the '{@link #getSourceCode() <em>Source Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -39,16 +40,6 @@ public class JdtSourceEditEventImpl extends TaskEventImpl implements JdtSourceEd
 	 * @ordered
 	 */
 	protected static final String SOURCE_CODE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSourceCode() <em>Source Code</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSourceCode()
-	 * @generated
-	 * @ordered
-	 */
-	protected String sourceCode = SOURCE_CODE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSizeMeasure() <em>Size Measure</em>}' attribute.
@@ -132,22 +123,21 @@ public class JdtSourceEditEventImpl extends TaskEventImpl implements JdtSourceEd
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getSourceCode() {
-		return sourceCode;
+		return getString();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setSourceCode(String newSourceCode) {
-		String oldSourceCode = sourceCode;
-		sourceCode = newSourceCode;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JdtPackage.JDT_SOURCE_EDIT_EVENT__SOURCE_CODE, oldSourceCode, sourceCode));
+		StringEdit stringEdit = ExerciseFactory.eINSTANCE.createStringEdit();
+		stringEdit.setStoredString(newSourceCode);
+		setEdit(stringEdit);
 	}
 
 	/**
@@ -290,7 +280,7 @@ public class JdtSourceEditEventImpl extends TaskEventImpl implements JdtSourceEd
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT__SOURCE_CODE:
-				return SOURCE_CODE_EDEFAULT == null ? sourceCode != null : !SOURCE_CODE_EDEFAULT.equals(sourceCode);
+				return SOURCE_CODE_EDEFAULT == null ? getSourceCode() != null : !SOURCE_CODE_EDEFAULT.equals(getSourceCode());
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT__SIZE_MEASURE:
 				return sizeMeasure != SIZE_MEASURE_EDEFAULT;
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT__ERROR_COUNT:
@@ -311,9 +301,7 @@ public class JdtSourceEditEventImpl extends TaskEventImpl implements JdtSourceEd
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sourceCode: ");
-		result.append(sourceCode);
-		result.append(", sizeMeasure: ");
+		result.append(" (sizeMeasure: ");
 		result.append(sizeMeasure);
 		result.append(", errorCount: ");
 		result.append(errorCount);
@@ -321,6 +309,13 @@ public class JdtSourceEditEventImpl extends TaskEventImpl implements JdtSourceEd
 		result.append(warningCount);
 		result.append(')');
 		return result.toString();
+	}
+
+	//
+	
+	@Override
+	public String getText() {
+		return String.format("%s: %s lines with %s error(s), %s warning(s)", getTaskProposal().getText(), getSizeMeasure(), getErrorCount(), getWarningCount());
 	}
 
 } //JdtClassEventImpl

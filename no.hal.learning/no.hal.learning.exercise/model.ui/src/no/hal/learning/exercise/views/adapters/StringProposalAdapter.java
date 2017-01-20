@@ -2,8 +2,8 @@ package no.hal.learning.exercise.views.adapters;
 
 import org.eclipse.swt.events.ModifyListener;
 
-import no.hal.learning.exercise.SimpleProposal;
-import no.hal.learning.exercise.StringAnswer;
+import no.hal.learning.quiz.SimpleProposal;
+import no.hal.learning.quiz.StringAnswer;
 
 public class StringProposalAdapter extends TextProposalUIAdapter<SimpleProposal<StringAnswer>> implements ModifyListener {
 

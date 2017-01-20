@@ -31,9 +31,9 @@ public class JunitTaskProposalAdapter extends TaskProposalUIAdapter<JunitTestAns
 	public EObjectUIAdapter<?, ?>[] createSubAdapters() {
 		return new EObjectUIAdapter<?, ?>[] {
 			new TaskProgressUIAdapter<TaskProposal<?>>(getProposal()),
-			new TaskCounterUIAdapter(getProposal(), JunitPackage.eINSTANCE.getJunitTestEvent_SuccessCount(), "Success: %s"),
-			new TaskCounterUIAdapter(getProposal(), JunitPackage.eINSTANCE.getJunitTestEvent_FailureCount(), "Failure: %s"),
-			new TaskCounterUIAdapter(getProposal(), JunitPackage.eINSTANCE.getJunitTestEvent_ErrorCount(), "Error: %s"),
+			new TaskCounterUIAdapter(getProposal(), JunitPackage.eINSTANCE.getJunitTestEvent_SuccessCount(), "Success: %s", true),
+			new TaskCounterUIAdapter(getProposal(), JunitPackage.eINSTANCE.getJunitTestEvent_FailureCount(), "Failure: %s", false),
+			new TaskCounterUIAdapter(getProposal(), JunitPackage.eINSTANCE.getJunitTestEvent_ErrorCount(), "Error: %s", false),
 			new TaskAttemptsUIAdapter(getProposal())
 		};
 	}
@@ -131,8 +131,8 @@ public class JunitTaskProposalAdapter extends TaskProposalUIAdapter<JunitTestAns
 		@Override
 		public void run() {
 			if (taskEvent != null) {
-				getProposal().getAttempts().add(taskEvent);
 				getProposal().setCompletion(taskEvent.getCompletion());
+				getProposal().getAttempts().add(taskEvent);
 			}
 		}
 	}

@@ -173,41 +173,6 @@ public class TaskItemProvider extends AbstractTaskItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ExercisePackage.Literals.TASK__Q,
-				 ExerciseFactory.eINSTANCE.createStyledStringQuestion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExercisePackage.Literals.TASK__A,
-				 ExerciseFactory.eINSTANCE.createStringAnswer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExercisePackage.Literals.TASK__A,
-				 ExerciseFactory.eINSTANCE.createNumberAnswer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExercisePackage.Literals.TASK__A,
-				 ExerciseFactory.eINSTANCE.createBooleanAnswer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExercisePackage.Literals.TASK__A,
-				 ExerciseFactory.eINSTANCE.createOptionsAnswer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExercisePackage.Literals.TASK__A,
-				 ExerciseFactory.eINSTANCE.createSingleOptionsAnswer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExercisePackage.Literals.TASK__A,
-				 ExerciseFactory.eINSTANCE.createManyOptionsAnswer()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(ExercisePackage.Literals.TASK__A,
 				 ExerciseFactory.eINSTANCE.createTaskAnswer()));
 	}

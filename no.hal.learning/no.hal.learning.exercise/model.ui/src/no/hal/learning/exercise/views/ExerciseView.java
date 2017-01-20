@@ -7,21 +7,24 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import no.hal.emf.ui.parts.EObjectsView;
-import no.hal.emf.ui.parts.adapters.EObjectUIAdapter;
 import no.hal.emf.ui.parts.adapters.EObjectViewerAdapter;
 import no.hal.learning.exercise.Exercise;
 import no.hal.learning.exercise.ExerciseProposals;
-import no.hal.learning.exercise.views.plot.TaskProposalPlotViewerAdapter;
+import no.hal.learning.exercise.views.adapters.ExerciseProposalsUIAdapter;
+import no.hal.learning.exercise.views.plot.TaskPlotViewerAdapter;
+import no.hal.learning.exercise.views.stringeditors.EditorViewerAdapter;
 
 public class ExerciseView extends EObjectsView {
 
 	public ExerciseView() {
-		super((Class<? extends EObjectViewerAdapter<?, ?>>) EObjectUIAdapter.class);
-		addAdapterClass(TaskProposalPlotViewerAdapter.class, "plot view");
+		super((Class<? extends EObjectViewerAdapter<?, ?>>) ExerciseProposalsUIAdapter.class);
+		addAdapterClass(TaskPlotViewerAdapter.class, "plot view", "plotview.png");
+		addAdapterClass(EditorViewerAdapter.class, "editor view", "stringeditor.png");
 	}
 
 	public void addExercise(ExerciseProposals proposals) {
 		super.addEObject(proposals);
+		autoSave(proposals, 1, true);
 	}
 
 	public void addExercise(Exercise ex, boolean select) {

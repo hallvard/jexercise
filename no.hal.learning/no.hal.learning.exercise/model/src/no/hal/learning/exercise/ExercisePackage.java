@@ -664,198 +664,6 @@ public interface ExercisePackage extends EPackage {
 	int STRING_QUESTION_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.StyledStringImpl <em>Styled String</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.StyledStringImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStyledString()
-	 * @generated
-	 */
-	int STYLED_STRING = 12;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.StyledStringQuestionImpl <em>Styled String Question</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.StyledStringQuestionImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStyledStringQuestion()
-	 * @generated
-	 */
-	int STYLED_STRING_QUESTION = 11;
-
-	/**
-	 * The feature id for the '<em><b>Styled Strings</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_STRING_QUESTION__STYLED_STRINGS = QUESTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Styled String Question</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_STRING_QUESTION_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Styled String Question</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_STRING_QUESTION_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Char Style</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_STRING__CHAR_STYLE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Effective Char Style</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_STRING__EFFECTIVE_CHAR_STYLE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_STRING__PREFIX = 2;
-
-	/**
-	 * The feature id for the '<em><b>Styled String</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_STRING__STYLED_STRING = 3;
-
-	/**
-	 * The feature id for the '<em><b>Suffix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_STRING__SUFFIX = 4;
-
-	/**
-	 * The number of structural features of the '<em>Styled String</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_STRING_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>Styled String</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_STRING_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.CharStyleImpl <em>Char Style</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.CharStyleImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getCharStyle()
-	 * @generated
-	 */
-	int CHAR_STYLE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Italic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_STYLE__ITALIC = 0;
-
-	/**
-	 * The feature id for the '<em><b>Bold</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_STYLE__BOLD = 1;
-
-	/**
-	 * The feature id for the '<em><b>Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_STYLE__SIZE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Family</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_STYLE__FAMILY = 3;
-
-	/**
-	 * The feature id for the '<em><b>Foreground</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_STYLE__FOREGROUND = 4;
-
-	/**
-	 * The feature id for the '<em><b>Background</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_STYLE__BACKGROUND = 5;
-
-	/**
-	 * The number of structural features of the '<em>Char Style</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_STYLE_FEATURE_COUNT = 6;
-
-	/**
-	 * The number of operations of the '<em>Char Style</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHAR_STYLE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.impl.AnswerImpl <em>Answer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -863,7 +671,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getAnswer()
 	 * @generated
 	 */
-	int ANSWER = 14;
+	int ANSWER = 11;
 
 	/**
 	 * The number of structural features of the '<em>Answer</em>' class.
@@ -918,7 +726,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getProposal()
 	 * @generated
 	 */
-	int PROPOSAL = 15;
+	int PROPOSAL = 12;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' reference.
@@ -984,846 +792,6 @@ public interface ExercisePackage extends EPackage {
 	int PROPOSAL_OPERATION_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.OptionAnswerImpl <em>Option Answer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.OptionAnswerImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getOptionAnswer()
-	 * @generated
-	 */
-	int OPTION_ANSWER = 16;
-
-	/**
-	 * The number of structural features of the '<em>Option Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_ANSWER_FEATURE_COUNT = ANSWER_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Accept</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_ANSWER___ACCEPT__OBJECT = ANSWER___ACCEPT__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_ANSWER___VALIDATE__OBJECT = ANSWER___VALIDATE__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Create Proposal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_ANSWER___CREATE_PROPOSAL = ANSWER___CREATE_PROPOSAL;
-
-	/**
-	 * The number of operations of the '<em>Option Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_ANSWER_OPERATION_COUNT = ANSWER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.SimpleAnswerImpl <em>Simple Answer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.SimpleAnswerImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getSimpleAnswer()
-	 * @generated
-	 */
-	int SIMPLE_ANSWER = 17;
-
-	/**
-	 * The number of structural features of the '<em>Simple Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_ANSWER_FEATURE_COUNT = OPTION_ANSWER_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Accept</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_ANSWER___ACCEPT__OBJECT = OPTION_ANSWER___ACCEPT__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_ANSWER___VALIDATE__OBJECT = OPTION_ANSWER___VALIDATE__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Create Proposal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_ANSWER___CREATE_PROPOSAL = OPTION_ANSWER___CREATE_PROPOSAL;
-
-	/**
-	 * The operation id for the '<em>Get Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_ANSWER___GET_VALUE = OPTION_ANSWER_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Simple Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_ANSWER_OPERATION_COUNT = OPTION_ANSWER_OPERATION_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.SimpleProposalImpl <em>Simple Proposal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.SimpleProposalImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getSimpleProposal()
-	 * @generated
-	 */
-	int SIMPLE_PROPOSAL = 18;
-
-	/**
-	 * The feature id for the '<em><b>Question</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_PROPOSAL__QUESTION = PROPOSAL__QUESTION;
-
-	/**
-	 * The feature id for the '<em><b>Answer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_PROPOSAL__ANSWER = PROPOSAL__ANSWER;
-
-	/**
-	 * The feature id for the '<em><b>Proposal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_PROPOSAL__PROPOSAL = PROPOSAL_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Simple Proposal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_PROPOSAL_FEATURE_COUNT = PROPOSAL_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Proposal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_PROPOSAL___GET_PROPOSAL = PROPOSAL___GET_PROPOSAL;
-
-	/**
-	 * The operation id for the '<em>Accept</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_PROPOSAL___ACCEPT = PROPOSAL___ACCEPT;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_PROPOSAL___VALIDATE = PROPOSAL___VALIDATE;
-
-	/**
-	 * The number of operations of the '<em>Simple Proposal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_PROPOSAL_OPERATION_COUNT = PROPOSAL_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.StringAnswerImpl <em>String Answer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.StringAnswerImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStringAnswer()
-	 * @generated
-	 */
-	int STRING_ANSWER = 19;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_ANSWER__VALUE = SIMPLE_ANSWER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_ANSWER__FORMAT = SIMPLE_ANSWER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Regexp</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_ANSWER__REGEXP = SIMPLE_ANSWER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Ignore Case</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_ANSWER__IGNORE_CASE = SIMPLE_ANSWER_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>String Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Accept</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_ANSWER___ACCEPT__OBJECT = SIMPLE_ANSWER___ACCEPT__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_ANSWER___VALIDATE__OBJECT = SIMPLE_ANSWER___VALIDATE__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Create Proposal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_ANSWER___CREATE_PROPOSAL = SIMPLE_ANSWER___CREATE_PROPOSAL;
-
-	/**
-	 * The operation id for the '<em>Get Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_ANSWER___GET_VALUE = SIMPLE_ANSWER___GET_VALUE;
-
-	/**
-	 * The number of operations of the '<em>String Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_ANSWER_OPERATION_COUNT = SIMPLE_ANSWER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.NumberAnswerImpl <em>Number Answer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.NumberAnswerImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getNumberAnswer()
-	 * @generated
-	 */
-	int NUMBER_ANSWER = 20;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ANSWER__VALUE = SIMPLE_ANSWER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Error Margin</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ANSWER__ERROR_MARGIN = SIMPLE_ANSWER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Range</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ANSWER__RANGE = SIMPLE_ANSWER_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Number Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Accept</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ANSWER___ACCEPT__OBJECT = SIMPLE_ANSWER___ACCEPT__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ANSWER___VALIDATE__OBJECT = SIMPLE_ANSWER___VALIDATE__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Create Proposal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ANSWER___CREATE_PROPOSAL = SIMPLE_ANSWER___CREATE_PROPOSAL;
-
-	/**
-	 * The operation id for the '<em>Get Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ANSWER___GET_VALUE = SIMPLE_ANSWER___GET_VALUE;
-
-	/**
-	 * The number of operations of the '<em>Number Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ANSWER_OPERATION_COUNT = SIMPLE_ANSWER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.NumberRangeImpl <em>Number Range</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.NumberRangeImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getNumberRange()
-	 * @generated
-	 */
-	int NUMBER_RANGE = 21;
-
-	/**
-	 * The feature id for the '<em><b>Min</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_RANGE__MIN = 0;
-
-	/**
-	 * The feature id for the '<em><b>Max</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_RANGE__MAX = 1;
-
-	/**
-	 * The feature id for the '<em><b>Step</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_RANGE__STEP = 2;
-
-	/**
-	 * The number of structural features of the '<em>Number Range</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_RANGE_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Number Range</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_RANGE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.BooleanAnswerImpl <em>Boolean Answer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.BooleanAnswerImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getBooleanAnswer()
-	 * @generated
-	 */
-	int BOOLEAN_ANSWER = 22;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_ANSWER__VALUE = SIMPLE_ANSWER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Boolean Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_ANSWER_FEATURE_COUNT = SIMPLE_ANSWER_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Accept</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_ANSWER___ACCEPT__OBJECT = SIMPLE_ANSWER___ACCEPT__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_ANSWER___VALIDATE__OBJECT = SIMPLE_ANSWER___VALIDATE__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Create Proposal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_ANSWER___CREATE_PROPOSAL = SIMPLE_ANSWER___CREATE_PROPOSAL;
-
-	/**
-	 * The operation id for the '<em>Get Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_ANSWER___GET_VALUE = SIMPLE_ANSWER___GET_VALUE;
-
-	/**
-	 * The number of operations of the '<em>Boolean Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_ANSWER_OPERATION_COUNT = SIMPLE_ANSWER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.OptionsAnswerImpl <em>Options Answer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.OptionsAnswerImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getOptionsAnswer()
-	 * @generated
-	 */
-	int OPTIONS_ANSWER = 23;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_ANSWER__OPTIONS = ANSWER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Options Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_ANSWER_FEATURE_COUNT = ANSWER_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Accept</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_ANSWER___ACCEPT__OBJECT = ANSWER___ACCEPT__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_ANSWER___VALIDATE__OBJECT = ANSWER___VALIDATE__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Create Proposal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_ANSWER___CREATE_PROPOSAL = ANSWER___CREATE_PROPOSAL;
-
-	/**
-	 * The number of operations of the '<em>Options Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_ANSWER_OPERATION_COUNT = ANSWER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.OptionsProposalImpl <em>Options Proposal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.OptionsProposalImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getOptionsProposal()
-	 * @generated
-	 */
-	int OPTIONS_PROPOSAL = 24;
-
-	/**
-	 * The feature id for the '<em><b>Question</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_PROPOSAL__QUESTION = PROPOSAL__QUESTION;
-
-	/**
-	 * The feature id for the '<em><b>Answer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_PROPOSAL__ANSWER = PROPOSAL__ANSWER;
-
-	/**
-	 * The feature id for the '<em><b>Indices</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_PROPOSAL__INDICES = PROPOSAL_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Options Proposal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_PROPOSAL_FEATURE_COUNT = PROPOSAL_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Proposal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_PROPOSAL___GET_PROPOSAL = PROPOSAL___GET_PROPOSAL;
-
-	/**
-	 * The operation id for the '<em>Accept</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_PROPOSAL___ACCEPT = PROPOSAL___ACCEPT;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_PROPOSAL___VALIDATE = PROPOSAL___VALIDATE;
-
-	/**
-	 * The number of operations of the '<em>Options Proposal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONS_PROPOSAL_OPERATION_COUNT = PROPOSAL_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.OptionImpl <em>Option</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.OptionImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getOption()
-	 * @generated
-	 */
-	int OPTION = 25;
-
-	/**
-	 * The feature id for the '<em><b>Correct</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION__CORRECT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Option</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION__OPTION = 1;
-
-	/**
-	 * The number of structural features of the '<em>Option</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Option</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.SingleOptionsAnswerImpl <em>Single Options Answer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.SingleOptionsAnswerImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getSingleOptionsAnswer()
-	 * @generated
-	 */
-	int SINGLE_OPTIONS_ANSWER = 26;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_OPTIONS_ANSWER__OPTIONS = OPTIONS_ANSWER__OPTIONS;
-
-	/**
-	 * The number of structural features of the '<em>Single Options Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_OPTIONS_ANSWER_FEATURE_COUNT = OPTIONS_ANSWER_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Accept</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_OPTIONS_ANSWER___ACCEPT__OBJECT = OPTIONS_ANSWER___ACCEPT__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_OPTIONS_ANSWER___VALIDATE__OBJECT = OPTIONS_ANSWER___VALIDATE__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Create Proposal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_OPTIONS_ANSWER___CREATE_PROPOSAL = OPTIONS_ANSWER___CREATE_PROPOSAL;
-
-	/**
-	 * The number of operations of the '<em>Single Options Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_OPTIONS_ANSWER_OPERATION_COUNT = OPTIONS_ANSWER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link no.hal.learning.exercise.impl.ManyOptionsAnswerImpl <em>Many Options Answer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.impl.ManyOptionsAnswerImpl
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getManyOptionsAnswer()
-	 * @generated
-	 */
-	int MANY_OPTIONS_ANSWER = 27;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANY_OPTIONS_ANSWER__OPTIONS = OPTIONS_ANSWER__OPTIONS;
-
-	/**
-	 * The number of structural features of the '<em>Many Options Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANY_OPTIONS_ANSWER_FEATURE_COUNT = OPTIONS_ANSWER_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Accept</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANY_OPTIONS_ANSWER___ACCEPT__OBJECT = OPTIONS_ANSWER___ACCEPT__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANY_OPTIONS_ANSWER___VALIDATE__OBJECT = OPTIONS_ANSWER___VALIDATE__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Create Proposal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANY_OPTIONS_ANSWER___CREATE_PROPOSAL = OPTIONS_ANSWER___CREATE_PROPOSAL;
-
-	/**
-	 * The number of operations of the '<em>Many Options Answer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANY_OPTIONS_ANSWER_OPERATION_COUNT = OPTIONS_ANSWER_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.impl.TaskAnswerImpl <em>Task Answer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1831,7 +799,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getTaskAnswer()
 	 * @generated
 	 */
-	int TASK_ANSWER = 28;
+	int TASK_ANSWER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
@@ -1895,7 +863,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getTaskProposal()
 	 * @generated
 	 */
-	int TASK_PROPOSAL = 29;
+	int TASK_PROPOSAL = 14;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' reference.
@@ -1997,13 +965,22 @@ public interface ExercisePackage extends EPackage {
 	int TASK_PROPOSAL___VALIDATE = PROPOSAL___VALIDATE;
 
 	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL___GET_TEXT = PROPOSAL_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Task Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_PROPOSAL_OPERATION_COUNT = PROPOSAL_OPERATION_COUNT + 0;
+	int TASK_PROPOSAL_OPERATION_COUNT = PROPOSAL_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.impl.TaskEventImpl <em>Task Event</em>}' class.
@@ -2013,7 +990,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getTaskEvent()
 	 * @generated
 	 */
-	int TASK_EVENT = 30;
+	int TASK_EVENT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
@@ -2043,23 +1020,460 @@ public interface ExercisePackage extends EPackage {
 	int TASK_EVENT_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EVENT___GET_TEXT = 0;
+
+	/**
 	 * The number of operations of the '<em>Task Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EVENT_OPERATION_COUNT = 0;
+	int TASK_EVENT_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '<em>RGB</em>' data type.
+	 * The meta object id for the '{@link no.hal.learning.exercise.impl.StringEditTaskProposalImpl <em>String Edit Task Proposal</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.hal.learning.exercise.util.RGB
-	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getRGB()
+	 * @see no.hal.learning.exercise.impl.StringEditTaskProposalImpl
+	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStringEditTaskProposal()
 	 * @generated
 	 */
-	int RGB = 31;
+	int STRING_EDIT_TASK_PROPOSAL = 16;
+
+	/**
+	 * The feature id for the '<em><b>Question</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL__QUESTION = TASK_PROPOSAL__QUESTION;
+
+	/**
+	 * The feature id for the '<em><b>Answer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL__ANSWER = TASK_PROPOSAL__ANSWER;
+
+	/**
+	 * The feature id for the '<em><b>Completion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL__COMPLETION = TASK_PROPOSAL__COMPLETION;
+
+	/**
+	 * The feature id for the '<em><b>Proof</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL__PROOF = TASK_PROPOSAL__PROOF;
+
+	/**
+	 * The feature id for the '<em><b>Attempt Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL__ATTEMPT_COUNT = TASK_PROPOSAL__ATTEMPT_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Attempts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL__ATTEMPTS = TASK_PROPOSAL__ATTEMPTS;
+
+	/**
+	 * The feature id for the '<em><b>Performed Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL__PERFORMED_COUNT = TASK_PROPOSAL__PERFORMED_COUNT;
+
+	/**
+	 * The number of structural features of the '<em>String Edit Task Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL_FEATURE_COUNT = TASK_PROPOSAL_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL___GET_PROPOSAL = TASK_PROPOSAL___GET_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL___ACCEPT = TASK_PROPOSAL___ACCEPT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL___VALIDATE = TASK_PROPOSAL___VALIDATE;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL___GET_TEXT = TASK_PROPOSAL___GET_TEXT;
+
+	/**
+	 * The number of operations of the '<em>String Edit Task Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL_OPERATION_COUNT = TASK_PROPOSAL_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.impl.StringEditAnswerImpl <em>String Edit Answer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.impl.StringEditAnswerImpl
+	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStringEditAnswer()
+	 * @generated
+	 */
+	int STRING_EDIT_ANSWER = 17;
+
+	/**
+	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_ANSWER__REQUIRED_COUNT = TASK_ANSWER__REQUIRED_COUNT;
+
+	/**
+	 * The number of structural features of the '<em>String Edit Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_ANSWER_FEATURE_COUNT = TASK_ANSWER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_ANSWER___ACCEPT__OBJECT = TASK_ANSWER___ACCEPT__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_ANSWER___VALIDATE__OBJECT = TASK_ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_ANSWER___CREATE_PROPOSAL = TASK_ANSWER___CREATE_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Get Editor Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_ANSWER___GET_EDITOR_PATH = TASK_ANSWER_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>String Edit Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_ANSWER_OPERATION_COUNT = TASK_ANSWER_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.impl.AbstractStringEditEventImpl <em>Abstract String Edit Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.impl.AbstractStringEditEventImpl
+	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getAbstractStringEditEvent()
+	 * @generated
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT = 18;
+
+	/**
+	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT__TIMESTAMP = TASK_EVENT__TIMESTAMP;
+
+	/**
+	 * The feature id for the '<em><b>Completion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT__COMPLETION = TASK_EVENT__COMPLETION;
+
+	/**
+	 * The feature id for the '<em><b>Edit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT__EDIT = TASK_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract String Edit Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT = TASK_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT___GET_TEXT = TASK_EVENT___GET_TEXT;
+
+	/**
+	 * The operation id for the '<em>Get String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT___GET_STRING = TASK_EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create String Edit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT___CREATE_STRING_EDIT__STRING_ABSTRACTSTRINGEDITEVENT = TASK_EVENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Abstract String Edit Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT_OPERATION_COUNT = TASK_EVENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.impl.AbstractStringEditImpl <em>Abstract String Edit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.impl.AbstractStringEditImpl
+	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getAbstractStringEdit()
+	 * @generated
+	 */
+	int ABSTRACT_STRING_EDIT = 19;
+
+	/**
+	 * The number of structural features of the '<em>Abstract String Edit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT___GET_STRING = 0;
+
+	/**
+	 * The number of operations of the '<em>Abstract String Edit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.impl.StringEditImpl <em>String Edit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.impl.StringEditImpl
+	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStringEdit()
+	 * @generated
+	 */
+	int STRING_EDIT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Stored String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT__STORED_STRING = ABSTRACT_STRING_EDIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>String Edit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_FEATURE_COUNT = ABSTRACT_STRING_EDIT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT___GET_STRING = ABSTRACT_STRING_EDIT___GET_STRING;
+
+	/**
+	 * The number of operations of the '<em>String Edit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_OPERATION_COUNT = ABSTRACT_STRING_EDIT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.impl.ReplaceSubstringEditImpl <em>Replace Substring Edit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.impl.ReplaceSubstringEditImpl
+	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getReplaceSubstringEdit()
+	 * @generated
+	 */
+	int REPLACE_SUBSTRING_EDIT = 21;
+
+	/**
+	 * The feature id for the '<em><b>Stored String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACE_SUBSTRING_EDIT__STORED_STRING = STRING_EDIT__STORED_STRING;
+
+	/**
+	 * The feature id for the '<em><b>Edit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACE_SUBSTRING_EDIT__EDIT = STRING_EDIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACE_SUBSTRING_EDIT__START = STRING_EDIT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACE_SUBSTRING_EDIT__END = STRING_EDIT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Replace Substring Edit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACE_SUBSTRING_EDIT_FEATURE_COUNT = STRING_EDIT_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACE_SUBSTRING_EDIT___GET_STRING = STRING_EDIT___GET_STRING;
+
+	/**
+	 * The number of operations of the '<em>Replace Substring Edit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACE_SUBSTRING_EDIT_OPERATION_COUNT = STRING_EDIT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '<em>ETimestamp</em>' data type.
@@ -2068,7 +1482,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getETimestamp()
 	 * @generated
 	 */
-	int ETIMESTAMP = 32;
+	int ETIMESTAMP = 22;
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.Exercise <em>Exercise</em>}'.
@@ -2428,168 +1842,6 @@ public interface ExercisePackage extends EPackage {
 	EAttribute getStringQuestion_Question();
 
 	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.StyledStringQuestion <em>Styled String Question</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Styled String Question</em>'.
-	 * @see no.hal.learning.exercise.StyledStringQuestion
-	 * @generated
-	 */
-	EClass getStyledStringQuestion();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link no.hal.learning.exercise.StyledStringQuestion#getStyledStrings <em>Styled Strings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Styled Strings</em>'.
-	 * @see no.hal.learning.exercise.StyledStringQuestion#getStyledStrings()
-	 * @see #getStyledStringQuestion()
-	 * @generated
-	 */
-	EReference getStyledStringQuestion_StyledStrings();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.StyledString <em>Styled String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Styled String</em>'.
-	 * @see no.hal.learning.exercise.StyledString
-	 * @generated
-	 */
-	EClass getStyledString();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link no.hal.learning.exercise.StyledString#getCharStyle <em>Char Style</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Char Style</em>'.
-	 * @see no.hal.learning.exercise.StyledString#getCharStyle()
-	 * @see #getStyledString()
-	 * @generated
-	 */
-	EReference getStyledString_CharStyle();
-
-	/**
-	 * Returns the meta object for the reference '{@link no.hal.learning.exercise.StyledString#getEffectiveCharStyle <em>Effective Char Style</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Effective Char Style</em>'.
-	 * @see no.hal.learning.exercise.StyledString#getEffectiveCharStyle()
-	 * @see #getStyledString()
-	 * @generated
-	 */
-	EReference getStyledString_EffectiveCharStyle();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.StyledString#getPrefix <em>Prefix</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Prefix</em>'.
-	 * @see no.hal.learning.exercise.StyledString#getPrefix()
-	 * @see #getStyledString()
-	 * @generated
-	 */
-	EAttribute getStyledString_Prefix();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link no.hal.learning.exercise.StyledString#getStyledString <em>Styled String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Styled String</em>'.
-	 * @see no.hal.learning.exercise.StyledString#getStyledString()
-	 * @see #getStyledString()
-	 * @generated
-	 */
-	EReference getStyledString_StyledString();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.StyledString#getSuffix <em>Suffix</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Suffix</em>'.
-	 * @see no.hal.learning.exercise.StyledString#getSuffix()
-	 * @see #getStyledString()
-	 * @generated
-	 */
-	EAttribute getStyledString_Suffix();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.CharStyle <em>Char Style</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Char Style</em>'.
-	 * @see no.hal.learning.exercise.CharStyle
-	 * @generated
-	 */
-	EClass getCharStyle();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.CharStyle#getItalic <em>Italic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Italic</em>'.
-	 * @see no.hal.learning.exercise.CharStyle#getItalic()
-	 * @see #getCharStyle()
-	 * @generated
-	 */
-	EAttribute getCharStyle_Italic();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.CharStyle#getBold <em>Bold</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Bold</em>'.
-	 * @see no.hal.learning.exercise.CharStyle#getBold()
-	 * @see #getCharStyle()
-	 * @generated
-	 */
-	EAttribute getCharStyle_Bold();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.CharStyle#getSize <em>Size</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Size</em>'.
-	 * @see no.hal.learning.exercise.CharStyle#getSize()
-	 * @see #getCharStyle()
-	 * @generated
-	 */
-	EAttribute getCharStyle_Size();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.CharStyle#getFamily <em>Family</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Family</em>'.
-	 * @see no.hal.learning.exercise.CharStyle#getFamily()
-	 * @see #getCharStyle()
-	 * @generated
-	 */
-	EAttribute getCharStyle_Family();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.CharStyle#getForeground <em>Foreground</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Foreground</em>'.
-	 * @see no.hal.learning.exercise.CharStyle#getForeground()
-	 * @see #getCharStyle()
-	 * @generated
-	 */
-	EAttribute getCharStyle_Foreground();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.CharStyle#getBackground <em>Background</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Background</em>'.
-	 * @see no.hal.learning.exercise.CharStyle#getBackground()
-	 * @see #getCharStyle()
-	 * @generated
-	 */
-	EAttribute getCharStyle_Background();
-
-	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.Answer <em>Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2692,312 +1944,6 @@ public interface ExercisePackage extends EPackage {
 	EOperation getProposal__Validate();
 
 	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.OptionAnswer <em>Option Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Option Answer</em>'.
-	 * @see no.hal.learning.exercise.OptionAnswer
-	 * @generated
-	 */
-	EClass getOptionAnswer();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.SimpleAnswer <em>Simple Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Simple Answer</em>'.
-	 * @see no.hal.learning.exercise.SimpleAnswer
-	 * @generated
-	 */
-	EClass getSimpleAnswer();
-
-	/**
-	 * Returns the meta object for the '{@link no.hal.learning.exercise.SimpleAnswer#getValue() <em>Get Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Value</em>' operation.
-	 * @see no.hal.learning.exercise.SimpleAnswer#getValue()
-	 * @generated
-	 */
-	EOperation getSimpleAnswer__GetValue();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.SimpleProposal <em>Simple Proposal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Simple Proposal</em>'.
-	 * @see no.hal.learning.exercise.SimpleProposal
-	 * @generated
-	 */
-	EClass getSimpleProposal();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.SimpleProposal#getProposal <em>Proposal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Proposal</em>'.
-	 * @see no.hal.learning.exercise.SimpleProposal#getProposal()
-	 * @see #getSimpleProposal()
-	 * @generated
-	 */
-	EAttribute getSimpleProposal_Proposal();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.StringAnswer <em>String Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>String Answer</em>'.
-	 * @see no.hal.learning.exercise.StringAnswer
-	 * @generated
-	 */
-	EClass getStringAnswer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.StringAnswer#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see no.hal.learning.exercise.StringAnswer#getValue()
-	 * @see #getStringAnswer()
-	 * @generated
-	 */
-	EAttribute getStringAnswer_Value();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.StringAnswer#getFormat <em>Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see no.hal.learning.exercise.StringAnswer#getFormat()
-	 * @see #getStringAnswer()
-	 * @generated
-	 */
-	EAttribute getStringAnswer_Format();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.StringAnswer#isRegexp <em>Regexp</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Regexp</em>'.
-	 * @see no.hal.learning.exercise.StringAnswer#isRegexp()
-	 * @see #getStringAnswer()
-	 * @generated
-	 */
-	EAttribute getStringAnswer_Regexp();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.StringAnswer#isIgnoreCase <em>Ignore Case</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ignore Case</em>'.
-	 * @see no.hal.learning.exercise.StringAnswer#isIgnoreCase()
-	 * @see #getStringAnswer()
-	 * @generated
-	 */
-	EAttribute getStringAnswer_IgnoreCase();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.NumberAnswer <em>Number Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Number Answer</em>'.
-	 * @see no.hal.learning.exercise.NumberAnswer
-	 * @generated
-	 */
-	EClass getNumberAnswer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.NumberAnswer#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see no.hal.learning.exercise.NumberAnswer#getValue()
-	 * @see #getNumberAnswer()
-	 * @generated
-	 */
-	EAttribute getNumberAnswer_Value();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.NumberAnswer#getErrorMargin <em>Error Margin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Error Margin</em>'.
-	 * @see no.hal.learning.exercise.NumberAnswer#getErrorMargin()
-	 * @see #getNumberAnswer()
-	 * @generated
-	 */
-	EAttribute getNumberAnswer_ErrorMargin();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link no.hal.learning.exercise.NumberAnswer#getRange <em>Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Range</em>'.
-	 * @see no.hal.learning.exercise.NumberAnswer#getRange()
-	 * @see #getNumberAnswer()
-	 * @generated
-	 */
-	EReference getNumberAnswer_Range();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.NumberRange <em>Number Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Number Range</em>'.
-	 * @see no.hal.learning.exercise.NumberRange
-	 * @generated
-	 */
-	EClass getNumberRange();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.NumberRange#getMin <em>Min</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min</em>'.
-	 * @see no.hal.learning.exercise.NumberRange#getMin()
-	 * @see #getNumberRange()
-	 * @generated
-	 */
-	EAttribute getNumberRange_Min();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.NumberRange#getMax <em>Max</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max</em>'.
-	 * @see no.hal.learning.exercise.NumberRange#getMax()
-	 * @see #getNumberRange()
-	 * @generated
-	 */
-	EAttribute getNumberRange_Max();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.NumberRange#getStep <em>Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Step</em>'.
-	 * @see no.hal.learning.exercise.NumberRange#getStep()
-	 * @see #getNumberRange()
-	 * @generated
-	 */
-	EAttribute getNumberRange_Step();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.BooleanAnswer <em>Boolean Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Boolean Answer</em>'.
-	 * @see no.hal.learning.exercise.BooleanAnswer
-	 * @generated
-	 */
-	EClass getBooleanAnswer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.BooleanAnswer#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see no.hal.learning.exercise.BooleanAnswer#getValue()
-	 * @see #getBooleanAnswer()
-	 * @generated
-	 */
-	EAttribute getBooleanAnswer_Value();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.OptionsAnswer <em>Options Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Options Answer</em>'.
-	 * @see no.hal.learning.exercise.OptionsAnswer
-	 * @generated
-	 */
-	EClass getOptionsAnswer();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link no.hal.learning.exercise.OptionsAnswer#getOptions <em>Options</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Options</em>'.
-	 * @see no.hal.learning.exercise.OptionsAnswer#getOptions()
-	 * @see #getOptionsAnswer()
-	 * @generated
-	 */
-	EReference getOptionsAnswer_Options();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.OptionsProposal <em>Options Proposal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Options Proposal</em>'.
-	 * @see no.hal.learning.exercise.OptionsProposal
-	 * @generated
-	 */
-	EClass getOptionsProposal();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.OptionsProposal#getIndices <em>Indices</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Indices</em>'.
-	 * @see no.hal.learning.exercise.OptionsProposal#getIndices()
-	 * @see #getOptionsProposal()
-	 * @generated
-	 */
-	EAttribute getOptionsProposal_Indices();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.Option <em>Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Option</em>'.
-	 * @see no.hal.learning.exercise.Option
-	 * @generated
-	 */
-	EClass getOption();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.Option#isCorrect <em>Correct</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Correct</em>'.
-	 * @see no.hal.learning.exercise.Option#isCorrect()
-	 * @see #getOption()
-	 * @generated
-	 */
-	EAttribute getOption_Correct();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link no.hal.learning.exercise.Option#getOption <em>Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Option</em>'.
-	 * @see no.hal.learning.exercise.Option#getOption()
-	 * @see #getOption()
-	 * @generated
-	 */
-	EReference getOption_Option();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.SingleOptionsAnswer <em>Single Options Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Single Options Answer</em>'.
-	 * @see no.hal.learning.exercise.SingleOptionsAnswer
-	 * @generated
-	 */
-	EClass getSingleOptionsAnswer();
-
-	/**
-	 * Returns the meta object for class '{@link no.hal.learning.exercise.ManyOptionsAnswer <em>Many Options Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Many Options Answer</em>'.
-	 * @see no.hal.learning.exercise.ManyOptionsAnswer
-	 * @generated
-	 */
-	EClass getManyOptionsAnswer();
-
-	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.TaskAnswer <em>Task Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3084,6 +2030,16 @@ public interface ExercisePackage extends EPackage {
 	EAttribute getTaskProposal_PerformedCount();
 
 	/**
+	 * Returns the meta object for the '{@link no.hal.learning.exercise.TaskProposal#getText() <em>Get Text</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Text</em>' operation.
+	 * @see no.hal.learning.exercise.TaskProposal#getText()
+	 * @generated
+	 */
+	EOperation getTaskProposal__GetText();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.TaskEvent <em>Task Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3116,15 +2072,169 @@ public interface ExercisePackage extends EPackage {
 	EAttribute getTaskEvent_Completion();
 
 	/**
-	 * Returns the meta object for data type '{@link no.hal.learning.exercise.util.RGB <em>RGB</em>}'.
+	 * Returns the meta object for the '{@link no.hal.learning.exercise.TaskEvent#getText() <em>Get Text</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>RGB</em>'.
-	 * @see no.hal.learning.exercise.util.RGB
-	 * @model instanceClass="no.hal.learning.exercise.util.RGB"
+	 * @return the meta object for the '<em>Get Text</em>' operation.
+	 * @see no.hal.learning.exercise.TaskEvent#getText()
 	 * @generated
 	 */
-	EDataType getRGB();
+	EOperation getTaskEvent__GetText();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.StringEditTaskProposal <em>String Edit Task Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Edit Task Proposal</em>'.
+	 * @see no.hal.learning.exercise.StringEditTaskProposal
+	 * @generated
+	 */
+	EClass getStringEditTaskProposal();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.StringEditAnswer <em>String Edit Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Edit Answer</em>'.
+	 * @see no.hal.learning.exercise.StringEditAnswer
+	 * @generated
+	 */
+	EClass getStringEditAnswer();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.learning.exercise.StringEditAnswer#getEditorPath() <em>Get Editor Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Editor Path</em>' operation.
+	 * @see no.hal.learning.exercise.StringEditAnswer#getEditorPath()
+	 * @generated
+	 */
+	EOperation getStringEditAnswer__GetEditorPath();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.AbstractStringEditEvent <em>Abstract String Edit Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract String Edit Event</em>'.
+	 * @see no.hal.learning.exercise.AbstractStringEditEvent
+	 * @generated
+	 */
+	EClass getAbstractStringEditEvent();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link no.hal.learning.exercise.AbstractStringEditEvent#getEdit <em>Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Edit</em>'.
+	 * @see no.hal.learning.exercise.AbstractStringEditEvent#getEdit()
+	 * @see #getAbstractStringEditEvent()
+	 * @generated
+	 */
+	EReference getAbstractStringEditEvent_Edit();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.learning.exercise.AbstractStringEditEvent#getString() <em>Get String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get String</em>' operation.
+	 * @see no.hal.learning.exercise.AbstractStringEditEvent#getString()
+	 * @generated
+	 */
+	EOperation getAbstractStringEditEvent__GetString();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.learning.exercise.AbstractStringEditEvent#createStringEdit(java.lang.String, no.hal.learning.exercise.AbstractStringEditEvent) <em>Create String Edit</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create String Edit</em>' operation.
+	 * @see no.hal.learning.exercise.AbstractStringEditEvent#createStringEdit(java.lang.String, no.hal.learning.exercise.AbstractStringEditEvent)
+	 * @generated
+	 */
+	EOperation getAbstractStringEditEvent__CreateStringEdit__String_AbstractStringEditEvent();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.AbstractStringEdit <em>Abstract String Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract String Edit</em>'.
+	 * @see no.hal.learning.exercise.AbstractStringEdit
+	 * @generated
+	 */
+	EClass getAbstractStringEdit();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.learning.exercise.AbstractStringEdit#getString() <em>Get String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get String</em>' operation.
+	 * @see no.hal.learning.exercise.AbstractStringEdit#getString()
+	 * @generated
+	 */
+	EOperation getAbstractStringEdit__GetString();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.StringEdit <em>String Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Edit</em>'.
+	 * @see no.hal.learning.exercise.StringEdit
+	 * @generated
+	 */
+	EClass getStringEdit();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.StringEdit#getStoredString <em>Stored String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Stored String</em>'.
+	 * @see no.hal.learning.exercise.StringEdit#getStoredString()
+	 * @see #getStringEdit()
+	 * @generated
+	 */
+	EAttribute getStringEdit_StoredString();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.ReplaceSubstringEdit <em>Replace Substring Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Replace Substring Edit</em>'.
+	 * @see no.hal.learning.exercise.ReplaceSubstringEdit
+	 * @generated
+	 */
+	EClass getReplaceSubstringEdit();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.hal.learning.exercise.ReplaceSubstringEdit#getEdit <em>Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Edit</em>'.
+	 * @see no.hal.learning.exercise.ReplaceSubstringEdit#getEdit()
+	 * @see #getReplaceSubstringEdit()
+	 * @generated
+	 */
+	EReference getReplaceSubstringEdit_Edit();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.ReplaceSubstringEdit#getStart <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start</em>'.
+	 * @see no.hal.learning.exercise.ReplaceSubstringEdit#getStart()
+	 * @see #getReplaceSubstringEdit()
+	 * @generated
+	 */
+	EAttribute getReplaceSubstringEdit_Start();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.ReplaceSubstringEdit#getEnd <em>End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>End</em>'.
+	 * @see no.hal.learning.exercise.ReplaceSubstringEdit#getEnd()
+	 * @see #getReplaceSubstringEdit()
+	 * @generated
+	 */
+	EAttribute getReplaceSubstringEdit_End();
 
 	/**
 	 * Returns the meta object for data type '<em>ETimestamp</em>'.
@@ -3454,132 +2564,6 @@ public interface ExercisePackage extends EPackage {
 		EAttribute STRING_QUESTION__QUESTION = eINSTANCE.getStringQuestion_Question();
 
 		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.StyledStringQuestionImpl <em>Styled String Question</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.StyledStringQuestionImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStyledStringQuestion()
-		 * @generated
-		 */
-		EClass STYLED_STRING_QUESTION = eINSTANCE.getStyledStringQuestion();
-
-		/**
-		 * The meta object literal for the '<em><b>Styled Strings</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STYLED_STRING_QUESTION__STYLED_STRINGS = eINSTANCE.getStyledStringQuestion_StyledStrings();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.StyledStringImpl <em>Styled String</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.StyledStringImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStyledString()
-		 * @generated
-		 */
-		EClass STYLED_STRING = eINSTANCE.getStyledString();
-
-		/**
-		 * The meta object literal for the '<em><b>Char Style</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STYLED_STRING__CHAR_STYLE = eINSTANCE.getStyledString_CharStyle();
-
-		/**
-		 * The meta object literal for the '<em><b>Effective Char Style</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STYLED_STRING__EFFECTIVE_CHAR_STYLE = eINSTANCE.getStyledString_EffectiveCharStyle();
-
-		/**
-		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STYLED_STRING__PREFIX = eINSTANCE.getStyledString_Prefix();
-
-		/**
-		 * The meta object literal for the '<em><b>Styled String</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STYLED_STRING__STYLED_STRING = eINSTANCE.getStyledString_StyledString();
-
-		/**
-		 * The meta object literal for the '<em><b>Suffix</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STYLED_STRING__SUFFIX = eINSTANCE.getStyledString_Suffix();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.CharStyleImpl <em>Char Style</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.CharStyleImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getCharStyle()
-		 * @generated
-		 */
-		EClass CHAR_STYLE = eINSTANCE.getCharStyle();
-
-		/**
-		 * The meta object literal for the '<em><b>Italic</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHAR_STYLE__ITALIC = eINSTANCE.getCharStyle_Italic();
-
-		/**
-		 * The meta object literal for the '<em><b>Bold</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHAR_STYLE__BOLD = eINSTANCE.getCharStyle_Bold();
-
-		/**
-		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHAR_STYLE__SIZE = eINSTANCE.getCharStyle_Size();
-
-		/**
-		 * The meta object literal for the '<em><b>Family</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHAR_STYLE__FAMILY = eINSTANCE.getCharStyle_Family();
-
-		/**
-		 * The meta object literal for the '<em><b>Foreground</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHAR_STYLE__FOREGROUND = eINSTANCE.getCharStyle_Foreground();
-
-		/**
-		 * The meta object literal for the '<em><b>Background</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHAR_STYLE__BACKGROUND = eINSTANCE.getCharStyle_Background();
-
-		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.AnswerImpl <em>Answer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3664,262 +2648,6 @@ public interface ExercisePackage extends EPackage {
 		EOperation PROPOSAL___VALIDATE = eINSTANCE.getProposal__Validate();
 
 		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.OptionAnswerImpl <em>Option Answer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.OptionAnswerImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getOptionAnswer()
-		 * @generated
-		 */
-		EClass OPTION_ANSWER = eINSTANCE.getOptionAnswer();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.SimpleAnswerImpl <em>Simple Answer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.SimpleAnswerImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getSimpleAnswer()
-		 * @generated
-		 */
-		EClass SIMPLE_ANSWER = eINSTANCE.getSimpleAnswer();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Value</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SIMPLE_ANSWER___GET_VALUE = eINSTANCE.getSimpleAnswer__GetValue();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.SimpleProposalImpl <em>Simple Proposal</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.SimpleProposalImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getSimpleProposal()
-		 * @generated
-		 */
-		EClass SIMPLE_PROPOSAL = eINSTANCE.getSimpleProposal();
-
-		/**
-		 * The meta object literal for the '<em><b>Proposal</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SIMPLE_PROPOSAL__PROPOSAL = eINSTANCE.getSimpleProposal_Proposal();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.StringAnswerImpl <em>String Answer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.StringAnswerImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStringAnswer()
-		 * @generated
-		 */
-		EClass STRING_ANSWER = eINSTANCE.getStringAnswer();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STRING_ANSWER__VALUE = eINSTANCE.getStringAnswer_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STRING_ANSWER__FORMAT = eINSTANCE.getStringAnswer_Format();
-
-		/**
-		 * The meta object literal for the '<em><b>Regexp</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STRING_ANSWER__REGEXP = eINSTANCE.getStringAnswer_Regexp();
-
-		/**
-		 * The meta object literal for the '<em><b>Ignore Case</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STRING_ANSWER__IGNORE_CASE = eINSTANCE.getStringAnswer_IgnoreCase();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.NumberAnswerImpl <em>Number Answer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.NumberAnswerImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getNumberAnswer()
-		 * @generated
-		 */
-		EClass NUMBER_ANSWER = eINSTANCE.getNumberAnswer();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NUMBER_ANSWER__VALUE = eINSTANCE.getNumberAnswer_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Error Margin</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NUMBER_ANSWER__ERROR_MARGIN = eINSTANCE.getNumberAnswer_ErrorMargin();
-
-		/**
-		 * The meta object literal for the '<em><b>Range</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NUMBER_ANSWER__RANGE = eINSTANCE.getNumberAnswer_Range();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.NumberRangeImpl <em>Number Range</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.NumberRangeImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getNumberRange()
-		 * @generated
-		 */
-		EClass NUMBER_RANGE = eINSTANCE.getNumberRange();
-
-		/**
-		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NUMBER_RANGE__MIN = eINSTANCE.getNumberRange_Min();
-
-		/**
-		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NUMBER_RANGE__MAX = eINSTANCE.getNumberRange_Max();
-
-		/**
-		 * The meta object literal for the '<em><b>Step</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NUMBER_RANGE__STEP = eINSTANCE.getNumberRange_Step();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.BooleanAnswerImpl <em>Boolean Answer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.BooleanAnswerImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getBooleanAnswer()
-		 * @generated
-		 */
-		EClass BOOLEAN_ANSWER = eINSTANCE.getBooleanAnswer();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOLEAN_ANSWER__VALUE = eINSTANCE.getBooleanAnswer_Value();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.OptionsAnswerImpl <em>Options Answer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.OptionsAnswerImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getOptionsAnswer()
-		 * @generated
-		 */
-		EClass OPTIONS_ANSWER = eINSTANCE.getOptionsAnswer();
-
-		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPTIONS_ANSWER__OPTIONS = eINSTANCE.getOptionsAnswer_Options();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.OptionsProposalImpl <em>Options Proposal</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.OptionsProposalImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getOptionsProposal()
-		 * @generated
-		 */
-		EClass OPTIONS_PROPOSAL = eINSTANCE.getOptionsProposal();
-
-		/**
-		 * The meta object literal for the '<em><b>Indices</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OPTIONS_PROPOSAL__INDICES = eINSTANCE.getOptionsProposal_Indices();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.OptionImpl <em>Option</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.OptionImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getOption()
-		 * @generated
-		 */
-		EClass OPTION = eINSTANCE.getOption();
-
-		/**
-		 * The meta object literal for the '<em><b>Correct</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OPTION__CORRECT = eINSTANCE.getOption_Correct();
-
-		/**
-		 * The meta object literal for the '<em><b>Option</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPTION__OPTION = eINSTANCE.getOption_Option();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.SingleOptionsAnswerImpl <em>Single Options Answer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.SingleOptionsAnswerImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getSingleOptionsAnswer()
-		 * @generated
-		 */
-		EClass SINGLE_OPTIONS_ANSWER = eINSTANCE.getSingleOptionsAnswer();
-
-		/**
-		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.ManyOptionsAnswerImpl <em>Many Options Answer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.impl.ManyOptionsAnswerImpl
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getManyOptionsAnswer()
-		 * @generated
-		 */
-		EClass MANY_OPTIONS_ANSWER = eINSTANCE.getManyOptionsAnswer();
-
-		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.TaskAnswerImpl <em>Task Answer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3988,6 +2716,14 @@ public interface ExercisePackage extends EPackage {
 		EAttribute TASK_PROPOSAL__PERFORMED_COUNT = eINSTANCE.getTaskProposal_PerformedCount();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Text</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK_PROPOSAL___GET_TEXT = eINSTANCE.getTaskProposal__GetText();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.TaskEventImpl <em>Task Event</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4014,14 +2750,144 @@ public interface ExercisePackage extends EPackage {
 		EAttribute TASK_EVENT__COMPLETION = eINSTANCE.getTaskEvent_Completion();
 
 		/**
-		 * The meta object literal for the '<em>RGB</em>' data type.
+		 * The meta object literal for the '<em><b>Get Text</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see no.hal.learning.exercise.util.RGB
-		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getRGB()
 		 * @generated
 		 */
-		EDataType RGB = eINSTANCE.getRGB();
+		EOperation TASK_EVENT___GET_TEXT = eINSTANCE.getTaskEvent__GetText();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.StringEditTaskProposalImpl <em>String Edit Task Proposal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.impl.StringEditTaskProposalImpl
+		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStringEditTaskProposal()
+		 * @generated
+		 */
+		EClass STRING_EDIT_TASK_PROPOSAL = eINSTANCE.getStringEditTaskProposal();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.StringEditAnswerImpl <em>String Edit Answer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.impl.StringEditAnswerImpl
+		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStringEditAnswer()
+		 * @generated
+		 */
+		EClass STRING_EDIT_ANSWER = eINSTANCE.getStringEditAnswer();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Editor Path</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRING_EDIT_ANSWER___GET_EDITOR_PATH = eINSTANCE.getStringEditAnswer__GetEditorPath();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.AbstractStringEditEventImpl <em>Abstract String Edit Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.impl.AbstractStringEditEventImpl
+		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getAbstractStringEditEvent()
+		 * @generated
+		 */
+		EClass ABSTRACT_STRING_EDIT_EVENT = eINSTANCE.getAbstractStringEditEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Edit</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_STRING_EDIT_EVENT__EDIT = eINSTANCE.getAbstractStringEditEvent_Edit();
+
+		/**
+		 * The meta object literal for the '<em><b>Get String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_STRING_EDIT_EVENT___GET_STRING = eINSTANCE.getAbstractStringEditEvent__GetString();
+
+		/**
+		 * The meta object literal for the '<em><b>Create String Edit</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_STRING_EDIT_EVENT___CREATE_STRING_EDIT__STRING_ABSTRACTSTRINGEDITEVENT = eINSTANCE.getAbstractStringEditEvent__CreateStringEdit__String_AbstractStringEditEvent();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.AbstractStringEditImpl <em>Abstract String Edit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.impl.AbstractStringEditImpl
+		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getAbstractStringEdit()
+		 * @generated
+		 */
+		EClass ABSTRACT_STRING_EDIT = eINSTANCE.getAbstractStringEdit();
+
+		/**
+		 * The meta object literal for the '<em><b>Get String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_STRING_EDIT___GET_STRING = eINSTANCE.getAbstractStringEdit__GetString();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.StringEditImpl <em>String Edit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.impl.StringEditImpl
+		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStringEdit()
+		 * @generated
+		 */
+		EClass STRING_EDIT = eINSTANCE.getStringEdit();
+
+		/**
+		 * The meta object literal for the '<em><b>Stored String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_EDIT__STORED_STRING = eINSTANCE.getStringEdit_StoredString();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.ReplaceSubstringEditImpl <em>Replace Substring Edit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.impl.ReplaceSubstringEditImpl
+		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getReplaceSubstringEdit()
+		 * @generated
+		 */
+		EClass REPLACE_SUBSTRING_EDIT = eINSTANCE.getReplaceSubstringEdit();
+
+		/**
+		 * The meta object literal for the '<em><b>Edit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REPLACE_SUBSTRING_EDIT__EDIT = eINSTANCE.getReplaceSubstringEdit_Edit();
+
+		/**
+		 * The meta object literal for the '<em><b>Start</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REPLACE_SUBSTRING_EDIT__START = eINSTANCE.getReplaceSubstringEdit_Start();
+
+		/**
+		 * The meta object literal for the '<em><b>End</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REPLACE_SUBSTRING_EDIT__END = eINSTANCE.getReplaceSubstringEdit_End();
 
 		/**
 		 * The meta object literal for the '<em>ETimestamp</em>' data type.

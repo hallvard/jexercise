@@ -147,4 +147,12 @@ public interface TaskProposal<T extends TaskAnswer> extends Proposal<T> {
 	 */
 	void setPerformedCount(int value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getText();
+
 } // TaskProposal

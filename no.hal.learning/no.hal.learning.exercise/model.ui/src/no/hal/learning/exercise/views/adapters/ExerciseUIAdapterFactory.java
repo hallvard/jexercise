@@ -5,14 +5,14 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import no.hal.emf.ui.parts.adapters.EObjectUIAdapter;
-import no.hal.learning.exercise.BooleanAnswer;
 import no.hal.learning.exercise.ExerciseProposals;
 import no.hal.learning.exercise.ExercisePartProposals;
-import no.hal.learning.exercise.NumberAnswer;
-import no.hal.learning.exercise.OptionsProposal;
-import no.hal.learning.exercise.SimpleAnswer;
-import no.hal.learning.exercise.SimpleProposal;
-import no.hal.learning.exercise.StringAnswer;
+import no.hal.learning.quiz.BooleanAnswer;
+import no.hal.learning.quiz.NumberAnswer;
+import no.hal.learning.quiz.OptionsProposal;
+import no.hal.learning.quiz.SimpleAnswer;
+import no.hal.learning.quiz.SimpleProposal;
+import no.hal.learning.quiz.StringAnswer;
 
 public class ExerciseUIAdapterFactory extends AdapterFactoryImpl {
 

@@ -13,6 +13,7 @@ import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.jdt.core.ElementChangedEvent;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IElementChangedListener;
@@ -23,6 +24,9 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.swt.widgets.Composite;
 
 import no.hal.emf.ui.parts.adapters.EObjectUIAdapter;
+import no.hal.learning.exercise.AbstractStringEdit;
+import no.hal.learning.exercise.AbstractStringEditEvent;
+import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.jdt.JdtFactory;
 import no.hal.learning.exercise.jdt.JdtPackage;
@@ -41,9 +45,9 @@ public class JdtSourceEditTaskProposalAdapter extends TaskProposalUIAdapter<JdtS
 	@Override
 	public EObjectUIAdapter<?, ?>[] createSubAdapters() {
 		return new EObjectUIAdapter<?, ?>[] {
-			new TaskCounterUIAdapter(getProposal(), JdtPackage.eINSTANCE.getJdtSourceEditEvent_SizeMeasure(), "Size: %2s"),
-			new TaskCounterUIAdapter(getProposal(), JdtPackage.eINSTANCE.getJdtSourceEditEvent_ErrorCount(), "Errors: %2s"),
-			new TaskCounterUIAdapter(getProposal(), JdtPackage.eINSTANCE.getJdtSourceEditEvent_WarningCount(), "Warnings: %2s"),
+			new TaskCounterUIAdapter(getProposal(), JdtPackage.eINSTANCE.getJdtSourceEditEvent_SizeMeasure(), "Size: %2s", null, true),
+			new TaskCounterUIAdapter(getProposal(), JdtPackage.eINSTANCE.getJdtSourceEditEvent_ErrorCount(), "Errors: %2s", false),
+			new TaskCounterUIAdapter(getProposal(), JdtPackage.eINSTANCE.getJdtSourceEditEvent_WarningCount(), "Warnings: %2s", false),
 			new TaskAttemptsUIAdapter(getProposal())
 		};
 	}
@@ -141,7 +145,13 @@ public class JdtSourceEditTaskProposalAdapter extends TaskProposalUIAdapter<JdtS
 					}
 				} catch (IOException e) {
 				}
-				taskEvent.setSourceCode(buffer.toString());
+				EList<TaskEvent> attempts = getProposal().getAttempts();
+				AbstractStringEditEvent lastEvent = null;
+				if (! attempts.isEmpty()) {
+					lastEvent = (AbstractStringEditEvent) attempts.get(attempts.size() - 1);
+				}
+				AbstractStringEdit stringEdit = taskEvent.createStringEdit(buffer.toString(), lastEvent);
+				taskEvent.setEdit(stringEdit);
 			}
 			taskEvent.setSizeMeasure(lineCount);
 		}

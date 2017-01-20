@@ -94,13 +94,22 @@ public interface WorkbenchPackage extends EPackage {
 	int WORKBENCH_TASK_ANSWER__ACTION = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_ANSWER__TEXT = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Task Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WORKBENCH_TASK_ANSWER_FEATURE_COUNT = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 2;
+	int WORKBENCH_TASK_ANSWER_FEATURE_COUNT = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -174,6 +183,15 @@ public interface WorkbenchPackage extends EPackage {
 	 * @ordered
 	 */
 	int PART_TASK_ANSWER__ACTION = WORKBENCH_TASK_ANSWER__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_ANSWER__TEXT = WORKBENCH_TASK_ANSWER__TEXT;
 
 	/**
 	 * The number of structural features of the '<em>Part Task Answer</em>' class.
@@ -276,6 +294,15 @@ public interface WorkbenchPackage extends EPackage {
 	int PART_TASK_PROPOSAL__ATTEMPT_COUNT = ExercisePackage.TASK_PROPOSAL__ATTEMPT_COUNT;
 
 	/**
+	 * The feature id for the '<em><b>Attempts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_PROPOSAL__ATTEMPTS = ExercisePackage.TASK_PROPOSAL__ATTEMPTS;
+
+	/**
 	 * The feature id for the '<em><b>Performed Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -319,6 +346,15 @@ public interface WorkbenchPackage extends EPackage {
 	 * @ordered
 	 */
 	int PART_TASK_PROPOSAL___VALIDATE = ExercisePackage.TASK_PROPOSAL___VALIDATE;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
 
 	/**
 	 * The number of operations of the '<em>Part Task Proposal</em>' class.
@@ -365,6 +401,15 @@ public interface WorkbenchPackage extends EPackage {
 	 * @ordered
 	 */
 	int PERSPECTIVE_TASK_ANSWER__ACTION = WORKBENCH_TASK_ANSWER__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE_TASK_ANSWER__TEXT = WORKBENCH_TASK_ANSWER__TEXT;
 
 	/**
 	 * The number of structural features of the '<em>Perspective Task Answer</em>' class.
@@ -467,6 +512,15 @@ public interface WorkbenchPackage extends EPackage {
 	int PERSPECTIVE_TASK_PROPOSAL__ATTEMPT_COUNT = ExercisePackage.TASK_PROPOSAL__ATTEMPT_COUNT;
 
 	/**
+	 * The feature id for the '<em><b>Attempts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE_TASK_PROPOSAL__ATTEMPTS = ExercisePackage.TASK_PROPOSAL__ATTEMPTS;
+
+	/**
 	 * The feature id for the '<em><b>Performed Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -510,6 +564,15 @@ public interface WorkbenchPackage extends EPackage {
 	 * @ordered
 	 */
 	int PERSPECTIVE_TASK_PROPOSAL___VALIDATE = ExercisePackage.TASK_PROPOSAL___VALIDATE;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE_TASK_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
 
 	/**
 	 * The number of operations of the '<em>Perspective Task Proposal</em>' class.
@@ -556,6 +619,15 @@ public interface WorkbenchPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMAND_EXECUTION_ANSWER__ACTION = WORKBENCH_TASK_ANSWER__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXECUTION_ANSWER__TEXT = WORKBENCH_TASK_ANSWER__TEXT;
 
 	/**
 	 * The number of structural features of the '<em>Command Execution Answer</em>' class.
@@ -658,6 +730,15 @@ public interface WorkbenchPackage extends EPackage {
 	int COMMAND_EXECUTION_PROPOSAL__ATTEMPT_COUNT = ExercisePackage.TASK_PROPOSAL__ATTEMPT_COUNT;
 
 	/**
+	 * The feature id for the '<em><b>Attempts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXECUTION_PROPOSAL__ATTEMPTS = ExercisePackage.TASK_PROPOSAL__ATTEMPTS;
+
+	/**
 	 * The feature id for the '<em><b>Performed Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -701,6 +782,15 @@ public interface WorkbenchPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMAND_EXECUTION_PROPOSAL___VALIDATE = ExercisePackage.TASK_PROPOSAL___VALIDATE;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXECUTION_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
 
 	/**
 	 * The number of operations of the '<em>Command Execution Proposal</em>' class.
@@ -748,6 +838,15 @@ public interface WorkbenchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DEBUG_EVENT_ANSWER__ACTION = WORKBENCH_TASK_ANSWER__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEBUG_EVENT_ANSWER__TEXT = WORKBENCH_TASK_ANSWER__TEXT;
 
 	/**
 	 * The number of structural features of the '<em>Debug Event Answer</em>' class.
@@ -850,6 +949,15 @@ public interface WorkbenchPackage extends EPackage {
 	int DEBUG_EVENT_PROPOSAL__ATTEMPT_COUNT = ExercisePackage.TASK_PROPOSAL__ATTEMPT_COUNT;
 
 	/**
+	 * The feature id for the '<em><b>Attempts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEBUG_EVENT_PROPOSAL__ATTEMPTS = ExercisePackage.TASK_PROPOSAL__ATTEMPTS;
+
+	/**
 	 * The feature id for the '<em><b>Performed Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -895,6 +1003,15 @@ public interface WorkbenchPackage extends EPackage {
 	int DEBUG_EVENT_PROPOSAL___VALIDATE = ExercisePackage.TASK_PROPOSAL___VALIDATE;
 
 	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEBUG_EVENT_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
+
+	/**
 	 * The number of operations of the '<em>Debug Event Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -935,6 +1052,17 @@ public interface WorkbenchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getWorkbenchTaskAnswer_Action();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.workbench.WorkbenchTaskAnswer#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see no.hal.learning.exercise.workbench.WorkbenchTaskAnswer#getText()
+	 * @see #getWorkbenchTaskAnswer()
+	 * @generated
+	 */
+	EAttribute getWorkbenchTaskAnswer_Text();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.workbench.PartTaskAnswer <em>Part Task Answer</em>}'.
@@ -1064,6 +1192,14 @@ public interface WorkbenchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute WORKBENCH_TASK_ANSWER__ACTION = eINSTANCE.getWorkbenchTaskAnswer_Action();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WORKBENCH_TASK_ANSWER__TEXT = eINSTANCE.getWorkbenchTaskAnswer_Text();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.workbench.impl.PartTaskAnswerImpl <em>Part Task Answer</em>}' class.

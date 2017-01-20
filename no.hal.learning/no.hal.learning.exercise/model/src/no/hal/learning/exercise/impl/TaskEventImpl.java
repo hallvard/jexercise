@@ -2,11 +2,15 @@
  */
 package no.hal.learning.exercise.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import no.hal.learning.exercise.ExercisePackage;
+import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.TaskEvent;
+import no.hal.learning.exercise.TaskProposal;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -128,6 +132,22 @@ public class TaskEventImpl extends MinimalEObjectImpl.Container implements TaskE
 			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.TASK_EVENT__COMPLETION, oldCompletion, completion));
 	}
 
+//	private Date tempDate = new Date();
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getText() {
+//		tempDate.setTime(getTimestamp());
+		return getTaskProposal().getText(); // + " @ " + tempDate;
+	}
+
+	protected TaskProposal<? extends TaskAnswer> getTaskProposal() {
+		return (TaskProposal<? extends TaskAnswer>) eContainer();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +214,20 @@ public class TaskEventImpl extends MinimalEObjectImpl.Container implements TaskE
 				return completion != COMPLETION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ExercisePackage.TASK_EVENT___GET_TEXT:
+				return getText();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

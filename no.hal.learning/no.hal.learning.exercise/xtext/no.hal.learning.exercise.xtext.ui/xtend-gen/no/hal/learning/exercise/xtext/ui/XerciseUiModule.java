@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class XerciseUiModule extends AbstractXerciseUiModule {
-  public XerciseUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public XerciseUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }

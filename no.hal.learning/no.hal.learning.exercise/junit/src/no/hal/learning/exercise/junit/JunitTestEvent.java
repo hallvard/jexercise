@@ -19,7 +19,7 @@ import no.hal.learning.exercise.TaskEvent;
  * </ul>
  *
  * @see no.hal.learning.exercise.junit.JunitPackage#getJunitTestEvent()
- * @model
+ * @model annotation="exp4j successRatio='successCount / (successCount + failureCount + errorCount)'"
  * @generated
  */
 public interface JunitTestEvent extends TaskEvent {

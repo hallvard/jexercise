@@ -10,6 +10,12 @@ import no.hal.learning.exercise.TaskProposal;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Task Proposal</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link no.hal.learning.exercise.TaskProposal#getText() <em>Get Text</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class TaskProposalTest extends ProposalTest {
@@ -64,6 +70,16 @@ public class TaskProposalTest extends ProposalTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link no.hal.learning.exercise.TaskProposal#getText() <em>Get Text</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.TaskProposal#getText()
+	 * @generated NOT
+	 */
+	public void testGetText() {
 	}
 
 } //TaskProposalTest

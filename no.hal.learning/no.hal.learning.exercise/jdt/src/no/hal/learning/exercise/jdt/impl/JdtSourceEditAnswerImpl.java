@@ -4,6 +4,7 @@ package no.hal.learning.exercise.jdt.impl;
 
 import java.util.Collection;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -11,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import no.hal.learning.exercise.Proposal;
-import no.hal.learning.exercise.impl.TaskAnswerImpl;
+import no.hal.learning.exercise.impl.StringEditAnswerImpl;
 import no.hal.learning.exercise.jdt.JdtSourceEditAnswer;
 import no.hal.learning.exercise.jdt.JdtSourceEditProposal;
 import no.hal.learning.exercise.jdt.JdtFactory;
@@ -31,7 +32,7 @@ import no.hal.learning.exercise.jdt.JdtPackage;
  *
  * @generated
  */
-public class JdtSourceEditAnswerImpl extends TaskAnswerImpl implements JdtSourceEditAnswer {
+public class JdtSourceEditAnswerImpl extends StringEditAnswerImpl implements JdtSourceEditAnswer {
 	/**
 	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -209,6 +210,11 @@ public class JdtSourceEditAnswerImpl extends TaskAnswerImpl implements JdtSource
 		JdtSourceEditProposal proposal = JdtFactory.eINSTANCE.createJdtSourceEditProposal();
 		proposal.setAnswer(this);
 		return proposal;
+	}
+
+	@Override
+	public String getEditorPath() {
+		return String.valueOf(IPath.SEPARATOR) + getClassName().replace('.', IPath.SEPARATOR) + ".java";
 	}
 
 } //JdtClassAnswerImpl

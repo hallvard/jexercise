@@ -5,7 +5,6 @@ package no.hal.learning.exercise.workbench.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import no.hal.learning.exercise.Proposal;
-import no.hal.learning.exercise.workbench.CommandExecutionProposal;
 import no.hal.learning.exercise.workbench.DebugEventAnswer;
 import no.hal.learning.exercise.workbench.DebugEventProposal;
 import no.hal.learning.exercise.workbench.WorkbenchFactory;

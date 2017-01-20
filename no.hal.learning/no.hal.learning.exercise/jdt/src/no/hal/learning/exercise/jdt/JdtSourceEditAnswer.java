@@ -2,8 +2,7 @@
  */
 package no.hal.learning.exercise.jdt;
 
-import no.hal.learning.exercise.TaskAnswer;
-
+import no.hal.learning.exercise.StringEditAnswer;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -23,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface JdtSourceEditAnswer extends TaskAnswer {
+public interface JdtSourceEditAnswer extends StringEditAnswer {
 	/**
 	 * Returns the value of the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

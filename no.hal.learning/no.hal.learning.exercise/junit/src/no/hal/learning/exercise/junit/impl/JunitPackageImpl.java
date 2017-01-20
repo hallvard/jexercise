@@ -271,8 +271,26 @@ public class JunitPackageImpl extends EPackageImpl implements JunitPackage {
 		createResource(eNS_URI);
 
 		// Create annotations
+		// exp4j
+		createExp4jAnnotations();
 		// no.hal.learning.exercise.views.ExerciseView
 		createNoAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>exp4j</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExp4jAnnotations() {
+		String source = "exp4j";	
+		addAnnotation
+		  (junitTestEventEClass, 
+		   source, 
+		   new String[] {
+			 "successRatio", "successCount / (successCount + failureCount + errorCount)"
+		   });
 	}
 
 	/**

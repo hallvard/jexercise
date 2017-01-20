@@ -60,29 +60,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringQuestion" eSuperTypes="#//Question">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="question" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StyledStringQuestion" eSuperTypes="#//Question">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styledStrings" upperBound="-1"
-        eType="#//StyledString" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StyledString">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="charStyle" eType="#//CharStyle"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="effectiveCharStyle" eType="#//CharStyle"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="styledString" eType="#//StyledString"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CharStyle">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="italic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="family" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foreground" eType="#//RGB"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="background" eType="#//RGB"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="RGB" instanceClassName="no.hal.learning.exercise.util.RGB"/>
   <eClassifiers xsi:type="ecore:EClass" name="Answer" abstract="true">
     <eOperations name="accept" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
       <eParameters name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
@@ -108,79 +85,6 @@
       <eGenericType eTypeParameter="#//Proposal/A"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OptionAnswer" abstract="true" eSuperTypes="#//Answer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleAnswer" abstract="true" eSuperTypes="#//OptionAnswer">
-    <eTypeParameters name="T"/>
-    <eOperations name="getValue">
-      <eGenericType eTypeParameter="#//SimpleAnswer/T"/>
-    </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleProposal">
-    <eTypeParameters name="A">
-      <eBounds eClassifier="#//SimpleAnswer">
-        <eTypeArguments/>
-      </eBounds>
-    </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="proposal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    <eGenericSuperTypes eClassifier="#//Proposal">
-      <eTypeArguments eTypeParameter="#//SimpleProposal/A"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringAnswer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="regexp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreCase" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eGenericSuperTypes eClassifier="#//SimpleAnswer">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberAnswer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorMargin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//NumberRange"
-        containment="true"/>
-    <eGenericSuperTypes eClassifier="#//SimpleAnswer">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberRange">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="step" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanAnswer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-    <eGenericSuperTypes eClassifier="#//SimpleAnswer">
-      <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OptionsAnswer" eSuperTypes="#//Answer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
-        eType="#//Option" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OptionsProposal">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="indices" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eGenericSuperTypes eClassifier="#//Proposal">
-      <eTypeArguments eClassifier="#//OptionsAnswer"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Option">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="correct" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//OptionAnswer"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SingleOptionsAnswer" eSuperTypes="#//OptionsAnswer">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="SingleCorrectOption"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ManyOptionsAnswer" eSuperTypes="#//OptionsAnswer">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="AtLeastOneCorrectOption"/>
-    </eAnnotations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskAnswer" eSuperTypes="#//Answer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -188,6 +92,7 @@
     <eTypeParameters name="T">
       <eBounds eClassifier="#//TaskAnswer"/>
     </eTypeParameters>
+    <eOperations name="getText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="completion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="-1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="proof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -200,6 +105,7 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskEvent">
+    <eOperations name="getText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="#//ETimestamp"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="completion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="-1">
@@ -209,4 +115,36 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="ETimestamp" instanceClassName="long"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringEditTaskProposal">
+    <eTypeParameters name="A">
+      <eBounds eClassifier="#//StringEditAnswer"/>
+    </eTypeParameters>
+    <eGenericSuperTypes eClassifier="#//TaskProposal">
+      <eTypeArguments eTypeParameter="#//StringEditTaskProposal/A"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringEditAnswer" abstract="true" eSuperTypes="#//TaskAnswer">
+    <eOperations name="getEditorPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractStringEditEvent" eSuperTypes="#//TaskEvent">
+    <eOperations name="getString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="createStringEdit" eType="#//AbstractStringEdit">
+      <eParameters name="string" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="lastEvent" eType="#//AbstractStringEditEvent"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edit" eType="#//AbstractStringEdit"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractStringEdit" abstract="true">
+    <eOperations name="getString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringEdit" eSuperTypes="#//AbstractStringEdit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="storedString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReplaceSubstringEdit" eSuperTypes="#//StringEdit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edit" eType="#//AbstractStringEdit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+  </eClassifiers>
 </ecore:EPackage>

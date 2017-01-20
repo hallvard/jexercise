@@ -36,4 +36,16 @@ public class DebugEventProposalImpl extends TaskProposalImpl<DebugEventAnswer> i
 		return WorkbenchPackage.Literals.DEBUG_EVENT_PROPOSAL;
 	}
 
+	//
+	
+	@Override
+	public String getText() {
+		String text = "Debug action " + getAnswer().getAction();
+		String elementId = getAnswer().getElementId();
+		if (elementId != null && elementId.length() > 0) {
+			text += " for " + elementId;
+		}
+		return text;
+	}
+
 } //DebugEventProposalImpl

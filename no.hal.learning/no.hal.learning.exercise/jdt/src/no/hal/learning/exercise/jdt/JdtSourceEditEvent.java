@@ -2,7 +2,7 @@
  */
 package no.hal.learning.exercise.jdt;
 
-import no.hal.learning.exercise.TaskEvent;
+import no.hal.learning.exercise.AbstractStringEditEvent;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,10 +20,10 @@ import no.hal.learning.exercise.TaskEvent;
  * </ul>
  *
  * @see no.hal.learning.exercise.jdt.JdtPackage#getJdtSourceEditEvent()
- * @model
+ * @model annotation="exp4j codeIssues='errorCount * 5 + warningCount'"
  * @generated
  */
-public interface JdtSourceEditEvent extends TaskEvent {
+public interface JdtSourceEditEvent extends AbstractStringEditEvent {
 	/**
 	 * Returns the value of the '<em><b>Source Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public interface JdtSourceEditEvent extends TaskEvent {
 	 * @return the value of the '<em>Source Code</em>' attribute.
 	 * @see #setSourceCode(String)
 	 * @see no.hal.learning.exercise.jdt.JdtPackage#getJdtSourceEditEvent_SourceCode()
-	 * @model
+	 * @model transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getSourceCode();

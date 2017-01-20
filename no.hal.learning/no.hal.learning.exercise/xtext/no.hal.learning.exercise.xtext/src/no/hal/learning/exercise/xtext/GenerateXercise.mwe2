@@ -32,6 +32,7 @@ Workflow {
 			name = "no.hal.learning.exercise.xtext.Xercise"
 			fileExtensions = "xex"
 			referencedResource = "platform:/resource/no.hal.learning.exercise.model/model/exercise.genmodel"
+			referencedResource = "platform:/resource/no.hal.learning.exercise.model/model/quiz.genmodel"
 			referencedResource = "platform:/resource/no.hal.learning.exercise.workbench/model/workbench-exercise.genmodel"
 			referencedResource = "platform:/resource/no.hal.learning.exercise.junit/model/junit-exercise.genmodel"
 			referencedResource = "platform:/resource/no.hal.learning.exercise.jdt/model/jdt-exercise.genmodel"

@@ -9,8 +9,12 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.learning.exercise,
  no.hal.learning.exercise.impl,
- no.hal.learning.exercise.util
+ no.hal.learning.exercise.util,
+ no.hal.learning.quiz,
+ no.hal.learning.quiz.impl,
+ no.hal.learning.quiz.util
 Require-Bundle: org.eclipse.core.runtime;resolution:=optional,
  org.eclipse.emf.ecore;visibility:=reexport,
+ no.hal.learning.exercise.model;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy

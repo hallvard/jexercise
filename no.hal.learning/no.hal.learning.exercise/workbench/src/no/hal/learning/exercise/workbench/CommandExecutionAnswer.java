@@ -10,7 +10,7 @@ package no.hal.learning.exercise.workbench;
  *
  *
  * @see no.hal.learning.exercise.workbench.WorkbenchPackage#getCommandExecutionAnswer()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='knownCommandId'"
  * @generated
  */
 public interface CommandExecutionAnswer extends WorkbenchTaskAnswer {

@@ -2,7 +2,7 @@
  */
 package no.hal.learning.exercise.jdt;
 
-import no.hal.learning.exercise.TaskProposal;
+import no.hal.learning.exercise.StringEditTaskProposal;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,5 +14,5 @@ import no.hal.learning.exercise.TaskProposal;
  * @model
  * @generated
  */
-public interface JdtSourceEditProposal extends TaskProposal<JdtSourceEditAnswer> {
+public interface JdtSourceEditProposal extends StringEditTaskProposal<JdtSourceEditAnswer> {
 } // JdtClassProposal

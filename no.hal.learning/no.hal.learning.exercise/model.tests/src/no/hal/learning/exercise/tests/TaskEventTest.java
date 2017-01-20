@@ -13,6 +13,12 @@ import no.hal.learning.exercise.TaskEvent;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Task Event</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link no.hal.learning.exercise.TaskEvent#getText() <em>Get Text</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class TaskEventTest extends TestCase {
@@ -84,6 +90,16 @@ public class TaskEventTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link no.hal.learning.exercise.TaskEvent#getText() <em>Get Text</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.TaskEvent#getText()
+	 * @generated NOT
+	 */
+	public void testGetText() {
 	}
 
 } //TaskEventTest

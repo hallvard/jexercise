@@ -1,8 +1,9 @@
 package no.hal.learning.exercise.views.adapters;
 
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.ScrolledForm;
 
 import no.hal.emf.ui.parts.adapters.EObjectUIAdapter;
 import no.hal.emf.ui.parts.adapters.EObjectUIAdapterImpl;
@@ -17,14 +18,13 @@ public class ExerciseProposalsUIAdapter extends EObjectUIAdapterImpl<ExercisePro
 	}
 	
 	@Override
-	public Composite initView(Composite parent) {
-//		ScrolledComposite scrolledComposite = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.H_SCROLL);
-		Composite view = new Composite(parent, SWT.NONE);
-//		scrolledComposite.setContent(view);
+	public ScrolledForm initView(Composite parent) {
+		FormToolkit toolkit = FormUtil.getFormToolkit(parent);
+		ScrolledForm view = toolkit.createScrolledForm(parent);
 		setView(view);
-		view.setLayout(new GridLayout(1, false));
+		view.getBody().setLayout(new GridLayout(1, false));
 		for (ExercisePartProposals partProposals : getQuizProposals().getProposals()) {
-			getAdapterHelper().initView(partProposals, EObjectUIAdapter.class, view);
+			getAdapterHelper().initView(partProposals, EObjectUIAdapter.class, view.getBody());
 		}
 		view.addDisposeListener(this);
 		updateView();
@@ -37,9 +37,6 @@ public class ExerciseProposalsUIAdapter extends EObjectUIAdapterImpl<ExercisePro
 	
 	@Override
 	public void updateView() {
-//		for (QuizPartProposals partProposals : getQuizProposals().getProposals()) {
-//			getAdapterHelper().updateView(partProposals, EObjectUIAdapter.class);
-//		}
 		getAdapterHelper().updateView(getQuizProposals().getProposals(), (Class<? extends EObjectViewerAdapter<?, ?>>) EObjectUIAdapter.class);
 	}
 

@@ -273,75 +273,6 @@ public class ExerciseItemProviderAdapterFactory extends ExerciseAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.StyledStringQuestion} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StyledStringQuestionItemProvider styledStringQuestionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.StyledStringQuestion}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStyledStringQuestionAdapter() {
-		if (styledStringQuestionItemProvider == null) {
-			styledStringQuestionItemProvider = new StyledStringQuestionItemProvider(this);
-		}
-
-		return styledStringQuestionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.StyledString} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StyledStringItemProvider styledStringItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.StyledString}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStyledStringAdapter() {
-		if (styledStringItemProvider == null) {
-			styledStringItemProvider = new StyledStringItemProvider(this);
-		}
-
-		return styledStringItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.CharStyle} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CharStyleItemProvider charStyleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.CharStyle}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCharStyleAdapter() {
-		if (charStyleItemProvider == null) {
-			charStyleItemProvider = new CharStyleItemProvider(this);
-		}
-
-		return charStyleItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.Proposal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -362,236 +293,6 @@ public class ExerciseItemProviderAdapterFactory extends ExerciseAdapterFactory i
 		}
 
 		return proposalItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.SimpleProposal} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SimpleProposalItemProvider simpleProposalItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.SimpleProposal}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSimpleProposalAdapter() {
-		if (simpleProposalItemProvider == null) {
-			simpleProposalItemProvider = new SimpleProposalItemProvider(this);
-		}
-
-		return simpleProposalItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.StringAnswer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StringAnswerItemProvider stringAnswerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.StringAnswer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStringAnswerAdapter() {
-		if (stringAnswerItemProvider == null) {
-			stringAnswerItemProvider = new StringAnswerItemProvider(this);
-		}
-
-		return stringAnswerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.NumberAnswer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NumberAnswerItemProvider numberAnswerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.NumberAnswer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNumberAnswerAdapter() {
-		if (numberAnswerItemProvider == null) {
-			numberAnswerItemProvider = new NumberAnswerItemProvider(this);
-		}
-
-		return numberAnswerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.NumberRange} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NumberRangeItemProvider numberRangeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.NumberRange}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNumberRangeAdapter() {
-		if (numberRangeItemProvider == null) {
-			numberRangeItemProvider = new NumberRangeItemProvider(this);
-		}
-
-		return numberRangeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.BooleanAnswer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BooleanAnswerItemProvider booleanAnswerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.BooleanAnswer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBooleanAnswerAdapter() {
-		if (booleanAnswerItemProvider == null) {
-			booleanAnswerItemProvider = new BooleanAnswerItemProvider(this);
-		}
-
-		return booleanAnswerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.OptionsAnswer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OptionsAnswerItemProvider optionsAnswerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.OptionsAnswer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOptionsAnswerAdapter() {
-		if (optionsAnswerItemProvider == null) {
-			optionsAnswerItemProvider = new OptionsAnswerItemProvider(this);
-		}
-
-		return optionsAnswerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.OptionsProposal} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OptionsProposalItemProvider optionsProposalItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.OptionsProposal}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOptionsProposalAdapter() {
-		if (optionsProposalItemProvider == null) {
-			optionsProposalItemProvider = new OptionsProposalItemProvider(this);
-		}
-
-		return optionsProposalItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.Option} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OptionItemProvider optionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.Option}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOptionAdapter() {
-		if (optionItemProvider == null) {
-			optionItemProvider = new OptionItemProvider(this);
-		}
-
-		return optionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.SingleOptionsAnswer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SingleOptionsAnswerItemProvider singleOptionsAnswerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.SingleOptionsAnswer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSingleOptionsAnswerAdapter() {
-		if (singleOptionsAnswerItemProvider == null) {
-			singleOptionsAnswerItemProvider = new SingleOptionsAnswerItemProvider(this);
-		}
-
-		return singleOptionsAnswerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.ManyOptionsAnswer} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ManyOptionsAnswerItemProvider manyOptionsAnswerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.ManyOptionsAnswer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createManyOptionsAnswerAdapter() {
-		if (manyOptionsAnswerItemProvider == null) {
-			manyOptionsAnswerItemProvider = new ManyOptionsAnswerItemProvider(this);
-		}
-
-		return manyOptionsAnswerItemProvider;
 	}
 
 	/**
@@ -661,6 +362,98 @@ public class ExerciseItemProviderAdapterFactory extends ExerciseAdapterFactory i
 		}
 
 		return taskEventItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.StringEditTaskProposal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringEditTaskProposalItemProvider stringEditTaskProposalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.learning.exercise.StringEditTaskProposal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringEditTaskProposalAdapter() {
+		if (stringEditTaskProposalItemProvider == null) {
+			stringEditTaskProposalItemProvider = new StringEditTaskProposalItemProvider(this);
+		}
+
+		return stringEditTaskProposalItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.AbstractStringEditEvent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AbstractStringEditEventItemProvider abstractStringEditEventItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.learning.exercise.AbstractStringEditEvent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAbstractStringEditEventAdapter() {
+		if (abstractStringEditEventItemProvider == null) {
+			abstractStringEditEventItemProvider = new AbstractStringEditEventItemProvider(this);
+		}
+
+		return abstractStringEditEventItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.StringEdit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringEditItemProvider stringEditItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.learning.exercise.StringEdit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringEditAdapter() {
+		if (stringEditItemProvider == null) {
+			stringEditItemProvider = new StringEditItemProvider(this);
+		}
+
+		return stringEditItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.ReplaceSubstringEdit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ReplaceSubstringEditItemProvider replaceSubstringEditItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.learning.exercise.ReplaceSubstringEdit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createReplaceSubstringEditAdapter() {
+		if (replaceSubstringEditItemProvider == null) {
+			replaceSubstringEditItemProvider = new ReplaceSubstringEditItemProvider(this);
+		}
+
+		return replaceSubstringEditItemProvider;
 	}
 
 	/**
@@ -797,23 +590,14 @@ public class ExerciseItemProviderAdapterFactory extends ExerciseAdapterFactory i
 		if (taskRefItemProvider != null) taskRefItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (stringQuestionItemProvider != null) stringQuestionItemProvider.dispose();
-		if (styledStringQuestionItemProvider != null) styledStringQuestionItemProvider.dispose();
-		if (styledStringItemProvider != null) styledStringItemProvider.dispose();
-		if (charStyleItemProvider != null) charStyleItemProvider.dispose();
 		if (proposalItemProvider != null) proposalItemProvider.dispose();
-		if (simpleProposalItemProvider != null) simpleProposalItemProvider.dispose();
-		if (stringAnswerItemProvider != null) stringAnswerItemProvider.dispose();
-		if (numberAnswerItemProvider != null) numberAnswerItemProvider.dispose();
-		if (numberRangeItemProvider != null) numberRangeItemProvider.dispose();
-		if (booleanAnswerItemProvider != null) booleanAnswerItemProvider.dispose();
-		if (optionsAnswerItemProvider != null) optionsAnswerItemProvider.dispose();
-		if (optionsProposalItemProvider != null) optionsProposalItemProvider.dispose();
-		if (optionItemProvider != null) optionItemProvider.dispose();
-		if (singleOptionsAnswerItemProvider != null) singleOptionsAnswerItemProvider.dispose();
-		if (manyOptionsAnswerItemProvider != null) manyOptionsAnswerItemProvider.dispose();
 		if (taskAnswerItemProvider != null) taskAnswerItemProvider.dispose();
 		if (taskProposalItemProvider != null) taskProposalItemProvider.dispose();
 		if (taskEventItemProvider != null) taskEventItemProvider.dispose();
+		if (stringEditTaskProposalItemProvider != null) stringEditTaskProposalItemProvider.dispose();
+		if (abstractStringEditEventItemProvider != null) abstractStringEditEventItemProvider.dispose();
+		if (stringEditItemProvider != null) stringEditItemProvider.dispose();
+		if (replaceSubstringEditItemProvider != null) replaceSubstringEditItemProvider.dispose();
 	}
 
 }

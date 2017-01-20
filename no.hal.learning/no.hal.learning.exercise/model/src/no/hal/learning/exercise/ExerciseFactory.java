@@ -94,33 +94,6 @@ public interface ExerciseFactory extends EFactory {
 	StringQuestion createStringQuestion();
 
 	/**
-	 * Returns a new object of class '<em>Styled String Question</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Styled String Question</em>'.
-	 * @generated
-	 */
-	StyledStringQuestion createStyledStringQuestion();
-
-	/**
-	 * Returns a new object of class '<em>Styled String</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Styled String</em>'.
-	 * @generated
-	 */
-	StyledString createStyledString();
-
-	/**
-	 * Returns a new object of class '<em>Char Style</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Char Style</em>'.
-	 * @generated
-	 */
-	CharStyle createCharStyle();
-
-	/**
 	 * Returns a new object of class '<em>Proposal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,96 +101,6 @@ public interface ExerciseFactory extends EFactory {
 	 * @generated
 	 */
 	<A extends Answer> Proposal<A> createProposal();
-
-	/**
-	 * Returns a new object of class '<em>Simple Proposal</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Simple Proposal</em>'.
-	 * @generated
-	 */
-	<A extends SimpleAnswer<?>> SimpleProposal<A> createSimpleProposal();
-
-	/**
-	 * Returns a new object of class '<em>String Answer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>String Answer</em>'.
-	 * @generated
-	 */
-	StringAnswer createStringAnswer();
-
-	/**
-	 * Returns a new object of class '<em>Number Answer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Number Answer</em>'.
-	 * @generated
-	 */
-	NumberAnswer createNumberAnswer();
-
-	/**
-	 * Returns a new object of class '<em>Number Range</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Number Range</em>'.
-	 * @generated
-	 */
-	NumberRange createNumberRange();
-
-	/**
-	 * Returns a new object of class '<em>Boolean Answer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean Answer</em>'.
-	 * @generated
-	 */
-	BooleanAnswer createBooleanAnswer();
-
-	/**
-	 * Returns a new object of class '<em>Options Answer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Options Answer</em>'.
-	 * @generated
-	 */
-	OptionsAnswer createOptionsAnswer();
-
-	/**
-	 * Returns a new object of class '<em>Options Proposal</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Options Proposal</em>'.
-	 * @generated
-	 */
-	OptionsProposal createOptionsProposal();
-
-	/**
-	 * Returns a new object of class '<em>Option</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Option</em>'.
-	 * @generated
-	 */
-	Option createOption();
-
-	/**
-	 * Returns a new object of class '<em>Single Options Answer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Single Options Answer</em>'.
-	 * @generated
-	 */
-	SingleOptionsAnswer createSingleOptionsAnswer();
-
-	/**
-	 * Returns a new object of class '<em>Many Options Answer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Many Options Answer</em>'.
-	 * @generated
-	 */
-	ManyOptionsAnswer createManyOptionsAnswer();
 
 	/**
 	 * Returns a new object of class '<em>Task Answer</em>'.
@@ -245,6 +128,42 @@ public interface ExerciseFactory extends EFactory {
 	 * @generated
 	 */
 	TaskEvent createTaskEvent();
+
+	/**
+	 * Returns a new object of class '<em>String Edit Task Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Edit Task Proposal</em>'.
+	 * @generated
+	 */
+	<A extends StringEditAnswer> StringEditTaskProposal<A> createStringEditTaskProposal();
+
+	/**
+	 * Returns a new object of class '<em>Abstract String Edit Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Abstract String Edit Event</em>'.
+	 * @generated
+	 */
+	AbstractStringEditEvent createAbstractStringEditEvent();
+
+	/**
+	 * Returns a new object of class '<em>String Edit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Edit</em>'.
+	 * @generated
+	 */
+	StringEdit createStringEdit();
+
+	/**
+	 * Returns a new object of class '<em>Replace Substring Edit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Replace Substring Edit</em>'.
+	 * @generated
+	 */
+	ReplaceSubstringEdit createReplaceSubstringEdit();
 
 	/**
 	 * Returns the package supported by this factory.

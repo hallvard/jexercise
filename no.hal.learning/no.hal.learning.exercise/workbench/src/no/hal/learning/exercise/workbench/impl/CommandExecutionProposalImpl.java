@@ -36,4 +36,11 @@ public class CommandExecutionProposalImpl extends TaskProposalImpl<CommandExecut
 		return WorkbenchPackage.Literals.COMMAND_EXECUTION_PROPOSAL;
 	}
 
+	//
+	
+	@Override
+	public String getText() {
+		return "Command " + getAnswer().getElementId() + " executed";
+	}
+
 } //CommandExecutionProposalImpl

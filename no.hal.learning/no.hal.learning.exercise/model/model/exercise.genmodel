@@ -11,6 +11,7 @@
       multipleEditorPages="false" extensibleProviderFactory="true" fileExtensions="ex"
       ecorePackage="exercise.ecore#/">
     <genDataTypes ecoreDataType="exercise.ecore#//RGB"/>
+    <genDataTypes ecoreDataType="exercise.ecore#//ETimestamp"/>
     <genClasses ecoreClass="exercise.ecore#//Exercise">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Exercise/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Exercise/title"/>
@@ -138,7 +139,29 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskProposal/completion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskProposal/proof"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskProposal/attemptCount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//TaskProposal/attempts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskProposal/performedCount"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//TaskEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskEvent/timestamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskEvent/completion"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//AbstractStringEditEvent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//AbstractStringEditEvent/edit"/>
+      <genOperations ecoreOperation="exercise.ecore#//AbstractStringEditEvent/getString"/>
+      <genOperations ecoreOperation="exercise.ecore#//AbstractStringEditEvent/createStringEdit">
+        <genParameters ecoreParameter="exercise.ecore#//AbstractStringEditEvent/createStringEdit/string"/>
+        <genParameters ecoreParameter="exercise.ecore#//AbstractStringEditEvent/createStringEdit/lastEvent"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="exercise.ecore#//AbstractStringEdit">
+      <genOperations ecoreOperation="exercise.ecore#//AbstractStringEdit/getString"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//StringEdit">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute exercise.ecore#//StringEdit/string"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//StringEdit/edit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringEdit/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringEdit/end"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

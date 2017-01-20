@@ -76,4 +76,12 @@ public interface TaskEvent extends EObject {
 	 */
 	void setCompletion(double value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getText();
+
 } // TaskEvent

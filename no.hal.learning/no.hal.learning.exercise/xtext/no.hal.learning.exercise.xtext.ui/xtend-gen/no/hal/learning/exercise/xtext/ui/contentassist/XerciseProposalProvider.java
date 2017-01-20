@@ -3,7 +3,15 @@
  */
 package no.hal.learning.exercise.xtext.ui.contentassist;
 
+import java.util.List;
+import no.hal.learning.exercise.workbench.CommandExecutionAnswer;
+import no.hal.learning.exercise.workbench.PartTaskAnswer;
+import no.hal.learning.exercise.workbench.PerspectiveTaskAnswer;
+import no.hal.learning.exercise.workbench.util.ExtensionsUtil;
 import no.hal.learning.exercise.xtext.ui.contentassist.AbstractXerciseProposalProvider;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -11,4 +19,25 @@ import no.hal.learning.exercise.xtext.ui.contentassist.AbstractXerciseProposalPr
  */
 @SuppressWarnings("all")
 public class XerciseProposalProvider extends AbstractXerciseProposalProvider {
+  public void completePerspectiveTaskAnswer_ElementId(final PerspectiveTaskAnswer model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    final List<String> ids = ExtensionsUtil.getExtensionIds(null, "org.eclipse.ui.perspectives", "perspective", null);
+    this.createCompletionProposals(ids, context);
+  }
+  
+  protected void createCompletionProposals(final List<String> ids, final ContentAssistContext context) {
+    for (final String id : ids) {
+      this.createCompletionProposal(id, context);
+    }
+  }
+  
+  public void completePerspectiveTaskAnswer_ElementId(final PartTaskAnswer model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    final List<String> ids = ExtensionsUtil.getExtensionIds(null, "org.eclipse.ui.editors", "editor", null);
+    ExtensionsUtil.getExtensionIds(null, "org.eclipse.ui.views", "view", null, ids);
+    this.createCompletionProposals(ids, context);
+  }
+  
+  public void completePerspectiveTaskAnswer_ElementId(final CommandExecutionAnswer model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    final List<String> ids = ExtensionsUtil.getExtensionIds(null, "org.eclipse.ui.commands", "command", null);
+    this.createCompletionProposals(ids, context);
+  }
 }

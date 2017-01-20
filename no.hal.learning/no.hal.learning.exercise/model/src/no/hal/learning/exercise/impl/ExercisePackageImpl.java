@@ -10,44 +10,32 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
-import org.eclipse.emf.ecore.EValidator;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import no.hal.learning.exercise.AbstractExercisePart;
+import no.hal.learning.exercise.AbstractStringEdit;
+import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.AbstractTask;
 import no.hal.learning.exercise.Answer;
-import no.hal.learning.exercise.BooleanAnswer;
-import no.hal.learning.exercise.CharStyle;
 import no.hal.learning.exercise.Exercise;
 import no.hal.learning.exercise.ExerciseProposals;
 import no.hal.learning.exercise.ExercisePart;
 import no.hal.learning.exercise.ExercisePartProposals;
 import no.hal.learning.exercise.ExercisePartRef;
-import no.hal.learning.exercise.ManyOptionsAnswer;
-import no.hal.learning.exercise.NumberAnswer;
-import no.hal.learning.exercise.NumberRange;
-import no.hal.learning.exercise.Option;
-import no.hal.learning.exercise.OptionAnswer;
-import no.hal.learning.exercise.OptionsAnswer;
-import no.hal.learning.exercise.OptionsProposal;
 import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.Question;
+import no.hal.learning.exercise.ReplaceSubstringEdit;
 import no.hal.learning.exercise.ExerciseFactory;
 import no.hal.learning.exercise.ExercisePackage;
-import no.hal.learning.exercise.SimpleAnswer;
-import no.hal.learning.exercise.SimpleProposal;
-import no.hal.learning.exercise.SingleOptionsAnswer;
-import no.hal.learning.exercise.StringAnswer;
+import no.hal.learning.exercise.StringEdit;
+import no.hal.learning.exercise.StringEditAnswer;
+import no.hal.learning.exercise.StringEditTaskProposal;
 import no.hal.learning.exercise.StringQuestion;
-import no.hal.learning.exercise.StyledString;
-import no.hal.learning.exercise.StyledStringQuestion;
 import no.hal.learning.exercise.Task;
 import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.TaskRef;
-import no.hal.learning.exercise.util.ExerciseValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -138,27 +126,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass styledStringQuestionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass styledStringEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass charStyleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass answerEClass = null;
 
 	/**
@@ -167,90 +134,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * @generated
 	 */
 	private EClass proposalEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass optionAnswerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass simpleAnswerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass simpleProposalEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass stringAnswerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass numberAnswerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass numberRangeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass booleanAnswerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass optionsAnswerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass optionsProposalEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass optionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass singleOptionsAnswerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass manyOptionsAnswerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -278,7 +161,42 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType rgbEDataType = null;
+	private EClass stringEditTaskProposalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringEditAnswerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractStringEditEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractStringEditEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringEditEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass replaceSubstringEditEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -338,15 +256,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 
 		// Initialize created meta-data
 		theExercisePackage.initializePackageContents();
-
-		// Register package validator
-		EValidator.Registry.INSTANCE.put
-			(theExercisePackage, 
-			 new EValidator.Descriptor() {
-				 public EValidator getEValidator() {
-					 return ExerciseValidator.INSTANCE;
-				 }
-			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theExercisePackage.freeze();
@@ -668,141 +577,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStyledStringQuestion() {
-		return styledStringQuestionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStyledStringQuestion_StyledStrings() {
-		return (EReference)styledStringQuestionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getStyledString() {
-		return styledStringEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStyledString_CharStyle() {
-		return (EReference)styledStringEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStyledString_EffectiveCharStyle() {
-		return (EReference)styledStringEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyledString_Prefix() {
-		return (EAttribute)styledStringEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStyledString_StyledString() {
-		return (EReference)styledStringEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStyledString_Suffix() {
-		return (EAttribute)styledStringEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCharStyle() {
-		return charStyleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCharStyle_Italic() {
-		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCharStyle_Bold() {
-		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCharStyle_Size() {
-		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCharStyle_Family() {
-		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCharStyle_Foreground() {
-		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCharStyle_Background() {
-		return (EAttribute)charStyleEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAnswer() {
 		return answerEClass;
 	}
@@ -893,267 +667,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getOptionAnswer() {
-		return optionAnswerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSimpleAnswer() {
-		return simpleAnswerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSimpleAnswer__GetValue() {
-		return simpleAnswerEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSimpleProposal() {
-		return simpleProposalEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSimpleProposal_Proposal() {
-		return (EAttribute)simpleProposalEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getStringAnswer() {
-		return stringAnswerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStringAnswer_Value() {
-		return (EAttribute)stringAnswerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStringAnswer_Format() {
-		return (EAttribute)stringAnswerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStringAnswer_Regexp() {
-		return (EAttribute)stringAnswerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStringAnswer_IgnoreCase() {
-		return (EAttribute)stringAnswerEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getNumberAnswer() {
-		return numberAnswerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNumberAnswer_Value() {
-		return (EAttribute)numberAnswerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNumberAnswer_ErrorMargin() {
-		return (EAttribute)numberAnswerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNumberAnswer_Range() {
-		return (EReference)numberAnswerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getNumberRange() {
-		return numberRangeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNumberRange_Min() {
-		return (EAttribute)numberRangeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNumberRange_Max() {
-		return (EAttribute)numberRangeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNumberRange_Step() {
-		return (EAttribute)numberRangeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBooleanAnswer() {
-		return booleanAnswerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBooleanAnswer_Value() {
-		return (EAttribute)booleanAnswerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOptionsAnswer() {
-		return optionsAnswerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOptionsAnswer_Options() {
-		return (EReference)optionsAnswerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOptionsProposal() {
-		return optionsProposalEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOptionsProposal_Indices() {
-		return (EAttribute)optionsProposalEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOption() {
-		return optionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOption_Correct() {
-		return (EAttribute)optionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOption_Option() {
-		return (EReference)optionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSingleOptionsAnswer() {
-		return singleOptionsAnswerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getManyOptionsAnswer() {
-		return manyOptionsAnswerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTaskAnswer() {
 		return taskAnswerEClass;
 	}
@@ -1226,6 +739,15 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTaskProposal__GetText() {
+		return taskProposalEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTaskEvent() {
 		return taskEventEClass;
 	}
@@ -1253,8 +775,143 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getRGB() {
-		return rgbEDataType;
+	public EOperation getTaskEvent__GetText() {
+		return taskEventEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringEditTaskProposal() {
+		return stringEditTaskProposalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringEditAnswer() {
+		return stringEditAnswerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getStringEditAnswer__GetEditorPath() {
+		return stringEditAnswerEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractStringEditEvent() {
+		return abstractStringEditEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractStringEditEvent_Edit() {
+		return (EReference)abstractStringEditEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractStringEditEvent__GetString() {
+		return abstractStringEditEventEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractStringEditEvent__CreateStringEdit__String_AbstractStringEditEvent() {
+		return abstractStringEditEventEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractStringEdit() {
+		return abstractStringEditEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractStringEdit__GetString() {
+		return abstractStringEditEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringEdit() {
+		return stringEditEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringEdit_StoredString() {
+		return (EAttribute)stringEditEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getReplaceSubstringEdit() {
+		return replaceSubstringEditEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getReplaceSubstringEdit_Edit() {
+		return (EReference)replaceSubstringEditEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReplaceSubstringEdit_Start() {
+		return (EAttribute)replaceSubstringEditEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReplaceSubstringEdit_End() {
+		return (EAttribute)replaceSubstringEditEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1339,24 +996,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		stringQuestionEClass = createEClass(STRING_QUESTION);
 		createEAttribute(stringQuestionEClass, STRING_QUESTION__QUESTION);
 
-		styledStringQuestionEClass = createEClass(STYLED_STRING_QUESTION);
-		createEReference(styledStringQuestionEClass, STYLED_STRING_QUESTION__STYLED_STRINGS);
-
-		styledStringEClass = createEClass(STYLED_STRING);
-		createEReference(styledStringEClass, STYLED_STRING__CHAR_STYLE);
-		createEReference(styledStringEClass, STYLED_STRING__EFFECTIVE_CHAR_STYLE);
-		createEAttribute(styledStringEClass, STYLED_STRING__PREFIX);
-		createEReference(styledStringEClass, STYLED_STRING__STYLED_STRING);
-		createEAttribute(styledStringEClass, STYLED_STRING__SUFFIX);
-
-		charStyleEClass = createEClass(CHAR_STYLE);
-		createEAttribute(charStyleEClass, CHAR_STYLE__ITALIC);
-		createEAttribute(charStyleEClass, CHAR_STYLE__BOLD);
-		createEAttribute(charStyleEClass, CHAR_STYLE__SIZE);
-		createEAttribute(charStyleEClass, CHAR_STYLE__FAMILY);
-		createEAttribute(charStyleEClass, CHAR_STYLE__FOREGROUND);
-		createEAttribute(charStyleEClass, CHAR_STYLE__BACKGROUND);
-
 		answerEClass = createEClass(ANSWER);
 		createEOperation(answerEClass, ANSWER___ACCEPT__OBJECT);
 		createEOperation(answerEClass, ANSWER___VALIDATE__OBJECT);
@@ -1369,47 +1008,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		createEOperation(proposalEClass, PROPOSAL___ACCEPT);
 		createEOperation(proposalEClass, PROPOSAL___VALIDATE);
 
-		optionAnswerEClass = createEClass(OPTION_ANSWER);
-
-		simpleAnswerEClass = createEClass(SIMPLE_ANSWER);
-		createEOperation(simpleAnswerEClass, SIMPLE_ANSWER___GET_VALUE);
-
-		simpleProposalEClass = createEClass(SIMPLE_PROPOSAL);
-		createEAttribute(simpleProposalEClass, SIMPLE_PROPOSAL__PROPOSAL);
-
-		stringAnswerEClass = createEClass(STRING_ANSWER);
-		createEAttribute(stringAnswerEClass, STRING_ANSWER__VALUE);
-		createEAttribute(stringAnswerEClass, STRING_ANSWER__FORMAT);
-		createEAttribute(stringAnswerEClass, STRING_ANSWER__REGEXP);
-		createEAttribute(stringAnswerEClass, STRING_ANSWER__IGNORE_CASE);
-
-		numberAnswerEClass = createEClass(NUMBER_ANSWER);
-		createEAttribute(numberAnswerEClass, NUMBER_ANSWER__VALUE);
-		createEAttribute(numberAnswerEClass, NUMBER_ANSWER__ERROR_MARGIN);
-		createEReference(numberAnswerEClass, NUMBER_ANSWER__RANGE);
-
-		numberRangeEClass = createEClass(NUMBER_RANGE);
-		createEAttribute(numberRangeEClass, NUMBER_RANGE__MIN);
-		createEAttribute(numberRangeEClass, NUMBER_RANGE__MAX);
-		createEAttribute(numberRangeEClass, NUMBER_RANGE__STEP);
-
-		booleanAnswerEClass = createEClass(BOOLEAN_ANSWER);
-		createEAttribute(booleanAnswerEClass, BOOLEAN_ANSWER__VALUE);
-
-		optionsAnswerEClass = createEClass(OPTIONS_ANSWER);
-		createEReference(optionsAnswerEClass, OPTIONS_ANSWER__OPTIONS);
-
-		optionsProposalEClass = createEClass(OPTIONS_PROPOSAL);
-		createEAttribute(optionsProposalEClass, OPTIONS_PROPOSAL__INDICES);
-
-		optionEClass = createEClass(OPTION);
-		createEAttribute(optionEClass, OPTION__CORRECT);
-		createEReference(optionEClass, OPTION__OPTION);
-
-		singleOptionsAnswerEClass = createEClass(SINGLE_OPTIONS_ANSWER);
-
-		manyOptionsAnswerEClass = createEClass(MANY_OPTIONS_ANSWER);
-
 		taskAnswerEClass = createEClass(TASK_ANSWER);
 		createEAttribute(taskAnswerEClass, TASK_ANSWER__REQUIRED_COUNT);
 
@@ -1419,13 +1017,35 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		createEAttribute(taskProposalEClass, TASK_PROPOSAL__ATTEMPT_COUNT);
 		createEReference(taskProposalEClass, TASK_PROPOSAL__ATTEMPTS);
 		createEAttribute(taskProposalEClass, TASK_PROPOSAL__PERFORMED_COUNT);
+		createEOperation(taskProposalEClass, TASK_PROPOSAL___GET_TEXT);
 
 		taskEventEClass = createEClass(TASK_EVENT);
 		createEAttribute(taskEventEClass, TASK_EVENT__TIMESTAMP);
 		createEAttribute(taskEventEClass, TASK_EVENT__COMPLETION);
+		createEOperation(taskEventEClass, TASK_EVENT___GET_TEXT);
+
+		stringEditTaskProposalEClass = createEClass(STRING_EDIT_TASK_PROPOSAL);
+
+		stringEditAnswerEClass = createEClass(STRING_EDIT_ANSWER);
+		createEOperation(stringEditAnswerEClass, STRING_EDIT_ANSWER___GET_EDITOR_PATH);
+
+		abstractStringEditEventEClass = createEClass(ABSTRACT_STRING_EDIT_EVENT);
+		createEReference(abstractStringEditEventEClass, ABSTRACT_STRING_EDIT_EVENT__EDIT);
+		createEOperation(abstractStringEditEventEClass, ABSTRACT_STRING_EDIT_EVENT___GET_STRING);
+		createEOperation(abstractStringEditEventEClass, ABSTRACT_STRING_EDIT_EVENT___CREATE_STRING_EDIT__STRING_ABSTRACTSTRINGEDITEVENT);
+
+		abstractStringEditEClass = createEClass(ABSTRACT_STRING_EDIT);
+		createEOperation(abstractStringEditEClass, ABSTRACT_STRING_EDIT___GET_STRING);
+
+		stringEditEClass = createEClass(STRING_EDIT);
+		createEAttribute(stringEditEClass, STRING_EDIT__STORED_STRING);
+
+		replaceSubstringEditEClass = createEClass(REPLACE_SUBSTRING_EDIT);
+		createEReference(replaceSubstringEditEClass, REPLACE_SUBSTRING_EDIT__EDIT);
+		createEAttribute(replaceSubstringEditEClass, REPLACE_SUBSTRING_EDIT__START);
+		createEAttribute(replaceSubstringEditEClass, REPLACE_SUBSTRING_EDIT__END);
 
 		// Create data types
-		rgbEDataType = createEDataType(RGB);
 		eTimestampEDataType = createEDataType(ETIMESTAMP);
 	}
 
@@ -1454,19 +1074,16 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 
 		// Create type parameters
 		ETypeParameter proposalEClass_A = addETypeParameter(proposalEClass, "A");
-		ETypeParameter simpleAnswerEClass_T = addETypeParameter(simpleAnswerEClass, "T");
-		ETypeParameter simpleProposalEClass_A = addETypeParameter(simpleProposalEClass, "A");
 		ETypeParameter taskProposalEClass_T = addETypeParameter(taskProposalEClass, "T");
+		ETypeParameter stringEditTaskProposalEClass_A = addETypeParameter(stringEditTaskProposalEClass, "A");
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(this.getAnswer());
 		proposalEClass_A.getEBounds().add(g1);
-		g1 = createEGenericType(this.getSimpleAnswer());
-		EGenericType g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		simpleProposalEClass_A.getEBounds().add(g1);
 		g1 = createEGenericType(this.getTaskAnswer());
 		taskProposalEClass_T.getEBounds().add(g1);
+		g1 = createEGenericType(this.getStringEditAnswer());
+		stringEditTaskProposalEClass_A.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		exercisePartRefEClass.getESuperTypes().add(this.getAbstractExercisePart());
@@ -1474,37 +1091,19 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		taskRefEClass.getESuperTypes().add(this.getAbstractTask());
 		taskEClass.getESuperTypes().add(this.getAbstractTask());
 		stringQuestionEClass.getESuperTypes().add(this.getQuestion());
-		styledStringQuestionEClass.getESuperTypes().add(this.getQuestion());
-		optionAnswerEClass.getESuperTypes().add(this.getAnswer());
-		simpleAnswerEClass.getESuperTypes().add(this.getOptionAnswer());
-		g1 = createEGenericType(this.getProposal());
-		g2 = createEGenericType(simpleProposalEClass_A);
-		g1.getETypeArguments().add(g2);
-		simpleProposalEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getSimpleAnswer());
-		g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		stringAnswerEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getSimpleAnswer());
-		g2 = createEGenericType(ecorePackage.getEDoubleObject());
-		g1.getETypeArguments().add(g2);
-		numberAnswerEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getSimpleAnswer());
-		g2 = createEGenericType(ecorePackage.getEBooleanObject());
-		g1.getETypeArguments().add(g2);
-		booleanAnswerEClass.getEGenericSuperTypes().add(g1);
-		optionsAnswerEClass.getESuperTypes().add(this.getAnswer());
-		g1 = createEGenericType(this.getProposal());
-		g2 = createEGenericType(this.getOptionsAnswer());
-		g1.getETypeArguments().add(g2);
-		optionsProposalEClass.getEGenericSuperTypes().add(g1);
-		singleOptionsAnswerEClass.getESuperTypes().add(this.getOptionsAnswer());
-		manyOptionsAnswerEClass.getESuperTypes().add(this.getOptionsAnswer());
 		taskAnswerEClass.getESuperTypes().add(this.getAnswer());
 		g1 = createEGenericType(this.getProposal());
-		g2 = createEGenericType(taskProposalEClass_T);
+		EGenericType g2 = createEGenericType(taskProposalEClass_T);
 		g1.getETypeArguments().add(g2);
 		taskProposalEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getTaskProposal());
+		g2 = createEGenericType(stringEditTaskProposalEClass_A);
+		g1.getETypeArguments().add(g2);
+		stringEditTaskProposalEClass.getEGenericSuperTypes().add(g1);
+		stringEditAnswerEClass.getESuperTypes().add(this.getTaskAnswer());
+		abstractStringEditEventEClass.getESuperTypes().add(this.getTaskEvent());
+		stringEditEClass.getESuperTypes().add(this.getAbstractStringEdit());
+		replaceSubstringEditEClass.getESuperTypes().add(this.getStringEdit());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(exerciseEClass, Exercise.class, "Exercise", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1564,24 +1163,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		initEClass(stringQuestionEClass, StringQuestion.class, "StringQuestion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringQuestion_Question(), ecorePackage.getEString(), "question", null, 0, 1, StringQuestion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(styledStringQuestionEClass, StyledStringQuestion.class, "StyledStringQuestion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStyledStringQuestion_StyledStrings(), this.getStyledString(), null, "styledStrings", null, 0, -1, StyledStringQuestion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(styledStringEClass, StyledString.class, "StyledString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStyledString_CharStyle(), this.getCharStyle(), null, "charStyle", null, 0, 1, StyledString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStyledString_EffectiveCharStyle(), this.getCharStyle(), null, "effectiveCharStyle", null, 0, 1, StyledString.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStyledString_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, StyledString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStyledString_StyledString(), this.getStyledString(), null, "styledString", null, 0, 1, StyledString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStyledString_Suffix(), ecorePackage.getEString(), "suffix", null, 0, 1, StyledString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(charStyleEClass, CharStyle.class, "CharStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCharStyle_Italic(), ecorePackage.getEBooleanObject(), "italic", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCharStyle_Bold(), ecorePackage.getEBooleanObject(), "bold", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCharStyle_Size(), ecorePackage.getEFloat(), "size", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCharStyle_Family(), ecorePackage.getEString(), "family", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCharStyle_Foreground(), this.getRGB(), "foreground", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCharStyle_Background(), this.getRGB(), "background", null, 0, 1, CharStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(answerEClass, Answer.class, "Answer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		EOperation op = initEOperation(getAnswer__Accept__Object(), ecorePackage.getEDoubleObject(), "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1607,50 +1188,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 
 		initEOperation(getProposal__Validate(), ecorePackage.getEString(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(optionAnswerEClass, OptionAnswer.class, "OptionAnswer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(simpleAnswerEClass, SimpleAnswer.class, "SimpleAnswer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = initEOperation(getSimpleAnswer__GetValue(), null, "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(simpleAnswerEClass_T);
-		initEOperation(op, g1);
-
-		initEClass(simpleProposalEClass, SimpleProposal.class, "SimpleProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSimpleProposal_Proposal(), ecorePackage.getEJavaObject(), "proposal", null, 0, 1, SimpleProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(stringAnswerEClass, StringAnswer.class, "StringAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStringAnswer_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStringAnswer_Format(), ecorePackage.getEString(), "format", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStringAnswer_Regexp(), ecorePackage.getEBoolean(), "regexp", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStringAnswer_IgnoreCase(), ecorePackage.getEBoolean(), "ignoreCase", null, 0, 1, StringAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(numberAnswerEClass, NumberAnswer.class, "NumberAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNumberAnswer_Value(), ecorePackage.getEDoubleObject(), "value", null, 0, 1, NumberAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNumberAnswer_ErrorMargin(), ecorePackage.getEDouble(), "errorMargin", null, 0, 1, NumberAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNumberAnswer_Range(), this.getNumberRange(), null, "range", null, 0, 1, NumberAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(numberRangeEClass, NumberRange.class, "NumberRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNumberRange_Min(), ecorePackage.getEDoubleObject(), "min", null, 0, 1, NumberRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNumberRange_Max(), ecorePackage.getEDoubleObject(), "max", null, 0, 1, NumberRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNumberRange_Step(), ecorePackage.getEDoubleObject(), "step", null, 0, 1, NumberRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(booleanAnswerEClass, BooleanAnswer.class, "BooleanAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBooleanAnswer_Value(), ecorePackage.getEBooleanObject(), "value", null, 0, 1, BooleanAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(optionsAnswerEClass, OptionsAnswer.class, "OptionsAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOptionsAnswer_Options(), this.getOption(), null, "options", null, 0, -1, OptionsAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(optionsProposalEClass, OptionsProposal.class, "OptionsProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOptionsProposal_Indices(), ecorePackage.getEInt(), "indices", null, 0, -1, OptionsProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOption_Correct(), ecorePackage.getEBoolean(), "correct", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOption_Option(), this.getOptionAnswer(), null, "option", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(singleOptionsAnswerEClass, SingleOptionsAnswer.class, "SingleOptionsAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(manyOptionsAnswerEClass, ManyOptionsAnswer.class, "ManyOptionsAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(taskAnswerEClass, TaskAnswer.class, "TaskAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskAnswer_RequiredCount(), ecorePackage.getEInt(), "requiredCount", null, 0, 1, TaskAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1661,44 +1198,50 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		initEReference(getTaskProposal_Attempts(), this.getTaskEvent(), null, "attempts", null, 0, -1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskProposal_PerformedCount(), ecorePackage.getEInt(), "performedCount", null, 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getTaskProposal__GetText(), ecorePackage.getEString(), "getText", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(taskEventEClass, TaskEvent.class, "TaskEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskEvent_Timestamp(), this.getETimestamp(), "timestamp", null, 0, 1, TaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskEvent_Completion(), ecorePackage.getEDouble(), "completion", "-1", 0, 1, TaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getTaskEvent__GetText(), ecorePackage.getEString(), "getText", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(stringEditTaskProposalEClass, StringEditTaskProposal.class, "StringEditTaskProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(stringEditAnswerEClass, StringEditAnswer.class, "StringEditAnswer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getStringEditAnswer__GetEditorPath(), ecorePackage.getEString(), "getEditorPath", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(abstractStringEditEventEClass, AbstractStringEditEvent.class, "AbstractStringEditEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractStringEditEvent_Edit(), this.getAbstractStringEdit(), null, "edit", null, 0, 1, AbstractStringEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getAbstractStringEditEvent__GetString(), ecorePackage.getEString(), "getString", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAbstractStringEditEvent__CreateStringEdit__String_AbstractStringEditEvent(), this.getAbstractStringEdit(), "createStringEdit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "string", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAbstractStringEditEvent(), "lastEvent", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(abstractStringEditEClass, AbstractStringEdit.class, "AbstractStringEdit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getAbstractStringEdit__GetString(), ecorePackage.getEString(), "getString", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(stringEditEClass, StringEdit.class, "StringEdit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringEdit_StoredString(), ecorePackage.getEString(), "storedString", null, 0, 1, StringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(replaceSubstringEditEClass, ReplaceSubstringEdit.class, "ReplaceSubstringEdit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReplaceSubstringEdit_Edit(), this.getAbstractStringEdit(), null, "edit", null, 0, 1, ReplaceSubstringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReplaceSubstringEdit_Start(), ecorePackage.getEInt(), "start", null, 0, 1, ReplaceSubstringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReplaceSubstringEdit_End(), ecorePackage.getEInt(), "end", "-1", 0, 1, ReplaceSubstringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize data types
-		initEDataType(rgbEDataType, no.hal.learning.exercise.util.RGB.class, "RGB", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(eTimestampEDataType, long.class, "ETimestamp", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
 
 		// Create annotations
-		// http://www.eclipse.org/emf/2002/Ecore
-		createEcoreAnnotations();
 		// no.hal.learning.exercise.views.ExerciseView
 		createNoAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";	
-		addAnnotation
-		  (singleOptionsAnswerEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "SingleCorrectOption"
-		   });	
-		addAnnotation
-		  (manyOptionsAnswerEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "AtLeastOneCorrectOption"
-		   });
 	}
 
 	/**

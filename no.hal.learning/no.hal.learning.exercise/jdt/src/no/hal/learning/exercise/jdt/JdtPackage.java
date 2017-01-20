@@ -74,7 +74,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER__REQUIRED_COUNT = ExercisePackage.TASK_ANSWER__REQUIRED_COUNT;
+	int JDT_SOURCE_EDIT_ANSWER__REQUIRED_COUNT = ExercisePackage.STRING_EDIT_ANSWER__REQUIRED_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -83,7 +83,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER__CLASS_NAME = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 0;
+	int JDT_SOURCE_EDIT_ANSWER__CLASS_NAME = ExercisePackage.STRING_EDIT_ANSWER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Method Names</b></em>' attribute list.
@@ -92,7 +92,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER__METHOD_NAMES = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 1;
+	int JDT_SOURCE_EDIT_ANSWER__METHOD_NAMES = ExercisePackage.STRING_EDIT_ANSWER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Source Edit Answer</em>' class.
@@ -101,7 +101,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER_FEATURE_COUNT = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 2;
+	int JDT_SOURCE_EDIT_ANSWER_FEATURE_COUNT = ExercisePackage.STRING_EDIT_ANSWER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -110,7 +110,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER___ACCEPT__OBJECT = ExercisePackage.TASK_ANSWER___ACCEPT__OBJECT;
+	int JDT_SOURCE_EDIT_ANSWER___ACCEPT__OBJECT = ExercisePackage.STRING_EDIT_ANSWER___ACCEPT__OBJECT;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -119,7 +119,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER___VALIDATE__OBJECT = ExercisePackage.TASK_ANSWER___VALIDATE__OBJECT;
+	int JDT_SOURCE_EDIT_ANSWER___VALIDATE__OBJECT = ExercisePackage.STRING_EDIT_ANSWER___VALIDATE__OBJECT;
 
 	/**
 	 * The operation id for the '<em>Create Proposal</em>' operation.
@@ -128,7 +128,16 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER___CREATE_PROPOSAL = ExercisePackage.TASK_ANSWER___CREATE_PROPOSAL;
+	int JDT_SOURCE_EDIT_ANSWER___CREATE_PROPOSAL = ExercisePackage.STRING_EDIT_ANSWER___CREATE_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Get Editor Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_ANSWER___GET_EDITOR_PATH = ExercisePackage.STRING_EDIT_ANSWER___GET_EDITOR_PATH;
 
 	/**
 	 * The number of operations of the '<em>Source Edit Answer</em>' class.
@@ -137,7 +146,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER_OPERATION_COUNT = ExercisePackage.TASK_ANSWER_OPERATION_COUNT + 0;
+	int JDT_SOURCE_EDIT_ANSWER_OPERATION_COUNT = ExercisePackage.STRING_EDIT_ANSWER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditProposalImpl <em>Source Edit Proposal</em>}' class.
@@ -156,7 +165,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL__QUESTION = ExercisePackage.TASK_PROPOSAL__QUESTION;
+	int JDT_SOURCE_EDIT_PROPOSAL__QUESTION = ExercisePackage.STRING_EDIT_TASK_PROPOSAL__QUESTION;
 
 	/**
 	 * The feature id for the '<em><b>Answer</b></em>' reference.
@@ -165,7 +174,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL__ANSWER = ExercisePackage.TASK_PROPOSAL__ANSWER;
+	int JDT_SOURCE_EDIT_PROPOSAL__ANSWER = ExercisePackage.STRING_EDIT_TASK_PROPOSAL__ANSWER;
 
 	/**
 	 * The feature id for the '<em><b>Completion</b></em>' attribute.
@@ -174,7 +183,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL__COMPLETION = ExercisePackage.TASK_PROPOSAL__COMPLETION;
+	int JDT_SOURCE_EDIT_PROPOSAL__COMPLETION = ExercisePackage.STRING_EDIT_TASK_PROPOSAL__COMPLETION;
 
 	/**
 	 * The feature id for the '<em><b>Proof</b></em>' attribute.
@@ -183,7 +192,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL__PROOF = ExercisePackage.TASK_PROPOSAL__PROOF;
+	int JDT_SOURCE_EDIT_PROPOSAL__PROOF = ExercisePackage.STRING_EDIT_TASK_PROPOSAL__PROOF;
 
 	/**
 	 * The feature id for the '<em><b>Attempt Count</b></em>' attribute.
@@ -192,7 +201,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL__ATTEMPT_COUNT = ExercisePackage.TASK_PROPOSAL__ATTEMPT_COUNT;
+	int JDT_SOURCE_EDIT_PROPOSAL__ATTEMPT_COUNT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL__ATTEMPT_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Attempts</b></em>' containment reference list.
@@ -201,7 +210,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL__ATTEMPTS = ExercisePackage.TASK_PROPOSAL__ATTEMPTS;
+	int JDT_SOURCE_EDIT_PROPOSAL__ATTEMPTS = ExercisePackage.STRING_EDIT_TASK_PROPOSAL__ATTEMPTS;
 
 	/**
 	 * The feature id for the '<em><b>Performed Count</b></em>' attribute.
@@ -210,7 +219,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL__PERFORMED_COUNT = ExercisePackage.TASK_PROPOSAL__PERFORMED_COUNT;
+	int JDT_SOURCE_EDIT_PROPOSAL__PERFORMED_COUNT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL__PERFORMED_COUNT;
 
 	/**
 	 * The number of structural features of the '<em>Source Edit Proposal</em>' class.
@@ -219,7 +228,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL_FEATURE_COUNT = ExercisePackage.TASK_PROPOSAL_FEATURE_COUNT + 0;
+	int JDT_SOURCE_EDIT_PROPOSAL_FEATURE_COUNT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Proposal</em>' operation.
@@ -228,7 +237,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL___GET_PROPOSAL = ExercisePackage.TASK_PROPOSAL___GET_PROPOSAL;
+	int JDT_SOURCE_EDIT_PROPOSAL___GET_PROPOSAL = ExercisePackage.STRING_EDIT_TASK_PROPOSAL___GET_PROPOSAL;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -237,7 +246,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL___ACCEPT = ExercisePackage.TASK_PROPOSAL___ACCEPT;
+	int JDT_SOURCE_EDIT_PROPOSAL___ACCEPT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL___ACCEPT;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -246,7 +255,16 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL___VALIDATE = ExercisePackage.TASK_PROPOSAL___VALIDATE;
+	int JDT_SOURCE_EDIT_PROPOSAL___VALIDATE = ExercisePackage.STRING_EDIT_TASK_PROPOSAL___VALIDATE;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_PROPOSAL___GET_TEXT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL___GET_TEXT;
 
 	/**
 	 * The number of operations of the '<em>Source Edit Proposal</em>' class.
@@ -255,7 +273,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_PROPOSAL_OPERATION_COUNT = ExercisePackage.TASK_PROPOSAL_OPERATION_COUNT + 0;
+	int JDT_SOURCE_EDIT_PROPOSAL_OPERATION_COUNT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditEventImpl <em>Source Edit Event</em>}' class.
@@ -274,7 +292,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__TIMESTAMP = ExercisePackage.TASK_EVENT__TIMESTAMP;
+	int JDT_SOURCE_EDIT_EVENT__TIMESTAMP = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__TIMESTAMP;
 
 	/**
 	 * The feature id for the '<em><b>Completion</b></em>' attribute.
@@ -283,7 +301,16 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__COMPLETION = ExercisePackage.TASK_EVENT__COMPLETION;
+	int JDT_SOURCE_EDIT_EVENT__COMPLETION = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__COMPLETION;
+
+	/**
+	 * The feature id for the '<em><b>Edit</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT__EDIT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__EDIT;
 
 	/**
 	 * The feature id for the '<em><b>Source Code</b></em>' attribute.
@@ -292,7 +319,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__SOURCE_CODE = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 0;
+	int JDT_SOURCE_EDIT_EVENT__SOURCE_CODE = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Size Measure</b></em>' attribute.
@@ -301,7 +328,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__SIZE_MEASURE = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+	int JDT_SOURCE_EDIT_EVENT__SIZE_MEASURE = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Error Count</b></em>' attribute.
@@ -310,7 +337,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__ERROR_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 2;
+	int JDT_SOURCE_EDIT_EVENT__ERROR_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Warning Count</b></em>' attribute.
@@ -319,7 +346,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__WARNING_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 3;
+	int JDT_SOURCE_EDIT_EVENT__WARNING_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Source Edit Event</em>' class.
@@ -328,7 +355,34 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 4;
+	int JDT_SOURCE_EDIT_EVENT_FEATURE_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT___GET_TEXT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT___GET_TEXT;
+
+	/**
+	 * The operation id for the '<em>Get String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT___GET_STRING = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT___GET_STRING;
+
+	/**
+	 * The operation id for the '<em>Create String Edit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT___CREATE_STRING_EDIT__STRING_ABSTRACTSTRINGEDITEVENT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT___CREATE_STRING_EDIT__STRING_ABSTRACTSTRINGEDITEVENT;
 
 	/**
 	 * The number of operations of the '<em>Source Edit Event</em>' class.
@@ -337,7 +391,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT_OPERATION_COUNT = ExercisePackage.TASK_EVENT_OPERATION_COUNT + 0;
+	int JDT_SOURCE_EDIT_EVENT_OPERATION_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.JdtLaunchAnswerImpl <em>Launch Answer</em>}' class.
@@ -531,6 +585,15 @@ public interface JdtPackage extends EPackage {
 	int JDT_LAUNCH_PROPOSAL___VALIDATE = ExercisePackage.TASK_PROPOSAL___VALIDATE;
 
 	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
+
+	/**
 	 * The number of operations of the '<em>Launch Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -584,6 +647,15 @@ public interface JdtPackage extends EPackage {
 	 * @ordered
 	 */
 	int JDT_LAUNCH_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_EVENT___GET_TEXT = ExercisePackage.TASK_EVENT___GET_TEXT;
 
 	/**
 	 * The number of operations of the '<em>Launch Event</em>' class.

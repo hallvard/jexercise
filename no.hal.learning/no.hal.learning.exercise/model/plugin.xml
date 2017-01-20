@@ -14,4 +14,12 @@
             genModel="model/exercise.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated quiz -->
+      <package
+            uri="platform:/plugin/no.hal.learning.exercise.model/model/quiz.ecore"
+            class="no.hal.learning.quiz.QuizPackage"
+            genModel="model/quiz.genmodel"/>
+   </extension>
+
 </plugin>

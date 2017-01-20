@@ -2,16 +2,13 @@
  */
 package no.hal.learning.exercise.junit.impl;
 
-import no.hal.learning.exercise.impl.TaskEventImpl;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import no.hal.learning.exercise.impl.TaskEventImpl;
 import no.hal.learning.exercise.junit.JunitPackage;
 import no.hal.learning.exercise.junit.JunitTestEvent;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -237,6 +237,11 @@ public class TaskProposalItemProvider extends ProposalItemProvider {
 			(createChildParameter
 				(ExercisePackage.Literals.TASK_PROPOSAL__ATTEMPTS,
 				 ExerciseFactory.eINSTANCE.createTaskEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExercisePackage.Literals.TASK_PROPOSAL__ATTEMPTS,
+				 ExerciseFactory.eINSTANCE.createAbstractStringEditEvent()));
 	}
 
 }

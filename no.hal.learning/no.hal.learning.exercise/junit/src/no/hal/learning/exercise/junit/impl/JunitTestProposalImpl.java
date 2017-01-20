@@ -36,4 +36,10 @@ public class JunitTestProposalImpl extends TaskProposalImpl<JunitTestAnswer> imp
 		return JunitPackage.Literals.JUNIT_TEST_PROPOSAL;
 	}
 
+	//
+	
+	@Override
+	public String getText() {
+		return String.format("Test %s run", getAnswer().getTestRunName());
+	}
 } //JunitTestProposalImpl

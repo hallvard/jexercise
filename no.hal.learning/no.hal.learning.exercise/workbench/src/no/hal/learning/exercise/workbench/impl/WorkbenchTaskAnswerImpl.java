@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link no.hal.learning.exercise.workbench.impl.WorkbenchTaskAnswerImpl#getElementId <em>Element Id</em>}</li>
  *   <li>{@link no.hal.learning.exercise.workbench.impl.WorkbenchTaskAnswerImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.workbench.impl.WorkbenchTaskAnswerImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +67,26 @@ public class WorkbenchTaskAnswerImpl extends TaskAnswerImpl implements Workbench
 	 * @ordered
 	 */
 	protected String action = ACTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getText()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TEXT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getText()
+	 * @generated
+	 * @ordered
+	 */
+	protected String text = TEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +154,27 @@ public class WorkbenchTaskAnswerImpl extends TaskAnswerImpl implements Workbench
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getText() {
+		return text;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setText(String newText) {
+		String oldText = text;
+		text = newText;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkbenchPackage.WORKBENCH_TASK_ANSWER__TEXT, oldText, text));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +182,8 @@ public class WorkbenchTaskAnswerImpl extends TaskAnswerImpl implements Workbench
 				return getElementId();
 			case WorkbenchPackage.WORKBENCH_TASK_ANSWER__ACTION:
 				return getAction();
+			case WorkbenchPackage.WORKBENCH_TASK_ANSWER__TEXT:
+				return getText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,6 +201,9 @@ public class WorkbenchTaskAnswerImpl extends TaskAnswerImpl implements Workbench
 				return;
 			case WorkbenchPackage.WORKBENCH_TASK_ANSWER__ACTION:
 				setAction((String)newValue);
+				return;
+			case WorkbenchPackage.WORKBENCH_TASK_ANSWER__TEXT:
+				setText((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +223,9 @@ public class WorkbenchTaskAnswerImpl extends TaskAnswerImpl implements Workbench
 			case WorkbenchPackage.WORKBENCH_TASK_ANSWER__ACTION:
 				setAction(ACTION_EDEFAULT);
 				return;
+			case WorkbenchPackage.WORKBENCH_TASK_ANSWER__TEXT:
+				setText(TEXT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +242,8 @@ public class WorkbenchTaskAnswerImpl extends TaskAnswerImpl implements Workbench
 				return ELEMENT_ID_EDEFAULT == null ? elementId != null : !ELEMENT_ID_EDEFAULT.equals(elementId);
 			case WorkbenchPackage.WORKBENCH_TASK_ANSWER__ACTION:
 				return ACTION_EDEFAULT == null ? action != null : !ACTION_EDEFAULT.equals(action);
+			case WorkbenchPackage.WORKBENCH_TASK_ANSWER__TEXT:
+				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,6 +262,8 @@ public class WorkbenchTaskAnswerImpl extends TaskAnswerImpl implements Workbench
 		result.append(elementId);
 		result.append(", action: ");
 		result.append(action);
+		result.append(", text: ");
+		result.append(text);
 		result.append(')');
 		return result.toString();
 	}

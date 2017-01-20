@@ -6,11 +6,11 @@ import java.util.List;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.swt.events.SelectionListener;
 
-import no.hal.learning.exercise.Option;
-import no.hal.learning.exercise.OptionAnswer;
-import no.hal.learning.exercise.OptionsProposal;
-import no.hal.learning.exercise.SimpleAnswer;
-import no.hal.learning.exercise.SingleOptionsAnswer;
+import no.hal.learning.quiz.Option;
+import no.hal.learning.quiz.OptionAnswer;
+import no.hal.learning.quiz.OptionsProposal;
+import no.hal.learning.quiz.SimpleAnswer;
+import no.hal.learning.quiz.SingleOptionsAnswer;
 
 public class OptionsProposalUIAdapter extends ButtonGroupAdapter<OptionsProposal> implements SelectionListener {
 

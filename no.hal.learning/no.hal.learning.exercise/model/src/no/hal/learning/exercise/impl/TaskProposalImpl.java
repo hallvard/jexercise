@@ -2,6 +2,7 @@
  */
 package no.hal.learning.exercise.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -266,6 +267,17 @@ public class TaskProposalImpl<T extends TaskAnswer> extends ProposalImpl<T> impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getText() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -373,6 +385,20 @@ public class TaskProposalImpl<T extends TaskAnswer> extends ProposalImpl<T> impl
 				return performedCount != PERFORMED_COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ExercisePackage.TASK_PROPOSAL___GET_TEXT:
+				return getText();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

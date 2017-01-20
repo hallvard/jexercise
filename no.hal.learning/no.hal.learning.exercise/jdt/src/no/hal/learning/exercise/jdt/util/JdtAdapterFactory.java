@@ -2,8 +2,11 @@
  */
 package no.hal.learning.exercise.jdt.util;
 
+import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.Answer;
 import no.hal.learning.exercise.Proposal;
+import no.hal.learning.exercise.StringEditAnswer;
+import no.hal.learning.exercise.StringEditTaskProposal;
 import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
@@ -106,6 +109,10 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 				return createTaskAnswerAdapter();
 			}
 			@Override
+			public Adapter caseStringEditAnswer(StringEditAnswer object) {
+				return createStringEditAnswerAdapter();
+			}
+			@Override
 			public <A extends Answer> Adapter caseProposal(Proposal<A> object) {
 				return createProposalAdapter();
 			}
@@ -114,8 +121,16 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 				return createTaskProposalAdapter();
 			}
 			@Override
+			public <A extends StringEditAnswer> Adapter caseStringEditTaskProposal(StringEditTaskProposal<A> object) {
+				return createStringEditTaskProposalAdapter();
+			}
+			@Override
 			public Adapter caseTaskEvent(TaskEvent object) {
 				return createTaskEventAdapter();
+			}
+			@Override
+			public Adapter caseAbstractStringEditEvent(AbstractStringEditEvent object) {
+				return createAbstractStringEditEventAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -250,6 +265,20 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.StringEditAnswer <em>String Edit Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.StringEditAnswer
+	 * @generated
+	 */
+	public Adapter createStringEditAnswerAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.Proposal <em>Proposal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -278,6 +307,20 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.StringEditTaskProposal <em>String Edit Task Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.StringEditTaskProposal
+	 * @generated
+	 */
+	public Adapter createStringEditTaskProposalAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.TaskEvent <em>Task Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -288,6 +331,20 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTaskEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.AbstractStringEditEvent <em>Abstract String Edit Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.AbstractStringEditEvent
+	 * @generated
+	 */
+	public Adapter createAbstractStringEditEventAdapter() {
 		return null;
 	}
 

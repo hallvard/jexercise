@@ -14,10 +14,10 @@ import org.junit.runner.RunWith
 import no.hal.learning.exercise.Answer
 import no.hal.learning.exercise.ExercisePart
 import no.hal.learning.exercise.Task
-import no.hal.learning.exercise.SimpleAnswer
-import no.hal.learning.exercise.StringAnswer
-import no.hal.learning.exercise.OptionsAnswer
-import no.hal.learning.exercise.Option
+import no.hal.learning.quiz.SimpleAnswer
+import no.hal.learning.quiz.StringAnswer
+import no.hal.learning.quiz.OptionsAnswer
+import no.hal.learning.quiz.Option
 
 @RunWith(XtextRunner)
 @InjectWith(XerciseInjectorProvider)

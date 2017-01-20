@@ -97,10 +97,10 @@ public abstract class AnswerTest extends TestCase {
 
 	//
 	
-	static void assertTrue(double value) {
+	protected static void assertTrue(double value) {
 		assertEquals(1.0, value);
 	}
-	static void assertFalse(double value) {
+	protected static void assertFalse(double value) {
 		assertEquals(0.0, value);
 	}
 

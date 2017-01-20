@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.learning.exercise.model/src" modelPluginID="no.hal.learning.exercise.model"
+    modelName="Quiz" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="exercise.genmodel#//exercise" operationReflection="true" importOrganizing="true">
+  <foreignModel>quiz.ecore</foreignModel>
+  <genPackages prefix="Quiz" basePackage="no.hal.learning" disposableProviderFactory="true"
+      ecorePackage="quiz.ecore#/">
+    <genDataTypes ecoreDataType="quiz.ecore#//RGB"/>
+    <genClasses ecoreClass="quiz.ecore#//StyledStringQuestion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//StyledStringQuestion/styledStrings"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//StyledString">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//StyledString/charStyle"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference quiz.ecore#//StyledString/effectiveCharStyle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//StyledString/prefix"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//StyledString/styledString"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//StyledString/suffix"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//CharStyle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//CharStyle/italic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//CharStyle/bold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//CharStyle/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//CharStyle/family"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//CharStyle/foreground"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//CharStyle/background"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="quiz.ecore#//OptionAnswer"/>
+    <genClasses image="false" ecoreClass="quiz.ecore#//SimpleAnswer">
+      <genTypeParameters ecoreTypeParameter="quiz.ecore#//SimpleAnswer/T"/>
+      <genOperations ecoreOperation="quiz.ecore#//SimpleAnswer/getValue"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//SimpleProposal">
+      <genTypeParameters ecoreTypeParameter="quiz.ecore#//SimpleProposal/A"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//SimpleProposal/proposal"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//StringAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//StringAnswer/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//StringAnswer/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//StringAnswer/regexp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//StringAnswer/ignoreCase"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//NumberAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//NumberAnswer/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//NumberAnswer/errorMargin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//NumberAnswer/range"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//NumberRange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//NumberRange/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//NumberRange/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//NumberRange/step"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//BooleanAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//BooleanAnswer/value"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//OptionsAnswer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//OptionsAnswer/options"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//OptionsProposal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//OptionsProposal/indices"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//Option">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute quiz.ecore#//Option/correct"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference quiz.ecore#//Option/option"/>
+    </genClasses>
+    <genClasses ecoreClass="quiz.ecore#//SingleOptionsAnswer"/>
+    <genClasses ecoreClass="quiz.ecore#//ManyOptionsAnswer"/>
+  </genPackages>
+</genmodel:GenModel>

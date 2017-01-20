@@ -13,6 +13,9 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JunitTestEvent" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskEvent">
+    <eAnnotations source="exp4j">
+      <details key="successRatio" value="successCount / (successCount + failureCount + errorCount)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="successCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="no.hal.learning.exercise.views.ExerciseView">
         <details key="dashes" value="- "/>

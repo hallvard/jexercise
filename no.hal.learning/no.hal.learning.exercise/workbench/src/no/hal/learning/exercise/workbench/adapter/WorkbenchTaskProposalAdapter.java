@@ -11,7 +11,6 @@ import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.views.adapters.TaskAttemptsUIAdapter;
 import no.hal.learning.exercise.views.adapters.TaskProposalUIAdapter;
 import no.hal.learning.exercise.workbench.WorkbenchTaskAnswer;
-import no.hal.learning.exercise.workbench.adapter.PartTaskProposalAdapter.PartTaskListener;
 
 public abstract class WorkbenchTaskProposalAdapter<A extends WorkbenchTaskAnswer> extends TaskProposalUIAdapter<A> {
 

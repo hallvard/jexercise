@@ -4,6 +4,7 @@ grammar no.hal.learning.exercise.xtext.Xercise with org.eclipse.xtext.common.Ter
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "platform:/plugin/no.hal.learning.exercise.workbench/model/workbench-exercise.ecore" as workbench 
 import "platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
+import "platform:/plugin/no.hal.learning.exercise.model/model/quiz.ecore" as quiz
 import "platform:/plugin/no.hal.learning.exercise.junit/model/junit-exercise.ecore" as junit
 import "platform:/plugin/no.hal.learning.exercise.jdt/model/jdt-exercise.ecore" as jdt
 
@@ -59,41 +60,41 @@ Answer: OptionAnswer | OptionsAnswer | TaskAnswer;
 
 // quiz
 
-OptionAnswer: SimpleAnswer;
+OptionAnswer returns quiz::OptionAnswer: SimpleAnswer;
 
-SimpleAnswer: StringAnswer | RegexAnswer | NumberAnswer | BooleanAnswer;
+SimpleAnswer returns quiz::SimpleAnswer: StringAnswer | RegexAnswer | NumberAnswer | BooleanAnswer;
 
-StringAnswer: value = STRING (ignoreCase ?= '~')?;
-RegexAnswer returns StringAnswer: (regexp ?= '/') value = STRING '/' (ignoreCase ?= '~')?;
+StringAnswer returns quiz::StringAnswer: value = STRING (ignoreCase ?= '~')?;
+RegexAnswer returns quiz::StringAnswer: (regexp ?= '/') value = STRING '/' (ignoreCase ?= '~')?;
 
-NumberAnswer: value = EDoubleObject ('+-' errorMargin = EDoubleObject)?;
+NumberAnswer returns quiz::NumberAnswer: value = EDoubleObject ('+-' errorMargin = EDoubleObject)?;
 
 EDoubleObject returns ecore::EDouble: INT ('.' INT)?;
 
-BooleanAnswer: {BooleanAnswer} (value ?= ('yes' | 'true') | ('no' | 'false'));
+BooleanAnswer returns quiz::BooleanAnswer: {quiz::BooleanAnswer} (value ?= ('yes' | 'true') | ('no' | 'false'));
 
-OptionsAnswer: (SingleOptionsAnswer | ManyOptionsAnswer);
+OptionsAnswer returns quiz::OptionsAnswer: (SingleOptionsAnswer | ManyOptionsAnswer);
 
-SingleOptionsAnswer: SingleBoxOptionsAnswer | SingleListOptionsAnswer;
+SingleOptionsAnswer returns quiz::SingleOptionsAnswer: SingleBoxOptionsAnswer | SingleListOptionsAnswer;
 
-SingleBoxOptionsAnswer returns SingleOptionsAnswer:
+SingleBoxOptionsAnswer returns quiz::SingleOptionsAnswer:
 	(options += SingleBoxOption)+
 ;
-SingleBoxOption returns Option:
+SingleBoxOption returns quiz::Option:
 	'(' (correct ?= 'x')? ')' option = OptionAnswer
 ;
 
-SingleListOptionsAnswer returns SingleOptionsAnswer:
+SingleListOptionsAnswer returns quiz::SingleOptionsAnswer:
 	(options += SingleListOption)+
 ;
-SingleListOption returns Option:
+SingleListOption returns quiz::Option:
 	(('-'|'x') | (correct ?= 'v')) option = OptionAnswer
 ;
 
-ManyOptionsAnswer:
+ManyOptionsAnswer returns quiz::ManyOptionsAnswer:
 	(options += ManyOption)+
 ;
-ManyOption returns Option:
+ManyOption returns quiz::Option:
 	'[' (correct ?= 'x')? ']' option = OptionAnswer
 ;
 

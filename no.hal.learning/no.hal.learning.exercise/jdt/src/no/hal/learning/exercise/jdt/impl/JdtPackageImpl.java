@@ -349,12 +349,12 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		jdtSourceEditAnswerEClass.getESuperTypes().add(theExercisePackage.getTaskAnswer());
-		EGenericType g1 = createEGenericType(theExercisePackage.getTaskProposal());
+		jdtSourceEditAnswerEClass.getESuperTypes().add(theExercisePackage.getStringEditAnswer());
+		EGenericType g1 = createEGenericType(theExercisePackage.getStringEditTaskProposal());
 		EGenericType g2 = createEGenericType(this.getJdtSourceEditAnswer());
 		g1.getETypeArguments().add(g2);
 		jdtSourceEditProposalEClass.getEGenericSuperTypes().add(g1);
-		jdtSourceEditEventEClass.getESuperTypes().add(theExercisePackage.getTaskEvent());
+		jdtSourceEditEventEClass.getESuperTypes().add(theExercisePackage.getAbstractStringEditEvent());
 		jdtLaunchAnswerEClass.getESuperTypes().add(theExercisePackage.getTaskAnswer());
 		g1 = createEGenericType(theExercisePackage.getTaskProposal());
 		g2 = createEGenericType(this.getJdtLaunchAnswer());
@@ -370,7 +370,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		initEClass(jdtSourceEditProposalEClass, JdtSourceEditProposal.class, "JdtSourceEditProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(jdtSourceEditEventEClass, JdtSourceEditEvent.class, "JdtSourceEditEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJdtSourceEditEvent_SourceCode(), ecorePackage.getEString(), "sourceCode", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJdtSourceEditEvent_SourceCode(), ecorePackage.getEString(), "sourceCode", null, 0, 1, JdtSourceEditEvent.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJdtSourceEditEvent_SizeMeasure(), ecorePackage.getEInt(), "sizeMeasure", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJdtSourceEditEvent_ErrorCount(), ecorePackage.getEInt(), "errorCount", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJdtSourceEditEvent_WarningCount(), ecorePackage.getEInt(), "warningCount", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -388,8 +388,26 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		createResource(eNS_URI);
 
 		// Create annotations
+		// exp4j
+		createExp4jAnnotations();
 		// no.hal.learning.exercise.views.ExerciseView
 		createNoAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>exp4j</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExp4jAnnotations() {
+		String source = "exp4j";	
+		addAnnotation
+		  (jdtSourceEditEventEClass, 
+		   source, 
+		   new String[] {
+			 "codeIssues", "errorCount * 5 + warningCount"
+		   });
 	}
 
 	/**

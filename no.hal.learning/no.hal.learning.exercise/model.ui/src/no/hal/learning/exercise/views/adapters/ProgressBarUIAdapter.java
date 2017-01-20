@@ -29,7 +29,8 @@ public abstract class ProgressBarUIAdapter<P extends TaskProposal<?>> extends EO
 
 	@Override
 	public void updateView() {
-		getView().setSelection((int) (getProposal().getCompletion() * maxValue));
+		int value = (int) (getProposal().getCompletion() * maxValue);
+		getView().setSelection(value);
 	}
 	
 	@Override

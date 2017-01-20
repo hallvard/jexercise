@@ -2,8 +2,11 @@
  */
 package no.hal.learning.exercise.jdt.util;
 
+import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.Answer;
 import no.hal.learning.exercise.Proposal;
+import no.hal.learning.exercise.StringEditAnswer;
+import no.hal.learning.exercise.StringEditTaskProposal;
 import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
@@ -75,6 +78,7 @@ public class JdtSwitch<T1> extends Switch<T1> {
 			case JdtPackage.JDT_SOURCE_EDIT_ANSWER: {
 				JdtSourceEditAnswer jdtSourceEditAnswer = (JdtSourceEditAnswer)theEObject;
 				T1 result = caseJdtSourceEditAnswer(jdtSourceEditAnswer);
+				if (result == null) result = caseStringEditAnswer(jdtSourceEditAnswer);
 				if (result == null) result = caseTaskAnswer(jdtSourceEditAnswer);
 				if (result == null) result = caseAnswer(jdtSourceEditAnswer);
 				if (result == null) result = defaultCase(theEObject);
@@ -83,6 +87,7 @@ public class JdtSwitch<T1> extends Switch<T1> {
 			case JdtPackage.JDT_SOURCE_EDIT_PROPOSAL: {
 				JdtSourceEditProposal jdtSourceEditProposal = (JdtSourceEditProposal)theEObject;
 				T1 result = caseJdtSourceEditProposal(jdtSourceEditProposal);
+				if (result == null) result = caseStringEditTaskProposal(jdtSourceEditProposal);
 				if (result == null) result = caseTaskProposal(jdtSourceEditProposal);
 				if (result == null) result = caseProposal(jdtSourceEditProposal);
 				if (result == null) result = defaultCase(theEObject);
@@ -91,6 +96,7 @@ public class JdtSwitch<T1> extends Switch<T1> {
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT: {
 				JdtSourceEditEvent jdtSourceEditEvent = (JdtSourceEditEvent)theEObject;
 				T1 result = caseJdtSourceEditEvent(jdtSourceEditEvent);
+				if (result == null) result = caseAbstractStringEditEvent(jdtSourceEditEvent);
 				if (result == null) result = caseTaskEvent(jdtSourceEditEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -243,6 +249,21 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Edit Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Edit Answer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStringEditAnswer(StringEditAnswer object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Proposal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -273,6 +294,21 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Edit Task Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Edit Task Proposal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <A extends StringEditAnswer> T1 caseStringEditTaskProposal(StringEditTaskProposal<A> object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Task Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -284,6 +320,21 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseTaskEvent(TaskEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract String Edit Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract String Edit Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAbstractStringEditEvent(AbstractStringEditEvent object) {
 		return null;
 	}
 

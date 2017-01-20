@@ -8,8 +8,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 
-import no.hal.learning.exercise.Option;
-import no.hal.learning.exercise.OptionsAnswer;
+import no.hal.learning.quiz.Option;
+import no.hal.learning.quiz.OptionsAnswer;
 
 public class Util {
 

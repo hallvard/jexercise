@@ -181,17 +181,12 @@ public class ExercisePartProposalsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExercisePackage.Literals.EXERCISE_PART_PROPOSALS__PROPOSALS,
-				 ExerciseFactory.eINSTANCE.createSimpleProposal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExercisePackage.Literals.EXERCISE_PART_PROPOSALS__PROPOSALS,
-				 ExerciseFactory.eINSTANCE.createOptionsProposal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExercisePackage.Literals.EXERCISE_PART_PROPOSALS__PROPOSALS,
 				 ExerciseFactory.eINSTANCE.createTaskProposal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExercisePackage.Literals.EXERCISE_PART_PROPOSALS__PROPOSALS,
+				 ExerciseFactory.eINSTANCE.createStringEditTaskProposal()));
 	}
 
 	/**

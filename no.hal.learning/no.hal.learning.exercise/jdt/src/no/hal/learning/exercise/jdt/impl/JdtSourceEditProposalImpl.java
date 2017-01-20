@@ -2,8 +2,7 @@
  */
 package no.hal.learning.exercise.jdt.impl;
 
-import no.hal.learning.exercise.impl.TaskProposalImpl;
-
+import no.hal.learning.exercise.impl.StringEditTaskProposalImpl;
 import no.hal.learning.exercise.jdt.JdtSourceEditAnswer;
 import no.hal.learning.exercise.jdt.JdtSourceEditProposal;
 import no.hal.learning.exercise.jdt.JdtPackage;
@@ -17,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class JdtSourceEditProposalImpl extends TaskProposalImpl<JdtSourceEditAnswer> implements JdtSourceEditProposal {
+public class JdtSourceEditProposalImpl extends StringEditTaskProposalImpl<JdtSourceEditAnswer> implements JdtSourceEditProposal {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35,6 +34,13 @@ public class JdtSourceEditProposalImpl extends TaskProposalImpl<JdtSourceEditAns
 	@Override
 	protected EClass eStaticClass() {
 		return JdtPackage.Literals.JDT_SOURCE_EDIT_PROPOSAL;
+	}
+
+	//
+
+	@Override
+	public String getText() {
+		return "Edited source of " + getAnswer().getClassName() + " class";
 	}
 
 } //JdtClassProposalImpl

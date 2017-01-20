@@ -37,18 +37,14 @@ public class ExerciseTests extends TestSuite {
 		suite.addTestSuite(ExercisePartTest.class);
 		suite.addTestSuite(TaskRefTest.class);
 		suite.addTestSuite(TaskTest.class);
-		suite.addTestSuite(StyledStringTest.class);
 		suite.addTestSuite(ProposalTest.class);
-		suite.addTestSuite(SimpleProposalTest.class);
-		suite.addTestSuite(StringAnswerTest.class);
-		suite.addTestSuite(NumberAnswerTest.class);
-		suite.addTestSuite(BooleanAnswerTest.class);
-		suite.addTestSuite(OptionsAnswerTest.class);
-		suite.addTestSuite(OptionsProposalTest.class);
-		suite.addTestSuite(SingleOptionsAnswerTest.class);
-		suite.addTestSuite(ManyOptionsAnswerTest.class);
 		suite.addTestSuite(TaskAnswerTest.class);
 		suite.addTestSuite(TaskProposalTest.class);
+		suite.addTestSuite(TaskEventTest.class);
+		suite.addTestSuite(StringEditTaskProposalTest.class);
+		suite.addTestSuite(AbstractStringEditEventTest.class);
+		suite.addTestSuite(StringEditTest.class);
+		suite.addTestSuite(ReplaceSubstringEditTest.class);
 		return suite;
 	}
 

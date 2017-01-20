@@ -14,12 +14,13 @@ import no.hal.learning.exercise.workbench.PerspectiveTaskProposal;
 import no.hal.learning.exercise.workbench.WorkbenchFactory;
 import no.hal.learning.exercise.workbench.WorkbenchPackage;
 import no.hal.learning.exercise.workbench.WorkbenchTaskAnswer;
-
+import no.hal.learning.exercise.workbench.util.WorkbenchValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -147,6 +148,15 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		// Initialize created meta-data
 		theWorkbenchPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theWorkbenchPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return WorkbenchValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theWorkbenchPackage.freeze();
 
@@ -181,6 +191,15 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 */
 	public EAttribute getWorkbenchTaskAnswer_Action() {
 		return (EAttribute)workbenchTaskAnswerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWorkbenchTaskAnswer_Text() {
+		return (EAttribute)workbenchTaskAnswerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -286,6 +305,7 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		workbenchTaskAnswerEClass = createEClass(WORKBENCH_TASK_ANSWER);
 		createEAttribute(workbenchTaskAnswerEClass, WORKBENCH_TASK_ANSWER__ELEMENT_ID);
 		createEAttribute(workbenchTaskAnswerEClass, WORKBENCH_TASK_ANSWER__ACTION);
+		createEAttribute(workbenchTaskAnswerEClass, WORKBENCH_TASK_ANSWER__TEXT);
 
 		partTaskAnswerEClass = createEClass(PART_TASK_ANSWER);
 
@@ -361,6 +381,7 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		initEClass(workbenchTaskAnswerEClass, WorkbenchTaskAnswer.class, "WorkbenchTaskAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWorkbenchTaskAnswer_ElementId(), ecorePackage.getEString(), "elementId", null, 0, 1, WorkbenchTaskAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWorkbenchTaskAnswer_Action(), ecorePackage.getEString(), "action", null, 0, 1, WorkbenchTaskAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWorkbenchTaskAnswer_Text(), ecorePackage.getEString(), "text", null, 0, 1, WorkbenchTaskAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(partTaskAnswerEClass, PartTaskAnswer.class, "PartTaskAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -380,6 +401,38 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		addAnnotation
+		  (partTaskAnswerEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "knownPartId"
+		   });	
+		addAnnotation
+		  (perspectiveTaskAnswerEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "knownPerspectiveId"
+		   });	
+		addAnnotation
+		  (commandExecutionAnswerEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "knownCommandId"
+		   });
 	}
 
 } //WorkbenchPackageImpl

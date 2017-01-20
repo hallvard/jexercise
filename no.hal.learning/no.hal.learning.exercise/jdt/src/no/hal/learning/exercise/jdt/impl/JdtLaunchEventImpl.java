@@ -6,7 +6,6 @@ import no.hal.learning.exercise.impl.TaskEventImpl;
 
 import no.hal.learning.exercise.jdt.JdtLaunchEvent;
 import no.hal.learning.exercise.jdt.JdtPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -157,5 +156,5 @@ public class JdtLaunchEventImpl extends TaskEventImpl implements JdtLaunchEvent 
 		result.append(')');
 		return result.toString();
 	}
-
+	
 } //JdtLaunchEventImpl

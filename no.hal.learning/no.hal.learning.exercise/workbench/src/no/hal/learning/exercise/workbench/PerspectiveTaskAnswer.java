@@ -10,7 +10,7 @@ package no.hal.learning.exercise.workbench;
  *
  *
  * @see no.hal.learning.exercise.workbench.WorkbenchPackage#getPerspectiveTaskAnswer()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='knownPerspectiveId'"
  * @generated
  */
 public interface PerspectiveTaskAnswer extends WorkbenchTaskAnswer {

@@ -3,10 +3,40 @@
  */
 package no.hal.learning.exercise.xtext.ui.contentassist
 
+import java.util.List
+import no.hal.learning.exercise.workbench.CommandExecutionAnswer
+import no.hal.learning.exercise.workbench.PartTaskAnswer
+import no.hal.learning.exercise.workbench.PerspectiveTaskAnswer
+import no.hal.learning.exercise.workbench.util.ExtensionsUtil
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class XerciseProposalProvider extends AbstractXerciseProposalProvider {
+
+	def void completePerspectiveTaskAnswer_ElementId(PerspectiveTaskAnswer model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		val ids = ExtensionsUtil.getExtensionIds(null, "org.eclipse.ui.perspectives", "perspective", null)
+		createCompletionProposals(ids, context)
+	}
+
+	protected def void createCompletionProposals(List<String> ids, ContentAssistContext context) {
+		for (id : ids) {
+			createCompletionProposal(id, context);
+		}
+	}
+
+	def void completePerspectiveTaskAnswer_ElementId(PartTaskAnswer model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		val ids = ExtensionsUtil.getExtensionIds(null, "org.eclipse.ui.editors", "editor", null);
+		ExtensionsUtil.getExtensionIds(null, "org.eclipse.ui.views", "view", null, ids);
+		createCompletionProposals(ids, context)
+	}
+
+	def void completePerspectiveTaskAnswer_ElementId(CommandExecutionAnswer model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		val ids = ExtensionsUtil.getExtensionIds(null, "org.eclipse.ui.commands", "command", null);
+		createCompletionProposals(ids, context)
+	}
 }

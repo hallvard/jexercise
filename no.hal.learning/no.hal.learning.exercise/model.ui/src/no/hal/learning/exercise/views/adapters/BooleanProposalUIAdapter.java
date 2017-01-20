@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 import org.eclipse.swt.events.SelectionListener;
 
-import no.hal.learning.exercise.BooleanAnswer;
-import no.hal.learning.exercise.SimpleProposal;
+import no.hal.learning.quiz.BooleanAnswer;
+import no.hal.learning.quiz.SimpleProposal;
 
 public class BooleanProposalUIAdapter extends ButtonGroupAdapter<SimpleProposal<BooleanAnswer>> implements SelectionListener {
 

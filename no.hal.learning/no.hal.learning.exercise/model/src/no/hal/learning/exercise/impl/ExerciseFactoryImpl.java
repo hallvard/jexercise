@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import no.hal.learning.exercise.*;
-import no.hal.learning.exercise.util.RGB;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,23 +65,14 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 			case ExercisePackage.TASK_REF: return createTaskRef();
 			case ExercisePackage.TASK: return createTask();
 			case ExercisePackage.STRING_QUESTION: return createStringQuestion();
-			case ExercisePackage.STYLED_STRING_QUESTION: return createStyledStringQuestion();
-			case ExercisePackage.STYLED_STRING: return createStyledString();
-			case ExercisePackage.CHAR_STYLE: return createCharStyle();
 			case ExercisePackage.PROPOSAL: return createProposal();
-			case ExercisePackage.SIMPLE_PROPOSAL: return createSimpleProposal();
-			case ExercisePackage.STRING_ANSWER: return createStringAnswer();
-			case ExercisePackage.NUMBER_ANSWER: return createNumberAnswer();
-			case ExercisePackage.NUMBER_RANGE: return createNumberRange();
-			case ExercisePackage.BOOLEAN_ANSWER: return createBooleanAnswer();
-			case ExercisePackage.OPTIONS_ANSWER: return createOptionsAnswer();
-			case ExercisePackage.OPTIONS_PROPOSAL: return createOptionsProposal();
-			case ExercisePackage.OPTION: return createOption();
-			case ExercisePackage.SINGLE_OPTIONS_ANSWER: return createSingleOptionsAnswer();
-			case ExercisePackage.MANY_OPTIONS_ANSWER: return createManyOptionsAnswer();
 			case ExercisePackage.TASK_ANSWER: return createTaskAnswer();
 			case ExercisePackage.TASK_PROPOSAL: return createTaskProposal();
 			case ExercisePackage.TASK_EVENT: return createTaskEvent();
+			case ExercisePackage.STRING_EDIT_TASK_PROPOSAL: return createStringEditTaskProposal();
+			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT: return createAbstractStringEditEvent();
+			case ExercisePackage.STRING_EDIT: return createStringEdit();
+			case ExercisePackage.REPLACE_SUBSTRING_EDIT: return createReplaceSubstringEdit();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -96,8 +86,6 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case ExercisePackage.RGB:
-				return createRGBFromString(eDataType, initialValue);
 			case ExercisePackage.ETIMESTAMP:
 				return createETimestampFromString(eDataType, initialValue);
 			default:
@@ -113,8 +101,6 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case ExercisePackage.RGB:
-				return convertRGBToString(eDataType, instanceValue);
 			case ExercisePackage.ETIMESTAMP:
 				return convertETimestampToString(eDataType, instanceValue);
 			default:
@@ -207,139 +193,9 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StyledStringQuestion createStyledStringQuestion() {
-		StyledStringQuestionImpl styledStringQuestion = new StyledStringQuestionImpl();
-		return styledStringQuestion;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StyledString createStyledString() {
-		StyledStringImpl styledString = new StyledStringImpl();
-		return styledString;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CharStyle createCharStyle() {
-		CharStyleImpl charStyle = new CharStyleImpl();
-		return charStyle;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public <A extends Answer> Proposal<A> createProposal() {
 		ProposalImpl<A> proposal = new ProposalImpl<A>();
 		return proposal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public <A extends SimpleAnswer<?>> SimpleProposal<A> createSimpleProposal() {
-		SimpleProposalImpl<A> simpleProposal = new SimpleProposalImpl<A>();
-		return simpleProposal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StringAnswer createStringAnswer() {
-		StringAnswerImpl stringAnswer = new StringAnswerImpl();
-		return stringAnswer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NumberAnswer createNumberAnswer() {
-		NumberAnswerImpl numberAnswer = new NumberAnswerImpl();
-		return numberAnswer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NumberRange createNumberRange() {
-		NumberRangeImpl numberRange = new NumberRangeImpl();
-		return numberRange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BooleanAnswer createBooleanAnswer() {
-		BooleanAnswerImpl booleanAnswer = new BooleanAnswerImpl();
-		return booleanAnswer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OptionsAnswer createOptionsAnswer() {
-		OptionsAnswerImpl optionsAnswer = new OptionsAnswerImpl();
-		return optionsAnswer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OptionsProposal createOptionsProposal() {
-		OptionsProposalImpl optionsProposal = new OptionsProposalImpl();
-		return optionsProposal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Option createOption() {
-		OptionImpl option = new OptionImpl();
-		return option;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SingleOptionsAnswer createSingleOptionsAnswer() {
-		SingleOptionsAnswerImpl singleOptionsAnswer = new SingleOptionsAnswerImpl();
-		return singleOptionsAnswer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ManyOptionsAnswer createManyOptionsAnswer() {
-		ManyOptionsAnswerImpl manyOptionsAnswer = new ManyOptionsAnswerImpl();
-		return manyOptionsAnswer;
 	}
 
 	/**
@@ -377,8 +233,9 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RGB createRGBFromString(EDataType eDataType, String initialValue) {
-		return (RGB)super.createFromString(eDataType, initialValue);
+	public <A extends StringEditAnswer> StringEditTaskProposal<A> createStringEditTaskProposal() {
+		StringEditTaskProposalImpl<A> stringEditTaskProposal = new StringEditTaskProposalImpl<A>();
+		return stringEditTaskProposal;
 	}
 
 	/**
@@ -386,8 +243,29 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertRGBToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+	public AbstractStringEditEvent createAbstractStringEditEvent() {
+		AbstractStringEditEventImpl abstractStringEditEvent = new AbstractStringEditEventImpl();
+		return abstractStringEditEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringEdit createStringEdit() {
+		StringEditImpl stringEdit = new StringEditImpl();
+		return stringEdit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReplaceSubstringEdit createReplaceSubstringEdit() {
+		ReplaceSubstringEditImpl replaceSubstringEdit = new ReplaceSubstringEditImpl();
+		return replaceSubstringEdit;
 	}
 
 	/**

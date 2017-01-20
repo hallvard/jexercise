@@ -9,9 +9,17 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
-            class="no.hal.learning.exercise.views.ExerciseViewAdapterFactory"
+            class="no.hal.learning.exercise.views.plot.TaskPlotViewerAdapterFactory"
             supportedTypes=
-              "no.hal.learning.exercise.views.plot.TaskProposalPlotViewerAdapter"/>
+              "no.hal.learning.exercise.views.plot.TaskPlotViewerAdapter"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
+            class="no.hal.learning.exercise.views.stringeditors.EditorViewerAdapterFactory"
+            supportedTypes=
+              "no.hal.learning.exercise.views.stringeditors.EditorViewerAdapter"/>
    </extension>
 
    <extension point="org.eclipse.ui.views">
@@ -75,6 +83,14 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
    			uri="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
+            class="no.hal.learning.exercise.views.adapters.ExerciseUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+   			uri="platform:/plugin/no.hal.learning.exercise.model/model/quiz.ecore"
             class="no.hal.learning.exercise.views.adapters.ExerciseUIAdapterFactory"
             supportedTypes=
               "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
