@@ -82,8 +82,11 @@ public abstract class EObjectViewerAdapterImpl<E extends EObject, V extends Cont
 	
 	@Override
 	public void notifyChanged(Notification notification) {
-		if ((! notification.isTouch()) && isChangeNotification(notification) && (! getView().isDisposed())) {
-			updateView();
+		if ((! notification.isTouch()) && isChangeNotification(notification)) {
+			V view = getView();
+			if (view != null && (! isDisposed())) {
+				updateView();
+			}
 		}
 	}
 }

@@ -2,24 +2,27 @@ package no.hal.emf.ui.parts.plot;
 
 import org.eclipse.swt.graphics.Transform;
 
-public class PlotPathProvider {
+import no.hal.emf.ui.parts.plot.PlotData.Point;
 
-	public interface Consumer {
-		public void consume(long time, double value, float x, float y);
+public class PlotPathProvider<E> {
+
+	public interface Consumer<E> {
+		public Point<E> consume(Point<E> point,long time, double value, float x, float y);
 	}
 
-	public void provide(Consumer consumer, Iterable<PlotData.Point> events, TimeScaler timeScaler, Transform transform, float minY, float maxY, float yOffset) {
+	public Point<E> provide(Consumer<E> consumer, Iterable<PlotData.Point<E>> eventPoints, TimeScaler timeScaler, Transform transform, float minY, float maxY, float yOffset) {
 		float maxValue = -1;
-		for (PlotData.Point event : events) {
-			float y = event.value;
+		for (PlotData.Point<E> eventPoint : eventPoints) {
+			float y = eventPoint.value;
 			maxValue = Math.max(maxValue, y);
 		}
 		if (maxValue < 0) {
-			return;
+			return null;
 		}
-		for (PlotData.Point event : events) {
-			long nextTime = event.timestamp;
-			float y = event.value;
+		Point<E> lastPoint = null;
+		for (PlotData.Point<E> eventPoint : eventPoints) {
+			long nextTime = eventPoint.timestamp;
+			float y = eventPoint.value;
 			float t = timeScaler.getTimeValue(nextTime);
 			float pY = maxY - (y == 0 ? y : y * (maxY - minY) / maxValue) + yOffset;
 			if (transform != null) {
@@ -27,7 +30,11 @@ public class PlotPathProvider {
 				transform.transform(xy);
 				t = xy[0]; pY = xy[1];
 			}
-			consumer.consume(nextTime, y, t, pY);
+			Point<E> point = consumer.consume(eventPoint, nextTime, y, t, pY);
+			if (point != null) {
+				lastPoint = point;
+			}
 		}
+		return lastPoint;
 	}
 }

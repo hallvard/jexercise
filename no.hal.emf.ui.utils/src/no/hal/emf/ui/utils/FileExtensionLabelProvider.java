@@ -5,7 +5,6 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IEditorRegistry;
-import org.eclipse.ui.IFileEditorMapping;
 import org.eclipse.ui.PlatformUI;
 
 public class FileExtensionLabelProvider extends DelegatingLabelProvider {

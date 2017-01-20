@@ -1,5 +1,7 @@
 package no.hal.emf.ui.parts;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -10,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StackLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -26,7 +29,7 @@ public abstract class AbstractEObjectView extends ViewPart {
 
 	protected AbstractEObjectView(Class<? extends EObjectViewerAdapter<?,?>> mainAdapterClass, String mainViewName) {
 		this.mainAdapterClass = mainAdapterClass;
-		addAdapterClass(mainAdapterClass, mainViewName);
+		addAdapterClass(mainAdapterClass, mainViewName, "mainview.png");
 	}
 
 	protected AbstractEObjectView(Class<? extends EObjectViewerAdapter<?,?>> mainAdapterClass) {
@@ -38,7 +41,7 @@ public abstract class AbstractEObjectView extends ViewPart {
 	public EObjectViewerAdapterHelper getAdapterHelper() {
 		return adapterHelper;
 	}
-	
+
 	public void addAdapterFactory(AdapterFactory adapterFactory) {
 		getAdapterHelper().getAdapterFactory().addAdapterFactory(adapterFactory);
 	}
@@ -52,8 +55,8 @@ public abstract class AbstractEObjectView extends ViewPart {
 		
 		private Class<? extends EObjectViewerAdapter<?, ?>> adapterClass;
 		
-		public SwitchViewerAction(String name, Class<? extends EObjectViewerAdapter<?, ?>> adapterClass) {
-			super("Switch to " + name);
+		public SwitchViewerAction(String name, ImageDescriptor image, Class<? extends EObjectViewerAdapter<?, ?>> adapterClass) {
+			super("Switch to " + name, image);
 			this.adapterClass = adapterClass;
 		}
 
@@ -63,12 +66,24 @@ public abstract class AbstractEObjectView extends ViewPart {
 		}
 	}
 
-	protected void addAdapterClass(Class<? extends EObjectViewerAdapter<?, ?>> adapterClass, String name) {
+	protected void addAdapterClass(Class<? extends EObjectViewerAdapter<?, ?>> adapterClass, String name, String imageName) {
 		adapterClasses.put(adapterClass, name);
 		if (viewerActions == null) {
 			viewerActions = new ArrayList<IAction>();
 		}
-		SwitchViewerAction switchAction = new SwitchViewerAction(name, adapterClass);
+		ImageDescriptor imageDescriptor = null;
+		if (imageName != null) {
+			if (imageName.indexOf(':') >= 3) {
+				try {
+					imageDescriptor = ImageDescriptor.createFromURL(new URL(imageName));
+				} catch (MalformedURLException e) {
+				}
+			}
+			if (imageDescriptor == null) {
+				imageDescriptor = ImageDescriptor.createFromFile(adapterClass, imageName);
+			}
+		}
+		SwitchViewerAction switchAction = new SwitchViewerAction(name, imageDescriptor, adapterClass);
 		addSwitchViewerAction(switchAction);
 	}
 
@@ -79,6 +94,7 @@ public abstract class AbstractEObjectView extends ViewPart {
 	protected void addSwitchActions() {
 		for (IAction action : viewerActions) {
 			getViewSite().getActionBars().getMenuManager().add(action);
+			getViewSite().getActionBars().getToolBarManager().add(action);
 		}
 	}
 	
@@ -87,7 +103,7 @@ public abstract class AbstractEObjectView extends ViewPart {
 		composite.setLayout(new StackLayout());
 		return composite;
 	}
-	
+
 	protected Control switchView(EObject eObject, Composite composite, Class<? extends EObjectViewerAdapter<?, ?>> adapterClass) {
 		if (adapterClass == null) {
 			adapterClass = mainAdapterClass;

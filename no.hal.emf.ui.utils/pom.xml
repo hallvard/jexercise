@@ -15,9 +15,9 @@
 
 	<repositories>
 		<repository>
-			<id>eclipse-mars</id>
+			<id>eclipse-neon</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/mars</url>
+			<url>http://download.eclipse.org/releases/neon</url>
 		</repository>
 	</repositories>
   
@@ -41,10 +41,10 @@
 		</plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
+        <version>${maven-version}</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
     </plugins>

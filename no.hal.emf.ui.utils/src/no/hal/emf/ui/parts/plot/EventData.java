@@ -20,7 +20,7 @@ class EventData<O, E> implements Comparator<E> {
 	@Override
 	public int compare(E t1, E t2) {
 		long diff = eventsProvider.getTimestamp(t1) - eventsProvider.getTimestamp(t2);
-		return (int) diff;
+		return (diff < 0 ? -1 : (diff > 0 ? 1 : 0));
 	}
 
 	EventData(Collection<O> owners, IEventDataProvider<O, E> eventsProvider) {
