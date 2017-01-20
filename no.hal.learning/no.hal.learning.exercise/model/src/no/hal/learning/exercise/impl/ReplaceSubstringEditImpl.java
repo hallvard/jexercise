@@ -99,6 +99,10 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 
 	private String transientStringCache = null;
 
+	protected void clearStringCache() {
+		transientStringCache = null;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,11 +154,12 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setEdit(AbstractStringEdit newEdit) {
 		AbstractStringEdit oldEdit = edit;
 		edit = newEdit;
+		clearStringCache();
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.REPLACE_SUBSTRING_EDIT__EDIT, oldEdit, edit));
 	}
@@ -176,6 +181,7 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 	public void setStart(int newStart) {
 		int oldStart = start;
 		start = newStart;
+		clearStringCache();
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.REPLACE_SUBSTRING_EDIT__START, oldStart, start));
 	}
@@ -197,6 +203,7 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 	public void setEnd(int newEnd) {
 		int oldEnd = end;
 		end = newEnd;
+		clearStringCache();
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.REPLACE_SUBSTRING_EDIT__END, oldEnd, end));
 	}
