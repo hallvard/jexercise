@@ -52,12 +52,6 @@
       <requirement
           name="no.hal.javafx.fxmlapp.feature.feature.group"/>
       <requirement
-          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
-      <requirement
-          name="no.hal.emfs.feature.feature.group"/>
-      <requirement
-          name="no.hal.confluence.feature.feature.group"/>
-      <requirement
           name="no.hal.learning.exercise.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/neon"/>
