@@ -40,8 +40,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.views.tasklist.TaskPropertiesDialog;
-
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 import no.hal.emf.ui.parts.plot.PlotData.Point;
@@ -555,7 +553,7 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 		setSelection(new StructuredSelection(new ArrayList<Object>(points)));
 	}
 	
-	private SimpleDateFormat toolTipDateFormat = new SimpleDateFormat("HH:mm E, F/MM-yy"); // new SimpleDateFormat("HH:mm E, F MMM yyyy");
+	private SimpleDateFormat toolTipDateFormat = new SimpleDateFormat("HH:mm E, DD/MM-yy"); // new SimpleDateFormat("HH:mm E, F MMM yyyy");
 	
 	private void setPlotToolTips(int x, int y, int count) {
 		PointSelector pointSelector = new PointSelector();
@@ -583,7 +581,8 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 					toolTipText = eventText;
 				}
 			}
-			toolTipText += " @ " + toolTipDateFormat.format(new Date((long) lastPoint.timestamp));
+			System.out.println("Tool tip for " + lastPoint.timestamp);
+			toolTipText += " @ " + toolTipDateFormat.format(new Date(lastPoint.timestamp));
 			if (text == null) {
 				text = toolTipText;
 			} else {
