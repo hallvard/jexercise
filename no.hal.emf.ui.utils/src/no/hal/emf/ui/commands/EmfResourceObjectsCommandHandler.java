@@ -11,6 +11,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -86,9 +87,10 @@ public abstract class EmfResourceObjectsCommandHandler<T extends EObject> extend
 			Iterator<?> iterator = ((IStructuredSelection) selection).iterator();
 			while (iterator.hasNext()) {
 				Object object = iterator.next();
-				if (object instanceof IFile) {
-					if (isEmfFileExtension(((IFile) object).getFileExtension())) {
-						resources.add((IFile) object);
+				IFile adapter = Platform.getAdapterManager().getAdapter(object, IFile.class);
+				if (adapter instanceof IFile) {
+					if (isEmfFileExtension(((IFile) adapter).getFileExtension())) {
+						resources.add((IFile) adapter);
 					}
 				}
 			}
