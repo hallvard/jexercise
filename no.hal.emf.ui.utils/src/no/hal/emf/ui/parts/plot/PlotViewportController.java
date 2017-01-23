@@ -1,5 +1,6 @@
 package no.hal.emf.ui.parts.plot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -11,31 +12,59 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Slider;
 import org.eclipse.swt.widgets.Widget;
+
+import no.hal.emf.ui.parts.plot.PlotData.Point;
 
 public class PlotViewportController<O, E> extends SelectionAdapter {
 
 	private Control plotControl;
 	private Slider minSlider, maxSlider;
 
+	private Label lowerLabel, upperLabel;
+	private String lowerLabelText = "< lower time range value", upperLabelText = "upper time range value >";	
+	private String fillLabelText = ""; // "Time range control";	
+	private SimpleDateFormat labelTimeFormat = new SimpleDateFormat("HH:mm E, dd/MM-yy");
+
 	public PlotViewportController() {
 	}
 	
+	private boolean showLabels = true, showTimeRange = false;
+	
 	public void createControls(Control plotControl, Composite composite) {
 		this.plotControl = plotControl;
-		Composite controllerComposite = new Composite(composite, SWT.NONE);
-		controllerComposite.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		controllerComposite.setLayout(new GridLayout(2, true));
+		if (showLabels) {
+			Composite labelsComposite = new Composite(composite, SWT.NONE);
+			labelsComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+			GridLayout labelsLayout = new GridLayout(3, false);
+			labelsLayout.marginWidth = 0;
+			labelsLayout.marginHeight = 0;
+			labelsComposite.setLayout(labelsLayout);
+			lowerLabel = new Label(labelsComposite, SWT.NONE);
+			lowerLabel.setText(lowerLabelText);
+			Label fillLabel = new Label(labelsComposite, SWT.NONE);
+			fillLabel.setText(fillLabelText);
+			fillLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false));
+			upperLabel = new Label(labelsComposite, SWT.NONE);
+			upperLabel.setText(upperLabelText);
+		}
+		Composite slidersComposite = new Composite(composite, SWT.NONE);
+		slidersComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		GridLayout slidersLayout = new GridLayout(2, true);
+		slidersLayout.marginWidth = 0;
+		slidersLayout.marginHeight = 0;
+		slidersComposite.setLayout(slidersLayout);
 		
-		minSlider = new Slider(controllerComposite, SWT.HORIZONTAL);
-		minSlider.setToolTipText("Lower bound");
-		minSlider.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		minSlider = new Slider(slidersComposite, SWT.HORIZONTAL);
+		minSlider.setToolTipText(lowerLabelText);
+		minSlider.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		minSlider.addSelectionListener(this);
 	
-		maxSlider = new Slider(controllerComposite, SWT.HORIZONTAL);
-		maxSlider.setToolTipText("Upper bound");
-		maxSlider.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		maxSlider = new Slider(slidersComposite, SWT.HORIZONTAL);
+		maxSlider.setToolTipText(upperLabelText);
+		maxSlider.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		maxSlider.addSelectionListener(this);
 	
 		updateView();
@@ -51,6 +80,12 @@ public class PlotViewportController<O, E> extends SelectionAdapter {
 	
 	public void setTimeScaler(TimeScaler timeScaler) {
 		this.timeScaler = timeScaler;
+	}
+	
+	private EventPlotViewer<O, E>.PointSelector pointSelector;
+
+	public void setPointSelector(EventPlotViewer<O, E>.PointSelector pointSelector) {
+		this.pointSelector = pointSelector;
 	}
 
 	private int minWidth = 30 * 60;
@@ -101,7 +136,33 @@ public class PlotViewportController<O, E> extends SelectionAdapter {
 				}
 			}
 		}
+		if (showLabels) {
+			updateLabels();
+		}
 		fireViewportChanged();
+	}
+
+	protected void updateLabels() {
+		if (lowerLabel != null) {
+			String text = lowerLabelText;
+			if (showTimeRange && pointSelector != null) {
+				Collection<Point<E>> selected = pointSelector.selectPoints(0, 0);
+				if (selected.size() > 0) {
+					text = text + " - " + EventPlotViewer.formatTime(selected.iterator().next().timestamp, labelTimeFormat);
+				}
+			}
+			lowerLabel.setText(text);
+		}
+		if (upperLabel != null) {
+			String text = upperLabelText;
+			if (showTimeRange && pointSelector != null) {
+				Collection<Point<E>> selected = pointSelector.selectPoints(plotControl.getSize().x, 0);
+				if (selected.size() > 0) {
+					text = EventPlotViewer.formatTime(selected.iterator().next().timestamp, labelTimeFormat) + " - " + upperLabelText;
+				}
+			}
+			upperLabel.setText(text);
+		}
 	}
 
 	protected void fireViewportChanged() {

@@ -42,7 +42,6 @@ public class PlotData<O, E> {
 				}
 				if (timestampProvider != null && value >= 0.0) {
 					this.points.add(new Point<E>(t, valueProvider.getName(), timestampProvider.getTimestamp(t), value));
-
 					valueNum++;
 				}
 			}

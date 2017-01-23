@@ -1,5 +1,6 @@
 package no.hal.emf.ui.parts.plot;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -96,6 +97,7 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 		GridLayout plotLayout = new GridLayout(1, true);
 		plotLayout.marginWidth = 0;
 		plotLayout.marginHeight = 0;
+		plotLayout.verticalSpacing = 2;
 		plotComposite.setLayout(plotLayout);
 		plotComposite.setLayoutData(new GridData(GridData.FILL_BOTH));
 
@@ -110,6 +112,7 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 			plotTransformController = new PlotViewportController<O, E>();
 			plotTransformController.setTaskData(eventData);
 			plotTransformController.setTimeScaler(timeScaler);
+			plotTransformController.setPointSelector(getPointSelector());
 			plotTransformController.createControls(canvas, plotComposite);
 			plotTransformController.addListener(this);
 		}
@@ -553,7 +556,12 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 		setSelection(new StructuredSelection(new ArrayList<Object>(points)));
 	}
 	
-	private SimpleDateFormat toolTipDateFormat = new SimpleDateFormat("HH:mm E, DD/MM-yy"); // new SimpleDateFormat("HH:mm E, F MMM yyyy");
+	private SimpleDateFormat toolTipDateFormat = new SimpleDateFormat("HH:mm E, dd/MM-yy"); // new SimpleDateFormat("HH:mm E, F MMM yyyy");
+	
+	static String formatTime(long timestamp, DateFormat dateFormat) {
+		Date date = new Date(timestamp);
+		return (dateFormat != null ? dateFormat.format(date) : date.toString());
+	}
 	
 	private void setPlotToolTips(int x, int y, int count) {
 		PointSelector pointSelector = new PointSelector();
@@ -582,7 +590,7 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 				}
 			}
 			System.out.println("Tool tip for " + lastPoint.timestamp);
-			toolTipText += " @ " + toolTipDateFormat.format(new Date(lastPoint.timestamp));
+			toolTipText += " @ " + formatTime(lastPoint.timestamp, toolTipDateFormat);
 			if (text == null) {
 				text = toolTipText;
 			} else {

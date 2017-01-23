@@ -1,5 +1,6 @@
 package no.hal.emf.ui.parts.plot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -9,6 +10,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Slider;
 import org.eclipse.swt.widgets.Widget;
 
@@ -24,14 +26,32 @@ public class TimepointSelectorController<O, E> extends SelectionAdapter {
 	
 	private Slider timeSlider;
 
+	private Label timeLabel;
+	
+	private boolean showLabel = true, showTime = true;
+	private String timeLabelText = "Time selector";
+	private SimpleDateFormat labelTimeFormat = new SimpleDateFormat("HH:mm E, dd/MM-yy");
+
 	public void createControls(Composite composite) {
-		Composite controllerComposite = new Composite(composite, SWT.NONE);
-		controllerComposite.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		controllerComposite.setLayout(new GridLayout(1, true));
+		GridLayout labelLayout = new GridLayout(1, true);
+		if (showLabel) {
+			Composite labelComposite = new Composite(composite, SWT.NONE);
+			labelComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+			labelLayout.marginWidth = 0;
+			labelLayout.marginHeight = 0;
+			labelComposite.setLayout(labelLayout);
+			timeLabel = new Label(labelComposite, SWT.NONE);
+			timeLabel.setAlignment(SWT.CENTER);
+			timeLabel.setText(timeLabelText);
+			timeLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		}
+		Composite sliderComposite = new Composite(composite, SWT.NONE);
+		sliderComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		sliderComposite.setLayout(labelLayout);
 		
-		timeSlider = new Slider(controllerComposite, SWT.HORIZONTAL);
-		timeSlider.setToolTipText("Time");
-		timeSlider.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		timeSlider = new Slider(sliderComposite, SWT.HORIZONTAL);
+		timeSlider.setToolTipText(timeLabelText);
+		timeSlider.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		timeSlider.addSelectionListener(this);
 	
 		updateView();
@@ -73,7 +93,21 @@ public class TimepointSelectorController<O, E> extends SelectionAdapter {
 		}
 		if (newTimepoint != timepoint) {
 			timepoint = newTimepoint;
+			if (showLabel) {
+				updateLabel();
+			}
 			fireTimepointChanged();
+		}
+	}
+
+	protected void updateLabel() {
+		if (timeLabel != null) {
+			String text = timeLabelText;
+			if (showTime && pointSelector != null) {
+//				text = text + " - " + new Date(timepoint).toString();
+				text = text + " - " + EventPlotViewer.formatTime(timepoint, labelTimeFormat);
+			}
+			timeLabel.setText(text);
 		}
 	}
 
