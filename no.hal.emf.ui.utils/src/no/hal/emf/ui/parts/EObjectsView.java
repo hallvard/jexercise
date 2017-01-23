@@ -75,7 +75,10 @@ public abstract class EObjectsView extends AbstractEObjectView {
 	}
 
 	public void selectEObjectTab(EObject eObject) {
-		tabFolder.setSelection(eObjects.indexOf(eObject));
+		int pos = eObjects.indexOf(eObject);
+		if (pos >= 0) {
+			tabFolder.setSelection(pos);
+		}
 	}
 
 	protected EObject getTabEObject(CTabItem tabItem) {
@@ -103,7 +106,11 @@ public abstract class EObjectsView extends AbstractEObjectView {
 			}
 		});
 		DropTarget dropTarget = new DropTarget(tabFolder, DND.DROP_DEFAULT | DND.DROP_COPY);
-		final Transfer[] transfers = { LocalSelectionTransfer.getTransfer() };
+		final Transfer[] transfers = {
+				LocalSelectionTransfer.getTransfer()
+//				, FileTransfer.getInstance()
+//				, ResourceTransfer.getInstance()
+		};
 		dropTarget.setTransfer(transfers);
 		dropTarget.addDropListener(new DropTargetAdapter() {
 			
@@ -116,11 +123,13 @@ public abstract class EObjectsView extends AbstractEObjectView {
 
 			@Override
 			public void drop(DropTargetEvent event) {
-				ISelection data = LocalSelectionTransfer.getTransfer().getSelection();
 				Collection<IResource> resources = null;
-				if (data instanceof IStructuredSelection) {
-					IStructuredSelection selection = (IStructuredSelection) data;
-					resources = Util.getResources(selection.iterator());
+				if (LocalSelectionTransfer.getTransfer().isSupportedType(event.currentDataType)) {
+					ISelection data = LocalSelectionTransfer.getTransfer().getSelection();
+					if (data instanceof IStructuredSelection) {
+						IStructuredSelection selection = (IStructuredSelection) data;
+						resources = Util.getResources(selection.iterator());
+					}
 				}
 				ResourceSet resourceSet = new ResourceSetImpl();
 				for (IResource resource : resources) {
@@ -132,8 +141,9 @@ public abstract class EObjectsView extends AbstractEObjectView {
 						}
 						if (emfResource != null && emfResource.getErrors().isEmpty() && accept(emfResource)) {
 							for (EObject eObject : emfResource.getContents()) {
-								if (accept(eObject)) {
-									addEObject(eObject);
+								EObject accepted = accept(eObject);
+								if (accepted != null) {
+									addEObject(accepted);
 								}
 							}
 						}
@@ -171,8 +181,8 @@ public abstract class EObjectsView extends AbstractEObjectView {
 		return true;
 	}
 	
-	protected boolean accept(EObject eObject) {
-		return false;
+	protected EObject accept(EObject eObject) {
+		return null;
 	}
 	
 	protected IItemLabelProvider getLabelProvider(EObject eObject) {
