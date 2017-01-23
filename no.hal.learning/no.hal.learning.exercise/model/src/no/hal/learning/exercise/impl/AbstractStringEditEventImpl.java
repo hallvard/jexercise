@@ -111,7 +111,7 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 	 * @generated NOT
 	 */
 	public String getString() {
-		return getEdit().getString();
+		return getEdit() != null ? getEdit().getString() : null;
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 	 * @generated NOT
 	 */
 	public AbstractStringEdit createStringEdit(String string, AbstractStringEditEvent lastEvent) {
-		if (lastEvent != null) {
+		if (lastEvent != null && lastEvent.getEdit() != null) {
 			AbstractStringEdit lastEdit = lastEvent.getEdit();
 			String lastString = lastEdit.getString();
 			int start = 0;
