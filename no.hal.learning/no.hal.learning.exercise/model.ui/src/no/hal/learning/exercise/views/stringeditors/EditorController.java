@@ -30,7 +30,6 @@ import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.StringEditAnswer;
 import no.hal.learning.exercise.StringEditTaskProposal;
 import no.hal.learning.exercise.TaskEvent;
-import no.hal.learning.exercise.views.AbstractStringEditorInput;
 
 class EditorController extends AbstractStringEditorInput implements IPartListener {
 

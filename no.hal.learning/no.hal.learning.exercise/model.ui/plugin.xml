@@ -44,7 +44,7 @@
         <activeWhen>
 			<with variable="selection">
 				<iterate operator="or">
-					<instanceof value="org.eclipse.core.resources.IFile"/>
+					<adapt type="org.eclipse.core.resources.IFile"/>
 				</iterate>
 			</with>
 		</activeWhen> 
@@ -52,9 +52,9 @@
    </extension>
 
 	<extension point="org.eclipse.ui.menus">
-      <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+      <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <menu id="no.hal.learning.exercise.ui.commands" label="Exercise">
-	        <command id="no.hal.learning.exercise.ui.commands.OpenExerciseView" commandId="no.hal.learning.exercise.ui.commands.OpenExerciseView"/>
+	        <command commandId="no.hal.learning.exercise.ui.commands.OpenExerciseView"/>
          </menu>
       </menuContribution>
    </extension>

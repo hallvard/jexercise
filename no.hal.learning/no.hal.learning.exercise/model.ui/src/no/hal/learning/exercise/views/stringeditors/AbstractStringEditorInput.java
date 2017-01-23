@@ -1,4 +1,4 @@
-package no.hal.learning.exercise.views;
+package no.hal.learning.exercise.views.stringeditors;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

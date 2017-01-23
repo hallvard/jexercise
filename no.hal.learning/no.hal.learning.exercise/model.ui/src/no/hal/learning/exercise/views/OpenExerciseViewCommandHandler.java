@@ -5,6 +5,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 
@@ -29,7 +30,11 @@ public class OpenExerciseViewCommandHandler extends EmfResourceObjectsCommandHan
 		try {
 			IWorkbenchPage page = activeWindow.getActivePage();
 			ExerciseView view = (ExerciseView) page.showView(ExerciseView.class.getName());
-			view.addExercise(ex, true);
+			EObject accepted = view.accept(ex);
+			if (accepted != null) {
+				view.addEObject(accepted);
+				view.selectEObjectTab(accepted);
+			}
 			page.activate(view);
 		} catch (PartInitException e) {
 			e.printStackTrace();

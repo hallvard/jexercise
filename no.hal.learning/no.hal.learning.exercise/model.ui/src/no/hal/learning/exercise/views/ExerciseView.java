@@ -22,32 +22,38 @@ public class ExerciseView extends EObjectsView {
 		addAdapterClass(EditorViewerAdapter.class, "editor view", "stringeditor.png");
 	}
 
-	public void addExercise(ExerciseProposals proposals) {
-		super.addEObject(proposals);
-		autoSave(proposals, 1, true);
+	@Override
+	protected EObject accept(EObject eObject) {
+		if (eObject instanceof Exercise) {
+			Exercise ex = (Exercise) eObject;
+			Resource resource = ex.eResource();
+			URI uri = resource.getURI();
+			if (resource != null && "xex".equals(uri.fileExtension())) {
+				ResourceSet resourceSet = resource.getResourceSet();
+				if (resourceSet == null) {
+					resourceSet = new ResourceSetImpl();
+				}
+				Resource exResource = resourceSet.createResource(uri.trimFileExtension().appendFileExtension("ex"));
+				exResource.getContents().addAll(resource.getContents());
+				resourceSet.getResources().remove(resource);
+				resourceSet.getResources().add(exResource);
+			}
+			ExerciseProposals proposals = findProposals(ex);
+			if (proposals == null) {
+				proposals = ex.createProposals();
+				resource.getContents().add(proposals);
+			}
+			return proposals;
+		} else if (eObject instanceof ExerciseProposals) {
+			return eObject;
+		}
+		return null;
 	}
 
-	public void addExercise(Exercise ex, boolean select) {
-		Resource resource = ex.eResource();
-		URI uri = resource.getURI();
-		if (resource != null && "xex".equals(uri.fileExtension())) {
-			ResourceSet resourceSet = resource.getResourceSet();
-			if (resourceSet == null) {
-				resourceSet = new ResourceSetImpl();
-			}
-			Resource exResource = resourceSet.createResource(uri.trimFileExtension().appendFileExtension("ex"));
-			exResource.getContents().addAll(resource.getContents());
-			resourceSet.getResources().remove(resource);
-			resourceSet.getResources().add(exResource);
-		}
-		ExerciseProposals proposals = findProposals(ex);
-		if (proposals == null) {
-			proposals = ex.createProposals();
-			resource.getContents().add(proposals);
-		}
-		addExercise(proposals);
-		if (select) {
-			selectEObjectTab(proposals);
+	protected void addEObject(EObject eObject) {
+		if (eObject instanceof ExerciseProposals) {
+			super.addEObject(eObject);
+			autoSave(eObject, 1, true);
 		}
 	}
 
