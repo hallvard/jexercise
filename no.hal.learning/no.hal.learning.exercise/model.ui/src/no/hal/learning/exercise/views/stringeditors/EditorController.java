@@ -64,14 +64,10 @@ class EditorController extends AbstractStringEditorInput implements IPartListene
 		syncButton.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
 		syncButton.addSelectionListener(selectionListener);
 
-		// rest
-//		Composite textParent = new Composite(comp, SWT.NONE);
-//		textParent.setLayout(layout);
 		text = new Text(comp, SWT.READ_ONLY | SWT.MULTI | SWT.WRAP | SWT.V_SCROLL);
 		text.setEditable(false);
-		text.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, true, true));
+		text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		currentFont = defaultFont = text.getFont().getFontData()[0];
-//		textParent.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, true, true));
 		
 		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().addPartListener(this);
 	}
@@ -127,8 +123,8 @@ class EditorController extends AbstractStringEditorInput implements IPartListene
 		this.string = (editEvent != null ? editEvent.getString() : null);
 		String textString = (this.string != null ? this.string : EMPTY_EDITOR_STRING);
 		text.setText(textString);
-		updateTextFont(textString);
 		text.getParent().layout();
+		updateTextFont(textString);
 		if (syncButton.getSelection()) {
 			if (xeditor == null) {
 				openEditor();
@@ -138,19 +134,20 @@ class EditorController extends AbstractStringEditorInput implements IPartListene
 		}
 	}
 
-	private int MIN_FONT_HEIGHT = 6;
+	private int MIN_FONT_HEIGHT = 4;
 
-	private void updateTextFont(String s) {
+	private void updateTextFont(final String s) {
 		int lineCount = 1;
 		for (int i = 0; i < s.length(); i++) {
 			if (s.charAt(i) == '\n') {
 				lineCount++;
 			}
 		}
-		int fontHeight = Math.max(Math.min(text.getSize().y / lineCount, defaultFont.getHeight()), MIN_FONT_HEIGHT);
-		if (fontHeight != currentFont.getHeight()) {
-//			System.out.println(s);
-//			System.out.println("Desired font height: " + fontHeight + String.format(" Math.min(%s / %s, %s", text.getSize().y, lineCount, defaultFont.getHeight()));
+		int controlHeight = text.getSize().y;
+		int fontHeight = Math.max(Math.min(controlHeight / lineCount, defaultFont.getHeight()), MIN_FONT_HEIGHT);
+		if (controlHeight == 0) {
+			text.getParent().layout();
+		} else if (fontHeight != currentFont.getHeight()) {
 			if (textFont != null) {
 				textFont.dispose();
 			}
