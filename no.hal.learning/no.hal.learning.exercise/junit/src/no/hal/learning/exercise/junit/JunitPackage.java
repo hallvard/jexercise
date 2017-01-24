@@ -249,6 +249,15 @@ public interface JunitPackage extends EPackage {
 	int JUNIT_TEST_PROPOSAL___VALIDATE = ExercisePackage.TASK_PROPOSAL___VALIDATE;
 
 	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
+
+	/**
 	 * The number of operations of the '<em>Test Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -320,6 +329,15 @@ public interface JunitPackage extends EPackage {
 	 * @ordered
 	 */
 	int JUNIT_TEST_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_EVENT___GET_TEXT = ExercisePackage.TASK_EVENT___GET_TEXT;
 
 	/**
 	 * The number of operations of the '<em>Test Event</em>' class.

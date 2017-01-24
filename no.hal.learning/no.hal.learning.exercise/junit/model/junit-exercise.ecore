@@ -20,6 +20,9 @@
       <eAnnotations source="no.hal.learning.exercise.views.ExerciseView">
         <details key="dashes" value="- "/>
       </eAnnotations>
+      <eAnnotations source="no.hal.emf.ui.parts.plot.IValueProvider">
+        <details key="priority" value="3"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="no.hal.learning.exercise.views.ExerciseView">

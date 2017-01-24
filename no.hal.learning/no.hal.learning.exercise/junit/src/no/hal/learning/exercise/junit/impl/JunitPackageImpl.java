@@ -275,6 +275,8 @@ public class JunitPackageImpl extends EPackageImpl implements JunitPackage {
 		createExp4jAnnotations();
 		// no.hal.learning.exercise.views.ExerciseView
 		createNoAnnotations();
+		// no.hal.emf.ui.parts.plot.IValueProvider
+		createNo_1Annotations();
 	}
 
 	/**
@@ -318,6 +320,22 @@ public class JunitPackageImpl extends EPackageImpl implements JunitPackage {
 		   source, 
 		   new String[] {
 			 "dashes", ". "
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>no.hal.emf.ui.parts.plot.IValueProvider</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createNo_1Annotations() {
+		String source = "no.hal.emf.ui.parts.plot.IValueProvider";	
+		addAnnotation
+		  (getJunitTestEvent_SuccessCount(), 
+		   source, 
+		   new String[] {
+			 "priority", "3"
 		   });
 	}
 

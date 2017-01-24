@@ -35,6 +35,7 @@ public interface JunitTestEvent extends TaskEvent {
 	 * @see #setSuccessCount(int)
 	 * @see no.hal.learning.exercise.junit.JunitPackage#getJunitTestEvent_SuccessCount()
 	 * @model annotation="no.hal.learning.exercise.views.ExerciseView dashes='- '"
+	 *        annotation="no.hal.emf.ui.parts.plot.IValueProvider priority='3'"
 	 * @generated
 	 */
 	int getSuccessCount();

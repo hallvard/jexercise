@@ -62,6 +62,7 @@ public interface JdtSourceEditEvent extends AbstractStringEditEvent {
 	 * @see #setSizeMeasure(int)
 	 * @see no.hal.learning.exercise.jdt.JdtPackage#getJdtSourceEditEvent_SizeMeasure()
 	 * @model annotation="no.hal.learning.exercise.views.ExerciseView dashes='_ '"
+	 *        annotation="no.hal.emf.ui.parts.plot.IValueProvider priority='3'"
 	 * @generated
 	 */
 	int getSizeMeasure();

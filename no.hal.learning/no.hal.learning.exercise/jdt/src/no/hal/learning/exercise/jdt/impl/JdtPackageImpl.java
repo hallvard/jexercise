@@ -392,6 +392,8 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		createExp4jAnnotations();
 		// no.hal.learning.exercise.views.ExerciseView
 		createNoAnnotations();
+		// no.hal.emf.ui.parts.plot.IValueProvider
+		createNo_1Annotations();
 	}
 
 	/**
@@ -435,6 +437,22 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		   source, 
 		   new String[] {
 			 "dashes", "_ . "
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>no.hal.emf.ui.parts.plot.IValueProvider</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createNo_1Annotations() {
+		String source = "no.hal.emf.ui.parts.plot.IValueProvider";	
+		addAnnotation
+		  (getJdtSourceEditEvent_SizeMeasure(), 
+		   source, 
+		   new String[] {
+			 "priority", "3"
 		   });
 	}
 
