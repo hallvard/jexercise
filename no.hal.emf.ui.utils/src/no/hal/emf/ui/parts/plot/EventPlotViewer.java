@@ -236,8 +236,13 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 			});
 			treeViewer.setInput(this);
 			treeViewer.expandAll();
-			for (O proposal : owners) {
-				treeViewer.setSubtreeChecked(proposal, true);			
+//			for (O proposal : owners) {
+//				treeViewer.setSubtreeChecked(proposal, true);			
+//			}
+			for (PlotData<O, E> plotData : allPlots) {
+				if (plotData.valueProvider instanceof IPriority && ((IPriority) plotData.valueProvider).getPriority() > 0) {
+					treeViewer.setSubtreeChecked(plotData, true);			
+				}
 			}
 			treeViewer.addCheckStateListener(new ICheckStateListener() {
 				@Override
