@@ -594,7 +594,6 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 					toolTipText = eventText;
 				}
 			}
-			System.out.println("Tool tip for " + lastPoint.timestamp);
 			toolTipText += " @ " + formatTime(lastPoint.timestamp, toolTipDateFormat);
 			if (text == null) {
 				text = toolTipText;
@@ -681,6 +680,38 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 			this.maxDx = maxDx;
 			this.maxDy = maxDy;
 		}
+
+		protected int getPlotMaxX() {
+			return 10;
+		}
+
+		protected int getPlotMaxY() {
+			return canvas.getSize().y - 20;
+		}
+
+		public Collection<Point<E>> selectPoints(final int x) {
+			final List<Point<E>> points = new ArrayList<PlotData.Point<E>>();
+			final double[] min = new double[]{-1};
+			for (final PlotData<O, E> plotData : getActivePlots()) {
+				int plotNum = allPlots.indexOf(plotData);
+				plotPathProvider.provide(new PlotPathProvider.Consumer<E>() {
+					@Override
+					public Point<E> consume(Point<E> point, long time, double value, float fx, float fy) {
+						float dx = Math.abs(fx - x);
+						if ((maxD <= 0.0d || dx <= maxD) && (maxDx <= 0.0d || dx <= maxDx)) {
+							if (min[0] < 0 || dx < min[0]) {
+								min[0] = dx;
+								points.add(0, point);
+							} else {
+								points.add(point);
+							}
+						}
+						return null;
+					}
+				}, plotData.points, timeScaler, transform, getPlotMaxX(), getPlotMaxY(), plotNum);
+			}
+			return points;
+		}
 		
 		public Collection<Point<E>> selectPoints(final int x, final int y) {
 			final List<Point<E>> points = new ArrayList<PlotData.Point<E>>();
@@ -702,7 +733,7 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 						}
 						return null;
 					}
-				}, plotData.points, timeScaler, transform, 10, canvas.getSize().y - 20, plotNum);
+				}, plotData.points, timeScaler, transform, getPlotMaxX(), getPlotMaxY(), plotNum);
 			}
 			return points;
 		}
@@ -721,7 +752,7 @@ public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportCo
 							}
 							return null;
 						}
-					}, plotData.points, timeScaler, transform, 10, canvas.getSize().y - 20, plotNum);
+					}, plotData.points, timeScaler, transform, getPlotMaxX(), getPlotMaxY(), plotNum);
 				}
 			}
 			return points;

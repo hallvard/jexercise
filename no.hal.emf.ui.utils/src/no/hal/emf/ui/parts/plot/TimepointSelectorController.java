@@ -85,7 +85,7 @@ public class TimepointSelectorController<O, E> extends SelectionAdapter {
 		if (slider != null) {
 			if (slider == timeSlider) {
 				int value = timeSlider.getSelection();
-				Collection<Point<E>> points = pointSelector.selectPoints(value, 0); //, value + 1, size.y);
+				Collection<Point<E>> points = pointSelector.selectPoints(value); //, value + 1, size.y);
 				if (! points.isEmpty()) {
 					newTimepoint = points.iterator().next().timestamp;
 				}
@@ -104,7 +104,6 @@ public class TimepointSelectorController<O, E> extends SelectionAdapter {
 		if (timeLabel != null) {
 			String text = timeLabelText;
 			if (showTime && pointSelector != null) {
-//				text = text + " - " + new Date(timepoint).toString();
 				text = text + " - " + EventPlotViewer.formatTime(timepoint, labelTimeFormat);
 			}
 			timeLabel.setText(text);
