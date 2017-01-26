@@ -27,4 +27,5 @@ Bundle-ActivationPolicy: lazy
 Import-Package: no.hal.emf.ui.commands,
  no.hal.emf.ui.parts,
  no.hal.emf.ui.parts.adapters,
- no.hal.emf.ui.utils
+ no.hal.emf.ui.utils,
+ org.eclipse.paho.client.mqttv3;version="[1.0.0,1.2.0)"

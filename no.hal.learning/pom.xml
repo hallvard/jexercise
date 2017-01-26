@@ -64,6 +64,7 @@
 		<module>../no.hal.confluence.pydev.ui</module>
 		<module>../no.hal.confluence.feature</module>
 
+		<module>org.eclipse.paho.client.mqttv3</module>
 		<module>no.hal.learning.exercise</module>
 		<module>no.hal.learning.updatesite</module>
 	</modules>

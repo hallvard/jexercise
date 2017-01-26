@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.swt.widgets.Composite;
 
@@ -21,6 +20,7 @@ import no.hal.emf.ui.parts.EObjectsView;
 import no.hal.emf.ui.parts.adapters.EObjectViewerAdapter;
 import no.hal.learning.exercise.Exercise;
 import no.hal.learning.exercise.ExerciseProposals;
+import no.hal.learning.exercise.logging.ExLogger;
 import no.hal.learning.exercise.views.adapters.ExerciseProposalsUIAdapter;
 import no.hal.learning.exercise.views.plot.TaskPlotViewerAdapter;
 import no.hal.learning.exercise.views.stringeditors.EditorViewerAdapter;
@@ -90,7 +90,13 @@ public class ExerciseView extends EObjectsView {
 		}
 	};
 	
-	private FileChangeHandler exLogger = new FileChangeHandler("ex") {
+	private ExLogger exLogger;
+	
+	protected String getClientId() {
+		return ResourcesPlugin.getWorkspace().getRoot().getLocation().toString().replace("/", "_");
+	}
+	
+	private FileChangeHandler exFileChangeHandler = new FileChangeHandler("ex") {
 		@Override
 		protected void fileChanged(IFile file) {
 			Resource resource = getEObjectResource(file.getFullPath());
@@ -100,7 +106,10 @@ public class ExerciseView extends EObjectsView {
 				logOptions.put(Resource.OPTION_ZIP, Boolean.TRUE);
 				try {
 					resource.save(output, logOptions);
-					System.out.println("Logging " + resource.getURI() + ", " + output.toByteArray().length + " bytes1");
+					if (exLogger == null) {
+						exLogger = new ExLogger(getClientId(), ExerciseView.class.getName());
+					}
+					exLogger.enqueue(resource.getURI(), output.toByteArray());
 				} catch (IOException e) {
 				}
 			}
@@ -111,12 +120,12 @@ public class ExerciseView extends EObjectsView {
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(autoSaveListener, IResourceChangeEvent.POST_BUILD);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(exLogger, IResourceChangeEvent.POST_CHANGE);
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(exFileChangeHandler, IResourceChangeEvent.POST_CHANGE);
 	}
 	
 	@Override
 	public void dispose() {
-		ResourcesPlugin.getWorkspace().removeResourceChangeListener(exLogger);
+		ResourcesPlugin.getWorkspace().removeResourceChangeListener(exFileChangeHandler);
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(autoSaveListener);
 		super.dispose();
 	}

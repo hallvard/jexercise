@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Mqttv3 Client
+Bundle-SymbolicName: org.eclipse.paho.client.mqttv3
+Bundle-Version: 1.1.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ClassPath: org.eclipse.paho.client.mqttv3-1.1.0.jar
+Export-Package: org.eclipse.paho.client.mqttv3;version="1.1.0"
