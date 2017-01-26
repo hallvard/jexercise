@@ -1,4 +1,4 @@
-package no.hal.emf.ui.parts.plot;
+package no.hal.learning.exercise.views.plot;
 
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;

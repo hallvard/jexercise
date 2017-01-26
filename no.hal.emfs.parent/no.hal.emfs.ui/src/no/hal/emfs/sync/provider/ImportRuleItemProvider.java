@@ -6,22 +6,12 @@ package no.hal.emfs.sync.provider;
 import java.util.Collection;
 import java.util.List;
 
-import no.hal.emf.ui.utils.Util;
-import no.hal.emfs.EmfsContainer;
-import no.hal.emfs.sync.ImportRule;
-import no.hal.emfs.sync.ImportSpec;
-import no.hal.emfs.sync.SyncPackage;
-import no.hal.emfs.ui.commands.AddEmfsImportRuleCommand;
-import no.hal.emfs.ui.commands.ImportEmfsResourcesCommand;
-
-import org.eclipse.core.resources.IResource;
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
+import no.hal.emfs.sync.ImportRule;
+import no.hal.emfs.sync.SyncPackage;
 
 /**
  * This is the item provider adapter for a {@link no.hal.emfs.sync.ImportRule} object.

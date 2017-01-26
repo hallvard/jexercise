@@ -1,4 +1,4 @@
-package no.hal.emf.ui.parts.plot;
+package no.hal.learning.exercise.views.plot;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -41,10 +41,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
+
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
-import no.hal.emf.ui.parts.plot.PlotData.Point;
 import no.hal.emf.ui.utils.TextPromptHelper;
+import no.hal.learning.exercise.views.plot.PlotData.Point;
 
 public class EventPlotViewer<O, E> implements ISelectionProvider, PlotViewportController.Listener, TimepointSelectorController.Listener {
 

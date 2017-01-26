@@ -1,8 +1,8 @@
-package no.hal.emf.ui.parts.plot;
+package no.hal.learning.exercise.views.plot;
 
 import org.eclipse.swt.graphics.Transform;
 
-import no.hal.emf.ui.parts.plot.PlotData.Point;
+import no.hal.learning.exercise.views.plot.PlotData.Point;
 
 public class PlotPathProvider<E> {
 

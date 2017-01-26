@@ -3,16 +3,17 @@ package no.hal.emf.ui.parts;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.IResource;
-import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.jface.action.Action;
@@ -94,6 +95,23 @@ public abstract class EObjectsView extends AbstractEObjectView {
 	protected Composite getCurrentComposite() {
 		return (Composite) tabFolder.getSelection().getControl();
 	}
+	
+	protected Resource getEObjectResource(IPath path) {
+		for (EObject eObject : eObjects) {
+			Resource resource = eObject.eResource();
+			if (resource != null && isPath(resource.getURI(), path)) {
+				return resource;
+			}
+		}
+		return null;
+	}
+
+	private boolean isPath(URI uri, IPath path) {
+		if (uri.isPlatformResource() && uri.equals(URI.createPlatformResourceURI(path.toString(), false))) {
+			return true;
+		}
+		return false;
+	}
 
 	private CTabFolder tabFolder;
 
@@ -162,7 +180,7 @@ public abstract class EObjectsView extends AbstractEObjectView {
 
 	private IAction saveAction = new Action("Save", ImageDescriptor.createFromFile(UIPlugin.class, "/icons/full/etool16/save_edit.png")) {
 		public void run() {
-			saveEObjectResources();
+			saveEObjectResources(saveOptions);
 		}
 	};
 	
@@ -189,13 +207,17 @@ public abstract class EObjectsView extends AbstractEObjectView {
 		return getAdapterHelper().adapt(eObject, IItemLabelProvider.class);
 	}
 
+	protected Map<String, String> saveOptions = new HashMap<String, String>(); {
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+	}
+
 	protected int addEObjectTab(final EObject eObject, int num) {
 		CTabItem tab = new CTabItem(tabFolder, SWT.CLOSE);
 		tab.addDisposeListener(new DisposeListener() {
 			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				eObjects.remove(eObject);
-				saveEObjectResource(eObject);
+				saveEObjectResource(eObject, saveOptions);
 			}
 		});
 		IItemLabelProvider labelProvider = getLabelProvider(eObject);
@@ -252,70 +274,83 @@ public abstract class EObjectsView extends AbstractEObjectView {
 //		saveEObjectResources();
 	}
 
-	protected void saveEObjectResources() {
-		for (EObject eObject : eObjects) {
-			saveEObjectResource(eObject);
+	protected void saveEObjectResource(EObject eObject, Map<?, ?> options) {
+		try {
+			eObject.eResource().save(options);
+		} catch (IOException e) {
 		}
 	}
 
-	protected void saveEObjectResource(EObject eObject) {
-		try {
-			eObject.eResource().save(null);
-		} catch (IOException e) {
+	protected void saveEObjectResources(Map<?, ?> options) {
+		for (EObject eObject : eObjects) {
+			saveEObjectResource(eObject, options);
 		}
 	}
 	
 	//
 	
-	private class AutoSaver extends EContentAdapter implements Runnable {
-
-		private EObject eObject;
-		private int changeCount, changeCounter = 0;
-		private boolean async;
-	
-		public AutoSaver(EObject eObject, int changeCount, boolean async) {
-			this.eObject = eObject;
-			this.changeCount = changeCount;
-			this.async = async;
-			eObject.eAdapters().add(this);
-		}
-
-		protected boolean isChangeNotification(Notification notification) {
-			return notification.getNotifier() == eObject;
-		}
-		
-		@Override
-		public void notifyChanged(Notification notification) {
-			if ((! notification.isTouch()) && isChangeNotification(notification) && (! tabFolder.isDisposed())) {
-				if (changeCounter >= 0) {
-					this.changeCounter++;
-					if (changeCounter >= changeCount) {
-						this.changeCounter = -1;
-						if (async) {
-							tabFolder.getDisplay().asyncExec(this);
-						} else {
-							save();
-						}
-					}
-					save();
-				}
-			}
-		}
-		
-		private void save() {
-			if (changeCounter < 0) {
-				saveEObjectResource(this.eObject);
-				changeCounter = 0;
-			}
-		}
-
-		@Override
-		public void run() {
-			save();
-		}
-	}
-	
-	protected void autoSave(EObject eObject, int changeCount, boolean async) {
-		new AutoSaver(eObject, changeCount, async);
-	}
+//	private class AutoSaver extends EContentAdapter implements Runnable {
+//
+//		private EObject eObject;
+//		private int changeCount, changeCounter = 0;
+//		private boolean async;
+//	
+//		public AutoSaver(EObject eObject, int changeCount, boolean async) {
+//			this.eObject = eObject;
+//			this.changeCount = changeCount;
+//			this.async = async;
+//			eObject.eAdapters().add(this);
+//		}
+//
+//		protected boolean isChangeNotification(Notification notification) {
+//			if (notification.isTouch()) {
+//				return false;
+//			}
+//			Object notifier = notification.getNotifier();
+//			while (notifier instanceof EObject) {
+//				if (notifier == eObject) {
+//					return true;
+//				}
+//				notifier = ((EObject) notifier).eContainer();
+//			}
+//			return false;
+//		}
+//		
+//		protected boolean isActive() {
+//			return eObjects.contains(eObject) && (! tabFolder.isDisposed());
+//		}
+//		
+//		@Override
+//		public void notifyChanged(Notification notification) {
+//			if (isActive() && isChangeNotification(notification)) {
+//				if (changeCounter >= 0) {
+//					this.changeCounter++;
+//					if (changeCounter >= changeCount) {
+//						this.changeCounter = -1;
+//						if (async) {
+//							tabFolder.getDisplay().asyncExec(this);
+//						} else {
+//							run();
+//						}
+//					}
+//				}
+//			}
+//		}
+//		
+//		private void save() {
+//			if (changeCounter < 0) {
+//				saveEObjectResource(this.eObject, null);
+//				changeCounter = 0;
+//			}
+//		}
+//
+//		@Override
+//		public void run() {
+//			save();
+//		}
+//	}
+//	
+//	protected void autoSave(EObject eObject, int changeCount, boolean async) {
+//		new AutoSaver(eObject, changeCount, async);
+//	}
 }

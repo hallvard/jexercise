@@ -7,12 +7,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import no.hal.confluence.ui.Activator;
-import no.hal.confluence.ui.preferences.WikiPreferencePage;
-import no.hal.confluence.ui.resources.EmfsResourceExtractor;
-import no.hal.confluence.ui.resources.util.AbstractResourceExtractor;
-import no.hal.emfs.EmfsResource;
-
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
@@ -34,6 +28,11 @@ import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.internal.UIPlugin;
 import org.eclipse.ui.part.ViewPart;
+
+import no.hal.confluence.ui.Activator;
+import no.hal.confluence.ui.preferences.WikiPreferencePage;
+import no.hal.confluence.ui.resources.EmfsResourceExtractor;
+import no.hal.emfs.EmfsResource;
 
 public class ConfluenceWikiView extends ViewPart implements BrowserView, LocationListener, ProgressListener {
 

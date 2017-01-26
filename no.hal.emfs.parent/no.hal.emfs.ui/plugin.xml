@@ -141,7 +141,7 @@
    </extension>
 
 	<extension point="org.eclipse.ui.menus">
-      <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+      <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <menu id="no.hal.emfs.ui.commands" label="EMFS">
 	        <command id="no.hal.emfs.ui.commands.ConvertToXmi" 	commandId="no.hal.emfs.ui.commands.ConvertToXmi"/>
 	        <command id="no.hal.emfs.ui.commands.ImportEmfs" 	commandId="no.hal.emfs.ui.commands.ExportEmfs"/>

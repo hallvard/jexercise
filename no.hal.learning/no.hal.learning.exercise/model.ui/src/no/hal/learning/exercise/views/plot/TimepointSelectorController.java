@@ -1,4 +1,4 @@
-package no.hal.emf.ui.parts.plot;
+package no.hal.learning.exercise.views.plot;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Slider;
 import org.eclipse.swt.widgets.Widget;
 
-import no.hal.emf.ui.parts.plot.PlotData.Point;
+import no.hal.learning.exercise.views.plot.PlotData.Point;
 
 public class TimepointSelectorController<O, E> extends SelectionAdapter {
 

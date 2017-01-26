@@ -1,4 +1,4 @@
-package no.hal.emf.ui.parts.plot;
+package no.hal.learning.exercise.views.plot;
 
 import java.sql.Date;
 import java.util.ArrayList;

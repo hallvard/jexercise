@@ -162,33 +162,21 @@ public class JdtSourceEditTaskProposalAdapter extends TaskProposalUIAdapter<JdtS
 
 		@Override
 		public void resourceChanged(IResourceChangeEvent event) {
-			if (event.getType() != IResourceChangeEvent.POST_BUILD) {
+			if (event.getType() != IResourceChangeEvent.POST_BUILD || filePath == null) {
 				return;
 			}
-			resourceChanged(event.getDelta());
-		}
-
-		protected boolean resourceChanged(IResourceDelta delta) {
-			if (delta.getResource() != null) {
-				IPath resourcePath = delta.getResource().getFullPath();
-				if (delta.getResource() instanceof IFile && resourcePath.equals(filePath)) {
-					sourceFileChanged((IFile) delta.getResource());
-					return true;
-				}
+			IResourceDelta file = event.getDelta().findMember(filePath);
+			if (file != null) {
+				filePath = null;
+				sourceFileChanged((IFile) file.getResource());
 			}
-			for (IResourceDelta childDelta : delta.getAffectedChildren()) {
-				if (resourceChanged(childDelta)) {
-					return true;
-				}
-			}
-			return false;
 		}
 
 		protected void sourceFileChanged(IFile file) {	
 			errorCount = warningCount = -1;
 			IMarker[] problemMarkers = null;
 			try {
-				problemMarkers = file.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_INFINITE);
+				problemMarkers = file.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
 			} catch (CoreException e) {
 			}
 			if (problemMarkers != null) {

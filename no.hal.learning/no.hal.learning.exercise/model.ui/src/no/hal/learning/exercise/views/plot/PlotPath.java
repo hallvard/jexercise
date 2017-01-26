@@ -1,4 +1,4 @@
-package no.hal.emf.ui.parts.plot;
+package no.hal.learning.exercise.views.plot;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,7 +8,7 @@ import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Path;
 
-import no.hal.emf.ui.parts.plot.PlotData.Point;
+import no.hal.learning.exercise.views.plot.PlotData.Point;
 
 public class PlotPath<E> implements PlotPathProvider.Consumer<E> {
 

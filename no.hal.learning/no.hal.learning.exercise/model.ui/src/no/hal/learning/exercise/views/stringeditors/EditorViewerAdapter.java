@@ -18,12 +18,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.widgets.Composite;
 
-import no.hal.emf.ui.parts.plot.EventAttributeValueProvider;
-import no.hal.emf.ui.parts.plot.EventExpressionValueProvider;
-import no.hal.emf.ui.parts.plot.EventPlotViewer;
-import no.hal.emf.ui.parts.plot.IEventModel;
-import no.hal.emf.ui.parts.plot.IEventProvider;
-import no.hal.emf.ui.parts.plot.IValueProvider;
 import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.ExerciseProposals;
 import no.hal.learning.exercise.Question;
@@ -34,6 +28,12 @@ import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.views.AbstractTaskProposalViewerAdapter;
 import no.hal.learning.exercise.views.ExerciseView;
+import no.hal.learning.exercise.views.plot.EventAttributeValueProvider;
+import no.hal.learning.exercise.views.plot.EventExpressionValueProvider;
+import no.hal.learning.exercise.views.plot.EventPlotViewer;
+import no.hal.learning.exercise.views.plot.IEventModel;
+import no.hal.learning.exercise.views.plot.IEventProvider;
+import no.hal.learning.exercise.views.plot.IValueProvider;
 
 public class EditorViewerAdapter extends AbstractTaskProposalViewerAdapter implements ISelectionChangedListener {
 

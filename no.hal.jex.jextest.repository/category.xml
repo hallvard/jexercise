@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/no.hal.jex.jextest.feature_0.9.0.qualifier.jar" id="no.hal.jex.jextest.feature" version="0.9.0.qualifier">
+      <category name="no.hal.jex.jextest.feature"/>
+   </feature>
+   <category-def name="no.hal.jex.jextest.feature" label="JExercise test DSL"/>
+</site>

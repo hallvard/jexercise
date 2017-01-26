@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: UI utils for EMF
+Bundle-Name: UI utilities for EMF
 Bundle-SymbolicName: no.hal.emf.ui.utils;singleton:=true
 Bundle-Version: 0.1.1.qualifier
 Bundle-Activator: no.hal.emf.ui.utils.Activator
@@ -17,8 +17,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.emf.ui.commands,
  no.hal.emf.ui.parts,
  no.hal.emf.ui.parts.adapters,
- no.hal.emf.ui.parts.plot,
  no.hal.emf.ui.properties,
  no.hal.emf.ui.utils
-Bundle-ClassPath: libs/exp4j-0.4.6-SNAPSHOT.jar,
- .
+Bundle-ClassPath: .

@@ -10,11 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.swt.widgets.Composite;
 
-import no.hal.emf.ui.parts.plot.EventAttributeValueProvider;
-import no.hal.emf.ui.parts.plot.EventExpressionValueProvider;
-import no.hal.emf.ui.parts.plot.EventPlotViewer;
-import no.hal.emf.ui.parts.plot.IEventModel;
-import no.hal.emf.ui.parts.plot.IValueProvider;
 import no.hal.learning.exercise.ExerciseProposals;
 import no.hal.learning.exercise.Question;
 import no.hal.learning.exercise.StringQuestion;

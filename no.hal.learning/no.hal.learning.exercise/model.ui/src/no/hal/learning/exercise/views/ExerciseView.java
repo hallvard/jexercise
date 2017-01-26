@@ -1,10 +1,21 @@
 package no.hal.learning.exercise.views;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.swt.widgets.Composite;
 
 import no.hal.emf.ui.parts.EObjectsView;
 import no.hal.emf.ui.parts.adapters.EObjectViewerAdapter;
@@ -53,7 +64,7 @@ public class ExerciseView extends EObjectsView {
 	protected void addEObject(EObject eObject) {
 		if (eObject instanceof ExerciseProposals) {
 			super.addEObject(eObject);
-			autoSave(eObject, 1, true);
+//			autoSave(eObject, 1, true);
 		}
 	}
 
@@ -70,22 +81,43 @@ public class ExerciseView extends EObjectsView {
 		return null;
 	}
 
-//	private IAction plotAction = new Action("Plot") {
-//		public void run() {
-//			EObject currentEObject = getCurrentEObject();
-//			if (currentEObject instanceof ExerciseProposals) {
-//				showPlot((ExerciseProposals) currentEObject);
-//			}
-//		}
-//	};
-//
-//	protected void addActions(IActionBars actionBars) {
-//		super.addActions(actionBars);
-//		actionBars.getToolBarManager().add(plotAction);
-//	}
-//	
-//	private void showPlot(ExerciseProposals proposals) {
-//		PlotDialog2 plotDialog = new PlotDialog2(null, proposals);
-//		plotDialog.open();
-//	}
+	private IResourceChangeListener autoSaveListener = new IResourceChangeListener() {
+		@Override
+		public void resourceChanged(IResourceChangeEvent event) {
+			if (event.getType() == IResourceChangeEvent.POST_BUILD) {
+				saveEObjectResources(saveOptions);
+			}
+		}
+	};
+	
+	private FileChangeHandler exLogger = new FileChangeHandler("ex") {
+		@Override
+		protected void fileChanged(IFile file) {
+			Resource resource = getEObjectResource(file.getFullPath());
+			if (resource != null) {
+				ByteArrayOutputStream output = new ByteArrayOutputStream();
+				Map<String, Object> logOptions = new HashMap<String, Object>();
+				logOptions.put(Resource.OPTION_ZIP, Boolean.TRUE);
+				try {
+					resource.save(output, logOptions);
+					System.out.println("Logging " + resource.getURI() + ", " + output.toByteArray().length + " bytes1");
+				} catch (IOException e) {
+				}
+			}
+		}
+	};
+
+	@Override
+	public void createPartControl(Composite parent) {
+		super.createPartControl(parent);
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(autoSaveListener, IResourceChangeEvent.POST_BUILD);
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(exLogger, IResourceChangeEvent.POST_CHANGE);
+	}
+	
+	@Override
+	public void dispose() {
+		ResourcesPlugin.getWorkspace().removeResourceChangeListener(exLogger);
+		ResourcesPlugin.getWorkspace().removeResourceChangeListener(autoSaveListener);
+		super.dispose();
+	}
 }
