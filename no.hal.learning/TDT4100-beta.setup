@@ -59,6 +59,8 @@
           name="no.hal.emfs.feature.feature.group"/>
       <requirement
           name="no.hal.confluence.feature.feature.group"/>
+      <requirement
+          name="no.hal.learning.exercise.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/neon"/>
       <repository
@@ -70,7 +72,7 @@
       <repository
           url="http://www.pydev.org/updates/"/>
       <repository
-          url="http://files.idi.ntnu.no/publish/no.hal.jex/repository/"/>
+          url="http://files.idi.ntnu.no/publish/no.hal.learning.exercise/repository/"/>
     </setupTask>
     <description>TDT4100 for Neon.</description>
   </version>
