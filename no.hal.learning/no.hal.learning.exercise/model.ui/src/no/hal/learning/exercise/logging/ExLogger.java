@@ -62,7 +62,7 @@ public class ExLogger {
 				for (int i = 3; i < segments.length; i++) {
 					subTopic += "/" + segments[i];
 				}
-				subTopic += "/" + clientId;
+				subTopic += "/" + clientId.hashCode();
 				log(subTopic, resources.get(uri));
 			}
 		}
