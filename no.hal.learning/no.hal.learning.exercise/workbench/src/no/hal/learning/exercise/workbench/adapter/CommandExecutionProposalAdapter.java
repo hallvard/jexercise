@@ -28,7 +28,7 @@ public class CommandExecutionProposalAdapter extends WorkbenchTaskProposalAdapte
 	@Override
 	protected void removeWorkbenchListeners(IWorkbench workbench) {
 		ICommandService commandService = workbench.getAdapter(ICommandService.class);
-		if (commandService != null) {
+		if (commandService != null && listener != null) {
 			commandService.removeExecutionListener(listener);
 		}
 	}

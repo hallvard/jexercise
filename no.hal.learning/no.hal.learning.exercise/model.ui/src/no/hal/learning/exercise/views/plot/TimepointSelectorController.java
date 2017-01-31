@@ -1,5 +1,6 @@
 package no.hal.learning.exercise.views.plot;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,7 +31,7 @@ public class TimepointSelectorController<O, E> extends SelectionAdapter {
 	
 	private boolean showLabel = true, showTime = true;
 	private String timeLabelText = "Time selector";
-	private SimpleDateFormat labelTimeFormat = new SimpleDateFormat("HH:mm E, dd/MM-yy");
+	private DateFormat labelTimeFormat = new SimpleDateFormat("HH:mm E, dd/MM-yy");
 
 	public void createControls(Composite composite) {
 		GridLayout labelLayout = new GridLayout(1, true);

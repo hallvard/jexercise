@@ -9,7 +9,8 @@ Bundle-Activator: no.hal.learning.exercise.provider.ExerciseEditPlugin$Implement
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: no.hal.learning.exercise.presentation,
+Export-Package: no.hal.learning.exercise.logging,
+ no.hal.learning.exercise.presentation,
  no.hal.learning.exercise.provider,
  no.hal.learning.exercise.views,
  no.hal.learning.exercise.views.adapters

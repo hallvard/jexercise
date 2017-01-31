@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+      <extension point="org.eclipse.ui.views">
+	     <view id="no.hal.learning.exercise.adm.LoggedExView"
+	     	name="Logged Exercises"
+	     	allowMultiple="false"
+	     	class="no.hal.learning.exercise.adm.LoggedExView">
+	     </view>
+   </extension>
+
+</plugin>

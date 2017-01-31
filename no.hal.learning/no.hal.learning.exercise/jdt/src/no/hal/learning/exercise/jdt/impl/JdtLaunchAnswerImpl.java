@@ -2,6 +2,7 @@
  */
 package no.hal.learning.exercise.jdt.impl;
 
+import java.util.Collection;
 import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.impl.TaskAnswerImpl;
 import no.hal.learning.exercise.jdt.JdtFactory;
@@ -10,9 +11,11 @@ import no.hal.learning.exercise.jdt.JdtLaunchProposal;
 import no.hal.learning.exercise.jdt.JdtPackage;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link no.hal.learning.exercise.jdt.impl.JdtLaunchAnswerImpl#getMode <em>Mode</em>}</li>
  *   <li>{@link no.hal.learning.exercise.jdt.impl.JdtLaunchAnswerImpl#getClassName <em>Class Name</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.jdt.impl.JdtLaunchAnswerImpl#getLaunchAttrNames <em>Launch Attr Names</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.jdt.impl.JdtLaunchAnswerImpl#getLaunchAttrValues <em>Launch Attr Values</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +73,26 @@ public class JdtLaunchAnswerImpl extends TaskAnswerImpl implements JdtLaunchAnsw
 	 * @ordered
 	 */
 	protected String className = CLASS_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getLaunchAttrNames() <em>Launch Attr Names</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLaunchAttrNames()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> launchAttrNames;
+
+	/**
+	 * The cached value of the '{@link #getLaunchAttrValues() <em>Launch Attr Values</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLaunchAttrValues()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> launchAttrValues;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,6 +160,30 @@ public class JdtLaunchAnswerImpl extends TaskAnswerImpl implements JdtLaunchAnsw
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getLaunchAttrNames() {
+		if (launchAttrNames == null) {
+			launchAttrNames = new EDataTypeUniqueEList<String>(String.class, this, JdtPackage.JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES);
+		}
+		return launchAttrNames;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getLaunchAttrValues() {
+		if (launchAttrValues == null) {
+			launchAttrValues = new EDataTypeUniqueEList<String>(String.class, this, JdtPackage.JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES);
+		}
+		return launchAttrValues;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -142,6 +191,10 @@ public class JdtLaunchAnswerImpl extends TaskAnswerImpl implements JdtLaunchAnsw
 				return getMode();
 			case JdtPackage.JDT_LAUNCH_ANSWER__CLASS_NAME:
 				return getClassName();
+			case JdtPackage.JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES:
+				return getLaunchAttrNames();
+			case JdtPackage.JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES:
+				return getLaunchAttrValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -151,6 +204,7 @@ public class JdtLaunchAnswerImpl extends TaskAnswerImpl implements JdtLaunchAnsw
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -159,6 +213,14 @@ public class JdtLaunchAnswerImpl extends TaskAnswerImpl implements JdtLaunchAnsw
 				return;
 			case JdtPackage.JDT_LAUNCH_ANSWER__CLASS_NAME:
 				setClassName((String)newValue);
+				return;
+			case JdtPackage.JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES:
+				getLaunchAttrNames().clear();
+				getLaunchAttrNames().addAll((Collection<? extends String>)newValue);
+				return;
+			case JdtPackage.JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES:
+				getLaunchAttrValues().clear();
+				getLaunchAttrValues().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -178,6 +240,12 @@ public class JdtLaunchAnswerImpl extends TaskAnswerImpl implements JdtLaunchAnsw
 			case JdtPackage.JDT_LAUNCH_ANSWER__CLASS_NAME:
 				setClassName(CLASS_NAME_EDEFAULT);
 				return;
+			case JdtPackage.JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES:
+				getLaunchAttrNames().clear();
+				return;
+			case JdtPackage.JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES:
+				getLaunchAttrValues().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -194,6 +262,10 @@ public class JdtLaunchAnswerImpl extends TaskAnswerImpl implements JdtLaunchAnsw
 				return MODE_EDEFAULT == null ? mode != null : !MODE_EDEFAULT.equals(mode);
 			case JdtPackage.JDT_LAUNCH_ANSWER__CLASS_NAME:
 				return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
+			case JdtPackage.JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES:
+				return launchAttrNames != null && !launchAttrNames.isEmpty();
+			case JdtPackage.JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES:
+				return launchAttrValues != null && !launchAttrValues.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -212,6 +284,10 @@ public class JdtLaunchAnswerImpl extends TaskAnswerImpl implements JdtLaunchAnsw
 		result.append(mode);
 		result.append(", className: ");
 		result.append(className);
+		result.append(", launchAttrNames: ");
+		result.append(launchAttrNames);
+		result.append(", launchAttrValues: ");
+		result.append(launchAttrValues);
 		result.append(')');
 		return result.toString();
 	}

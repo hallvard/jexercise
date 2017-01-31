@@ -36,6 +36,8 @@
   	<module>xtext</module>
   	 -->
 
+  	<module>adm</module>
+
   	<module>feature</module>
   </modules>
 </project>

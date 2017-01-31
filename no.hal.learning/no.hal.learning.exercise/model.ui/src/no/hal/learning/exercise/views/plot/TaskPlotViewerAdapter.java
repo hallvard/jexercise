@@ -86,6 +86,7 @@ public class TaskPlotViewerAdapter extends AbstractTaskProposalViewerAdapter {
 					valueProviders.add(valueProvider);
 				}
 			}
+			valueProviders.add(new ValueNumberProvider<TaskEvent>());
 			for (EAnnotation annotation : eventClass.getEAnnotations()) {
 				if ("exp4j".equals(annotation.getSource())) {
 					EMap<String, String> details = annotation.getDetails();

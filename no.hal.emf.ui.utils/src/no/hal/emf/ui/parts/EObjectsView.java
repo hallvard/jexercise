@@ -67,6 +67,17 @@ public abstract class EObjectsView extends AbstractEObjectView {
 		}
 	}
 	
+	public EObject addAcceptedEObject(Resource resource) {
+		for (EObject eObject : resource.getContents()) {
+			EObject accepted = accept(eObject);
+			if (accepted != null) {
+				addEObject(accepted);
+				return accepted;
+			}
+		}
+		return null;
+	}
+
 	protected void removeEObject(EObject eObject) {
 		int pos = eObjects.indexOf(eObject);
 		if (pos >= 0) {
@@ -196,7 +207,12 @@ public abstract class EObjectsView extends AbstractEObjectView {
 	}
 
 	protected boolean accept(Resource resource) {
-		return true;
+		for (EObject eObject : resource.getContents()) {
+			if (accept(eObject) != null) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	protected EObject accept(EObject eObject) {

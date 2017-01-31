@@ -3,6 +3,7 @@
 package no.hal.learning.exercise.jdt;
 
 import no.hal.learning.exercise.TaskAnswer;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +16,8 @@ import no.hal.learning.exercise.TaskAnswer;
  * <ul>
  *   <li>{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer#getMode <em>Mode</em>}</li>
  *   <li>{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer#getClassName <em>Class Name</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer#getLaunchAttrNames <em>Launch Attr Names</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer#getLaunchAttrValues <em>Launch Attr Values</em>}</li>
  * </ul>
  *
  * @see no.hal.learning.exercise.jdt.JdtPackage#getJdtLaunchAnswer()
@@ -73,5 +76,37 @@ public interface JdtLaunchAnswer extends TaskAnswer {
 	 * @generated
 	 */
 	void setClassName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Launch Attr Names</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Launch Attr Names</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Launch Attr Names</em>' attribute list.
+	 * @see no.hal.learning.exercise.jdt.JdtPackage#getJdtLaunchAnswer_LaunchAttrNames()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getLaunchAttrNames();
+
+	/**
+	 * Returns the value of the '<em><b>Launch Attr Values</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Launch Attr Values</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Launch Attr Values</em>' attribute list.
+	 * @see no.hal.learning.exercise.jdt.JdtPackage#getJdtLaunchAnswer_LaunchAttrValues()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getLaunchAttrValues();
 
 } // JdtLaunchAnswer

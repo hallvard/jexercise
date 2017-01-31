@@ -92,6 +92,15 @@ public class ExerciseView extends EObjectsView {
 	
 	private ExLogger exLogger;
 	
+	private static Map<String, Object> logOptions = new HashMap<String, Object>();
+	static {
+		logOptions.put(Resource.OPTION_ZIP, Boolean.TRUE);
+	}
+	
+	public static Map<String, Object> getLogOptions() {
+		return logOptions;
+	}
+
 	protected String getClientId() {
 		return ResourcesPlugin.getWorkspace().getRoot().getLocation().toString().replace("/", "_");
 	}
@@ -102,8 +111,6 @@ public class ExerciseView extends EObjectsView {
 			Resource resource = getEObjectResource(file.getFullPath());
 			if (resource != null) {
 				ByteArrayOutputStream output = new ByteArrayOutputStream();
-				Map<String, Object> logOptions = new HashMap<String, Object>();
-				logOptions.put(Resource.OPTION_ZIP, Boolean.TRUE);
 				try {
 					resource.save(output, logOptions);
 					if (exLogger == null) {
@@ -129,4 +136,65 @@ public class ExerciseView extends EObjectsView {
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(autoSaveListener);
 		super.dispose();
 	}
+
+//	private URI createMqttUri(String exPath, String id) {
+//		if (exPath.startsWith("/")) {
+//			exPath = exPath.substring(1);
+//		}
+//		if (! exPath.endsWith(".ex")) {
+//			exPath = exPath + ".ex";
+//		}
+//		String prefix = ExerciseView.class.getName();
+//		if (! exPath.startsWith(prefix)) {
+//			exPath = prefix + "/" + exPath;
+//		}
+//		return URI.createURI("mqtt://mqtt.idi.ntnu.no:1883/" + exPath + "/" + id);
+//	}
+//
+//	private Action openLoggedExAction = new Action("Open Logged Ex") {
+//		public void run() {
+//			InputDialog inputDialog = new InputDialog(getSite().getShell(), "Open Logged Ex", "Enter Mqtt Topic", "package/file.ex/ID", new IInputValidator() {
+//				
+//				private boolean isInt(String s) {
+//					Integer i = null;
+//					try {
+//						i = Integer.valueOf(s);
+//					} catch (NumberFormatException e) {
+//					}
+//					return i != null;
+//				}
+//				
+//				@Override
+//				public String isValid(String s) {
+//					int pos = s.lastIndexOf("/");
+//					if (pos < 3 || (! ".ex".equals(s.substring(pos - 3, pos))) || pos >= s.length() - 1 || (! isInt(s.substring(pos + 1)))) {
+//						return "Incorrect format, must be package/file.ex/INT";
+//					}
+//					return null;
+//				}
+//			});
+//			if (inputDialog.open() != Window.OK) {
+//				return;
+//			}
+//			String s = inputDialog.getValue();
+//			int pos = s.lastIndexOf("/");
+//			String path = s.substring(0, pos), id = s.substring(pos + 1);
+//			URI uri = createMqttUri(path, id);
+//			if (uri != null) {
+//				Resource resource = new ExerciseResourceFactoryImpl().createResource(uri);
+//				try {
+//					resource.load(new MqttURIHandlerImpl().createInputStream(uri, logOptions), logOptions);
+//				} catch (IOException e) {
+//					throw new RuntimeException(e);
+//				}
+//				addAcceptedEObject(resource);
+//			}
+//		}
+//	};
+//	
+//	@Override
+//	protected void addActions(IActionBars actionBars) {
+//		super.addActions(actionBars);
+//		actionBars.getMenuManager().add(openLoggedExAction);
+//	}
 }

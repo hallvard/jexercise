@@ -87,8 +87,8 @@ public class ExLogger {
 
 	private MqttAsyncClient mqttClient;
 	
-	private static String publicTestServerUri = "tcp://iot.eclipse.org:1883";
-	private static String idiServerUri = "tcp://mqtt.idi.ntnu.no:1883";
+	static String publicTestServerUri = "tcp://iot.eclipse.org:1883";
+	public static String idiServerUri = "tcp://mqtt.idi.ntnu.no:1883";
 
 	private String serverUri = idiServerUri; // publicTestServerUri;
 	

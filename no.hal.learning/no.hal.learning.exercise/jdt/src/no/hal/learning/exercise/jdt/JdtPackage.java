@@ -431,13 +431,31 @@ public interface JdtPackage extends EPackage {
 	int JDT_LAUNCH_ANSWER__CLASS_NAME = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Launch Attr Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Launch Attr Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Launch Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_ANSWER_FEATURE_COUNT = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 2;
+	int JDT_LAUNCH_ANSWER_FEATURE_COUNT = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -796,6 +814,28 @@ public interface JdtPackage extends EPackage {
 	EAttribute getJdtLaunchAnswer_ClassName();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer#getLaunchAttrNames <em>Launch Attr Names</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Launch Attr Names</em>'.
+	 * @see no.hal.learning.exercise.jdt.JdtLaunchAnswer#getLaunchAttrNames()
+	 * @see #getJdtLaunchAnswer()
+	 * @generated
+	 */
+	EAttribute getJdtLaunchAnswer_LaunchAttrNames();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer#getLaunchAttrValues <em>Launch Attr Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Launch Attr Values</em>'.
+	 * @see no.hal.learning.exercise.jdt.JdtLaunchAnswer#getLaunchAttrValues()
+	 * @see #getJdtLaunchAnswer()
+	 * @generated
+	 */
+	EAttribute getJdtLaunchAnswer_LaunchAttrValues();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.jdt.JdtLaunchProposal <em>Launch Proposal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -952,6 +992,22 @@ public interface JdtPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JDT_LAUNCH_ANSWER__CLASS_NAME = eINSTANCE.getJdtLaunchAnswer_ClassName();
+
+		/**
+		 * The meta object literal for the '<em><b>Launch Attr Names</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES = eINSTANCE.getJdtLaunchAnswer_LaunchAttrNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Launch Attr Values</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES = eINSTANCE.getJdtLaunchAnswer_LaunchAttrValues();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.jdt.impl.JdtLaunchProposalImpl <em>Launch Proposal</em>}' class.

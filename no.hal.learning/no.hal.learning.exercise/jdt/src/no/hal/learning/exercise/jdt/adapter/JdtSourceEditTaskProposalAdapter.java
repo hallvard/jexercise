@@ -56,15 +56,19 @@ public class JdtSourceEditTaskProposalAdapter extends TaskProposalUIAdapter<JdtS
 	
 	@Override
 	public Composite initView(final Composite parent) {
-		JavaCore.addElementChangedListener(listener = new JavaElementListener(), ElementChangedEvent.POST_CHANGE);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(listener, IResourceChangeEvent.POST_BUILD);
+		if (! getAdapterHelper().isReadOnly(this)) {
+			JavaCore.addElementChangedListener(listener = new JavaElementListener(), ElementChangedEvent.POST_CHANGE);
+			ResourcesPlugin.getWorkspace().addResourceChangeListener(listener, IResourceChangeEvent.POST_BUILD);
+		}
 		return super.initView(parent);
 	}
 	
 	@Override
 	public void dispose() {
-		JavaCore.removeElementChangedListener(listener);
-		ResourcesPlugin.getWorkspace().removeResourceChangeListener(listener);
+		if (listener != null) {
+			JavaCore.removeElementChangedListener(listener);
+			ResourcesPlugin.getWorkspace().removeResourceChangeListener(listener);
+		}
 		super.dispose();
 	}
 

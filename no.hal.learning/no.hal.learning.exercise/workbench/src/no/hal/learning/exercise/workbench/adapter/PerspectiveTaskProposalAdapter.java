@@ -22,7 +22,9 @@ public class PerspectiveTaskProposalAdapter extends WorkbenchTaskProposalAdapter
 	}
 	@Override
 	protected void removeWorkbenchListeners(IWorkbench workbench) {
-		workbench.getActiveWorkbenchWindow().removePerspectiveListener(listener);
+		if (listener != null) {
+			workbench.getActiveWorkbenchWindow().removePerspectiveListener(listener);
+		}
 	}
 
 	//

@@ -4,7 +4,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
-import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchListener;
 import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.swt.widgets.Composite;
@@ -34,13 +33,17 @@ public class JdtLaunchTaskProposalAdapter extends TaskProposalUIAdapter<JdtLaunc
 	
 	@Override
 	public Composite initView(final Composite parent) {
-		DebugPlugin.getDefault().getLaunchManager().addLaunchListener(listener = new LaunchListener());
+		if (! getAdapterHelper().isReadOnly(this)) {
+			DebugPlugin.getDefault().getLaunchManager().addLaunchListener(listener = new LaunchListener());
+		}
 		return super.initView(parent);
 	}
 	
 	@Override
 	public void dispose() {
-		DebugPlugin.getDefault().getLaunchManager().removeLaunchListener(listener);
+		if (listener != null) {
+			DebugPlugin.getDefault().getLaunchManager().removeLaunchListener(listener);
+		}
 		super.dispose();
 	}
 
@@ -50,17 +53,28 @@ public class JdtLaunchTaskProposalAdapter extends TaskProposalUIAdapter<JdtLaunc
 		
 		private JdtLaunchEvent taskEvent;
 		
-		protected boolean acceptLaunch(ILaunch launch) {
-			String className = getProposal().getAnswer().getClassName();
-			ILaunchConfiguration launchConfig = launch.getLaunchConfiguration();
+		protected boolean hasLaunchAttr(ILaunchConfiguration launchConfig, String attrName, String attrValue) {
 			try {
-				String mainType = launchConfig.getAttribute(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, "");
-				if ((! isEmpty(mainType)) && (! mainType.equals(className))) {
+				String value = launchConfig.getAttribute(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, "");
+				return ! (isEmpty(value) || (! value.equals(attrValue)));
+			} catch (CoreException e) {
+				return false;
+			}
+		}
+		
+		protected boolean acceptLaunch(ILaunch launch) {
+			JdtLaunchAnswer answer = getProposal().getAnswer();
+			ILaunchConfiguration launchConfig = launch.getLaunchConfiguration();
+			if (! hasLaunchAttr(launchConfig, IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, answer.getClassName())) {
+				return false;
+			}
+			for (int attrNum = 0; attrNum < answer.getLaunchAttrNames().size(); attrNum++) {
+				String launchAttr = answer.getLaunchAttrNames().get(attrNum);
+				if (! hasLaunchAttr(launchConfig, launchAttr, answer.getLaunchAttrValues().get(attrNum))) {
 					return false;
 				}
-			} catch (CoreException e) {
 			}
-			String mode = getProposal().getAnswer().getMode();
+			String mode = answer.getMode();
 			String launchMode = launch.getLaunchMode();
 			if ((! isEmpty(mode)) && (! launchMode.equals(mode))) {
 				return false;
@@ -93,8 +107,8 @@ public class JdtLaunchTaskProposalAdapter extends TaskProposalUIAdapter<JdtLaunc
 
 		@Override
 		public void run() {
-			getProposal().getAttempts().add(taskEvent);
 			getProposal().setCompletion(taskEvent.getCompletion());
+			getProposal().getAttempts().add(taskEvent);
 		}
 	}
 }

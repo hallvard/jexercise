@@ -42,13 +42,17 @@ public class JunitTaskProposalAdapter extends TaskProposalUIAdapter<JunitTestAns
 	
 	@Override
 	public Composite initView(final Composite parent) {
-		JUnitCore.addTestRunListener(listener = new JunitSessionListener());
+		if (! getAdapterHelper().isReadOnly(this)) {
+			JUnitCore.addTestRunListener(listener = new JunitSessionListener());
+		}
 		return super.initView(parent);
 	}
 
 	@Override
 	public void dispose() {
-		JUnitCore.removeTestRunListener(listener);
+		if (listener != null) {
+			JUnitCore.removeTestRunListener(listener);
+		}
 		super.dispose();
 	}
 	

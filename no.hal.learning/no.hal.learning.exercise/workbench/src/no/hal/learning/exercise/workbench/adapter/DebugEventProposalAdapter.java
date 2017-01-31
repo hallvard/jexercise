@@ -25,7 +25,9 @@ public class DebugEventProposalAdapter extends WorkbenchTaskProposalAdapter<Debu
 	}
 	@Override
 	protected void removeWorkbenchListeners(IWorkbench workbench) {
-		DebugPlugin.getDefault().removeDebugEventListener(listener);
+		if (listener != null) {
+			DebugPlugin.getDefault().removeDebugEventListener(listener);
+		}
 	}
 
 	//

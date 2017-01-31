@@ -27,13 +27,17 @@ public abstract class WorkbenchTaskProposalAdapter<A extends WorkbenchTaskAnswer
 
 	@Override
 	public Composite initView(final Composite parent) {
-		addWorkbenchListeners(PlatformUI.getWorkbench());
+		if (! getAdapterHelper().isReadOnly(this)) {
+			addWorkbenchListeners(PlatformUI.getWorkbench());
+		}
 		return super.initView(parent);
 	}
 	
 	@Override
 	public void dispose() {
-		removeWorkbenchListeners(PlatformUI.getWorkbench());
+		if (! getAdapterHelper().isReadOnly(this)) {
+			removeWorkbenchListeners(PlatformUI.getWorkbench());
+		}
 		super.dispose();
 	}
 

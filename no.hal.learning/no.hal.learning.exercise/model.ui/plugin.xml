@@ -6,6 +6,34 @@
 
 <plugin>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated exercise -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="no.hal.learning.exercise.presentation.ExerciseModelWizardID"
+            name="%_UI_ExerciseModelWizard_label"
+            class="no.hal.learning.exercise.presentation.ExerciseModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ExerciseModelFile.gif">
+         <description>%_UI_ExerciseModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated exercise -->
+      <editor
+            id="no.hal.learning.exercise.presentation.ExerciseEditorID"
+            name="%_UI_ExerciseEditor_label"
+            icon="icons/full/obj16/ExerciseModelFile.gif"
+            extensions="ex"
+            class="no.hal.learning.exercise.presentation.ExerciseEditor"
+            contributorClass="no.hal.learning.exercise.presentation.ExerciseActionBarContributor">
+      </editor>
+   </extension>
+
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
@@ -96,31 +124,4 @@
               "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated exercise -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="no.hal.learning.exercise.presentation.ExerciseModelWizardID"
-            name="%_UI_ExerciseModelWizard_label"
-            class="no.hal.learning.exercise.presentation.ExerciseModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ExerciseModelFile.gif">
-         <description>%_UI_ExerciseModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated exercise -->
-      <editor
-            id="no.hal.learning.exercise.presentation.ExerciseEditorID"
-            name="%_UI_ExerciseEditor_label"
-            icon="icons/full/obj16/ExerciseModelFile.gif"
-            extensions="ex"
-            class="no.hal.learning.exercise.presentation.ExerciseEditor"
-            contributorClass="no.hal.learning.exercise.presentation.ExerciseActionBarContributor">
-      </editor>
-   </extension>
 </plugin>
