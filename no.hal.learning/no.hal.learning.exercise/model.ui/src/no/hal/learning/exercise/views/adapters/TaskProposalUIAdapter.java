@@ -78,4 +78,26 @@ public abstract class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjec
 	protected boolean isEmpty(String element) {
 		return element == null || "".equals(element);
 	}
+	
+	protected boolean acceptQName(String answerElement, String qName, boolean emptyAccept) {
+		if (emptyAccept && isEmpty(answerElement)) {
+			return true;
+		}
+		return acceptQName(answerElement, qName);
+	}
+
+	protected boolean acceptQName(String answerElement, String qName) {
+		if (isPattern(answerElement)) {
+			return (qName != null ? matchPattern(answerElement, qName) : false);
+		}
+		return answerElement.equals(qName);
+	}
+	
+	private boolean isPattern(String answerElement) {
+		return answerElement.contains("*");
+	}
+
+	private boolean matchPattern(String answerElement, String qName) {
+		return qName.matches(answerElement.replace(".", "\\.").replace("*", ".*"));
+	}
 }
