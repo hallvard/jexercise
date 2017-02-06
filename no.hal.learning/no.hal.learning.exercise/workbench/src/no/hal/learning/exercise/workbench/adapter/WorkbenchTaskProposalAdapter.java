@@ -54,7 +54,7 @@ public abstract class WorkbenchTaskProposalAdapter<A extends WorkbenchTaskAnswer
 		protected boolean taskPerformed(String id, String action) {
 			String answerElement = getProposal().getAnswer().getElementId();
 			String answerAction = getProposal().getAnswer().getAction();
-			boolean performed = (isEmpty(answerElement) || answerElement.equals(id)) && (isEmpty(answerAction) || answerAction.equals(action));
+			boolean performed = (acceptQName(answerElement, id, true) && acceptQName(answerAction, action, true));
 			if (performed) {
 				timestamp = getTimestamp();
 				performedCount++;
