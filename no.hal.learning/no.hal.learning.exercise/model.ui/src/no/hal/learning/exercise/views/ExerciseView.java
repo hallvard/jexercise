@@ -21,6 +21,7 @@ import no.hal.emf.ui.parts.adapters.EObjectViewerAdapter;
 import no.hal.learning.exercise.Exercise;
 import no.hal.learning.exercise.ExerciseProposals;
 import no.hal.learning.exercise.logging.ExLogger;
+import no.hal.learning.exercise.logging.LogUtil;
 import no.hal.learning.exercise.views.adapters.ExerciseProposalsUIAdapter;
 import no.hal.learning.exercise.views.plot.TaskPlotViewerAdapter;
 import no.hal.learning.exercise.views.stringeditors.EditorViewerAdapter;
@@ -86,6 +87,7 @@ public class ExerciseView extends EObjectsView {
 		public void resourceChanged(IResourceChangeEvent event) {
 			if (event.getType() == IResourceChangeEvent.POST_BUILD) {
 				saveEObjectResources(saveOptions);
+				LogUtil.info("Auto-saved resources", null);
 			}
 		}
 	};

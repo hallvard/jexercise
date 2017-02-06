@@ -57,6 +57,7 @@ public class EditorViewerAdapter extends AbstractTaskProposalViewerAdapter imple
 	public Composite initView(Composite parent) {
 		EventPlotViewer.Config config = new EventPlotViewer.Config();
 		plotViewer = new EventPlotViewer<TaskProposal<?>, TaskEvent>(taskProposals, config) {
+
 			@Override
 			public void createExtraControls(Composite parent, int position) {
 				if (position == SWT.TOP) {
@@ -66,7 +67,7 @@ public class EditorViewerAdapter extends AbstractTaskProposalViewerAdapter imple
 				getPointSelector().setMaxD(-1, -1, -1);
 			}
 
-			protected void createEditors() {
+			private void createEditors() {
 				int editorCount = 0;
 				for (TaskProposal<?> task : taskProposals) {
 					if (shouldHaveEditor(task)) {
@@ -90,14 +91,24 @@ public class EditorViewerAdapter extends AbstractTaskProposalViewerAdapter imple
 				}
 			}
 			
-			protected void recreateEditors() {
-				for (int i = 0; i < editors.length; i++) {
-					editors[i].dispose();
-				}
+			private void recreateEditors() {
+				disposeEditors();
 				createEditors();
 			}
 
-			protected boolean shouldHaveEditor(TaskProposal<?> task) {
+			private void disposeEditors() {
+				for (int i = 0; i < editors.length; i++) {
+					editors[i].dispose();
+				}
+			}
+			
+			@Override
+			public void dispose() {
+				disposeEditors();
+				super.dispose();
+			}
+
+			private boolean shouldHaveEditor(TaskProposal<?> task) {
 				return isChecked(task);
 			}
 
