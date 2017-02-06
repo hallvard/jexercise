@@ -164,7 +164,7 @@ public class JunitPackageImpl extends EPackageImpl implements JunitPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJunitTestEvent_FailureCount() {
+	public EAttribute getJunitTestEvent_SuccessTests() {
 		return (EAttribute)junitTestEventEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -173,8 +173,35 @@ public class JunitPackageImpl extends EPackageImpl implements JunitPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJunitTestEvent_ErrorCount() {
+	public EAttribute getJunitTestEvent_FailureCount() {
 		return (EAttribute)junitTestEventEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJunitTestEvent_FailureTests() {
+		return (EAttribute)junitTestEventEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJunitTestEvent_ErrorCount() {
+		return (EAttribute)junitTestEventEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJunitTestEvent_ErrorTests() {
+		return (EAttribute)junitTestEventEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -213,8 +240,11 @@ public class JunitPackageImpl extends EPackageImpl implements JunitPackage {
 
 		junitTestEventEClass = createEClass(JUNIT_TEST_EVENT);
 		createEAttribute(junitTestEventEClass, JUNIT_TEST_EVENT__SUCCESS_COUNT);
+		createEAttribute(junitTestEventEClass, JUNIT_TEST_EVENT__SUCCESS_TESTS);
 		createEAttribute(junitTestEventEClass, JUNIT_TEST_EVENT__FAILURE_COUNT);
+		createEAttribute(junitTestEventEClass, JUNIT_TEST_EVENT__FAILURE_TESTS);
 		createEAttribute(junitTestEventEClass, JUNIT_TEST_EVENT__ERROR_COUNT);
+		createEAttribute(junitTestEventEClass, JUNIT_TEST_EVENT__ERROR_TESTS);
 	}
 
 	/**
@@ -264,8 +294,11 @@ public class JunitPackageImpl extends EPackageImpl implements JunitPackage {
 
 		initEClass(junitTestEventEClass, JunitTestEvent.class, "JunitTestEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJunitTestEvent_SuccessCount(), ecorePackage.getEInt(), "successCount", null, 0, 1, JunitTestEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJunitTestEvent_SuccessTests(), ecorePackage.getEString(), "successTests", null, 0, -1, JunitTestEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJunitTestEvent_FailureCount(), ecorePackage.getEInt(), "failureCount", null, 0, 1, JunitTestEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJunitTestEvent_FailureTests(), ecorePackage.getEString(), "failureTests", null, 0, -1, JunitTestEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJunitTestEvent_ErrorCount(), ecorePackage.getEInt(), "errorCount", null, 0, 1, JunitTestEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJunitTestEvent_ErrorTests(), ecorePackage.getEString(), "errorTests", null, 0, -1, JunitTestEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

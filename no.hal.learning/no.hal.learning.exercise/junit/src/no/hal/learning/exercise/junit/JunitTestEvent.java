@@ -3,6 +3,7 @@
 package no.hal.learning.exercise.junit;
 
 import no.hal.learning.exercise.TaskEvent;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,8 +15,11 @@ import no.hal.learning.exercise.TaskEvent;
  * </p>
  * <ul>
  *   <li>{@link no.hal.learning.exercise.junit.JunitTestEvent#getSuccessCount <em>Success Count</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.junit.JunitTestEvent#getSuccessTests <em>Success Tests</em>}</li>
  *   <li>{@link no.hal.learning.exercise.junit.JunitTestEvent#getFailureCount <em>Failure Count</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.junit.JunitTestEvent#getFailureTests <em>Failure Tests</em>}</li>
  *   <li>{@link no.hal.learning.exercise.junit.JunitTestEvent#getErrorCount <em>Error Count</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.junit.JunitTestEvent#getErrorTests <em>Error Tests</em>}</li>
  * </ul>
  *
  * @see no.hal.learning.exercise.junit.JunitPackage#getJunitTestEvent()
@@ -51,6 +55,22 @@ public interface JunitTestEvent extends TaskEvent {
 	void setSuccessCount(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Success Tests</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Success Tests</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Success Tests</em>' attribute list.
+	 * @see no.hal.learning.exercise.junit.JunitPackage#getJunitTestEvent_SuccessTests()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getSuccessTests();
+
+	/**
 	 * Returns the value of the '<em><b>Failure Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -77,6 +97,22 @@ public interface JunitTestEvent extends TaskEvent {
 	void setFailureCount(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Failure Tests</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Failure Tests</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Failure Tests</em>' attribute list.
+	 * @see no.hal.learning.exercise.junit.JunitPackage#getJunitTestEvent_FailureTests()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getFailureTests();
+
+	/**
 	 * Returns the value of the '<em><b>Error Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -101,5 +137,21 @@ public interface JunitTestEvent extends TaskEvent {
 	 * @generated
 	 */
 	void setErrorCount(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Error Tests</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Error Tests</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Error Tests</em>' attribute list.
+	 * @see no.hal.learning.exercise.junit.JunitPackage#getJunitTestEvent_ErrorTests()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getErrorTests();
 
 } // JunitTestEvent

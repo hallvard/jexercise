@@ -304,13 +304,31 @@ public interface JunitPackage extends EPackage {
 	int JUNIT_TEST_EVENT__SUCCESS_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Success Tests</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_EVENT__SUCCESS_TESTS = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Failure Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JUNIT_TEST_EVENT__FAILURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+	int JUNIT_TEST_EVENT__FAILURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Failure Tests</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_EVENT__FAILURE_TESTS = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Error Count</b></em>' attribute.
@@ -319,7 +337,16 @@ public interface JunitPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JUNIT_TEST_EVENT__ERROR_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 2;
+	int JUNIT_TEST_EVENT__ERROR_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Error Tests</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_EVENT__ERROR_TESTS = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Test Event</em>' class.
@@ -328,7 +355,7 @@ public interface JunitPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JUNIT_TEST_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 3;
+	int JUNIT_TEST_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -412,6 +439,17 @@ public interface JunitPackage extends EPackage {
 	EAttribute getJunitTestEvent_SuccessCount();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.junit.JunitTestEvent#getSuccessTests <em>Success Tests</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Success Tests</em>'.
+	 * @see no.hal.learning.exercise.junit.JunitTestEvent#getSuccessTests()
+	 * @see #getJunitTestEvent()
+	 * @generated
+	 */
+	EAttribute getJunitTestEvent_SuccessTests();
+
+	/**
 	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.junit.JunitTestEvent#getFailureCount <em>Failure Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -423,6 +461,17 @@ public interface JunitPackage extends EPackage {
 	EAttribute getJunitTestEvent_FailureCount();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.junit.JunitTestEvent#getFailureTests <em>Failure Tests</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Failure Tests</em>'.
+	 * @see no.hal.learning.exercise.junit.JunitTestEvent#getFailureTests()
+	 * @see #getJunitTestEvent()
+	 * @generated
+	 */
+	EAttribute getJunitTestEvent_FailureTests();
+
+	/**
 	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.junit.JunitTestEvent#getErrorCount <em>Error Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -432,6 +481,17 @@ public interface JunitPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJunitTestEvent_ErrorCount();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.junit.JunitTestEvent#getErrorTests <em>Error Tests</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Error Tests</em>'.
+	 * @see no.hal.learning.exercise.junit.JunitTestEvent#getErrorTests()
+	 * @see #getJunitTestEvent()
+	 * @generated
+	 */
+	EAttribute getJunitTestEvent_ErrorTests();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -511,6 +571,14 @@ public interface JunitPackage extends EPackage {
 		EAttribute JUNIT_TEST_EVENT__SUCCESS_COUNT = eINSTANCE.getJunitTestEvent_SuccessCount();
 
 		/**
+		 * The meta object literal for the '<em><b>Success Tests</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JUNIT_TEST_EVENT__SUCCESS_TESTS = eINSTANCE.getJunitTestEvent_SuccessTests();
+
+		/**
 		 * The meta object literal for the '<em><b>Failure Count</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -519,12 +587,28 @@ public interface JunitPackage extends EPackage {
 		EAttribute JUNIT_TEST_EVENT__FAILURE_COUNT = eINSTANCE.getJunitTestEvent_FailureCount();
 
 		/**
+		 * The meta object literal for the '<em><b>Failure Tests</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JUNIT_TEST_EVENT__FAILURE_TESTS = eINSTANCE.getJunitTestEvent_FailureTests();
+
+		/**
 		 * The meta object literal for the '<em><b>Error Count</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute JUNIT_TEST_EVENT__ERROR_COUNT = eINSTANCE.getJunitTestEvent_ErrorCount();
+
+		/**
+		 * The meta object literal for the '<em><b>Error Tests</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JUNIT_TEST_EVENT__ERROR_TESTS = eINSTANCE.getJunitTestEvent_ErrorTests();
 
 	}
 
