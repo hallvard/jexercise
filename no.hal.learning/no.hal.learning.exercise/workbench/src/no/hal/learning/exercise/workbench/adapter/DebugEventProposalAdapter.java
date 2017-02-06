@@ -6,6 +6,7 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.IDebugEventSetListener;
 import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.debug.core.model.IThread;
+import org.eclipse.jdt.debug.core.IJavaStackFrame;
 import org.eclipse.ui.IWorkbench;
 
 import no.hal.learning.exercise.TaskProposal;
@@ -64,7 +65,9 @@ public class DebugEventProposalAdapter extends WorkbenchTaskProposalAdapter<Debu
 			try {
 				if (source instanceof IThread) {
 					IStackFrame stackFrame = ((IThread) source).getTopStackFrame();
-					if (stackFrame != null) {
+					if (stackFrame instanceof IJavaStackFrame) {
+						elementId = ((IJavaStackFrame) stackFrame).getReceivingTypeName();
+					} else if (stackFrame != null) {
 						elementId = stackFrame.getName();
 					}
 				}
