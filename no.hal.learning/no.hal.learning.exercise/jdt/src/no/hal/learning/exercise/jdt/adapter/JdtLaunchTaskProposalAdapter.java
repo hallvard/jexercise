@@ -53,33 +53,30 @@ public class JdtLaunchTaskProposalAdapter extends TaskProposalUIAdapter<JdtLaunc
 		
 		private JdtLaunchEvent taskEvent;
 		
-		protected boolean hasLaunchAttr(ILaunchConfiguration launchConfig, String attrName, String attrValue) {
+		protected boolean hasLaunchAttr(ILaunchConfiguration launchConfig, String attrName, String attrValue, boolean isQname) {
 			try {
-				String value = launchConfig.getAttribute(IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, "");
-				return ! (isEmpty(value) || (! value.equals(attrValue)));
+				String value = launchConfig.getAttribute(attrName, "");
+				return ! (isEmpty(value) || (! (isQname ? acceptQName(value, attrValue) : value.equals(attrValue))));
 			} catch (CoreException e) {
 				return false;
 			}
 		}
-		
+
 		protected boolean acceptLaunch(ILaunch launch) {
 			JdtLaunchAnswer answer = getProposal().getAnswer();
 			ILaunchConfiguration launchConfig = launch.getLaunchConfiguration();
-			if (! hasLaunchAttr(launchConfig, IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, answer.getClassName())) {
+			if (! hasLaunchAttr(launchConfig, IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, answer.getClassName(), true)) {
 				return false;
 			}
 			for (int attrNum = 0; attrNum < answer.getLaunchAttrNames().size(); attrNum++) {
 				String launchAttr = answer.getLaunchAttrNames().get(attrNum);
-				if (! hasLaunchAttr(launchConfig, launchAttr, answer.getLaunchAttrValues().get(attrNum))) {
+				if (! hasLaunchAttr(launchConfig, launchAttr, answer.getLaunchAttrValues().get(attrNum), false)) {
 					return false;
 				}
 			}
 			String mode = answer.getMode();
 			String launchMode = launch.getLaunchMode();
-			if ((! isEmpty(mode)) && (! launchMode.equals(mode))) {
-				return false;
-			}
-			return true;
+			return acceptQName(mode, launchMode, true);
 		}
 
 		@Override

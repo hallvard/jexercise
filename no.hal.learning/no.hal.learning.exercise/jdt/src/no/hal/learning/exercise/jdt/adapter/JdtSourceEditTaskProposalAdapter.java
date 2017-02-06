@@ -95,7 +95,7 @@ public class JdtSourceEditTaskProposalAdapter extends TaskProposalUIAdapter<JdtS
 		protected boolean acceptElementChanged(ICompilationUnit cu) {
 			String className = getProposal().getAnswer().getClassName();
 			String cuClassName = getQualifiedClassName(cu);
-			return cuClassName.equals(className);
+			return acceptQName(className, cuClassName);
 		}
 		protected ICompilationUnit acceptElementChanged(IJavaElementDelta delta) {
 			IJavaElement element = delta.getElement();
