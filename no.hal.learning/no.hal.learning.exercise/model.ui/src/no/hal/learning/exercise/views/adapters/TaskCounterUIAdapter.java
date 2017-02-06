@@ -131,8 +131,8 @@ public class TaskCounterUIAdapter extends EObjectUIAdapterImpl<TaskProposal<?>, 
 		int counter = getCounterValue();
 		getCounterControl().setText(String.format(labelFormat, (counter >= 0 ? counter : "?")));
 		if (trendLogic != null || showNeutralTrend) {
-			int diff = counter - getCounterValue(-2);
-			Image trendImage = diff != 0 ? getTrendImage(diff) : null;
+			int previousCounter = getCounterValue(-2), diff = counter - previousCounter;
+			Image trendImage = previousCounter >= 0 && diff != 0 ? getTrendImage(diff) : null;
 			if (trendImage == null) {
 				trendImage = getTrendImage("default");
 			}
