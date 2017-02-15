@@ -176,7 +176,7 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setStart(int newStart) {
 		int oldStart = start;
@@ -198,7 +198,7 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setEnd(int newEnd) {
 		int oldEnd = end;

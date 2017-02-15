@@ -1275,13 +1275,22 @@ public interface ExercisePackage extends EPackage {
 	int ABSTRACT_STRING_EDIT_EVENT__EDIT = TASK_EVENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT__MARKERS = TASK_EVENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Abstract String Edit Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT = TASK_EVENT_FEATURE_COUNT + 1;
+	int ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT = TASK_EVENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -1476,13 +1485,77 @@ public interface ExercisePackage extends EPackage {
 	int REPLACE_SUBSTRING_EDIT_OPERATION_COUNT = STRING_EDIT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.impl.MarkerInfoImpl <em>Marker Info</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.impl.MarkerInfoImpl
+	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getMarkerInfo()
+	 * @generated
+	 */
+	int MARKER_INFO = 22;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKER_INFO__LINE_NUMBER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Char Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKER_INFO__CHAR_START = 1;
+
+	/**
+	 * The feature id for the '<em><b>Char End</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKER_INFO__CHAR_END = 2;
+
+	/**
+	 * The feature id for the '<em><b>Severity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKER_INFO__SEVERITY = 3;
+
+	/**
+	 * The number of structural features of the '<em>Marker Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKER_INFO_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Marker Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKER_INFO_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>ETimestamp</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getETimestamp()
 	 * @generated
 	 */
-	int ETIMESTAMP = 22;
+	int ETIMESTAMP = 23;
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.Exercise <em>Exercise</em>}'.
@@ -2133,6 +2206,17 @@ public interface ExercisePackage extends EPackage {
 	EReference getAbstractStringEditEvent_Edit();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link no.hal.learning.exercise.AbstractStringEditEvent#getMarkers <em>Markers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Markers</em>'.
+	 * @see no.hal.learning.exercise.AbstractStringEditEvent#getMarkers()
+	 * @see #getAbstractStringEditEvent()
+	 * @generated
+	 */
+	EReference getAbstractStringEditEvent_Markers();
+
+	/**
 	 * Returns the meta object for the '{@link no.hal.learning.exercise.AbstractStringEditEvent#getString() <em>Get String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2235,6 +2319,60 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getReplaceSubstringEdit_End();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.MarkerInfo <em>Marker Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Marker Info</em>'.
+	 * @see no.hal.learning.exercise.MarkerInfo
+	 * @generated
+	 */
+	EClass getMarkerInfo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.MarkerInfo#getLineNumber <em>Line Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Line Number</em>'.
+	 * @see no.hal.learning.exercise.MarkerInfo#getLineNumber()
+	 * @see #getMarkerInfo()
+	 * @generated
+	 */
+	EAttribute getMarkerInfo_LineNumber();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.MarkerInfo#getCharStart <em>Char Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Char Start</em>'.
+	 * @see no.hal.learning.exercise.MarkerInfo#getCharStart()
+	 * @see #getMarkerInfo()
+	 * @generated
+	 */
+	EAttribute getMarkerInfo_CharStart();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.MarkerInfo#getCharEnd <em>Char End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Char End</em>'.
+	 * @see no.hal.learning.exercise.MarkerInfo#getCharEnd()
+	 * @see #getMarkerInfo()
+	 * @generated
+	 */
+	EAttribute getMarkerInfo_CharEnd();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.MarkerInfo#getSeverity <em>Severity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Severity</em>'.
+	 * @see no.hal.learning.exercise.MarkerInfo#getSeverity()
+	 * @see #getMarkerInfo()
+	 * @generated
+	 */
+	EAttribute getMarkerInfo_Severity();
 
 	/**
 	 * Returns the meta object for data type '<em>ETimestamp</em>'.
@@ -2804,6 +2942,14 @@ public interface ExercisePackage extends EPackage {
 		EReference ABSTRACT_STRING_EDIT_EVENT__EDIT = eINSTANCE.getAbstractStringEditEvent_Edit();
 
 		/**
+		 * The meta object literal for the '<em><b>Markers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_STRING_EDIT_EVENT__MARKERS = eINSTANCE.getAbstractStringEditEvent_Markers();
+
+		/**
 		 * The meta object literal for the '<em><b>Get String</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2888,6 +3034,48 @@ public interface ExercisePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REPLACE_SUBSTRING_EDIT__END = eINSTANCE.getReplaceSubstringEdit_End();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.MarkerInfoImpl <em>Marker Info</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.impl.MarkerInfoImpl
+		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getMarkerInfo()
+		 * @generated
+		 */
+		EClass MARKER_INFO = eINSTANCE.getMarkerInfo();
+
+		/**
+		 * The meta object literal for the '<em><b>Line Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARKER_INFO__LINE_NUMBER = eINSTANCE.getMarkerInfo_LineNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Char Start</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARKER_INFO__CHAR_START = eINSTANCE.getMarkerInfo_CharStart();
+
+		/**
+		 * The meta object literal for the '<em><b>Char End</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARKER_INFO__CHAR_END = eINSTANCE.getMarkerInfo_CharEnd();
+
+		/**
+		 * The meta object literal for the '<em><b>Severity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARKER_INFO__SEVERITY = eINSTANCE.getMarkerInfo_Severity();
 
 		/**
 		 * The meta object literal for the '<em>ETimestamp</em>' data type.

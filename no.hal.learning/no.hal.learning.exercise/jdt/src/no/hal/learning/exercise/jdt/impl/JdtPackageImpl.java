@@ -7,6 +7,7 @@ import no.hal.learning.exercise.ExercisePackage;
 import no.hal.learning.exercise.jdt.JdtSourceEditAnswer;
 import no.hal.learning.exercise.jdt.JdtSourceEditEvent;
 import no.hal.learning.exercise.jdt.JdtSourceEditProposal;
+import no.hal.learning.exercise.jdt.JdtMarkerInfo;
 import no.hal.learning.exercise.jdt.JdtFactory;
 import no.hal.learning.exercise.jdt.JdtLaunchAnswer;
 import no.hal.learning.exercise.jdt.JdtLaunchEvent;
@@ -17,7 +18,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -47,6 +47,13 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	 * @generated
 	 */
 	private EClass jdtSourceEditEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jdtMarkerInfoEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -219,6 +226,33 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getJdtMarkerInfo() {
+		return jdtMarkerInfoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJdtMarkerInfo_ProblemCategory() {
+		return (EAttribute)jdtMarkerInfoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJdtMarkerInfo_ProblemType() {
+		return (EAttribute)jdtMarkerInfoEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJdtLaunchAnswer() {
 		return jdtLaunchAnswerEClass;
 	}
@@ -326,6 +360,10 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		createEAttribute(jdtSourceEditEventEClass, JDT_SOURCE_EDIT_EVENT__ERROR_COUNT);
 		createEAttribute(jdtSourceEditEventEClass, JDT_SOURCE_EDIT_EVENT__WARNING_COUNT);
 
+		jdtMarkerInfoEClass = createEClass(JDT_MARKER_INFO);
+		createEAttribute(jdtMarkerInfoEClass, JDT_MARKER_INFO__PROBLEM_CATEGORY);
+		createEAttribute(jdtMarkerInfoEClass, JDT_MARKER_INFO__PROBLEM_TYPE);
+
 		jdtLaunchAnswerEClass = createEClass(JDT_LAUNCH_ANSWER);
 		createEAttribute(jdtLaunchAnswerEClass, JDT_LAUNCH_ANSWER__MODE);
 		createEAttribute(jdtLaunchAnswerEClass, JDT_LAUNCH_ANSWER__CLASS_NAME);
@@ -375,6 +413,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		g1.getETypeArguments().add(g2);
 		jdtSourceEditProposalEClass.getEGenericSuperTypes().add(g1);
 		jdtSourceEditEventEClass.getESuperTypes().add(theExercisePackage.getAbstractStringEditEvent());
+		jdtMarkerInfoEClass.getESuperTypes().add(theExercisePackage.getMarkerInfo());
 		jdtLaunchAnswerEClass.getESuperTypes().add(theExercisePackage.getTaskAnswer());
 		g1 = createEGenericType(theExercisePackage.getTaskProposal());
 		g2 = createEGenericType(this.getJdtLaunchAnswer());
@@ -394,6 +433,10 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		initEAttribute(getJdtSourceEditEvent_SizeMeasure(), ecorePackage.getEInt(), "sizeMeasure", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJdtSourceEditEvent_ErrorCount(), ecorePackage.getEInt(), "errorCount", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJdtSourceEditEvent_WarningCount(), ecorePackage.getEInt(), "warningCount", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(jdtMarkerInfoEClass, JdtMarkerInfo.class, "JdtMarkerInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJdtMarkerInfo_ProblemCategory(), ecorePackage.getEInt(), "problemCategory", null, 0, 1, JdtMarkerInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJdtMarkerInfo_ProblemType(), ecorePackage.getEInt(), "problemType", null, 0, 1, JdtMarkerInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jdtLaunchAnswerEClass, JdtLaunchAnswer.class, "JdtLaunchAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJdtLaunchAnswer_Mode(), ecorePackage.getEString(), "mode", null, 0, 1, JdtLaunchAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -416,6 +459,8 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		createNoAnnotations();
 		// no.hal.emf.ui.parts.plot.IValueProvider
 		createNo_1Annotations();
+		// no.hal.learning.exercise.MarkerInfo
+		createNo_2Annotations();
 	}
 
 	/**
@@ -475,6 +520,29 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		   source, 
 		   new String[] {
 			 "priority", "3"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>no.hal.learning.exercise.MarkerInfo</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createNo_2Annotations() {
+		String source = "no.hal.learning.exercise.MarkerInfo";	
+		addAnnotation
+		  (getJdtMarkerInfo_ProblemCategory(), 
+		   source, 
+		   new String[] {
+			 "valueClass", "org.eclipse.jdt.core.compiler.CategorizedProblem",
+			 "fieldPattern", "CAT_.*"
+		   });	
+		addAnnotation
+		  (getJdtMarkerInfo_ProblemType(), 
+		   source, 
+		   new String[] {
+			 "valueClass", "org.eclipse.jdt.core.compiler.IProblem"
 		   });
 	}
 

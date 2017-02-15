@@ -313,6 +313,15 @@ public interface JdtPackage extends EPackage {
 	int JDT_SOURCE_EDIT_EVENT__EDIT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__EDIT;
 
 	/**
+	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT__MARKERS = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__MARKERS;
+
+	/**
 	 * The feature id for the '<em><b>Source Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -394,6 +403,88 @@ public interface JdtPackage extends EPackage {
 	int JDT_SOURCE_EDIT_EVENT_OPERATION_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.JdtMarkerInfoImpl <em>Marker Info</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.jdt.impl.JdtMarkerInfoImpl
+	 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getJdtMarkerInfo()
+	 * @generated
+	 */
+	int JDT_MARKER_INFO = 3;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_MARKER_INFO__LINE_NUMBER = ExercisePackage.MARKER_INFO__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Char Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_MARKER_INFO__CHAR_START = ExercisePackage.MARKER_INFO__CHAR_START;
+
+	/**
+	 * The feature id for the '<em><b>Char End</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_MARKER_INFO__CHAR_END = ExercisePackage.MARKER_INFO__CHAR_END;
+
+	/**
+	 * The feature id for the '<em><b>Severity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_MARKER_INFO__SEVERITY = ExercisePackage.MARKER_INFO__SEVERITY;
+
+	/**
+	 * The feature id for the '<em><b>Problem Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_MARKER_INFO__PROBLEM_CATEGORY = ExercisePackage.MARKER_INFO_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Problem Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_MARKER_INFO__PROBLEM_TYPE = ExercisePackage.MARKER_INFO_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Marker Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_MARKER_INFO_FEATURE_COUNT = ExercisePackage.MARKER_INFO_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Marker Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_MARKER_INFO_OPERATION_COUNT = ExercisePackage.MARKER_INFO_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.JdtLaunchAnswerImpl <em>Launch Answer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -401,7 +492,7 @@ public interface JdtPackage extends EPackage {
 	 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getJdtLaunchAnswer()
 	 * @generated
 	 */
-	int JDT_LAUNCH_ANSWER = 3;
+	int JDT_LAUNCH_ANSWER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
@@ -501,7 +592,7 @@ public interface JdtPackage extends EPackage {
 	 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getJdtLaunchProposal()
 	 * @generated
 	 */
-	int JDT_LAUNCH_PROPOSAL = 4;
+	int JDT_LAUNCH_PROPOSAL = 5;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' reference.
@@ -628,7 +719,7 @@ public interface JdtPackage extends EPackage {
 	 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getJdtLaunchEvent()
 	 * @generated
 	 */
-	int JDT_LAUNCH_EVENT = 5;
+	int JDT_LAUNCH_EVENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
@@ -780,6 +871,38 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJdtSourceEditEvent_WarningCount();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.jdt.JdtMarkerInfo <em>Marker Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Marker Info</em>'.
+	 * @see no.hal.learning.exercise.jdt.JdtMarkerInfo
+	 * @generated
+	 */
+	EClass getJdtMarkerInfo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtMarkerInfo#getProblemCategory <em>Problem Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Problem Category</em>'.
+	 * @see no.hal.learning.exercise.jdt.JdtMarkerInfo#getProblemCategory()
+	 * @see #getJdtMarkerInfo()
+	 * @generated
+	 */
+	EAttribute getJdtMarkerInfo_ProblemCategory();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtMarkerInfo#getProblemType <em>Problem Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Problem Type</em>'.
+	 * @see no.hal.learning.exercise.jdt.JdtMarkerInfo#getProblemType()
+	 * @see #getJdtMarkerInfo()
+	 * @generated
+	 */
+	EAttribute getJdtMarkerInfo_ProblemType();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer <em>Launch Answer</em>}'.
@@ -966,6 +1089,32 @@ public interface JdtPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JDT_SOURCE_EDIT_EVENT__WARNING_COUNT = eINSTANCE.getJdtSourceEditEvent_WarningCount();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.jdt.impl.JdtMarkerInfoImpl <em>Marker Info</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.jdt.impl.JdtMarkerInfoImpl
+		 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getJdtMarkerInfo()
+		 * @generated
+		 */
+		EClass JDT_MARKER_INFO = eINSTANCE.getJdtMarkerInfo();
+
+		/**
+		 * The meta object literal for the '<em><b>Problem Category</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JDT_MARKER_INFO__PROBLEM_CATEGORY = eINSTANCE.getJdtMarkerInfo_ProblemCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Problem Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JDT_MARKER_INFO__PROBLEM_TYPE = eINSTANCE.getJdtMarkerInfo_ProblemType();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.jdt.impl.JdtLaunchAnswerImpl <em>Launch Answer</em>}' class.

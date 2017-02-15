@@ -4,6 +4,7 @@ package no.hal.learning.exercise.jdt.util;
 
 import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.Answer;
+import no.hal.learning.exercise.MarkerInfo;
 import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.StringEditAnswer;
 import no.hal.learning.exercise.StringEditTaskProposal;
@@ -101,6 +102,13 @@ public class JdtSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JdtPackage.JDT_MARKER_INFO: {
+				JdtMarkerInfo jdtMarkerInfo = (JdtMarkerInfo)theEObject;
+				T1 result = caseJdtMarkerInfo(jdtMarkerInfo);
+				if (result == null) result = caseMarkerInfo(jdtMarkerInfo);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JdtPackage.JDT_LAUNCH_ANSWER: {
 				JdtLaunchAnswer jdtLaunchAnswer = (JdtLaunchAnswer)theEObject;
 				T1 result = caseJdtLaunchAnswer(jdtLaunchAnswer);
@@ -170,6 +178,21 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseJdtSourceEditEvent(JdtSourceEditEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Marker Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Marker Info</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseJdtMarkerInfo(JdtMarkerInfo object) {
 		return null;
 	}
 
@@ -335,6 +358,21 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseAbstractStringEditEvent(AbstractStringEditEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Marker Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Marker Info</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMarkerInfo(MarkerInfo object) {
 		return null;
 	}
 

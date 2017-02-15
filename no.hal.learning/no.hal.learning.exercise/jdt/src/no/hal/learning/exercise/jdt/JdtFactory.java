@@ -49,6 +49,15 @@ public interface JdtFactory extends EFactory {
 	JdtSourceEditEvent createJdtSourceEditEvent();
 
 	/**
+	 * Returns a new object of class '<em>Marker Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Marker Info</em>'.
+	 * @generated
+	 */
+	JdtMarkerInfo createJdtMarkerInfo();
+
+	/**
 	 * Returns a new object of class '<em>Launch Answer</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

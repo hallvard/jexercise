@@ -2,6 +2,8 @@
  */
 package no.hal.learning.exercise;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +15,7 @@ package no.hal.learning.exercise;
  * </p>
  * <ul>
  *   <li>{@link no.hal.learning.exercise.AbstractStringEditEvent#getEdit <em>Edit</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.AbstractStringEditEvent#getMarkers <em>Markers</em>}</li>
  * </ul>
  *
  * @see no.hal.learning.exercise.ExercisePackage#getAbstractStringEditEvent()
@@ -45,6 +48,22 @@ public interface AbstractStringEditEvent extends TaskEvent {
 	 * @generated
 	 */
 	void setEdit(AbstractStringEdit value);
+
+	/**
+	 * Returns the value of the '<em><b>Markers</b></em>' containment reference list.
+	 * The list contents are of type {@link no.hal.learning.exercise.MarkerInfo}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Markers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Markers</em>' containment reference list.
+	 * @see no.hal.learning.exercise.ExercisePackage#getAbstractStringEditEvent_Markers()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<MarkerInfo> getMarkers();
 
 	/**
 	 * <!-- begin-user-doc -->

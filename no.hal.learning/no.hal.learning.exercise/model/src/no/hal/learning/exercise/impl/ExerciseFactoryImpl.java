@@ -73,6 +73,7 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT: return createAbstractStringEditEvent();
 			case ExercisePackage.STRING_EDIT: return createStringEdit();
 			case ExercisePackage.REPLACE_SUBSTRING_EDIT: return createReplaceSubstringEdit();
+			case ExercisePackage.MARKER_INFO: return createMarkerInfo();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -266,6 +267,16 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 	public ReplaceSubstringEdit createReplaceSubstringEdit() {
 		ReplaceSubstringEditImpl replaceSubstringEdit = new ReplaceSubstringEditImpl();
 		return replaceSubstringEdit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MarkerInfo createMarkerInfo() {
+		MarkerInfoImpl markerInfo = new MarkerInfoImpl();
+		return markerInfo;
 	}
 
 	/**

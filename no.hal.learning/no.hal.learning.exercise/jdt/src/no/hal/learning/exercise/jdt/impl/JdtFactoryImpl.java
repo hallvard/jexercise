@@ -59,6 +59,7 @@ public class JdtFactoryImpl extends EFactoryImpl implements JdtFactory {
 			case JdtPackage.JDT_SOURCE_EDIT_ANSWER: return createJdtSourceEditAnswer();
 			case JdtPackage.JDT_SOURCE_EDIT_PROPOSAL: return createJdtSourceEditProposal();
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT: return createJdtSourceEditEvent();
+			case JdtPackage.JDT_MARKER_INFO: return createJdtMarkerInfo();
 			case JdtPackage.JDT_LAUNCH_ANSWER: return createJdtLaunchAnswer();
 			case JdtPackage.JDT_LAUNCH_PROPOSAL: return createJdtLaunchProposal();
 			case JdtPackage.JDT_LAUNCH_EVENT: return createJdtLaunchEvent();
@@ -95,6 +96,16 @@ public class JdtFactoryImpl extends EFactoryImpl implements JdtFactory {
 	public JdtSourceEditEvent createJdtSourceEditEvent() {
 		JdtSourceEditEventImpl jdtSourceEditEvent = new JdtSourceEditEventImpl();
 		return jdtSourceEditEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JdtMarkerInfo createJdtMarkerInfo() {
+		JdtMarkerInfoImpl jdtMarkerInfo = new JdtMarkerInfoImpl();
+		return jdtMarkerInfo;
 	}
 
 	/**

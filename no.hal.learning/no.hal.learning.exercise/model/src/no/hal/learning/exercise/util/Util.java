@@ -1,13 +1,16 @@
 package no.hal.learning.exercise.util;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import no.hal.learning.exercise.MarkerInfo;
 import no.hal.learning.quiz.Option;
 import no.hal.learning.quiz.OptionsAnswer;
 
@@ -89,5 +92,35 @@ public class Util {
 			optionNums[i] = num;
 		}
 		return optionNums;
+	}
+	
+	public static Field getMarkerInfoField(EObject eObject, EStructuralFeature feature, Class<?> context) {
+		String valueClassName = EcoreUtil.getAnnotation(feature, MarkerInfo.class.getName(), "valueClass");
+		Class<?> valueClass = null;
+		try {
+			valueClass = context.getClassLoader().loadClass(valueClassName);
+		} catch (Exception e) {
+			System.err.println();
+		}
+		if (valueClass != null) {
+			String fieldPattern = EcoreUtil.getAnnotation(feature, MarkerInfo.class.getName(), "fieldPattern");
+			Object featureValue = eObject.eGet(feature);
+			for (Field field : valueClass.getFields()) {
+				if (fieldPattern != null && (! field.getName().matches(fieldPattern))) {
+					continue;
+				}
+				try {
+					Object fieldValue = field.get(null);
+					if (featureValue.equals(fieldValue)) {
+						return field;
+					}
+				} catch (IllegalArgumentException e) {
+					System.err.println();
+				} catch (IllegalAccessException e) {
+					System.err.println(e);
+				}
+			}
+		}
+		return null;
 	}
 }

@@ -37,6 +37,19 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JdtMarkerInfo" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//MarkerInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="problemCategory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="no.hal.learning.exercise.MarkerInfo">
+        <details key="valueClass" value="org.eclipse.jdt.core.compiler.CategorizedProblem"/>
+        <details key="fieldPattern" value="CAT_.*"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="problemType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="no.hal.learning.exercise.MarkerInfo">
+        <details key="valueClass" value="org.eclipse.jdt.core.compiler.IProblem"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JdtLaunchAnswer" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskAnswer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

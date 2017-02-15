@@ -3,10 +3,12 @@
 package no.hal.learning.exercise.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import no.hal.learning.exercise.AbstractStringEdit;
 import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.ExerciseFactory;
 import no.hal.learning.exercise.ExercisePackage;
+import no.hal.learning.exercise.MarkerInfo;
 import no.hal.learning.exercise.ReplaceSubstringEdit;
 import no.hal.learning.exercise.StringEdit;
 
@@ -18,6 +20,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link no.hal.learning.exercise.impl.AbstractStringEditEventImpl#getEdit <em>Edit</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.impl.AbstractStringEditEventImpl#getMarkers <em>Markers</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,6 +47,16 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 	 * @ordered
 	 */
 	protected AbstractStringEdit edit;
+
+	/**
+	 * The cached value of the '{@link #getMarkers() <em>Markers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMarkers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MarkerInfo> markers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,6 +123,18 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<MarkerInfo> getMarkers() {
+		if (markers == null) {
+			markers = new EObjectContainmentEList<MarkerInfo>(MarkerInfo.class, this, ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__MARKERS);
+		}
+		return markers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getString() {
@@ -156,6 +183,8 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 		switch (featureID) {
 			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__EDIT:
 				return basicSetEdit(null, msgs);
+			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__MARKERS:
+				return ((InternalEList<?>)getMarkers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -170,6 +199,8 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 		switch (featureID) {
 			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__EDIT:
 				return getEdit();
+			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__MARKERS:
+				return getMarkers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -179,11 +210,16 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__EDIT:
 				setEdit((AbstractStringEdit)newValue);
+				return;
+			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__MARKERS:
+				getMarkers().clear();
+				getMarkers().addAll((Collection<? extends MarkerInfo>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -200,6 +236,9 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__EDIT:
 				setEdit((AbstractStringEdit)null);
 				return;
+			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__MARKERS:
+				getMarkers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -214,6 +253,8 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 		switch (featureID) {
 			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__EDIT:
 				return edit != null;
+			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__MARKERS:
+				return markers != null && !markers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

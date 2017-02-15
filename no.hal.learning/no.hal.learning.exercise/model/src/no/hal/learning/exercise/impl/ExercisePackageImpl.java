@@ -19,6 +19,7 @@ import no.hal.learning.exercise.AbstractTask;
 import no.hal.learning.exercise.Answer;
 import no.hal.learning.exercise.Exercise;
 import no.hal.learning.exercise.ExerciseProposals;
+import no.hal.learning.exercise.MarkerInfo;
 import no.hal.learning.exercise.ExercisePart;
 import no.hal.learning.exercise.ExercisePartProposals;
 import no.hal.learning.exercise.ExercisePartRef;
@@ -197,6 +198,13 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * @generated
 	 */
 	private EClass replaceSubstringEditEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass markerInfoEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -829,6 +837,15 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAbstractStringEditEvent_Markers() {
+		return (EReference)abstractStringEditEventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getAbstractStringEditEvent__GetString() {
 		return abstractStringEditEventEClass.getEOperations().get(0);
 	}
@@ -912,6 +929,51 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 */
 	public EAttribute getReplaceSubstringEdit_End() {
 		return (EAttribute)replaceSubstringEditEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMarkerInfo() {
+		return markerInfoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMarkerInfo_LineNumber() {
+		return (EAttribute)markerInfoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMarkerInfo_CharStart() {
+		return (EAttribute)markerInfoEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMarkerInfo_CharEnd() {
+		return (EAttribute)markerInfoEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMarkerInfo_Severity() {
+		return (EAttribute)markerInfoEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1031,6 +1093,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 
 		abstractStringEditEventEClass = createEClass(ABSTRACT_STRING_EDIT_EVENT);
 		createEReference(abstractStringEditEventEClass, ABSTRACT_STRING_EDIT_EVENT__EDIT);
+		createEReference(abstractStringEditEventEClass, ABSTRACT_STRING_EDIT_EVENT__MARKERS);
 		createEOperation(abstractStringEditEventEClass, ABSTRACT_STRING_EDIT_EVENT___GET_STRING);
 		createEOperation(abstractStringEditEventEClass, ABSTRACT_STRING_EDIT_EVENT___CREATE_STRING_EDIT__STRING_ABSTRACTSTRINGEDITEVENT);
 
@@ -1044,6 +1107,12 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		createEReference(replaceSubstringEditEClass, REPLACE_SUBSTRING_EDIT__EDIT);
 		createEAttribute(replaceSubstringEditEClass, REPLACE_SUBSTRING_EDIT__START);
 		createEAttribute(replaceSubstringEditEClass, REPLACE_SUBSTRING_EDIT__END);
+
+		markerInfoEClass = createEClass(MARKER_INFO);
+		createEAttribute(markerInfoEClass, MARKER_INFO__LINE_NUMBER);
+		createEAttribute(markerInfoEClass, MARKER_INFO__CHAR_START);
+		createEAttribute(markerInfoEClass, MARKER_INFO__CHAR_END);
+		createEAttribute(markerInfoEClass, MARKER_INFO__SEVERITY);
 
 		// Create data types
 		eTimestampEDataType = createEDataType(ETIMESTAMP);
@@ -1214,6 +1283,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 
 		initEClass(abstractStringEditEventEClass, AbstractStringEditEvent.class, "AbstractStringEditEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbstractStringEditEvent_Edit(), this.getAbstractStringEdit(), null, "edit", null, 0, 1, AbstractStringEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractStringEditEvent_Markers(), this.getMarkerInfo(), null, "markers", null, 0, -1, AbstractStringEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAbstractStringEditEvent__GetString(), ecorePackage.getEString(), "getString", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1233,6 +1303,12 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		initEAttribute(getReplaceSubstringEdit_Start(), ecorePackage.getEInt(), "start", null, 0, 1, ReplaceSubstringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReplaceSubstringEdit_End(), ecorePackage.getEInt(), "end", "-1", 0, 1, ReplaceSubstringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(markerInfoEClass, MarkerInfo.class, "MarkerInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMarkerInfo_LineNumber(), ecorePackage.getEInt(), "lineNumber", null, 0, 1, MarkerInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMarkerInfo_CharStart(), ecorePackage.getEInt(), "charStart", null, 0, 1, MarkerInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMarkerInfo_CharEnd(), ecorePackage.getEInt(), "charEnd", null, 0, 1, MarkerInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMarkerInfo_Severity(), ecorePackage.getEInt(), "severity", null, 0, 1, MarkerInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize data types
 		initEDataType(eTimestampEDataType, long.class, "ETimestamp", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
@@ -1242,6 +1318,8 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		// Create annotations
 		// no.hal.learning.exercise.views.ExerciseView
 		createNoAnnotations();
+		// no.hal.learning.exercise.MarkerInfo
+		createNo_1Annotations();
 	}
 
 	/**
@@ -1257,6 +1335,23 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		   source, 
 		   new String[] {
 			 "dashes", "SOLID"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>no.hal.learning.exercise.MarkerInfo</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createNo_1Annotations() {
+		String source = "no.hal.learning.exercise.MarkerInfo";	
+		addAnnotation
+		  (getMarkerInfo_Severity(), 
+		   source, 
+		   new String[] {
+			 "valueClass", "org.eclipse.core.resources.IMarker",
+			 "fieldPattern", "SEVERITY_.*"
 		   });
 	}
 

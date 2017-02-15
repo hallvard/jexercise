@@ -19,6 +19,7 @@ import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IElementChangedListener;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaElementDelta;
+import org.eclipse.jdt.core.IJavaModelMarker;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.swt.widgets.Composite;
@@ -26,17 +27,20 @@ import org.eclipse.swt.widgets.Composite;
 import no.hal.emf.ui.parts.adapters.EObjectUIAdapter;
 import no.hal.learning.exercise.AbstractStringEdit;
 import no.hal.learning.exercise.AbstractStringEditEvent;
+import no.hal.learning.exercise.MarkerInfo;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.jdt.JdtFactory;
+import no.hal.learning.exercise.jdt.JdtMarkerInfo;
 import no.hal.learning.exercise.jdt.JdtPackage;
 import no.hal.learning.exercise.jdt.JdtSourceEditAnswer;
 import no.hal.learning.exercise.jdt.JdtSourceEditEvent;
+import no.hal.learning.exercise.util.Util;
+import no.hal.learning.exercise.views.adapters.AbstractSourceEditTaskProposalAdapter;
 import no.hal.learning.exercise.views.adapters.TaskAttemptsUIAdapter;
 import no.hal.learning.exercise.views.adapters.TaskCounterUIAdapter;
-import no.hal.learning.exercise.views.adapters.TaskProposalUIAdapter;
 
-public class JdtSourceEditTaskProposalAdapter extends TaskProposalUIAdapter<JdtSourceEditAnswer> {
+public class JdtSourceEditTaskProposalAdapter extends AbstractSourceEditTaskProposalAdapter<JdtSourceEditAnswer> {
 
 	public JdtSourceEditTaskProposalAdapter(TaskProposal<JdtSourceEditAnswer> proposal) {
 		super(proposal);
@@ -87,6 +91,16 @@ public class JdtSourceEditTaskProposalAdapter extends TaskProposalUIAdapter<JdtS
 	}
 	
 	//
+
+	@Override
+	protected void setMarkerInfo(MarkerInfo markerInfo, IMarker marker) {
+		super.setMarkerInfo(markerInfo, marker);
+		if (markerInfo instanceof JdtMarkerInfo) {
+			JdtMarkerInfo jdtMarkerInfo = (JdtMarkerInfo) markerInfo;
+			jdtMarkerInfo.setProblemCategory(marker.getAttribute(IJavaModelMarker.CATEGORY_ID, -1));
+			jdtMarkerInfo.setProblemType(marker.getAttribute(IJavaModelMarker.ID, -1));
+		}
+	}
 
 	protected class JavaElementListener implements IElementChangedListener, IResourceChangeListener, Runnable {
 		
@@ -180,7 +194,7 @@ public class JdtSourceEditTaskProposalAdapter extends TaskProposalUIAdapter<JdtS
 			errorCount = warningCount = -1;
 			IMarker[] problemMarkers = null;
 			try {
-				problemMarkers = file.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+				problemMarkers = file.findMarkers(IJavaModelMarker.JAVA_MODEL_PROBLEM_MARKER, true, IResource.DEPTH_ZERO);
 			} catch (CoreException e) {
 			}
 			if (problemMarkers != null) {
@@ -193,6 +207,9 @@ public class JdtSourceEditTaskProposalAdapter extends TaskProposalUIAdapter<JdtS
 					} else if (severity == IMarker.SEVERITY_WARNING) {
 						warningCount++;
 					}
+					JdtMarkerInfo markerInfo = JdtFactory.eINSTANCE.createJdtMarkerInfo();
+					setMarkerInfo(markerInfo, marker);
+					taskEvent.getMarkers().add(markerInfo);
 				}
 			}
 			taskEvent.setErrorCount(errorCount);

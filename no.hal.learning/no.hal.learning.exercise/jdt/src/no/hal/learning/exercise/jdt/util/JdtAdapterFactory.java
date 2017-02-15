@@ -4,6 +4,7 @@ package no.hal.learning.exercise.jdt.util;
 
 import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.Answer;
+import no.hal.learning.exercise.MarkerInfo;
 import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.StringEditAnswer;
 import no.hal.learning.exercise.StringEditTaskProposal;
@@ -89,6 +90,10 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 				return createJdtSourceEditEventAdapter();
 			}
 			@Override
+			public Adapter caseJdtMarkerInfo(JdtMarkerInfo object) {
+				return createJdtMarkerInfoAdapter();
+			}
+			@Override
 			public Adapter caseJdtLaunchAnswer(JdtLaunchAnswer object) {
 				return createJdtLaunchAnswerAdapter();
 			}
@@ -131,6 +136,10 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAbstractStringEditEvent(AbstractStringEditEvent object) {
 				return createAbstractStringEditEventAdapter();
+			}
+			@Override
+			public Adapter caseMarkerInfo(MarkerInfo object) {
+				return createMarkerInfoAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -191,6 +200,34 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJdtSourceEditEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.jdt.JdtMarkerInfo <em>Marker Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.jdt.JdtMarkerInfo
+	 * @generated
+	 */
+	public Adapter createJdtMarkerInfoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.MarkerInfo <em>Marker Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.MarkerInfo
+	 * @generated
+	 */
+	public Adapter createMarkerInfoAdapter() {
 		return null;
 	}
 
