@@ -63,6 +63,7 @@ public class AbstractStringEditEventItemProvider extends TaskEventItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ExercisePackage.Literals.ABSTRACT_STRING_EDIT_EVENT__EDIT);
+			childrenFeatures.add(ExercisePackage.Literals.ABSTRACT_STRING_EDIT_EVENT__MARKERS);
 		}
 		return childrenFeatures;
 	}
@@ -117,6 +118,7 @@ public class AbstractStringEditEventItemProvider extends TaskEventItemProvider {
 
 		switch (notification.getFeatureID(AbstractStringEditEvent.class)) {
 			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__EDIT:
+			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__MARKERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -143,6 +145,11 @@ public class AbstractStringEditEventItemProvider extends TaskEventItemProvider {
 			(createChildParameter
 				(ExercisePackage.Literals.ABSTRACT_STRING_EDIT_EVENT__EDIT,
 				 ExerciseFactory.eINSTANCE.createReplaceSubstringEdit()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExercisePackage.Literals.ABSTRACT_STRING_EDIT_EVENT__MARKERS,
+				 ExerciseFactory.eINSTANCE.createMarkerInfo()));
 	}
 
 }

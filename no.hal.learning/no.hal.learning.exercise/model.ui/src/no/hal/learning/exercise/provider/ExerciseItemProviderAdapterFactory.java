@@ -457,6 +457,29 @@ public class ExerciseItemProviderAdapterFactory extends ExerciseAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.MarkerInfo} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MarkerInfoItemProvider markerInfoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.hal.learning.exercise.MarkerInfo}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMarkerInfoAdapter() {
+		if (markerInfoItemProvider == null) {
+			markerInfoItemProvider = new MarkerInfoItemProvider(this);
+		}
+
+		return markerInfoItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -598,6 +621,7 @@ public class ExerciseItemProviderAdapterFactory extends ExerciseAdapterFactory i
 		if (abstractStringEditEventItemProvider != null) abstractStringEditEventItemProvider.dispose();
 		if (stringEditItemProvider != null) stringEditItemProvider.dispose();
 		if (replaceSubstringEditItemProvider != null) replaceSubstringEditItemProvider.dispose();
+		if (markerInfoItemProvider != null) markerInfoItemProvider.dispose();
 	}
 
 }
