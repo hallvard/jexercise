@@ -13,6 +13,8 @@ import org.eclipse.paho.client.mqttv3.MqttAsyncClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 
+import no.hal.learning.exercise.provider.ExerciseEditPlugin;
+
 public class ExLogger {
 
 	private final String clientId;
@@ -47,7 +49,9 @@ public class ExLogger {
 		}
 		if (wasEmpty) {
 //			System.out.println("Scheduling @ " + 30 * 1000);
-			loggerJob.schedule(30 * 1000);
+			int seconds = 30;
+			loggerJob.schedule(seconds * 1000);
+			LogUtil.info("Scheduled logging of " + uri + " in " + seconds + " second(s)", null);
 		}
 	}
 	
@@ -71,13 +75,14 @@ public class ExLogger {
 	protected void log(String subTopic, byte[] bs) {
 		try {
 			MqttAsyncClient mqttClient = getMqttClient();
-			if (mqttClient.isConnected()) {
+			if (mqttClient != null && mqttClient.isConnected()) {
 //				System.out.println("Logging " + bs.length + " bytes to " + subTopic);
 				mqttClient.publish(subTopic, bs, 0, true);
+				LogUtil.info("Logged " + bs.length + " bytes to " + subTopic, null);
 				mqttClient.disconnect();
 			}
-		} catch (MqttPersistenceException e) {
-		} catch (MqttException e) {
+		} catch (Exception e) {
+			LogUtil.warn("Couldn't log to " + subTopic, e);
 		}
 	}
 
@@ -97,7 +102,6 @@ public class ExLogger {
 			try {
 				mqttClient = new MqttAsyncClient(serverUri, getClientId());
 			} catch (MqttException e) {
-				e.printStackTrace();
 			}
 		}
 		if (mqttClient != null && (! mqttClient.isConnected())) {
