@@ -155,7 +155,7 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 				start++;
 			}
 			int end = -1;
-			while (string.length() + end >= 0 && lastString.length() + end >= 0 && string.charAt(string.length() + end) == lastString.charAt(lastString.length() + end)) {
+			while (string.length() + end > start && lastString.length() + end >= 0 && string.charAt(string.length() + end) == lastString.charAt(lastString.length() + end)) {
 				end--;
 			}
 			if (start != 0 || end != -1) {

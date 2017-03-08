@@ -107,7 +107,11 @@ public class AbstractStringEditEventTest extends TaskEventTest {
 		testCreateStringEdit__String_AbstractStringEditEvent("a string!", lastStringEditEvent);
 		testCreateStringEdit__String_AbstractStringEditEvent("a", lastStringEditEvent);
 		testCreateStringEdit__String_AbstractStringEditEvent("string", lastStringEditEvent);
+		testCreateStringEdit__String_AbstractStringEditEvent("str", lastStringEditEvent);
 		testCreateStringEdit__String_AbstractStringEditEvent("just a", lastStringEditEvent);
+		testCreateStringEdit__String_AbstractStringEditEvent("a string", lastStringEditEvent);
+		testCreateStringEdit__String_AbstractStringEditEvent("a stringa string", lastStringEditEvent);
+		testCreateStringEdit__String_AbstractStringEditEvent("a stringxa string", lastStringEditEvent);
 	}
 
 	protected void testCreateStringEdit__String_AbstractStringEditEvent(String string, AbstractStringEditEvent lastStringEditEvent) {
