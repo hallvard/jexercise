@@ -7,6 +7,7 @@ import org.junit.Assert;
 import junit.textui.TestRunner;
 
 import no.hal.learning.exercise.ExerciseFactory;
+import no.hal.learning.exercise.ExercisePackage;
 import no.hal.learning.exercise.StringEdit;
 
 /**
@@ -71,8 +72,15 @@ public class StringEditTest extends AbstractStringEditTest {
 
 	//
 
+	@Override
 	public void testGetString() {
 		getFixture().setStoredString("Java er gøy");
 		Assert.assertEquals("Java er gøy", getFixture().getString());
 	}
+	
+	@Override
+	public void testInitStringEdit__String_AbstractStringEdit() {
+		super.testInitStringEdit__String_AbstractStringEdit(ExercisePackage.eINSTANCE.getStringEdit(), INITIAL_STRING, TEST_STRINGS);
+	}
+
 } //StringEditTest

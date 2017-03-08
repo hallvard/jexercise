@@ -5,8 +5,8 @@ package no.hal.learning.exercise.tests;
 import org.junit.Assert;
 
 import junit.textui.TestRunner;
-
 import no.hal.learning.exercise.ExerciseFactory;
+import no.hal.learning.exercise.ExercisePackage;
 import no.hal.learning.exercise.ReplaceSubstringEdit;
 import no.hal.learning.exercise.StringEdit;
 
@@ -72,6 +72,7 @@ public class ReplaceSubstringEditTest extends StringEditTest {
 
 	//
 
+	@Override
 	public void testGetString() {
 		// test base case
 		StringEdit baseEdit = ExerciseFactory.eINSTANCE.createStringEdit();
@@ -133,4 +134,10 @@ public class ReplaceSubstringEditTest extends StringEditTest {
 		edit.setEnd(-1);
 		Assert.assertEquals("Java er gøykjempe", edit.getString());
 	}
+
+	@Override
+	public void testInitStringEdit__String_AbstractStringEdit() {
+		super.testInitStringEdit__String_AbstractStringEdit(ExercisePackage.eINSTANCE.getReplaceSubstringEdit(), INITIAL_STRING, TEST_STRINGS);
+	}
+
 } //ReplaceSubstringEditTest

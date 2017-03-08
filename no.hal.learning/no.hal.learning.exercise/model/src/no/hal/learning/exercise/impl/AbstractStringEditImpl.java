@@ -56,11 +56,24 @@ public abstract class AbstractStringEditImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean initStringEdit(String string, AbstractStringEdit lastEdit) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ExercisePackage.ABSTRACT_STRING_EDIT___GET_STRING:
 				return getString();
+			case ExercisePackage.ABSTRACT_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT:
+				return initStringEdit((String)arguments.get(0), (AbstractStringEdit)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

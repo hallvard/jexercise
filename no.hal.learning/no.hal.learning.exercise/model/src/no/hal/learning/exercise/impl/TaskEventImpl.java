@@ -10,11 +10,14 @@ import no.hal.learning.exercise.TaskProposal;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.learning.exercise.impl.TaskEventImpl#getProposal <em>Proposal</em>}</li>
  *   <li>{@link no.hal.learning.exercise.impl.TaskEventImpl#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link no.hal.learning.exercise.impl.TaskEventImpl#getCompletion <em>Completion</em>}</li>
  * </ul>
@@ -95,6 +99,47 @@ public class TaskEventImpl extends MinimalEObjectImpl.Container implements TaskE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TaskProposal<?> getProposal() {
+		if (eContainerFeatureID() != ExercisePackage.TASK_EVENT__PROPOSAL) return null;
+		return (TaskProposal<?>)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProposal(TaskProposal<?> newProposal, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newProposal, ExercisePackage.TASK_EVENT__PROPOSAL, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProposal(TaskProposal<?> newProposal) {
+		if (newProposal != eInternalContainer() || (eContainerFeatureID() != ExercisePackage.TASK_EVENT__PROPOSAL && newProposal != null)) {
+			if (EcoreUtil.isAncestor(this, newProposal))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newProposal != null)
+				msgs = ((InternalEObject)newProposal).eInverseAdd(this, ExercisePackage.TASK_PROPOSAL__ATTEMPTS, TaskProposal.class, msgs);
+			msgs = basicSetProposal(newProposal, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.TASK_EVENT__PROPOSAL, newProposal, newProposal));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public long getTimestamp() {
 		return timestamp;
 	}
@@ -144,6 +189,50 @@ public class TaskEventImpl extends MinimalEObjectImpl.Container implements TaskE
 		return getTaskProposal().getText(); // + " @ " + tempDate;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExercisePackage.TASK_EVENT__PROPOSAL:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetProposal((TaskProposal<?>)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExercisePackage.TASK_EVENT__PROPOSAL:
+				return basicSetProposal(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ExercisePackage.TASK_EVENT__PROPOSAL:
+				return eInternalContainer().eInverseRemove(this, ExercisePackage.TASK_PROPOSAL__ATTEMPTS, TaskProposal.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
 	protected TaskProposal<? extends TaskAnswer> getTaskProposal() {
 		return (TaskProposal<? extends TaskAnswer>) eContainer();
 	}
@@ -156,6 +245,8 @@ public class TaskEventImpl extends MinimalEObjectImpl.Container implements TaskE
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ExercisePackage.TASK_EVENT__PROPOSAL:
+				return getProposal();
 			case ExercisePackage.TASK_EVENT__TIMESTAMP:
 				return getTimestamp();
 			case ExercisePackage.TASK_EVENT__COMPLETION:
@@ -172,6 +263,9 @@ public class TaskEventImpl extends MinimalEObjectImpl.Container implements TaskE
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ExercisePackage.TASK_EVENT__PROPOSAL:
+				setProposal((TaskProposal<?>)newValue);
+				return;
 			case ExercisePackage.TASK_EVENT__TIMESTAMP:
 				setTimestamp((Long)newValue);
 				return;
@@ -190,6 +284,9 @@ public class TaskEventImpl extends MinimalEObjectImpl.Container implements TaskE
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ExercisePackage.TASK_EVENT__PROPOSAL:
+				setProposal((TaskProposal<?>)null);
+				return;
 			case ExercisePackage.TASK_EVENT__TIMESTAMP:
 				setTimestamp(TIMESTAMP_EDEFAULT);
 				return;
@@ -208,6 +305,8 @@ public class TaskEventImpl extends MinimalEObjectImpl.Container implements TaskE
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ExercisePackage.TASK_EVENT__PROPOSAL:
+				return getProposal() != null;
 			case ExercisePackage.TASK_EVENT__TIMESTAMP:
 				return timestamp != TIMESTAMP_EDEFAULT;
 			case ExercisePackage.TASK_EVENT__COMPLETION:

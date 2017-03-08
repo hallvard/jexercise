@@ -765,8 +765,17 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTaskEvent_Proposal() {
+		return (EReference)taskEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getTaskEvent_Timestamp() {
-		return (EAttribute)taskEventEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)taskEventEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -775,7 +784,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * @generated
 	 */
 	public EAttribute getTaskEvent_Completion() {
-		return (EAttribute)taskEventEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)taskEventEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -875,6 +884,15 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 */
 	public EOperation getAbstractStringEdit__GetString() {
 		return abstractStringEditEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAbstractStringEdit__InitStringEdit__String_AbstractStringEdit() {
+		return abstractStringEditEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1082,6 +1100,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		createEOperation(taskProposalEClass, TASK_PROPOSAL___GET_TEXT);
 
 		taskEventEClass = createEClass(TASK_EVENT);
+		createEReference(taskEventEClass, TASK_EVENT__PROPOSAL);
 		createEAttribute(taskEventEClass, TASK_EVENT__TIMESTAMP);
 		createEAttribute(taskEventEClass, TASK_EVENT__COMPLETION);
 		createEOperation(taskEventEClass, TASK_EVENT___GET_TEXT);
@@ -1099,6 +1118,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 
 		abstractStringEditEClass = createEClass(ABSTRACT_STRING_EDIT);
 		createEOperation(abstractStringEditEClass, ABSTRACT_STRING_EDIT___GET_STRING);
+		createEOperation(abstractStringEditEClass, ABSTRACT_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT);
 
 		stringEditEClass = createEClass(STRING_EDIT);
 		createEAttribute(stringEditEClass, STRING_EDIT__STORED_STRING);
@@ -1264,12 +1284,16 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		initEAttribute(getTaskProposal_Completion(), ecorePackage.getEDouble(), "completion", "-1", 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskProposal_Proof(), ecorePackage.getEString(), "proof", null, 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskProposal_AttemptCount(), ecorePackage.getEInt(), "attemptCount", null, 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTaskProposal_Attempts(), this.getTaskEvent(), null, "attempts", null, 0, -1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskProposal_Attempts(), this.getTaskEvent(), this.getTaskEvent_Proposal(), "attempts", null, 0, -1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskProposal_PerformedCount(), ecorePackage.getEInt(), "performedCount", null, 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getTaskProposal__GetText(), ecorePackage.getEString(), "getText", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(taskEventEClass, TaskEvent.class, "TaskEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(this.getTaskProposal());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getTaskEvent_Proposal(), g1, this.getTaskProposal_Attempts(), "proposal", null, 0, 1, TaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskEvent_Timestamp(), this.getETimestamp(), "timestamp", null, 0, 1, TaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskEvent_Completion(), ecorePackage.getEDouble(), "completion", "-1", 0, 1, TaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1294,6 +1318,10 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		initEClass(abstractStringEditEClass, AbstractStringEdit.class, "AbstractStringEdit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getAbstractStringEdit__GetString(), ecorePackage.getEString(), "getString", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAbstractStringEdit__InitStringEdit__String_AbstractStringEdit(), ecorePackage.getEBooleanObject(), "initStringEdit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "string", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAbstractStringEdit(), "lastEdit", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(stringEditEClass, StringEdit.class, "StringEdit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringEdit_StoredString(), ecorePackage.getEString(), "storedString", null, 0, 1, StringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

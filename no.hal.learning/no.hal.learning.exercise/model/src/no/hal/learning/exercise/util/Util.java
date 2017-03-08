@@ -3,6 +3,7 @@ package no.hal.learning.exercise.util;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.Collection;
+import java.util.Comparator;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import no.hal.learning.exercise.MarkerInfo;
+import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.quiz.Option;
 import no.hal.learning.quiz.OptionsAnswer;
 
@@ -123,4 +125,12 @@ public class Util {
 		}
 		return null;
 	}
+	
+	public final static Comparator<TaskEvent> TASK_EVENT_TIMESTAMP_COMPARATOR = new Comparator<TaskEvent>() {
+		@Override
+		public int compare(TaskEvent o1, TaskEvent o2) {
+			long diff = o1.getTimestamp() - o2.getTimestamp();
+			return (diff < 0 ? -1 : (diff > 0 ? 1 : 0));
+		}
+	};
 }

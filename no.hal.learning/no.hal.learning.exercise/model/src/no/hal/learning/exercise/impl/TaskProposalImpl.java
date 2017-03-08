@@ -12,8 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import no.hal.learning.exercise.ExercisePackage;
 import no.hal.learning.exercise.TaskAnswer;
@@ -236,7 +235,7 @@ public class TaskProposalImpl<T extends TaskAnswer> extends ProposalImpl<T> impl
 	 */
 	public EList<TaskEvent> getAttempts() {
 		if (attempts == null) {
-			attempts = new EObjectContainmentEList<TaskEvent>(TaskEvent.class, this, ExercisePackage.TASK_PROPOSAL__ATTEMPTS);
+			attempts = new EObjectContainmentWithInverseEList<TaskEvent>(TaskEvent.class, this, ExercisePackage.TASK_PROPOSAL__ATTEMPTS, ExercisePackage.TASK_EVENT__PROPOSAL);
 		}
 		return attempts;
 	}
@@ -271,6 +270,21 @@ public class TaskProposalImpl<T extends TaskAnswer> extends ProposalImpl<T> impl
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExercisePackage.TASK_PROPOSAL__ATTEMPTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAttempts()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

@@ -108,6 +108,7 @@ public interface TaskProposal<T extends TaskAnswer> extends Proposal<T> {
 	/**
 	 * Returns the value of the '<em><b>Attempts</b></em>' containment reference list.
 	 * The list contents are of type {@link no.hal.learning.exercise.TaskEvent}.
+	 * It is bidirectional and its opposite is '{@link no.hal.learning.exercise.TaskEvent#getProposal <em>Proposal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Attempts</em>' containment reference list isn't clear,
@@ -116,7 +117,8 @@ public interface TaskProposal<T extends TaskAnswer> extends Proposal<T> {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attempts</em>' containment reference list.
 	 * @see no.hal.learning.exercise.ExercisePackage#getTaskProposal_Attempts()
-	 * @model containment="true"
+	 * @see no.hal.learning.exercise.TaskEvent#getProposal
+	 * @model opposite="proposal" containment="true"
 	 * @generated
 	 */
 	EList<TaskEvent> getAttempts();

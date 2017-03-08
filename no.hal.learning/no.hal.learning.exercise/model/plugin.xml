@@ -22,4 +22,12 @@
             genModel="model/quiz.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated diff -->
+      <package
+            uri="platform:/plugin/no.hal.learning.exercise.model/model/diff.ecore"
+            class="no.hal.learning.diff.DiffPackage"
+            genModel="model/diff.genmodel"/>
+   </extension>
+
 </plugin>

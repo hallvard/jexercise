@@ -2,15 +2,14 @@
  */
 package no.hal.learning.exercise.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import no.hal.learning.exercise.AbstractStringEdit;
 import no.hal.learning.exercise.ExercisePackage;
 import no.hal.learning.exercise.ReplaceSubstringEdit;
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,11 +102,7 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 		transientStringCache = null;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
+	@Override
 	public String getString() {
 		if (getEdit() != null) {
 			if (transientStringCache == null) {
@@ -123,6 +118,29 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 			return transientStringCache;
 		}
 		return super.getString();
+	}
+
+	@Override
+	public Boolean initStringEdit(String string, AbstractStringEdit lastEdit) {
+		String lastString = lastEdit.getString();
+		int start = 0;
+		while (start < string.length() && start < lastString.length() && string.charAt(start) == lastString.charAt(start)) {
+			start++;
+		}
+		int end = -1;
+		while (string.length() + end > start && lastString.length() + end >= 0 && string.charAt(string.length() + end) == lastString.charAt(lastString.length() + end)) {
+			end--;
+		}
+		if (start != 0 || end != -1) {
+			setEdit(lastEdit);
+			setStart(start);
+			setEnd(end);
+			int end2 = string.length() + end + 1;
+			setStoredString(end2 > start ? string.substring(start, end2) : null);
+			return true;
+		}
+		super.initStringEdit(string, lastEdit);
+		return false;
 	}
 
 	/**

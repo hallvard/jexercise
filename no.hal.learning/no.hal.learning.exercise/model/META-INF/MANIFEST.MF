@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: no.hal.learning.exercise.model;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ libs/diffutils-1.3.0.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
@@ -12,7 +13,10 @@ Export-Package: no.hal.learning.exercise,
  no.hal.learning.exercise.util,
  no.hal.learning.quiz,
  no.hal.learning.quiz.impl,
- no.hal.learning.quiz.util
+ no.hal.learning.quiz.util,
+ no.hal.learning.diff,
+ no.hal.learning.diff.impl,
+ no.hal.learning.diff.util
 Require-Bundle: org.eclipse.core.runtime;resolution:=optional,
  org.eclipse.emf.ecore;visibility:=reexport,
  no.hal.learning.exercise.model;visibility:=reexport,

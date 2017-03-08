@@ -993,13 +993,22 @@ public interface ExercisePackage extends EPackage {
 	int TASK_EVENT = 15;
 
 	/**
+	 * The feature id for the '<em><b>Proposal</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EVENT__PROPOSAL = 0;
+
+	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EVENT__TIMESTAMP = 0;
+	int TASK_EVENT__TIMESTAMP = 1;
 
 	/**
 	 * The feature id for the '<em><b>Completion</b></em>' attribute.
@@ -1008,7 +1017,7 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EVENT__COMPLETION = 1;
+	int TASK_EVENT__COMPLETION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Task Event</em>' class.
@@ -1017,7 +1026,7 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EVENT_FEATURE_COUNT = 2;
+	int TASK_EVENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -1248,6 +1257,15 @@ public interface ExercisePackage extends EPackage {
 	int ABSTRACT_STRING_EDIT_EVENT = 18;
 
 	/**
+	 * The feature id for the '<em><b>Proposal</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT__PROPOSAL = TASK_EVENT__PROPOSAL;
+
+	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1357,13 +1375,22 @@ public interface ExercisePackage extends EPackage {
 	int ABSTRACT_STRING_EDIT___GET_STRING = 0;
 
 	/**
+	 * The operation id for the '<em>Init String Edit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT = 1;
+
+	/**
 	 * The number of operations of the '<em>Abstract String Edit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_STRING_EDIT_OPERATION_COUNT = 1;
+	int ABSTRACT_STRING_EDIT_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.impl.StringEditImpl <em>String Edit</em>}' class.
@@ -1401,6 +1428,15 @@ public interface ExercisePackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_EDIT___GET_STRING = ABSTRACT_STRING_EDIT___GET_STRING;
+
+	/**
+	 * The operation id for the '<em>Init String Edit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT = ABSTRACT_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT;
 
 	/**
 	 * The number of operations of the '<em>String Edit</em>' class.
@@ -1474,6 +1510,15 @@ public interface ExercisePackage extends EPackage {
 	 * @ordered
 	 */
 	int REPLACE_SUBSTRING_EDIT___GET_STRING = STRING_EDIT___GET_STRING;
+
+	/**
+	 * The operation id for the '<em>Init String Edit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLACE_SUBSTRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT = STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT;
 
 	/**
 	 * The number of operations of the '<em>Replace Substring Edit</em>' class.
@@ -2123,6 +2168,17 @@ public interface ExercisePackage extends EPackage {
 	EClass getTaskEvent();
 
 	/**
+	 * Returns the meta object for the container reference '{@link no.hal.learning.exercise.TaskEvent#getProposal <em>Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Proposal</em>'.
+	 * @see no.hal.learning.exercise.TaskEvent#getProposal()
+	 * @see #getTaskEvent()
+	 * @generated
+	 */
+	EReference getTaskEvent_Proposal();
+
+	/**
 	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.TaskEvent#getTimestamp <em>Timestamp</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2255,6 +2311,16 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAbstractStringEdit__GetString();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.learning.exercise.AbstractStringEdit#initStringEdit(java.lang.String, no.hal.learning.exercise.AbstractStringEdit) <em>Init String Edit</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init String Edit</em>' operation.
+	 * @see no.hal.learning.exercise.AbstractStringEdit#initStringEdit(java.lang.String, no.hal.learning.exercise.AbstractStringEdit)
+	 * @generated
+	 */
+	EOperation getAbstractStringEdit__InitStringEdit__String_AbstractStringEdit();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.StringEdit <em>String Edit</em>}'.
@@ -2872,6 +2938,14 @@ public interface ExercisePackage extends EPackage {
 		EClass TASK_EVENT = eINSTANCE.getTaskEvent();
 
 		/**
+		 * The meta object literal for the '<em><b>Proposal</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK_EVENT__PROPOSAL = eINSTANCE.getTaskEvent_Proposal();
+
+		/**
 		 * The meta object literal for the '<em><b>Timestamp</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2982,6 +3056,14 @@ public interface ExercisePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ABSTRACT_STRING_EDIT___GET_STRING = eINSTANCE.getAbstractStringEdit__GetString();
+
+		/**
+		 * The meta object literal for the '<em><b>Init String Edit</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT = eINSTANCE.getAbstractStringEdit__InitStringEdit__String_AbstractStringEdit();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.StringEditImpl <em>String Edit</em>}' class.

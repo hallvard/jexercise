@@ -23,4 +23,12 @@ public interface AbstractStringEdit extends EObject {
 	 */
 	String getString();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Boolean initStringEdit(String string, AbstractStringEdit lastEdit);
+
 } // AbstractStringEdit

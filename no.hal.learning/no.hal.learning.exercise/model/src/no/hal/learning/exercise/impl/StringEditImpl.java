@@ -2,6 +2,7 @@
  */
 package no.hal.learning.exercise.impl;
 
+import no.hal.learning.exercise.AbstractStringEdit;
 import no.hal.learning.exercise.ExercisePackage;
 import no.hal.learning.exercise.StringEdit;
 
@@ -93,6 +94,12 @@ public class StringEditImpl extends AbstractStringEditImpl implements StringEdit
 		return storedString;
 	}
 
+	@Override
+	public Boolean initStringEdit(String string, AbstractStringEdit lastEdit) {
+		storedString = string;
+		return true;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

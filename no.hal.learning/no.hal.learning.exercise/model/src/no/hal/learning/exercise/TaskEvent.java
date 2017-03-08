@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.learning.exercise.TaskEvent#getProposal <em>Proposal</em>}</li>
  *   <li>{@link no.hal.learning.exercise.TaskEvent#getTimestamp <em>Timestamp</em>}</li>
  *   <li>{@link no.hal.learning.exercise.TaskEvent#getCompletion <em>Completion</em>}</li>
  * </ul>
@@ -22,6 +23,34 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface TaskEvent extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Proposal</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link no.hal.learning.exercise.TaskProposal#getAttempts <em>Attempts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Proposal</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Proposal</em>' container reference.
+	 * @see #setProposal(TaskProposal)
+	 * @see no.hal.learning.exercise.ExercisePackage#getTaskEvent_Proposal()
+	 * @see no.hal.learning.exercise.TaskProposal#getAttempts
+	 * @model opposite="attempts" transient="false"
+	 * @generated
+	 */
+	TaskProposal<?> getProposal();
+
+	/**
+	 * Sets the value of the '{@link no.hal.learning.exercise.TaskEvent#getProposal <em>Proposal</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Proposal</em>' container reference.
+	 * @see #getProposal()
+	 * @generated
+	 */
+	void setProposal(TaskProposal<?> value);
+
 	/**
 	 * Returns the value of the '<em><b>Timestamp</b></em>' attribute.
 	 * <!-- begin-user-doc -->

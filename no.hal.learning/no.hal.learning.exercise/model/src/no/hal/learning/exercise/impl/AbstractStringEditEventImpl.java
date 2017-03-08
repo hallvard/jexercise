@@ -148,23 +148,9 @@ public class AbstractStringEditEventImpl extends TaskEventImpl implements Abstra
 	 */
 	public AbstractStringEdit createStringEdit(String string, AbstractStringEditEvent lastEvent) {
 		if (lastEvent != null && lastEvent.getEdit() != null) {
+			ReplaceSubstringEdit stringEdit = ExerciseFactory.eINSTANCE.createReplaceSubstringEdit();
 			AbstractStringEdit lastEdit = lastEvent.getEdit();
-			String lastString = lastEdit.getString();
-			int start = 0;
-			while (start < string.length() && start < lastString.length() && string.charAt(start) == lastString.charAt(start)) {
-				start++;
-			}
-			int end = -1;
-			while (string.length() + end > start && lastString.length() + end >= 0 && string.charAt(string.length() + end) == lastString.charAt(lastString.length() + end)) {
-				end--;
-			}
-			if (start != 0 || end != -1) {
-				ReplaceSubstringEdit stringEdit = ExerciseFactory.eINSTANCE.createReplaceSubstringEdit();
-				stringEdit.setEdit(lastEdit);
-				stringEdit.setStart(start);
-				stringEdit.setEnd(end);
-				int end2 = string.length() + end + 1;
-				stringEdit.setStoredString(end2 > start ? string.substring(start, end2) : null);
+			if (stringEdit.initStringEdit(string, lastEdit)) {
 				return stringEdit;
 			}
 		}
