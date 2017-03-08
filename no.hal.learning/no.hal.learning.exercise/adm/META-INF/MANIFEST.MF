@@ -4,7 +4,6 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: no.hal.learning.exercise.adm;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: no.hal.learning.exercise.provider.ExerciseEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
@@ -17,3 +16,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-ActivationPolicy: lazy
 Import-Package: no.hal.emf.ui.parts,
  org.eclipse.paho.client.mqttv3;version="[1.0.0,1.2.0)"
+Export-Package: no.hal.learning.exercise.adm,
+ no.hal.learning.exercise.adm.util

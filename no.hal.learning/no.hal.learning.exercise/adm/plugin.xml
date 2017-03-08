@@ -5,6 +5,8 @@
 -->
 
 <plugin>
+   <extension-point id="plotpane" name="Plot pane" schema="schema/plotpane.exsd"/>
+   <extension-point id="extablecolumn" name="Exercise Table Column" schema="schema/extablecolumn.exsd"/>
 
       <extension point="org.eclipse.ui.views">
 	     <view id="no.hal.learning.exercise.adm.LoggedExView"
@@ -13,5 +15,38 @@
 	     	class="no.hal.learning.exercise.adm.LoggedExView">
 	     </view>
    </extension>
+
+	<extension point="no.hal.learning.exercise.adm.extablecolumn">
+		<extablecolumn
+			columnNum="10"
+	    	columnLabel="# total"
+            cellLabelProviderClass="no.hal.learning.exercise.adm.util.TotalEventCountCellLabel"
+            columnWidth="40"
+        />
+		<extablecolumn
+			columnNum="15"
+	    	columnLabel="# edits"
+            cellLabelProviderClass="no.hal.learning.exercise.adm.util.StringEditEventCountCellLabel"
+            columnWidth="40"
+        />
+		<extablecolumn
+			columnNum="20"
+	    	columnLabel="Start"
+            cellLabelProviderClass="no.hal.learning.exercise.adm.util.MinEventTimeCellLabel"
+            columnWidth="125"
+        />
+		<extablecolumn
+			columnNum="25"
+	    	columnLabel="Duration"
+            cellLabelProviderClass="no.hal.learning.exercise.adm.util.TimeUsageCellLabel"
+            columnWidth="50"
+        />
+		<extablecolumn
+			columnNum="30"
+	    	columnLabel="End"
+            cellLabelProviderClass="no.hal.learning.exercise.adm.util.MaxEventTimeCellLabel"
+            columnWidth="125"
+        />
+	</extension>
 
 </plugin>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+      <extension
+            point="no.hal.learning.exercise.adm.plotpane">
+         <plotpane
+               name="Exercise Overview"
+               plotPaneClass="no.hal.learning.exercise.adm.plots.ExerciseOverviewPlot">
+         </plotpane>
+      </extension>
+
+      <extension
+            point="no.hal.learning.exercise.adm.plotpane">
+         <plotpane
+               name="Exercise Time Usage"
+               plotPaneClass="no.hal.learning.exercise.adm.plots.ExerciseTimeUsagePlot">
+         </plotpane>
+      </extension>
+
+      <extension
+            point="no.hal.learning.exercise.adm.plotpane">
+         <plotpane
+               name="Test completion"
+               plotPaneClass="no.hal.learning.exercise.adm.plots.ExerciseTestCompletionPlot">
+         </plotpane>
+      </extension>
+
+	<extension point="no.hal.learning.exercise.adm.extablecolumn">
+		<extablecolumn
+	    	columnLabel="Completion"
+            cellLabelProviderClass="no.hal.learning.exercise.adm.plots.util.TestCompletionCellLabel"
+        />
+	</extension>
+
+</plugin>

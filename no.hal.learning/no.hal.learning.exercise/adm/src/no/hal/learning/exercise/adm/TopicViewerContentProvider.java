@@ -61,7 +61,7 @@ public class TopicViewerContentProvider<T> implements ITreeContentProvider {
 	public Object getParent(Object element) {
 		String s = String.valueOf(element);
 		int pos = s.lastIndexOf('/');
-		return s.substring(0, pos);
+		return (pos > 0 ? s.substring(0, pos) : null);
 	}
 
 	@Override
