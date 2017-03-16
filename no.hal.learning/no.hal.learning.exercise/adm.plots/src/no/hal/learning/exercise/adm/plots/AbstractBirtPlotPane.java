@@ -24,12 +24,12 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import no.hal.learning.exercise.adm.AbstractPlotPane;
+import no.hal.learning.exercise.adm.AbstractChartPane;
 import no.hal.learning.exercise.adm.plots.util.InputProvider;
 import no.hal.learning.exercise.adm.plots.util.TextInputHandler;
 import no.hal.learning.exercise.adm.plots.util.TextInputProvider;
 
-public abstract class AbstractBirtPlotPane<C extends Chart> extends AbstractPlotPane {
+public abstract class AbstractBirtPlotPane<C extends Chart> extends AbstractChartPane {
 
 	private PlotCanvas plotCanvas;
 
@@ -74,7 +74,7 @@ public abstract class AbstractBirtPlotPane<C extends Chart> extends AbstractPlot
 	
 	private C chart;
 
-	public void updatePlot(ResourceSet resourceSet) {
+	public void updateChart(ResourceSet resourceSet) {
 		if (chart == null) {
 			chart = createChart(resourceSet);
 		}

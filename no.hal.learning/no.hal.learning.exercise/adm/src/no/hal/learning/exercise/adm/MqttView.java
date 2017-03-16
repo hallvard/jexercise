@@ -103,8 +103,8 @@ public abstract class MqttView<T> extends ViewPart {
 			}
 		};
 
-		TopicViewerContentProvider<T> contentProvider = new TopicViewerContentProvider<T>(topicMap);
-		contentProvider.setTopicPrefix(getTopicPrefix());
+		PathViewerContentProvider<T> contentProvider = new PathViewerContentProvider<T>(topicMap);
+		contentProvider.setPathPrefix(getTopicPrefix());
 		topicViewer.setContentProvider(contentProvider);
 
 		topicViewer.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
@@ -201,7 +201,7 @@ public abstract class MqttView<T> extends ViewPart {
 
 	protected void addPathColumn() {
 		addTopicViewerColumn("Path", new CellLabelProvider() {
-			TopicViewerLabelProvider topicLabelProvider = new TopicViewerLabelProvider();
+			PathViewerLabelProvider topicLabelProvider = new PathViewerLabelProvider();
 			@Override
 			public void update(ViewerCell cell) {
 				cell.setText(topicLabelProvider.getText(cell.getElement()));

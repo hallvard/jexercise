@@ -18,7 +18,7 @@
       </annotation>
       <complexType>
          <sequence>
-            <element ref="extablecolumn" minOccurs="1" maxOccurs="unbounded"/>
+            <element ref="exviewercolumn" minOccurs="1" maxOccurs="unbounded"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -47,7 +47,7 @@
       </complexType>
    </element>
 
-   <element name="extablecolumn">
+   <element name="exviewercolumn">
       <complexType>
          <attribute name="cellLabelProviderClass" type="string" use="required">
             <annotation>
@@ -74,6 +74,23 @@
             </annotation>
          </attribute>
          <attribute name="columnNum" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="taskEventsValueClass" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="no.hal.learning.exercise.adm.AbstractTaskEventsValue:"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="columnLabelFormat" type="string">
             <annotation>
                <documentation>
                   

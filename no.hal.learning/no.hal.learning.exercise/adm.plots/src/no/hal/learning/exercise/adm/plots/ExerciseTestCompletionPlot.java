@@ -17,9 +17,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import no.hal.learning.exercise.TaskEvent;
-import no.hal.learning.exercise.adm.LoggedExView;
 import no.hal.learning.exercise.junit.JunitTestEvent;
 import no.hal.learning.exercise.junit.JunitTestProposal;
+import no.hal.learning.exercise.util.Util;
 
 public class ExerciseTestCompletionPlot extends AbstractStudentExercisesPlot<Double, Double> {
 
@@ -74,8 +74,8 @@ public class ExerciseTestCompletionPlot extends AbstractStudentExercisesPlot<Dou
 	}
 
 	@Override
-	public void updatePlot(ResourceSet resourceSet) {
-		super.updatePlot(resourceSet);
+	public void updateChart(ResourceSet resourceSet) {
+		super.updateChart(resourceSet);
 	}
 
 	protected double[] getTestCompletionMinMax() {
@@ -104,7 +104,7 @@ public class ExerciseTestCompletionPlot extends AbstractStudentExercisesPlot<Dou
 	
 	@Override
 	protected void addExerciseValues(int seriesNum, Resource resource, Collection<Double> values) {
-		List<JunitTestProposal> testProposals = LoggedExView.getAllEObjects(resource.getAllContents(), JunitTestProposal.class);
+		List<JunitTestProposal> testProposals = Util.getAllEObjects(resource.getAllContents(), JunitTestProposal.class);
 		for (JunitTestProposal testProposal : testProposals) {
 			EList<TaskEvent> events = testProposal.getAttempts();
 			for (int i = events.size() - 1; i >= 0; i--) {

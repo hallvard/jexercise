@@ -16,13 +16,13 @@ import org.eclipse.swt.widgets.Composite;
 
 import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.TaskEvent;
-import no.hal.learning.exercise.adm.LoggedExView;
 import no.hal.learning.exercise.adm.plots.util.DoubleInputHandler;
 import no.hal.learning.exercise.adm.plots.util.InputProvider;
 import no.hal.learning.exercise.adm.plots.util.IntegerInputHandler;
-import no.hal.learning.exercise.adm.util.TaskEventTimeAccumulatorReducer;
+import no.hal.learning.exercise.adm.util.TaskEventTimeAccumulator;
 import no.hal.learning.exercise.junit.JunitTestEvent;
 import no.hal.learning.exercise.junit.JunitTestProposal;
+import no.hal.learning.exercise.util.Util;
 
 public class ExerciseTimeUsagePlot extends AbstractStudentExercisesPlot<Long, Integer> {
 
@@ -50,7 +50,7 @@ public class ExerciseTimeUsagePlot extends AbstractStudentExercisesPlot<Long, In
 		return AbstractStringEditEvent.class;
 	}
 
-	private TaskEventTimeAccumulatorReducer taskEventTimeAccumulator;
+	private TaskEventTimeAccumulator taskEventTimeAccumulator;
 
 	@Override
 	protected void addYSeries(SeriesDefinition ySeriesDef) {
@@ -65,14 +65,14 @@ public class ExerciseTimeUsagePlot extends AbstractStudentExercisesPlot<Long, In
 	}
 
 	@Override
-	public void updatePlot(ResourceSet resourceSet) {
+	public void updateChart(ResourceSet resourceSet) {
 		int eventGapThreshold = 5;
 		try {
 			eventGapThreshold = eventGapThresholdProvider.getInput();
 		} catch (NullPointerException e) {
 		}
-		taskEventTimeAccumulator = new TaskEventTimeAccumulatorReducer(eventGapThreshold);
-		super.updatePlot(resourceSet);
+		taskEventTimeAccumulator = new TaskEventTimeAccumulator(eventGapThreshold);
+		super.updateChart(resourceSet);
 	}
 	
 	@Override
@@ -93,7 +93,7 @@ public class ExerciseTimeUsagePlot extends AbstractStudentExercisesPlot<Long, In
 
 	protected double computeExerciseCompletion(Resource resource) {
 		double sum = 0.0;
-		List<JunitTestProposal> testProposals = LoggedExView.getAllEObjects(resource.getAllContents(), JunitTestProposal.class);
+		List<JunitTestProposal> testProposals = Util.getAllEObjects(resource.getAllContents(), JunitTestProposal.class);
 		for (JunitTestProposal testProposal : testProposals) {
 			EList<TaskEvent> events = testProposal.getAttempts();
 			for (int i = events.size() - 1; i >= 0; i--) {

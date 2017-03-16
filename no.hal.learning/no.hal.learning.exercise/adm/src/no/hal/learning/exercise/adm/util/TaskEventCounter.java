@@ -2,13 +2,13 @@ package no.hal.learning.exercise.adm.util;
 
 import no.hal.learning.exercise.TaskEvent;
 
-public class TaskEventCountReducer extends AbstractTaskEventValueReducer {
+public class TaskEventCounter extends AbstractTaskEventValueReducer {
 
-	public final static AbstractTaskEventValueReducer INSTANCE = new TaskEventCountReducer(null);
+	public final static AbstractTaskEventValueReducer INSTANCE = new TaskEventCounter(null);
 	
 	private Class<? extends TaskEvent> eventClass;
 	
-	public TaskEventCountReducer(Class<? extends TaskEvent> eventClass) {
+	public TaskEventCounter(Class<? extends TaskEvent> eventClass) {
 		this.eventClass = eventClass;
 	}
 

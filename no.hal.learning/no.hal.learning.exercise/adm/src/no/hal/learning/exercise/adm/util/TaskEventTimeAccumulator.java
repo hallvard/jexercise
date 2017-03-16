@@ -2,17 +2,17 @@ package no.hal.learning.exercise.adm.util;
 
 import no.hal.learning.exercise.TaskEvent;
 
-public class TaskEventTimeAccumulatorReducer extends AbstractTaskEventValueReducer {
+public class TaskEventTimeAccumulator extends AbstractTaskEventValueReducer {
 
-	public final static AbstractTaskEventValueReducer INSTANCE = new TaskEventTimeAccumulatorReducer();
+	public final static AbstractTaskEventValueReducer INSTANCE = new TaskEventTimeAccumulator();
 
 	private final long maxDiff;
 
-	public TaskEventTimeAccumulatorReducer(long maxDiffInMinutes) {
+	public TaskEventTimeAccumulator(long maxDiffInMinutes) {
 		this.maxDiff = 1000 * 60 * maxDiffInMinutes;
 	}
 
-	public TaskEventTimeAccumulatorReducer() {
+	public TaskEventTimeAccumulator() {
 		this(5); // default five minutes
 	}
 

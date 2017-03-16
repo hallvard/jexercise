@@ -9,8 +9,8 @@ import java.util.List;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import no.hal.learning.exercise.TaskEvent;
-import no.hal.learning.exercise.adm.LoggedExView;
 import no.hal.learning.exercise.adm.util.AbstractTaskEventValueReducer;
+import no.hal.learning.exercise.util.Util;
 
 public abstract class AbstractStudentExercisesPlot<E, S> extends AbstractExerciseCombinationsPlot implements Comparator<TaskEvent> {
 
@@ -70,7 +70,7 @@ public abstract class AbstractStudentExercisesPlot<E, S> extends AbstractExercis
 	}
 	
 	protected List<? extends TaskEvent> getAllTaskEvents(Resource resource, Class<? extends TaskEvent> eventClass, Comparator<TaskEvent> sorter) {
-		List<? extends TaskEvent> events = LoggedExView.getAllEObjects(resource.getAllContents(), eventClass != null ? eventClass : TaskEvent.class);
+		List<? extends TaskEvent> events = Util.getAllEObjects(resource.getAllContents(), eventClass != null ? eventClass : TaskEvent.class);
 		if (sorter != null) {
 			Collections.sort(events, sorter);
 		}

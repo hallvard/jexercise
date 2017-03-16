@@ -6,35 +6,35 @@ import java.util.Map;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
 
-public class TopicViewerContentProvider<T> implements ITreeContentProvider {
+public class PathViewerContentProvider<T> implements ITreeContentProvider {
 
-	private final Map<String, T> topicMap;
+	private final Map<String, T> pathMap;
 
-	
-	public TopicViewerContentProvider(Map<String, T> topicMap) {
-		this.topicMap = topicMap;
+	public PathViewerContentProvider(Map<String, T> pathMap) {
+		this.pathMap = pathMap;
 	}
 
-	private String topicPrefix = null;
+	private String pathPrefix = null;
 	
-	public void setTopicPrefix(String topicPrefix) {
-		this.topicPrefix = topicPrefix;
+	public void setPathPrefix(String pathPrefix) {
+		this.pathPrefix = pathPrefix;
 	}
 	
 	protected Object[] getNextPrefixLevel(String prefix) {
-		return getNextPrefixLevel(prefix, topicMap.keySet());
+		Object[] elements = getNextPrefixLevel(prefix, pathMap.keySet());
+		return elements;
 	}
 
-	private static Object[] getNextPrefixLevel(String prefix, Iterable<String> topics) {
+	private static Object[] getNextPrefixLevel(String prefix, Iterable<String> paths) {
 		List<String> elements = null;
 		String currentElement = null;
-		for (String topic : topics) {
-			if (prefix == null || topic.startsWith(prefix)) {
+		for (String path : paths) {
+			if (prefix == null || path.startsWith(prefix)) {
 				if (elements == null) {
 					elements = new ArrayList<String>();
 				}
-				int start = (prefix != null ? prefix.length() + 1 : 0), end = topic.indexOf('/', start);
-				String nextElement = (prefix != null && prefix.length() == topic.length() ? "" : topic.substring(start, end > start ? end : topic.length()));
+				int start = (prefix != null ? prefix.length() + 1 : 0), end = path.indexOf('/', start);
+				String nextElement = (prefix != null && prefix.length() == path.length() ? "" : path.substring(start, end > start ? end : path.length()));
 				if (! nextElement.equals(currentElement)) {
 					elements.add(prefix != null ? (prefix + "/" + nextElement) : nextElement);
 					currentElement = nextElement;
@@ -48,7 +48,7 @@ public class TopicViewerContentProvider<T> implements ITreeContentProvider {
 
 	@Override
 	public Object[] getElements(Object inputElement) {
-		return getNextPrefixLevel(topicPrefix);
+		return getNextPrefixLevel(pathPrefix);
 	}
 
 	@Override
@@ -66,6 +66,12 @@ public class TopicViewerContentProvider<T> implements ITreeContentProvider {
 
 	@Override
 	public boolean hasChildren(Object element) {
-		return (! topicMap.containsKey(element));
+//		String prefix = String.valueOf(element) + "/";
+//		for (String path : pathMap.keySet()) {
+//			if (path.startsWith(prefix)) {
+//				return true;
+//			}
+//		}
+		return (! pathMap.containsKey(element));
 	}
 }

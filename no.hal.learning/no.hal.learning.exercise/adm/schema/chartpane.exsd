@@ -18,7 +18,7 @@
       </annotation>
       <complexType>
          <sequence minOccurs="1" maxOccurs="unbounded">
-            <element ref="plotpane"/>
+            <element ref="chartpane"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -47,15 +47,15 @@
       </complexType>
    </element>
 
-   <element name="plotpane">
+   <element name="chartpane">
       <complexType>
-         <attribute name="plotPaneClass" type="string" use="required">
+         <attribute name="chartPaneClass" type="string" use="required">
             <annotation>
                <documentation>
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn="no.hal.learning.exercise.adm.plotpane.AbstractPlotPane:"/>
+                  <meta.attribute kind="java" basedOn="no.hal.learning.exercise.adm.AbstractChartPane:"/>
                </appInfo>
             </annotation>
          </attribute>

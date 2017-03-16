@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: no.hal.learning.exercise.adm.plots;singleton:=true
+Bundle-SymbolicName: no.hal.learning.exercise.adm.charts;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
@@ -17,7 +17,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.swt;bundle-version="3.105.1",
  org.eclipse.birt.chart.device.swt;bundle-version="4.6.0",
  no.hal.learning.exercise.junit;bundle-version="0.1.0",
- org.eclipse.jface;bundle-version="3.12.0"
+ org.eclipse.jface;bundle-version="3.12.0",
+ org.eclipse.jdt.core;bundle-version="3.12.1"
 Bundle-ActivationPolicy: lazy
 Export-Package: no.hal.learning.exercise.adm.plots
 Import-Package: org.eclipse.jface.dialogs

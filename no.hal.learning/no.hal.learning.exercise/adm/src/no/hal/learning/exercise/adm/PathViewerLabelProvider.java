@@ -4,7 +4,7 @@ import org.eclipse.jface.viewers.BaseLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.graphics.Image;
 
-public class TopicViewerLabelProvider extends BaseLabelProvider implements ILabelProvider {
+public class PathViewerLabelProvider extends BaseLabelProvider implements ILabelProvider {
 	
 	@Override
 	public String getText(Object element) {
