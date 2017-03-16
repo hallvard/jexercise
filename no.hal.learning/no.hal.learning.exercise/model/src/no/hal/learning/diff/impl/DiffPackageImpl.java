@@ -11,8 +11,6 @@ import no.hal.learning.exercise.ExercisePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -107,17 +105,8 @@ public class DiffPackageImpl extends EPackageImpl implements DiffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPatchStringEdit_Edit() {
-		return (EReference)patchStringEditEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getPatchStringEdit_Patches() {
-		return (EAttribute)patchStringEditEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)patchStringEditEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -149,7 +138,6 @@ public class DiffPackageImpl extends EPackageImpl implements DiffPackage {
 
 		// Create classes and their features
 		patchStringEditEClass = createEClass(PATCH_STRING_EDIT);
-		createEReference(patchStringEditEClass, PATCH_STRING_EDIT__EDIT);
 		createEAttribute(patchStringEditEClass, PATCH_STRING_EDIT__PATCHES);
 	}
 
@@ -184,11 +172,10 @@ public class DiffPackageImpl extends EPackageImpl implements DiffPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		patchStringEditEClass.getESuperTypes().add(theExercisePackage.getAbstractStringEdit());
+		patchStringEditEClass.getESuperTypes().add(theExercisePackage.getRelativeStringEdit());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(patchStringEditEClass, PatchStringEdit.class, "PatchStringEdit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPatchStringEdit_Edit(), theExercisePackage.getAbstractStringEdit(), null, "edit", null, 0, 1, PatchStringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPatchStringEdit_Patches(), ecorePackage.getEString(), "patches", null, 0, -1, PatchStringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

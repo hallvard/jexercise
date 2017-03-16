@@ -7,30 +7,27 @@ import java.util.Collection;
 import java.util.List;
 
 import no.hal.learning.exercise.ExercisePackage;
-import no.hal.learning.exercise.ReplaceSubstringEdit;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link no.hal.learning.exercise.ReplaceSubstringEdit} object.
+ * This is the item provider adapter for a {@link no.hal.learning.exercise.RelativeStringEdit} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ReplaceSubstringEditItemProvider extends StringEditItemProvider {
+public class RelativeStringEditItemProvider extends AbstractStringEditItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ReplaceSubstringEditItemProvider(AdapterFactory adapterFactory) {
+	public RelativeStringEditItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -46,8 +43,6 @@ public class ReplaceSubstringEditItemProvider extends StringEditItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addEditPropertyDescriptor(object);
-			addStartPropertyDescriptor(object);
-			addEndPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,58 +70,14 @@ public class ReplaceSubstringEditItemProvider extends StringEditItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Start feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStartPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReplaceSubstringEdit_start_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReplaceSubstringEdit_start_feature", "_UI_ReplaceSubstringEdit_type"),
-				 ExercisePackage.Literals.REPLACE_SUBSTRING_EDIT__START,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the End feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEndPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReplaceSubstringEdit_end_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReplaceSubstringEdit_end_feature", "_UI_ReplaceSubstringEdit_type"),
-				 ExercisePackage.Literals.REPLACE_SUBSTRING_EDIT__END,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns ReplaceSubstringEdit.gif.
+	 * This returns RelativeStringEdit.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReplaceSubstringEdit"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RelativeStringEdit"));
 	}
 
 	/**
@@ -137,10 +88,7 @@ public class ReplaceSubstringEditItemProvider extends StringEditItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ReplaceSubstringEdit)object).getStoredString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ReplaceSubstringEdit_type") :
-			getString("_UI_ReplaceSubstringEdit_type") + " " + label;
+		return getString("_UI_RelativeStringEdit_type");
 	}
 	
 
@@ -154,13 +102,6 @@ public class ReplaceSubstringEditItemProvider extends StringEditItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ReplaceSubstringEdit.class)) {
-			case ExercisePackage.REPLACE_SUBSTRING_EDIT__START:
-			case ExercisePackage.REPLACE_SUBSTRING_EDIT__END:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

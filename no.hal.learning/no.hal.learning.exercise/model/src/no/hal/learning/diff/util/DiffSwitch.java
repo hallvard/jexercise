@@ -6,6 +6,7 @@ import no.hal.learning.diff.*;
 
 import no.hal.learning.exercise.AbstractStringEdit;
 
+import no.hal.learning.exercise.RelativeStringEdit;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -71,6 +72,7 @@ public class DiffSwitch<T> extends Switch<T> {
 			case DiffPackage.PATCH_STRING_EDIT: {
 				PatchStringEdit patchStringEdit = (PatchStringEdit)theEObject;
 				T result = casePatchStringEdit(patchStringEdit);
+				if (result == null) result = caseRelativeStringEdit(patchStringEdit);
 				if (result == null) result = caseAbstractStringEdit(patchStringEdit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -106,6 +108,21 @@ public class DiffSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAbstractStringEdit(AbstractStringEdit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Relative String Edit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Relative String Edit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRelativeStringEdit(RelativeStringEdit object) {
 		return null;
 	}
 

@@ -6,6 +6,7 @@ import no.hal.learning.diff.*;
 
 import no.hal.learning.exercise.AbstractStringEdit;
 
+import no.hal.learning.exercise.RelativeStringEdit;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -78,6 +79,10 @@ public class DiffAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractStringEditAdapter();
 			}
 			@Override
+			public Adapter caseRelativeStringEdit(RelativeStringEdit object) {
+				return createRelativeStringEditAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -122,6 +127,20 @@ public class DiffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractStringEditAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.RelativeStringEdit <em>Relative String Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.RelativeStringEdit
+	 * @generated
+	 */
+	public Adapter createRelativeStringEditAdapter() {
 		return null;
 	}
 

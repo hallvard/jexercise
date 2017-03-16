@@ -2,16 +2,23 @@ package no.hal.learning.exercise.util;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import no.hal.learning.diff.PatchStringEdit;
+import no.hal.learning.exercise.AbstractStringEdit;
+import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.MarkerInfo;
+import no.hal.learning.exercise.StringEdit;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.quiz.Option;
 import no.hal.learning.quiz.OptionsAnswer;
@@ -133,4 +140,67 @@ public class Util {
 			return (diff < 0 ? -1 : (diff > 0 ? 1 : 0));
 		}
 	};
+	
+	public static List<String> splitLines(String s) {
+		return split(s, "\n");
+	}
+	public static int countLines(String s) {
+		return count(s, "\n");
+	}
+
+	public static List<String> split(String s, String separator) {
+		int count = count(s, separator);
+		List<String> result = new ArrayList<String>(count);
+		split(s, separator, result);
+		return result;
+	}
+	
+	public static int count(String s, String separator) {
+		return split(s, separator, null);
+	}
+
+	public static int split(String s, String separator, List<String> result) {
+		int count = 0, start = 0;
+		while (s != null && start < s.length()) {
+			int pos = s.indexOf(separator, start);
+			if (pos < 0) {
+				if (result != null) {
+					result.add(s.substring(start));
+				}
+				return count + 1;
+			} else {
+				if (result != null) {
+					result.add(s.substring(start, pos));
+				}
+			}
+			start = pos + separator.length();
+			count++;
+		}
+		if (s != null && result != null) {
+			result.add("");
+		}
+		return count;
+	}
+	
+	public static int getEditSize(AbstractStringEditEvent editEvent) {
+		AbstractStringEdit edit = editEvent.getEdit();
+		if (edit instanceof StringEdit) {
+			String storedString = ((StringEdit) edit).getStoredString();
+			return (storedString != null ? Util.countLines(storedString) : 1);			
+		} else if (edit instanceof PatchStringEdit) {
+			return ((PatchStringEdit) edit).getPatches().size() / 2;						
+		}
+		return 1;
+	}
+
+	public static <T> List<T> getAllEObjects(TreeIterator<EObject> objects, Class<T> clazz) {
+		List<T> result = new ArrayList<T>();
+		while (objects.hasNext()) {
+			EObject next = objects.next();
+			if (clazz.isInstance(next)) {
+				result.add((T) next);
+			}
+		}
+		return result;
+	}
 }

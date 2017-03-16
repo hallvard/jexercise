@@ -149,11 +149,13 @@
       <eParameters name="lastEdit" eType="#//AbstractStringEdit"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelativeStringEdit" eSuperTypes="#//AbstractStringEdit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edit" eType="#//AbstractStringEdit"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringEdit" eSuperTypes="#//AbstractStringEdit">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storedString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ReplaceSubstringEdit" eSuperTypes="#//StringEdit">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="edit" eType="#//AbstractStringEdit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReplaceSubstringEdit" eSuperTypes="#//StringEdit #//RelativeStringEdit">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="-1"/>

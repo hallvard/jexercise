@@ -43,6 +43,7 @@ public class ExerciseTests extends TestSuite {
 		suite.addTestSuite(TaskEventTest.class);
 		suite.addTestSuite(StringEditTaskProposalTest.class);
 		suite.addTestSuite(AbstractStringEditEventTest.class);
+		suite.addTestSuite(RelativeStringEditTest.class);
 		suite.addTestSuite(StringEditTest.class);
 		suite.addTestSuite(ReplaceSubstringEditTest.class);
 		return suite;

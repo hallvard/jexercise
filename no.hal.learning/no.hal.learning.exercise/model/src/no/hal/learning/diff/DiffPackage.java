@@ -7,7 +7,6 @@ import no.hal.learning.exercise.ExercisePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,7 +74,7 @@ public interface DiffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATCH_STRING_EDIT__EDIT = ExercisePackage.ABSTRACT_STRING_EDIT_FEATURE_COUNT + 0;
+	int PATCH_STRING_EDIT__EDIT = ExercisePackage.RELATIVE_STRING_EDIT__EDIT;
 
 	/**
 	 * The feature id for the '<em><b>Patches</b></em>' attribute list.
@@ -84,7 +83,7 @@ public interface DiffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATCH_STRING_EDIT__PATCHES = ExercisePackage.ABSTRACT_STRING_EDIT_FEATURE_COUNT + 1;
+	int PATCH_STRING_EDIT__PATCHES = ExercisePackage.RELATIVE_STRING_EDIT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Patch String Edit</em>' class.
@@ -93,7 +92,7 @@ public interface DiffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATCH_STRING_EDIT_FEATURE_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_FEATURE_COUNT + 2;
+	int PATCH_STRING_EDIT_FEATURE_COUNT = ExercisePackage.RELATIVE_STRING_EDIT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get String</em>' operation.
@@ -102,7 +101,16 @@ public interface DiffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATCH_STRING_EDIT___GET_STRING = ExercisePackage.ABSTRACT_STRING_EDIT___GET_STRING;
+	int PATCH_STRING_EDIT___GET_STRING = ExercisePackage.RELATIVE_STRING_EDIT___GET_STRING;
+
+	/**
+	 * The operation id for the '<em>Init String Edit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATCH_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT = ExercisePackage.RELATIVE_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT;
 
 	/**
 	 * The number of operations of the '<em>Patch String Edit</em>' class.
@@ -111,7 +119,7 @@ public interface DiffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATCH_STRING_EDIT_OPERATION_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_OPERATION_COUNT + 0;
+	int PATCH_STRING_EDIT_OPERATION_COUNT = ExercisePackage.RELATIVE_STRING_EDIT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -123,17 +131,6 @@ public interface DiffPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPatchStringEdit();
-
-	/**
-	 * Returns the meta object for the reference '{@link no.hal.learning.diff.PatchStringEdit#getEdit <em>Edit</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Edit</em>'.
-	 * @see no.hal.learning.diff.PatchStringEdit#getEdit()
-	 * @see #getPatchStringEdit()
-	 * @generated
-	 */
-	EReference getPatchStringEdit_Edit();
 
 	/**
 	 * Returns the meta object for the attribute list '{@link no.hal.learning.diff.PatchStringEdit#getPatches <em>Patches</em>}'.
@@ -178,14 +175,6 @@ public interface DiffPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PATCH_STRING_EDIT = eINSTANCE.getPatchStringEdit();
-
-		/**
-		 * The meta object literal for the '<em><b>Edit</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PATCH_STRING_EDIT__EDIT = eINSTANCE.getPatchStringEdit_Edit();
 
 		/**
 		 * The meta object literal for the '<em><b>Patches</b></em>' attribute list feature.

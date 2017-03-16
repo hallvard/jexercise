@@ -2,8 +2,7 @@
  */
 package no.hal.learning.diff;
 
-import no.hal.learning.exercise.AbstractStringEdit;
-
+import no.hal.learning.exercise.RelativeStringEdit;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -15,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.hal.learning.diff.PatchStringEdit#getEdit <em>Edit</em>}</li>
  *   <li>{@link no.hal.learning.diff.PatchStringEdit#getPatches <em>Patches</em>}</li>
  * </ul>
  *
@@ -23,33 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface PatchStringEdit extends AbstractStringEdit {
-	/**
-	 * Returns the value of the '<em><b>Edit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Edit</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Edit</em>' reference.
-	 * @see #setEdit(AbstractStringEdit)
-	 * @see no.hal.learning.diff.DiffPackage#getPatchStringEdit_Edit()
-	 * @model
-	 * @generated
-	 */
-	AbstractStringEdit getEdit();
-
-	/**
-	 * Sets the value of the '{@link no.hal.learning.diff.PatchStringEdit#getEdit <em>Edit</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Edit</em>' reference.
-	 * @see #getEdit()
-	 * @generated
-	 */
-	void setEdit(AbstractStringEdit value);
-
+public interface PatchStringEdit extends RelativeStringEdit {
 	/**
 	 * Returns the value of the '<em><b>Patches</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.

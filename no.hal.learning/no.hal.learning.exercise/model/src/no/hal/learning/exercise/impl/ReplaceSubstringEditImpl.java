@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import no.hal.learning.exercise.AbstractStringEdit;
 import no.hal.learning.exercise.ExercisePackage;
+import no.hal.learning.exercise.RelativeStringEdit;
 import no.hal.learning.exercise.ReplaceSubstringEdit;
 
 /**
@@ -303,6 +304,38 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 				return end != END_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == RelativeStringEdit.class) {
+			switch (derivedFeatureID) {
+				case ExercisePackage.REPLACE_SUBSTRING_EDIT__EDIT: return ExercisePackage.RELATIVE_STRING_EDIT__EDIT;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == RelativeStringEdit.class) {
+			switch (baseFeatureID) {
+				case ExercisePackage.RELATIVE_STRING_EDIT__EDIT: return ExercisePackage.REPLACE_SUBSTRING_EDIT__EDIT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

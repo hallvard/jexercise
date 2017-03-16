@@ -25,6 +25,7 @@ import no.hal.learning.exercise.ExercisePartProposals;
 import no.hal.learning.exercise.ExercisePartRef;
 import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.Question;
+import no.hal.learning.exercise.RelativeStringEdit;
 import no.hal.learning.exercise.ReplaceSubstringEdit;
 import no.hal.learning.exercise.ExerciseFactory;
 import no.hal.learning.exercise.ExercisePackage;
@@ -184,6 +185,13 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * @generated
 	 */
 	private EClass abstractStringEditEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass relativeStringEditEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -900,6 +908,24 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRelativeStringEdit() {
+		return relativeStringEditEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRelativeStringEdit_Edit() {
+		return (EReference)relativeStringEditEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStringEdit() {
 		return stringEditEClass;
 	}
@@ -927,17 +953,8 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReplaceSubstringEdit_Edit() {
-		return (EReference)replaceSubstringEditEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getReplaceSubstringEdit_Start() {
-		return (EAttribute)replaceSubstringEditEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)replaceSubstringEditEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -946,7 +963,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * @generated
 	 */
 	public EAttribute getReplaceSubstringEdit_End() {
-		return (EAttribute)replaceSubstringEditEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)replaceSubstringEditEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1120,11 +1137,13 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		createEOperation(abstractStringEditEClass, ABSTRACT_STRING_EDIT___GET_STRING);
 		createEOperation(abstractStringEditEClass, ABSTRACT_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT);
 
+		relativeStringEditEClass = createEClass(RELATIVE_STRING_EDIT);
+		createEReference(relativeStringEditEClass, RELATIVE_STRING_EDIT__EDIT);
+
 		stringEditEClass = createEClass(STRING_EDIT);
 		createEAttribute(stringEditEClass, STRING_EDIT__STORED_STRING);
 
 		replaceSubstringEditEClass = createEClass(REPLACE_SUBSTRING_EDIT);
-		createEReference(replaceSubstringEditEClass, REPLACE_SUBSTRING_EDIT__EDIT);
 		createEAttribute(replaceSubstringEditEClass, REPLACE_SUBSTRING_EDIT__START);
 		createEAttribute(replaceSubstringEditEClass, REPLACE_SUBSTRING_EDIT__END);
 
@@ -1191,8 +1210,10 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		stringEditTaskProposalEClass.getEGenericSuperTypes().add(g1);
 		stringEditAnswerEClass.getESuperTypes().add(this.getTaskAnswer());
 		abstractStringEditEventEClass.getESuperTypes().add(this.getTaskEvent());
+		relativeStringEditEClass.getESuperTypes().add(this.getAbstractStringEdit());
 		stringEditEClass.getESuperTypes().add(this.getAbstractStringEdit());
 		replaceSubstringEditEClass.getESuperTypes().add(this.getStringEdit());
+		replaceSubstringEditEClass.getESuperTypes().add(this.getRelativeStringEdit());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(exerciseEClass, Exercise.class, "Exercise", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1323,11 +1344,13 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		addEParameter(op, ecorePackage.getEString(), "string", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getAbstractStringEdit(), "lastEdit", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(relativeStringEditEClass, RelativeStringEdit.class, "RelativeStringEdit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRelativeStringEdit_Edit(), this.getAbstractStringEdit(), null, "edit", null, 0, 1, RelativeStringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(stringEditEClass, StringEdit.class, "StringEdit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringEdit_StoredString(), ecorePackage.getEString(), "storedString", null, 0, 1, StringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(replaceSubstringEditEClass, ReplaceSubstringEdit.class, "ReplaceSubstringEdit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReplaceSubstringEdit_Edit(), this.getAbstractStringEdit(), null, "edit", null, 0, 1, ReplaceSubstringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReplaceSubstringEdit_Start(), ecorePackage.getEInt(), "start", null, 0, 1, ReplaceSubstringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReplaceSubstringEdit_End(), ecorePackage.getEInt(), "end", "-1", 0, 1, ReplaceSubstringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

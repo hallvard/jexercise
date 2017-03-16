@@ -148,6 +148,15 @@ public interface ExerciseFactory extends EFactory {
 	AbstractStringEditEvent createAbstractStringEditEvent();
 
 	/**
+	 * Returns a new object of class '<em>Relative String Edit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Relative String Edit</em>'.
+	 * @generated
+	 */
+	RelativeStringEdit createRelativeStringEdit();
+
+	/**
 	 * Returns a new object of class '<em>String Edit</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

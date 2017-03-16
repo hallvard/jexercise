@@ -148,6 +148,10 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractStringEditAdapter();
 			}
 			@Override
+			public Adapter caseRelativeStringEdit(RelativeStringEdit object) {
+				return createRelativeStringEditAdapter();
+			}
+			@Override
 			public Adapter caseStringEdit(StringEdit object) {
 				return createStringEditAdapter();
 			}
@@ -456,6 +460,20 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractStringEditAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.RelativeStringEdit <em>Relative String Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.RelativeStringEdit
+	 * @generated
+	 */
+	public Adapter createRelativeStringEditAdapter() {
 		return null;
 	}
 

@@ -1393,6 +1393,61 @@ public interface ExercisePackage extends EPackage {
 	int ABSTRACT_STRING_EDIT_OPERATION_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.impl.RelativeStringEditImpl <em>Relative String Edit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.impl.RelativeStringEditImpl
+	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getRelativeStringEdit()
+	 * @generated
+	 */
+	int RELATIVE_STRING_EDIT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Edit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIVE_STRING_EDIT__EDIT = ABSTRACT_STRING_EDIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Relative String Edit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIVE_STRING_EDIT_FEATURE_COUNT = ABSTRACT_STRING_EDIT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIVE_STRING_EDIT___GET_STRING = ABSTRACT_STRING_EDIT___GET_STRING;
+
+	/**
+	 * The operation id for the '<em>Init String Edit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIVE_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT = ABSTRACT_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT;
+
+	/**
+	 * The number of operations of the '<em>Relative String Edit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIVE_STRING_EDIT_OPERATION_COUNT = ABSTRACT_STRING_EDIT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.impl.StringEditImpl <em>String Edit</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1400,7 +1455,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getStringEdit()
 	 * @generated
 	 */
-	int STRING_EDIT = 20;
+	int STRING_EDIT = 21;
 
 	/**
 	 * The feature id for the '<em><b>Stored String</b></em>' attribute.
@@ -1455,7 +1510,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getReplaceSubstringEdit()
 	 * @generated
 	 */
-	int REPLACE_SUBSTRING_EDIT = 21;
+	int REPLACE_SUBSTRING_EDIT = 22;
 
 	/**
 	 * The feature id for the '<em><b>Stored String</b></em>' attribute.
@@ -1537,7 +1592,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getMarkerInfo()
 	 * @generated
 	 */
-	int MARKER_INFO = 22;
+	int MARKER_INFO = 23;
 
 	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1600,7 +1655,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getETimestamp()
 	 * @generated
 	 */
-	int ETIMESTAMP = 23;
+	int ETIMESTAMP = 24;
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.Exercise <em>Exercise</em>}'.
@@ -2323,6 +2378,27 @@ public interface ExercisePackage extends EPackage {
 	EOperation getAbstractStringEdit__InitStringEdit__String_AbstractStringEdit();
 
 	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.RelativeStringEdit <em>Relative String Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Relative String Edit</em>'.
+	 * @see no.hal.learning.exercise.RelativeStringEdit
+	 * @generated
+	 */
+	EClass getRelativeStringEdit();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.hal.learning.exercise.RelativeStringEdit#getEdit <em>Edit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Edit</em>'.
+	 * @see no.hal.learning.exercise.RelativeStringEdit#getEdit()
+	 * @see #getRelativeStringEdit()
+	 * @generated
+	 */
+	EReference getRelativeStringEdit_Edit();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.StringEdit <em>String Edit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2352,17 +2428,6 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getReplaceSubstringEdit();
-
-	/**
-	 * Returns the meta object for the reference '{@link no.hal.learning.exercise.ReplaceSubstringEdit#getEdit <em>Edit</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Edit</em>'.
-	 * @see no.hal.learning.exercise.ReplaceSubstringEdit#getEdit()
-	 * @see #getReplaceSubstringEdit()
-	 * @generated
-	 */
-	EReference getReplaceSubstringEdit_Edit();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.ReplaceSubstringEdit#getStart <em>Start</em>}'.
@@ -3066,6 +3131,24 @@ public interface ExercisePackage extends EPackage {
 		EOperation ABSTRACT_STRING_EDIT___INIT_STRING_EDIT__STRING_ABSTRACTSTRINGEDIT = eINSTANCE.getAbstractStringEdit__InitStringEdit__String_AbstractStringEdit();
 
 		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.RelativeStringEditImpl <em>Relative String Edit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.impl.RelativeStringEditImpl
+		 * @see no.hal.learning.exercise.impl.ExercisePackageImpl#getRelativeStringEdit()
+		 * @generated
+		 */
+		EClass RELATIVE_STRING_EDIT = eINSTANCE.getRelativeStringEdit();
+
+		/**
+		 * The meta object literal for the '<em><b>Edit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATIVE_STRING_EDIT__EDIT = eINSTANCE.getRelativeStringEdit_Edit();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.StringEditImpl <em>String Edit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3092,14 +3175,6 @@ public interface ExercisePackage extends EPackage {
 		 * @generated
 		 */
 		EClass REPLACE_SUBSTRING_EDIT = eINSTANCE.getReplaceSubstringEdit();
-
-		/**
-		 * The meta object literal for the '<em><b>Edit</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REPLACE_SUBSTRING_EDIT__EDIT = eINSTANCE.getReplaceSubstringEdit_Edit();
 
 		/**
 		 * The meta object literal for the '<em><b>Start</b></em>' attribute feature.

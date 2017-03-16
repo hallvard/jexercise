@@ -71,6 +71,7 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 			case ExercisePackage.TASK_EVENT: return createTaskEvent();
 			case ExercisePackage.STRING_EDIT_TASK_PROPOSAL: return createStringEditTaskProposal();
 			case ExercisePackage.ABSTRACT_STRING_EDIT_EVENT: return createAbstractStringEditEvent();
+			case ExercisePackage.RELATIVE_STRING_EDIT: return createRelativeStringEdit();
 			case ExercisePackage.STRING_EDIT: return createStringEdit();
 			case ExercisePackage.REPLACE_SUBSTRING_EDIT: return createReplaceSubstringEdit();
 			case ExercisePackage.MARKER_INFO: return createMarkerInfo();
@@ -247,6 +248,16 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 	public AbstractStringEditEvent createAbstractStringEditEvent() {
 		AbstractStringEditEventImpl abstractStringEditEvent = new AbstractStringEditEventImpl();
 		return abstractStringEditEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelativeStringEdit createRelativeStringEdit() {
+		RelativeStringEditImpl relativeStringEdit = new RelativeStringEditImpl();
+		return relativeStringEdit;
 	}
 
 	/**

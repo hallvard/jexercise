@@ -198,6 +198,13 @@ public class ExerciseSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExercisePackage.RELATIVE_STRING_EDIT: {
+				RelativeStringEdit relativeStringEdit = (RelativeStringEdit)theEObject;
+				T1 result = caseRelativeStringEdit(relativeStringEdit);
+				if (result == null) result = caseAbstractStringEdit(relativeStringEdit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ExercisePackage.STRING_EDIT: {
 				StringEdit stringEdit = (StringEdit)theEObject;
 				T1 result = caseStringEdit(stringEdit);
@@ -209,6 +216,7 @@ public class ExerciseSwitch<T1> extends Switch<T1> {
 				ReplaceSubstringEdit replaceSubstringEdit = (ReplaceSubstringEdit)theEObject;
 				T1 result = caseReplaceSubstringEdit(replaceSubstringEdit);
 				if (result == null) result = caseStringEdit(replaceSubstringEdit);
+				if (result == null) result = caseRelativeStringEdit(replaceSubstringEdit);
 				if (result == null) result = caseAbstractStringEdit(replaceSubstringEdit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -520,6 +528,21 @@ public class ExerciseSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseAbstractStringEdit(AbstractStringEdit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Relative String Edit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Relative String Edit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseRelativeStringEdit(RelativeStringEdit object) {
 		return null;
 	}
 
