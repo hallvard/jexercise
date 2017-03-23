@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -217,16 +219,28 @@ public class BbSubmissionsProcessor {
 	
 	public static void main(String[] args) {
 		registerEPackages();
+		String base = getOption("baseDir", args, "");
+		Collection<String> formatArgs = new ArrayList<String>();
+		for (int i = 1; i < 10; i++) {
+			String arg = getOption("arg" + i, args, null);
+			if (arg == null) {
+				break;
+			}
+			formatArgs.add(arg);
+		}
 		String dir = getOption("dirIn", args, null);
 		String zip = getOption("zipOut", args, null);
 		Boolean anon = Boolean.valueOf(getOption("anon", args, "true"));
 		if (dir != null && zip != null) {
 			BbSubmissionsProcessor bbSubmissionsProcessor = new BbSubmissionsProcessor();
-			bbSubmissionsProcessor.readSubmissionsFromDirectory(new File(dir), anon);
+			Object[] formatArgsArray = formatArgs.toArray();
+			File dirFile = new File(String.format(base + dir, formatArgsArray));
+			File zipFile = new File(String.format(base + zip, formatArgsArray));
+			bbSubmissionsProcessor.readSubmissionsFromDirectory(dirFile, anon);
 			try {
-				bbSubmissionsProcessor.writeSubmissionsToZip(new File(zip), anon);
+				bbSubmissionsProcessor.writeSubmissionsToZip(zipFile, anon);
 			} catch (IOException e) {
-				System.err.println("Exception when writing to " + zip);
+				System.err.println("Exception when writing to " + zipFile);
 			}
 		}
 	}
