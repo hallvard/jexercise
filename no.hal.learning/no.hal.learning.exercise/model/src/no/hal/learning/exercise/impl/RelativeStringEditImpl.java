@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class RelativeStringEditImpl extends AbstractStringEditImpl implements RelativeStringEdit {
+public abstract class RelativeStringEditImpl extends AbstractStringEditImpl implements RelativeStringEdit {
 	/**
 	 * The cached value of the '{@link #getEdit() <em>Edit</em>}' reference.
 	 * <!-- begin-user-doc -->

@@ -2,9 +2,6 @@
  */
 package no.hal.learning.exercise.tests;
 
-import junit.textui.TestRunner;
-
-import no.hal.learning.exercise.ExerciseFactory;
 import no.hal.learning.exercise.RelativeStringEdit;
 
 /**
@@ -13,16 +10,7 @@ import no.hal.learning.exercise.RelativeStringEdit;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RelativeStringEditTest extends AbstractStringEditTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(RelativeStringEditTest.class);
-	}
+public abstract class RelativeStringEditTest extends AbstractStringEditTest {
 
 	/**
 	 * Constructs a new Relative String Edit test case with the given name.
@@ -43,28 +31,6 @@ public class RelativeStringEditTest extends AbstractStringEditTest {
 	@Override
 	protected RelativeStringEdit getFixture() {
 		return (RelativeStringEdit)fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(ExerciseFactory.eINSTANCE.createRelativeStringEdit());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } //RelativeStringEditTest

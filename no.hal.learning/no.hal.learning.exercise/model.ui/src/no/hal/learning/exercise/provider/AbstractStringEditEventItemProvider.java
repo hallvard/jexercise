@@ -139,11 +139,6 @@ public class AbstractStringEditEventItemProvider extends TaskEventItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ExercisePackage.Literals.ABSTRACT_STRING_EDIT_EVENT__EDIT,
-				 ExerciseFactory.eINSTANCE.createRelativeStringEdit()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExercisePackage.Literals.ABSTRACT_STRING_EDIT_EVENT__EDIT,
 				 ExerciseFactory.eINSTANCE.createStringEdit()));
 
 		newChildDescriptors.add

@@ -411,29 +411,6 @@ public class ExerciseItemProviderAdapterFactory extends ExerciseAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.RelativeStringEdit} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RelativeStringEditItemProvider relativeStringEditItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.hal.learning.exercise.RelativeStringEdit}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRelativeStringEditAdapter() {
-		if (relativeStringEditItemProvider == null) {
-			relativeStringEditItemProvider = new RelativeStringEditItemProvider(this);
-		}
-
-		return relativeStringEditItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link no.hal.learning.exercise.StringEdit} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,7 +619,6 @@ public class ExerciseItemProviderAdapterFactory extends ExerciseAdapterFactory i
 		if (taskEventItemProvider != null) taskEventItemProvider.dispose();
 		if (stringEditTaskProposalItemProvider != null) stringEditTaskProposalItemProvider.dispose();
 		if (abstractStringEditEventItemProvider != null) abstractStringEditEventItemProvider.dispose();
-		if (relativeStringEditItemProvider != null) relativeStringEditItemProvider.dispose();
 		if (stringEditItemProvider != null) stringEditItemProvider.dispose();
 		if (replaceSubstringEditItemProvider != null) replaceSubstringEditItemProvider.dispose();
 		if (markerInfoItemProvider != null) markerInfoItemProvider.dispose();

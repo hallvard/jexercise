@@ -149,7 +149,8 @@
       <eParameters name="lastEdit" eType="#//AbstractStringEdit"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RelativeStringEdit" eSuperTypes="#//AbstractStringEdit">
+  <eClassifiers xsi:type="ecore:EClass" name="RelativeStringEdit" abstract="true"
+      eSuperTypes="#//AbstractStringEdit">
     <eStructuralFeatures xsi:type="ecore:EReference" name="edit" eType="#//AbstractStringEdit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringEdit" eSuperTypes="#//AbstractStringEdit">

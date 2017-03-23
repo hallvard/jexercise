@@ -1344,7 +1344,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		addEParameter(op, ecorePackage.getEString(), "string", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getAbstractStringEdit(), "lastEdit", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(relativeStringEditEClass, RelativeStringEdit.class, "RelativeStringEdit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(relativeStringEditEClass, RelativeStringEdit.class, "RelativeStringEdit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRelativeStringEdit_Edit(), this.getAbstractStringEdit(), null, "edit", null, 0, 1, RelativeStringEdit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringEditEClass, StringEdit.class, "StringEdit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

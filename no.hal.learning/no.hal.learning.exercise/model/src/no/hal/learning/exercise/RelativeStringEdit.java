@@ -16,7 +16,7 @@ package no.hal.learning.exercise;
  * </ul>
  *
  * @see no.hal.learning.exercise.ExercisePackage#getRelativeStringEdit()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface RelativeStringEdit extends AbstractStringEdit {
