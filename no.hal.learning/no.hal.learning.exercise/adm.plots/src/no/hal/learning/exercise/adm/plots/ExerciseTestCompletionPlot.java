@@ -26,6 +26,7 @@ public class ExerciseTestCompletionPlot extends AbstractStudentExercisesPlot<Dou
 	private Text testCompletionMinText, testCompletionMaxText;
 
 	protected void createConfigControls(Composite composite) {
+		super.createConfigControls(composite);
 		Composite configComposite = new Composite(composite, SWT.NONE);
 		configComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		configComposite.setLayout(new GridLayout(2, false));

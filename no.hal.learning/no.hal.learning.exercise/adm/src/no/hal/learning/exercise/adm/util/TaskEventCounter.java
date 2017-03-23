@@ -11,6 +11,9 @@ public class TaskEventCounter extends AbstractTaskEventValueReducer {
 	public TaskEventCounter(Class<? extends TaskEvent> eventClass) {
 		this.eventClass = eventClass;
 	}
+	public TaskEventCounter() {
+		this(null);
+	}
 
 	@Override
 	public void reduce(TaskEvent event) {

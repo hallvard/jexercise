@@ -67,6 +67,17 @@ public abstract class PathObjectsView<T> extends ViewPart {
 		pathViewer.refresh();
 	}
 	
+	protected final Runnable refreshViewerRunnable = new Runnable() {
+		@Override
+		public void run() {
+			pathViewer.refresh();
+		}
+	};
+
+	protected void asyncRefreshViewer() {
+		pathViewer.getControl().getDisplay().asyncExec(refreshViewerRunnable);
+	}
+	
 	protected boolean acceptPath(String path) {
 		if (path == null) {
 			return true;

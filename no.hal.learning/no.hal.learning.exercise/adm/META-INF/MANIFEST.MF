@@ -12,7 +12,10 @@ Require-Bundle: org.eclipse.core.runtime,
  no.hal.learning.exercise.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- no.hal.learning.exercise.model.ui;bundle-version="0.1.0"
+ no.hal.learning.exercise.model.ui;bundle-version="0.1.0",
+ no.hal.learning.exercise.junit;bundle-version="0.1.0",
+ no.hal.learning.exercise.jdt;bundle-version="0.1.0",
+ no.hal.learning.exercise.workbench;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: no.hal.emf.ui.parts,
  org.eclipse.paho.client.mqttv3;version="[1.0.0,1.2.0)"

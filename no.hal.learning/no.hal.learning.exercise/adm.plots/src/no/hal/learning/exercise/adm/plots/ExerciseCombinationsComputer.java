@@ -11,9 +11,9 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
 public class ExerciseCombinationsComputer {
-	
+
 	private Collection<Resource> resources;
-	
+
 	public ExerciseCombinationsComputer(Collection<Resource> resources) {
 		this.resources = resources;
 	}
@@ -24,17 +24,31 @@ public class ExerciseCombinationsComputer {
 			return getExerciseId(res1).compareTo(getExerciseId(res2));
 		}
 	};
-	
+
 	public static String getExerciseId(Resource resource) {
 		URI uri = resource.getURI();
-		return uri.trimSegments(1).trimFileExtension().lastSegment();
+		String[] segments = uri.segments();
+		for (int i = segments.length - 1; i >= 0; i--) {
+			String segment = segments[i];
+			if (segment.endsWith(".ex")) {
+				return segment.substring(0, segment.lastIndexOf('.'));
+			}
+		}
+		return null;
 	}
 
 	public static String getStudentId(Resource resource) {
 		URI uri = resource.getURI();
-		return uri.lastSegment();
+		String[] segments = uri.segments();
+		for (int i = segments.length - 1; i >= 0; i--) {
+			String segment = segments[i];
+			if (segment.lastIndexOf('.') < 0) {
+				return segment;
+			}
+		}
+		return null;
 	}
-	
+
 	private Map<String, ? extends Collection<Resource>> studentExercises;
 
 	public Map<String, ? extends Collection<Resource>> getStudentExercises() {
@@ -62,13 +76,13 @@ public class ExerciseCombinationsComputer {
 	}
 
 	private Collection<String> allExerciseNames;
-	
+
 	public Collection<String> getAllExerciseNames() {
 		if (allExerciseNames == null) {
 			allExerciseNames = new ArrayList<String>();
 			for (Resource resource : resources) {
 				String ex = getExerciseId(resource);
-				if (! allExerciseNames.contains(ex)) {
+				if (!allExerciseNames.contains(ex)) {
 					allExerciseNames.add(ex);
 				}
 			}
@@ -76,7 +90,7 @@ public class ExerciseCombinationsComputer {
 		return allExerciseNames;
 	}
 
-	public Map<Object, ? extends Collection<String>> getExerciseCombinationStudents() {
+	public Map<Object, ? extends Collection<String>> getExerciseCombinationStudents(boolean includeIndividual, boolean includeCombinations) {
 		Map<String, ? extends Collection<Resource>> studentExercises = getStudentExercises();
 		Map<Object, Collection<String>> combinations = new HashMap<Object, Collection<String>>();
 		for (String studentId : studentExercises.keySet()) {
@@ -84,10 +98,14 @@ public class ExerciseCombinationsComputer {
 			Collection<String> exerciseNames = new ArrayList<String>(exercises.size());
 			for (Resource res : exercises) {
 				String ex = getExerciseId(res);
-				updateMapCollection(ex, studentId, combinations);
+				if (includeIndividual) {
+					updateMapCollection(ex, studentId, combinations);
+				}
 				exerciseNames.add(ex);
 			}
-			updateMapCollection(exerciseNames, studentId, combinations);
+			if (includeCombinations) {
+				updateMapCollection(exerciseNames, studentId, combinations);
+			}
 		}
 		return combinations;
 	}

@@ -1,8 +1,10 @@
 package no.hal.learning.exercise.adm.plots;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.birt.chart.model.ChartWithAxes;
@@ -22,8 +24,30 @@ import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
 import org.eclipse.birt.chart.model.type.BarSeries;
 import org.eclipse.birt.chart.model.type.impl.BarSeriesImpl;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
 
 public abstract class AbstractExerciseCombinationsPlot extends AbstractBirtPlotPane<ChartWithAxes> {
+
+	private Button individualButton, combButton, bothButton;
+
+	protected void createConfigControls(Composite composite) {
+		super.createConfigControls(composite);
+		Composite configComposite = new Composite(composite, SWT.NONE);
+		configComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		configComposite.setLayout(new GridLayout(3, false));
+	    individualButton = new Button(configComposite, SWT.RADIO);
+	    individualButton.setText("Individual exercises");
+	    combButton = new Button(configComposite, SWT.RADIO);
+	    combButton.setText("Combinations");
+	    bothButton = new Button(configComposite, SWT.RADIO);
+	    bothButton.setText("Both");
+
+	    individualButton.setSelection(true);
+	}
 
 	protected Axis xAxis, yAxis;
 	
@@ -99,43 +123,55 @@ public abstract class AbstractExerciseCombinationsPlot extends AbstractBirtPlotP
 	@Override
 	protected void updateChart(ChartWithAxes chart, ResourceSet resourceSet) {
 		ExerciseCombinationsComputer computer = new ExerciseCombinationsComputer(resourceSet.getResources());		
-		Map<Object, ? extends Collection<String>> exerciseCombinations = computer.getExerciseCombinationStudents();
-
-		Object[] exerciseCombinationsArray = exerciseCombinations.keySet().toArray();
-		Arrays.sort(exerciseCombinationsArray, new Comparator<Object>() {
+		boolean both = bothButton.getSelection();
+		Map<Object, ? extends Collection<String>> exerciseCombinationsMap = computer.getExerciseCombinationStudents(individualButton.getSelection() || both, combButton.getSelection() || both);
+		List<Object> exerciseCombinations = new ArrayList<Object>();
+		for (Object combination : exerciseCombinationsMap.keySet()) {
+			if (acceptExerciseCombination(combination)) {
+				exerciseCombinations.add(combination);
+			}
+		}
+		Collections.sort(exerciseCombinations, new Comparator<Object>() {
 				// smallest combinations first, as we assume they are most common
 				public int compare(Object o1, Object o2) {
 					return (o1 instanceof Collection<?> ? ((Collection<?>) o1).size() : 0) -
 						   (o2 instanceof Collection<?> ? ((Collection<?>) o2).size() : 0);
 				}
 		});
-		String[] categoryValues = new String[exerciseCombinationsArray.length];
-		for (int i = 0; i < exerciseCombinationsArray.length; i++) {
-			categoryValues[i] = exerciseCombinationsArray[i].toString();
+		Collection<String> categoryValues = new ArrayList<String>(exerciseCombinations.size());
+		for (Object combination : exerciseCombinations) {
+			if (acceptExerciseCombination(combination)) {
+				categoryValues.add(combination.toString());
+			}
 		}
         SeriesDefinition cateorySeriesDef = xAxis.getSeriesDefinitions().get(0);
         Series categorySeries = cateorySeriesDef.getSeries().get(0);
-        categorySeries.getDataSet().setValues(categoryValues);
+        categorySeries.getDataSet().setValues(categoryValues.toArray(new String[categoryValues.size()]));
 
         SeriesDefinition ySeriesDef = yAxis.getSeriesDefinitions().get(0);
         int seriesNum = 0;
         for (Series series : ySeriesDef.getSeries()) {
 	        BarSeries ySeries = (BarSeries) series;
-	        Double[] values = new Double[categoryValues.length];
-	        outer: for (int i = 0; i < categoryValues.length; i++) {
-	        	for (int j = 0; j < exerciseCombinationsArray.length; j++) {
-					if (exerciseCombinationsArray[j].toString().equals(categoryValues[i])) {
-						Collection<String> students = exerciseCombinations.get(exerciseCombinationsArray[j]);
-						values[i] = computeExercisesValue(seriesNum, exerciseCombinationsArray[j], students, computer);
+	        Double[] values = new Double[categoryValues.size()];
+	        int i = 0;
+	        outer: for (String category : categoryValues) {
+	    		for (Object combination : exerciseCombinations) {
+					if (acceptExerciseCombination(combination) && combination.toString().equals(category)) {
+						Collection<String> students = exerciseCombinationsMap.get(combination);
+						values[i++] = computeExercisesValue(seriesNum, combination, students, computer);
 						continue outer;
 					}
 				}
-	        	values[i] = 0.0;
+	        	values[i++] = 0.0;
 	        }
 	        ySeries.getDataSet().setValues(values);
 	        seriesNum++;
         }
 	}
 
+	protected boolean acceptExerciseCombination(Object combination) {
+		return (bothButton.getSelection() || (combination instanceof Collection<?> ? combButton.getSelection() : individualButton.getSelection()));
+	}
+	
 	protected abstract double computeExercisesValue(int seriesNum, Object exerciseCombination, Collection<String> students, ExerciseCombinationsComputer computer);
 }

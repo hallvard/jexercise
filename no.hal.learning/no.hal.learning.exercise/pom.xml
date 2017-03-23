@@ -37,6 +37,7 @@
   	 -->
 
   	<module>adm</module>
+  	<module>adm.plots</module>
 
   	<module>feature</module>
   </modules>

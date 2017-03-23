@@ -76,6 +76,17 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 		}
 	}
 	
+	protected final Runnable updatePaneRunnable = new Runnable() {
+		@Override
+		public void run() {
+			updatePane();
+		}
+	};
+	
+	protected void asyncUpdatePane() {
+		tabFolder.getDisplay().asyncExec(updatePaneRunnable);
+	}
+
 	@Override
 	protected void updatePane() {
 		final CTabItem tab = tabFolder.getSelection();
