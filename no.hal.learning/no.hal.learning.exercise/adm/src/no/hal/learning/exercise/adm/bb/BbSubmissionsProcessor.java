@@ -219,6 +219,7 @@ public class BbSubmissionsProcessor {
 	
 	public static void main(String[] args) {
 		registerEPackages();
+		// program arguments example: baseDir=/Downloads/ovinger-bb/ dirIn=oving%s-bb zipOut=oving%s-anon.zip arg1=5
 		String base = getOption("baseDir", args, "");
 		Collection<String> formatArgs = new ArrayList<String>();
 		for (int i = 1; i < 10; i++) {
