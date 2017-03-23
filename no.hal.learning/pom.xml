@@ -52,26 +52,38 @@
 		</pluginManagement>
 	</build>
 
-	<modules>
-		<!-- 
-		<module>../no.hal.jex.jextest.parent</module>
-	 	-->
+	<profiles>
+		<profile>
+			<id>ex</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>../no.hal.emf.ui.utils</module>
+				<module>../no.hal.emf.ui.utils.feature</module>
+				<module>org.eclipse.paho.client.mqttv3</module>
+				<module>no.hal.learning.exercise</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>all</id>
+			<modules>
+				<module>../no.hal.jex.jextest.parent</module>
+		
+				<module>../no.hal.emf.ui.utils</module>
+				<module>../no.hal.emf.ui.utils.feature</module>
+		
+				<module>../no.hal.emfs.parent</module>
+				<module>../no.hal.confluence.ui</module>
+				<module>../no.hal.confluence.java.ui</module>
+				<module>../no.hal.confluence.pydev.ui</module>
+				<module>../no.hal.confluence.feature</module>
+		
+				<module>org.eclipse.paho.client.mqttv3</module>
+				<module>no.hal.learning.exercise</module>
 
-		<module>../no.hal.emf.ui.utils</module>
-		<module>../no.hal.emf.ui.utils.feature</module>
-
-		<!--
-		<module>../no.hal.emfs.parent</module>
-		<module>../no.hal.confluence.ui</module>
-		<module>../no.hal.confluence.java.ui</module>
-		<module>../no.hal.confluence.pydev.ui</module>
-		<module>../no.hal.confluence.feature</module>
-	  	-->
-
-		<module>org.eclipse.paho.client.mqttv3</module>
-		<module>no.hal.learning.exercise</module>
-		<!-- 
-		<module>no.hal.learning.updatesite</module>
-		 -->
-	</modules>
+				<module>no.hal.learning.updatesite</module>
+			</modules>
+		</profile>
+	</profiles>
 </project>
