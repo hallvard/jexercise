@@ -8,7 +8,6 @@ import org.eclipse.birt.chart.model.component.Series;
 import org.eclipse.birt.chart.model.data.SeriesDefinition;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -72,11 +71,6 @@ public class ExerciseTestCompletionPlot extends AbstractStudentExercisesPlot<Dou
 			series.getLabel().getCaption().getFont().setSize(10);
 			series.setLabelPosition(Position.INSIDE_LITERAL);
 		}
-	}
-
-	@Override
-	public void updateChart(ResourceSet resourceSet) {
-		super.updateChart(resourceSet);
 	}
 
 	protected double[] getTestCompletionMinMax() {

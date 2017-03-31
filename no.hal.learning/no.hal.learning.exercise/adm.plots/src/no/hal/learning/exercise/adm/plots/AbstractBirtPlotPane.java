@@ -2,6 +2,7 @@ package no.hal.learning.exercise.adm.plots;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Collection;
 
 import org.eclipse.birt.chart.device.IDeviceRenderer;
 import org.eclipse.birt.chart.factory.GeneratedChartState;
@@ -9,8 +10,16 @@ import org.eclipse.birt.chart.factory.Generator;
 import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.birt.chart.model.attribute.Bounds;
 import org.eclipse.birt.chart.model.attribute.impl.BoundsImpl;
+import org.eclipse.birt.chart.model.component.Axis;
+import org.eclipse.birt.chart.model.component.Series;
+import org.eclipse.birt.chart.model.component.impl.SeriesImpl;
+import org.eclipse.birt.chart.model.data.DataSet;
+import org.eclipse.birt.chart.model.data.SeriesDefinition;
+import org.eclipse.birt.chart.model.data.impl.NumberDataSetImpl;
+import org.eclipse.birt.chart.model.data.impl.SeriesDefinitionImpl;
+import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
 import org.eclipse.birt.chart.util.PluginSettings;
-import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
@@ -46,7 +55,7 @@ public abstract class AbstractBirtPlotPane<C extends Chart> extends AbstractChar
 			Label label = new Label(composite, SWT.NONE);
 			label.setText(labelString);
 		}
-		Text text = new Text(composite, SWT.NONE);
+		Text text = new Text(composite, SWT.BORDER);
 		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		if (initialValue != null) {
 			text.setText(String.valueOf(initialValue));
@@ -55,15 +64,7 @@ public abstract class AbstractBirtPlotPane<C extends Chart> extends AbstractChar
 	}
 	
 	protected <T> InputProvider<T> createTextField(Composite composite, String labelString, Object initialValue, TextInputHandler<T> inputHandler) {
-		if (labelString != null) {
-			Label label = new Label(composite, SWT.NONE);
-			label.setText(labelString);
-		}
-		Text text = new Text(composite, SWT.NONE);
-		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-		if (initialValue != null) {
-			text.setText(String.valueOf(initialValue));
-		}
+		Text text = createTextField(composite, labelString, initialValue);
 		return new TextInputProvider<T>(text, inputHandler);
 	}
 
@@ -74,17 +75,18 @@ public abstract class AbstractBirtPlotPane<C extends Chart> extends AbstractChar
 	
 	private C chart;
 
-	public void updateChart(ResourceSet resourceSet) {
+	@Override
+	public void updateChart(Collection<Resource> resources) {
 		if (chart == null) {
-			chart = createChart(resourceSet);
+			chart = createChart(resources);
 		}
-		updateChart(chart, resourceSet);
+		updateChart(chart, resources);
 		plotCanvas.clearImageCache();
 		plotCanvas.redraw();
 	}
 
-	protected abstract C createChart(ResourceSet resourceSet);
-	protected abstract void updateChart(C chart, ResourceSet resourceSet);
+	protected abstract C createChart(Collection<Resource> resources);
+	protected abstract void updateChart(C chart, Collection<Resource> resources);
 
 	private class PlotCanvas extends Canvas implements PaintListener {
 
@@ -139,7 +141,7 @@ public abstract class AbstractBirtPlotPane<C extends Chart> extends AbstractChar
 				PrintStream stream = new PrintStream(output);
 				cex.printStackTrace(stream);
 				stream.close();
-				gc.drawText(output.toString(), 5, 5, false);
+//				gc.drawText(output.toString(), 5, 5, false);
 				System.err.println("buildAndDrawChart: " + cex);
 				cex.printStackTrace(System.err);
 			} finally {
@@ -148,5 +150,23 @@ public abstract class AbstractBirtPlotPane<C extends Chart> extends AbstractChar
 				}
 			}
 		}
+	}
+
+	protected SeriesDefinition createSeriesDefinition(Object data) {
+		Series series = SeriesImpl.create();
+		DataSet dataSet = null;
+		if (data instanceof String[]) {
+			dataSet = TextDataSetImpl.create(data);
+		} else {
+			dataSet = NumberDataSetImpl.create(data);
+		}
+		series.setDataSet(dataSet);
+		SeriesDefinition seriesDef = SeriesDefinitionImpl.create();
+		seriesDef.getSeries().add(series);
+		return seriesDef;
+	}
+	
+	protected void setSeriesDefinition(Axis axis, Object data) {
+		axis.getSeriesDefinitions().add(createSeriesDefinition(data));
 	}
 }

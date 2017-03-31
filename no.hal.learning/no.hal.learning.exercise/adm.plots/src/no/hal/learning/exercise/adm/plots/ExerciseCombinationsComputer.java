@@ -7,8 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+
+import no.hal.learning.exercise.adm.ExResourcesChartView;
 
 public class ExerciseCombinationsComputer {
 
@@ -21,33 +22,9 @@ public class ExerciseCombinationsComputer {
 	public final static Comparator<Resource> resourceExerciseComparator = new Comparator<Resource>() {
 		@Override
 		public int compare(Resource res1, Resource res2) {
-			return getExerciseId(res1).compareTo(getExerciseId(res2));
+			return ExResourcesChartView.getExerciseId(res1).compareTo(ExResourcesChartView.getExerciseId(res2));
 		}
 	};
-
-	public static String getExerciseId(Resource resource) {
-		URI uri = resource.getURI();
-		String[] segments = uri.segments();
-		for (int i = segments.length - 1; i >= 0; i--) {
-			String segment = segments[i];
-			if (segment.endsWith(".ex")) {
-				return segment.substring(0, segment.lastIndexOf('.'));
-			}
-		}
-		return null;
-	}
-
-	public static String getStudentId(Resource resource) {
-		URI uri = resource.getURI();
-		String[] segments = uri.segments();
-		for (int i = segments.length - 1; i >= 0; i--) {
-			String segment = segments[i];
-			if (segment.lastIndexOf('.') < 0) {
-				return segment;
-			}
-		}
-		return null;
-	}
 
 	private Map<String, ? extends Collection<Resource>> studentExercises;
 
@@ -55,7 +32,7 @@ public class ExerciseCombinationsComputer {
 		if (studentExercises == null) {
 			Map<String, List<Resource>> studentExercises = new HashMap<String, List<Resource>>();
 			for (Resource resource : resources) {
-				String studentId = getStudentId(resource);
+				String studentId = ExResourcesChartView.getStudentId(resource);
 				List<Resource> exercises = studentExercises.get(studentId);
 				if (exercises == null) {
 					exercises = new ArrayList<Resource>();
@@ -81,7 +58,7 @@ public class ExerciseCombinationsComputer {
 		if (allExerciseNames == null) {
 			allExerciseNames = new ArrayList<String>();
 			for (Resource resource : resources) {
-				String ex = getExerciseId(resource);
+				String ex = ExResourcesChartView.getExerciseId(resource);
 				if (!allExerciseNames.contains(ex)) {
 					allExerciseNames.add(ex);
 				}
@@ -97,7 +74,7 @@ public class ExerciseCombinationsComputer {
 			Collection<Resource> exercises = studentExercises.get(studentId);
 			Collection<String> exerciseNames = new ArrayList<String>(exercises.size());
 			for (Resource res : exercises) {
-				String ex = getExerciseId(res);
+				String ex = ExResourcesChartView.getExerciseId(res);
 				if (includeIndividual) {
 					updateMapCollection(ex, studentId, combinations);
 				}

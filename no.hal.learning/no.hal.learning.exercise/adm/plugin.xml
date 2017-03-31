@@ -24,6 +24,7 @@
 	<extension point="no.hal.learning.exercise.adm.exviewercolumn">
 		<exviewercolumn
 			columnNum="10"
+			columnName="eventCount"
 	    	columnLabel="# total"
             cellLabelProviderClass="no.hal.learning.exercise.adm.TaskEventsValueCellLabel"
             taskEventsValueClass="no.hal.learning.exercise.adm.util.TaskEventCounter"
@@ -31,6 +32,7 @@
         />
 		<exviewercolumn
 			columnNum="15"
+			columnName="editEventCount"
 	    	columnLabel="# edits"
             cellLabelProviderClass="no.hal.learning.exercise.adm.TaskEventsValueCellLabel"
             taskEventsValueClass="no.hal.learning.exercise.adm.util.StringEditEventCounter"
@@ -52,6 +54,7 @@
         />
 		<exviewercolumn
 			columnNum="40"
+			columnName="editTimeMinutes"
 	    	columnLabel="Edit time"
             cellLabelProviderClass="no.hal.learning.exercise.adm.TaskEventsValueCellLabel"
             taskEventsValueClass="no.hal.learning.exercise.adm.util.EditTimeAccumulator"

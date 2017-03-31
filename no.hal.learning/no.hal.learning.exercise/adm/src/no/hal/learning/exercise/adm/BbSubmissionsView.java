@@ -23,7 +23,7 @@ import org.eclipse.swt.widgets.Text;
 
 import no.hal.learning.exercise.adm.bb.BbSubmissionsProcessor;
 
-public class BbSubmissionsView extends ExResourcesChartView implements ITaskEventsProvider {
+public class BbSubmissionsView extends ExResourcesChartView {
 
 	private Text submissionPathText;
 

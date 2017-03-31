@@ -5,7 +5,6 @@
 -->
 
 <plugin>
-
       <extension
             point="no.hal.learning.exercise.adm.chartpane">
          <chartpane
@@ -20,35 +19,49 @@
                name="Test completion"
                chartPaneClass="no.hal.learning.exercise.adm.plots.ExerciseTestCompletionPlot">
          </chartpane>
+         <chartpane
+               name="Performance distribution"
+               chartPaneClass="no.hal.learning.exercise.adm.plots.ExercisePerformanceDistributionPlot">
+         </chartpane>
+         <chartpane
+               name="Performance matrix"
+               chartPaneClass="no.hal.learning.exercise.adm.plots.StudentExerciseMatrixPlot">
+         </chartpane>
       </extension>
 
 	<extension point="no.hal.learning.exercise.adm.exviewercolumn">
 		<exviewercolumn
+	    	columnName="completion"
 	    	columnLabel="Completion"
             cellLabelProviderClass="no.hal.learning.exercise.adm.TaskEventsValueCellLabel"
             taskEventsValueClass="no.hal.learning.exercise.adm.plots.util.TestCompletionTaskEventsValue"
         />
 		<exviewercolumn
+	    	columnName="lineCount"
 	    	columnLabel="# lines"
             cellLabelProviderClass="no.hal.learning.exercise.adm.TaskEventsValueCellLabel"
             taskEventsValueClass="no.hal.learning.exercise.adm.plots.util.LineCountCodeMetric"
         />
 		<exviewercolumn
+	    	columnName="tokenCount"
 	    	columnLabel="# tokens"
             cellLabelProviderClass="no.hal.learning.exercise.adm.TaskEventsValueCellLabel"
             taskEventsValueClass="no.hal.learning.exercise.adm.plots.util.TokenCountCodeMetric"
         />
 		<exviewercolumn
+	    	columnName="usefulTokenCount"
 	    	columnLabel="# statements/expressions"
             cellLabelProviderClass="no.hal.learning.exercise.adm.TaskEventsValueCellLabel"
             taskEventsValueClass="no.hal.learning.exercise.adm.plots.util.StatementsExpressionsExcludingMainCounter"
         />
 		<exviewercolumn
+	    	columnName="editedLineCount"
 	    	columnLabel="# edited lines"
             cellLabelProviderClass="no.hal.learning.exercise.adm.TaskEventsValueCellLabel"
             taskEventsValueClass="no.hal.learning.exercise.adm.plots.util.EditSizeTaskEventsValue"
         />
 		<exviewercolumn
+	    	columnName="editedLinesIntegrated"
 	    	columnLabel="Edit x time"
             cellLabelProviderClass="no.hal.learning.exercise.adm.TaskEventsValueCellLabel"
             taskEventsValueClass="no.hal.learning.exercise.adm.plots.util.EditSizeTimeIntegral"

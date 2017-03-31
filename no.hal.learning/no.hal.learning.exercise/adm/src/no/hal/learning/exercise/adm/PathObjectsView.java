@@ -5,12 +5,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.Map;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.CellLabelProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -38,7 +39,8 @@ public abstract class PathObjectsView<T> extends ViewPart {
 	protected Text pathFilterText;
 	protected TreeViewer pathViewer;
 	
-	protected Map<String, T> pathMap = new TreeMap<String, T>();
+	// must be sorted
+	protected SortedMap<String, T> pathMap = new TreeMap<String, T>();
 	
 	protected Iterator<String> getPaths() {
 		return pathMap.keySet().iterator();
@@ -53,7 +55,7 @@ public abstract class PathObjectsView<T> extends ViewPart {
 		}
 		return filtered.iterator();
 	}
-	
+
 	protected T getPathObject(String path) {
 		return pathMap.get(path);
 	}
@@ -108,7 +110,7 @@ public abstract class PathObjectsView<T> extends ViewPart {
 		ViewerFilter pathFilter = new ViewerFilter() {
 			@Override
 			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				return acceptPath(element.toString());
+				return (element instanceof String ? acceptPath(element.toString()) : true);
 			}
 		};
 
@@ -162,11 +164,15 @@ public abstract class PathObjectsView<T> extends ViewPart {
 		Iterator<?> elements = selection.iterator();
 		while (elements.hasNext()) {
 			Object element = elements.next();
-			if (element instanceof String) {
-				Object parent = ((ITreeContentProvider) pathViewer.getContentProvider()).getParent(element);
-				deletePath((String) element);
-				pathViewer.refresh(parent);
-			}
+			deleteSelection(element);
+		}
+	}
+
+	protected void deleteSelection(Object element) {
+		if (element instanceof String) {
+			Object parent = ((ITreeContentProvider) pathViewer.getContentProvider()).getParent(element);
+			deletePath((String) element);
+			pathViewer.refresh(parent);
 		}
 	}
 
@@ -178,9 +184,13 @@ public abstract class PathObjectsView<T> extends ViewPart {
 		addViewerColumn();
 	}
 
+	protected ILabelProvider createPathLabelProvider() {
+		return new PathViewerLabelProvider();
+	}
+	
 	protected void addViewerColumn() {
 		addViewerColumn("Path", new CellLabelProvider() {
-			PathViewerLabelProvider labelProvider = new PathViewerLabelProvider();
+			ILabelProvider labelProvider = createPathLabelProvider();
 			@Override
 			public void update(ViewerCell cell) {
 				cell.setText(labelProvider.getText(cell.getElement()));

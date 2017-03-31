@@ -14,6 +14,8 @@ import no.hal.learning.exercise.junit.JunitTestEvent;
 
 public class TestCompletionTaskEventsValue extends AbstractTaskEventsValueProvider<Double> {
 
+	public final static TestCompletionTaskEventsValue INSTANCE = new TestCompletionTaskEventsValue();
+
 	@Override
 	public Double getTaskEventsValue(List<? extends TaskEvent> taskEvents) {
 		List<JunitTestEvent> testEvents = getTaskEvents(taskEvents, JunitTestEvent.class, true);

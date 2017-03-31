@@ -7,6 +7,8 @@ import no.hal.learning.exercise.TaskEvent;
 
 public class EditTimeAccumulator extends TaskEventTimeAccumulator {
 
+	public final static AbstractTaskEventValueReducer INSTANCE = new EditTimeAccumulator();
+
 	protected List<AbstractStringEditEvent> getSortedTaskEvents(List<? extends TaskEvent> taskEvents) {
 		return getTaskEvents(taskEvents, AbstractStringEditEvent.class, true);
 	}

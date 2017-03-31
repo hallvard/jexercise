@@ -16,13 +16,27 @@ import no.hal.learning.exercise.logging.ExLogger;
 import no.hal.learning.exercise.util.ExerciseResourceFactoryImpl;
 import no.hal.learning.exercise.views.ExerciseView;
 
-public class LoggedExView extends ExResourcesChartView implements ITaskEventsProvider {
+public class LoggedExView extends ExResourcesChartView {
 
 	@Override
 	protected void updatePathViewer() {
 		unsubscribe();
 		super.updatePathViewer();
 		subscribe();
+	}
+
+	@Override
+	protected void deleteSelection(Object element) {
+		if (element instanceof Resource) {
+			Resource resource = (Resource) element;
+			String path = resource.getURI().path();
+			if (path.startsWith("/")) {
+				path = path.substring(1);
+			}
+			deletePath(path);
+		} else {
+			super.deleteSelection(element);
+		}
 	}
 
 	@Override
@@ -59,7 +73,6 @@ public class LoggedExView extends ExResourcesChartView implements ITaskEventsPro
 		}
 		return mqttClient;
 	}
-	
 
 	protected Resource getMessageObject(String topic, MqttMessage message) {
 		URI uri = URI.createURI("/" + topic); // getMqttServerUri().replace("tcp:", "mqtt:") + "/" + topic);
@@ -85,23 +98,27 @@ public class LoggedExView extends ExResourcesChartView implements ITaskEventsPro
 				@Override
 				public void messageArrived(final String topic, final MqttMessage message) throws Exception {
 					final boolean refresh = (! pathMap.containsKey(topic));
-					pathViewer.getControl().getDisplay().asyncExec(new Runnable() {
-						@Override
-						public void run() {
-							Resource object;
-							try {
-								object = getMessageObject(topic, message);
-								pathMap.put(topic, object);						
-							} catch (RuntimeException e) {
-								pathMap.remove(topic);
+					if (! pathViewer.getControl().isDisposed()) {
+						pathViewer.getControl().getDisplay().asyncExec(new Runnable() {
+							@Override
+							public void run() {
+								Resource object;
+								try {
+									object = getMessageObject(topic, message);
+									pathMap.put(topic, object);
+								} catch (RuntimeException e) {
+									pathMap.remove(topic);
+								}
+								if (! pathViewer.getControl().isDisposed()) {
+									if (refresh) {
+										pathViewer.refresh(false);
+									} else {
+										pathViewer.update(topic, null);
+									}
+								}
 							}
-							if (refresh) {
-								pathViewer.refresh(false);
-							} else {
-								pathViewer.update(topic, null);
-							}								
-						}
-					});
+						});
+					}
 				}
 			});
 		} catch (MqttException e) {

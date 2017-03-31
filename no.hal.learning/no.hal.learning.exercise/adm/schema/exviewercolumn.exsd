@@ -49,6 +49,13 @@
 
    <element name="exviewercolumn">
       <complexType>
+         <attribute name="columnName" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
          <attribute name="cellLabelProviderClass" type="string" use="required">
             <annotation>
                <documentation>

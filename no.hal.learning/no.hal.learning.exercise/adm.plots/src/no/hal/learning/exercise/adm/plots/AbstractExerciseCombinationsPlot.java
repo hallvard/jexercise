@@ -23,7 +23,7 @@ import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
 import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
 import org.eclipse.birt.chart.model.type.BarSeries;
 import org.eclipse.birt.chart.model.type.impl.BarSeriesImpl;
-import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -52,7 +52,7 @@ public abstract class AbstractExerciseCombinationsPlot extends AbstractBirtPlotP
 	protected Axis xAxis, yAxis;
 	
 	@Override
-	protected ChartWithAxes createChart(ResourceSet resourceSet) {
+	protected ChartWithAxes createChart(Collection<Resource> resources) {
 		ChartWithAxes chart = ChartWithAxesImpl.create();
 		chart.setDimension(ChartDimension.TWO_DIMENSIONAL_LITERAL);
 		
@@ -121,8 +121,8 @@ public abstract class AbstractExerciseCombinationsPlot extends AbstractBirtPlotP
 	protected abstract String getChartCaption();
 
 	@Override
-	protected void updateChart(ChartWithAxes chart, ResourceSet resourceSet) {
-		ExerciseCombinationsComputer computer = new ExerciseCombinationsComputer(resourceSet.getResources());		
+	protected void updateChart(ChartWithAxes chart, Collection<Resource> resources) {
+		ExerciseCombinationsComputer computer = new ExerciseCombinationsComputer(resources);
 		boolean both = bothButton.getSelection();
 		Map<Object, ? extends Collection<String>> exerciseCombinationsMap = computer.getExerciseCombinationStudents(individualButton.getSelection() || both, combButton.getSelection() || both);
 		List<Object> exerciseCombinations = new ArrayList<Object>();

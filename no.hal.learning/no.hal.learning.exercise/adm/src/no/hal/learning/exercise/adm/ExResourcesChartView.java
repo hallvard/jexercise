@@ -15,11 +15,11 @@ import org.eclipse.core.runtime.IExtension;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.InvalidRegistryObjectException;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.CellLabelProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.jface.viewers.ViewerComparator;
@@ -41,6 +41,32 @@ import no.hal.learning.exercise.views.ExerciseView;
 
 public abstract class ExResourcesChartView extends PathObjectsView<Resource> implements ITaskEventsProvider {
 
+	public static String getExerciseId(Resource resource) {
+		URI uri = resource.getURI();
+		String[] segments = uri.segments();
+		for (int i = segments.length - 1; i >= 0; i--) {
+			String segment = segments[i];
+			if (segment.endsWith(".ex")) {
+				return segment.substring(0, segment.lastIndexOf('.'));
+			}
+		}
+		return null;
+	}
+
+	public static String getStudentId(Resource resource) {
+		URI uri = resource.getURI();
+		String[] segments = uri.segments();
+		for (int i = segments.length - 1; i >= 0; i--) {
+			String segment = segments[i];
+			if (segment.lastIndexOf('.') < 0) {
+				return segment;
+			}
+		}
+		return null;
+	}
+
+	//
+
 	@Override
 	protected String getPathPrefix() {
 		return null;
@@ -57,6 +83,10 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 		resourcesTab.setControl(resourcesComposite);
 		createPathViewerControl(resourcesComposite);
 		addChartPaneTabs();
+	}
+
+	protected ILabelProvider createPathLabelProvider() {
+		return new ExResourceChartLabelProvider();
 	}
 
 	protected void createPathViewerControl(Composite composite) {
@@ -106,12 +136,12 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 		tabFolder.getDisplay().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				ResourceSet resourceSet = new ResourceSetImpl();
+				Collection<Resource> resources = new ArrayList<Resource>();
 				Iterator<String> paths = getFilteredPaths();
 				while (paths.hasNext()) {
-					resourceSet.getResources().add(getPathObject(paths.next()));
+					resources.add(getPathObject(paths.next()));
 				}
-				chartPane.updateChart(resourceSet);
+				chartPane.updateChart(resources);
 				((Composite) tab.getControl()).layout();
 			}
 		});
@@ -174,6 +204,7 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 
 	private static class ExViewerColumnData {
 		int columnNum;
+		String columnName;
 		CellLabelProvider cellLabelProvider;
 		String columnLabel;
 		int columnWidth;
@@ -234,6 +265,7 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 					ExViewerColumnData columnData = new ExViewerColumnData();
 					try {
 						columnData.columnNum = getAttributeValue(ces, "columnNum", Integer.class, 0);
+						columnData.columnName = ces.getAttribute("columnName");
 						columnData.cellLabelProvider = (CellLabelProvider) ces.createExecutableExtension("cellLabelProviderClass");
 						columnData.columnLabel = ces.getAttribute("columnLabel");
 						columnData.columnWidth = getAttributeValue(ces, "columnWidth", Integer.class, 50);

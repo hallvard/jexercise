@@ -22,7 +22,7 @@ public abstract class AbstractStudentExercisesPlot<E, S> extends AbstractExercis
 				}
 			}
 		} else {
-			if (resource.getURI().toString().contains(exerciseCombination + ".ex")) {
+			if (resource.getURI().path().contains(exerciseCombination + ".ex")) {
 				return true;
 			}
 		}

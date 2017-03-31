@@ -4,6 +4,15 @@ public class DoubleInputHandler extends TextInputHandler<Double> {
 
 	public final static TextInputHandler<Double> INSTANCE = new DoubleInputHandler();
 
+	private Double defaultValue;
+	
+	public DoubleInputHandler(Double defaultValue) {
+		this.defaultValue = defaultValue;
+	}
+	public DoubleInputHandler() {
+		this(null);
+	}
+
 	@Override
 	public String isValid(String newText) {
 		try {
@@ -20,6 +29,6 @@ public class DoubleInputHandler extends TextInputHandler<Double> {
 			return Double.valueOf(s);
 		} catch (NumberFormatException e) {
 		}
-		return null;
+		return defaultValue;
 	}
 }

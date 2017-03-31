@@ -8,7 +8,6 @@ import org.eclipse.birt.chart.model.component.Series;
 import org.eclipse.birt.chart.model.data.SeriesDefinition;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -34,8 +33,8 @@ public class ExerciseTimeUsagePlot extends AbstractStudentExercisesPlot<Long, In
 		Composite configComposite = new Composite(composite, SWT.NONE);
 		configComposite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		configComposite.setLayout(new GridLayout(2, false));
-		eventGapThresholdProvider = createTextField(configComposite, "Event gap threshold (in minutes): ", 5, IntegerInputHandler.INSTANCE);
-		testCompletionThresholdProvider = createTextField(configComposite, "Test completion threshold: ", 0.5d, DoubleInputHandler.INSTANCE);
+		eventGapThresholdProvider = createTextField(configComposite, "Event gap threshold (in minutes): ", 5, new IntegerInputHandler(5));
+		testCompletionThresholdProvider = createTextField(configComposite, "Test completion threshold: ", 0.5d, new DoubleInputHandler(0.5));
 	}
 
 	@Override
@@ -66,25 +65,15 @@ public class ExerciseTimeUsagePlot extends AbstractStudentExercisesPlot<Long, In
 	}
 
 	@Override
-	public void updateChart(ResourceSet resourceSet) {
-		int eventGapThreshold = 5;
-		try {
-			eventGapThreshold = eventGapThresholdProvider.getInput();
-		} catch (NullPointerException e) {
-		}
-		taskEventTimeAccumulator = new TaskEventTimeAccumulator(eventGapThreshold);
-		super.updateChart(resourceSet);
+	public void updateChart(Collection<Resource> resources) {
+		taskEventTimeAccumulator = new TaskEventTimeAccumulator(eventGapThresholdProvider.getInput());
+		super.updateChart(resources);
 	}
 	
 	@Override
 	protected void addExerciseValues(int seriesNum, Resource resource, Collection<Long> values) {
-		double testCompletionThreshold = 0.5d;
-		try {
-			testCompletionThreshold = testCompletionThresholdProvider.getInput();
-		} catch (NullPointerException e) {
-		}
 		double exerciseCompletion = computeExerciseCompletion(resource);
-		if (exerciseCompletion >= testCompletionThreshold) {
+		if (exerciseCompletion >= testCompletionThresholdProvider.getInput()) {
 			Long usage = getEventsValue(resource, taskEventTimeAccumulator, seriesNum == 0 ? getTaskEventClass() : null);
 			if (usage != null) {
 				values.add(usage);
