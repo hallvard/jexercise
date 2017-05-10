@@ -1,10 +1,9 @@
 /**
  */
-package no.hal.learning.exercise.jdt.util;
+package no.hal.learning.exercise.workspace.util;
 
 import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.Answer;
-import no.hal.learning.exercise.MarkerInfo;
 import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.StringEditAnswer;
 import no.hal.learning.exercise.StringEditTaskProposal;
@@ -12,9 +11,8 @@ import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 
-import no.hal.learning.exercise.jdt.*;
+import no.hal.learning.exercise.workspace.*;
 
-import no.hal.learning.exercise.workspace.SourceFileEditEvent;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -27,17 +25,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see no.hal.learning.exercise.jdt.JdtPackage
+ * @see no.hal.learning.exercise.workspace.WorkspacePackage
  * @generated
  */
-public class JdtAdapterFactory extends AdapterFactoryImpl {
+public class WorkspaceAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static JdtPackage modelPackage;
+	protected static WorkspacePackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -45,9 +43,9 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JdtAdapterFactory() {
+	public WorkspaceAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = JdtPackage.eINSTANCE;
+			modelPackage = WorkspacePackage.eINSTANCE;
 		}
 	}
 
@@ -76,35 +74,19 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected JdtSwitch<Adapter> modelSwitch =
-		new JdtSwitch<Adapter>() {
+	protected WorkspaceSwitch<Adapter> modelSwitch =
+		new WorkspaceSwitch<Adapter>() {
 			@Override
-			public Adapter caseJdtSourceEditAnswer(JdtSourceEditAnswer object) {
-				return createJdtSourceEditAnswerAdapter();
+			public Adapter caseSourceFileEditAnswer(SourceFileEditAnswer object) {
+				return createSourceFileEditAnswerAdapter();
 			}
 			@Override
-			public Adapter caseJdtSourceEditProposal(JdtSourceEditProposal object) {
-				return createJdtSourceEditProposalAdapter();
+			public Adapter caseSourceFileEditProposal(SourceFileEditProposal object) {
+				return createSourceFileEditProposalAdapter();
 			}
 			@Override
-			public Adapter caseJdtSourceEditEvent(JdtSourceEditEvent object) {
-				return createJdtSourceEditEventAdapter();
-			}
-			@Override
-			public Adapter caseJdtMarkerInfo(JdtMarkerInfo object) {
-				return createJdtMarkerInfoAdapter();
-			}
-			@Override
-			public Adapter caseJdtLaunchAnswer(JdtLaunchAnswer object) {
-				return createJdtLaunchAnswerAdapter();
-			}
-			@Override
-			public Adapter caseJdtLaunchProposal(JdtLaunchProposal object) {
-				return createJdtLaunchProposalAdapter();
-			}
-			@Override
-			public Adapter caseJdtLaunchEvent(JdtLaunchEvent object) {
-				return createJdtLaunchEventAdapter();
+			public Adapter caseSourceFileEditEvent(SourceFileEditEvent object) {
+				return createSourceFileEditEventAdapter();
 			}
 			@Override
 			public Adapter caseAnswer(Answer object) {
@@ -139,14 +121,6 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractStringEditEventAdapter();
 			}
 			@Override
-			public Adapter caseSourceFileEditEvent(SourceFileEditEvent object) {
-				return createSourceFileEditEventAdapter();
-			}
-			@Override
-			public Adapter caseMarkerInfo(MarkerInfo object) {
-				return createMarkerInfoAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -167,114 +141,44 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.jdt.JdtSourceEditAnswer <em>Source Edit Answer</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workspace.SourceFileEditAnswer <em>Source File Edit Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.jdt.JdtSourceEditAnswer
+	 * @see no.hal.learning.exercise.workspace.SourceFileEditAnswer
 	 * @generated
 	 */
-	public Adapter createJdtSourceEditAnswerAdapter() {
+	public Adapter createSourceFileEditAnswerAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.jdt.JdtSourceEditProposal <em>Source Edit Proposal</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workspace.SourceFileEditProposal <em>Source File Edit Proposal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.jdt.JdtSourceEditProposal
+	 * @see no.hal.learning.exercise.workspace.SourceFileEditProposal
 	 * @generated
 	 */
-	public Adapter createJdtSourceEditProposalAdapter() {
+	public Adapter createSourceFileEditProposalAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.jdt.JdtSourceEditEvent <em>Source Edit Event</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workspace.SourceFileEditEvent <em>Source File Edit Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.jdt.JdtSourceEditEvent
+	 * @see no.hal.learning.exercise.workspace.SourceFileEditEvent
 	 * @generated
 	 */
-	public Adapter createJdtSourceEditEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.jdt.JdtMarkerInfo <em>Marker Info</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.jdt.JdtMarkerInfo
-	 * @generated
-	 */
-	public Adapter createJdtMarkerInfoAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.MarkerInfo <em>Marker Info</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.MarkerInfo
-	 * @generated
-	 */
-	public Adapter createMarkerInfoAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer <em>Launch Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.jdt.JdtLaunchAnswer
-	 * @generated
-	 */
-	public Adapter createJdtLaunchAnswerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.jdt.JdtLaunchProposal <em>Launch Proposal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.jdt.JdtLaunchProposal
-	 * @generated
-	 */
-	public Adapter createJdtLaunchProposalAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.jdt.JdtLaunchEvent <em>Launch Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.jdt.JdtLaunchEvent
-	 * @generated
-	 */
-	public Adapter createJdtLaunchEventAdapter() {
+	public Adapter createSourceFileEditEventAdapter() {
 		return null;
 	}
 
@@ -391,20 +295,6 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workspace.SourceFileEditEvent <em>Source File Edit Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.hal.learning.exercise.workspace.SourceFileEditEvent
-	 * @generated
-	 */
-	public Adapter createSourceFileEditEventAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null.
@@ -416,4 +306,4 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //JdtAdapterFactory
+} //WorkspaceAdapterFactory

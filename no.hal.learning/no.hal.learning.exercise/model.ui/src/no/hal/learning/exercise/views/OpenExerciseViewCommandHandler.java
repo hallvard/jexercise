@@ -40,11 +40,6 @@ public class OpenExerciseViewCommandHandler extends EmfResourceObjectsCommandHan
 			e.printStackTrace();
 		}
 	}
-	
-	@Override
-	public boolean isEnabled() {
-		return super.isEnabled();
-	}
 
 	@Override
 	protected IContainer getTargetContainer(IFile resource) {

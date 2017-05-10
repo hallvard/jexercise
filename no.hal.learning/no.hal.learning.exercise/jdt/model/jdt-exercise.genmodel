@@ -3,15 +3,30 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.learning.exercise.jdt/src" modelPluginID="no.hal.learning.exercise.jdt"
     modelName="Jdt-exercise" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    usedGenPackages="../../no.hal.learning.exercise.model/model/exercise.genmodel#//exercise"
+    usedGenPackages="../../no.hal.learning.exercise.model/model/exercise.genmodel#//exercise ../../no.hal.learning.exercise.workspace/model/workspace-exercise.genmodel#//workspace"
     operationReflection="true" importOrganizing="true">
   <foreignModel>jdt-exercise.ecore</foreignModel>
   <genPackages prefix="Jdt" basePackage="no.hal.learning.exercise" disposableProviderFactory="true"
       childCreationExtenders="true" ecorePackage="jdt-exercise.ecore#/">
-    <genClasses ecoreClass="jdt-exercise.ecore#//JdtAnswer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtAnswer/className"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtAnswer/methodNames"/>
+    <genClasses ecoreClass="jdt-exercise.ecore#//JdtSourceEditAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtSourceEditAnswer/className"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtSourceEditAnswer/methodNames"/>
     </genClasses>
-    <genClasses ecoreClass="jdt-exercise.ecore#//JdtProposal"/>
+    <genClasses ecoreClass="jdt-exercise.ecore#//JdtSourceEditProposal"/>
+    <genClasses ecoreClass="jdt-exercise.ecore#//JdtSourceEditEvent"/>
+    <genClasses ecoreClass="jdt-exercise.ecore#//JdtMarkerInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtMarkerInfo/problemCategory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtMarkerInfo/problemType"/>
+    </genClasses>
+    <genClasses ecoreClass="jdt-exercise.ecore#//JdtLaunchAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtLaunchAnswer/mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtLaunchAnswer/className"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtLaunchAnswer/launchAttrNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtLaunchAnswer/launchAttrValues"/>
+    </genClasses>
+    <genClasses ecoreClass="jdt-exercise.ecore#//JdtLaunchProposal"/>
+    <genClasses ecoreClass="jdt-exercise.ecore#//JdtLaunchEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jdt-exercise.ecore#//JdtLaunchEvent/mode"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

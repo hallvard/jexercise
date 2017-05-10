@@ -7,6 +7,7 @@ import no.hal.learning.exercise.ExercisePackage;
 import no.hal.learning.exercise.jdt.JdtSourceEditAnswer;
 import no.hal.learning.exercise.jdt.JdtSourceEditEvent;
 import no.hal.learning.exercise.jdt.JdtSourceEditProposal;
+import no.hal.learning.exercise.workspace.WorkspacePackage;
 import no.hal.learning.exercise.jdt.JdtMarkerInfo;
 import no.hal.learning.exercise.jdt.JdtFactory;
 import no.hal.learning.exercise.jdt.JdtLaunchAnswer;
@@ -123,7 +124,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		ExercisePackage.eINSTANCE.eClass();
+		WorkspacePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJdtPackage.createPackageContents();
@@ -183,42 +184,6 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	 */
 	public EClass getJdtSourceEditEvent() {
 		return jdtSourceEditEventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJdtSourceEditEvent_SourceCode() {
-		return (EAttribute)jdtSourceEditEventEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJdtSourceEditEvent_SizeMeasure() {
-		return (EAttribute)jdtSourceEditEventEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJdtSourceEditEvent_ErrorCount() {
-		return (EAttribute)jdtSourceEditEventEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJdtSourceEditEvent_WarningCount() {
-		return (EAttribute)jdtSourceEditEventEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -355,10 +320,6 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		jdtSourceEditProposalEClass = createEClass(JDT_SOURCE_EDIT_PROPOSAL);
 
 		jdtSourceEditEventEClass = createEClass(JDT_SOURCE_EDIT_EVENT);
-		createEAttribute(jdtSourceEditEventEClass, JDT_SOURCE_EDIT_EVENT__SOURCE_CODE);
-		createEAttribute(jdtSourceEditEventEClass, JDT_SOURCE_EDIT_EVENT__SIZE_MEASURE);
-		createEAttribute(jdtSourceEditEventEClass, JDT_SOURCE_EDIT_EVENT__ERROR_COUNT);
-		createEAttribute(jdtSourceEditEventEClass, JDT_SOURCE_EDIT_EVENT__WARNING_COUNT);
 
 		jdtMarkerInfoEClass = createEClass(JDT_MARKER_INFO);
 		createEAttribute(jdtMarkerInfoEClass, JDT_MARKER_INFO__PROBLEM_CATEGORY);
@@ -401,6 +362,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 
 		// Obtain other dependent packages
 		ExercisePackage theExercisePackage = (ExercisePackage)EPackage.Registry.INSTANCE.getEPackage(ExercisePackage.eNS_URI);
+		WorkspacePackage theWorkspacePackage = (WorkspacePackage)EPackage.Registry.INSTANCE.getEPackage(WorkspacePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -412,7 +374,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		EGenericType g2 = createEGenericType(this.getJdtSourceEditAnswer());
 		g1.getETypeArguments().add(g2);
 		jdtSourceEditProposalEClass.getEGenericSuperTypes().add(g1);
-		jdtSourceEditEventEClass.getESuperTypes().add(theExercisePackage.getAbstractStringEditEvent());
+		jdtSourceEditEventEClass.getESuperTypes().add(theWorkspacePackage.getSourceFileEditEvent());
 		jdtMarkerInfoEClass.getESuperTypes().add(theExercisePackage.getMarkerInfo());
 		jdtLaunchAnswerEClass.getESuperTypes().add(theExercisePackage.getTaskAnswer());
 		g1 = createEGenericType(theExercisePackage.getTaskProposal());
@@ -429,10 +391,6 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		initEClass(jdtSourceEditProposalEClass, JdtSourceEditProposal.class, "JdtSourceEditProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(jdtSourceEditEventEClass, JdtSourceEditEvent.class, "JdtSourceEditEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJdtSourceEditEvent_SourceCode(), ecorePackage.getEString(), "sourceCode", null, 0, 1, JdtSourceEditEvent.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJdtSourceEditEvent_SizeMeasure(), ecorePackage.getEInt(), "sizeMeasure", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJdtSourceEditEvent_ErrorCount(), ecorePackage.getEInt(), "errorCount", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJdtSourceEditEvent_WarningCount(), ecorePackage.getEInt(), "warningCount", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jdtMarkerInfoEClass, JdtMarkerInfo.class, "JdtMarkerInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJdtMarkerInfo_ProblemCategory(), ecorePackage.getEInt(), "problemCategory", null, 0, 1, JdtMarkerInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -455,12 +413,8 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		// Create annotations
 		// exp4j
 		createExp4jAnnotations();
-		// no.hal.learning.exercise.views.ExerciseView
-		createNoAnnotations();
-		// no.hal.emf.ui.parts.plot.IValueProvider
-		createNo_1Annotations();
 		// no.hal.learning.exercise.MarkerInfo
-		createNo_2Annotations();
+		createNoAnnotations();
 	}
 
 	/**
@@ -480,56 +434,12 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	}
 
 	/**
-	 * Initializes the annotations for <b>no.hal.learning.exercise.views.ExerciseView</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createNoAnnotations() {
-		String source = "no.hal.learning.exercise.views.ExerciseView";	
-		addAnnotation
-		  (getJdtSourceEditEvent_SizeMeasure(), 
-		   source, 
-		   new String[] {
-			 "dashes", "_ "
-		   });	
-		addAnnotation
-		  (getJdtSourceEditEvent_ErrorCount(), 
-		   source, 
-		   new String[] {
-			 "dashes", "_ - "
-		   });	
-		addAnnotation
-		  (getJdtSourceEditEvent_WarningCount(), 
-		   source, 
-		   new String[] {
-			 "dashes", "_ . "
-		   });
-	}
-
-	/**
-	 * Initializes the annotations for <b>no.hal.emf.ui.parts.plot.IValueProvider</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createNo_1Annotations() {
-		String source = "no.hal.emf.ui.parts.plot.IValueProvider";	
-		addAnnotation
-		  (getJdtSourceEditEvent_SizeMeasure(), 
-		   source, 
-		   new String[] {
-			 "priority", "3"
-		   });
-	}
-
-	/**
 	 * Initializes the annotations for <b>no.hal.learning.exercise.MarkerInfo</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createNo_2Annotations() {
+	protected void createNoAnnotations() {
 		String source = "no.hal.learning.exercise.MarkerInfo";	
 		addAnnotation
 		  (getJdtMarkerInfo_ProblemCategory(), 

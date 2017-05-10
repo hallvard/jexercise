@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.learning.exercise.workspace/src" modelPluginID="no.hal.learning.exercise.workspace"
+    modelName="Workspace-exercise" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../no.hal.learning.exercise.model/model/exercise.genmodel#//exercise"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>workspace-exercise.ecore</foreignModel>
+  <genPackages prefix="Workspace" basePackage="no.hal.learning.exercise" disposableProviderFactory="true"
+      childCreationExtenders="true" ecorePackage="workspace-exercise.ecore#/">
+    <genClasses ecoreClass="workspace-exercise.ecore#//SourceFileEditAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workspace-exercise.ecore#//SourceFileEditAnswer/resourcePath"/>
+    </genClasses>
+    <genClasses ecoreClass="workspace-exercise.ecore#//SourceFileEditProposal"/>
+    <genClasses ecoreClass="workspace-exercise.ecore#//SourceFileEditEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workspace-exercise.ecore#//SourceFileEditEvent/sourceCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workspace-exercise.ecore#//SourceFileEditEvent/sizeMeasure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workspace-exercise.ecore#//SourceFileEditEvent/errorCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workspace-exercise.ecore#//SourceFileEditEvent/warningCount"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

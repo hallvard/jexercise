@@ -12,30 +12,10 @@
       <eTypeArguments eClassifier="#//JdtSourceEditAnswer"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JdtSourceEditEvent" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//AbstractStringEditEvent">
+  <eClassifiers xsi:type="ecore:EClass" name="JdtSourceEditEvent" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//SourceFileEditEvent">
     <eAnnotations source="exp4j">
       <details key="codeIssues" value="errorCount * 5 + warningCount"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeMeasure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
-      <eAnnotations source="no.hal.learning.exercise.views.ExerciseView">
-        <details key="dashes" value="_ "/>
-      </eAnnotations>
-      <eAnnotations source="no.hal.emf.ui.parts.plot.IValueProvider">
-        <details key="priority" value="3"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
-      <eAnnotations source="no.hal.learning.exercise.views.ExerciseView">
-        <details key="dashes" value="_ - "/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="warningCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
-      <eAnnotations source="no.hal.learning.exercise.views.ExerciseView">
-        <details key="dashes" value="_ . "/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JdtMarkerInfo" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//MarkerInfo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="problemCategory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">

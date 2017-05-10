@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="workspace" nsURI="platform:/plugin/no.hal.learning.exercise.workspace/model/workspace-exercise.ecore"
+    nsPrefix="workspace">
+  <eClassifiers xsi:type="ecore:EClass" name="SourceFileEditAnswer" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//StringEditAnswer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourcePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceFileEditProposal">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.model/model/exercise.ecore#//StringEditTaskProposal">
+      <eTypeArguments eClassifier="#//SourceFileEditAnswer"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceFileEditEvent" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//AbstractStringEditEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeMeasure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="no.hal.learning.exercise.views.ExerciseView">
+        <details key="dashes" value="_ "/>
+      </eAnnotations>
+      <eAnnotations source="no.hal.emf.ui.parts.plot.IValueProvider">
+        <details key="priority" value="3"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="no.hal.learning.exercise.views.ExerciseView">
+        <details key="dashes" value="_ - "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="warningCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="no.hal.learning.exercise.views.ExerciseView">
+        <details key="dashes" value="_ . "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

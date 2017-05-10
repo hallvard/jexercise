@@ -1,10 +1,9 @@
 /**
  */
-package no.hal.learning.exercise.jdt.util;
+package no.hal.learning.exercise.workspace.util;
 
 import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.Answer;
-import no.hal.learning.exercise.MarkerInfo;
 import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.StringEditAnswer;
 import no.hal.learning.exercise.StringEditTaskProposal;
@@ -12,9 +11,8 @@ import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 
-import no.hal.learning.exercise.jdt.*;
+import no.hal.learning.exercise.workspace.*;
 
-import no.hal.learning.exercise.workspace.SourceFileEditEvent;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -30,17 +28,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see no.hal.learning.exercise.jdt.JdtPackage
+ * @see no.hal.learning.exercise.workspace.WorkspacePackage
  * @generated
  */
-public class JdtSwitch<T1> extends Switch<T1> {
+public class WorkspaceSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static JdtPackage modelPackage;
+	protected static WorkspacePackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -48,9 +46,9 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JdtSwitch() {
+	public WorkspaceSwitch() {
 		if (modelPackage == null) {
-			modelPackage = JdtPackage.eINSTANCE;
+			modelPackage = WorkspacePackage.eINSTANCE;
 		}
 	}
 
@@ -77,60 +75,29 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	@Override
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case JdtPackage.JDT_SOURCE_EDIT_ANSWER: {
-				JdtSourceEditAnswer jdtSourceEditAnswer = (JdtSourceEditAnswer)theEObject;
-				T1 result = caseJdtSourceEditAnswer(jdtSourceEditAnswer);
-				if (result == null) result = caseStringEditAnswer(jdtSourceEditAnswer);
-				if (result == null) result = caseTaskAnswer(jdtSourceEditAnswer);
-				if (result == null) result = caseAnswer(jdtSourceEditAnswer);
+			case WorkspacePackage.SOURCE_FILE_EDIT_ANSWER: {
+				SourceFileEditAnswer sourceFileEditAnswer = (SourceFileEditAnswer)theEObject;
+				T1 result = caseSourceFileEditAnswer(sourceFileEditAnswer);
+				if (result == null) result = caseStringEditAnswer(sourceFileEditAnswer);
+				if (result == null) result = caseTaskAnswer(sourceFileEditAnswer);
+				if (result == null) result = caseAnswer(sourceFileEditAnswer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JdtPackage.JDT_SOURCE_EDIT_PROPOSAL: {
-				JdtSourceEditProposal jdtSourceEditProposal = (JdtSourceEditProposal)theEObject;
-				T1 result = caseJdtSourceEditProposal(jdtSourceEditProposal);
-				if (result == null) result = caseStringEditTaskProposal(jdtSourceEditProposal);
-				if (result == null) result = caseTaskProposal(jdtSourceEditProposal);
-				if (result == null) result = caseProposal(jdtSourceEditProposal);
+			case WorkspacePackage.SOURCE_FILE_EDIT_PROPOSAL: {
+				SourceFileEditProposal sourceFileEditProposal = (SourceFileEditProposal)theEObject;
+				T1 result = caseSourceFileEditProposal(sourceFileEditProposal);
+				if (result == null) result = caseStringEditTaskProposal(sourceFileEditProposal);
+				if (result == null) result = caseTaskProposal(sourceFileEditProposal);
+				if (result == null) result = caseProposal(sourceFileEditProposal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JdtPackage.JDT_SOURCE_EDIT_EVENT: {
-				JdtSourceEditEvent jdtSourceEditEvent = (JdtSourceEditEvent)theEObject;
-				T1 result = caseJdtSourceEditEvent(jdtSourceEditEvent);
-				if (result == null) result = caseSourceFileEditEvent(jdtSourceEditEvent);
-				if (result == null) result = caseAbstractStringEditEvent(jdtSourceEditEvent);
-				if (result == null) result = caseTaskEvent(jdtSourceEditEvent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JdtPackage.JDT_MARKER_INFO: {
-				JdtMarkerInfo jdtMarkerInfo = (JdtMarkerInfo)theEObject;
-				T1 result = caseJdtMarkerInfo(jdtMarkerInfo);
-				if (result == null) result = caseMarkerInfo(jdtMarkerInfo);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JdtPackage.JDT_LAUNCH_ANSWER: {
-				JdtLaunchAnswer jdtLaunchAnswer = (JdtLaunchAnswer)theEObject;
-				T1 result = caseJdtLaunchAnswer(jdtLaunchAnswer);
-				if (result == null) result = caseTaskAnswer(jdtLaunchAnswer);
-				if (result == null) result = caseAnswer(jdtLaunchAnswer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JdtPackage.JDT_LAUNCH_PROPOSAL: {
-				JdtLaunchProposal jdtLaunchProposal = (JdtLaunchProposal)theEObject;
-				T1 result = caseJdtLaunchProposal(jdtLaunchProposal);
-				if (result == null) result = caseTaskProposal(jdtLaunchProposal);
-				if (result == null) result = caseProposal(jdtLaunchProposal);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JdtPackage.JDT_LAUNCH_EVENT: {
-				JdtLaunchEvent jdtLaunchEvent = (JdtLaunchEvent)theEObject;
-				T1 result = caseJdtLaunchEvent(jdtLaunchEvent);
-				if (result == null) result = caseTaskEvent(jdtLaunchEvent);
+			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT: {
+				SourceFileEditEvent sourceFileEditEvent = (SourceFileEditEvent)theEObject;
+				T1 result = caseSourceFileEditEvent(sourceFileEditEvent);
+				if (result == null) result = caseAbstractStringEditEvent(sourceFileEditEvent);
+				if (result == null) result = caseTaskEvent(sourceFileEditEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,107 +106,47 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Source Edit Answer</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Source File Edit Answer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Source Edit Answer</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Source File Edit Answer</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseJdtSourceEditAnswer(JdtSourceEditAnswer object) {
+	public T1 caseSourceFileEditAnswer(SourceFileEditAnswer object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Source Edit Proposal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Source File Edit Proposal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Source Edit Proposal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Source File Edit Proposal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseJdtSourceEditProposal(JdtSourceEditProposal object) {
+	public T1 caseSourceFileEditProposal(SourceFileEditProposal object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Source Edit Event</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Source File Edit Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Source Edit Event</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Source File Edit Event</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseJdtSourceEditEvent(JdtSourceEditEvent object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Marker Info</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Marker Info</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseJdtMarkerInfo(JdtMarkerInfo object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Launch Answer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Launch Answer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseJdtLaunchAnswer(JdtLaunchAnswer object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Launch Proposal</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Launch Proposal</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseJdtLaunchProposal(JdtLaunchProposal object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Launch Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Launch Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseJdtLaunchEvent(JdtLaunchEvent object) {
+	public T1 caseSourceFileEditEvent(SourceFileEditEvent object) {
 		return null;
 	}
 
@@ -364,36 +271,6 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Source File Edit Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Source File Edit Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseSourceFileEditEvent(SourceFileEditEvent object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Marker Info</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Marker Info</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseMarkerInfo(MarkerInfo object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -409,4 +286,4 @@ public class JdtSwitch<T1> extends Switch<T1> {
 		return null;
 	}
 
-} //JdtSwitch
+} //WorkspaceSwitch

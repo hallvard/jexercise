@@ -4,6 +4,7 @@ package no.hal.learning.exercise.jdt;
 
 import no.hal.learning.exercise.ExercisePackage;
 
+import no.hal.learning.exercise.workspace.WorkspacePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -286,13 +287,22 @@ public interface JdtPackage extends EPackage {
 	int JDT_SOURCE_EDIT_EVENT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Proposal</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT__PROPOSAL = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__PROPOSAL;
+
+	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__TIMESTAMP = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__TIMESTAMP;
+	int JDT_SOURCE_EDIT_EVENT__TIMESTAMP = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__TIMESTAMP;
 
 	/**
 	 * The feature id for the '<em><b>Completion</b></em>' attribute.
@@ -301,7 +311,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__COMPLETION = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__COMPLETION;
+	int JDT_SOURCE_EDIT_EVENT__COMPLETION = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__COMPLETION;
 
 	/**
 	 * The feature id for the '<em><b>Edit</b></em>' containment reference.
@@ -310,7 +320,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__EDIT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__EDIT;
+	int JDT_SOURCE_EDIT_EVENT__EDIT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__EDIT;
 
 	/**
 	 * The feature id for the '<em><b>Markers</b></em>' containment reference list.
@@ -319,7 +329,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__MARKERS = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__MARKERS;
+	int JDT_SOURCE_EDIT_EVENT__MARKERS = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__MARKERS;
 
 	/**
 	 * The feature id for the '<em><b>Source Code</b></em>' attribute.
@@ -328,7 +338,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__SOURCE_CODE = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 0;
+	int JDT_SOURCE_EDIT_EVENT__SOURCE_CODE = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__SOURCE_CODE;
 
 	/**
 	 * The feature id for the '<em><b>Size Measure</b></em>' attribute.
@@ -337,7 +347,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__SIZE_MEASURE = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 1;
+	int JDT_SOURCE_EDIT_EVENT__SIZE_MEASURE = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__SIZE_MEASURE;
 
 	/**
 	 * The feature id for the '<em><b>Error Count</b></em>' attribute.
@@ -346,7 +356,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__ERROR_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 2;
+	int JDT_SOURCE_EDIT_EVENT__ERROR_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__ERROR_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Warning Count</b></em>' attribute.
@@ -355,7 +365,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__WARNING_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 3;
+	int JDT_SOURCE_EDIT_EVENT__WARNING_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__WARNING_COUNT;
 
 	/**
 	 * The number of structural features of the '<em>Source Edit Event</em>' class.
@@ -364,7 +374,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT_FEATURE_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 4;
+	int JDT_SOURCE_EDIT_EVENT_FEATURE_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -373,7 +383,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT___GET_TEXT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT___GET_TEXT;
+	int JDT_SOURCE_EDIT_EVENT___GET_TEXT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___GET_TEXT;
 
 	/**
 	 * The operation id for the '<em>Get String</em>' operation.
@@ -382,7 +392,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT___GET_STRING = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT___GET_STRING;
+	int JDT_SOURCE_EDIT_EVENT___GET_STRING = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___GET_STRING;
 
 	/**
 	 * The operation id for the '<em>Create String Edit</em>' operation.
@@ -391,7 +401,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT___CREATE_STRING_EDIT__STRING_ABSTRACTSTRINGEDITEVENT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT___CREATE_STRING_EDIT__STRING_ABSTRACTSTRINGEDITEVENT;
+	int JDT_SOURCE_EDIT_EVENT___CREATE_STRING_EDIT__STRING_ABSTRACTSTRINGEDITEVENT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___CREATE_STRING_EDIT__STRING_ABSTRACTSTRINGEDITEVENT;
 
 	/**
 	 * The number of operations of the '<em>Source Edit Event</em>' class.
@@ -400,7 +410,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT_OPERATION_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_OPERATION_COUNT + 0;
+	int JDT_SOURCE_EDIT_EVENT_OPERATION_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.JdtMarkerInfoImpl <em>Marker Info</em>}' class.
@@ -722,6 +732,15 @@ public interface JdtPackage extends EPackage {
 	int JDT_LAUNCH_EVENT = 6;
 
 	/**
+	 * The feature id for the '<em><b>Proposal</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_EVENT__PROPOSAL = ExercisePackage.TASK_EVENT__PROPOSAL;
+
+	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -827,50 +846,6 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getJdtSourceEditEvent();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtSourceEditEvent#getSourceCode <em>Source Code</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Source Code</em>'.
-	 * @see no.hal.learning.exercise.jdt.JdtSourceEditEvent#getSourceCode()
-	 * @see #getJdtSourceEditEvent()
-	 * @generated
-	 */
-	EAttribute getJdtSourceEditEvent_SourceCode();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtSourceEditEvent#getSizeMeasure <em>Size Measure</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Size Measure</em>'.
-	 * @see no.hal.learning.exercise.jdt.JdtSourceEditEvent#getSizeMeasure()
-	 * @see #getJdtSourceEditEvent()
-	 * @generated
-	 */
-	EAttribute getJdtSourceEditEvent_SizeMeasure();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtSourceEditEvent#getErrorCount <em>Error Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Error Count</em>'.
-	 * @see no.hal.learning.exercise.jdt.JdtSourceEditEvent#getErrorCount()
-	 * @see #getJdtSourceEditEvent()
-	 * @generated
-	 */
-	EAttribute getJdtSourceEditEvent_ErrorCount();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtSourceEditEvent#getWarningCount <em>Warning Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Warning Count</em>'.
-	 * @see no.hal.learning.exercise.jdt.JdtSourceEditEvent#getWarningCount()
-	 * @see #getJdtSourceEditEvent()
-	 * @generated
-	 */
-	EAttribute getJdtSourceEditEvent_WarningCount();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.jdt.JdtMarkerInfo <em>Marker Info</em>}'.
@@ -1057,38 +1032,6 @@ public interface JdtPackage extends EPackage {
 		 * @generated
 		 */
 		EClass JDT_SOURCE_EDIT_EVENT = eINSTANCE.getJdtSourceEditEvent();
-
-		/**
-		 * The meta object literal for the '<em><b>Source Code</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JDT_SOURCE_EDIT_EVENT__SOURCE_CODE = eINSTANCE.getJdtSourceEditEvent_SourceCode();
-
-		/**
-		 * The meta object literal for the '<em><b>Size Measure</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JDT_SOURCE_EDIT_EVENT__SIZE_MEASURE = eINSTANCE.getJdtSourceEditEvent_SizeMeasure();
-
-		/**
-		 * The meta object literal for the '<em><b>Error Count</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JDT_SOURCE_EDIT_EVENT__ERROR_COUNT = eINSTANCE.getJdtSourceEditEvent_ErrorCount();
-
-		/**
-		 * The meta object literal for the '<em><b>Warning Count</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JDT_SOURCE_EDIT_EVENT__WARNING_COUNT = eINSTANCE.getJdtSourceEditEvent_WarningCount();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.jdt.impl.JdtMarkerInfoImpl <em>Marker Info</em>}' class.
