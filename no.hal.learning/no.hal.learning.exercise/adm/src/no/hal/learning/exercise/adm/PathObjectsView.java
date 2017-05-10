@@ -145,12 +145,14 @@ public abstract class PathObjectsView<T> extends ViewPart {
 		pathViewer.getControl().addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {
-				String selectedPath = String.valueOf(pathViewer.getStructuredSelection().getFirstElement());
-				T object = getPathObject(selectedPath);
-				if (object != null) {
-					openPathObject(object);
-				} else {
-					setPathFilter(selectedPath);
+				Object selectedObject = pathViewer.getStructuredSelection().getFirstElement();
+				if (selectedObject instanceof String) {
+					setPathFilter((String) selectedObject);
+				} else if (selectedObject != null) {
+					try {
+						openPathObject((T) selectedObject);
+					} catch (ClassCastException e1) {
+					}
 				}
 			}
 		});
