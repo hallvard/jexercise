@@ -16,18 +16,25 @@
 
 	<repositories>
 		<repository>
+			<id>pydev</id>
+			<layout>p2</layout>
+			<url>http://www.pydev.org/updates</url>
+		</repository>
+		<repository>
 			<id>xtext</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/${xtextVersion}/</url>
 		</repository>
-	</repositories>
+	</repositories>	
 
   <modules>
   	<module>model</module>
   	<module>model.tests</module>
   	<module>model.ui</module>
+  	<module>workspace</module>
   	<module>junit</module>
   	<module>jdt</module>
+  	<module>pydev</module>
   	<!-- 
   	<module>checkstyle</module>
   	 -->

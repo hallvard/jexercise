@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pydev" nsURI="platform:/plugin/no.hal.learning.exercise.pydev/model/pydev-exercise.ecore"
+    nsPrefix="pydev">
+  <eClassifiers xsi:type="ecore:EClass" name="PydevSourceEditAnswer" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//StringEditAnswer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="moduleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PydevSourceEditProposal">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.model/model/exercise.ecore#//StringEditTaskProposal">
+      <eTypeArguments eClassifier="#//PydevSourceEditAnswer"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PydevSourceEditEvent" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//SourceFileEditEvent">
+    <eAnnotations source="exp4j">
+      <details key="codeIssues" value="errorCount * 5 + warningCount"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PydevMarkerInfo" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//MarkerInfo"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PydevLaunchAnswer" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//LaunchAnswer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="moduleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PydevLaunchProposal">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//LaunchProposal">
+      <eTypeArguments eClassifier="#//PydevLaunchAnswer"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PydevLaunchEvent" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//LaunchEvent"/>
+</ecore:EPackage>

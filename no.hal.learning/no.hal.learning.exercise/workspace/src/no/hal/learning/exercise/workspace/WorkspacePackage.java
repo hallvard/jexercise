@@ -404,6 +404,298 @@ public interface WorkspacePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.workspace.impl.LaunchAnswerImpl <em>Launch Answer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.workspace.impl.LaunchAnswerImpl
+	 * @see no.hal.learning.exercise.workspace.impl.WorkspacePackageImpl#getLaunchAnswer()
+	 * @generated
+	 */
+	int LAUNCH_ANSWER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_ANSWER__REQUIRED_COUNT = ExercisePackage.TASK_ANSWER__REQUIRED_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_ANSWER__MODE = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Launch Attr Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_ANSWER__LAUNCH_ATTR_NAMES = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Launch Attr Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_ANSWER__LAUNCH_ATTR_VALUES = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Launch Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_ANSWER_FEATURE_COUNT = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_ANSWER___ACCEPT__OBJECT = ExercisePackage.TASK_ANSWER___ACCEPT__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_ANSWER___VALIDATE__OBJECT = ExercisePackage.TASK_ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_ANSWER___CREATE_PROPOSAL = ExercisePackage.TASK_ANSWER___CREATE_PROPOSAL;
+
+	/**
+	 * The number of operations of the '<em>Launch Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_ANSWER_OPERATION_COUNT = ExercisePackage.TASK_ANSWER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.workspace.impl.LaunchProposalImpl <em>Launch Proposal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.workspace.impl.LaunchProposalImpl
+	 * @see no.hal.learning.exercise.workspace.impl.WorkspacePackageImpl#getLaunchProposal()
+	 * @generated
+	 */
+	int LAUNCH_PROPOSAL = 4;
+
+	/**
+	 * The feature id for the '<em><b>Question</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL__QUESTION = ExercisePackage.TASK_PROPOSAL__QUESTION;
+
+	/**
+	 * The feature id for the '<em><b>Answer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL__ANSWER = ExercisePackage.TASK_PROPOSAL__ANSWER;
+
+	/**
+	 * The feature id for the '<em><b>Completion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL__COMPLETION = ExercisePackage.TASK_PROPOSAL__COMPLETION;
+
+	/**
+	 * The feature id for the '<em><b>Proof</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL__PROOF = ExercisePackage.TASK_PROPOSAL__PROOF;
+
+	/**
+	 * The feature id for the '<em><b>Attempt Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL__ATTEMPT_COUNT = ExercisePackage.TASK_PROPOSAL__ATTEMPT_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Attempts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL__ATTEMPTS = ExercisePackage.TASK_PROPOSAL__ATTEMPTS;
+
+	/**
+	 * The feature id for the '<em><b>Performed Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL__PERFORMED_COUNT = ExercisePackage.TASK_PROPOSAL__PERFORMED_COUNT;
+
+	/**
+	 * The number of structural features of the '<em>Launch Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL_FEATURE_COUNT = ExercisePackage.TASK_PROPOSAL_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL___GET_PROPOSAL = ExercisePackage.TASK_PROPOSAL___GET_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL___ACCEPT = ExercisePackage.TASK_PROPOSAL___ACCEPT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL___VALIDATE = ExercisePackage.TASK_PROPOSAL___VALIDATE;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
+
+	/**
+	 * The number of operations of the '<em>Launch Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL_OPERATION_COUNT = ExercisePackage.TASK_PROPOSAL_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.workspace.impl.LaunchEventImpl <em>Launch Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.workspace.impl.LaunchEventImpl
+	 * @see no.hal.learning.exercise.workspace.impl.WorkspacePackageImpl#getLaunchEvent()
+	 * @generated
+	 */
+	int LAUNCH_EVENT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Proposal</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT__PROPOSAL = ExercisePackage.TASK_EVENT__PROPOSAL;
+
+	/**
+	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT__TIMESTAMP = ExercisePackage.TASK_EVENT__TIMESTAMP;
+
+	/**
+	 * The feature id for the '<em><b>Completion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT__COMPLETION = ExercisePackage.TASK_EVENT__COMPLETION;
+
+	/**
+	 * The feature id for the '<em><b>Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT__MODE = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Launch Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT___GET_TEXT = ExercisePackage.TASK_EVENT___GET_TEXT;
+
+	/**
+	 * The number of operations of the '<em>Launch Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT_OPERATION_COUNT = ExercisePackage.TASK_EVENT_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.workspace.SourceFileEditAnswer <em>Source File Edit Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -487,6 +779,80 @@ public interface WorkspacePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSourceFileEditEvent_WarningCount();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.workspace.LaunchAnswer <em>Launch Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Launch Answer</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchAnswer
+	 * @generated
+	 */
+	EClass getLaunchAnswer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.workspace.LaunchAnswer#getMode <em>Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mode</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchAnswer#getMode()
+	 * @see #getLaunchAnswer()
+	 * @generated
+	 */
+	EAttribute getLaunchAnswer_Mode();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.workspace.LaunchAnswer#getLaunchAttrNames <em>Launch Attr Names</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Launch Attr Names</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchAnswer#getLaunchAttrNames()
+	 * @see #getLaunchAnswer()
+	 * @generated
+	 */
+	EAttribute getLaunchAnswer_LaunchAttrNames();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.workspace.LaunchAnswer#getLaunchAttrValues <em>Launch Attr Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Launch Attr Values</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchAnswer#getLaunchAttrValues()
+	 * @see #getLaunchAnswer()
+	 * @generated
+	 */
+	EAttribute getLaunchAnswer_LaunchAttrValues();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.workspace.LaunchProposal <em>Launch Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Launch Proposal</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchProposal
+	 * @generated
+	 */
+	EClass getLaunchProposal();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.workspace.LaunchEvent <em>Launch Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Launch Event</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchEvent
+	 * @generated
+	 */
+	EClass getLaunchEvent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.workspace.LaunchEvent#getMode <em>Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mode</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchEvent#getMode()
+	 * @see #getLaunchEvent()
+	 * @generated
+	 */
+	EAttribute getLaunchEvent_Mode();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -580,6 +946,68 @@ public interface WorkspacePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOURCE_FILE_EDIT_EVENT__WARNING_COUNT = eINSTANCE.getSourceFileEditEvent_WarningCount();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.workspace.impl.LaunchAnswerImpl <em>Launch Answer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.workspace.impl.LaunchAnswerImpl
+		 * @see no.hal.learning.exercise.workspace.impl.WorkspacePackageImpl#getLaunchAnswer()
+		 * @generated
+		 */
+		EClass LAUNCH_ANSWER = eINSTANCE.getLaunchAnswer();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAUNCH_ANSWER__MODE = eINSTANCE.getLaunchAnswer_Mode();
+
+		/**
+		 * The meta object literal for the '<em><b>Launch Attr Names</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAUNCH_ANSWER__LAUNCH_ATTR_NAMES = eINSTANCE.getLaunchAnswer_LaunchAttrNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Launch Attr Values</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAUNCH_ANSWER__LAUNCH_ATTR_VALUES = eINSTANCE.getLaunchAnswer_LaunchAttrValues();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.workspace.impl.LaunchProposalImpl <em>Launch Proposal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.workspace.impl.LaunchProposalImpl
+		 * @see no.hal.learning.exercise.workspace.impl.WorkspacePackageImpl#getLaunchProposal()
+		 * @generated
+		 */
+		EClass LAUNCH_PROPOSAL = eINSTANCE.getLaunchProposal();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.workspace.impl.LaunchEventImpl <em>Launch Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.workspace.impl.LaunchEventImpl
+		 * @see no.hal.learning.exercise.workspace.impl.WorkspacePackageImpl#getLaunchEvent()
+		 * @generated
+		 */
+		EClass LAUNCH_EVENT = eINSTANCE.getLaunchEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAUNCH_EVENT__MODE = eINSTANCE.getLaunchEvent_Mode();
 
 	}
 

@@ -101,6 +101,29 @@ public class WorkspaceSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WorkspacePackage.LAUNCH_ANSWER: {
+				LaunchAnswer launchAnswer = (LaunchAnswer)theEObject;
+				T1 result = caseLaunchAnswer(launchAnswer);
+				if (result == null) result = caseTaskAnswer(launchAnswer);
+				if (result == null) result = caseAnswer(launchAnswer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkspacePackage.LAUNCH_PROPOSAL: {
+				LaunchProposal<?> launchProposal = (LaunchProposal<?>)theEObject;
+				T1 result = caseLaunchProposal(launchProposal);
+				if (result == null) result = caseTaskProposal(launchProposal);
+				if (result == null) result = caseProposal(launchProposal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkspacePackage.LAUNCH_EVENT: {
+				LaunchEvent launchEvent = (LaunchEvent)theEObject;
+				T1 result = caseLaunchEvent(launchEvent);
+				if (result == null) result = caseTaskEvent(launchEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -147,6 +170,51 @@ public class WorkspaceSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseSourceFileEditEvent(SourceFileEditEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Launch Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Launch Answer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseLaunchAnswer(LaunchAnswer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Launch Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Launch Proposal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T extends LaunchAnswer> T1 caseLaunchProposal(LaunchProposal<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Launch Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Launch Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseLaunchEvent(LaunchEvent object) {
 		return null;
 	}
 

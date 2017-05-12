@@ -511,7 +511,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_ANSWER__REQUIRED_COUNT = ExercisePackage.TASK_ANSWER__REQUIRED_COUNT;
+	int JDT_LAUNCH_ANSWER__REQUIRED_COUNT = WorkspacePackage.LAUNCH_ANSWER__REQUIRED_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -520,16 +520,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_ANSWER__MODE = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JDT_LAUNCH_ANSWER__CLASS_NAME = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 1;
+	int JDT_LAUNCH_ANSWER__MODE = WorkspacePackage.LAUNCH_ANSWER__MODE;
 
 	/**
 	 * The feature id for the '<em><b>Launch Attr Names</b></em>' attribute list.
@@ -538,7 +529,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 2;
+	int JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES = WorkspacePackage.LAUNCH_ANSWER__LAUNCH_ATTR_NAMES;
 
 	/**
 	 * The feature id for the '<em><b>Launch Attr Values</b></em>' attribute list.
@@ -547,7 +538,16 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 3;
+	int JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES = WorkspacePackage.LAUNCH_ANSWER__LAUNCH_ATTR_VALUES;
+
+	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_ANSWER__CLASS_NAME = WorkspacePackage.LAUNCH_ANSWER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Launch Answer</em>' class.
@@ -556,7 +556,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_ANSWER_FEATURE_COUNT = ExercisePackage.TASK_ANSWER_FEATURE_COUNT + 4;
+	int JDT_LAUNCH_ANSWER_FEATURE_COUNT = WorkspacePackage.LAUNCH_ANSWER_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -565,7 +565,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_ANSWER___ACCEPT__OBJECT = ExercisePackage.TASK_ANSWER___ACCEPT__OBJECT;
+	int JDT_LAUNCH_ANSWER___ACCEPT__OBJECT = WorkspacePackage.LAUNCH_ANSWER___ACCEPT__OBJECT;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -574,7 +574,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_ANSWER___VALIDATE__OBJECT = ExercisePackage.TASK_ANSWER___VALIDATE__OBJECT;
+	int JDT_LAUNCH_ANSWER___VALIDATE__OBJECT = WorkspacePackage.LAUNCH_ANSWER___VALIDATE__OBJECT;
 
 	/**
 	 * The operation id for the '<em>Create Proposal</em>' operation.
@@ -583,7 +583,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_ANSWER___CREATE_PROPOSAL = ExercisePackage.TASK_ANSWER___CREATE_PROPOSAL;
+	int JDT_LAUNCH_ANSWER___CREATE_PROPOSAL = WorkspacePackage.LAUNCH_ANSWER___CREATE_PROPOSAL;
 
 	/**
 	 * The number of operations of the '<em>Launch Answer</em>' class.
@@ -592,7 +592,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_ANSWER_OPERATION_COUNT = ExercisePackage.TASK_ANSWER_OPERATION_COUNT + 0;
+	int JDT_LAUNCH_ANSWER_OPERATION_COUNT = WorkspacePackage.LAUNCH_ANSWER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.JdtLaunchProposalImpl <em>Launch Proposal</em>}' class.
@@ -611,7 +611,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL__QUESTION = ExercisePackage.TASK_PROPOSAL__QUESTION;
+	int JDT_LAUNCH_PROPOSAL__QUESTION = WorkspacePackage.LAUNCH_PROPOSAL__QUESTION;
 
 	/**
 	 * The feature id for the '<em><b>Answer</b></em>' reference.
@@ -620,7 +620,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL__ANSWER = ExercisePackage.TASK_PROPOSAL__ANSWER;
+	int JDT_LAUNCH_PROPOSAL__ANSWER = WorkspacePackage.LAUNCH_PROPOSAL__ANSWER;
 
 	/**
 	 * The feature id for the '<em><b>Completion</b></em>' attribute.
@@ -629,7 +629,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL__COMPLETION = ExercisePackage.TASK_PROPOSAL__COMPLETION;
+	int JDT_LAUNCH_PROPOSAL__COMPLETION = WorkspacePackage.LAUNCH_PROPOSAL__COMPLETION;
 
 	/**
 	 * The feature id for the '<em><b>Proof</b></em>' attribute.
@@ -638,7 +638,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL__PROOF = ExercisePackage.TASK_PROPOSAL__PROOF;
+	int JDT_LAUNCH_PROPOSAL__PROOF = WorkspacePackage.LAUNCH_PROPOSAL__PROOF;
 
 	/**
 	 * The feature id for the '<em><b>Attempt Count</b></em>' attribute.
@@ -647,7 +647,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL__ATTEMPT_COUNT = ExercisePackage.TASK_PROPOSAL__ATTEMPT_COUNT;
+	int JDT_LAUNCH_PROPOSAL__ATTEMPT_COUNT = WorkspacePackage.LAUNCH_PROPOSAL__ATTEMPT_COUNT;
 
 	/**
 	 * The feature id for the '<em><b>Attempts</b></em>' containment reference list.
@@ -656,7 +656,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL__ATTEMPTS = ExercisePackage.TASK_PROPOSAL__ATTEMPTS;
+	int JDT_LAUNCH_PROPOSAL__ATTEMPTS = WorkspacePackage.LAUNCH_PROPOSAL__ATTEMPTS;
 
 	/**
 	 * The feature id for the '<em><b>Performed Count</b></em>' attribute.
@@ -665,7 +665,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL__PERFORMED_COUNT = ExercisePackage.TASK_PROPOSAL__PERFORMED_COUNT;
+	int JDT_LAUNCH_PROPOSAL__PERFORMED_COUNT = WorkspacePackage.LAUNCH_PROPOSAL__PERFORMED_COUNT;
 
 	/**
 	 * The number of structural features of the '<em>Launch Proposal</em>' class.
@@ -674,7 +674,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL_FEATURE_COUNT = ExercisePackage.TASK_PROPOSAL_FEATURE_COUNT + 0;
+	int JDT_LAUNCH_PROPOSAL_FEATURE_COUNT = WorkspacePackage.LAUNCH_PROPOSAL_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Proposal</em>' operation.
@@ -683,7 +683,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL___GET_PROPOSAL = ExercisePackage.TASK_PROPOSAL___GET_PROPOSAL;
+	int JDT_LAUNCH_PROPOSAL___GET_PROPOSAL = WorkspacePackage.LAUNCH_PROPOSAL___GET_PROPOSAL;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -692,7 +692,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL___ACCEPT = ExercisePackage.TASK_PROPOSAL___ACCEPT;
+	int JDT_LAUNCH_PROPOSAL___ACCEPT = WorkspacePackage.LAUNCH_PROPOSAL___ACCEPT;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -701,7 +701,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL___VALIDATE = ExercisePackage.TASK_PROPOSAL___VALIDATE;
+	int JDT_LAUNCH_PROPOSAL___VALIDATE = WorkspacePackage.LAUNCH_PROPOSAL___VALIDATE;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -710,7 +710,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
+	int JDT_LAUNCH_PROPOSAL___GET_TEXT = WorkspacePackage.LAUNCH_PROPOSAL___GET_TEXT;
 
 	/**
 	 * The number of operations of the '<em>Launch Proposal</em>' class.
@@ -719,7 +719,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_PROPOSAL_OPERATION_COUNT = ExercisePackage.TASK_PROPOSAL_OPERATION_COUNT + 0;
+	int JDT_LAUNCH_PROPOSAL_OPERATION_COUNT = WorkspacePackage.LAUNCH_PROPOSAL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.JdtLaunchEventImpl <em>Launch Event</em>}' class.
@@ -738,7 +738,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_EVENT__PROPOSAL = ExercisePackage.TASK_EVENT__PROPOSAL;
+	int JDT_LAUNCH_EVENT__PROPOSAL = WorkspacePackage.LAUNCH_EVENT__PROPOSAL;
 
 	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
@@ -747,7 +747,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_EVENT__TIMESTAMP = ExercisePackage.TASK_EVENT__TIMESTAMP;
+	int JDT_LAUNCH_EVENT__TIMESTAMP = WorkspacePackage.LAUNCH_EVENT__TIMESTAMP;
 
 	/**
 	 * The feature id for the '<em><b>Completion</b></em>' attribute.
@@ -756,7 +756,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_EVENT__COMPLETION = ExercisePackage.TASK_EVENT__COMPLETION;
+	int JDT_LAUNCH_EVENT__COMPLETION = WorkspacePackage.LAUNCH_EVENT__COMPLETION;
 
 	/**
 	 * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -765,7 +765,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_EVENT__MODE = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 0;
+	int JDT_LAUNCH_EVENT__MODE = WorkspacePackage.LAUNCH_EVENT__MODE;
 
 	/**
 	 * The number of structural features of the '<em>Launch Event</em>' class.
@@ -774,7 +774,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+	int JDT_LAUNCH_EVENT_FEATURE_COUNT = WorkspacePackage.LAUNCH_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -783,7 +783,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_EVENT___GET_TEXT = ExercisePackage.TASK_EVENT___GET_TEXT;
+	int JDT_LAUNCH_EVENT___GET_TEXT = WorkspacePackage.LAUNCH_EVENT___GET_TEXT;
 
 	/**
 	 * The number of operations of the '<em>Launch Event</em>' class.
@@ -792,7 +792,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_EVENT_OPERATION_COUNT = ExercisePackage.TASK_EVENT_OPERATION_COUNT + 0;
+	int JDT_LAUNCH_EVENT_OPERATION_COUNT = WorkspacePackage.LAUNCH_EVENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -890,17 +890,6 @@ public interface JdtPackage extends EPackage {
 	EClass getJdtLaunchAnswer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer#getMode <em>Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mode</em>'.
-	 * @see no.hal.learning.exercise.jdt.JdtLaunchAnswer#getMode()
-	 * @see #getJdtLaunchAnswer()
-	 * @generated
-	 */
-	EAttribute getJdtLaunchAnswer_Mode();
-
-	/**
 	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer#getClassName <em>Class Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -910,28 +899,6 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJdtLaunchAnswer_ClassName();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer#getLaunchAttrNames <em>Launch Attr Names</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Launch Attr Names</em>'.
-	 * @see no.hal.learning.exercise.jdt.JdtLaunchAnswer#getLaunchAttrNames()
-	 * @see #getJdtLaunchAnswer()
-	 * @generated
-	 */
-	EAttribute getJdtLaunchAnswer_LaunchAttrNames();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.jdt.JdtLaunchAnswer#getLaunchAttrValues <em>Launch Attr Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Launch Attr Values</em>'.
-	 * @see no.hal.learning.exercise.jdt.JdtLaunchAnswer#getLaunchAttrValues()
-	 * @see #getJdtLaunchAnswer()
-	 * @generated
-	 */
-	EAttribute getJdtLaunchAnswer_LaunchAttrValues();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.jdt.JdtLaunchProposal <em>Launch Proposal</em>}'.
@@ -952,17 +919,6 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getJdtLaunchEvent();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtLaunchEvent#getMode <em>Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mode</em>'.
-	 * @see no.hal.learning.exercise.jdt.JdtLaunchEvent#getMode()
-	 * @see #getJdtLaunchEvent()
-	 * @generated
-	 */
-	EAttribute getJdtLaunchEvent_Mode();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1070,36 +1026,12 @@ public interface JdtPackage extends EPackage {
 		EClass JDT_LAUNCH_ANSWER = eINSTANCE.getJdtLaunchAnswer();
 
 		/**
-		 * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JDT_LAUNCH_ANSWER__MODE = eINSTANCE.getJdtLaunchAnswer_Mode();
-
-		/**
 		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute JDT_LAUNCH_ANSWER__CLASS_NAME = eINSTANCE.getJdtLaunchAnswer_ClassName();
-
-		/**
-		 * The meta object literal for the '<em><b>Launch Attr Names</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES = eINSTANCE.getJdtLaunchAnswer_LaunchAttrNames();
-
-		/**
-		 * The meta object literal for the '<em><b>Launch Attr Values</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES = eINSTANCE.getJdtLaunchAnswer_LaunchAttrValues();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.jdt.impl.JdtLaunchProposalImpl <em>Launch Proposal</em>}' class.
@@ -1120,14 +1052,6 @@ public interface JdtPackage extends EPackage {
 		 * @generated
 		 */
 		EClass JDT_LAUNCH_EVENT = eINSTANCE.getJdtLaunchEvent();
-
-		/**
-		 * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JDT_LAUNCH_EVENT__MODE = eINSTANCE.getJdtLaunchEvent_Mode();
 
 	}
 

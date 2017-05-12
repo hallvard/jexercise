@@ -89,6 +89,18 @@ public class WorkspaceAdapterFactory extends AdapterFactoryImpl {
 				return createSourceFileEditEventAdapter();
 			}
 			@Override
+			public Adapter caseLaunchAnswer(LaunchAnswer object) {
+				return createLaunchAnswerAdapter();
+			}
+			@Override
+			public <T extends LaunchAnswer> Adapter caseLaunchProposal(LaunchProposal<T> object) {
+				return createLaunchProposalAdapter();
+			}
+			@Override
+			public Adapter caseLaunchEvent(LaunchEvent object) {
+				return createLaunchEventAdapter();
+			}
+			@Override
 			public Adapter caseAnswer(Answer object) {
 				return createAnswerAdapter();
 			}
@@ -179,6 +191,48 @@ public class WorkspaceAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSourceFileEditEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workspace.LaunchAnswer <em>Launch Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.workspace.LaunchAnswer
+	 * @generated
+	 */
+	public Adapter createLaunchAnswerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workspace.LaunchProposal <em>Launch Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.workspace.LaunchProposal
+	 * @generated
+	 */
+	public Adapter createLaunchProposalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workspace.LaunchEvent <em>Launch Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.workspace.LaunchEvent
+	 * @generated
+	 */
+	public Adapter createLaunchEventAdapter() {
 		return null;
 	}
 

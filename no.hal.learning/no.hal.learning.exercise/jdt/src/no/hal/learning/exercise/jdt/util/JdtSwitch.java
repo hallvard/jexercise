@@ -14,6 +14,9 @@ import no.hal.learning.exercise.TaskProposal;
 
 import no.hal.learning.exercise.jdt.*;
 
+import no.hal.learning.exercise.workspace.LaunchAnswer;
+import no.hal.learning.exercise.workspace.LaunchEvent;
+import no.hal.learning.exercise.workspace.LaunchProposal;
 import no.hal.learning.exercise.workspace.SourceFileEditEvent;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -114,6 +117,7 @@ public class JdtSwitch<T1> extends Switch<T1> {
 			case JdtPackage.JDT_LAUNCH_ANSWER: {
 				JdtLaunchAnswer jdtLaunchAnswer = (JdtLaunchAnswer)theEObject;
 				T1 result = caseJdtLaunchAnswer(jdtLaunchAnswer);
+				if (result == null) result = caseLaunchAnswer(jdtLaunchAnswer);
 				if (result == null) result = caseTaskAnswer(jdtLaunchAnswer);
 				if (result == null) result = caseAnswer(jdtLaunchAnswer);
 				if (result == null) result = defaultCase(theEObject);
@@ -122,6 +126,7 @@ public class JdtSwitch<T1> extends Switch<T1> {
 			case JdtPackage.JDT_LAUNCH_PROPOSAL: {
 				JdtLaunchProposal jdtLaunchProposal = (JdtLaunchProposal)theEObject;
 				T1 result = caseJdtLaunchProposal(jdtLaunchProposal);
+				if (result == null) result = caseLaunchProposal(jdtLaunchProposal);
 				if (result == null) result = caseTaskProposal(jdtLaunchProposal);
 				if (result == null) result = caseProposal(jdtLaunchProposal);
 				if (result == null) result = defaultCase(theEObject);
@@ -130,6 +135,7 @@ public class JdtSwitch<T1> extends Switch<T1> {
 			case JdtPackage.JDT_LAUNCH_EVENT: {
 				JdtLaunchEvent jdtLaunchEvent = (JdtLaunchEvent)theEObject;
 				T1 result = caseJdtLaunchEvent(jdtLaunchEvent);
+				if (result == null) result = caseLaunchEvent(jdtLaunchEvent);
 				if (result == null) result = caseTaskEvent(jdtLaunchEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -390,6 +396,51 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseMarkerInfo(MarkerInfo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Launch Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Launch Answer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseLaunchAnswer(LaunchAnswer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Launch Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Launch Proposal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T extends LaunchAnswer> T1 caseLaunchProposal(LaunchProposal<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Launch Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Launch Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseLaunchEvent(LaunchEvent object) {
 		return null;
 	}
 

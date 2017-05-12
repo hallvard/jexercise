@@ -49,6 +49,33 @@ public interface WorkspaceFactory extends EFactory {
 	SourceFileEditEvent createSourceFileEditEvent();
 
 	/**
+	 * Returns a new object of class '<em>Launch Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Launch Answer</em>'.
+	 * @generated
+	 */
+	LaunchAnswer createLaunchAnswer();
+
+	/**
+	 * Returns a new object of class '<em>Launch Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Launch Proposal</em>'.
+	 * @generated
+	 */
+	<T extends LaunchAnswer> LaunchProposal<T> createLaunchProposal();
+
+	/**
+	 * Returns a new object of class '<em>Launch Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Launch Event</em>'.
+	 * @generated
+	 */
+	LaunchEvent createLaunchEvent();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

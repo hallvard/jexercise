@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.learning.exercise.pydev/src" modelPluginID="no.hal.learning.exercise.pydev"
+    modelName="Pydev-exercise" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../no.hal.learning.exercise.model/model/exercise.genmodel#//exercise ../../no.hal.learning.exercise.workspace/model/workspace-exercise.genmodel#//workspace"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>pydev-exercise.ecore</foreignModel>
+  <genPackages prefix="Pydev" basePackage="no.hal.learning.exercise" disposableProviderFactory="true"
+      childCreationExtenders="true" ecorePackage="pydev-exercise.ecore#/">
+    <genClasses ecoreClass="pydev-exercise.ecore#//PydevSourceEditAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pydev-exercise.ecore#//PydevSourceEditAnswer/className"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pydev-exercise.ecore#//PydevSourceEditAnswer/methodNames"/>
+    </genClasses>
+    <genClasses ecoreClass="pydev-exercise.ecore#//PydevSourceEditProposal"/>
+    <genClasses ecoreClass="pydev-exercise.ecore#//PydevSourceEditEvent"/>
+    <genClasses ecoreClass="pydev-exercise.ecore#//PydevMarkerInfo"/>
+    <genClasses ecoreClass="pydev-exercise.ecore#//PydevLaunchAnswer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pydev-exercise.ecore#//PydevLaunchAnswer/className"/>
+    </genClasses>
+    <genClasses ecoreClass="pydev-exercise.ecore#//PydevLaunchProposal"/>
+    <genClasses ecoreClass="pydev-exercise.ecore#//PydevLaunchEvent"/>
+  </genPackages>
+</genmodel:GenModel>

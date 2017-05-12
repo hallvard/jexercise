@@ -2,7 +2,7 @@
  */
 package no.hal.learning.exercise.jdt;
 
-import no.hal.learning.exercise.TaskProposal;
+import no.hal.learning.exercise.workspace.LaunchProposal;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,5 +14,5 @@ import no.hal.learning.exercise.TaskProposal;
  * @model
  * @generated
  */
-public interface JdtLaunchProposal extends TaskProposal<JdtLaunchAnswer> {
+public interface JdtLaunchProposal extends LaunchProposal<JdtLaunchAnswer> {
 } // JdtLaunchProposal

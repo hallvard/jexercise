@@ -4,6 +4,9 @@ package no.hal.learning.exercise.workspace.impl;
 
 import no.hal.learning.exercise.ExercisePackage;
 
+import no.hal.learning.exercise.workspace.LaunchAnswer;
+import no.hal.learning.exercise.workspace.LaunchEvent;
+import no.hal.learning.exercise.workspace.LaunchProposal;
 import no.hal.learning.exercise.workspace.SourceFileEditAnswer;
 import no.hal.learning.exercise.workspace.SourceFileEditEvent;
 import no.hal.learning.exercise.workspace.SourceFileEditProposal;
@@ -15,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -44,6 +48,27 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 	 * @generated
 	 */
 	private EClass sourceFileEditEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass launchAnswerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass launchProposalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass launchEventEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -186,6 +211,69 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLaunchAnswer() {
+		return launchAnswerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLaunchAnswer_Mode() {
+		return (EAttribute)launchAnswerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLaunchAnswer_LaunchAttrNames() {
+		return (EAttribute)launchAnswerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLaunchAnswer_LaunchAttrValues() {
+		return (EAttribute)launchAnswerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLaunchProposal() {
+		return launchProposalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLaunchEvent() {
+		return launchEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLaunchEvent_Mode() {
+		return (EAttribute)launchEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WorkspaceFactory getWorkspaceFactory() {
 		return (WorkspaceFactory)getEFactoryInstance();
 	}
@@ -219,6 +307,16 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 		createEAttribute(sourceFileEditEventEClass, SOURCE_FILE_EDIT_EVENT__SIZE_MEASURE);
 		createEAttribute(sourceFileEditEventEClass, SOURCE_FILE_EDIT_EVENT__ERROR_COUNT);
 		createEAttribute(sourceFileEditEventEClass, SOURCE_FILE_EDIT_EVENT__WARNING_COUNT);
+
+		launchAnswerEClass = createEClass(LAUNCH_ANSWER);
+		createEAttribute(launchAnswerEClass, LAUNCH_ANSWER__MODE);
+		createEAttribute(launchAnswerEClass, LAUNCH_ANSWER__LAUNCH_ATTR_NAMES);
+		createEAttribute(launchAnswerEClass, LAUNCH_ANSWER__LAUNCH_ATTR_VALUES);
+
+		launchProposalEClass = createEClass(LAUNCH_PROPOSAL);
+
+		launchEventEClass = createEClass(LAUNCH_EVENT);
+		createEAttribute(launchEventEClass, LAUNCH_EVENT__MODE);
 	}
 
 	/**
@@ -248,16 +346,25 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 		ExercisePackage theExercisePackage = (ExercisePackage)EPackage.Registry.INSTANCE.getEPackage(ExercisePackage.eNS_URI);
 
 		// Create type parameters
+		ETypeParameter launchProposalEClass_T = addETypeParameter(launchProposalEClass, "T");
 
 		// Set bounds for type parameters
+		EGenericType g1 = createEGenericType(this.getLaunchAnswer());
+		launchProposalEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		sourceFileEditAnswerEClass.getESuperTypes().add(theExercisePackage.getStringEditAnswer());
-		EGenericType g1 = createEGenericType(theExercisePackage.getStringEditTaskProposal());
+		g1 = createEGenericType(theExercisePackage.getStringEditTaskProposal());
 		EGenericType g2 = createEGenericType(this.getSourceFileEditAnswer());
 		g1.getETypeArguments().add(g2);
 		sourceFileEditProposalEClass.getEGenericSuperTypes().add(g1);
 		sourceFileEditEventEClass.getESuperTypes().add(theExercisePackage.getAbstractStringEditEvent());
+		launchAnswerEClass.getESuperTypes().add(theExercisePackage.getTaskAnswer());
+		g1 = createEGenericType(theExercisePackage.getTaskProposal());
+		g2 = createEGenericType(launchProposalEClass_T);
+		g1.getETypeArguments().add(g2);
+		launchProposalEClass.getEGenericSuperTypes().add(g1);
+		launchEventEClass.getESuperTypes().add(theExercisePackage.getTaskEvent());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sourceFileEditAnswerEClass, SourceFileEditAnswer.class, "SourceFileEditAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -270,6 +377,16 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 		initEAttribute(getSourceFileEditEvent_SizeMeasure(), ecorePackage.getEInt(), "sizeMeasure", null, 0, 1, SourceFileEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSourceFileEditEvent_ErrorCount(), ecorePackage.getEInt(), "errorCount", null, 0, 1, SourceFileEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSourceFileEditEvent_WarningCount(), ecorePackage.getEInt(), "warningCount", null, 0, 1, SourceFileEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(launchAnswerEClass, LaunchAnswer.class, "LaunchAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLaunchAnswer_Mode(), ecorePackage.getEString(), "mode", null, 0, 1, LaunchAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLaunchAnswer_LaunchAttrNames(), ecorePackage.getEString(), "launchAttrNames", null, 0, -1, LaunchAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLaunchAnswer_LaunchAttrValues(), ecorePackage.getEString(), "launchAttrValues", null, 0, -1, LaunchAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(launchProposalEClass, LaunchProposal.class, "LaunchProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(launchEventEClass, LaunchEvent.class, "LaunchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLaunchEvent_Mode(), ecorePackage.getEString(), "mode", null, 0, 1, LaunchEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

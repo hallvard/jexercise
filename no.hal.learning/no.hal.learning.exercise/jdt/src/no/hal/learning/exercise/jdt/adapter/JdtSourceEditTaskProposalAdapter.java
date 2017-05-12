@@ -34,12 +34,13 @@ public class JdtSourceEditTaskProposalAdapter extends AbstractSourceFileEditTask
 	@Override
 	public Composite initView(final Composite parent) {
 		if (! getAdapterHelper().isReadOnly(this)) {
-			JavaCore.addElementChangedListener(listener = new JavaElementListener(), ElementChangedEvent.POST_CHANGE);
+			this.listener = new JavaElementListener();
+			JavaCore.addElementChangedListener(listener, ElementChangedEvent.POST_CHANGE);
 			ResourcesPlugin.getWorkspace().addResourceChangeListener(listener, IResourceChangeEvent.POST_BUILD);
 		}
 		return super.initView(parent);
 	}
-	
+
 	@Override
 	public void dispose() {
 		if (listener != null) {

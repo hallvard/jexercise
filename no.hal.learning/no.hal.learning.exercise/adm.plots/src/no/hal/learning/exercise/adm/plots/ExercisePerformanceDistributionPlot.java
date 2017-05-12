@@ -35,6 +35,7 @@ import org.eclipse.swt.widgets.Composite;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.adm.AbstractTaskEventsValueProvider;
 import no.hal.learning.exercise.adm.ExResourcesChartView;
+import no.hal.learning.exercise.adm.plots.util.DistributionData;
 import no.hal.learning.exercise.adm.plots.util.InputProvider;
 import no.hal.learning.exercise.adm.plots.util.IntegerInputHandler;
 import no.hal.learning.exercise.adm.plots.util.TestCompletionTaskEventsValue;
@@ -129,22 +130,23 @@ public class ExercisePerformanceDistributionPlot extends AbstractBirtPlotPane<Ch
 		SeriesDefinition valueSeriesDef = valueAxis.getSeriesDefinitions().get(0);
 		valueSeriesDef.getSeries().clear();
 
-		List<DistData> distData = getDistData(resources, numClasses);
-		Collections.sort(distData, new Comparator<DistData>() {
+		List<DistributionData> distData = getDistData(resources, numClasses);
+		// to improve the 3D visualization
+		Collections.sort(distData, new Comparator<DistributionData>() {
 			@Override
-			public int compare(DistData data1, DistData data2) {
+			public int compare(DistributionData data1, DistributionData data2) {
 //				return Double.compare(data1.average, data2.average);
 				return data1.values.length - data2.values.length;
 			}
 		});
-		for (DistData data : distData) {
-			NumberDataSet values = NumberDataSetImpl.create(data.dist);
+		for (DistributionData data : distData) {
+			NumberDataSet values = NumberDataSetImpl.create(data.valueClasses);
 			BarSeries valueSeries = (BarSeries) BarSeriesImpl.create();
 			valueSeries.setDataSet(values);
 			valueSeriesDef.getSeries().add(valueSeries);
 		}
 		List<String> exercises = new ArrayList<String>();
-		for (DistData data : distData) {
+		for (DistributionData data : distData) {
 			exercises.add(0, data.label);
 			System.out.println(data.label + ": " + "max=" + data.max + " " + "average=" + data.average + " variance=" + data.variance);
 		}
@@ -152,13 +154,7 @@ public class ExercisePerformanceDistributionPlot extends AbstractBirtPlotPane<Ch
 		exerciseSeries.getDataSet().setValues(exercises.toArray(new String[exercises.size()]));
 	}
 
-	private static class DistData {
-		String label;
-		double values[], max, average, variance;
-		Integer[] dist;
-	}
-	
-	private List<DistData> getDistData(Collection<Resource> resources, int numClasses) {
+	private List<DistributionData> getDistData(Collection<Resource> resources, int numClasses) {
 		Collection<String> exercises = new ArrayList<String>();
 		for (Resource resource : resources) {
 			String exerciseId = ExResourcesChartView.getExerciseId(resource);
@@ -166,41 +162,22 @@ public class ExercisePerformanceDistributionPlot extends AbstractBirtPlotPane<Ch
 				exercises.add(exerciseId);
 			}
 		}
-		List<DistData> distData = new ArrayList<DistData>(exercises.size());
+		List<DistributionData> distData = new ArrayList<DistributionData>(exercises.size());
 		double max = Double.MIN_VALUE;
 		Iterator<String> exIt = exercises.iterator();
 		while (exIt.hasNext()) {
-			DistData data = new DistData();
-			data.label = exIt.next();
-			data.values = getExerciseValues(data.label, resources);
-			if (data.values != null) {
-				double dataMax = Double.MIN_VALUE, dataSum = 0.0;
-				for (int i = 0; i < data.values.length; i++) {
-					dataMax = Math.max(dataMax, data.values[i]);
-					dataSum += data.values[i];
-				}
-				data.max = dataMax;
-				max = Math.max(max, dataMax);
-				data.average = dataSum / data.values.length;
-				distData.add(data);
+			String exerciseId = exIt.next();
+			double[] values = getExerciseValues(exerciseId, resources);
+			if (values != null) {
+				DistributionData data = new DistributionData(exerciseId);
+				data.init(values);
+				max = Math.max(max, data.max);
 			} else {
 				exIt.remove();
 			}
 		}
-		for (DistData data : distData) {
-			data.dist = new Integer[numClasses];
-			Arrays.fill(data.dist, Integer.valueOf(0));
-			double sum = 0.0, squareSum = 0.0;
-			for (int i = 0; i < data.values.length; i++) {
-				double value = data.values[i];
-				sum += value;
-				squareSum += value * value;
-			}
-			data.variance = (squareSum - (sum * sum) / data.values.length) / data.values.length;
-			for (int i = 0; i < data.values.length; i++) {
-				int valueClass = (int)(numClasses * data.values[i] / (max + 1));
-				data.dist[valueClass]++;
-			}
+		for (DistributionData data : distData) {
+			data.computeClasses(numClasses, max);
 		}
 		return distData;
 	}

@@ -7,27 +7,19 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated jdt-exercise -->
-      <package
-            uri="platform:/plugin/no.hal.learning.exercise.jdt/model/jdt-exercise.ecore"
-            class="no.hal.learning.exercise.jdt.JdtPackage"
-            genModel="model/jdt-exercise.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <factory
-            uri="platform:/plugin/no.hal.learning.exercise.jdt/model/jdt-exercise.ecore"
-            class="no.hal.learning.exercise.workspace.adapter.WorkspaceUIAdapterFactory"
-            supportedTypes=
-              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated workspace-exercise -->
       <package
             uri="platform:/plugin/no.hal.learning.exercise.workspace/model/workspace-exercise.ecore"
             class="no.hal.learning.exercise.workspace.WorkspacePackage"
             genModel="model/workspace-exercise.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.learning.exercise.workspace/model/workspace-exercise.ecore"
+            class="no.hal.learning.exercise.workspace.adapter.WorkspaceUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
    </extension>
 
 </plugin>

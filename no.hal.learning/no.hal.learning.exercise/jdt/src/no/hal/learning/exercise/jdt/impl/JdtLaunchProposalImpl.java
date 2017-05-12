@@ -2,12 +2,11 @@
  */
 package no.hal.learning.exercise.jdt.impl;
 
-import no.hal.learning.exercise.impl.TaskProposalImpl;
-
 import no.hal.learning.exercise.jdt.JdtLaunchAnswer;
 import no.hal.learning.exercise.jdt.JdtLaunchProposal;
 import no.hal.learning.exercise.jdt.JdtPackage;
 
+import no.hal.learning.exercise.workspace.impl.LaunchProposalImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -17,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class JdtLaunchProposalImpl extends TaskProposalImpl<JdtLaunchAnswer> implements JdtLaunchProposal {
+public class JdtLaunchProposalImpl extends LaunchProposalImpl<JdtLaunchAnswer> implements JdtLaunchProposal {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

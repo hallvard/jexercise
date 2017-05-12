@@ -24,7 +24,7 @@ public class TextInputProvider<T> implements InputProvider<T>, ModifyListener {
 	@Override
 	public T getInput() {
 		String s = text.getText().trim();
-		return inputHandler.isValid(s) == null ? inputHandler.toValue(s) : null;
+		return inputHandler.toValue(s);
 	}
 
 	@Override

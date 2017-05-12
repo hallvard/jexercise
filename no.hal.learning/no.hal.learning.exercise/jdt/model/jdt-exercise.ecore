@@ -30,20 +30,13 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JdtLaunchAnswer" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskAnswer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JdtLaunchAnswer" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//LaunchAnswer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="launchAttrNames" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="launchAttrValues" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JdtLaunchProposal">
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskProposal">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//LaunchProposal">
       <eTypeArguments eClassifier="#//JdtLaunchAnswer"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JdtLaunchEvent" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskEvent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JdtLaunchEvent" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//LaunchEvent"/>
 </ecore:EPackage>

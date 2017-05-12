@@ -1,111 +1,41 @@
 package no.hal.learning.exercise.jdt.adapter;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.debug.core.DebugPlugin;
-import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
-import org.eclipse.debug.core.ILaunchListener;
 import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
-import org.eclipse.swt.widgets.Composite;
 
-import no.hal.emf.ui.parts.adapters.EObjectUIAdapter;
 import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.jdt.JdtFactory;
 import no.hal.learning.exercise.jdt.JdtLaunchAnswer;
-import no.hal.learning.exercise.jdt.JdtLaunchEvent;
-import no.hal.learning.exercise.views.adapters.TaskAttemptsUIAdapter;
-import no.hal.learning.exercise.views.adapters.TaskProposalUIAdapter;
+import no.hal.learning.exercise.workspace.LaunchEvent;
+import no.hal.learning.exercise.workspace.adapter.LaunchTaskProposalAdapter;
 
-public class JdtLaunchTaskProposalAdapter extends TaskProposalUIAdapter<JdtLaunchAnswer> {
+public class JdtLaunchTaskProposalAdapter extends LaunchTaskProposalAdapter<JdtLaunchAnswer> {
 
 	public JdtLaunchTaskProposalAdapter(TaskProposal<JdtLaunchAnswer> proposal) {
 		super(proposal);
 	}
 
 	@Override
-	public EObjectUIAdapter<?, ?>[] createSubAdapters() {
-		return new EObjectUIAdapter<?, ?>[] {
-			new TaskAttemptsUIAdapter(getProposal())
-		};
-	}
-
-	private LaunchListener listener;
-	
-	@Override
-	public Composite initView(final Composite parent) {
-		if (! getAdapterHelper().isReadOnly(this)) {
-			DebugPlugin.getDefault().getLaunchManager().addLaunchListener(listener = new LaunchListener());
-		}
-		return super.initView(parent);
+	protected LaunchListener createLaunchListener() {
+		return new JdtLaunchListener();
 	}
 	
-	@Override
-	public void dispose() {
-		if (listener != null) {
-			DebugPlugin.getDefault().getLaunchManager().removeLaunchListener(listener);
-		}
-		super.dispose();
-	}
-
 	//
 
-	protected class LaunchListener implements ILaunchListener, Runnable {
-		
-		private JdtLaunchEvent taskEvent;
-		
-		protected boolean hasLaunchAttr(ILaunchConfiguration launchConfig, String attrName, String attrValue, boolean isQname) {
-			try {
-				String value = launchConfig.getAttribute(attrName, "");
-				return ! (isEmpty(value) || (! (isQname ? acceptQName(value, attrValue) : value.equals(attrValue))));
-			} catch (CoreException e) {
-				return false;
-			}
-		}
+	protected class JdtLaunchListener extends LaunchListener {
 
-		protected boolean acceptLaunch(ILaunch launch) {
+		@Override
+		protected boolean acceptLaunch(ILaunchConfiguration launchConfig) {
 			JdtLaunchAnswer answer = getProposal().getAnswer();
-			ILaunchConfiguration launchConfig = launch.getLaunchConfiguration();
 			if (! hasLaunchAttr(launchConfig, IJavaLaunchConfigurationConstants.ATTR_MAIN_TYPE_NAME, answer.getClassName(), true)) {
 				return false;
 			}
-			for (int attrNum = 0; attrNum < answer.getLaunchAttrNames().size(); attrNum++) {
-				String launchAttr = answer.getLaunchAttrNames().get(attrNum);
-				if (! hasLaunchAttr(launchConfig, launchAttr, answer.getLaunchAttrValues().get(attrNum), false)) {
-					return false;
-				}
-			}
-			String mode = answer.getMode();
-			String launchMode = launch.getLaunchMode();
-			return acceptQName(mode, launchMode, true);
+			return super.acceptLaunch(launchConfig);
 		}
 
 		@Override
-		public void launchAdded(ILaunch launch) {
-			if (! acceptLaunch(launch)) {
-				return;
-			}
-			taskEvent = JdtFactory.eINSTANCE.createJdtLaunchEvent();
-			taskEvent.setTimestamp(getTimestamp());
-			taskEvent.setMode(launch.getLaunchMode());
-			updateProposal();
-		}
-
-		private void updateProposal() {
-			asyncExec(this);
-		}
-
-		@Override
-		public void launchRemoved(ILaunch launch) {
-		}
-
-		@Override
-		public void launchChanged(ILaunch launch) {
-		}
-
-		@Override
-		public void run() {
-			getProposal().setCompletion(taskEvent.getCompletion());
-			getProposal().getAttempts().add(taskEvent);
+		protected LaunchEvent createLaunchEvent() {
+			return JdtFactory.eINSTANCE.createJdtLaunchEvent();
 		}
 	}
 }

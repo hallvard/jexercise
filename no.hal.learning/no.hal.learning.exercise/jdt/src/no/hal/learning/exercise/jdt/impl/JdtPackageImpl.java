@@ -227,35 +227,8 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJdtLaunchAnswer_Mode() {
-		return (EAttribute)jdtLaunchAnswerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getJdtLaunchAnswer_ClassName() {
-		return (EAttribute)jdtLaunchAnswerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJdtLaunchAnswer_LaunchAttrNames() {
-		return (EAttribute)jdtLaunchAnswerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJdtLaunchAnswer_LaunchAttrValues() {
-		return (EAttribute)jdtLaunchAnswerEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)jdtLaunchAnswerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -274,15 +247,6 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	 */
 	public EClass getJdtLaunchEvent() {
 		return jdtLaunchEventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJdtLaunchEvent_Mode() {
-		return (EAttribute)jdtLaunchEventEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -326,15 +290,11 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		createEAttribute(jdtMarkerInfoEClass, JDT_MARKER_INFO__PROBLEM_TYPE);
 
 		jdtLaunchAnswerEClass = createEClass(JDT_LAUNCH_ANSWER);
-		createEAttribute(jdtLaunchAnswerEClass, JDT_LAUNCH_ANSWER__MODE);
 		createEAttribute(jdtLaunchAnswerEClass, JDT_LAUNCH_ANSWER__CLASS_NAME);
-		createEAttribute(jdtLaunchAnswerEClass, JDT_LAUNCH_ANSWER__LAUNCH_ATTR_NAMES);
-		createEAttribute(jdtLaunchAnswerEClass, JDT_LAUNCH_ANSWER__LAUNCH_ATTR_VALUES);
 
 		jdtLaunchProposalEClass = createEClass(JDT_LAUNCH_PROPOSAL);
 
 		jdtLaunchEventEClass = createEClass(JDT_LAUNCH_EVENT);
-		createEAttribute(jdtLaunchEventEClass, JDT_LAUNCH_EVENT__MODE);
 	}
 
 	/**
@@ -376,12 +336,12 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		jdtSourceEditProposalEClass.getEGenericSuperTypes().add(g1);
 		jdtSourceEditEventEClass.getESuperTypes().add(theWorkspacePackage.getSourceFileEditEvent());
 		jdtMarkerInfoEClass.getESuperTypes().add(theExercisePackage.getMarkerInfo());
-		jdtLaunchAnswerEClass.getESuperTypes().add(theExercisePackage.getTaskAnswer());
-		g1 = createEGenericType(theExercisePackage.getTaskProposal());
+		jdtLaunchAnswerEClass.getESuperTypes().add(theWorkspacePackage.getLaunchAnswer());
+		g1 = createEGenericType(theWorkspacePackage.getLaunchProposal());
 		g2 = createEGenericType(this.getJdtLaunchAnswer());
 		g1.getETypeArguments().add(g2);
 		jdtLaunchProposalEClass.getEGenericSuperTypes().add(g1);
-		jdtLaunchEventEClass.getESuperTypes().add(theExercisePackage.getTaskEvent());
+		jdtLaunchEventEClass.getESuperTypes().add(theWorkspacePackage.getLaunchEvent());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jdtSourceEditAnswerEClass, JdtSourceEditAnswer.class, "JdtSourceEditAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -397,15 +357,11 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		initEAttribute(getJdtMarkerInfo_ProblemType(), ecorePackage.getEInt(), "problemType", null, 0, 1, JdtMarkerInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jdtLaunchAnswerEClass, JdtLaunchAnswer.class, "JdtLaunchAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJdtLaunchAnswer_Mode(), ecorePackage.getEString(), "mode", null, 0, 1, JdtLaunchAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJdtLaunchAnswer_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, JdtLaunchAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJdtLaunchAnswer_LaunchAttrNames(), ecorePackage.getEString(), "launchAttrNames", null, 0, -1, JdtLaunchAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJdtLaunchAnswer_LaunchAttrValues(), ecorePackage.getEString(), "launchAttrValues", null, 0, -1, JdtLaunchAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jdtLaunchProposalEClass, JdtLaunchProposal.class, "JdtLaunchProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(jdtLaunchEventEClass, JdtLaunchEvent.class, "JdtLaunchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJdtLaunchEvent_Mode(), ecorePackage.getEString(), "mode", null, 0, 1, JdtLaunchEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

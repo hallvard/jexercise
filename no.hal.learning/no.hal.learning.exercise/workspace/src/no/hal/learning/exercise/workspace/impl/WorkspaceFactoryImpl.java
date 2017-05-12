@@ -59,6 +59,9 @@ public class WorkspaceFactoryImpl extends EFactoryImpl implements WorkspaceFacto
 			case WorkspacePackage.SOURCE_FILE_EDIT_ANSWER: return createSourceFileEditAnswer();
 			case WorkspacePackage.SOURCE_FILE_EDIT_PROPOSAL: return createSourceFileEditProposal();
 			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT: return createSourceFileEditEvent();
+			case WorkspacePackage.LAUNCH_ANSWER: return createLaunchAnswer();
+			case WorkspacePackage.LAUNCH_PROPOSAL: return createLaunchProposal();
+			case WorkspacePackage.LAUNCH_EVENT: return createLaunchEvent();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +95,36 @@ public class WorkspaceFactoryImpl extends EFactoryImpl implements WorkspaceFacto
 	public SourceFileEditEvent createSourceFileEditEvent() {
 		SourceFileEditEventImpl sourceFileEditEvent = new SourceFileEditEventImpl();
 		return sourceFileEditEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LaunchAnswer createLaunchAnswer() {
+		LaunchAnswerImpl launchAnswer = new LaunchAnswerImpl();
+		return launchAnswer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <T extends LaunchAnswer> LaunchProposal<T> createLaunchProposal() {
+		LaunchProposalImpl<T> launchProposal = new LaunchProposalImpl<T>();
+		return launchProposal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LaunchEvent createLaunchEvent() {
+		LaunchEventImpl launchEvent = new LaunchEventImpl();
+		return launchEvent;
 	}
 
 	/**
