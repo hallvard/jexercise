@@ -12,10 +12,17 @@
       <eTypeArguments eClassifier="#//JdtSourceEditAnswer"/>
     </eGenericSuperTypes>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToFeatureValued" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass ../../no.hal.learning.exercise.model/model/fv.ecore#//FeatureValued"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JdtSourceEditEvent" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//SourceFileEditEvent">
     <eAnnotations source="exp4j">
       <details key="codeIssues" value="errorCount * 5 + warningCount"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metrics" upperBound="-1"
+        eType="#//StringToFeatureValued" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JdtMarkerInfo" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//MarkerInfo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="problemCategory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">

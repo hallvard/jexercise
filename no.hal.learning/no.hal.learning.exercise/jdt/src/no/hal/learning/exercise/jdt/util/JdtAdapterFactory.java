@@ -2,6 +2,7 @@
  */
 package no.hal.learning.exercise.jdt.util;
 
+import java.util.Map;
 import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.Answer;
 import no.hal.learning.exercise.MarkerInfo;
@@ -18,6 +19,8 @@ import no.hal.learning.exercise.workspace.LaunchAnswer;
 import no.hal.learning.exercise.workspace.LaunchEvent;
 import no.hal.learning.exercise.workspace.LaunchProposal;
 import no.hal.learning.exercise.workspace.SourceFileEditEvent;
+import no.hal.learning.fv.EFeatureObject;
+import no.hal.learning.fv.FeatureValued;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -90,6 +93,10 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 				return createJdtSourceEditProposalAdapter();
 			}
 			@Override
+			public Adapter caseStringToFeatureValued(Map.Entry<String, FeatureValued> object) {
+				return createStringToFeatureValuedAdapter();
+			}
+			@Override
 			public Adapter caseJdtSourceEditEvent(JdtSourceEditEvent object) {
 				return createJdtSourceEditEventAdapter();
 			}
@@ -132,6 +139,14 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public <A extends StringEditAnswer> Adapter caseStringEditTaskProposal(StringEditTaskProposal<A> object) {
 				return createStringEditTaskProposalAdapter();
+			}
+			@Override
+			public Adapter caseFeatureValued(FeatureValued object) {
+				return createFeatureValuedAdapter();
+			}
+			@Override
+			public Adapter caseEFeatureObject(EFeatureObject object) {
+				return createEFeatureObjectAdapter();
 			}
 			@Override
 			public Adapter caseTaskEvent(TaskEvent object) {
@@ -206,6 +221,20 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJdtSourceEditProposalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>String To Feature Valued</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createStringToFeatureValuedAdapter() {
 		return null;
 	}
 
@@ -416,6 +445,34 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStringEditTaskProposalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.fv.FeatureValued <em>Feature Valued</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.fv.FeatureValued
+	 * @generated
+	 */
+	public Adapter createFeatureValuedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.fv.EFeatureObject <em>EFeature Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.fv.EFeatureObject
+	 * @generated
+	 */
+	public Adapter createEFeatureObjectAdapter() {
 		return null;
 	}
 

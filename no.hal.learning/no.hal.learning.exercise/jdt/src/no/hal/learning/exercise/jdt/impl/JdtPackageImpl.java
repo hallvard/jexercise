@@ -2,12 +2,14 @@
  */
 package no.hal.learning.exercise.jdt.impl;
 
+import java.util.Map;
 import no.hal.learning.exercise.ExercisePackage;
 
 import no.hal.learning.exercise.jdt.JdtSourceEditAnswer;
 import no.hal.learning.exercise.jdt.JdtSourceEditEvent;
 import no.hal.learning.exercise.jdt.JdtSourceEditProposal;
 import no.hal.learning.exercise.workspace.WorkspacePackage;
+import no.hal.learning.fv.FvPackage;
 import no.hal.learning.exercise.jdt.JdtMarkerInfo;
 import no.hal.learning.exercise.jdt.JdtFactory;
 import no.hal.learning.exercise.jdt.JdtLaunchAnswer;
@@ -19,6 +21,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -41,6 +44,13 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	 * @generated
 	 */
 	private EClass jdtSourceEditProposalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringToFeatureValuedEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,8 +192,44 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStringToFeatureValued() {
+		return stringToFeatureValuedEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringToFeatureValued_Key() {
+		return (EAttribute)stringToFeatureValuedEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStringToFeatureValued_Value() {
+		return (EReference)stringToFeatureValuedEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJdtSourceEditEvent() {
 		return jdtSourceEditEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJdtSourceEditEvent_Metrics() {
+		return (EReference)jdtSourceEditEventEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -283,7 +329,12 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 
 		jdtSourceEditProposalEClass = createEClass(JDT_SOURCE_EDIT_PROPOSAL);
 
+		stringToFeatureValuedEClass = createEClass(STRING_TO_FEATURE_VALUED);
+		createEAttribute(stringToFeatureValuedEClass, STRING_TO_FEATURE_VALUED__KEY);
+		createEReference(stringToFeatureValuedEClass, STRING_TO_FEATURE_VALUED__VALUE);
+
 		jdtSourceEditEventEClass = createEClass(JDT_SOURCE_EDIT_EVENT);
+		createEReference(jdtSourceEditEventEClass, JDT_SOURCE_EDIT_EVENT__METRICS);
 
 		jdtMarkerInfoEClass = createEClass(JDT_MARKER_INFO);
 		createEAttribute(jdtMarkerInfoEClass, JDT_MARKER_INFO__PROBLEM_CATEGORY);
@@ -322,6 +373,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 
 		// Obtain other dependent packages
 		ExercisePackage theExercisePackage = (ExercisePackage)EPackage.Registry.INSTANCE.getEPackage(ExercisePackage.eNS_URI);
+		FvPackage theFvPackage = (FvPackage)EPackage.Registry.INSTANCE.getEPackage(FvPackage.eNS_URI);
 		WorkspacePackage theWorkspacePackage = (WorkspacePackage)EPackage.Registry.INSTANCE.getEPackage(WorkspacePackage.eNS_URI);
 
 		// Create type parameters
@@ -350,7 +402,12 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 
 		initEClass(jdtSourceEditProposalEClass, JdtSourceEditProposal.class, "JdtSourceEditProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(stringToFeatureValuedEClass, Map.Entry.class, "StringToFeatureValued", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringToFeatureValued_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStringToFeatureValued_Value(), theFvPackage.getFeatureValued(), null, "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(jdtSourceEditEventEClass, JdtSourceEditEvent.class, "JdtSourceEditEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJdtSourceEditEvent_Metrics(), this.getStringToFeatureValued(), null, "metrics", null, 0, -1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jdtMarkerInfoEClass, JdtMarkerInfo.class, "JdtMarkerInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJdtMarkerInfo_ProblemCategory(), ecorePackage.getEInt(), "problemCategory", null, 0, 1, JdtMarkerInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

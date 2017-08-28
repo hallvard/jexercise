@@ -2,8 +2,10 @@
  */
 package no.hal.learning.exercise.jdt.impl;
 
+import java.util.Map;
 import no.hal.learning.exercise.jdt.*;
 
+import no.hal.learning.fv.FeatureValued;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -58,6 +60,7 @@ public class JdtFactoryImpl extends EFactoryImpl implements JdtFactory {
 		switch (eClass.getClassifierID()) {
 			case JdtPackage.JDT_SOURCE_EDIT_ANSWER: return createJdtSourceEditAnswer();
 			case JdtPackage.JDT_SOURCE_EDIT_PROPOSAL: return createJdtSourceEditProposal();
+			case JdtPackage.STRING_TO_FEATURE_VALUED: return (EObject)createStringToFeatureValued();
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT: return createJdtSourceEditEvent();
 			case JdtPackage.JDT_MARKER_INFO: return createJdtMarkerInfo();
 			case JdtPackage.JDT_LAUNCH_ANSWER: return createJdtLaunchAnswer();
@@ -86,6 +89,16 @@ public class JdtFactoryImpl extends EFactoryImpl implements JdtFactory {
 	public JdtSourceEditProposal createJdtSourceEditProposal() {
 		JdtSourceEditProposalImpl jdtSourceEditProposal = new JdtSourceEditProposalImpl();
 		return jdtSourceEditProposal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<String, FeatureValued> createStringToFeatureValued() {
+		StringToFeatureValuedImpl stringToFeatureValued = new StringToFeatureValuedImpl();
+		return stringToFeatureValued;
 	}
 
 	/**

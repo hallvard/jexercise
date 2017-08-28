@@ -5,6 +5,7 @@
 -->
 
 <plugin>
+   <extension-point id="metricsProvider" name="Metrics provider" schema="schema/metricsProvider.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated jdt-exercise -->
@@ -20,6 +21,36 @@
             class="no.hal.learning.exercise.jdt.adapter.JdtUIAdapterFactory"
             supportedTypes=
               "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+
+   <extension
+         point="no.hal.learning.exercise.jdt.metricsProvider">
+         <metricsProvider
+         	name="lineCount"
+         	providerClass="no.hal.learning.exercise.jdt.metrics.LineCountMetric"
+         />
+         <metricsProvider
+         	name="tokenCounters"
+         	providerClass="no.hal.learning.exercise.jdt.metrics.TokenCountersMetric"
+         />
+         <metricsProvider
+         	name="nameCounters"
+         	providerClass="no.hal.learning.exercise.jdt.metrics.QNameCountersMetric"
+         />
+         <metricsProvider
+         	name="conditionalCounters"
+         	providerClass="no.hal.learning.exercise.jdt.metrics.ConditionalCountersMetric"
+         />
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Metrics"
+            class="no.hal.learning.exercise.jdt.ui.MetricsView"
+            id="no.hal.learning.exercise.jdt.ui.MetricsView"
+            >
+      </view>
    </extension>
 
 </plugin>

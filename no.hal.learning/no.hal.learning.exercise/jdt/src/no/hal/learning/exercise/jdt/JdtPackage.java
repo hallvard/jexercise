@@ -8,6 +8,7 @@ import no.hal.learning.exercise.workspace.WorkspacePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -277,6 +278,52 @@ public interface JdtPackage extends EPackage {
 	int JDT_SOURCE_EDIT_PROPOSAL_OPERATION_COUNT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.StringToFeatureValuedImpl <em>String To Feature Valued</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.jdt.impl.StringToFeatureValuedImpl
+	 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getStringToFeatureValued()
+	 * @generated
+	 */
+	int STRING_TO_FEATURE_VALUED = 2;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_FEATURE_VALUED__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_FEATURE_VALUED__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>String To Feature Valued</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_FEATURE_VALUED_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>String To Feature Valued</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_FEATURE_VALUED_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditEventImpl <em>Source Edit Event</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -284,7 +331,7 @@ public interface JdtPackage extends EPackage {
 	 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getJdtSourceEditEvent()
 	 * @generated
 	 */
-	int JDT_SOURCE_EDIT_EVENT = 2;
+	int JDT_SOURCE_EDIT_EVENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Proposal</b></em>' container reference.
@@ -368,13 +415,58 @@ public interface JdtPackage extends EPackage {
 	int JDT_SOURCE_EDIT_EVENT__WARNING_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__WARNING_COUNT;
 
 	/**
+	 * The feature id for the '<em><b>Metrics</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT__METRICS = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Source Edit Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT_FEATURE_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT + 0;
+	int JDT_SOURCE_EDIT_EVENT_FEATURE_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT___GET_FEATURE_NAMES = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT___GET_FEATURE_VALUE__STRING = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT___HAS_FEATURE__STRING = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT___TO_FEATURE_LIST = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___TO_FEATURE_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -420,7 +512,7 @@ public interface JdtPackage extends EPackage {
 	 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getJdtMarkerInfo()
 	 * @generated
 	 */
-	int JDT_MARKER_INFO = 3;
+	int JDT_MARKER_INFO = 4;
 
 	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -502,7 +594,7 @@ public interface JdtPackage extends EPackage {
 	 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getJdtLaunchAnswer()
 	 * @generated
 	 */
-	int JDT_LAUNCH_ANSWER = 4;
+	int JDT_LAUNCH_ANSWER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
@@ -602,7 +694,7 @@ public interface JdtPackage extends EPackage {
 	 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getJdtLaunchProposal()
 	 * @generated
 	 */
-	int JDT_LAUNCH_PROPOSAL = 5;
+	int JDT_LAUNCH_PROPOSAL = 6;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' reference.
@@ -729,7 +821,7 @@ public interface JdtPackage extends EPackage {
 	 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getJdtLaunchEvent()
 	 * @generated
 	 */
-	int JDT_LAUNCH_EVENT = 6;
+	int JDT_LAUNCH_EVENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Proposal</b></em>' container reference.
@@ -775,6 +867,42 @@ public interface JdtPackage extends EPackage {
 	 * @ordered
 	 */
 	int JDT_LAUNCH_EVENT_FEATURE_COUNT = WorkspacePackage.LAUNCH_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_EVENT___GET_FEATURE_NAMES = WorkspacePackage.LAUNCH_EVENT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_EVENT___GET_FEATURE_VALUE__STRING = WorkspacePackage.LAUNCH_EVENT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_EVENT___HAS_FEATURE__STRING = WorkspacePackage.LAUNCH_EVENT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_EVENT___TO_FEATURE_LIST = WorkspacePackage.LAUNCH_EVENT___TO_FEATURE_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -838,6 +966,40 @@ public interface JdtPackage extends EPackage {
 	EClass getJdtSourceEditProposal();
 
 	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Feature Valued</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String To Feature Valued</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyDataType="org.eclipse.emf.ecore.EString"
+	 *        valueType="no.hal.learning.fv.FeatureValued" valueContainment="true"
+	 * @generated
+	 */
+	EClass getStringToFeatureValued();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getStringToFeatureValued()
+	 * @generated
+	 */
+	EAttribute getStringToFeatureValued_Key();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getStringToFeatureValued()
+	 * @generated
+	 */
+	EReference getStringToFeatureValued_Value();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.jdt.JdtSourceEditEvent <em>Source Edit Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -846,6 +1008,17 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getJdtSourceEditEvent();
+
+	/**
+	 * Returns the meta object for the map '{@link no.hal.learning.exercise.jdt.JdtSourceEditEvent#getMetrics <em>Metrics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Metrics</em>'.
+	 * @see no.hal.learning.exercise.jdt.JdtSourceEditEvent#getMetrics()
+	 * @see #getJdtSourceEditEvent()
+	 * @generated
+	 */
+	EReference getJdtSourceEditEvent_Metrics();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.jdt.JdtMarkerInfo <em>Marker Info</em>}'.
@@ -980,6 +1153,32 @@ public interface JdtPackage extends EPackage {
 		EClass JDT_SOURCE_EDIT_PROPOSAL = eINSTANCE.getJdtSourceEditProposal();
 
 		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.jdt.impl.StringToFeatureValuedImpl <em>String To Feature Valued</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.jdt.impl.StringToFeatureValuedImpl
+		 * @see no.hal.learning.exercise.jdt.impl.JdtPackageImpl#getStringToFeatureValued()
+		 * @generated
+		 */
+		EClass STRING_TO_FEATURE_VALUED = eINSTANCE.getStringToFeatureValued();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_TO_FEATURE_VALUED__KEY = eINSTANCE.getStringToFeatureValued_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRING_TO_FEATURE_VALUED__VALUE = eINSTANCE.getStringToFeatureValued_Value();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditEventImpl <em>Source Edit Event</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -988,6 +1187,14 @@ public interface JdtPackage extends EPackage {
 		 * @generated
 		 */
 		EClass JDT_SOURCE_EDIT_EVENT = eINSTANCE.getJdtSourceEditEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Metrics</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JDT_SOURCE_EDIT_EVENT__METRICS = eINSTANCE.getJdtSourceEditEvent_Metrics();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.jdt.impl.JdtMarkerInfoImpl <em>Marker Info</em>}' class.

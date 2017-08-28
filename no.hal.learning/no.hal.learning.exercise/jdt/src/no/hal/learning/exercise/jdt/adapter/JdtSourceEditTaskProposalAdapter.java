@@ -6,6 +6,7 @@ import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.jdt.core.ElementChangedEvent;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IElementChangedListener;
@@ -21,7 +22,10 @@ import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.jdt.JdtFactory;
 import no.hal.learning.exercise.jdt.JdtMarkerInfo;
 import no.hal.learning.exercise.jdt.JdtSourceEditAnswer;
+import no.hal.learning.exercise.jdt.JdtSourceEditEvent;
+import no.hal.learning.exercise.jdt.metrics.AbstractASTMetricsProvider;
 import no.hal.learning.exercise.workspace.adapter.AbstractSourceFileEditTaskProposalAdapter;
+import no.hal.learning.fv.FeatureValued;
 
 public class JdtSourceEditTaskProposalAdapter extends AbstractSourceFileEditTaskProposalAdapter<JdtSourceEditAnswer> {
 
@@ -76,6 +80,12 @@ public class JdtSourceEditTaskProposalAdapter extends AbstractSourceFileEditTask
 		}
 	}
 
+	protected void provideFeatures(JdtSourceEditEvent taskEvent, ICompilationUnit cu) {
+		EMap<String, FeatureValued> metrics = taskEvent.getMetrics();
+		metrics.clear();
+		AbstractASTMetricsProvider.addASTMetrics(taskEvent.getSourceCode(), cu, metrics);
+	}
+
 	protected class JavaElementListener extends AbstractSourceFileListener implements IElementChangedListener, IResourceChangeListener {
 		
 		protected boolean acceptElementChanged(ICompilationUnit cu) {
@@ -110,9 +120,13 @@ public class JdtSourceEditTaskProposalAdapter extends AbstractSourceFileEditTask
 			if (cu == null || (! (cu.getResource() instanceof IFile))) {
 				return;
 			}
-			IFile file = (IFile) cu.getResource();
 			taskEvent = JdtFactory.eINSTANCE.createJdtSourceEditEvent();
-			initTaskEventEdit(file);
+			initTaskEventEdit(cu);
+		}
+
+		protected void initTaskEventEdit(ICompilationUnit cu) {
+			super.initTaskEventEdit((IFile) cu.getResource());
+			provideFeatures((JdtSourceEditEvent) taskEvent, cu);
 		}
 
 		@Override

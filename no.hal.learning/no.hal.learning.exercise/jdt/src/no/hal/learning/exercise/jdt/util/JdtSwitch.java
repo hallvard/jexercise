@@ -2,6 +2,7 @@
  */
 package no.hal.learning.exercise.jdt.util;
 
+import java.util.Map;
 import no.hal.learning.exercise.AbstractStringEditEvent;
 import no.hal.learning.exercise.Answer;
 import no.hal.learning.exercise.MarkerInfo;
@@ -18,6 +19,8 @@ import no.hal.learning.exercise.workspace.LaunchAnswer;
 import no.hal.learning.exercise.workspace.LaunchEvent;
 import no.hal.learning.exercise.workspace.LaunchProposal;
 import no.hal.learning.exercise.workspace.SourceFileEditEvent;
+import no.hal.learning.fv.EFeatureObject;
+import no.hal.learning.fv.FeatureValued;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -98,12 +101,20 @@ public class JdtSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JdtPackage.STRING_TO_FEATURE_VALUED: {
+				@SuppressWarnings("unchecked") Map.Entry<String, FeatureValued> stringToFeatureValued = (Map.Entry<String, FeatureValued>)theEObject;
+				T1 result = caseStringToFeatureValued(stringToFeatureValued);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT: {
 				JdtSourceEditEvent jdtSourceEditEvent = (JdtSourceEditEvent)theEObject;
 				T1 result = caseJdtSourceEditEvent(jdtSourceEditEvent);
 				if (result == null) result = caseSourceFileEditEvent(jdtSourceEditEvent);
 				if (result == null) result = caseAbstractStringEditEvent(jdtSourceEditEvent);
 				if (result == null) result = caseTaskEvent(jdtSourceEditEvent);
+				if (result == null) result = caseEFeatureObject(jdtSourceEditEvent);
+				if (result == null) result = caseFeatureValued(jdtSourceEditEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,6 +148,8 @@ public class JdtSwitch<T1> extends Switch<T1> {
 				T1 result = caseJdtLaunchEvent(jdtLaunchEvent);
 				if (result == null) result = caseLaunchEvent(jdtLaunchEvent);
 				if (result == null) result = caseTaskEvent(jdtLaunchEvent);
+				if (result == null) result = caseEFeatureObject(jdtLaunchEvent);
+				if (result == null) result = caseFeatureValued(jdtLaunchEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -171,6 +184,21 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseJdtSourceEditProposal(JdtSourceEditProposal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String To Feature Valued</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String To Feature Valued</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStringToFeatureValued(Map.Entry<String, FeatureValued> object) {
 		return null;
 	}
 
@@ -336,6 +364,36 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <A extends StringEditAnswer> T1 caseStringEditTaskProposal(StringEditTaskProposal<A> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Feature Valued</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Feature Valued</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseFeatureValued(FeatureValued object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EFeature Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EFeature Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEFeatureObject(EFeatureObject object) {
 		return null;
 	}
 
