@@ -5,12 +5,11 @@
     modelName="Exercise" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     editPluginID="no.hal.learning.exercise.model.ui" editorPluginID="no.hal.learning.exercise.model.ui"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="fv.genmodel#//fv" operationReflection="true" importOrganizing="true">
   <foreignModel>exercise.ecore</foreignModel>
   <genPackages prefix="Exercise" basePackage="no.hal.learning" disposableProviderFactory="true"
       multipleEditorPages="false" extensibleProviderFactory="true" fileExtensions="ex"
       ecorePackage="exercise.ecore#/">
-    <genDataTypes ecoreDataType="exercise.ecore#//RGB"/>
     <genDataTypes ecoreDataType="exercise.ecore#//ETimestamp"/>
     <genClasses ecoreClass="exercise.ecore#//Exercise">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Exercise/name"/>
@@ -56,24 +55,6 @@
     <genClasses ecoreClass="exercise.ecore#//StringQuestion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringQuestion/question"/>
     </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//StyledStringQuestion">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//StyledStringQuestion/styledStrings"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//StyledString">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//StyledString/charStyle"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference exercise.ecore#//StyledString/effectiveCharStyle"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StyledString/prefix"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//StyledString/styledString"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StyledString/suffix"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//CharStyle">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/italic"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/bold"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/size"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/family"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/foreground"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//CharStyle/background"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="exercise.ecore#//Answer">
       <genOperations ecoreOperation="exercise.ecore#//Answer/accept">
         <genParameters ecoreParameter="exercise.ecore#//Answer/accept/proposal"/>
@@ -91,46 +72,6 @@
       <genOperations ecoreOperation="exercise.ecore#//Proposal/accept"/>
       <genOperations ecoreOperation="exercise.ecore#//Proposal/validate"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="exercise.ecore#//OptionAnswer"/>
-    <genClasses image="false" ecoreClass="exercise.ecore#//SimpleAnswer">
-      <genTypeParameters ecoreTypeParameter="exercise.ecore#//SimpleAnswer/T"/>
-      <genOperations ecoreOperation="exercise.ecore#//SimpleAnswer/getValue"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//SimpleProposal">
-      <genTypeParameters ecoreTypeParameter="exercise.ecore#//SimpleProposal/A"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//SimpleProposal/proposal"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//StringAnswer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringAnswer/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringAnswer/format"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringAnswer/regexp"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringAnswer/ignoreCase"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//NumberAnswer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//NumberAnswer/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//NumberAnswer/errorMargin"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//NumberAnswer/range"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//NumberRange">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//NumberRange/min"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//NumberRange/max"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//NumberRange/step"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//BooleanAnswer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//BooleanAnswer/value"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//OptionsAnswer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//OptionsAnswer/options"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//OptionsProposal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//OptionsProposal/indices"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//Option">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//Option/correct"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//Option/option"/>
-    </genClasses>
-    <genClasses ecoreClass="exercise.ecore#//SingleOptionsAnswer"/>
-    <genClasses ecoreClass="exercise.ecore#//ManyOptionsAnswer"/>
     <genClasses ecoreClass="exercise.ecore#//TaskAnswer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskAnswer/requiredCount"/>
     </genClasses>
@@ -141,13 +82,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskProposal/attemptCount"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//TaskProposal/attempts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskProposal/performedCount"/>
+      <genOperations ecoreOperation="exercise.ecore#//TaskProposal/getText"/>
     </genClasses>
     <genClasses ecoreClass="exercise.ecore#//TaskEvent">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference exercise.ecore#//TaskEvent/proposal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskEvent/timestamp"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//TaskEvent/completion"/>
+      <genOperations ecoreOperation="exercise.ecore#//TaskEvent/getText"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//StringEditTaskProposal">
+      <genTypeParameters ecoreTypeParameter="exercise.ecore#//StringEditTaskProposal/A"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="exercise.ecore#//StringEditAnswer">
+      <genOperations ecoreOperation="exercise.ecore#//StringEditAnswer/getEditorPath"/>
     </genClasses>
     <genClasses ecoreClass="exercise.ecore#//AbstractStringEditEvent">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//AbstractStringEditEvent/edit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exercise.ecore#//AbstractStringEditEvent/markers"/>
       <genOperations ecoreOperation="exercise.ecore#//AbstractStringEditEvent/getString"/>
       <genOperations ecoreOperation="exercise.ecore#//AbstractStringEditEvent/createStringEdit">
         <genParameters ecoreParameter="exercise.ecore#//AbstractStringEditEvent/createStringEdit/string"/>
@@ -156,12 +107,26 @@
     </genClasses>
     <genClasses image="false" ecoreClass="exercise.ecore#//AbstractStringEdit">
       <genOperations ecoreOperation="exercise.ecore#//AbstractStringEdit/getString"/>
+      <genOperations ecoreOperation="exercise.ecore#//AbstractStringEdit/initStringEdit">
+        <genParameters ecoreParameter="exercise.ecore#//AbstractStringEdit/initStringEdit/string"/>
+        <genParameters ecoreParameter="exercise.ecore#//AbstractStringEdit/initStringEdit/lastEdit"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="exercise.ecore#//RelativeStringEdit">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//RelativeStringEdit/edit"/>
     </genClasses>
     <genClasses ecoreClass="exercise.ecore#//StringEdit">
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute exercise.ecore#//StringEdit/string"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exercise.ecore#//StringEdit/edit"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringEdit/start"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringEdit/end"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//StringEdit/storedString"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//ReplaceSubstringEdit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//ReplaceSubstringEdit/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//ReplaceSubstringEdit/end"/>
+    </genClasses>
+    <genClasses ecoreClass="exercise.ecore#//MarkerInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//MarkerInfo/lineNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//MarkerInfo/charStart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//MarkerInfo/charEnd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exercise.ecore#//MarkerInfo/severity"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Exp4j
+Bundle-SymbolicName: exp4j
+Bundle-Version: 0.4.6.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: libs/exp4j-0.4.6-SNAPSHOT.jar
+Export-Package: net.objecthunter.exp4j

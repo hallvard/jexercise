@@ -38,6 +38,7 @@ import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.TaskRef;
+import no.hal.learning.fv.FvPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -266,6 +267,9 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		ExercisePackageImpl theExercisePackage = (ExercisePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ExercisePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ExercisePackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		FvPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theExercisePackage.createPackageContents();
@@ -1180,6 +1184,9 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		FvPackage theFvPackage = (FvPackage)EPackage.Registry.INSTANCE.getEPackage(FvPackage.eNS_URI);
+
 		// Create type parameters
 		ETypeParameter proposalEClass_A = addETypeParameter(proposalEClass, "A");
 		ETypeParameter taskProposalEClass_T = addETypeParameter(taskProposalEClass, "T");
@@ -1204,6 +1211,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		EGenericType g2 = createEGenericType(taskProposalEClass_T);
 		g1.getETypeArguments().add(g2);
 		taskProposalEClass.getEGenericSuperTypes().add(g1);
+		taskEventEClass.getESuperTypes().add(theFvPackage.getEFeatureObject());
 		g1 = createEGenericType(this.getTaskProposal());
 		g2 = createEGenericType(stringEditTaskProposalEClass_A);
 		g1.getETypeArguments().add(g2);

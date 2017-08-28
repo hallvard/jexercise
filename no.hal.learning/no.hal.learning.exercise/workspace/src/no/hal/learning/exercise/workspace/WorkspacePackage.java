@@ -367,6 +367,42 @@ public interface WorkspacePackage extends EPackage {
 	int SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FILE_EDIT_EVENT___GET_FEATURE_NAMES = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FILE_EDIT_EVENT___GET_FEATURE_VALUE__STRING = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FILE_EDIT_EVENT___HAS_FEATURE__STRING = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FILE_EDIT_EVENT___TO_FEATURE_LIST = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT___TO_FEATURE_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -675,6 +711,42 @@ public interface WorkspacePackage extends EPackage {
 	 * @ordered
 	 */
 	int LAUNCH_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT___GET_FEATURE_NAMES = ExercisePackage.TASK_EVENT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT___GET_FEATURE_VALUE__STRING = ExercisePackage.TASK_EVENT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT___HAS_FEATURE__STRING = ExercisePackage.TASK_EVENT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT___TO_FEATURE_LIST = ExercisePackage.TASK_EVENT___TO_FEATURE_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.

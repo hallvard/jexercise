@@ -2,6 +2,7 @@
  */
 package no.hal.learning.exercise;
 
+import no.hal.learning.fv.FvPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -999,7 +1000,7 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EVENT__PROPOSAL = 0;
+	int TASK_EVENT__PROPOSAL = FvPackage.EFEATURE_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
@@ -1008,7 +1009,7 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EVENT__TIMESTAMP = 1;
+	int TASK_EVENT__TIMESTAMP = FvPackage.EFEATURE_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Completion</b></em>' attribute.
@@ -1017,7 +1018,7 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EVENT__COMPLETION = 2;
+	int TASK_EVENT__COMPLETION = FvPackage.EFEATURE_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Task Event</em>' class.
@@ -1026,7 +1027,43 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EVENT_FEATURE_COUNT = 3;
+	int TASK_EVENT_FEATURE_COUNT = FvPackage.EFEATURE_OBJECT_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EVENT___GET_FEATURE_NAMES = FvPackage.EFEATURE_OBJECT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EVENT___GET_FEATURE_VALUE__STRING = FvPackage.EFEATURE_OBJECT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EVENT___HAS_FEATURE__STRING = FvPackage.EFEATURE_OBJECT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_EVENT___TO_FEATURE_LIST = FvPackage.EFEATURE_OBJECT___TO_FEATURE_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -1035,7 +1072,7 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EVENT___GET_TEXT = 0;
+	int TASK_EVENT___GET_TEXT = FvPackage.EFEATURE_OBJECT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Task Event</em>' class.
@@ -1044,7 +1081,7 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_EVENT_OPERATION_COUNT = 1;
+	int TASK_EVENT_OPERATION_COUNT = FvPackage.EFEATURE_OBJECT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.impl.StringEditTaskProposalImpl <em>String Edit Task Proposal</em>}' class.
@@ -1309,6 +1346,42 @@ public interface ExercisePackage extends EPackage {
 	 * @ordered
 	 */
 	int ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT = TASK_EVENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT___GET_FEATURE_NAMES = TASK_EVENT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT___GET_FEATURE_VALUE__STRING = TASK_EVENT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT___HAS_FEATURE__STRING = TASK_EVENT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_STRING_EDIT_EVENT___TO_FEATURE_LIST = TASK_EVENT___TO_FEATURE_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.

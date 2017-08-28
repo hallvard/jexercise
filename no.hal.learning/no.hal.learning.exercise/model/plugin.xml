@@ -30,4 +30,12 @@
             genModel="model/diff.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated fv -->
+      <package
+            uri="platform:/plugin/no.hal.learning.execise.model/model/fv.ecore"
+            class="no.hal.learning.fv.FvPackage"
+            genModel="model/fv.genmodel"/>
+   </extension>
+
 </plugin>

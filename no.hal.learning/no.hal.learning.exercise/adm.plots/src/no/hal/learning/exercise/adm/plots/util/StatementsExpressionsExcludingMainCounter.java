@@ -7,6 +7,7 @@ import org.eclipse.jdt.core.dom.Statement;
 
 public class StatementsExpressionsExcludingMainCounter extends TokenCountCodeMetric {
 
+	@Override
 	protected boolean acceptDeclaration(BodyDeclaration declaration) {
 		if (isMainMethod(declaration)) {
 			return false;
@@ -14,6 +15,7 @@ public class StatementsExpressionsExcludingMainCounter extends TokenCountCodeMet
 		return true;
 	}
 
+	@Override
 	protected int countTokens(ASTNode node) {
 		if (node instanceof Statement || node instanceof Expression) {
 			return 1;

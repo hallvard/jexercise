@@ -104,7 +104,7 @@
       <eTypeArguments eTypeParameter="#//TaskProposal/T"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskEvent">
+  <eClassifiers xsi:type="ecore:EClass" name="TaskEvent" eSuperTypes="fv.ecore#//EFeatureObject">
     <eOperations name="getText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="proposal" eOpposite="#//TaskProposal/attempts">
       <eGenericType eClassifier="#//TaskProposal">

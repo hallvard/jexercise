@@ -28,6 +28,7 @@
 	</repositories>	
 
   <modules>
+  	<module>exp4j</module>
   	<module>model</module>
   	<module>model.tests</module>
   	<module>model.ui</module>

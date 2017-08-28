@@ -2,19 +2,16 @@
  */
 package no.hal.learning.exercise.pydev.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.pydev.PydevFactory;
 import no.hal.learning.exercise.pydev.PydevLaunchAnswer;
 import no.hal.learning.exercise.pydev.PydevLaunchProposal;
 import no.hal.learning.exercise.pydev.PydevPackage;
-import no.hal.learning.exercise.pydev.PydevSourceEditProposal;
 import no.hal.learning.exercise.workspace.impl.LaunchAnswerImpl;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->

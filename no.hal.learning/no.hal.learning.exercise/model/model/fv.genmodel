@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.learning.exercise.model/src" editDirectory="/no.hal.learning.exercise.model.edit/src"
+    editorDirectory="/no.hal.learning.exercise.model.editor/src" modelPluginID="no.hal.learning.exercise.model"
+    modelName="Fv" editPluginClass="no.hal.learning.fv.provider.FvEditPlugin" editorPluginClass="no.hal.learning.fv.presentation.FvEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testSuiteClass="no.hal.learning.fv.tests.FvAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    testsPluginID="no.hal.learning.exercise.model.tests" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>fv.ecore</foreignModel>
+  <genPackages prefix="Fv" basePackage="no.hal.learning" disposableProviderFactory="true"
+      ecorePackage="fv.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fv.ecore#//Op1Kind">
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op1Kind/NEG"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op1Kind/INV"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op1Kind/ABS"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op1Kind/SIGNUM"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fv.ecore#//Op2Kind">
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op2Kind/PLUS"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op2Kind/MINUS"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op2Kind/MULT"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op2Kind/DIV"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op2Kind/MIN"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op2Kind/MAX"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op2Kind/COMPARE"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Op2Kind/AVERAGE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fv.ecore#//Pred1Kind">
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Pred1Kind/GT0"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Pred1Kind/GE0"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Pred1Kind/ZERO"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Pred1Kind/LE0"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Pred1Kind/LT0"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fv.ecore#//Pred2Kind">
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Pred2Kind/EQ"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Pred2Kind/LT"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Pred2Kind/LE"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Pred2Kind/GT"/>
+      <genEnumLiterals ecoreEnumLiteral="fv.ecore#//Pred2Kind/GE"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="fv.ecore#//Op1"/>
+    <genDataTypes ecoreDataType="fv.ecore#//Op2"/>
+    <genDataTypes ecoreDataType="fv.ecore#//Pred1"/>
+    <genDataTypes ecoreDataType="fv.ecore#//Pred2"/>
+    <genClasses image="false" ecoreClass="fv.ecore#//FeatureValued">
+      <genOperations ecoreOperation="fv.ecore#//FeatureValued/getFeatureNames"/>
+      <genOperations ecoreOperation="fv.ecore#//FeatureValued/getFeatureValue">
+        <genParameters ecoreParameter="fv.ecore#//FeatureValued/getFeatureValue/featureName"/>
+      </genOperations>
+      <genOperations ecoreOperation="fv.ecore#//FeatureValued/hasFeature">
+        <genParameters ecoreParameter="fv.ecore#//FeatureValued/hasFeature/featureName"/>
+      </genOperations>
+      <genOperations ecoreOperation="fv.ecore#//FeatureValued/toFeatureList"/>
+    </genClasses>
+    <genClasses ecoreClass="fv.ecore#//DelegatedFeatures">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fv.ecore#//DelegatedFeatures/features"/>
+    </genClasses>
+    <genClasses ecoreClass="fv.ecore#//StringToDouble">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//StringToDouble/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//StringToDouble/value"/>
+    </genClasses>
+    <genClasses ecoreClass="fv.ecore#//FeatureList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fv.ecore#//FeatureList/features"/>
+      <genOperations ecoreOperation="fv.ecore#//FeatureList/set">
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/set/features"/>
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/set/clear"/>
+      </genOperations>
+      <genOperations ecoreOperation="fv.ecore#//FeatureList/apply">
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/apply/op"/>
+      </genOperations>
+      <genOperations ecoreOperation="fv.ecore#//FeatureList/apply.1">
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/apply.1/op"/>
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/apply.1/features"/>
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/apply.1/swap"/>
+      </genOperations>
+      <genOperations ecoreOperation="fv.ecore#//FeatureList/apply.2">
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/apply.2/op"/>
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/apply.2/val"/>
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/apply.2/swap"/>
+      </genOperations>
+      <genOperations ecoreOperation="fv.ecore#//FeatureList/count">
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/count/pred"/>
+      </genOperations>
+      <genOperations ecoreOperation="fv.ecore#//FeatureList/count.1">
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/count.1/pred"/>
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/count.1/features"/>
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/count.1/swap"/>
+      </genOperations>
+      <genOperations ecoreOperation="fv.ecore#//FeatureList/count.2">
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/count.2/features"/>
+      </genOperations>
+      <genOperations ecoreOperation="fv.ecore#//FeatureList/zero">
+        <genParameters ecoreParameter="fv.ecore#//FeatureList/zero/threshold"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="fv.ecore#//ConstantFeatureList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//ConstantFeatureList/featureNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//ConstantFeatureList/val"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//ConstantFeatureList/defVal"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fv.ecore#//EFeatureObject"/>
+    <genClasses image="false" ecoreClass="fv.ecore#//DerivedFeatures">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fv.ecore#//DerivedFeatures/contained"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fv.ecore#//OpDerivedFeatures">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//OpDerivedFeatures/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//OpDerivedFeatures/val"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//OpDerivedFeatures/swap"/>
+    </genClasses>
+    <genClasses ecoreClass="fv.ecore#//DerivedFeatures1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fv.ecore#//DerivedFeatures1/other"/>
+    </genClasses>
+    <genClasses ecoreClass="fv.ecore#//DerivedFeaturesN">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fv.ecore#//DerivedFeaturesN/others"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fv.ecore#//FilteredFeatures">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fv.ecore#//FilteredFeatures/other"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//FilteredFeatures/nameFilter"/>
+    </genClasses>
+    <genClasses ecoreClass="fv.ecore#//FilteredFeatures1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//FilteredFeatures1/pred"/>
+    </genClasses>
+    <genClasses ecoreClass="fv.ecore#//FilteredFeatures2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//FilteredFeatures2/pred"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//FilteredFeatures2/val"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fv.ecore#//FilteredFeatures2/swap"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

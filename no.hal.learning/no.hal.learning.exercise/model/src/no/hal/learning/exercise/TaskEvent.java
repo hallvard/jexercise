@@ -2,7 +2,7 @@
  */
 package no.hal.learning.exercise;
 
-import org.eclipse.emf.ecore.EObject;
+import no.hal.learning.fv.EFeatureObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface TaskEvent extends EObject {
+public interface TaskEvent extends EFeatureObject {
 	/**
 	 * Returns the value of the '<em><b>Proposal</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link no.hal.learning.exercise.TaskProposal#getAttempts <em>Attempts</em>}'.

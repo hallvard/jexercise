@@ -8,6 +8,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import no.hal.learning.exercise.*;
+import no.hal.learning.fv.EFeatureObject;
+import no.hal.learning.fv.FeatureValued;
 
 /**
  * <!-- begin-user-doc -->
@@ -166,6 +168,8 @@ public class ExerciseSwitch<T1> extends Switch<T1> {
 			case ExercisePackage.TASK_EVENT: {
 				TaskEvent taskEvent = (TaskEvent)theEObject;
 				T1 result = caseTaskEvent(taskEvent);
+				if (result == null) result = caseEFeatureObject(taskEvent);
+				if (result == null) result = caseFeatureValued(taskEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -189,6 +193,8 @@ public class ExerciseSwitch<T1> extends Switch<T1> {
 				AbstractStringEditEvent abstractStringEditEvent = (AbstractStringEditEvent)theEObject;
 				T1 result = caseAbstractStringEditEvent(abstractStringEditEvent);
 				if (result == null) result = caseTaskEvent(abstractStringEditEvent);
+				if (result == null) result = caseEFeatureObject(abstractStringEditEvent);
+				if (result == null) result = caseFeatureValued(abstractStringEditEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -588,6 +594,36 @@ public class ExerciseSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseMarkerInfo(MarkerInfo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Feature Valued</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Feature Valued</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseFeatureValued(FeatureValued object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EFeature Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EFeature Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEFeatureObject(EFeatureObject object) {
 		return null;
 	}
 
