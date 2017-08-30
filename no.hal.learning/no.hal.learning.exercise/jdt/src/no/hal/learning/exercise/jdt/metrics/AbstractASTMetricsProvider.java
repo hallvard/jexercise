@@ -60,14 +60,16 @@ public abstract class AbstractASTMetricsProvider extends AbstractMetricsProvider
 		for (String metricsName : Activator.getInstance().getMetricsProviderNames()) {
 			FeatureValued metricsFeatures = null;
 			IMetricsProvider metricsProvider = Activator.getInstance().getMetricsProvider(metricsName);
+			if (ast == null && (metricsProvider instanceof AbstractASTMetricsProvider || source == null)) {
+				ast = createParser(source, cu).createAST(new NullProgressMonitor());
+			}
 			if (metricsProvider instanceof AbstractASTMetricsProvider) {
-				if (ast == null) {
-					ASTParser parser = createParser(source, cu);
-					ast = parser.createAST(new NullProgressMonitor());
-				}
 				metricsFeatures = ((AbstractASTMetricsProvider) metricsProvider).computeMetricsUsingAST(ast);
 			}
-			if (metricsFeatures == null && source != null) {
+			if (metricsFeatures == null) {
+				if (source == null) {
+					source = ast.toString();
+				}
 				metricsFeatures = metricsProvider.computeMetrics(source);
 			}
 			if (metricsFeatures != null) {
@@ -75,7 +77,6 @@ public abstract class AbstractASTMetricsProvider extends AbstractMetricsProvider
 			}
 		}
 	}
-	
 
 	public static boolean isIn(ASTNode node, Class<? extends ASTNode> astClass) {
 		while (node != null) {

@@ -6,23 +6,32 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTParser;
+import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.Assignment;
 import org.eclipse.jdt.core.dom.ChildListPropertyDescriptor;
 import org.eclipse.jdt.core.dom.ChildPropertyDescriptor;
@@ -85,13 +94,14 @@ public class EcoreGenerator {
 		initEDataTypes();
 		generateEClasses();
 		generateFeatures();
+		((EPackageImpl) ePackage).freeze();
 	}
 
 	protected void initEPackage(String name) {
 		ePackage = EcoreFactory.eINSTANCE.createEPackage();
 		ePackage.setName(name);
 		ePackage.setNsPrefix(name);
-		ePackage.setNsURI(ASTNode.class.getName());
+		ePackage.setNsURI("platform:/plugin/no.hal.learning.exercise.jdt.ecore/model/ast.ecore");
 	}
 
 	protected void initEDataTypes() {
@@ -103,17 +113,21 @@ public class EcoreGenerator {
 		ePackage.getEClassifiers().add(createEDataType("EPostfixExpressionOperator", PostfixExpression.Operator.class));
 	}
 
-	private Map<EClass, Class<?>> classMap = new HashMap<EClass, Class<?>>();
-	private Map<Class<?>, EClass> eClassMap = new HashMap<Class<?>, EClass>();
-	private Map<Class<?>, Collection<Class<?>>> interfaceMap = new HashMap<Class<?>, Collection<Class<?>>>();
+	private Map<EClass, Class<?>> classMap;
+	private Map<Class<?>, EClass> eClassMap;
+	private Map<Class<?>, Collection<Class<?>>> interfaceMap;
 	
 	protected void generateEClasses() {
+		classMap = new HashMap<EClass, Class<?>>();
+		eClassMap = new HashMap<Class<?>, EClass>();
+		interfaceMap = new HashMap<Class<?>, Collection<Class<?>>>();
+
 		interfaceMap.put(IExtendedModifier.class, Arrays.<Class<?>>asList(Modifier.class, MarkerAnnotation.class, NormalAnnotation.class, SingleMemberAnnotation.class));
 		interfaceMap.put(IDocElement.class, Arrays.<Class<?>>asList(MemberRef.class, MethodRef.class, Name.class, TagElement.class, TextElement.class));
-		Collection<Class<?>> astClasses = getASTClasses();
+		List<Class<?>> astClasses = new ArrayList<Class<?>>(getASTClasses());
 		for (Class<?> interfaceClass : interfaceMap.keySet()) {
-			astClasses.add(interfaceClass);
-			astClasses.addAll(interfaceMap.get(interfaceClass));
+			astClasses.addAll(0, interfaceMap.get(interfaceClass));
+			astClasses.add(0, interfaceClass);
 		}
 		for (Class<?> astClass : astClasses) {
 			generateEClass(astClass);
@@ -122,55 +136,67 @@ public class EcoreGenerator {
 
 	protected EClass generateEClass(Class<?> astClass) {
 		EClass eClass = eClassMap.get(astClass);
-		boolean eClassExists = eClass != null;
-		if (! eClassExists) {
+		if (eClass == null) {
 			eClass = createASTEClass(astClass);
 			ePackage.getEClassifiers().add(eClass);
 			classMap.put(eClass, astClass);
 			eClassMap.put(astClass, eClass);
-			if (astClass != ASTNode.class) {
-				Class<?> superclass = astClass.getSuperclass();
-				EClass superEClass = generateEClass(superclass);
-				superEClass.getESuperTypes().add(eClass);				
+			Class<?> superClass = astClass.getSuperclass();
+			if (superClass != null && superClass != Object.class) {
+				EClass superEClass = generateEClass(superClass);
+				eClass.getESuperTypes().add(superEClass);				
+			}
+			for (Class<?> interfaceClass : astClass.getInterfaces()) {
+				EClass interfaceEClass = generateEClass(interfaceClass);
+				eClass.getESuperTypes().add(interfaceEClass);				
 			}
 		}
 		return eClass;
 	}
 
 	protected void generateFeatures() {
-		Class<?>[] propertyDescriptorsParameterTypes = new Class[]{Integer.TYPE};
-		Object[] propertyDescriptorsArguments = new Object[]{AST.JLS8};
 		for (EClassifier eClassifier : ePackage.getEClassifiers()) {
 			Class<?> astClass = classMap.get(eClassifier);
 			if (astClass != null) {
-				try {
-					Method m = astClass.getMethod("propertyDescriptors", propertyDescriptorsParameterTypes);
-					if (m != null) {
-						Collection<StructuralPropertyDescriptor> propertyDescriptors = (Collection<StructuralPropertyDescriptor>) m.invoke(null, propertyDescriptorsArguments);
-						addPropertyFeatures((EClass) eClassifier, propertyDescriptors);
+				System.out.println(eClassifier.getName() + " (" + ((EClass) eClassifier).getESuperTypes().size() + ") features");
+				Collection<StructuralPropertyDescriptor> propertyDescriptors = getPropertyDescriptors(astClass);
+				if (propertyDescriptors != null) {
+					for (StructuralPropertyDescriptor propertyDescriptor : propertyDescriptors) {
+						EStructuralFeature feature = createEStructuralFeature(propertyDescriptor);
+						if (feature != null) {
+							System.out.println("  " + feature.getName() + ": " + feature.getEType().getName());
+							((EClass) eClassifier).getEStructuralFeatures().add(feature);
+							if ("package".equals(feature.getName())) {
+								System.out.println(feature.getEContainingClass());
+								System.out.println(feature);
+							}
+						}
 					}
-				} catch (Exception e) {
 				}
 			}
 		}
 	}
 
+	private Class<?>[] propertyDescriptorsParameterTypes = new Class[]{Integer.TYPE};
+	private Object[] propertyDescriptorsArguments = new Object[]{AST.JLS8};
+
+	private Collection<StructuralPropertyDescriptor> getPropertyDescriptors(Class<?> astClass) {
+		try {
+			Method m = astClass.getMethod("propertyDescriptors", propertyDescriptorsParameterTypes);
+			if (m != null) {
+				return (Collection<StructuralPropertyDescriptor>) m.invoke(null, propertyDescriptorsArguments);
+			}
+		} catch (Exception e) {
+//			System.err.println(e);
+		}
+		return null;
+	}
+	
 	protected EDataType createEDataType(String name, Class<?> valueType) {
 		EDataType operatorEDataType = EcoreFactory.eINSTANCE.createEDataType();
 		operatorEDataType.setName(name);
 		operatorEDataType.setInstanceClass(valueType);
 		return operatorEDataType;
-	}
-
-	private void addPropertyFeatures(EClass eClass, Collection<StructuralPropertyDescriptor> propertyDescriptors) {
-		System.out.println(eClass.getName() + " features");
-		for (StructuralPropertyDescriptor propertyDescriptor : propertyDescriptors) {
-			EStructuralFeature feature = createEStructuralFeature(propertyDescriptor);
-			if (feature != null) {
-				System.out.println("  " + feature.getName() + ": " + feature.getEType().getName());
-				eClass.getEStructuralFeatures().add(feature);
-			}
-		}
 	}
 
 	protected EStructuralFeature createEStructuralFeature(StructuralPropertyDescriptor propertyDescriptor) {
@@ -191,6 +217,7 @@ public class EcoreGenerator {
 			if (eType != null) {
 				EReference reference = EcoreFactory.eINSTANCE.createEReference();
 				reference.setEType(eType);
+				reference.setContainment(true);
 				reference.setUpperBound(propertyDescriptor.isChildProperty() ? 1 : -1);
 				feature = reference;
 			} else {
@@ -226,14 +253,85 @@ public class EcoreGenerator {
 		return eClass;
 	}
 	
+	private Map<Object, EObject> eObjectMap;
+	
+	public EObject copyAST(ASTNode ast) {
+		eObjectMap = new HashMap<Object, EObject>();
+		ast.accept(new ASTVisitor() {
+			@Override
+			public void preVisit(ASTNode node) {
+				super.preVisit(node);
+				EObject eObject = EcoreUtil.create(eClassMap.get(node.getClass()));
+				eObjectMap.put(node, eObject);
+			}
+		});
+		ast.accept(new ASTVisitor() {
+			@Override
+			public void preVisit(ASTNode node) {
+				super.preVisit(node);
+				EObject eObject = eObjectMap.get(node);
+				Collection<StructuralPropertyDescriptor> propertyDescriptors = getPropertyDescriptors(node.getClass());
+				for (StructuralPropertyDescriptor propertyDescriptor : propertyDescriptors) {
+					String propertyName = propertyDescriptor.getId();
+					EStructuralFeature feature = eObject.eClass().getEStructuralFeature(propertyName);
+					Object value = node.getStructuralProperty(propertyDescriptor);
+					if (feature != null && value != null) {
+						try {
+							if (propertyDescriptor.isSimpleProperty()) {
+								eObject.eSet(feature, value);
+							} else if (propertyDescriptor.isChildProperty()) {
+								eObject.eSet(feature, eObjectMap.get(value));
+							} else if (propertyDescriptor.isChildListProperty()) {
+								for (Object element : ((Iterable<?>) value)) {
+									((EList<Object>) eObject.eGet(feature)).add(eObjectMap.get(element));							
+								}
+							}
+						} catch (Exception e) {
+							System.err.println(e);
+						}
+					}
+				}
+			}
+		});
+		return eObjectMap.get(ast);
+	}
+	
 	public static void main(String[] args) {
 		EcoreGenerator ecoreGenerator = new EcoreGenerator();
 		ecoreGenerator.generate("ast");
-		Resource resource = new EcoreResourceFactoryImpl().createResource(URI.createFileURI("/Users/hal/java/git/jexercise/no.hal.learning/no.hal.learning.exercise/jdt/src/no/hal/learning/exercise/jdt/ecore/ast.ecore"));
-		resource.getContents().add(ecoreGenerator.ePackage);
+		String folder = "/Users/hal/java/git/jexercise/no.hal.learning/no.hal.learning.exercise/jdt.ecore/model";
+		save(new EcoreResourceFactoryImpl(), ecoreGenerator.ePackage, folder, "ast.ecore", null);
+
+		ASTParser parser = ASTParser.newParser(AST.JLS8);
+		parser.setKind(ASTParser.K_COMPILATION_UNIT);
+		String source =
+"package main;"
++ "import java.util.*;"
++ "public class Main {"
++ 	"public static void main(String[] args) {"
++ "		System.out.println(\"Hello world\");"
++ "}"
++ "}";
+		parser.setSource(source.toCharArray());
+		parser.setStatementsRecovery(true);
+		parser.setResolveBindings(false);
+
+		ASTNode ast = parser.createAST(new NullProgressMonitor());
+		EObject copy = ecoreGenerator.copyAST(ast);
+
+		// OPTION_SCHEMA_LOCATION
+		Map<Object, Object> options = new HashMap<Object, Object>();
+		options.put(XMIResource.OPTION_SCHEMA_LOCATION, Boolean.TRUE);
+		save(new XMIResourceFactoryImpl(), copy, folder, "ast.xmi", options);
+	}
+
+	private static void save(Resource.Factory factory, EObject content, String folder, String filename, Map<?, ?> options) {
+		Resource resource = factory.createResource(URI.createFileURI(folder + "/" + filename));
+		resource.getContents().add(content);
 		try {
-			resource.save(null);
+			resource.save(options);
 		} catch (IOException e) {
-		}		
+			System.err.println(e);
+		}
 	}
 }

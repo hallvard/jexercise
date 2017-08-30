@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ast:CompilationUnit
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ast="platform:/plugin/no.hal.learning.exercise.jdt.ecore/model/ast.ecore"
+    xsi:schemaLocation="platform:/plugin/no.hal.learning.exercise.jdt.ecore/model/ast.ecore ast.ecore">
+  <package>
+    <name xsi:type="ast:SimpleName"
+        identifier="main"/>
+  </package>
+  <imports onDemand="true">
+    <name xsi:type="ast:QualifiedName">
+      <qualifier
+          xsi:type="ast:SimpleName"
+          identifier="java"/>
+      <name
+          identifier="util"/>
+    </name>
+  </imports>
+  <types xsi:type="ast:TypeDeclaration">
+    <modifiers
+        xsi:type="ast:Modifier"/>
+    <name identifier="Main"/>
+    <bodyDeclarations
+        xsi:type="ast:MethodDeclaration">
+      <modifiers
+          xsi:type="ast:Modifier"/>
+      <modifiers
+          xsi:type="ast:Modifier"/>
+      <returnType2
+          xsi:type="ast:PrimitiveType"/>
+      <name
+          identifier="main"/>
+      <parameters>
+        <type
+            xsi:type="ast:ArrayType">
+          <elementType
+              xsi:type="ast:SimpleType">
+            <name
+                xsi:type="ast:SimpleName"
+                identifier="String"/>
+          </elementType>
+          <dimensions/>
+        </type>
+        <name
+            identifier="args"/>
+      </parameters>
+      <body>
+        <statements
+            xsi:type="ast:ExpressionStatement">
+          <expression
+              xsi:type="ast:MethodInvocation">
+            <expression
+                xsi:type="ast:QualifiedName">
+              <qualifier
+                  xsi:type="ast:SimpleName"
+                  identifier="System"/>
+              <name
+                  identifier="out"/>
+            </expression>
+            <name
+                identifier="println"/>
+            <arguments
+                xsi:type="ast:StringLiteral"
+                escapedValue="&quot;Hello world&quot;"/>
+          </expression>
+        </statements>
+      </body>
+    </bodyDeclarations>
+  </types>
+</ast:CompilationUnit>

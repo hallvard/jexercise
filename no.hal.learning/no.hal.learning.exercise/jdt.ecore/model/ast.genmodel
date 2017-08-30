@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/no.hal.learning.exercise.jdt.ecore/src" modelPluginID="no.hal.learning.exercise.jdt.ecore"
+    modelName="Ast" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>ast.ecore</foreignModel>
+  <genPackages prefix="Ast" basePackage="no.hal.learning.exercise.jdt.ecore" disposableProviderFactory="true"
+      ecorePackage="ast.ecore#/">
+    <genDataTypes ecoreDataType="ast.ecore#//EPrimitiveTypeCode"/>
+    <genDataTypes ecoreDataType="ast.ecore#//EModifierKeyword"/>
+    <genDataTypes ecoreDataType="ast.ecore#//EAssignmentOperator"/>
+    <genDataTypes ecoreDataType="ast.ecore#//EPrefixExpressionOperator"/>
+    <genDataTypes ecoreDataType="ast.ecore#//EInfixExpressionOperator"/>
+    <genDataTypes ecoreDataType="ast.ecore#//EPostfixExpressionOperator"/>
+    <genClasses ecoreClass="ast.ecore#//IExtendedModifier"/>
+    <genClasses ecoreClass="ast.ecore#//Modifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//Modifier/keyword"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ASTNode"/>
+    <genClasses ecoreClass="ast.ecore#//MarkerAnnotation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MarkerAnnotation/typeName"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//Annotation"/>
+    <genClasses ecoreClass="ast.ecore#//Expression"/>
+    <genClasses ecoreClass="ast.ecore#//NormalAnnotation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//NormalAnnotation/typeName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//NormalAnnotation/values"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SingleMemberAnnotation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SingleMemberAnnotation/typeName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SingleMemberAnnotation/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//IDocElement"/>
+    <genClasses ecoreClass="ast.ecore#//MemberRef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MemberRef/qualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MemberRef/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//MethodRef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodRef/qualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodRef/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodRef/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//Name"/>
+    <genClasses ecoreClass="ast.ecore#//TagElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//TagElement/tagName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TagElement/fragments"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//TextElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//TextElement/text"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//AnonymousClassDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AnonymousClassDeclaration/bodyDeclarations"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ArrayAccess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ArrayAccess/array"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ArrayAccess/index"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ArrayCreation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ArrayCreation/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ArrayCreation/dimensions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ArrayCreation/initializer"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ArrayInitializer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ArrayInitializer/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ArrayType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ArrayType/elementType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ArrayType/dimensions"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//Type"/>
+    <genClasses ecoreClass="ast.ecore#//AssertStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AssertStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AssertStatement/message"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//Statement"/>
+    <genClasses ecoreClass="ast.ecore#//Assignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//Assignment/leftHandSide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//Assignment/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//Assignment/rightHandSide"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//Block/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//BooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//BooleanLiteral/booleanValue"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//BreakStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//BreakStatement/label"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//CastExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//CastExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//CastExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//CatchClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//CatchClause/exception"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//CatchClause/body"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//CharacterLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//CharacterLiteral/escapedValue"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ClassInstanceCreation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ClassInstanceCreation/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ClassInstanceCreation/typeArguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ClassInstanceCreation/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ClassInstanceCreation/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ClassInstanceCreation/anonymousClassDeclaration"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//CompilationUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//CompilationUnit/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//CompilationUnit/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//CompilationUnit/types"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ConditionalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ConditionalExpression/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ConditionalExpression/thenExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ConditionalExpression/elseExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ConstructorInvocation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ConstructorInvocation/typeArguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ConstructorInvocation/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ContinueStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ContinueStatement/label"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//DoStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//DoStatement/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//DoStatement/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//EmptyStatement"/>
+    <genClasses ecoreClass="ast.ecore#//ExpressionStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ExpressionStatement/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//FieldAccess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//FieldAccess/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//FieldAccess/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//FieldDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//FieldDeclaration/javadoc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//FieldDeclaration/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//FieldDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//FieldDeclaration/fragments"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//BodyDeclaration"/>
+    <genClasses ecoreClass="ast.ecore#//ForStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ForStatement/initializers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ForStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ForStatement/updaters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ForStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//IfStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//IfStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//IfStatement/thenStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//IfStatement/elseStatement"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ImportDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//ImportDeclaration/static"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ImportDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//ImportDeclaration/onDemand"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//InfixExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//InfixExpression/leftOperand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//InfixExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//InfixExpression/rightOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//InfixExpression/extendedOperands"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//Initializer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//Initializer/javadoc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//Initializer/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//Initializer/body"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//Javadoc">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//Javadoc/tags"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//Comment"/>
+    <genClasses ecoreClass="ast.ecore#//LabeledStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//LabeledStatement/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//LabeledStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//MethodDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/javadoc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/modifiers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//MethodDeclaration/constructor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/typeParameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/returnType2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/receiverType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/receiverQualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/extraDimensions2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/thrownExceptionTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodDeclaration/body"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//MethodInvocation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodInvocation/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodInvocation/typeArguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodInvocation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodInvocation/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//NullLiteral"/>
+    <genClasses ecoreClass="ast.ecore#//NumberLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//NumberLiteral/token"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//PackageDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//PackageDeclaration/javadoc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//PackageDeclaration/annotations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//PackageDeclaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ParenthesizedExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ParenthesizedExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//PostfixExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//PostfixExpression/operand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//PostfixExpression/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//PrefixExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//PrefixExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//PrefixExpression/operand"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//PrimitiveType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//PrimitiveType/annotations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//PrimitiveType/primitiveTypeCode"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//AnnotatableType"/>
+    <genClasses ecoreClass="ast.ecore#//QualifiedName">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//QualifiedName/qualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//QualifiedName/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ReturnStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ReturnStatement/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SimpleName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//SimpleName/identifier"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SimpleType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SimpleType/annotations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SimpleType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SingleVariableDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SingleVariableDeclaration/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SingleVariableDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SingleVariableDeclaration/varargsAnnotations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//SingleVariableDeclaration/varargs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SingleVariableDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SingleVariableDeclaration/extraDimensions2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SingleVariableDeclaration/initializer"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//VariableDeclaration"/>
+    <genClasses ecoreClass="ast.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//StringLiteral/escapedValue"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SuperConstructorInvocation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperConstructorInvocation/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperConstructorInvocation/typeArguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperConstructorInvocation/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SuperFieldAccess">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperFieldAccess/qualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperFieldAccess/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SuperMethodInvocation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperMethodInvocation/qualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperMethodInvocation/typeArguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperMethodInvocation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperMethodInvocation/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SwitchCase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SwitchCase/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SwitchStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SwitchStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SwitchStatement/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SynchronizedStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SynchronizedStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SynchronizedStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ThisExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ThisExpression/qualifier"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ThrowStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ThrowStatement/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//TryStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TryStatement/resources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TryStatement/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TryStatement/catchClauses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TryStatement/finally"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//TypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeDeclaration/javadoc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeDeclaration/modifiers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//TypeDeclaration/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeDeclaration/typeParameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeDeclaration/superclassType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeDeclaration/superInterfaceTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeDeclaration/bodyDeclarations"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//AbstractTypeDeclaration"/>
+    <genClasses ecoreClass="ast.ecore#//TypeDeclarationStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeDeclarationStatement/declaration"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//TypeLiteral">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeLiteral/type"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//VariableDeclarationExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//VariableDeclarationExpression/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//VariableDeclarationExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//VariableDeclarationExpression/fragments"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//VariableDeclarationFragment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//VariableDeclarationFragment/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//VariableDeclarationFragment/extraDimensions2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//VariableDeclarationFragment/initializer"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//VariableDeclarationStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//VariableDeclarationStatement/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//VariableDeclarationStatement/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//VariableDeclarationStatement/fragments"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//WhileStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//WhileStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//WhileStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//InstanceofExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//InstanceofExpression/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//InstanceofExpression/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//LineComment"/>
+    <genClasses ecoreClass="ast.ecore#//BlockComment"/>
+    <genClasses ecoreClass="ast.ecore#//MethodRefParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodRefParameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//MethodRefParameter/varargs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MethodRefParameter/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//EnhancedForStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnhancedForStatement/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnhancedForStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnhancedForStatement/body"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//EnumDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumDeclaration/javadoc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumDeclaration/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumDeclaration/superInterfaceTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumDeclaration/enumConstants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumDeclaration/bodyDeclarations"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//EnumConstantDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumConstantDeclaration/javadoc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumConstantDeclaration/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumConstantDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumConstantDeclaration/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//EnumConstantDeclaration/anonymousClassDeclaration"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//TypeParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeParameter/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeParameter/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeParameter/typeBounds"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//ParameterizedType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ParameterizedType/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ParameterizedType/typeArguments"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//QualifiedType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//QualifiedType/qualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//QualifiedType/annotations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//QualifiedType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//WildcardType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//WildcardType/annotations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//WildcardType/bound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//WildcardType/upperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//MemberValuePair">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MemberValuePair/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//MemberValuePair/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//AnnotationTypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AnnotationTypeDeclaration/javadoc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AnnotationTypeDeclaration/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AnnotationTypeDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AnnotationTypeDeclaration/bodyDeclarations"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//AnnotationTypeMemberDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AnnotationTypeMemberDeclaration/javadoc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AnnotationTypeMemberDeclaration/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AnnotationTypeMemberDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AnnotationTypeMemberDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//AnnotationTypeMemberDeclaration/default"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//UnionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//UnionType/types"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//Dimension">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//Dimension/annotations"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//LambdaExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ast.ecore#//LambdaExpression/parentheses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//LambdaExpression/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//LambdaExpression/body"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//IntersectionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//IntersectionType/types"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//NameQualifiedType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//NameQualifiedType/qualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//NameQualifiedType/annotations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//NameQualifiedType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//CreationReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//CreationReference/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//CreationReference/typeArguments"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//MethodReference"/>
+    <genClasses ecoreClass="ast.ecore#//ExpressionMethodReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ExpressionMethodReference/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ExpressionMethodReference/typeArguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//ExpressionMethodReference/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//SuperMethodReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperMethodReference/qualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperMethodReference/typeArguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//SuperMethodReference/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ast.ecore#//TypeMethodReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeMethodReference/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeMethodReference/typeArguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ast.ecore#//TypeMethodReference/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

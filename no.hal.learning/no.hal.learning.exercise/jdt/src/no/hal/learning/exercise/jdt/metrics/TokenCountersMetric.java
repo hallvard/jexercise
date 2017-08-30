@@ -25,7 +25,7 @@ public class TokenCountersMetric extends AbstractASTMetricsProvider {
 	public void setExcludingMain(boolean excludingMain) {
 		this.excludingMain = excludingMain;
 	}
-	
+
 	//
 	
 	private boolean counting = false;
