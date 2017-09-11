@@ -1,12 +1,13 @@
-package no.hal.learning.exercise.jdt.metrics;
+package no.hal.learning.exercise.jdt.metrics.impl;
 
+import no.hal.learning.exercise.jdt.metrics.AbstractMetricsProvider;
 import no.hal.learning.fv.FeatureValued;
 
 public class LineCountMetric extends AbstractMetricsProvider {
 
 	@Override
 	public FeatureValued computeMetrics(String source) {
-		return createFeatureList("lineCount", countLines(source));
+		return createFeatureList("lines", "nonEmptyLines", countLines(source));
 	}
 
 	private double countLines(String source) {

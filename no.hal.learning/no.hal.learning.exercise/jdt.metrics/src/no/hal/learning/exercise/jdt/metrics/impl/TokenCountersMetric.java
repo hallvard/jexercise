@@ -1,4 +1,4 @@
-package no.hal.learning.exercise.jdt.metrics;
+package no.hal.learning.exercise.jdt.metrics.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +12,7 @@ import org.eclipse.jdt.core.dom.InfixExpression;
 import org.eclipse.jdt.core.dom.PostfixExpression;
 import org.eclipse.jdt.core.dom.PrefixExpression;
 
+import no.hal.learning.exercise.jdt.metrics.AbstractASTMetricsProvider;
 import no.hal.learning.fv.FeatureList;
 
 public class TokenCountersMetric extends AbstractASTMetricsProvider {
@@ -155,7 +156,7 @@ public class TokenCountersMetric extends AbstractASTMetricsProvider {
 	}
 
 	private FeatureList createFeatureList(Map<String, Integer> counters) {
-		FeatureList fv = createFeatureList();
+		FeatureList fv = createFeatureList("tokens");
 		for (Map.Entry<String, Integer> counter : counters.entrySet()) {
 			fv.getFeatures().put(counter.getKey(), counter.getValue().doubleValue());
 		}

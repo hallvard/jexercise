@@ -14,6 +14,7 @@ package no.hal.learning.fv;
  * <ul>
  *   <li>{@link no.hal.learning.fv.FilteredFeatures2#getPred <em>Pred</em>}</li>
  *   <li>{@link no.hal.learning.fv.FilteredFeatures2#getVal <em>Val</em>}</li>
+ *   <li>{@link no.hal.learning.fv.FilteredFeatures2#getValFeatures <em>Val Features</em>}</li>
  *   <li>{@link no.hal.learning.fv.FilteredFeatures2#isSwap <em>Swap</em>}</li>
  * </ul>
  *
@@ -76,6 +77,32 @@ public interface FilteredFeatures2 extends FilteredFeatures {
 	 * @generated
 	 */
 	void setVal(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Val Features</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Val Features</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Val Features</em>' reference.
+	 * @see #setValFeatures(FeatureValued)
+	 * @see no.hal.learning.fv.FvPackage#getFilteredFeatures2_ValFeatures()
+	 * @model
+	 * @generated
+	 */
+	FeatureValued getValFeatures();
+
+	/**
+	 * Sets the value of the '{@link no.hal.learning.fv.FilteredFeatures2#getValFeatures <em>Val Features</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Val Features</em>' reference.
+	 * @see #getValFeatures()
+	 * @generated
+	 */
+	void setValFeatures(FeatureValued value);
 
 	/**
 	 * Returns the value of the '<em><b>Swap</b></em>' attribute.

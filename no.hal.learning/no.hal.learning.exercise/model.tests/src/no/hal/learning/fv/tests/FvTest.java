@@ -15,6 +15,7 @@ import no.hal.learning.fv.FvFactory;
 import no.hal.learning.fv.Op2Kind;
 import no.hal.learning.fv.Pred1Kind;
 import no.hal.learning.fv.Pred2Kind;
+import no.hal.learning.fv.impl.FeatureListImpl;
 import no.hal.learning.fv.util.Op2;
 import no.hal.learning.fv.util.Pred1;
 import no.hal.learning.fv.util.Pred2;
@@ -78,6 +79,9 @@ public class FvTest extends TestCase {
 		assertEquals(1, featureList1.count(Pred2.LT, featureList2, false));
 		// count2
 		assertEquals(2, featureList1.count(Pred2.LE, featureList2, false));
+		
+		testFeatures(FeatureListImpl.valueOf("f1", 0.0, "f2", 4.0), "f1", 0.0, "f2", 4.0);
+		testFeatures(FeatureListImpl.valueOf("[f1:0.0 f2:4.0]"), "f1", 0.0, "f2", 4.0);
 	}
 
 	public void testConstantFeatureList() {
@@ -127,8 +131,14 @@ public class FvTest extends TestCase {
 		filteredFeatures.setOther(featureList1);
 		assertEquals(Arrays.asList("f2"), filteredFeatures.getFeatureNames());
 		testFeatures(filteredFeatures, "f2", 2.0);
+		
+		FeatureValued filterFeatures = toFeatureList("f1", -1.0, "f2", 3.0);
+		filteredFeatures.setValFeatures(filterFeatures);
+		filteredFeatures.setPred(Pred2Kind.GT);
+		assertEquals(Arrays.asList("f1"), filteredFeatures.getFeatureNames());		
+		testFeatures(filteredFeatures, "f1", 0.0);
 	}
-	
+
 	public void testExpressionFeatures() {
 		FeatureList featureList = toFeatureList("f1", 1.0, "f2", 2.0);
 		ExpressionFeatures expressionFeatures = FvFactory.eINSTANCE.createExpressionFeatures();

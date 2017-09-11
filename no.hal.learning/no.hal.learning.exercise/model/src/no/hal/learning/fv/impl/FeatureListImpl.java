@@ -3,6 +3,10 @@
 package no.hal.learning.fv.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -11,10 +15,13 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import no.hal.learning.fv.DerivedFeatures1;
+import no.hal.learning.fv.DerivedFeaturesN;
 import no.hal.learning.fv.FeatureList;
 import no.hal.learning.fv.FeatureValued;
 import no.hal.learning.fv.FvFactory;
@@ -23,6 +30,7 @@ import no.hal.learning.fv.util.Op1;
 import no.hal.learning.fv.util.Op2;
 import no.hal.learning.fv.util.Pred1;
 import no.hal.learning.fv.util.Pred2;
+import org.eclipse.emf.common.notify.Notification;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,12 +40,31 @@ import no.hal.learning.fv.util.Pred2;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.learning.fv.impl.FeatureListImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.learning.fv.impl.FeatureListImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class FeatureListImpl extends MinimalEObjectImpl.Container implements FeatureList {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' map.
 	 * <!-- begin-user-doc -->
@@ -65,6 +92,27 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
 	@Override
 	protected EClass eStaticClass() {
 		return FvPackage.Literals.FEATURE_LIST;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FvPackage.FEATURE_LIST__NAME, oldName, name));
 	}
 
 	/**
@@ -305,6 +353,8 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FvPackage.FEATURE_LIST__NAME:
+				return getName();
 			case FvPackage.FEATURE_LIST__FEATURES:
 				if (coreType) return getFeatures();
 				else return getFeatures().map();
@@ -320,6 +370,9 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FvPackage.FEATURE_LIST__NAME:
+				setName((String)newValue);
+				return;
 			case FvPackage.FEATURE_LIST__FEATURES:
 				((EStructuralFeature.Setting)getFeatures()).set(newValue);
 				return;
@@ -335,6 +388,9 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FvPackage.FEATURE_LIST__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case FvPackage.FEATURE_LIST__FEATURES:
 				getFeatures().clear();
 				return;
@@ -350,6 +406,8 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FvPackage.FEATURE_LIST__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case FvPackage.FEATURE_LIST__FEATURES:
 				return features != null && !features.isEmpty();
 		}
@@ -399,6 +457,57 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
 
 	//
 
+	public static String getName(FeatureValued fv) {
+		if (! (fv instanceof FeatureList)) {
+			if (fv instanceof DerivedFeatures1) {
+				fv = ((DerivedFeatures1) fv).getOther();
+			} 
+		}
+		if (fv instanceof DerivedFeaturesN) {
+			for (FeatureValued fv2 : ((DerivedFeaturesN) fv).getOthers()) {
+				String name = getName(fv2);
+				if (name != null) {
+					return name;
+				}
+			}
+		} else if (fv instanceof FeatureList) {
+			return ((FeatureList) fv).getName();
+		}
+		return null;
+	}
+	
+	public static boolean hasFeature(FeatureValued fv, String featureName, String prefix) {
+		if (prefix != null && featureName.startsWith(prefix) && featureName.length() > prefix.length() + 1 && featureName.charAt(prefix.length()) == '.' && fv.hasFeature(featureName.substring(prefix.length() + 1))) {
+			return true;
+		} else if (fv.hasFeature(featureName)) {
+			return true;
+		}
+		return false;
+	}
+
+	public static Collection<Double> getFeatureValues(FeatureValued fv) {
+		if (fv instanceof FeatureList) {
+			return ((FeatureList) fv).getFeatures().values();
+		}
+		EList<String> featureNames = fv.getFeatureNames();
+		Double[] values = new Double[featureNames.size()];
+		int num = 0;
+		for (String featureName : featureNames) {
+			values[num++] = fv.getFeatureValue(featureName);
+		}
+		return Arrays.asList(values);
+	}
+
+	public static double[] getFeatureDoubles(FeatureValued fv) {
+		EList<String> featureNames = fv.getFeatureNames();
+		double[] values = new double[featureNames.size()];
+		int num = 0;
+		for (String featureName : featureNames) {
+			values[num++] = fv.getFeatureValue(featureName);
+		}
+		return values;
+	}
+
 	public static FeatureList valueOf(Object... namesValues) {
 		FeatureList featureList = FvFactory.eINSTANCE.createFeatureList();
 		for (int i = 0; i < namesValues.length; i += 2) {
@@ -429,6 +538,43 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
 		return featureList;
 	}
 	
+	public static FeatureList valueOf(String namesValues, String prefix, String nameQuote, String nameValueSeparator, String featureSeparator, String suffix) {
+		if (prefix != null && namesValues.startsWith(prefix)) {
+			namesValues = namesValues.substring(prefix.length());
+		}
+		if (suffix != null && namesValues.endsWith(suffix)) {
+			namesValues = namesValues.substring(0, namesValues.length() - suffix.length());
+		}
+		String[] features = namesValues.split(Pattern.quote(featureSeparator));
+		Collection<Object> args = new ArrayList<Object>(features.length * 2);
+		for (int i = 0; i < features.length; i++) {
+			String feature = features[i];
+			int pos = feature.indexOf(nameValueSeparator);
+			if (pos > 0) {
+				String featureName = feature.substring(0, pos);
+				if (nameQuote != null) {
+					if (featureName.startsWith(nameQuote)) {
+						featureName = featureName.substring(nameQuote.length());
+					}
+					if (featureName.endsWith(nameQuote)) {
+						featureName = featureName.substring(0, featureName.length() - nameQuote.length());
+					}
+				}
+				try {
+					Double value = Double.valueOf(feature.substring(pos + nameValueSeparator.length()));
+					args.add(featureName);
+					args.add(value);
+				} catch (NumberFormatException e) {
+				}
+			}
+		}
+		return valueOf(args.toArray());
+	}
+	
+	public static FeatureList valueOf(String namesValues) {
+		return valueOf(namesValues, "[", null, ":", " ", "]");
+	}
+
 	public static String toString(FeatureValued features, String prefix, String nameQuote, String nameValueSeparator, String featureSeparator, String suffix) {
 		StringBuilder buffer = new StringBuilder();
 		if (prefix != null) {

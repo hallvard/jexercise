@@ -18,7 +18,6 @@ import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.Type;
 
-import no.hal.learning.exercise.jdt.Activator;
 import no.hal.learning.fv.FeatureValued;
 
 public abstract class AbstractASTMetricsProvider extends AbstractMetricsProvider {

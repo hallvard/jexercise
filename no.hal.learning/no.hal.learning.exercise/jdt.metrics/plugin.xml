@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+   <extension-point id="metricsViewProvider" name="metricsViewProvider" schema="schema/metricsViewProvider.exsd"/>
+
+   <extension
+         point="no.hal.learning.exercise.jdt.metricsProvider">
+         <metricsProvider
+         	name="lineCount"
+         	providerClass="no.hal.learning.exercise.jdt.metrics.impl.LineCountMetric"
+         />
+         <metricsProvider
+         	name="tokenCounters"
+         	providerClass="no.hal.learning.exercise.jdt.metrics.impl.TokenCountersMetric"
+         />
+         <metricsProvider
+         	name="nameCounters"
+         	providerClass="no.hal.learning.exercise.jdt.metrics.impl.QNameCountersMetric"
+         />
+         <metricsProvider
+         	name="conditionalCounters"
+         	providerClass="no.hal.learning.exercise.jdt.metrics.impl.ConditionalCountersMetric"
+         />
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Metrics"
+            class="no.hal.learning.exercise.jdt.metrics.ui.MetricsView"
+            id="no.hal.learning.exercise.jdt.ui.MetricsView"
+            >
+      </view>
+   </extension>
+            
+     <extension
+         point="no.hal.learning.exercise.jdt.metrics.metricsViewProvider">
+         <metricsViewProvider name="Control structures">
+         	<expressions
+         		expressions="for=ForStatement+EnhancedForStatement
+         					while=WhileStatement+DoStatement
+         					exit=BreakStatement+ContinueStatement
+         					if=IfStatement
+         					switch/case=SwitchStatement+SwitchCase
+         					throw=ThrowStatement
+         					try/catch=TryStatement+CatchClause">
+         		<derived>
+         			<constant names="ForStatement EnhancedForStatement
+         						WhileStatement DoStatement
+         						BreakStatement ContinueStatement
+         						IfStatement
+         						SwitchStatement SwitchCase
+         						ThrowStatement
+         						TryStatement CatchClause"/>
+	                <features ref="tokenCounters"/>
+         		</derived>
+         	</expressions>
+         </metricsViewProvider>
+         <metricsViewProvider name="Java API">
+           	<expressions
+         		expressions="String=java_lang_String
+         					Collection=java_util_Collection
+         					List=java_util_List
+         					ArrayList=java_util_ArrayList
+         					Arrays.asList=java_util_Arrays_asList__">
+         		<derived>
+         			<constant names="java_lang_String
+         						java_util_Collection java_util_List java_util_ArrayList
+         						java_util_Arrays_asList__"/>
+	                <features ref="nameCounters"/>
+         		</derived>
+         	</expressions>
+         </metricsViewProvider>
+   </extension>
+
+</plugin>

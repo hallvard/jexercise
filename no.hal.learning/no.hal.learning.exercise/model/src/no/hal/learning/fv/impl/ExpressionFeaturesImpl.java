@@ -223,13 +223,27 @@ public class ExpressionFeaturesImpl extends DerivedFeaturesImpl implements Expre
 		ExpressionBuilder builder = new ExpressionBuilder(features.get(featureName));
 		EList<String> variables = getOther().getFeatureNames();
 		for (String var : variables) {
-			builder.variable(var);
+			builder.variable(mangle(var));
 		}
 		Expression expr = builder.build();
 		for (String var : variables) {
-			expr.setVariable(var, getOther().getFeatureValue(var));
+			double value = getOther().getFeatureValue(var);
+			expr.setVariable(mangle(var), value);
 		}
 		return expr.evaluate();
+	}
+	
+	protected String mangle(String var) {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < var.length(); i++) {
+			char c = var.charAt(i);
+			if (Character.isAlphabetic(c) || Character.isDigit(c)) {
+				builder.append(c);
+			} else {
+				builder.append('_');				
+			}
+		}
+		return builder.toString();
 	}
 
 	@Override

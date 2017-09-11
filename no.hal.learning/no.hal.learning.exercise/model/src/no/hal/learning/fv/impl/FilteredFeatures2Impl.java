@@ -2,8 +2,10 @@
  */
 package no.hal.learning.fv.impl;
 
+import no.hal.learning.fv.FeatureValued;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import no.hal.learning.fv.FilteredFeatures2;
@@ -20,6 +22,7 @@ import no.hal.learning.fv.Pred2Kind;
  * <ul>
  *   <li>{@link no.hal.learning.fv.impl.FilteredFeatures2Impl#getPred <em>Pred</em>}</li>
  *   <li>{@link no.hal.learning.fv.impl.FilteredFeatures2Impl#getVal <em>Val</em>}</li>
+ *   <li>{@link no.hal.learning.fv.impl.FilteredFeatures2Impl#getValFeatures <em>Val Features</em>}</li>
  *   <li>{@link no.hal.learning.fv.impl.FilteredFeatures2Impl#isSwap <em>Swap</em>}</li>
  * </ul>
  *
@@ -65,6 +68,16 @@ public class FilteredFeatures2Impl extends FilteredFeaturesImpl implements Filte
 	 * @ordered
 	 */
 	protected double val = VAL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValFeatures() <em>Val Features</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValFeatures()
+	 * @generated
+	 * @ordered
+	 */
+	protected FeatureValued valFeatures;
 
 	/**
 	 * The default value of the '{@link #isSwap() <em>Swap</em>}' attribute.
@@ -156,6 +169,44 @@ public class FilteredFeatures2Impl extends FilteredFeaturesImpl implements Filte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FeatureValued getValFeatures() {
+		if (valFeatures != null && valFeatures.eIsProxy()) {
+			InternalEObject oldValFeatures = (InternalEObject)valFeatures;
+			valFeatures = (FeatureValued)eResolveProxy(oldValFeatures);
+			if (valFeatures != oldValFeatures) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FvPackage.FILTERED_FEATURES2__VAL_FEATURES, oldValFeatures, valFeatures));
+			}
+		}
+		return valFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureValued basicGetValFeatures() {
+		return valFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValFeatures(FeatureValued newValFeatures) {
+		FeatureValued oldValFeatures = valFeatures;
+		valFeatures = newValFeatures;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FvPackage.FILTERED_FEATURES2__VAL_FEATURES, oldValFeatures, valFeatures));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public boolean isSwap() {
 		return swap;
@@ -186,6 +237,9 @@ public class FilteredFeatures2Impl extends FilteredFeaturesImpl implements Filte
 				return getPred();
 			case FvPackage.FILTERED_FEATURES2__VAL:
 				return getVal();
+			case FvPackage.FILTERED_FEATURES2__VAL_FEATURES:
+				if (resolve) return getValFeatures();
+				return basicGetValFeatures();
 			case FvPackage.FILTERED_FEATURES2__SWAP:
 				return isSwap();
 		}
@@ -205,6 +259,9 @@ public class FilteredFeatures2Impl extends FilteredFeaturesImpl implements Filte
 				return;
 			case FvPackage.FILTERED_FEATURES2__VAL:
 				setVal((Double)newValue);
+				return;
+			case FvPackage.FILTERED_FEATURES2__VAL_FEATURES:
+				setValFeatures((FeatureValued)newValue);
 				return;
 			case FvPackage.FILTERED_FEATURES2__SWAP:
 				setSwap((Boolean)newValue);
@@ -227,6 +284,9 @@ public class FilteredFeatures2Impl extends FilteredFeaturesImpl implements Filte
 			case FvPackage.FILTERED_FEATURES2__VAL:
 				setVal(VAL_EDEFAULT);
 				return;
+			case FvPackage.FILTERED_FEATURES2__VAL_FEATURES:
+				setValFeatures((FeatureValued)null);
+				return;
 			case FvPackage.FILTERED_FEATURES2__SWAP:
 				setSwap(SWAP_EDEFAULT);
 				return;
@@ -246,6 +306,8 @@ public class FilteredFeatures2Impl extends FilteredFeaturesImpl implements Filte
 				return pred != PRED_EDEFAULT;
 			case FvPackage.FILTERED_FEATURES2__VAL:
 				return val != VAL_EDEFAULT;
+			case FvPackage.FILTERED_FEATURES2__VAL_FEATURES:
+				return valFeatures != null;
 			case FvPackage.FILTERED_FEATURES2__SWAP:
 				return swap != SWAP_EDEFAULT;
 		}
@@ -277,7 +339,8 @@ public class FilteredFeatures2Impl extends FilteredFeaturesImpl implements Filte
 	@Override
 	protected boolean acceptFeature(String featureName, double value) {
 		double val1 = value;
-		double val2 = getVal();
+		FeatureValued features2 = getValFeatures();
+		double val2 = (features2 != null && features2.hasFeature(featureName) ? features2.getFeatureValue(featureName) : getVal());
 		if (swap) {
 			double val = val1;
 			val1 = val2;

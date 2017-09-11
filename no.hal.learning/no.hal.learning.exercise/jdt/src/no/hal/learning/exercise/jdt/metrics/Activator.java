@@ -1,4 +1,4 @@
-package no.hal.learning.exercise.jdt;
+package no.hal.learning.exercise.jdt.metrics;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,8 +9,6 @@ import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-
-import no.hal.learning.exercise.jdt.metrics.IMetricsProvider;
 
 public class Activator implements BundleActivator {
 

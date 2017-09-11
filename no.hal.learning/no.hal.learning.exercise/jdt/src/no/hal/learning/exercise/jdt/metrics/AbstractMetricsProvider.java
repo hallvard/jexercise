@@ -7,23 +7,24 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.jdt.core.ICompilationUnit;
 
-import no.hal.learning.exercise.jdt.Activator;
 import no.hal.learning.fv.FeatureList;
 import no.hal.learning.fv.FeatureValued;
 import no.hal.learning.fv.FvFactory;
 
 public abstract class AbstractMetricsProvider implements IMetricsProvider {
 	
-	protected FeatureList createFeatureList() {
-		return FvFactory.eINSTANCE.createFeatureList();
+	protected FeatureList createFeatureList(String name) {
+		FeatureList fl = FvFactory.eINSTANCE.createFeatureList();
+		fl.setName(name);
+		return fl;
 	}
 	
 	protected void addFeature(FeatureList fv, String name, double value) {
 		fv.getFeatures().put(name, value);
 	}
 
-	protected FeatureList createFeatureList(String name, double value) {
-		FeatureList fv = createFeatureList();
+	protected FeatureList createFeatureList(String name, String featureName, double value) {
+		FeatureList fv = createFeatureList(name);
 		addFeature(fv, name, value);
 		return fv;
 	}

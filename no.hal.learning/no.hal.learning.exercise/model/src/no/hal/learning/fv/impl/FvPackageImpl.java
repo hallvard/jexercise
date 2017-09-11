@@ -371,8 +371,17 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFeatureList_Name() {
+		return (EAttribute)featureListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getFeatureList_Features() {
-		return (EReference)featureListEClass.getEStructuralFeatures().get(0);
+		return (EReference)featureListEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -659,8 +668,17 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFilteredFeatures2_ValFeatures() {
+		return (EReference)filteredFeatures2EClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getFilteredFeatures2_Swap() {
-		return (EAttribute)filteredFeatures2EClass.getEStructuralFeatures().get(2);
+		return (EAttribute)filteredFeatures2EClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -831,6 +849,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		createEAttribute(stringToDoubleEClass, STRING_TO_DOUBLE__VALUE);
 
 		featureListEClass = createEClass(FEATURE_LIST);
+		createEAttribute(featureListEClass, FEATURE_LIST__NAME);
 		createEReference(featureListEClass, FEATURE_LIST__FEATURES);
 		createEOperation(featureListEClass, FEATURE_LIST___SET__FEATUREVALUED_BOOLEAN);
 		createEOperation(featureListEClass, FEATURE_LIST___APPLY__OP1);
@@ -872,6 +891,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		filteredFeatures2EClass = createEClass(FILTERED_FEATURES2);
 		createEAttribute(filteredFeatures2EClass, FILTERED_FEATURES2__PRED);
 		createEAttribute(filteredFeatures2EClass, FILTERED_FEATURES2__VAL);
+		createEReference(filteredFeatures2EClass, FILTERED_FEATURES2__VAL_FEATURES);
 		createEAttribute(filteredFeatures2EClass, FILTERED_FEATURES2__SWAP);
 
 		stringToStringEClass = createEClass(STRING_TO_STRING);
@@ -957,6 +977,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		initEAttribute(getStringToDouble_Value(), ecorePackage.getEDoubleObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(featureListEClass, FeatureList.class, "FeatureList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFeatureList_Name(), ecorePackage.getEString(), "name", null, 0, 1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFeatureList_Features(), this.getStringToDouble(), null, "features", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getFeatureList__Set__FeatureValued_boolean(), null, "set", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1021,6 +1042,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		initEClass(filteredFeatures2EClass, FilteredFeatures2.class, "FilteredFeatures2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFilteredFeatures2_Pred(), this.getPred2Kind(), "pred", null, 0, 1, FilteredFeatures2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFilteredFeatures2_Val(), ecorePackage.getEDouble(), "val", null, 0, 1, FilteredFeatures2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFilteredFeatures2_ValFeatures(), this.getFeatureValued(), null, "valFeatures", null, 0, 1, FilteredFeatures2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFilteredFeatures2_Swap(), ecorePackage.getEBoolean(), "swap", null, 0, 1, FilteredFeatures2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringToStringEClass, Map.Entry.class, "StringToString", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);

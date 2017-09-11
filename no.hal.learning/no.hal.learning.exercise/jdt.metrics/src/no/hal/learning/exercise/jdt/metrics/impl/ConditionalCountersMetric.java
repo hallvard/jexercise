@@ -1,4 +1,4 @@
-package no.hal.learning.exercise.jdt.metrics;
+package no.hal.learning.exercise.jdt.metrics.impl;
 
 import java.util.Map;
 

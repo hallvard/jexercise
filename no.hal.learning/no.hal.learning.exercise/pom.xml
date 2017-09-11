@@ -34,6 +34,7 @@
   	<module>model.ui</module>
   	<module>workspace</module>
   	<module>junit</module>
+  	<module>jdt.ecore</module>
   	<module>jdt</module>
   	<module>pydev</module>
   	<!-- 

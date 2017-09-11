@@ -1,4 +1,4 @@
-package no.hal.learning.exercise.jdt.ui;
+package no.hal.learning.exercise.jdt.metrics.ui;
 
 import java.util.Map;
 import java.util.Map.Entry;

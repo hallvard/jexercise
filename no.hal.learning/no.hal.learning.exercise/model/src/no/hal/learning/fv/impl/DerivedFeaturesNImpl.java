@@ -134,20 +134,22 @@ public class DerivedFeaturesNImpl extends OpDerivedFeaturesImpl implements Deriv
 	@Override
 	public EList<String> getFeatureNames() {
 		EList<String> featureNames = new BasicEList<String>();
-		for (FeatureValued featureValued : getOthers()) {
-			for (String featureName : featureValued.getFeatureNames()) {
+		for (FeatureValued fv : getOthers()) {
+			String name = null; // FeatureListImpl.getName(fv);
+			for (String featureName : fv.getFeatureNames()) {
 				if (! featureNames.contains(featureName)) {
-					featureNames.add(featureName);
+					featureNames.add(name != null ? name + "." + featureName : featureName);
 				}
 			}
 		}
 		return featureNames;
-	}	
+	}
 	
 	@Override
 	public boolean hasFeature(String featureName) {
-		for (FeatureValued featureValued : others) {
-			if (featureValued.hasFeature(featureName)) {
+		for (FeatureValued fv : getOthers()) {
+			String name = FeatureListImpl.getName(fv);
+			if (FeatureListImpl.hasFeature(fv, featureName, name)) {
 				return true;
 			}
 		}

@@ -253,13 +253,22 @@ public interface FvPackage extends EPackage {
 	int FEATURE_LIST = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_LIST__NAME = FEATURE_VALUED_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Features</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_LIST__FEATURES = FEATURE_VALUED_FEATURE_COUNT + 0;
+	int FEATURE_LIST__FEATURES = FEATURE_VALUED_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Feature List</em>' class.
@@ -268,7 +277,7 @@ public interface FvPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_LIST_FEATURE_COUNT = FEATURE_VALUED_FEATURE_COUNT + 1;
+	int FEATURE_LIST_FEATURE_COUNT = FEATURE_VALUED_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Feature Names</em>' operation.
@@ -1182,13 +1191,22 @@ public interface FvPackage extends EPackage {
 	int FILTERED_FEATURES2__VAL = FILTERED_FEATURES_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Val Features</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTERED_FEATURES2__VAL_FEATURES = FILTERED_FEATURES_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Swap</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILTERED_FEATURES2__SWAP = FILTERED_FEATURES_FEATURE_COUNT + 2;
+	int FILTERED_FEATURES2__SWAP = FILTERED_FEATURES_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Filtered Features2</em>' class.
@@ -1197,7 +1215,7 @@ public interface FvPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTERED_FEATURES2_FEATURE_COUNT = FILTERED_FEATURES_FEATURE_COUNT + 3;
+	int FILTERED_FEATURES2_FEATURE_COUNT = FILTERED_FEATURES_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Feature Names</em>' operation.
@@ -1577,6 +1595,17 @@ public interface FvPackage extends EPackage {
 	EClass getFeatureList();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.fv.FeatureList#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.hal.learning.fv.FeatureList#getName()
+	 * @see #getFeatureList()
+	 * @generated
+	 */
+	EAttribute getFeatureList_Name();
+
+	/**
 	 * Returns the meta object for the map '{@link no.hal.learning.fv.FeatureList#getFeatures <em>Features</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1912,6 +1941,17 @@ public interface FvPackage extends EPackage {
 	EAttribute getFilteredFeatures2_Val();
 
 	/**
+	 * Returns the meta object for the reference '{@link no.hal.learning.fv.FilteredFeatures2#getValFeatures <em>Val Features</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Val Features</em>'.
+	 * @see no.hal.learning.fv.FilteredFeatures2#getValFeatures()
+	 * @see #getFilteredFeatures2()
+	 * @generated
+	 */
+	EReference getFilteredFeatures2_ValFeatures();
+
+	/**
 	 * Returns the meta object for the attribute '{@link no.hal.learning.fv.FilteredFeatures2#isSwap <em>Swap</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2192,6 +2232,14 @@ public interface FvPackage extends EPackage {
 		EClass FEATURE_LIST = eINSTANCE.getFeatureList();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FEATURE_LIST__NAME = eINSTANCE.getFeatureList_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Features</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2464,6 +2512,14 @@ public interface FvPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FILTERED_FEATURES2__VAL = eINSTANCE.getFilteredFeatures2_Val();
+
+		/**
+		 * The meta object literal for the '<em><b>Val Features</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILTERED_FEATURES2__VAL_FEATURES = eINSTANCE.getFilteredFeatures2_ValFeatures();
 
 		/**
 		 * The meta object literal for the '<em><b>Swap</b></em>' attribute feature.

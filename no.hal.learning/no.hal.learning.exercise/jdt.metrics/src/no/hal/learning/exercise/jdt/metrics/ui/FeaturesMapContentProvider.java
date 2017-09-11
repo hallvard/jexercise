@@ -1,7 +1,8 @@
-package no.hal.learning.exercise.jdt.ui;
+package no.hal.learning.exercise.jdt.metrics.ui;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -22,6 +23,8 @@ public class FeaturesMapContentProvider implements ITreeContentProvider {
 			return ((Map<?, ?>) inputElement).entrySet().toArray();
 		} else if (inputElement instanceof EMap<?, ?>) {
 			return ((EMap<?, ?>) inputElement).entrySet().toArray();
+		} else if (inputElement instanceof Collection<?>) {
+			return ((Collection<?>) inputElement).toArray();			
 		}
 		return null;
 	}
