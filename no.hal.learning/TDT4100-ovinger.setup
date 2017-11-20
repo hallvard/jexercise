@@ -13,8 +13,8 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         id="tdt4100.clone"
-        location="${installation.location/git/tdt4100-2017}"
-        remoteURI="https://github.com/hallvard/tdt4100-2017.git"
+        location="${installation.location/git/tdt4100-2018}"
+        remoteURI="https://github.com/hallvard/tdt4100-2018.git"
         checkoutBranch="master"/>
     <setupTask
         xsi:type="projects:ProjectsImportTask">
