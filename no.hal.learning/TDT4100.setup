@@ -127,6 +127,10 @@
   <setupTask
       xsi:type="setup:InstallationTask"
       id="installation"/>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-perspective"
+      value="org.eclipse.jdt.ui.JavaPerspective.TDT4100"/>
   <version name="oxygen"
       label="Oxygen"
       requiredJavaVersion="1.8">
