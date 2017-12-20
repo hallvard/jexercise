@@ -12,6 +12,7 @@ import no.hal.learning.fv.FeatureValued;
 import no.hal.learning.fv.FilteredFeatures1;
 import no.hal.learning.fv.FilteredFeatures2;
 import no.hal.learning.fv.FvFactory;
+import no.hal.learning.fv.Op1Kind;
 import no.hal.learning.fv.Op2Kind;
 import no.hal.learning.fv.Pred1Kind;
 import no.hal.learning.fv.Pred2Kind;
@@ -95,9 +96,10 @@ public class FvTest extends TestCase {
 		FeatureList featureList1 = toFeatureList("f1", 1.0, "f2", 2.0);
 		DerivedFeatures1 derivedFeatures = FvFactory.eINSTANCE.createDerivedFeatures1();
 		derivedFeatures.setOp(Op2Kind.PLUS);
+		derivedFeatures.setOp1(Op1Kind.NEG);
 		derivedFeatures.setVal(3.0);
 		derivedFeatures.setOther(featureList1);
-		testFeatures(derivedFeatures, "f1", 4.0, "f2", 5.0);
+		testFeatures(derivedFeatures, "f1", -4.0, "f2", -5.0);
 	}
 	
 	public void testDerivedFeaturesN() {
@@ -105,13 +107,14 @@ public class FvTest extends TestCase {
 		FeatureList featureList2 = toFeatureList("f1", 3.0, "f2", 4.0);
 		DerivedFeaturesN derivedFeatures = FvFactory.eINSTANCE.createDerivedFeaturesN();
 		derivedFeatures.setOp(Op2Kind.PLUS);
+		derivedFeatures.setOp1(Op1Kind.NEG);
 		derivedFeatures.setVal(0.0);
 		derivedFeatures.getOthers().add(featureList1);
-		testFeatures(derivedFeatures, "f1", 1.0, "f2", 2.0);
+		testFeatures(derivedFeatures, "f1", -1.0, "f2", -2.0);
 		derivedFeatures.getContained().add(featureList2);
-		testFeatures(derivedFeatures, "f1", 4.0, "f2", 6.0);
+		testFeatures(derivedFeatures, "f1", -4.0, "f2", -6.0);
 		derivedFeatures.getOthers().add(featureList2);
-		testFeatures(derivedFeatures, "f1", 4.0, "f2", 6.0);
+		testFeatures(derivedFeatures, "f1", -4.0, "f2", -6.0);
 	}
 	
 	public void testFilteredFeatures1() {

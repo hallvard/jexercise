@@ -47,4 +47,12 @@ public interface TaskAnswer extends Answer {
 	 */
 	void setRequiredCount(int value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean acceptEvent(TaskEvent event);
+
 } // TaskAnswer

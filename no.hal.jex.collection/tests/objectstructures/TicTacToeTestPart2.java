@@ -1,8 +1,8 @@
 package objectstructures;
 
+import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
-import junit.framework.TestCase;
 
 @JExercise(
 	description="A TicTacToe class must hold all logic necessary for playing Tic-Tac-Toe game."

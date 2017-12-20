@@ -18,6 +18,7 @@ import no.hal.learning.exercise.jdt.*;
 import no.hal.learning.exercise.workspace.LaunchAnswer;
 import no.hal.learning.exercise.workspace.LaunchEvent;
 import no.hal.learning.exercise.workspace.LaunchProposal;
+import no.hal.learning.exercise.workspace.SourceFileEditAnswer;
 import no.hal.learning.exercise.workspace.SourceFileEditEvent;
 import no.hal.learning.fv.EFeatureObject;
 import no.hal.learning.fv.FeatureValued;
@@ -86,6 +87,7 @@ public class JdtSwitch<T1> extends Switch<T1> {
 			case JdtPackage.JDT_SOURCE_EDIT_ANSWER: {
 				JdtSourceEditAnswer jdtSourceEditAnswer = (JdtSourceEditAnswer)theEObject;
 				T1 result = caseJdtSourceEditAnswer(jdtSourceEditAnswer);
+				if (result == null) result = caseSourceFileEditAnswer(jdtSourceEditAnswer);
 				if (result == null) result = caseStringEditAnswer(jdtSourceEditAnswer);
 				if (result == null) result = caseTaskAnswer(jdtSourceEditAnswer);
 				if (result == null) result = caseAnswer(jdtSourceEditAnswer);
@@ -319,6 +321,21 @@ public class JdtSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseStringEditAnswer(StringEditAnswer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Source File Edit Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Source File Edit Answer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseSourceFileEditAnswer(SourceFileEditAnswer object) {
 		return null;
 	}
 

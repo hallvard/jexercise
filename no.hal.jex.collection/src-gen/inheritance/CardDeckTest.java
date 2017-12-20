@@ -139,30 +139,30 @@ public class CardDeckTest extends TestCase {
   
   @JExercise(tests = "CardDeck(int)", description = "<h3>Tester maxCardCount</h3>Tests \n\t\tinitialization\n")
   public void testAddCard() {
-    _test__addCard_transitions0_effect_state();
+    _test__addCard_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "CardDeck(int)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>deck.iterator</li>\n\t\t</ul>\n")
   public void testCardContainer() {
     _transition_exprAction__cardContainer_transitions0_actions0();
-    _test__cardContainer_transitions0_effect_state();
+    _test__cardContainer_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "CardDeck(int)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>deck.iterator</li>\n\t\t</ul>\n")
   public void testDeckIterator() {
     _transition_exprAction__deckIterator_transitions0_actions0();
-    _test__deckIterator_transitions0_effect_state();
+    _test__deckIterator_transitions0_effects0_state();
     
   }
   
-  private void _test__addCard_transitions0_effect_state() {
-    _test__addCard_transitions0_effect_state_objectTests0_test();
+  private void _test__addCard_transitions0_effects0_state() {
+    _test__addCard_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addCard_transitions0_effect_state_objectTests0_test() {
+  private void _test__addCard_transitions0_effects0_state_objectTests0_test() {
     try {
       
       } catch (junit.framework.AssertionFailedError error) {
@@ -184,12 +184,12 @@ public class CardDeckTest extends TestCase {
     
   }
   
-  private void _test__cardContainer_transitions0_effect_state() {
-    _test__cardContainer_transitions0_effect_state_objectTests0_test(deck);
+  private void _test__cardContainer_transitions0_effects0_state() {
+    _test__cardContainer_transitions0_effects0_state_objectTests0_test(deck);
     
   }
   
-  private void _test__cardContainer_transitions0_effect_state_objectTests0_test(final CardDeck it) {
+  private void _test__cardContainer_transitions0_effects0_state_objectTests0_test(final CardDeck it) {
     try {
       
       this.testCards(it, this.expected);
@@ -209,12 +209,12 @@ public class CardDeckTest extends TestCase {
     
   }
   
-  private void _test__deckIterator_transitions0_effect_state() {
-    _test__deckIterator_transitions0_effect_state_objectTests0_test(deck);
+  private void _test__deckIterator_transitions0_effects0_state() {
+    _test__deckIterator_transitions0_effects0_state_objectTests0_test(deck);
     
   }
   
-  private void _test__deckIterator_transitions0_effect_state_objectTests0_test(final CardDeck it) {
+  private void _test__deckIterator_transitions0_effects0_state_objectTests0_test(final CardDeck it) {
     try {
       
       Iterator<Card> _iterator = this.expected.iterator();
@@ -223,9 +223,5 @@ public class CardDeckTest extends TestCase {
       fail("testCards(expected.iterator) failed after deck.iterator: " + error.getMessage());
     }
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(CardDeckTest.class);
   }
 }

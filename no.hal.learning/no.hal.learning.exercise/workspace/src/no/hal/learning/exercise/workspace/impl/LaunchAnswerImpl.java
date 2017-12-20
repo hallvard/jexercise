@@ -4,9 +4,11 @@ package no.hal.learning.exercise.workspace.impl;
 
 import java.util.Collection;
 
+import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.impl.TaskAnswerImpl;
-
+import no.hal.learning.exercise.util.Util;
 import no.hal.learning.exercise.workspace.LaunchAnswer;
+import no.hal.learning.exercise.workspace.LaunchEvent;
 import no.hal.learning.exercise.workspace.WorkspacePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -238,6 +240,17 @@ public class LaunchAnswerImpl extends TaskAnswerImpl implements LaunchAnswer {
 		result.append(launchAttrValues);
 		result.append(')');
 		return result.toString();
+	}
+	
+	//
+	
+	@Override
+	public boolean acceptEvent(TaskEvent event) {
+		if (! (event instanceof LaunchEvent)) {
+			return false;
+		}
+		LaunchEvent launchEvent = (LaunchEvent) event;
+		return Util.accept(getMode(), launchEvent.getMode());
 	}
 
 } //LaunchAnswerImpl

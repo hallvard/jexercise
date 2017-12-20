@@ -31,36 +31,36 @@ public class TwitterAccountTest extends TestCase {
   
   @JExercise(tests = "TwitterAccount(String)", description = "<h3>Konstrukt\u00F8r</h3>Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state();
+    _test__constructor_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "TwitterAccount(String);void follow(objectstructures.TwitterAccount)", description = "<h3>F\u00F8lge en annen bruker</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Nils f\u00F8lger Ole: nils.follow(ole)</li>\n\t\t<li>Ole f\u00F8lger Nils: ole.follow(nils)</li>\n\t\t</ul>\n")
   public void testFollow() {
     _transition_exprAction__follow_transitions0_actions0();
-    _test__follow_transitions0_effect_state();
+    _test__follow_transitions0_effects0_state();
     _transition_exprAction__follow_transitions1_actions0();
-    _test__follow_transitions1_effect_state();
+    _test__follow_transitions1_effects0_state();
     
   }
   
   @JExercise(tests = "TwitterAccount(String);void unfollow(objectstructures.TwitterAccount);void follow(objectstructures.TwitterAccount)", description = "<h3>Slutte \u00E5 f\u00F8lge en annen bruker</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Nils slutter \u00E5 f\u00F8lge Ole uten \u00E5 f\u00F8lge han fra f\u00F8r: nils.unfollow(ole)</li>\n\t\t<li>Nils f\u00F8lger Ole: nils.follow(ole)</li>\n\t\t<li>Nils slutter \u00E5 f\u00F8lge Ole: nils.unfollow(ole)</li>\n\t\t</ul>\n")
   public void testUnfollow() {
     _transition_exprAction__unfollow_transitions0_actions0();
-    _test__unfollow_transitions0_effect_state();
+    _test__unfollow_transitions0_effects0_state();
     _transition_exprAction__unfollow_transitions1_actions0();
-    _test__unfollow_transitions1_effect_state();
+    _test__unfollow_transitions1_effects0_state();
     _transition_exprAction__unfollow_transitions2_actions0();
-    _test__unfollow_transitions2_effect_state();
+    _test__unfollow_transitions2_effects0_state();
     
   }
   
   @JExercise(tests = "TwitterAccount(String);void tweet(String)", description = "<h3>Opprette ny tweet</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Nils tvitrer: nils.tweet(\"Kvitre!\")</li>\n\t\t<li>Nils tvitrer en gang til: nils.tweet(\"Kvitre igjen!\")</li>\n\t\t</ul>\n")
   public void testNewTweet() {
     _transition_exprAction__newTweet_transitions0_actions0();
-    _test__newTweet_transitions0_effect_state();
+    _test__newTweet_transitions0_effects0_state();
     _transition_exprAction__newTweet_transitions1_actions0();
-    _test__newTweet_transitions1_effect_state();
+    _test__newTweet_transitions1_effects0_state();
     
   }
   
@@ -79,7 +79,7 @@ public class TwitterAccountTest extends TestCase {
       assertTrue("RuntimeException should be thrown after nils.getTweet(-1)", e_1 instanceof RuntimeException);
     }
     _transition_exprAction__getTweetIllegal_transitions2_actions0();
-    _test__getTweetIllegal_transitions2_effect_state();
+    _test__getTweetIllegal_transitions2_effects0_state();
     try {
       _transition_exprAction__getTweetIllegal_transitions3_actions0();
       fail("RuntimeException should be thrown after nils.getTweet(2)");
@@ -99,21 +99,21 @@ public class TwitterAccountTest extends TestCase {
   public void testRetweet() {
     TwitterAccount kari = _init__retweet_kari();
     _transition_exprAction__retweet_transitions0_actions0(kari);
-    _test__retweet_transitions0_effect_state(kari);
+    _test__retweet_transitions0_effects0_state(kari);
     _transition_exprAction__retweet_transitions1_actions0(kari);
-    _test__retweet_transitions1_effect_state(kari);
+    _test__retweet_transitions1_effects0_state(kari);
     _transition_exprAction__retweet_transitions2_actions0(kari);
-    _test__retweet_transitions2_effect_state(kari);
+    _test__retweet_transitions2_effects0_state(kari);
     
   }
   
-  private void _test__constructor_transitions0_effect_state() {
-    _test__constructor_transitions0_effect_state_objectTests0_test(nils);
-    _test__constructor_transitions0_effect_state_objectTests1_test(ole);
+  private void _test__constructor_transitions0_effects0_state() {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(nils);
+    _test__constructor_transitions0_effects0_state_objectTests1_test(ole);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final TwitterAccount it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final TwitterAccount it) {
     
     String _userName = it.getUserName();
     assertEquals("userName == \"Nils\" failed", "Nils", _userName);
@@ -123,7 +123,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests1_test(final TwitterAccount it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests1_test(final TwitterAccount it) {
     
     String _userName = it.getUserName();
     assertEquals("userName == \"Ole\" failed", "Ole", _userName);
@@ -143,13 +143,13 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__follow_transitions0_effect_state() {
-    _test__follow_transitions0_effect_state_objectTests0_test(nils);
-    _test__follow_transitions0_effect_state_objectTests1_test(ole);
+  private void _test__follow_transitions0_effects0_state() {
+    _test__follow_transitions0_effects0_state_objectTests0_test(nils);
+    _test__follow_transitions0_effects0_state_objectTests1_test(ole);
     
   }
   
-  private void _test__follow_transitions0_effect_state_objectTests0_test(final TwitterAccount it) {
+  private void _test__follow_transitions0_effects0_state_objectTests0_test(final TwitterAccount it) {
     
     boolean _isFollowing = it.isFollowing(this.ole);
     assertTrue("isFollowing(ole) failed after nils.follow(ole)", _isFollowing);
@@ -159,7 +159,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__follow_transitions0_effect_state_objectTests1_test(final TwitterAccount it) {
+  private void _test__follow_transitions0_effects0_state_objectTests1_test(final TwitterAccount it) {
     
     boolean _isFollowing = it.isFollowing(this.nils);
     boolean _not = (!_isFollowing);
@@ -179,13 +179,13 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__follow_transitions1_effect_state() {
-    _test__follow_transitions1_effect_state_objectTests0_test(nils);
-    _test__follow_transitions1_effect_state_objectTests1_test(ole);
+  private void _test__follow_transitions1_effects0_state() {
+    _test__follow_transitions1_effects0_state_objectTests0_test(nils);
+    _test__follow_transitions1_effects0_state_objectTests1_test(ole);
     
   }
   
-  private void _test__follow_transitions1_effect_state_objectTests0_test(final TwitterAccount it) {
+  private void _test__follow_transitions1_effects0_state_objectTests0_test(final TwitterAccount it) {
     
     boolean _isFollowing = it.isFollowing(this.ole);
     assertTrue("isFollowing(ole) failed after ole.follow(nils)", _isFollowing);
@@ -194,7 +194,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__follow_transitions1_effect_state_objectTests1_test(final TwitterAccount it) {
+  private void _test__follow_transitions1_effects0_state_objectTests1_test(final TwitterAccount it) {
     
     boolean _isFollowing = it.isFollowing(this.nils);
     assertTrue("isFollowing(nils) failed after ole.follow(nils)", _isFollowing);
@@ -213,13 +213,13 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__unfollow_transitions0_effect_state() {
-    _test__unfollow_transitions0_effect_state_objectTests0_test(nils);
-    _test__unfollow_transitions0_effect_state_objectTests1_test(ole);
+  private void _test__unfollow_transitions0_effects0_state() {
+    _test__unfollow_transitions0_effects0_state_objectTests0_test(nils);
+    _test__unfollow_transitions0_effects0_state_objectTests1_test(ole);
     
   }
   
-  private void _test__unfollow_transitions0_effect_state_objectTests0_test(final TwitterAccount it) {
+  private void _test__unfollow_transitions0_effects0_state_objectTests0_test(final TwitterAccount it) {
     
     boolean _isFollowing = it.isFollowing(this.ole);
     boolean _not = (!_isFollowing);
@@ -230,7 +230,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__unfollow_transitions0_effect_state_objectTests1_test(final TwitterAccount it) {
+  private void _test__unfollow_transitions0_effects0_state_objectTests1_test(final TwitterAccount it) {
     
     boolean _isFollowing = it.isFollowing(this.nils);
     boolean _not = (!_isFollowing);
@@ -251,13 +251,13 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__unfollow_transitions1_effect_state() {
-    _test__unfollow_transitions1_effect_state_objectTests0_test(nils);
-    _test__unfollow_transitions1_effect_state_objectTests1_test(ole);
+  private void _test__unfollow_transitions1_effects0_state() {
+    _test__unfollow_transitions1_effects0_state_objectTests0_test(nils);
+    _test__unfollow_transitions1_effects0_state_objectTests1_test(ole);
     
   }
   
-  private void _test__unfollow_transitions1_effect_state_objectTests0_test(final TwitterAccount it) {
+  private void _test__unfollow_transitions1_effects0_state_objectTests0_test(final TwitterAccount it) {
     
     boolean _isFollowing = it.isFollowing(this.ole);
     assertTrue("isFollowing(ole) failed after nils.follow(ole)", _isFollowing);
@@ -267,7 +267,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__unfollow_transitions1_effect_state_objectTests1_test(final TwitterAccount it) {
+  private void _test__unfollow_transitions1_effects0_state_objectTests1_test(final TwitterAccount it) {
     
     boolean _isFollowing = it.isFollowing(this.nils);
     boolean _not = (!_isFollowing);
@@ -287,13 +287,13 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__unfollow_transitions2_effect_state() {
-    _test__unfollow_transitions2_effect_state_objectTests0_test(nils);
-    _test__unfollow_transitions2_effect_state_objectTests1_test(ole);
+  private void _test__unfollow_transitions2_effects0_state() {
+    _test__unfollow_transitions2_effects0_state_objectTests0_test(nils);
+    _test__unfollow_transitions2_effects0_state_objectTests1_test(ole);
     
   }
   
-  private void _test__unfollow_transitions2_effect_state_objectTests0_test(final TwitterAccount it) {
+  private void _test__unfollow_transitions2_effects0_state_objectTests0_test(final TwitterAccount it) {
     
     boolean _isFollowing = it.isFollowing(this.ole);
     boolean _not = (!_isFollowing);
@@ -304,7 +304,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__unfollow_transitions2_effect_state_objectTests1_test(final TwitterAccount it) {
+  private void _test__unfollow_transitions2_effects0_state_objectTests1_test(final TwitterAccount it) {
     
     boolean _isFollowing = it.isFollowing(this.nils);
     boolean _not = (!_isFollowing);
@@ -325,12 +325,12 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__newTweet_transitions0_effect_state() {
-    _test__newTweet_transitions0_effect_state_objectTests0_test(nils);
+  private void _test__newTweet_transitions0_effects0_state() {
+    _test__newTweet_transitions0_effects0_state_objectTests0_test(nils);
     
   }
   
-  private void _test__newTweet_transitions0_effect_state_objectTests0_test(final TwitterAccount it) {
+  private void _test__newTweet_transitions0_effects0_state_objectTests0_test(final TwitterAccount it) {
     
     int _tweetCount = it.getTweetCount();
     assertEquals("tweetCount == 1 failed after nils.tweet(\"Kvitre!\")", 1, _tweetCount);
@@ -351,12 +351,12 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__newTweet_transitions1_effect_state() {
-    _test__newTweet_transitions1_effect_state_objectTests0_test(nils);
+  private void _test__newTweet_transitions1_effects0_state() {
+    _test__newTweet_transitions1_effects0_state_objectTests0_test(nils);
     
   }
   
-  private void _test__newTweet_transitions1_effect_state_objectTests0_test(final TwitterAccount it) {
+  private void _test__newTweet_transitions1_effects0_state_objectTests0_test(final TwitterAccount it) {
     
     int _tweetCount = it.getTweetCount();
     assertEquals("tweetCount == 2 failed after nils.tweet(\"Kvitre igjen!\")", 2, _tweetCount);
@@ -401,12 +401,12 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__getTweetIllegal_transitions2_effect_state() {
-    _test__getTweetIllegal_transitions2_effect_state_objectTests0_test();
+  private void _test__getTweetIllegal_transitions2_effects0_state() {
+    _test__getTweetIllegal_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__getTweetIllegal_transitions2_effect_state_objectTests0_test() {
+  private void _test__getTweetIllegal_transitions2_effects0_state_objectTests0_test() {
     try {
       
       /* true */
@@ -451,12 +451,12 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__retweet_transitions0_effect_state(final TwitterAccount kari) {
-    _test__retweet_transitions0_effect_state_objectTests0_test(nils, kari);
+  private void _test__retweet_transitions0_effects0_state(final TwitterAccount kari) {
+    _test__retweet_transitions0_effects0_state_objectTests0_test(nils, kari);
     
   }
   
-  private void _test__retweet_transitions0_effect_state_objectTests0_test(final TwitterAccount it, final TwitterAccount kari) {
+  private void _test__retweet_transitions0_effects0_state_objectTests0_test(final TwitterAccount it, final TwitterAccount kari) {
     
     int _tweetCount = it.getTweetCount();
     assertEquals("tweetCount == 1 failed after nils.tweet(\"Kvitre!\")", 1, _tweetCount);
@@ -478,13 +478,13 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__retweet_transitions1_effect_state(final TwitterAccount kari) {
-    _test__retweet_transitions1_effect_state_objectTests0_test(nils, kari);
-    _test__retweet_transitions1_effect_state_objectTests1_test(ole, kari);
+  private void _test__retweet_transitions1_effects0_state(final TwitterAccount kari) {
+    _test__retweet_transitions1_effects0_state_objectTests0_test(nils, kari);
+    _test__retweet_transitions1_effects0_state_objectTests1_test(ole, kari);
     
   }
   
-  private void _test__retweet_transitions1_effect_state_objectTests0_test(final TwitterAccount it, final TwitterAccount kari) {
+  private void _test__retweet_transitions1_effects0_state_objectTests0_test(final TwitterAccount it, final TwitterAccount kari) {
     
     int _tweetCount = it.getTweetCount();
     assertEquals("tweetCount == 1 failed after ole.retweet(nils.getTweet(1))", 1, _tweetCount);
@@ -494,7 +494,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__retweet_transitions1_effect_state_objectTests1_test(final TwitterAccount it, final TwitterAccount kari) {
+  private void _test__retweet_transitions1_effects0_state_objectTests1_test(final TwitterAccount it, final TwitterAccount kari) {
     
     int _tweetCount = it.getTweetCount();
     assertEquals("tweetCount == 1 failed after ole.retweet(nils.getTweet(1))", 1, _tweetCount);
@@ -524,14 +524,14 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__retweet_transitions2_effect_state(final TwitterAccount kari) {
-    _test__retweet_transitions2_effect_state_objectTests0_test(nils, kari);
-    _test__retweet_transitions2_effect_state_objectTests1_test(ole, kari);
-    _test__retweet_transitions2_effect_state_objectTests2_test(kari, kari);
+  private void _test__retweet_transitions2_effects0_state(final TwitterAccount kari) {
+    _test__retweet_transitions2_effects0_state_objectTests0_test(nils, kari);
+    _test__retweet_transitions2_effects0_state_objectTests1_test(ole, kari);
+    _test__retweet_transitions2_effects0_state_objectTests2_test(kari, kari);
     
   }
   
-  private void _test__retweet_transitions2_effect_state_objectTests0_test(final TwitterAccount it, final TwitterAccount kari) {
+  private void _test__retweet_transitions2_effects0_state_objectTests0_test(final TwitterAccount it, final TwitterAccount kari) {
     
     int _tweetCount = it.getTweetCount();
     assertEquals("tweetCount == 1 failed after kari.retweet(ole.getTweet(1))", 1, _tweetCount);
@@ -541,7 +541,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__retweet_transitions2_effect_state_objectTests1_test(final TwitterAccount it, final TwitterAccount kari) {
+  private void _test__retweet_transitions2_effects0_state_objectTests1_test(final TwitterAccount it, final TwitterAccount kari) {
     
     int _tweetCount = it.getTweetCount();
     assertEquals("tweetCount == 1 failed after kari.retweet(ole.getTweet(1))", 1, _tweetCount);
@@ -551,7 +551,7 @@ public class TwitterAccountTest extends TestCase {
     
   }
   
-  private void _test__retweet_transitions2_effect_state_objectTests2_test(final TwitterAccount it, final TwitterAccount kari) {
+  private void _test__retweet_transitions2_effects0_state_objectTests2_test(final TwitterAccount it, final TwitterAccount kari) {
     
     int _tweetCount = it.getTweetCount();
     assertEquals("tweetCount == 1 failed after kari.retweet(ole.getTweet(1))", 1, _tweetCount);
@@ -574,9 +574,5 @@ public class TwitterAccountTest extends TestCase {
     Tweet _originalTweet = _tweet_2.getOriginalTweet();
     assertEquals("getTweet(1).originalTweet == nils.getTweet(1) failed after kari.retweet(ole.getTweet(1))", _tweet_1, _originalTweet);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(TwitterAccountTest.class);
   }
 }

@@ -2,16 +2,19 @@
  */
 package no.hal.learning.exercise.jdt.impl;
 
-import no.hal.learning.exercise.Proposal;
-import no.hal.learning.exercise.jdt.JdtFactory;
-import no.hal.learning.exercise.jdt.JdtLaunchAnswer;
-import no.hal.learning.exercise.jdt.JdtLaunchProposal;
-import no.hal.learning.exercise.jdt.JdtPackage;
-import no.hal.learning.exercise.workspace.impl.LaunchAnswerImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import no.hal.learning.exercise.Proposal;
+import no.hal.learning.exercise.TaskEvent;
+import no.hal.learning.exercise.jdt.JdtFactory;
+import no.hal.learning.exercise.jdt.JdtLaunchAnswer;
+import no.hal.learning.exercise.jdt.JdtLaunchEvent;
+import no.hal.learning.exercise.jdt.JdtLaunchProposal;
+import no.hal.learning.exercise.jdt.JdtPackage;
+import no.hal.learning.exercise.util.Util;
+import no.hal.learning.exercise.workspace.impl.LaunchAnswerImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -171,4 +174,13 @@ public class JdtLaunchAnswerImpl extends LaunchAnswerImpl implements JdtLaunchAn
 		return proposal;
 	}
 
+	@Override
+	public boolean acceptEvent(TaskEvent event) {
+		if (! (super.acceptEvent(event) || (event instanceof JdtLaunchEvent))) {
+			return false;
+		}
+		JdtLaunchEvent launchEvent = (JdtLaunchEvent) event;
+		return Util.acceptQName(getClassName(), launchEvent.getClassName());
+	}
+	
 } //JdtLaunchAnswerImpl

@@ -16,6 +16,7 @@
     <eAnnotations source="exp4j">
       <details key="successRatio" value="successCount / (successCount + failureCount + errorCount)"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="testRunName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="successCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="no.hal.learning.exercise.views.ExerciseView">
         <details key="dashes" value="- "/>

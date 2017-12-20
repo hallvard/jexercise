@@ -74,52 +74,52 @@ public class MergingIteratorTest extends TestCase {
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCaseNone() {
-    _test__caseNone_transitions0_effect_state();
+    _test__caseNone_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCaseEmpty() {
-    _test__caseEmpty_transitions0_effect_state();
+    _test__caseEmpty_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase1() {
-    _test__case1_transitions0_effect_state();
+    _test__case1_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase8613() {
-    _test__case8613_transitions0_effect_state();
+    _test__case8613_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase8614() {
-    _test__case8614_transitions0_effect_state();
+    _test__case8614_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase1486() {
-    _test__case1486_transitions0_effect_state();
+    _test__case1486_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase131486() {
-    _test__case131486_transitions0_effect_state();
+    _test__case131486_transitions0_effects0_state();
     
   }
   
-  private void _test__caseNone_transitions0_effect_state() {
-    _test__caseNone_transitions0_effect_state_objectTests0_test();
+  private void _test__caseNone_transitions0_effects0_state() {
+    _test__caseNone_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__caseNone_transitions0_effect_state_objectTests0_test() {
+  private void _test__caseNone_transitions0_effects0_state_objectTests0_test() {
     try {
       
       MergingIterator<Integer> _mergingIterator = new MergingIterator<Integer>();
@@ -130,12 +130,12 @@ public class MergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__caseEmpty_transitions0_effect_state() {
-    _test__caseEmpty_transitions0_effect_state_objectTests0_test();
+  private void _test__caseEmpty_transitions0_effects0_state() {
+    _test__caseEmpty_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__caseEmpty_transitions0_effect_state_objectTests0_test() {
+  private void _test__caseEmpty_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList()));
@@ -145,12 +145,12 @@ public class MergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case1_transitions0_effect_state() {
-    _test__case1_transitions0_effect_state_objectTests0_test();
+  private void _test__case1_transitions0_effects0_state() {
+    _test__case1_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case1_transitions0_effect_state_objectTests0_test() {
+  private void _test__case1_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1))), 1);
@@ -160,12 +160,12 @@ public class MergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case8613_transitions0_effect_state() {
-    _test__case8613_transitions0_effect_state_objectTests0_test();
+  private void _test__case8613_transitions0_effects0_state() {
+    _test__case8613_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case8613_transitions0_effect_state_objectTests0_test() {
+  private void _test__case8613_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(this.list86, this.list13, 8, 1, 7, 2, 6, 3);
@@ -175,12 +175,12 @@ public class MergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case8614_transitions0_effect_state() {
-    _test__case8614_transitions0_effect_state_objectTests0_test();
+  private void _test__case8614_transitions0_effects0_state() {
+    _test__case8614_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case8614_transitions0_effect_state_objectTests0_test() {
+  private void _test__case8614_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(this.list86, this.list14, 8, 1, 7, 2, 6, 3, 4);
@@ -190,12 +190,12 @@ public class MergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case1486_transitions0_effect_state() {
-    _test__case1486_transitions0_effect_state_objectTests0_test();
+  private void _test__case1486_transitions0_effects0_state() {
+    _test__case1486_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case1486_transitions0_effect_state_objectTests0_test() {
+  private void _test__case1486_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(this.list14, this.list86, 1, 8, 2, 7, 3, 6, 4);
@@ -205,12 +205,12 @@ public class MergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case131486_transitions0_effect_state() {
-    _test__case131486_transitions0_effect_state_objectTests0_test();
+  private void _test__case131486_transitions0_effects0_state() {
+    _test__case131486_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case131486_transitions0_effect_state_objectTests0_test() {
+  private void _test__case131486_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(this.list13, this.list14, this.list86, 1, 1, 8, 2, 2, 7, 3, 3, 6, 4);
@@ -218,9 +218,5 @@ public class MergingIteratorTest extends TestCase {
       fail("testIterator(list13, list14, list86, 1, 1, 8, 2, 2, 7, 3, 3, 6, 4) failed: " + error.getMessage());
     }
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(MergingIteratorTest.class);
   }
 }

@@ -92,21 +92,21 @@ public class CardComparatorTest extends TestCase {
   @JExercise(tests = "CardComparator(boolean,char)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Collections.sort(cards, new CardComparator(false, \' \'))</li>\n\t\t</ul>\n")
   public void testNormal() {
     _transition_exprAction__normal_transitions0_actions0();
-    _test__normal_transitions0_effect_state();
+    _test__normal_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "CardComparator(boolean,char)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Collections.sort(cards, new CardComparator(true, \' \'))</li>\n\t\t</ul>\n")
   public void testAceIsHighest() {
     _transition_exprAction__aceIsHighest_transitions0_actions0();
-    _test__aceIsHighest_transitions0_effect_state();
+    _test__aceIsHighest_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "CardComparator(boolean,char)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Collections.sort(cards, new CardComparator(false, \'D\'))</li>\n\t\t</ul>\n")
   public void testDiamondIsTrumph() {
     _transition_exprAction__diamondIsTrumph_transitions0_actions0();
-    _test__diamondIsTrumph_transitions0_effect_state();
+    _test__diamondIsTrumph_transitions0_effects0_state();
     
   }
   
@@ -121,12 +121,12 @@ public class CardComparatorTest extends TestCase {
     
   }
   
-  private void _test__normal_transitions0_effect_state() {
-    _test__normal_transitions0_effect_state_objectTests0_test(cards);
+  private void _test__normal_transitions0_effects0_state() {
+    _test__normal_transitions0_effects0_state_objectTests0_test(cards);
     
   }
   
-  private void _test__normal_transitions0_effect_state_objectTests0_test(final List<Card> it) {
+  private void _test__normal_transitions0_effects0_state_objectTests0_test(final List<Card> it) {
     
     assertEquals("it == #[c1, c13, d1, d13, h1, h13, s1, s13] failed after Collections.sort(cards, new CardComparator(false, ' '))", Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.c1, this.c13, this.d1, this.d13, this.h1, this.h13, this.s1, this.s13)), it);
     
@@ -143,12 +143,12 @@ public class CardComparatorTest extends TestCase {
     
   }
   
-  private void _test__aceIsHighest_transitions0_effect_state() {
-    _test__aceIsHighest_transitions0_effect_state_objectTests0_test(cards);
+  private void _test__aceIsHighest_transitions0_effects0_state() {
+    _test__aceIsHighest_transitions0_effects0_state_objectTests0_test(cards);
     
   }
   
-  private void _test__aceIsHighest_transitions0_effect_state_objectTests0_test(final List<Card> it) {
+  private void _test__aceIsHighest_transitions0_effects0_state_objectTests0_test(final List<Card> it) {
     
     assertEquals("it == #[c13, c1, d13, d1, h13, h1, s13, s1] failed after Collections.sort(cards, new CardComparator(true, ' '))", Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.c13, this.c1, this.d13, this.d1, this.h13, this.h1, this.s13, this.s1)), it);
     
@@ -165,18 +165,14 @@ public class CardComparatorTest extends TestCase {
     
   }
   
-  private void _test__diamondIsTrumph_transitions0_effect_state() {
-    _test__diamondIsTrumph_transitions0_effect_state_objectTests0_test(cards);
+  private void _test__diamondIsTrumph_transitions0_effects0_state() {
+    _test__diamondIsTrumph_transitions0_effects0_state_objectTests0_test(cards);
     
   }
   
-  private void _test__diamondIsTrumph_transitions0_effect_state_objectTests0_test(final List<Card> it) {
+  private void _test__diamondIsTrumph_transitions0_effects0_state_objectTests0_test(final List<Card> it) {
     
     assertEquals("it == #[c1, c13, h1, h13, s1, s13, d1, d13] failed after Collections.sort(cards, new CardComparator(false, 'D'))", Collections.<Card>unmodifiableList(CollectionLiterals.<Card>newArrayList(this.c1, this.c13, this.h1, this.h13, this.s1, this.s13, this.d1, this.d13)), it);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(CardComparatorTest.class);
   }
 }

@@ -1,8 +1,8 @@
 package stateandbehavior;
 
+import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
-import junit.framework.TestCase;
 
 @JExercise(
 		description="Digit contains an _int_ value that can be incremented. The value starts as zero and wraps when reaching the *base* value (provided to the constructor).",

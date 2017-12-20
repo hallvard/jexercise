@@ -27,7 +27,7 @@ public class LineEditor {
 		if (index < 0) {
 			throw new IllegalArgumentException("The insertion index cannot be negative");
 		} else if (index > text.length()) {
-			throw new IllegalStateException("The insertion index cannot be larger than the length of the text");
+			throw new IllegalArgumentException("The insertion index cannot be larger than the length of the text");
 		}
 		insertionIndex = index;
 	}

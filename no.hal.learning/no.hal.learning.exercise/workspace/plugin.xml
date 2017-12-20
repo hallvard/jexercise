@@ -17,6 +17,13 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="platform:/plugin/no.hal.learning.exercise.workspace/model/workspace-exercise.ecore"
+            class="no.hal.learning.exercise.workspace.adapter.WorkspaceTaskEventsAdapterFactory"
+            supportedTypes=
+              "no.hal.learning.exercise.TaskEventsAdapter"/>
+   </extension>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.learning.exercise.workspace/model/workspace-exercise.ecore"
             class="no.hal.learning.exercise.workspace.adapter.WorkspaceUIAdapterFactory"
             supportedTypes=
               "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>

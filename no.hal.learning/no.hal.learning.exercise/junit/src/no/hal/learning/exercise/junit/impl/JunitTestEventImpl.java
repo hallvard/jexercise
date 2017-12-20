@@ -9,8 +9,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.impl.TaskEventImpl;
 import no.hal.learning.exercise.junit.JunitPackage;
+import no.hal.learning.exercise.junit.JunitTestAnswer;
 import no.hal.learning.exercise.junit.JunitTestEvent;
 
 /**
@@ -21,6 +24,7 @@ import no.hal.learning.exercise.junit.JunitTestEvent;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.learning.exercise.junit.impl.JunitTestEventImpl#getTestRunName <em>Test Run Name</em>}</li>
  *   <li>{@link no.hal.learning.exercise.junit.impl.JunitTestEventImpl#getSuccessCount <em>Success Count</em>}</li>
  *   <li>{@link no.hal.learning.exercise.junit.impl.JunitTestEventImpl#getSuccessTests <em>Success Tests</em>}</li>
  *   <li>{@link no.hal.learning.exercise.junit.impl.JunitTestEventImpl#getFailureCount <em>Failure Count</em>}</li>
@@ -32,6 +36,26 @@ import no.hal.learning.exercise.junit.JunitTestEvent;
  * @generated
  */
 public class JunitTestEventImpl extends TaskEventImpl implements JunitTestEvent {
+	/**
+	 * The default value of the '{@link #getTestRunName() <em>Test Run Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTestRunName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TEST_RUN_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTestRunName() <em>Test Run Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTestRunName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String testRunName = TEST_RUN_NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getSuccessCount() <em>Success Count</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -144,6 +168,33 @@ public class JunitTestEventImpl extends TaskEventImpl implements JunitTestEvent 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getTestRunName() {
+		if (testRunName == null && getProposal() != null) {
+			TaskAnswer answer = getProposal().getAnswer();
+			if (answer instanceof JunitTestAnswer) {
+				((JunitTestAnswer) answer).getTestRunName();
+			}
+		}
+		return testRunName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTestRunName(String newTestRunName) {
+		String oldTestRunName = testRunName;
+		testRunName = newTestRunName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JunitPackage.JUNIT_TEST_EVENT__TEST_RUN_NAME, oldTestRunName, testRunName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getSuccessCount() {
@@ -248,6 +299,8 @@ public class JunitTestEventImpl extends TaskEventImpl implements JunitTestEvent 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case JunitPackage.JUNIT_TEST_EVENT__TEST_RUN_NAME:
+				return getTestRunName();
 			case JunitPackage.JUNIT_TEST_EVENT__SUCCESS_COUNT:
 				return getSuccessCount();
 			case JunitPackage.JUNIT_TEST_EVENT__SUCCESS_TESTS:
@@ -273,6 +326,9 @@ public class JunitTestEventImpl extends TaskEventImpl implements JunitTestEvent 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case JunitPackage.JUNIT_TEST_EVENT__TEST_RUN_NAME:
+				setTestRunName((String)newValue);
+				return;
 			case JunitPackage.JUNIT_TEST_EVENT__SUCCESS_COUNT:
 				setSuccessCount((Integer)newValue);
 				return;
@@ -306,6 +362,9 @@ public class JunitTestEventImpl extends TaskEventImpl implements JunitTestEvent 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case JunitPackage.JUNIT_TEST_EVENT__TEST_RUN_NAME:
+				setTestRunName(TEST_RUN_NAME_EDEFAULT);
+				return;
 			case JunitPackage.JUNIT_TEST_EVENT__SUCCESS_COUNT:
 				setSuccessCount(SUCCESS_COUNT_EDEFAULT);
 				return;
@@ -336,6 +395,8 @@ public class JunitTestEventImpl extends TaskEventImpl implements JunitTestEvent 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case JunitPackage.JUNIT_TEST_EVENT__TEST_RUN_NAME:
+				return TEST_RUN_NAME_EDEFAULT == null ? testRunName != null : !TEST_RUN_NAME_EDEFAULT.equals(testRunName);
 			case JunitPackage.JUNIT_TEST_EVENT__SUCCESS_COUNT:
 				return successCount != SUCCESS_COUNT_EDEFAULT;
 			case JunitPackage.JUNIT_TEST_EVENT__SUCCESS_TESTS:
@@ -362,7 +423,9 @@ public class JunitTestEventImpl extends TaskEventImpl implements JunitTestEvent 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (successCount: ");
+		result.append(" (testRunName: ");
+		result.append(testRunName);
+		result.append(", successCount: ");
 		result.append(successCount);
 		result.append(", successTests: ");
 		result.append(successTests);

@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.learning.exercise.junit.JunitTestEvent#getTestRunName <em>Test Run Name</em>}</li>
  *   <li>{@link no.hal.learning.exercise.junit.JunitTestEvent#getSuccessCount <em>Success Count</em>}</li>
  *   <li>{@link no.hal.learning.exercise.junit.JunitTestEvent#getSuccessTests <em>Success Tests</em>}</li>
  *   <li>{@link no.hal.learning.exercise.junit.JunitTestEvent#getFailureCount <em>Failure Count</em>}</li>
@@ -27,6 +28,32 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface JunitTestEvent extends TaskEvent {
+	/**
+	 * Returns the value of the '<em><b>Test Run Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Test Run Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Test Run Name</em>' attribute.
+	 * @see #setTestRunName(String)
+	 * @see no.hal.learning.exercise.junit.JunitPackage#getJunitTestEvent_TestRunName()
+	 * @model
+	 * @generated
+	 */
+	String getTestRunName();
+
+	/**
+	 * Sets the value of the '{@link no.hal.learning.exercise.junit.JunitTestEvent#getTestRunName <em>Test Run Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Test Run Name</em>' attribute.
+	 * @see #getTestRunName()
+	 * @generated
+	 */
+	void setTestRunName(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Success Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -98,7 +98,7 @@ public class DistributingLoggerTest extends TestCase {
   public void testLogToInfo() {
     _transition_exprAction__logToInfo_transitions0_actions0();
     _transition_exprAction__logToInfo_transitions0_actions1();
-    _test__logToInfo_transitions0_effect_state();
+    _test__logToInfo_transitions0_effects0_state();
     
   }
   
@@ -106,7 +106,7 @@ public class DistributingLoggerTest extends TestCase {
   public void testLogToWarn() {
     _transition_exprAction__logToWarn_transitions0_actions0();
     _transition_exprAction__logToWarn_transitions0_actions1();
-    _test__logToWarn_transitions0_effect_state();
+    _test__logToWarn_transitions0_effects0_state();
     
   }
   
@@ -115,7 +115,7 @@ public class DistributingLoggerTest extends TestCase {
     Exception exception = _init__logToError_exception();
     _transition_exprAction__logToError_transitions0_actions0(exception);
     _transition_exprAction__logToError_transitions0_actions1(exception);
-    _test__logToError_transitions0_effect_state(exception);
+    _test__logToError_transitions0_effects0_state(exception);
     
   }
   
@@ -124,11 +124,11 @@ public class DistributingLoggerTest extends TestCase {
     StreamLogger newInfoLogger = _init__changeInfoLogger_newInfoLogger();
     _transition_exprAction__changeInfoLogger_transitions0_actions0(newInfoLogger);
     _transition_exprAction__changeInfoLogger_transitions0_actions1(newInfoLogger);
-    _test__changeInfoLogger_transitions0_effect_state(newInfoLogger);
+    _test__changeInfoLogger_transitions0_effects0_state(newInfoLogger);
     _transition_exprAction__changeInfoLogger_transitions1_actions0(newInfoLogger);
     _transition_exprAction__changeInfoLogger_transitions1_actions1(newInfoLogger);
     _transition_exprAction__changeInfoLogger_transitions1_actions2(newInfoLogger);
-    _test__changeInfoLogger_transitions1_effect_state(newInfoLogger);
+    _test__changeInfoLogger_transitions1_effects0_state(newInfoLogger);
     
   }
   
@@ -152,12 +152,12 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  private void _test__logToInfo_transitions0_effect_state() {
-    _test__logToInfo_transitions0_effect_state_objectTests0_test();
+  private void _test__logToInfo_transitions0_effects0_state() {
+    _test__logToInfo_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__logToInfo_transitions0_effect_state_objectTests0_test() {
+  private void _test__logToInfo_transitions0_effects0_state_objectTests0_test() {
     
     String _format = String.format(this.formatString, ILogger.INFO, "Dette er en info-melding.", null);
     boolean _equals = this.operator_equals(
@@ -193,12 +193,12 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  private void _test__logToWarn_transitions0_effect_state() {
-    _test__logToWarn_transitions0_effect_state_objectTests0_test();
+  private void _test__logToWarn_transitions0_effects0_state() {
+    _test__logToWarn_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__logToWarn_transitions0_effect_state_objectTests0_test() {
+  private void _test__logToWarn_transitions0_effects0_state_objectTests0_test() {
     
     boolean _equals = this.operator_equals(
       this.infoStream, "");
@@ -239,12 +239,12 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  private void _test__logToError_transitions0_effect_state(final Exception exception) {
-    _test__logToError_transitions0_effect_state_objectTests0_test(exception);
+  private void _test__logToError_transitions0_effects0_state(final Exception exception) {
+    _test__logToError_transitions0_effects0_state_objectTests0_test(exception);
     
   }
   
-  private void _test__logToError_transitions0_effect_state_objectTests0_test(final Exception exception) {
+  private void _test__logToError_transitions0_effects0_state_objectTests0_test(final Exception exception) {
     
     boolean _equals = this.operator_equals(
       this.infoStream, "");
@@ -285,12 +285,12 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  private void _test__changeInfoLogger_transitions0_effect_state(final StreamLogger newInfoLogger) {
-    _test__changeInfoLogger_transitions0_effect_state_objectTests0_test(newInfoLogger);
+  private void _test__changeInfoLogger_transitions0_effects0_state(final StreamLogger newInfoLogger) {
+    _test__changeInfoLogger_transitions0_effects0_state_objectTests0_test(newInfoLogger);
     
   }
   
-  private void _test__changeInfoLogger_transitions0_effect_state_objectTests0_test(final StreamLogger newInfoLogger) {
+  private void _test__changeInfoLogger_transitions0_effects0_state_objectTests0_test(final StreamLogger newInfoLogger) {
     
     String _format = String.format(this.formatString, ILogger.INFO, "Dette er en info-melding.", null);
     assertTrue("infoStream == String.format(formatString, ILogger.INFO, \"Dette er en info-melding.\", null) failed after infoLogger.formatString = formatString ,logger.log(ILogger.INFO, \"Dette er en info-melding.\", null)", this.operator_equals(
@@ -328,12 +328,12 @@ public class DistributingLoggerTest extends TestCase {
     
   }
   
-  private void _test__changeInfoLogger_transitions1_effect_state(final StreamLogger newInfoLogger) {
-    _test__changeInfoLogger_transitions1_effect_state_objectTests0_test(newInfoLogger);
+  private void _test__changeInfoLogger_transitions1_effects0_state(final StreamLogger newInfoLogger) {
+    _test__changeInfoLogger_transitions1_effects0_state_objectTests0_test(newInfoLogger);
     
   }
   
-  private void _test__changeInfoLogger_transitions1_effect_state_objectTests0_test(final StreamLogger newInfoLogger) {
+  private void _test__changeInfoLogger_transitions1_effects0_state_objectTests0_test(final StreamLogger newInfoLogger) {
     
     String _format = String.format(this.formatString, ILogger.INFO, "Dette er en info-melding.", null);
     boolean _equals = this.operator_equals(
@@ -344,9 +344,5 @@ public class DistributingLoggerTest extends TestCase {
     assertTrue("newInfoStream == String.format(formatString, ILogger.INFO, \"Dette er en den andre info-meldingen.\", null) failed after newInfoLogger.formatString = formatString ,logger.setLogger(ILogger.INFO, newInfoLogger) ,logger.log(ILogger.INFO, \"Dette er en den andre info-meldingen.\", null)", this.operator_equals(
       this.newInfoStream, _format_1));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(DistributingLoggerTest.class);
   }
 }

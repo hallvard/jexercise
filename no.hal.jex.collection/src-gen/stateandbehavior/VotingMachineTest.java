@@ -17,7 +17,7 @@ public class VotingMachineTest extends TestCase {
   
   @JExercise(tests = "VotingMachine()", description = "<h3>Konstrukt\u00F8r</h3>Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state(votingMachine);
+    _test__constructor_transitions0_effects0_state(votingMachine);
     
   }
   
@@ -27,7 +27,7 @@ public class VotingMachineTest extends TestCase {
     for (int times = _transition_exprAction_times__domacratVotes_transitions0_actions0(votingMachine, votes); times > 0; times--) {
       _transition_exprAction__domacratVotes_transitions0_actions0(votingMachine, votes);
     }
-    _test__domacratVotes_transitions0_effect_state(votingMachine, votes);
+    _test__domacratVotes_transitions0_effects0_state(votingMachine, votes);
     
   }
   
@@ -37,7 +37,7 @@ public class VotingMachineTest extends TestCase {
     for (int times = _transition_exprAction_times__republicanVotes_transitions0_actions0(votingMachine, votes); times > 0; times--) {
       _transition_exprAction__republicanVotes_transitions0_actions0(votingMachine, votes);
     }
-    _test__republicanVotes_transitions0_effect_state(votingMachine, votes);
+    _test__republicanVotes_transitions0_effects0_state(votingMachine, votes);
     
   }
   
@@ -48,22 +48,22 @@ public class VotingMachineTest extends TestCase {
     for (int times = _transition_exprAction_times__clearVotes_transitions0_actions0(votingMachine, democratVotes, republicanVotes); times > 0; times--) {
       _transition_exprAction__clearVotes_transitions0_actions0(votingMachine, democratVotes, republicanVotes);
     }
-    _test__clearVotes_transitions0_effect_state(votingMachine, democratVotes, republicanVotes);
+    _test__clearVotes_transitions0_effects0_state(votingMachine, democratVotes, republicanVotes);
     for (int times_1 = _transition_exprAction_times__clearVotes_transitions1_actions0(votingMachine, democratVotes, republicanVotes); times_1 > 0; times_1--) {
       _transition_exprAction__clearVotes_transitions1_actions0(votingMachine, democratVotes, republicanVotes);
     }
-    _test__clearVotes_transitions1_effect_state(votingMachine, democratVotes, republicanVotes);
+    _test__clearVotes_transitions1_effects0_state(votingMachine, democratVotes, republicanVotes);
     _transition_exprAction__clearVotes_transitions2_actions0(votingMachine, democratVotes, republicanVotes);
-    _test__clearVotes_transitions2_effect_state(votingMachine, democratVotes, republicanVotes);
+    _test__clearVotes_transitions2_effects0_state(votingMachine, democratVotes, republicanVotes);
     
   }
   
-  private void _test__constructor_transitions0_effect_state(final VotingMachine it) {
-    _test__constructor_transitions0_effect_state_objectTests0_test(votingMachine);
+  private void _test__constructor_transitions0_effects0_state(final VotingMachine it) {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(votingMachine);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final VotingMachine it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final VotingMachine it) {
     
     int _democratTally = it.getDemocratTally();
     assertEquals("democratTally == 0 failed", 0, _democratTally);
@@ -94,12 +94,12 @@ public class VotingMachineTest extends TestCase {
     return votes;
   }
   
-  private void _test__domacratVotes_transitions0_effect_state(final VotingMachine it, final int votes) {
-    _test__domacratVotes_transitions0_effect_state_objectTests0_test(votingMachine, votes);
+  private void _test__domacratVotes_transitions0_effects0_state(final VotingMachine it, final int votes) {
+    _test__domacratVotes_transitions0_effects0_state_objectTests0_test(votingMachine, votes);
     
   }
   
-  private void _test__domacratVotes_transitions0_effect_state_objectTests0_test(final VotingMachine it, final int votes) {
+  private void _test__domacratVotes_transitions0_effects0_state_objectTests0_test(final VotingMachine it, final int votes) {
     
     int _democratTally = it.getDemocratTally();
     assertEquals("democratTally == votes failed after voteDemocrat # votes", votes, _democratTally);
@@ -130,12 +130,12 @@ public class VotingMachineTest extends TestCase {
     return votes;
   }
   
-  private void _test__republicanVotes_transitions0_effect_state(final VotingMachine it, final int votes) {
-    _test__republicanVotes_transitions0_effect_state_objectTests0_test(votingMachine, votes);
+  private void _test__republicanVotes_transitions0_effects0_state(final VotingMachine it, final int votes) {
+    _test__republicanVotes_transitions0_effects0_state_objectTests0_test(votingMachine, votes);
     
   }
   
-  private void _test__republicanVotes_transitions0_effect_state_objectTests0_test(final VotingMachine it, final int votes) {
+  private void _test__republicanVotes_transitions0_effects0_state_objectTests0_test(final VotingMachine it, final int votes) {
     
     int _democratTally = it.getDemocratTally();
     assertEquals("democratTally == 0 failed after voteRepublican # votes", 0, _democratTally);
@@ -173,12 +173,12 @@ public class VotingMachineTest extends TestCase {
     return democratVotes;
   }
   
-  private void _test__clearVotes_transitions0_effect_state(final VotingMachine it, final int democratVotes, final int republicanVotes) {
-    _test__clearVotes_transitions0_effect_state_objectTests0_test(votingMachine, democratVotes, republicanVotes);
+  private void _test__clearVotes_transitions0_effects0_state(final VotingMachine it, final int democratVotes, final int republicanVotes) {
+    _test__clearVotes_transitions0_effects0_state_objectTests0_test(votingMachine, democratVotes, republicanVotes);
     
   }
   
-  private void _test__clearVotes_transitions0_effect_state_objectTests0_test(final VotingMachine it, final int democratVotes, final int republicanVotes) {
+  private void _test__clearVotes_transitions0_effects0_state_objectTests0_test(final VotingMachine it, final int democratVotes, final int republicanVotes) {
     
     int _democratTally = it.getDemocratTally();
     assertEquals("democratTally == democratVotes failed after voteDemocrat # democratVotes", democratVotes, _democratTally);
@@ -202,12 +202,12 @@ public class VotingMachineTest extends TestCase {
     return republicanVotes;
   }
   
-  private void _test__clearVotes_transitions1_effect_state(final VotingMachine it, final int democratVotes, final int republicanVotes) {
-    _test__clearVotes_transitions1_effect_state_objectTests0_test(votingMachine, democratVotes, republicanVotes);
+  private void _test__clearVotes_transitions1_effects0_state(final VotingMachine it, final int democratVotes, final int republicanVotes) {
+    _test__clearVotes_transitions1_effects0_state_objectTests0_test(votingMachine, democratVotes, republicanVotes);
     
   }
   
-  private void _test__clearVotes_transitions1_effect_state_objectTests0_test(final VotingMachine it, final int democratVotes, final int republicanVotes) {
+  private void _test__clearVotes_transitions1_effects0_state_objectTests0_test(final VotingMachine it, final int democratVotes, final int republicanVotes) {
     
     int _democratTally = it.getDemocratTally();
     assertEquals("democratTally == democratVotes failed after voteRepublican # republicanVotes", democratVotes, _democratTally);
@@ -227,12 +227,12 @@ public class VotingMachineTest extends TestCase {
     
   }
   
-  private void _test__clearVotes_transitions2_effect_state(final VotingMachine it, final int democratVotes, final int republicanVotes) {
-    _test__clearVotes_transitions2_effect_state_objectTests0_test(votingMachine, democratVotes, republicanVotes);
+  private void _test__clearVotes_transitions2_effects0_state(final VotingMachine it, final int democratVotes, final int republicanVotes) {
+    _test__clearVotes_transitions2_effects0_state_objectTests0_test(votingMachine, democratVotes, republicanVotes);
     
   }
   
-  private void _test__clearVotes_transitions2_effect_state_objectTests0_test(final VotingMachine it, final int democratVotes, final int republicanVotes) {
+  private void _test__clearVotes_transitions2_effects0_state_objectTests0_test(final VotingMachine it, final int democratVotes, final int republicanVotes) {
     
     int _democratTally = it.getDemocratTally();
     assertEquals("democratTally == 0 failed after clear", 0, _democratTally);
@@ -240,9 +240,5 @@ public class VotingMachineTest extends TestCase {
     int _republicanTally = it.getRepublicanTally();
     assertEquals("republicanTally == 0 failed after clear", 0, _republicanTally);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(VotingMachineTest.class);
   }
 }

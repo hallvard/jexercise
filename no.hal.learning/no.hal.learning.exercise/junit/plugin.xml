@@ -17,6 +17,13 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="platform:/plugin/no.hal.learning.exercise.junit/model/junit-exercise.ecore"
+            class="no.hal.learning.exercise.junit.adapter.JunitTaskEventsAdapterFactory"
+            supportedTypes=
+              "no.hal.learning.exercise.TaskEventsAdapter"/>
+   </extension>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.learning.exercise.junit/model/junit-exercise.ecore"
             class="no.hal.learning.exercise.junit.adapter.JunitUIAdapterFactory"
             supportedTypes=
               "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>

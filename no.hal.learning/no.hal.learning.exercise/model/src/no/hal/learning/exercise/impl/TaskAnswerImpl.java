@@ -2,12 +2,16 @@
  */
 package no.hal.learning.exercise.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.lang.reflect.InvocationTargetException;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import no.hal.learning.exercise.ExercisePackage;
 import no.hal.learning.exercise.TaskAnswer;
-import org.eclipse.emf.common.notify.Notification;
+import no.hal.learning.exercise.TaskEvent;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,6 +89,15 @@ public class TaskAnswerImpl extends AnswerImpl implements TaskAnswer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean acceptEvent(TaskEvent event) {
+		return false;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -138,6 +151,20 @@ public class TaskAnswerImpl extends AnswerImpl implements TaskAnswer {
 				return requiredCount != REQUIRED_COUNT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ExercisePackage.TASK_ANSWER___ACCEPT_EVENT__TASKEVENT:
+				return acceptEvent((TaskEvent)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

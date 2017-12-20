@@ -48,7 +48,7 @@ public class StreamLoggerTest extends TestCase {
   @JExercise(tests = "StreamLogger(java.io.OutputStream);void log(String,String,Exception)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Logger infomelding: logger.log(ILogger.INFO, \"En melding ble logget!\", null)</li>\n\t\t</ul>\n")
   public void testLog() {
     _transition_exprAction__log_transitions0_actions0();
-    _test__log_transitions0_effect_state();
+    _test__log_transitions0_effects0_state();
     
   }
   
@@ -57,7 +57,7 @@ public class StreamLoggerTest extends TestCase {
     IllegalStateException exception = _init__logException_exception();
     _transition_exprAction__logException_transitions0_actions0(exception);
     _transition_exprAction__logException_transitions0_actions1(exception);
-    _test__logException_transitions0_effect_state(exception);
+    _test__logException_transitions0_effects0_state(exception);
     
   }
   
@@ -66,7 +66,7 @@ public class StreamLoggerTest extends TestCase {
     IllegalStateException exception = _init__logWithFormat_exception();
     _transition_exprAction__logWithFormat_transitions0_actions0(exception);
     _transition_exprAction__logWithFormat_transitions0_actions1(exception);
-    _test__logWithFormat_transitions0_effect_state(exception);
+    _test__logWithFormat_transitions0_effects0_state(exception);
     
   }
   
@@ -80,12 +80,12 @@ public class StreamLoggerTest extends TestCase {
     
   }
   
-  private void _test__log_transitions0_effect_state() {
-    _test__log_transitions0_effect_state_objectTests0_test();
+  private void _test__log_transitions0_effects0_state() {
+    _test__log_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__log_transitions0_effect_state_objectTests0_test() {
+  private void _test__log_transitions0_effects0_state_objectTests0_test() {
     
     String _string = this.stream.toString();
     boolean _contains = _string.contains("En melding ble logget!");
@@ -121,12 +121,12 @@ public class StreamLoggerTest extends TestCase {
     
   }
   
-  private void _test__logException_transitions0_effect_state(final IllegalStateException exception) {
-    _test__logException_transitions0_effect_state_objectTests0_test(exception);
+  private void _test__logException_transitions0_effects0_state(final IllegalStateException exception) {
+    _test__logException_transitions0_effects0_state_objectTests0_test(exception);
     
   }
   
-  private void _test__logException_transitions0_effect_state_objectTests0_test(final IllegalStateException exception) {
+  private void _test__logException_transitions0_effects0_state_objectTests0_test(final IllegalStateException exception) {
     
     String _format = String.format(this.formatString, ILogger.INFO, "En melding ble logget!", exception);
     assertTrue("stream == String.format(formatString, ILogger.INFO, \"En melding ble logget!\", exception) failed after logger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"En melding ble logget!\", exception)", this.operator_equals(
@@ -159,20 +159,16 @@ public class StreamLoggerTest extends TestCase {
     
   }
   
-  private void _test__logWithFormat_transitions0_effect_state(final IllegalStateException exception) {
-    _test__logWithFormat_transitions0_effect_state_objectTests0_test(exception);
+  private void _test__logWithFormat_transitions0_effects0_state(final IllegalStateException exception) {
+    _test__logWithFormat_transitions0_effects0_state_objectTests0_test(exception);
     
   }
   
-  private void _test__logWithFormat_transitions0_effect_state_objectTests0_test(final IllegalStateException exception) {
+  private void _test__logWithFormat_transitions0_effects0_state_objectTests0_test(final IllegalStateException exception) {
     
     String _format = String.format(this.formatString, ILogger.INFO, "En melding ble logget!", exception);
     assertTrue("stream == String.format(formatString, ILogger.INFO, \"En melding ble logget!\", exception) failed after logger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"En melding ble logget!\", exception)", this.operator_equals(
       this.stream, _format));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(StreamLoggerTest.class);
   }
 }

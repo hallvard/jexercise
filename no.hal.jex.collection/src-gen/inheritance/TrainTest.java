@@ -59,7 +59,7 @@ public class TrainTest extends TestCase {
     _transition_exprAction__addCarToTrain_transitions0_actions0();
     _transition_exprAction__addCarToTrain_transitions0_actions1();
     _transition_exprAction__addCarToTrain_transitions0_actions2();
-    _test__addCarToTrain_transitions0_effect_state();
+    _test__addCarToTrain_transitions0_effects0_state();
     
   }
   
@@ -67,9 +67,9 @@ public class TrainTest extends TestCase {
   public void testCheckTotalTrainWeight() {
     _transition_exprAction__checkTotalTrainWeight_transitions0_actions0();
     _transition_exprAction__checkTotalTrainWeight_transitions0_actions1();
-    _test__checkTotalTrainWeight_transitions0_effect_state();
+    _test__checkTotalTrainWeight_transitions0_effects0_state();
     _transition_exprAction__checkTotalTrainWeight_transitions1_actions0();
-    _test__checkTotalTrainWeight_transitions1_effect_state();
+    _test__checkTotalTrainWeight_transitions1_effects0_state();
     
   }
   
@@ -77,9 +77,9 @@ public class TrainTest extends TestCase {
   public void testCheckPassengerCount() {
     _transition_exprAction__checkPassengerCount_transitions0_actions0();
     _transition_exprAction__checkPassengerCount_transitions0_actions1();
-    _test__checkPassengerCount_transitions0_effect_state();
+    _test__checkPassengerCount_transitions0_effects0_state();
     _transition_exprAction__checkPassengerCount_transitions1_actions0();
-    _test__checkPassengerCount_transitions1_effect_state();
+    _test__checkPassengerCount_transitions1_effects0_state();
     
   }
   
@@ -87,9 +87,9 @@ public class TrainTest extends TestCase {
   public void testCheckCargoWeight() {
     _transition_exprAction__checkCargoWeight_transitions0_actions0();
     _transition_exprAction__checkCargoWeight_transitions0_actions1();
-    _test__checkCargoWeight_transitions0_effect_state();
+    _test__checkCargoWeight_transitions0_effects0_state();
     _transition_exprAction__checkCargoWeight_transitions1_actions0();
-    _test__checkCargoWeight_transitions1_effect_state();
+    _test__checkCargoWeight_transitions1_effects0_state();
     
   }
   
@@ -123,12 +123,12 @@ public class TrainTest extends TestCase {
     
   }
   
-  private void _test__addCarToTrain_transitions0_effect_state() {
-    _test__addCarToTrain_transitions0_effect_state_objectTests0_test();
+  private void _test__addCarToTrain_transitions0_effects0_state() {
+    _test__addCarToTrain_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addCarToTrain_transitions0_effect_state_objectTests0_test() {
+  private void _test__addCarToTrain_transitions0_effects0_state_objectTests0_test() {
     
     boolean _contains = this.t.contains(this.pc1);
     assertTrue("t.contains(pc1) failed after t.addTrainCar(pc1) ,t.addTrainCar(pc2) ,t.addTrainCar(cc1)", _contains);
@@ -160,12 +160,12 @@ public class TrainTest extends TestCase {
     
   }
   
-  private void _test__checkTotalTrainWeight_transitions0_effect_state() {
-    _test__checkTotalTrainWeight_transitions0_effect_state_objectTests0_test();
+  private void _test__checkTotalTrainWeight_transitions0_effects0_state() {
+    _test__checkTotalTrainWeight_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__checkTotalTrainWeight_transitions0_effect_state_objectTests0_test() {
+  private void _test__checkTotalTrainWeight_transitions0_effects0_state_objectTests0_test() {
     
     int _totalWeight = this.t.getTotalWeight();
     assertEquals("t.totalWeight == 8000 + (2000 + (200 * 80)) failed after t.addTrainCar(pc1) ,t.addTrainCar(cc1)", (8000 + (2000 + (200 * 80))), _totalWeight);
@@ -182,12 +182,12 @@ public class TrainTest extends TestCase {
     
   }
   
-  private void _test__checkTotalTrainWeight_transitions1_effect_state() {
-    _test__checkTotalTrainWeight_transitions1_effect_state_objectTests0_test();
+  private void _test__checkTotalTrainWeight_transitions1_effects0_state() {
+    _test__checkTotalTrainWeight_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__checkTotalTrainWeight_transitions1_effect_state_objectTests0_test() {
+  private void _test__checkTotalTrainWeight_transitions1_effects0_state_objectTests0_test() {
     
     int _totalWeight = this.t.getTotalWeight();
     assertEquals("t.totalWeight == 8000 + (2000 + (200 * 80)) + (1500 + (100 * 80)) failed after t.addTrainCar(pc2)", ((8000 + (2000 + (200 * 80))) + (1500 + (100 * 80))), _totalWeight);
@@ -214,12 +214,12 @@ public class TrainTest extends TestCase {
     
   }
   
-  private void _test__checkPassengerCount_transitions0_effect_state() {
-    _test__checkPassengerCount_transitions0_effect_state_objectTests0_test();
+  private void _test__checkPassengerCount_transitions0_effects0_state() {
+    _test__checkPassengerCount_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__checkPassengerCount_transitions0_effect_state_objectTests0_test() {
+  private void _test__checkPassengerCount_transitions0_effects0_state_objectTests0_test() {
     
     int _passengerCount = this.t.getPassengerCount();
     assertEquals("t.passengerCount == 300 failed after t.addTrainCar(pc1) ,t.addTrainCar(pc2)", 300, _passengerCount);
@@ -236,12 +236,12 @@ public class TrainTest extends TestCase {
     
   }
   
-  private void _test__checkPassengerCount_transitions1_effect_state() {
-    _test__checkPassengerCount_transitions1_effect_state_objectTests0_test();
+  private void _test__checkPassengerCount_transitions1_effects0_state() {
+    _test__checkPassengerCount_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__checkPassengerCount_transitions1_effect_state_objectTests0_test() {
+  private void _test__checkPassengerCount_transitions1_effects0_state_objectTests0_test() {
     
     int _passengerCount = this.t.getPassengerCount();
     assertEquals("t.passengerCount == 300 failed after t.addTrainCar(cc1)", 300, _passengerCount);
@@ -268,12 +268,12 @@ public class TrainTest extends TestCase {
     
   }
   
-  private void _test__checkCargoWeight_transitions0_effect_state() {
-    _test__checkCargoWeight_transitions0_effect_state_objectTests0_test();
+  private void _test__checkCargoWeight_transitions0_effects0_state() {
+    _test__checkCargoWeight_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__checkCargoWeight_transitions0_effect_state_objectTests0_test() {
+  private void _test__checkCargoWeight_transitions0_effects0_state_objectTests0_test() {
     
     int _cargoWeight = this.t.getCargoWeight();
     assertEquals("t.cargoWeight == 12000 failed after t.addTrainCar(cc1) ,t.addTrainCar(cc2)", 12000, _cargoWeight);
@@ -290,19 +290,15 @@ public class TrainTest extends TestCase {
     
   }
   
-  private void _test__checkCargoWeight_transitions1_effect_state() {
-    _test__checkCargoWeight_transitions1_effect_state_objectTests0_test();
+  private void _test__checkCargoWeight_transitions1_effects0_state() {
+    _test__checkCargoWeight_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__checkCargoWeight_transitions1_effect_state_objectTests0_test() {
+  private void _test__checkCargoWeight_transitions1_effects0_state_objectTests0_test() {
     
     int _cargoWeight = this.t.getCargoWeight();
     assertEquals("t.cargoWeight == 12000 failed after t.addTrainCar(pc1)", 12000, _cargoWeight);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(TrainTest.class);
   }
 }

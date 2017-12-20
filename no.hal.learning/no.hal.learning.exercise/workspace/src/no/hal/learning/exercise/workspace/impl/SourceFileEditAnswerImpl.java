@@ -7,8 +7,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import no.hal.learning.exercise.Proposal;
+import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.impl.StringEditAnswerImpl;
+import no.hal.learning.exercise.util.Util;
 import no.hal.learning.exercise.workspace.SourceFileEditAnswer;
+import no.hal.learning.exercise.workspace.SourceFileEditEvent;
 import no.hal.learning.exercise.workspace.SourceFileEditProposal;
 import no.hal.learning.exercise.workspace.WorkspaceFactory;
 import no.hal.learning.exercise.workspace.WorkspacePackage;
@@ -163,7 +166,15 @@ public class SourceFileEditAnswerImpl extends StringEditAnswerImpl implements So
 	
 	//
 	
-
+	@Override
+	public boolean acceptEvent(TaskEvent event) {
+		if (! (event instanceof SourceFileEditEvent)) {
+			return false;
+		}
+		SourceFileEditEvent editEvent = (SourceFileEditEvent) event;
+		return Util.acceptPath(getResourcePath(), editEvent.getResourcePath());
+	}
+	
 	@Override
 	public Proposal<?> createProposal() {
 		SourceFileEditProposal proposal = WorkspaceFactory.eINSTANCE.createSourceFileEditProposal();

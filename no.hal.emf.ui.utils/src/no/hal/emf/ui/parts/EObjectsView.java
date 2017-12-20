@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -169,7 +170,9 @@ public abstract class EObjectsView extends AbstractEObjectView {
 						} catch (Exception e) {
 						}
 						if (emfResource != null && emfResource.getErrors().isEmpty() && accept(emfResource)) {
-							for (EObject eObject : emfResource.getContents()) {
+							EList<EObject> contents = emfResource.getContents();
+							for (int i = 0; i < contents.size(); i++) {
+								EObject eObject = contents.get(i);
 								EObject accepted = accept(eObject);
 								if (accepted != null) {
 									addEObject(accepted);

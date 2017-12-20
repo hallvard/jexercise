@@ -229,6 +229,15 @@ public class PydevPackageImpl extends EPackageImpl implements PydevPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPydevLaunchEvent_ModuleName() {
+		return (EAttribute)pydevLaunchEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PydevFactory getPydevFactory() {
 		return (PydevFactory)getEFactoryInstance();
 	}
@@ -267,6 +276,7 @@ public class PydevPackageImpl extends EPackageImpl implements PydevPackage {
 		pydevLaunchProposalEClass = createEClass(PYDEV_LAUNCH_PROPOSAL);
 
 		pydevLaunchEventEClass = createEClass(PYDEV_LAUNCH_EVENT);
+		createEAttribute(pydevLaunchEventEClass, PYDEV_LAUNCH_EVENT__MODULE_NAME);
 	}
 
 	/**
@@ -331,6 +341,7 @@ public class PydevPackageImpl extends EPackageImpl implements PydevPackage {
 		initEClass(pydevLaunchProposalEClass, PydevLaunchProposal.class, "PydevLaunchProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pydevLaunchEventEClass, PydevLaunchEvent.class, "PydevLaunchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPydevLaunchEvent_ModuleName(), ecorePackage.getEString(), "moduleName", null, 0, 1, PydevLaunchEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

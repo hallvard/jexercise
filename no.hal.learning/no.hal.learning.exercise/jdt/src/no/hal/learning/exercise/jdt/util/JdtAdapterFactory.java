@@ -18,6 +18,7 @@ import no.hal.learning.exercise.jdt.*;
 import no.hal.learning.exercise.workspace.LaunchAnswer;
 import no.hal.learning.exercise.workspace.LaunchEvent;
 import no.hal.learning.exercise.workspace.LaunchProposal;
+import no.hal.learning.exercise.workspace.SourceFileEditAnswer;
 import no.hal.learning.exercise.workspace.SourceFileEditEvent;
 import no.hal.learning.fv.EFeatureObject;
 import no.hal.learning.fv.FeatureValued;
@@ -127,6 +128,10 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseStringEditAnswer(StringEditAnswer object) {
 				return createStringEditAnswerAdapter();
+			}
+			@Override
+			public Adapter caseSourceFileEditAnswer(SourceFileEditAnswer object) {
+				return createSourceFileEditAnswerAdapter();
 			}
 			@Override
 			public <A extends Answer> Adapter caseProposal(Proposal<A> object) {
@@ -403,6 +408,20 @@ public class JdtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStringEditAnswerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workspace.SourceFileEditAnswer <em>Source File Edit Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.workspace.SourceFileEditAnswer
+	 * @generated
+	 */
+	public Adapter createSourceFileEditAnswerAdapter() {
 		return null;
 	}
 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.emfs/model/emfs.ecore"
+            class="no.hal.sharing.emfs.EmfsPublishingAdapterFactory"
+            supportedTypes=
+              "no.hal.sharing.PublishingAdapter"/>
+   </extension>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.emfs/model/emfs-sync.ecore"
+            class="no.hal.sharing.emfs.EmfsPublishingAdapterFactory"
+            supportedTypes=
+              "no.hal.sharing.PublishingAdapter"/>
+   </extension>
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.learning.exercise.model/model/exercise.ecore"
+            class="no.hal.sharing.exercise.ExercisePublishingAdapterFactory"
+            supportedTypes=
+              "no.hal.sharing.PublishingAdapter"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="platform:/plugin/no.hal.emfs/model/emfs-sync.ecore"
+            class="no.hal.sharing.emfs.EmfsEObjectUIAdapterFactory"
+            supportedTypes=
+              "no.hal.emf.ui.parts.adapters.EObjectUIAdapter"/>
+   </extension>
+   
+    <extension point="org.eclipse.ui.views">
+      <category
+            name="Learning"
+            id="no.hal.learning.sharing.ui">
+      </category>
+      <view
+            name="Publish"
+            category="no.hal.learning.sharing.ui"
+            class="no.hal.sharing.ui.views.PublishingView"
+            id="no.hal.learning.sharing.ui.views.PublishingView">
+      </view>
+      <view
+            name="Subscribe"
+            category="no.hal.learning.sharing.ui"
+            class="no.hal.sharing.ui.views.SubscribingView"
+            id="no.hal.learning.sharing.ui.views.SubscribingView">
+      </view>
+   </extension>
+   
+</plugin>

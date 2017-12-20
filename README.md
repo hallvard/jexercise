@@ -9,9 +9,7 @@ Overview of plugins
  * no.hal.jex.jdt: implements support for using the JDT's Java model for validating requirements
  * no.hal.jex.java: implements support for using Java reflection for validating requirements
  * no.hal.jex.ui: provides integration with Eclipse JDT's Java model and JUnit launcher, and a UI with JExercise view and editor
- * no.hal.jex.standalone: provides a Java Swing UI for viewing exercises and running the JUnit tests, using Java annotations and reflection
  * no.hal.jex.feature: the JExercise feature, which combines the above into a unit that's easy to install
- * no.hal.jex.collection: a collection of JExercises, based on JUnit tests with annotations
 
 no.hal.jex
 ----------

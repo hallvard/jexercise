@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import no.hal.learning.exercise.ExercisePackage;
 import no.hal.learning.exercise.TaskAnswer;
@@ -275,6 +276,29 @@ public class TaskProposalImpl<T extends TaskAnswer> extends ProposalImpl<T> impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean addTaskEvent(TaskEvent taskEvent) {
+		if (getAnswer() != null && getAnswer().acceptEvent(taskEvent)) {
+			TaskEvent preparedEvent = prepareTaskEvent(taskEvent);
+			if (preparedEvent != null) {
+				getAttempts().add(preparedEvent);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	protected TaskEvent prepareTaskEvent(TaskEvent taskEvent) {
+		if (taskEvent.eContainer() != null) {
+			taskEvent = EcoreUtil.copy(taskEvent);
+		}
+		return taskEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -411,6 +435,8 @@ public class TaskProposalImpl<T extends TaskAnswer> extends ProposalImpl<T> impl
 		switch (operationID) {
 			case ExercisePackage.TASK_PROPOSAL___GET_TEXT:
 				return getText();
+			case ExercisePackage.TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT:
+				return addTaskEvent((TaskEvent)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

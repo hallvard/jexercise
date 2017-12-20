@@ -848,13 +848,22 @@ public interface ExercisePackage extends EPackage {
 	int TASK_ANSWER___CREATE_PROPOSAL = ANSWER___CREATE_PROPOSAL;
 
 	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_ANSWER___ACCEPT_EVENT__TASKEVENT = ANSWER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Task Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_ANSWER_OPERATION_COUNT = ANSWER_OPERATION_COUNT + 0;
+	int TASK_ANSWER_OPERATION_COUNT = ANSWER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.impl.TaskProposalImpl <em>Task Proposal</em>}' class.
@@ -975,13 +984,22 @@ public interface ExercisePackage extends EPackage {
 	int TASK_PROPOSAL___GET_TEXT = PROPOSAL_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = PROPOSAL_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Task Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_PROPOSAL_OPERATION_COUNT = PROPOSAL_OPERATION_COUNT + 1;
+	int TASK_PROPOSAL_OPERATION_COUNT = PROPOSAL_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.impl.TaskEventImpl <em>Task Event</em>}' class.
@@ -1202,6 +1220,15 @@ public interface ExercisePackage extends EPackage {
 	int STRING_EDIT_TASK_PROPOSAL___GET_TEXT = TASK_PROPOSAL___GET_TEXT;
 
 	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>String Edit Task Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1264,6 +1291,15 @@ public interface ExercisePackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_EDIT_ANSWER___CREATE_PROPOSAL = TASK_ANSWER___CREATE_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_EDIT_ANSWER___ACCEPT_EVENT__TASKEVENT = TASK_ANSWER___ACCEPT_EVENT__TASKEVENT;
 
 	/**
 	 * The operation id for the '<em>Get Editor Path</em>' operation.
@@ -2211,6 +2247,16 @@ public interface ExercisePackage extends EPackage {
 	EAttribute getTaskAnswer_RequiredCount();
 
 	/**
+	 * Returns the meta object for the '{@link no.hal.learning.exercise.TaskAnswer#acceptEvent(no.hal.learning.exercise.TaskEvent) <em>Accept Event</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Accept Event</em>' operation.
+	 * @see no.hal.learning.exercise.TaskAnswer#acceptEvent(no.hal.learning.exercise.TaskEvent)
+	 * @generated
+	 */
+	EOperation getTaskAnswer__AcceptEvent__TaskEvent();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.TaskProposal <em>Task Proposal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2284,6 +2330,16 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTaskProposal__GetText();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.learning.exercise.TaskProposal#addTaskEvent(no.hal.learning.exercise.TaskEvent) <em>Add Task Event</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Task Event</em>' operation.
+	 * @see no.hal.learning.exercise.TaskProposal#addTaskEvent(no.hal.learning.exercise.TaskEvent)
+	 * @generated
+	 */
+	EOperation getTaskProposal__AddTaskEvent__TaskEvent();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.TaskEvent <em>Task Event</em>}'.
@@ -3008,6 +3064,14 @@ public interface ExercisePackage extends EPackage {
 		EAttribute TASK_ANSWER__REQUIRED_COUNT = eINSTANCE.getTaskAnswer_RequiredCount();
 
 		/**
+		 * The meta object literal for the '<em><b>Accept Event</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK_ANSWER___ACCEPT_EVENT__TASKEVENT = eINSTANCE.getTaskAnswer__AcceptEvent__TaskEvent();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.TaskProposalImpl <em>Task Proposal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3064,6 +3128,14 @@ public interface ExercisePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TASK_PROPOSAL___GET_TEXT = eINSTANCE.getTaskProposal__GetText();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Task Event</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = eINSTANCE.getTaskProposal__AddTaskEvent__TaskEvent();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.impl.TaskEventImpl <em>Task Event</em>}' class.

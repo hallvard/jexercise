@@ -71,15 +71,7 @@ public class Util {
         boolean _equals = Objects.equal(childName, null);
         if (_equals) {
           final EStructuralFeature feature = child.eContainingFeature();
-          boolean _and = false;
-          boolean _notEquals_1 = (!Objects.equal(feature, null));
-          if (!_notEquals_1) {
-            _and = false;
-          } else {
-            boolean _notEquals_2 = (!Objects.equal(e, null));
-            _and = _notEquals_2;
-          }
-          if (_and) {
+          if (((!Objects.equal(feature, null)) && (!Objects.equal(e, null)))) {
             String _name = feature.getName();
             Object _xifexpression = null;
             boolean _isMany = feature.isMany();
@@ -93,8 +85,8 @@ public class Util {
             childName = _plus;
           }
         }
-        boolean _notEquals_3 = (!Objects.equal(childName, null));
-        if (_notEquals_3) {
+        boolean _notEquals_1 = (!Objects.equal(childName, null));
+        if (_notEquals_1) {
           name = (("_" + childName) + name);
         }
         boolean _isInstance = c.isInstance(child);
@@ -132,36 +124,12 @@ public class Util {
       boolean _lessThan = (_lastIndexOf < 0);
       if (_lessThan) {
         final JexTestSuite packOwner = this.<JexTestSuite>ancestor(context, JexTestSuite.class);
-        boolean _and = false;
-        boolean _and_1 = false;
-        boolean _and_2 = false;
-        boolean _notEquals = (!Objects.equal(packOwner, null));
-        if (!_notEquals) {
-          _and_2 = false;
-        } else {
+        if (((((!Objects.equal(packOwner, null)) && (!Objects.equal(packOwner.getSuiteClassName(), null))) && (!Objects.equal(name, null))) && (name.lastIndexOf(".") < 0))) {
           String _suiteClassName = packOwner.getSuiteClassName();
-          boolean _notEquals_1 = (!Objects.equal(_suiteClassName, null));
-          _and_2 = _notEquals_1;
-        }
-        if (!_and_2) {
-          _and_1 = false;
-        } else {
-          boolean _notEquals_2 = (!Objects.equal(name, null));
-          _and_1 = _notEquals_2;
-        }
-        if (!_and_1) {
-          _and = false;
-        } else {
-          int _lastIndexOf_1 = name.lastIndexOf(".");
-          boolean _lessThan_1 = (_lastIndexOf_1 < 0);
-          _and = _lessThan_1;
-        }
-        if (_and) {
-          String _suiteClassName_1 = packOwner.getSuiteClassName();
-          final int pos = _suiteClassName_1.lastIndexOf(".");
+          final int pos = _suiteClassName.lastIndexOf(".");
           if ((pos > 0)) {
-            String _suiteClassName_2 = packOwner.getSuiteClassName();
-            String _substring = _suiteClassName_2.substring(0, (pos + 1));
+            String _suiteClassName_1 = packOwner.getSuiteClassName();
+            String _substring = _suiteClassName_1.substring(0, (pos + 1));
             return (_substring + name);
           }
         }
@@ -201,11 +169,9 @@ public class Util {
         final JvmIdentifiableElement feature = ((XAbstractFeatureCall)expr).getFeature();
         JvmTypeReference _switchResult = null;
         boolean _matched = false;
-        if (!_matched) {
-          if (feature instanceof JvmOperation) {
-            _matched=true;
-            _switchResult = ((JvmOperation)feature).getReturnType();
-          }
+        if (feature instanceof JvmOperation) {
+          _matched=true;
+          _switchResult = ((JvmOperation)feature).getReturnType();
         }
         if (!_matched) {
           if (feature instanceof JvmConstructor) {
@@ -500,19 +466,7 @@ public class Util {
       final Function1<JvmOperation, Boolean> _function = new Function1<JvmOperation, Boolean>() {
         @Override
         public Boolean apply(final JvmOperation it) {
-          boolean _and = false;
-          String _simpleName = it.getSimpleName();
-          String _methodName = opRef.getMethodName();
-          boolean _equals = Objects.equal(_simpleName, _methodName);
-          if (!_equals) {
-            _and = false;
-          } else {
-            EList<JvmFormalParameter> _parameters = it.getParameters();
-            EList<JvmParameterizedTypeReference> _parameterTypes = opRef.getParameterTypes();
-            boolean _matchParameterTypes = Util.this.matchParameterTypes(_parameters, _parameterTypes);
-            _and = _matchParameterTypes;
-          }
-          return Boolean.valueOf(_and);
+          return Boolean.valueOf((Objects.equal(it.getSimpleName(), opRef.getMethodName()) && Util.this.matchParameterTypes(it.getParameters(), opRef.getParameterTypes())));
         }
       };
       _xblockexpression = IterableExtensions.<JvmOperation>findFirst(_filter, _function);

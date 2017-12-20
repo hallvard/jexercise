@@ -5,9 +5,12 @@ package no.hal.learning.exercise.workbench.util;
 import no.hal.learning.exercise.Answer;
 import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.TaskAnswer;
+import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.workbench.*;
 
+import no.hal.learning.fv.EFeatureObject;
+import no.hal.learning.fv.FeatureValued;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -78,6 +81,15 @@ public class WorkbenchSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WorkbenchPackage.WORKBENCH_TASK_EVENT: {
+				WorkbenchTaskEvent workbenchTaskEvent = (WorkbenchTaskEvent)theEObject;
+				T1 result = caseWorkbenchTaskEvent(workbenchTaskEvent);
+				if (result == null) result = caseTaskEvent(workbenchTaskEvent);
+				if (result == null) result = caseEFeatureObject(workbenchTaskEvent);
+				if (result == null) result = caseFeatureValued(workbenchTaskEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case WorkbenchPackage.PART_TASK_ANSWER: {
 				PartTaskAnswer partTaskAnswer = (PartTaskAnswer)theEObject;
 				T1 result = casePartTaskAnswer(partTaskAnswer);
@@ -92,6 +104,16 @@ public class WorkbenchSwitch<T1> extends Switch<T1> {
 				T1 result = casePartTaskProposal(partTaskProposal);
 				if (result == null) result = caseTaskProposal(partTaskProposal);
 				if (result == null) result = caseProposal(partTaskProposal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkbenchPackage.PART_TASK_EVENT: {
+				PartTaskEvent partTaskEvent = (PartTaskEvent)theEObject;
+				T1 result = casePartTaskEvent(partTaskEvent);
+				if (result == null) result = caseWorkbenchTaskEvent(partTaskEvent);
+				if (result == null) result = caseTaskEvent(partTaskEvent);
+				if (result == null) result = caseEFeatureObject(partTaskEvent);
+				if (result == null) result = caseFeatureValued(partTaskEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -166,6 +188,21 @@ public class WorkbenchSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseWorkbenchTaskEvent(WorkbenchTaskEvent object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Part Task Answer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -192,6 +229,21 @@ public class WorkbenchSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 casePartTaskProposal(PartTaskProposal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Part Task Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Part Task Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePartTaskEvent(PartTaskEvent object) {
 		return null;
 	}
 
@@ -312,6 +364,51 @@ public class WorkbenchSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseTaskAnswer(TaskAnswer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Feature Valued</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Feature Valued</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseFeatureValued(FeatureValued object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EFeature Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EFeature Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEFeatureObject(EFeatureObject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTaskEvent(TaskEvent object) {
 		return null;
 	}
 

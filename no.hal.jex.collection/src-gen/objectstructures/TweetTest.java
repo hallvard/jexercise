@@ -61,14 +61,14 @@ public class TweetTest extends TestCase {
   
   @JExercise(tests = "Tweet(objectstructures.TwitterAccount,String)", description = "<h3>Konstrukt\u00F8r for ny tweet</h3>Tests \n\t\tinitialization\n")
   public void testConstructorNewTweet() {
-    _test__constructorNewTweet_transitions0_effect_state();
+    _test__constructorNewTweet_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "Tweet(objectstructures.TwitterAccount,String);Tweet(objectstructures.TwitterAccount,objectstructures.Tweet)", description = "<h3>Konstrukt\u00F8r for retweet</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>retweet1 = new Tweet(ole, tweet)</li>\n\t\t<li>Kan ikke retweete seg selv: new Tweet(nils, tweet)</li>\n\t\t</ul>\n")
   public void testConstructorRetweet() {
     _transition_exprAction__constructorRetweet_transitions0_actions0();
-    _test__constructorRetweet_transitions0_effect_state();
+    _test__constructorRetweet_transitions0_effects0_state();
     try {
       _transition_exprAction__constructorRetweet_transitions1_actions0();
       fail("RuntimeException should be thrown after new Tweet(nils, tweet)");
@@ -80,30 +80,30 @@ public class TweetTest extends TestCase {
   
   @JExercise(tests = "Tweet(objectstructures.TwitterAccount,String);Tweet(objectstructures.TwitterAccount,objectstructures.Tweet)", description = "<h3>Originalforfatter av retweets</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>retweet1 = new Tweet(ole, tweet)</li>\n\t\t<li>retweet2 = new Tweet(kari, tweet)</li>\n\t\t</ul>\n")
   public void testGetOriginalTweet() {
-    _test__getOriginalTweet_transitions0_effect_state();
+    _test__getOriginalTweet_transitions0_effects0_state();
     _transition_exprAction__getOriginalTweet_transitions1_actions0();
-    _test__getOriginalTweet_transitions1_effect_state();
+    _test__getOriginalTweet_transitions1_effects0_state();
     _transition_exprAction__getOriginalTweet_transitions2_actions0();
-    _test__getOriginalTweet_transitions2_effect_state();
+    _test__getOriginalTweet_transitions2_effects0_state();
     
   }
   
   @JExercise(tests = "Tweet(objectstructures.TwitterAccount,String);Tweet(objectstructures.TwitterAccount,objectstructures.Tweet)", description = "<h3>Retweet count</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>new Tweet(ole, tweet)</li>\n\t\t<li>new Tweet(kari, tweet)</li>\n\t\t</ul>\n")
   public void testGetRetweetCount() {
-    _test__getRetweetCount_transitions0_effect_state();
+    _test__getRetweetCount_transitions0_effects0_state();
     _transition_exprAction__getRetweetCount_transitions1_actions0();
-    _test__getRetweetCount_transitions1_effect_state();
+    _test__getRetweetCount_transitions1_effects0_state();
     _transition_exprAction__getRetweetCount_transitions2_actions0();
-    _test__getRetweetCount_transitions2_effect_state();
+    _test__getRetweetCount_transitions2_effects0_state();
     
   }
   
-  private void _test__constructorNewTweet_transitions0_effect_state() {
-    _test__constructorNewTweet_transitions0_effect_state_objectTests0_test(tweet);
+  private void _test__constructorNewTweet_transitions0_effects0_state() {
+    _test__constructorNewTweet_transitions0_effects0_state_objectTests0_test(tweet);
     
   }
   
-  private void _test__constructorNewTweet_transitions0_effect_state_objectTests0_test(final Tweet it) {
+  private void _test__constructorNewTweet_transitions0_effects0_state_objectTests0_test(final Tweet it) {
     
     String _text = it.getText();
     assertEquals("text == \"Kvitre!\" failed", "Kvitre!", _text);
@@ -124,12 +124,12 @@ public class TweetTest extends TestCase {
     
   }
   
-  private void _test__constructorRetweet_transitions0_effect_state() {
-    _test__constructorRetweet_transitions0_effect_state_objectTests0_test(retweet1);
+  private void _test__constructorRetweet_transitions0_effects0_state() {
+    _test__constructorRetweet_transitions0_effects0_state_objectTests0_test(retweet1);
     
   }
   
-  private void _test__constructorRetweet_transitions0_effect_state_objectTests0_test(final Tweet it) {
+  private void _test__constructorRetweet_transitions0_effects0_state_objectTests0_test(final Tweet it) {
     
     String _text = it.getText();
     assertEquals("text == \"Kvitre!\" failed after retweet1 = new Tweet(ole, tweet)", "Kvitre!", _text);
@@ -149,12 +149,12 @@ public class TweetTest extends TestCase {
     
   }
   
-  private void _test__getOriginalTweet_transitions0_effect_state() {
-    _test__getOriginalTweet_transitions0_effect_state_objectTests0_test(tweet);
+  private void _test__getOriginalTweet_transitions0_effects0_state() {
+    _test__getOriginalTweet_transitions0_effects0_state_objectTests0_test(tweet);
     
   }
   
-  private void _test__getOriginalTweet_transitions0_effect_state_objectTests0_test(final Tweet it) {
+  private void _test__getOriginalTweet_transitions0_effects0_state_objectTests0_test(final Tweet it) {
     
     Tweet _originalTweet = it.getOriginalTweet();
     assertEquals("originalTweet == null failed", null, _originalTweet);
@@ -172,12 +172,12 @@ public class TweetTest extends TestCase {
     
   }
   
-  private void _test__getOriginalTweet_transitions1_effect_state() {
-    _test__getOriginalTweet_transitions1_effect_state_objectTests0_test(retweet1);
+  private void _test__getOriginalTweet_transitions1_effects0_state() {
+    _test__getOriginalTweet_transitions1_effects0_state_objectTests0_test(retweet1);
     
   }
   
-  private void _test__getOriginalTweet_transitions1_effect_state_objectTests0_test(final Tweet it) {
+  private void _test__getOriginalTweet_transitions1_effects0_state_objectTests0_test(final Tweet it) {
     
     Tweet _originalTweet = it.getOriginalTweet();
     assertEquals("originalTweet == tweet failed after retweet1 = new Tweet(ole, tweet)", this.tweet, _originalTweet);
@@ -200,12 +200,12 @@ public class TweetTest extends TestCase {
     
   }
   
-  private void _test__getOriginalTweet_transitions2_effect_state() {
-    _test__getOriginalTweet_transitions2_effect_state_objectTests0_test(retweet2);
+  private void _test__getOriginalTweet_transitions2_effects0_state() {
+    _test__getOriginalTweet_transitions2_effects0_state_objectTests0_test(retweet2);
     
   }
   
-  private void _test__getOriginalTweet_transitions2_effect_state_objectTests0_test(final Tweet it) {
+  private void _test__getOriginalTweet_transitions2_effects0_state_objectTests0_test(final Tweet it) {
     
     Tweet _originalTweet = it.getOriginalTweet();
     assertEquals("originalTweet == tweet failed after retweet2 = new Tweet(kari, tweet)", this.tweet, _originalTweet);
@@ -217,12 +217,12 @@ public class TweetTest extends TestCase {
     
   }
   
-  private void _test__getRetweetCount_transitions0_effect_state() {
-    _test__getRetweetCount_transitions0_effect_state_objectTests0_test(tweet);
+  private void _test__getRetweetCount_transitions0_effects0_state() {
+    _test__getRetweetCount_transitions0_effects0_state_objectTests0_test(tweet);
     
   }
   
-  private void _test__getRetweetCount_transitions0_effect_state_objectTests0_test(final Tweet it) {
+  private void _test__getRetweetCount_transitions0_effects0_state_objectTests0_test(final Tweet it) {
     
     int _retweetCount = it.getRetweetCount();
     assertEquals("retweetCount == 0 failed", 0, _retweetCount);
@@ -239,12 +239,12 @@ public class TweetTest extends TestCase {
     
   }
   
-  private void _test__getRetweetCount_transitions1_effect_state() {
-    _test__getRetweetCount_transitions1_effect_state_objectTests0_test(tweet);
+  private void _test__getRetweetCount_transitions1_effects0_state() {
+    _test__getRetweetCount_transitions1_effects0_state_objectTests0_test(tweet);
     
   }
   
-  private void _test__getRetweetCount_transitions1_effect_state_objectTests0_test(final Tweet it) {
+  private void _test__getRetweetCount_transitions1_effects0_state_objectTests0_test(final Tweet it) {
     
     int _retweetCount = it.getRetweetCount();
     assertEquals("retweetCount == 1 failed after new Tweet(ole, tweet)", 1, _retweetCount);
@@ -261,19 +261,15 @@ public class TweetTest extends TestCase {
     
   }
   
-  private void _test__getRetweetCount_transitions2_effect_state() {
-    _test__getRetweetCount_transitions2_effect_state_objectTests0_test(tweet);
+  private void _test__getRetweetCount_transitions2_effects0_state() {
+    _test__getRetweetCount_transitions2_effects0_state_objectTests0_test(tweet);
     
   }
   
-  private void _test__getRetweetCount_transitions2_effect_state_objectTests0_test(final Tweet it) {
+  private void _test__getRetweetCount_transitions2_effects0_state_objectTests0_test(final Tweet it) {
     
     int _retweetCount = it.getRetweetCount();
     assertEquals("retweetCount == 2 failed after new Tweet(kari, tweet)", 2, _retweetCount);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(TweetTest.class);
   }
 }

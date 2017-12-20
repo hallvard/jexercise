@@ -124,6 +124,15 @@ public interface PydevPackage extends EPackage {
 	int PYDEV_SOURCE_EDIT_ANSWER___CREATE_PROPOSAL = ExercisePackage.STRING_EDIT_ANSWER___CREATE_PROPOSAL;
 
 	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_SOURCE_EDIT_ANSWER___ACCEPT_EVENT__TASKEVENT = ExercisePackage.STRING_EDIT_ANSWER___ACCEPT_EVENT__TASKEVENT;
+
+	/**
 	 * The operation id for the '<em>Get Editor Path</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -260,6 +269,15 @@ public interface PydevPackage extends EPackage {
 	int PYDEV_SOURCE_EDIT_PROPOSAL___GET_TEXT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL___GET_TEXT;
 
 	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_SOURCE_EDIT_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Source Edit Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -324,6 +342,15 @@ public interface PydevPackage extends EPackage {
 	int PYDEV_SOURCE_EDIT_EVENT__MARKERS = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Resource Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_SOURCE_EDIT_EVENT__RESOURCE_PATH = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__RESOURCE_PATH;
+
+	/**
 	 * The feature id for the '<em><b>Source Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -367,6 +394,42 @@ public interface PydevPackage extends EPackage {
 	 * @ordered
 	 */
 	int PYDEV_SOURCE_EDIT_EVENT_FEATURE_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_SOURCE_EDIT_EVENT___GET_FEATURE_NAMES = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_SOURCE_EDIT_EVENT___GET_FEATURE_VALUE__STRING = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_SOURCE_EDIT_EVENT___HAS_FEATURE__STRING = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_SOURCE_EDIT_EVENT___TO_FEATURE_LIST = WorkspacePackage.SOURCE_FILE_EDIT_EVENT___TO_FEATURE_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -560,6 +623,15 @@ public interface PydevPackage extends EPackage {
 	int PYDEV_LAUNCH_ANSWER___CREATE_PROPOSAL = WorkspacePackage.LAUNCH_ANSWER___CREATE_PROPOSAL;
 
 	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_LAUNCH_ANSWER___ACCEPT_EVENT__TASKEVENT = WorkspacePackage.LAUNCH_ANSWER___ACCEPT_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Launch Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -687,6 +759,15 @@ public interface PydevPackage extends EPackage {
 	int PYDEV_LAUNCH_PROPOSAL___GET_TEXT = WorkspacePackage.LAUNCH_PROPOSAL___GET_TEXT;
 
 	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_LAUNCH_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = WorkspacePackage.LAUNCH_PROPOSAL___ADD_TASK_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Launch Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -742,13 +823,76 @@ public interface PydevPackage extends EPackage {
 	int PYDEV_LAUNCH_EVENT__MODE = WorkspacePackage.LAUNCH_EVENT__MODE;
 
 	/**
+	 * The feature id for the '<em><b>Launch Attr Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_LAUNCH_EVENT__LAUNCH_ATTR_NAMES = WorkspacePackage.LAUNCH_EVENT__LAUNCH_ATTR_NAMES;
+
+	/**
+	 * The feature id for the '<em><b>Launch Attr Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_LAUNCH_EVENT__LAUNCH_ATTR_VALUES = WorkspacePackage.LAUNCH_EVENT__LAUNCH_ATTR_VALUES;
+
+	/**
+	 * The feature id for the '<em><b>Module Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_LAUNCH_EVENT__MODULE_NAME = WorkspacePackage.LAUNCH_EVENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Launch Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PYDEV_LAUNCH_EVENT_FEATURE_COUNT = WorkspacePackage.LAUNCH_EVENT_FEATURE_COUNT + 0;
+	int PYDEV_LAUNCH_EVENT_FEATURE_COUNT = WorkspacePackage.LAUNCH_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_LAUNCH_EVENT___GET_FEATURE_NAMES = WorkspacePackage.LAUNCH_EVENT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_LAUNCH_EVENT___GET_FEATURE_VALUE__STRING = WorkspacePackage.LAUNCH_EVENT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_LAUNCH_EVENT___HAS_FEATURE__STRING = WorkspacePackage.LAUNCH_EVENT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PYDEV_LAUNCH_EVENT___TO_FEATURE_LIST = WorkspacePackage.LAUNCH_EVENT___TO_FEATURE_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -862,6 +1006,17 @@ public interface PydevPackage extends EPackage {
 	EClass getPydevLaunchEvent();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.pydev.PydevLaunchEvent#getModuleName <em>Module Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Module Name</em>'.
+	 * @see no.hal.learning.exercise.pydev.PydevLaunchEvent#getModuleName()
+	 * @see #getPydevLaunchEvent()
+	 * @generated
+	 */
+	EAttribute getPydevLaunchEvent_ModuleName();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -969,6 +1124,14 @@ public interface PydevPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PYDEV_LAUNCH_EVENT = eINSTANCE.getPydevLaunchEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Module Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PYDEV_LAUNCH_EVENT__MODULE_NAME = eINSTANCE.getPydevLaunchEvent_ModuleName();
 
 	}
 

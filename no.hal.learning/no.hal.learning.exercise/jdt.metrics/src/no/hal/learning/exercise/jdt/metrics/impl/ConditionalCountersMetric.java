@@ -6,6 +6,7 @@ import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.InfixExpression;
 
 import no.hal.learning.fv.FeatureList;
+import no.hal.learning.fv.FeatureValued;
 
 public class ConditionalCountersMetric extends TokenCountersMetric {
 
@@ -15,7 +16,8 @@ public class ConditionalCountersMetric extends TokenCountersMetric {
 	
 	@Override
 	protected FeatureList computeMetricsUsingAST(ASTNode ast) {
-		FeatureList fl = super.computeMetricsUsingAST(ast);
+		FeatureValued fv = super.computeMetricsUsingAST(ast);
+		FeatureList fl = fv.toFeatureList();
 		double sum = 0.0;
 		for (Map.Entry<String, Double> entry: fl.getFeatures()) {
 			sum += entry.getValue();

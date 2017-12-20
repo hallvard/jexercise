@@ -57,8 +57,10 @@ public class WorkbenchFactoryImpl extends EFactoryImpl implements WorkbenchFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case WorkbenchPackage.WORKBENCH_TASK_ANSWER: return createWorkbenchTaskAnswer();
+			case WorkbenchPackage.WORKBENCH_TASK_EVENT: return createWorkbenchTaskEvent();
 			case WorkbenchPackage.PART_TASK_ANSWER: return createPartTaskAnswer();
 			case WorkbenchPackage.PART_TASK_PROPOSAL: return createPartTaskProposal();
+			case WorkbenchPackage.PART_TASK_EVENT: return createPartTaskEvent();
 			case WorkbenchPackage.PERSPECTIVE_TASK_ANSWER: return createPerspectiveTaskAnswer();
 			case WorkbenchPackage.PERSPECTIVE_TASK_PROPOSAL: return createPerspectiveTaskProposal();
 			case WorkbenchPackage.COMMAND_EXECUTION_ANSWER: return createCommandExecutionAnswer();
@@ -85,6 +87,16 @@ public class WorkbenchFactoryImpl extends EFactoryImpl implements WorkbenchFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public WorkbenchTaskEvent createWorkbenchTaskEvent() {
+		WorkbenchTaskEventImpl workbenchTaskEvent = new WorkbenchTaskEventImpl();
+		return workbenchTaskEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PartTaskAnswer createPartTaskAnswer() {
 		PartTaskAnswerImpl partTaskAnswer = new PartTaskAnswerImpl();
 		return partTaskAnswer;
@@ -98,6 +110,16 @@ public class WorkbenchFactoryImpl extends EFactoryImpl implements WorkbenchFacto
 	public PartTaskProposal createPartTaskProposal() {
 		PartTaskProposalImpl partTaskProposal = new PartTaskProposalImpl();
 		return partTaskProposal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PartTaskEvent createPartTaskEvent() {
+		PartTaskEventImpl partTaskEvent = new PartTaskEventImpl();
+		return partTaskEvent;
 	}
 
 	/**

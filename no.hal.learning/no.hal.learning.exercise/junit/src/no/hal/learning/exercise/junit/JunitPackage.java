@@ -277,6 +277,15 @@ public interface JunitPackage extends EPackage {
 	int JUNIT_TEST_EVENT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Proposal</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_EVENT__PROPOSAL = ExercisePackage.TASK_EVENT__PROPOSAL;
+
+	/**
 	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -295,13 +304,22 @@ public interface JunitPackage extends EPackage {
 	int JUNIT_TEST_EVENT__COMPLETION = ExercisePackage.TASK_EVENT__COMPLETION;
 
 	/**
+	 * The feature id for the '<em><b>Test Run Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_EVENT__TEST_RUN_NAME = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Success Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JUNIT_TEST_EVENT__SUCCESS_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 0;
+	int JUNIT_TEST_EVENT__SUCCESS_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Success Tests</b></em>' attribute list.
@@ -310,7 +328,7 @@ public interface JunitPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JUNIT_TEST_EVENT__SUCCESS_TESTS = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+	int JUNIT_TEST_EVENT__SUCCESS_TESTS = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Failure Count</b></em>' attribute.
@@ -319,7 +337,7 @@ public interface JunitPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JUNIT_TEST_EVENT__FAILURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 2;
+	int JUNIT_TEST_EVENT__FAILURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Failure Tests</b></em>' attribute list.
@@ -328,7 +346,7 @@ public interface JunitPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JUNIT_TEST_EVENT__FAILURE_TESTS = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 3;
+	int JUNIT_TEST_EVENT__FAILURE_TESTS = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Error Count</b></em>' attribute.
@@ -337,7 +355,7 @@ public interface JunitPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JUNIT_TEST_EVENT__ERROR_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 4;
+	int JUNIT_TEST_EVENT__ERROR_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Error Tests</b></em>' attribute list.
@@ -346,7 +364,7 @@ public interface JunitPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JUNIT_TEST_EVENT__ERROR_TESTS = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 5;
+	int JUNIT_TEST_EVENT__ERROR_TESTS = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Test Event</em>' class.
@@ -355,7 +373,43 @@ public interface JunitPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JUNIT_TEST_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 6;
+	int JUNIT_TEST_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_EVENT___GET_FEATURE_NAMES = ExercisePackage.TASK_EVENT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_EVENT___GET_FEATURE_VALUE__STRING = ExercisePackage.TASK_EVENT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_EVENT___HAS_FEATURE__STRING = ExercisePackage.TASK_EVENT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUNIT_TEST_EVENT___TO_FEATURE_LIST = ExercisePackage.TASK_EVENT___TO_FEATURE_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Text</em>' operation.
@@ -426,6 +480,17 @@ public interface JunitPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getJunitTestEvent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.junit.JunitTestEvent#getTestRunName <em>Test Run Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Test Run Name</em>'.
+	 * @see no.hal.learning.exercise.junit.JunitTestEvent#getTestRunName()
+	 * @see #getJunitTestEvent()
+	 * @generated
+	 */
+	EAttribute getJunitTestEvent_TestRunName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.junit.JunitTestEvent#getSuccessCount <em>Success Count</em>}'.
@@ -561,6 +626,14 @@ public interface JunitPackage extends EPackage {
 		 * @generated
 		 */
 		EClass JUNIT_TEST_EVENT = eINSTANCE.getJunitTestEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Test Run Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JUNIT_TEST_EVENT__TEST_RUN_NAME = eINSTANCE.getJunitTestEvent_TestRunName();
 
 		/**
 		 * The meta object literal for the '<em><b>Success Count</b></em>' attribute feature.

@@ -59,46 +59,46 @@ public class SkippingIteratorTest extends TestCase {
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCaseEmpty() {
-    _test__caseEmpty_transitions0_effect_state();
+    _test__caseEmpty_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCaseSingle() {
-    _test__caseSingle_transitions0_effect_state();
+    _test__caseSingle_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase12_1() {
-    _test__case12_1_transitions0_effect_state();
+    _test__case12_1_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase17_2() {
-    _test__case17_2_transitions0_effect_state();
+    _test__case17_2_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase18_2() {
-    _test__case18_2_transitions0_effect_state();
+    _test__case18_2_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase19_2() {
-    _test__case19_2_transitions0_effect_state();
+    _test__case19_2_transitions0_effects0_state();
     
   }
   
-  private void _test__caseEmpty_transitions0_effect_state() {
-    _test__caseEmpty_transitions0_effect_state_objectTests0_test();
+  private void _test__caseEmpty_transitions0_effects0_state() {
+    _test__caseEmpty_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__caseEmpty_transitions0_effect_state_objectTests0_test() {
+  private void _test__caseEmpty_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList()), 0);
@@ -108,12 +108,12 @@ public class SkippingIteratorTest extends TestCase {
     
   }
   
-  private void _test__caseSingle_transitions0_effect_state() {
-    _test__caseSingle_transitions0_effect_state_objectTests0_test();
+  private void _test__caseSingle_transitions0_effects0_state() {
+    _test__caseSingle_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__caseSingle_transitions0_effect_state_objectTests0_test() {
+  private void _test__caseSingle_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1))), 0, 1);
@@ -123,12 +123,12 @@ public class SkippingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case12_1_transitions0_effect_state() {
-    _test__case12_1_transitions0_effect_state_objectTests0_test();
+  private void _test__case12_1_transitions0_effects0_state() {
+    _test__case12_1_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case12_1_transitions0_effect_state_objectTests0_test() {
+  private void _test__case12_1_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1), Integer.valueOf(2))), 1, 1);
@@ -138,12 +138,12 @@ public class SkippingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case17_2_transitions0_effect_state() {
-    _test__case17_2_transitions0_effect_state_objectTests0_test();
+  private void _test__case17_2_transitions0_effects0_state() {
+    _test__case17_2_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case17_2_transitions0_effect_state_objectTests0_test() {
+  private void _test__case17_2_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(this.list17, 2, 1, 4, 7);
@@ -153,12 +153,12 @@ public class SkippingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case18_2_transitions0_effect_state() {
-    _test__case18_2_transitions0_effect_state_objectTests0_test();
+  private void _test__case18_2_transitions0_effects0_state() {
+    _test__case18_2_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case18_2_transitions0_effect_state_objectTests0_test() {
+  private void _test__case18_2_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(this.list18, 2, 1, 4, 7);
@@ -168,12 +168,12 @@ public class SkippingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case19_2_transitions0_effect_state() {
-    _test__case19_2_transitions0_effect_state_objectTests0_test();
+  private void _test__case19_2_transitions0_effects0_state() {
+    _test__case19_2_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case19_2_transitions0_effect_state_objectTests0_test() {
+  private void _test__case19_2_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(this.list19, 2, 1, 4, 7);
@@ -181,9 +181,5 @@ public class SkippingIteratorTest extends TestCase {
       fail("testIterator(list19, 2, 1, 4, 7) failed: " + error.getMessage());
     }
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(SkippingIteratorTest.class);
   }
 }

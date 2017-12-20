@@ -41,6 +41,7 @@ import com.amitinside.tooling.chart.swt.SpiderChartViewer;
 import com.amitinside.tooling.chart.title.SpiderChartTitle;
 
 import no.hal.learning.exercise.jdt.metrics.AbstractASTMetricsProvider;
+import no.hal.learning.fv.DelegatedFeatures;
 import no.hal.learning.fv.FeatureList;
 import no.hal.learning.fv.FeatureValued;
 import no.hal.learning.fv.impl.FeatureListImpl;
@@ -73,11 +74,11 @@ public class MetricsView extends ViewPart {
 		featureSetColumn.setLabelProvider(new MapEntryLabelCellProvider(true, null) {
 			@Override
 			protected String formatKey(String text) {
-				return wordify(text, false);
+				return MapEntryLabelCellProvider.wordify(text, false);
 			}
 		});
 		featureSetColumn.getColumn().setText("Name");
-		featureSetColumn.getColumn().setWidth(150);
+		featureSetColumn.getColumn().setWidth(250);
 
 		TreeViewerColumn featureValueViewerColumn = new TreeViewerColumn(featuresMapViewer, SWT.NONE);
 		featureValueViewerColumn.setLabelProvider(new MapEntryLabelCellProvider(false, Double.class) {
@@ -169,8 +170,8 @@ public class MetricsView extends ViewPart {
 			String name = null;
 			if (viewProvider instanceof DefaultMetricsViewProvider) {
 				name = ((DefaultMetricsViewProvider) viewProvider).getName();
-			} else if (features instanceof FeatureList) {
-				name = ((FeatureList) features).getName();				
+			} else if (features instanceof DelegatedFeatures) {
+				name = ((DelegatedFeatures) features).getName();				
 			}
 			if (features != null && name != null) {
 				viewsMap.put(name, features);
@@ -209,7 +210,7 @@ public class MetricsView extends ViewPart {
 				acb = new AxesConfigurer.Builder();
 				FeatureValued fv = entry.getValue();
 				for (String featureName : fv.getFeatureNames()) {
-					acb.addAxis(featureName, 5.0, 0.0);
+					acb.addAxis(MapEntryLabelCellProvider.wordify(featureName, false), 10.0, 0.0);
 				}
 				AbstractChartColor color = new SpiderChartSwtColor(getColorName(seqs.size()));
 				LineDataSeq featureSeq = new LineDataSeq(FeatureListImpl.getFeatureDoubles(fv), LineStyle.of(2.0f, color, 0));

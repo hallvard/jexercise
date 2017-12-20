@@ -76,7 +76,16 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER__REQUIRED_COUNT = ExercisePackage.STRING_EDIT_ANSWER__REQUIRED_COUNT;
+	int JDT_SOURCE_EDIT_ANSWER__REQUIRED_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER__REQUIRED_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Resource Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_ANSWER__RESOURCE_PATH = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER__RESOURCE_PATH;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -85,7 +94,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER__CLASS_NAME = ExercisePackage.STRING_EDIT_ANSWER_FEATURE_COUNT + 0;
+	int JDT_SOURCE_EDIT_ANSWER__CLASS_NAME = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Method Names</b></em>' attribute list.
@@ -94,7 +103,16 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER__METHOD_NAMES = ExercisePackage.STRING_EDIT_ANSWER_FEATURE_COUNT + 1;
+	int JDT_SOURCE_EDIT_ANSWER__METHOD_NAMES = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Metrics</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_ANSWER__METRICS = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Source Edit Answer</em>' class.
@@ -103,7 +121,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER_FEATURE_COUNT = ExercisePackage.STRING_EDIT_ANSWER_FEATURE_COUNT + 2;
+	int JDT_SOURCE_EDIT_ANSWER_FEATURE_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -112,7 +130,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER___ACCEPT__OBJECT = ExercisePackage.STRING_EDIT_ANSWER___ACCEPT__OBJECT;
+	int JDT_SOURCE_EDIT_ANSWER___ACCEPT__OBJECT = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER___ACCEPT__OBJECT;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -121,7 +139,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER___VALIDATE__OBJECT = ExercisePackage.STRING_EDIT_ANSWER___VALIDATE__OBJECT;
+	int JDT_SOURCE_EDIT_ANSWER___VALIDATE__OBJECT = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER___VALIDATE__OBJECT;
 
 	/**
 	 * The operation id for the '<em>Create Proposal</em>' operation.
@@ -130,7 +148,16 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER___CREATE_PROPOSAL = ExercisePackage.STRING_EDIT_ANSWER___CREATE_PROPOSAL;
+	int JDT_SOURCE_EDIT_ANSWER___CREATE_PROPOSAL = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER___CREATE_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_ANSWER___ACCEPT_EVENT__TASKEVENT = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER___ACCEPT_EVENT__TASKEVENT;
 
 	/**
 	 * The operation id for the '<em>Get Editor Path</em>' operation.
@@ -139,7 +166,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER___GET_EDITOR_PATH = ExercisePackage.STRING_EDIT_ANSWER___GET_EDITOR_PATH;
+	int JDT_SOURCE_EDIT_ANSWER___GET_EDITOR_PATH = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER___GET_EDITOR_PATH;
 
 	/**
 	 * The number of operations of the '<em>Source Edit Answer</em>' class.
@@ -148,7 +175,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_ANSWER_OPERATION_COUNT = ExercisePackage.STRING_EDIT_ANSWER_OPERATION_COUNT + 0;
+	int JDT_SOURCE_EDIT_ANSWER_OPERATION_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_ANSWER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditProposalImpl <em>Source Edit Proposal</em>}' class.
@@ -379,6 +406,15 @@ public interface JdtPackage extends EPackage {
 	int JDT_SOURCE_EDIT_EVENT__MARKERS = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Resource Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT__RESOURCE_PATH = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__RESOURCE_PATH;
+
+	/**
 	 * The feature id for the '<em><b>Source Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -415,13 +451,22 @@ public interface JdtPackage extends EPackage {
 	int JDT_SOURCE_EDIT_EVENT__WARNING_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT__WARNING_COUNT;
 
 	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_SOURCE_EDIT_EVENT__CLASS_NAME = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Metrics</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT__METRICS = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT + 0;
+	int JDT_SOURCE_EDIT_EVENT__METRICS = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Source Edit Event</em>' class.
@@ -430,7 +475,7 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_SOURCE_EDIT_EVENT_FEATURE_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT + 1;
+	int JDT_SOURCE_EDIT_EVENT_FEATURE_COUNT = WorkspacePackage.SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Feature Names</em>' operation.
@@ -678,6 +723,15 @@ public interface JdtPackage extends EPackage {
 	int JDT_LAUNCH_ANSWER___CREATE_PROPOSAL = WorkspacePackage.LAUNCH_ANSWER___CREATE_PROPOSAL;
 
 	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_ANSWER___ACCEPT_EVENT__TASKEVENT = WorkspacePackage.LAUNCH_ANSWER___ACCEPT_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Launch Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -860,13 +914,22 @@ public interface JdtPackage extends EPackage {
 	int JDT_LAUNCH_EVENT__MODE = WorkspacePackage.LAUNCH_EVENT__MODE;
 
 	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JDT_LAUNCH_EVENT__CLASS_NAME = WorkspacePackage.LAUNCH_EVENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Launch Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JDT_LAUNCH_EVENT_FEATURE_COUNT = WorkspacePackage.LAUNCH_EVENT_FEATURE_COUNT + 0;
+	int JDT_LAUNCH_EVENT_FEATURE_COUNT = WorkspacePackage.LAUNCH_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Feature Names</em>' operation.
@@ -956,6 +1019,17 @@ public interface JdtPackage extends EPackage {
 	EAttribute getJdtSourceEditAnswer_MethodNames();
 
 	/**
+	 * Returns the meta object for the map '{@link no.hal.learning.exercise.jdt.JdtSourceEditAnswer#getMetrics <em>Metrics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Metrics</em>'.
+	 * @see no.hal.learning.exercise.jdt.JdtSourceEditAnswer#getMetrics()
+	 * @see #getJdtSourceEditAnswer()
+	 * @generated
+	 */
+	EReference getJdtSourceEditAnswer_Metrics();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.jdt.JdtSourceEditProposal <em>Source Edit Proposal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1008,6 +1082,17 @@ public interface JdtPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getJdtSourceEditEvent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtSourceEditEvent#getClassName <em>Class Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class Name</em>'.
+	 * @see no.hal.learning.exercise.jdt.JdtSourceEditEvent#getClassName()
+	 * @see #getJdtSourceEditEvent()
+	 * @generated
+	 */
+	EAttribute getJdtSourceEditEvent_ClassName();
 
 	/**
 	 * Returns the meta object for the map '{@link no.hal.learning.exercise.jdt.JdtSourceEditEvent#getMetrics <em>Metrics</em>}'.
@@ -1094,6 +1179,17 @@ public interface JdtPackage extends EPackage {
 	EClass getJdtLaunchEvent();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.jdt.JdtLaunchEvent#getClassName <em>Class Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class Name</em>'.
+	 * @see no.hal.learning.exercise.jdt.JdtLaunchEvent#getClassName()
+	 * @see #getJdtLaunchEvent()
+	 * @generated
+	 */
+	EAttribute getJdtLaunchEvent_ClassName();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1143,6 +1239,14 @@ public interface JdtPackage extends EPackage {
 		EAttribute JDT_SOURCE_EDIT_ANSWER__METHOD_NAMES = eINSTANCE.getJdtSourceEditAnswer_MethodNames();
 
 		/**
+		 * The meta object literal for the '<em><b>Metrics</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JDT_SOURCE_EDIT_ANSWER__METRICS = eINSTANCE.getJdtSourceEditAnswer_Metrics();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditProposalImpl <em>Source Edit Proposal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1187,6 +1291,14 @@ public interface JdtPackage extends EPackage {
 		 * @generated
 		 */
 		EClass JDT_SOURCE_EDIT_EVENT = eINSTANCE.getJdtSourceEditEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JDT_SOURCE_EDIT_EVENT__CLASS_NAME = eINSTANCE.getJdtSourceEditEvent_ClassName();
 
 		/**
 		 * The meta object literal for the '<em><b>Metrics</b></em>' map feature.
@@ -1259,6 +1371,14 @@ public interface JdtPackage extends EPackage {
 		 * @generated
 		 */
 		EClass JDT_LAUNCH_EVENT = eINSTANCE.getJdtLaunchEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JDT_LAUNCH_EVENT__CLASS_NAME = eINSTANCE.getJdtLaunchEvent_ClassName();
 
 	}
 

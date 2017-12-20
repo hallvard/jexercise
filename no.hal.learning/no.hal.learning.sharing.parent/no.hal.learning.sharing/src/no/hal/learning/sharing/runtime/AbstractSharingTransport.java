@@ -12,7 +12,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -21,7 +20,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import no.hal.learning.sharing.AbstractShare;
-import no.hal.learning.sharing.ModelEdit;
 import no.hal.learning.sharing.ShareEdits;
 import no.hal.learning.sharing.ShareModel;
 import no.hal.learning.sharing.SharingPackage;

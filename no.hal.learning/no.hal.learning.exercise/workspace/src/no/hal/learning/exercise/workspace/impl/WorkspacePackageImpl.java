@@ -16,6 +16,7 @@ import no.hal.learning.exercise.workspace.WorkspacePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.ETypeParameter;
@@ -175,7 +176,7 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSourceFileEditEvent_SourceCode() {
+	public EAttribute getSourceFileEditEvent_ResourcePath() {
 		return (EAttribute)sourceFileEditEventEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -184,7 +185,7 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSourceFileEditEvent_SizeMeasure() {
+	public EAttribute getSourceFileEditEvent_SourceCode() {
 		return (EAttribute)sourceFileEditEventEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -193,7 +194,7 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSourceFileEditEvent_ErrorCount() {
+	public EAttribute getSourceFileEditEvent_SizeMeasure() {
 		return (EAttribute)sourceFileEditEventEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -202,8 +203,17 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSourceFileEditEvent_WarningCount() {
+	public EAttribute getSourceFileEditEvent_ErrorCount() {
 		return (EAttribute)sourceFileEditEventEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSourceFileEditEvent_WarningCount() {
+		return (EAttribute)sourceFileEditEventEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -274,6 +284,51 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLaunchEvent_LaunchAttrNames() {
+		return (EAttribute)launchEventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLaunchEvent_LaunchAttrValues() {
+		return (EAttribute)launchEventEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLaunchEvent_ConsoleOutput() {
+		return (EAttribute)launchEventEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLaunchEvent_ConsoleOutputSizeMeasure() {
+		return (EAttribute)launchEventEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLaunchEvent__GetAllConsoleOutput() {
+		return launchEventEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WorkspaceFactory getWorkspaceFactory() {
 		return (WorkspaceFactory)getEFactoryInstance();
 	}
@@ -303,6 +358,7 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 		sourceFileEditProposalEClass = createEClass(SOURCE_FILE_EDIT_PROPOSAL);
 
 		sourceFileEditEventEClass = createEClass(SOURCE_FILE_EDIT_EVENT);
+		createEAttribute(sourceFileEditEventEClass, SOURCE_FILE_EDIT_EVENT__RESOURCE_PATH);
 		createEAttribute(sourceFileEditEventEClass, SOURCE_FILE_EDIT_EVENT__SOURCE_CODE);
 		createEAttribute(sourceFileEditEventEClass, SOURCE_FILE_EDIT_EVENT__SIZE_MEASURE);
 		createEAttribute(sourceFileEditEventEClass, SOURCE_FILE_EDIT_EVENT__ERROR_COUNT);
@@ -317,6 +373,11 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 
 		launchEventEClass = createEClass(LAUNCH_EVENT);
 		createEAttribute(launchEventEClass, LAUNCH_EVENT__MODE);
+		createEAttribute(launchEventEClass, LAUNCH_EVENT__LAUNCH_ATTR_NAMES);
+		createEAttribute(launchEventEClass, LAUNCH_EVENT__LAUNCH_ATTR_VALUES);
+		createEAttribute(launchEventEClass, LAUNCH_EVENT__CONSOLE_OUTPUT);
+		createEAttribute(launchEventEClass, LAUNCH_EVENT__CONSOLE_OUTPUT_SIZE_MEASURE);
+		createEOperation(launchEventEClass, LAUNCH_EVENT___GET_ALL_CONSOLE_OUTPUT);
 	}
 
 	/**
@@ -373,6 +434,7 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 		initEClass(sourceFileEditProposalEClass, SourceFileEditProposal.class, "SourceFileEditProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sourceFileEditEventEClass, SourceFileEditEvent.class, "SourceFileEditEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSourceFileEditEvent_ResourcePath(), ecorePackage.getEString(), "resourcePath", null, 0, 1, SourceFileEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSourceFileEditEvent_SourceCode(), ecorePackage.getEString(), "sourceCode", null, 0, 1, SourceFileEditEvent.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSourceFileEditEvent_SizeMeasure(), ecorePackage.getEInt(), "sizeMeasure", null, 0, 1, SourceFileEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSourceFileEditEvent_ErrorCount(), ecorePackage.getEInt(), "errorCount", null, 0, 1, SourceFileEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -387,6 +449,12 @@ public class WorkspacePackageImpl extends EPackageImpl implements WorkspacePacka
 
 		initEClass(launchEventEClass, LaunchEvent.class, "LaunchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLaunchEvent_Mode(), ecorePackage.getEString(), "mode", null, 0, 1, LaunchEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLaunchEvent_LaunchAttrNames(), ecorePackage.getEString(), "launchAttrNames", null, 0, -1, LaunchEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLaunchEvent_LaunchAttrValues(), ecorePackage.getEString(), "launchAttrValues", null, 0, -1, LaunchEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLaunchEvent_ConsoleOutput(), ecorePackage.getEString(), "consoleOutput", null, 0, -1, LaunchEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLaunchEvent_ConsoleOutputSizeMeasure(), ecorePackage.getEInt(), "consoleOutputSizeMeasure", null, 0, 1, LaunchEvent.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getLaunchEvent__GetAllConsoleOutput(), ecorePackage.getEString(), "getAllConsoleOutput", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

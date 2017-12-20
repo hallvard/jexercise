@@ -63,13 +63,13 @@ public class ObservableListTest extends TestCase {
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state();
+    _test__constructor_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "void addElement(Object)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>observableList.addElement(\"5\")</li>\n\t\t</ul>\n")
   public void testAcceptsElement() {
-    _test__acceptsElement_transitions0_effect_state();
+    _test__acceptsElement_transitions0_effects0_state();
     try {
       _transition_exprAction__acceptsElement_transitions1_actions0();
       fail("IllegalArgumentException should be thrown after observableList.addElement(\"5\")");
@@ -82,11 +82,11 @@ public class ObservableListTest extends TestCase {
   @JExercise(tests = "void addElement(Object);void addElement(int,Object)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>observableList.addElement(5)</li>\n\t\t<li>observableList.addElement(6)</li>\n\t\t<li>observableList.addElement(0, 2)</li>\n\t\t</ul>\n")
   public void testAddElement() {
     _transition_exprAction__addElement_transitions0_actions0();
-    _test__addElement_transitions0_effect_state();
+    _test__addElement_transitions0_effects0_state();
     _transition_exprAction__addElement_transitions1_actions0();
-    _test__addElement_transitions1_effect_state();
+    _test__addElement_transitions1_effects0_state();
     _transition_exprAction__addElement_transitions2_actions0();
-    _test__addElement_transitions2_effect_state();
+    _test__addElement_transitions2_effects0_state();
     
   }
   
@@ -94,32 +94,32 @@ public class ObservableListTest extends TestCase {
   public void testListListener() {
     _transition_exprAction__listListener_transitions0_actions0();
     _transition_exprAction__listListener_transitions0_actions1();
-    _test__listListener_transitions0_effect_state();
+    _test__listListener_transitions0_effects0_state();
     _transition_exprAction__listListener_transitions1_actions0();
-    _test__listListener_transitions1_effect_state();
+    _test__listListener_transitions1_effects0_state();
     _transition_exprAction__listListener_transitions2_actions0();
-    _test__listListener_transitions2_effect_state();
+    _test__listListener_transitions2_effects0_state();
     
   }
   
-  private void _test__constructor_transitions0_effect_state() {
-    _test__constructor_transitions0_effect_state_objectTests0_test(observableList);
+  private void _test__constructor_transitions0_effects0_state() {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(observableList);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final ObservableList it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final ObservableList it) {
     
     int _size = it.size();
     assertEquals("size() == 0 failed", 0, _size);
     
   }
   
-  private void _test__acceptsElement_transitions0_effect_state() {
-    _test__acceptsElement_transitions0_effect_state_objectTests0_test(observableList);
+  private void _test__acceptsElement_transitions0_effects0_state() {
+    _test__acceptsElement_transitions0_effects0_state_objectTests0_test(observableList);
     
   }
   
-  private void _test__acceptsElement_transitions0_effect_state_objectTests0_test(final ObservableList it) {
+  private void _test__acceptsElement_transitions0_effects0_state_objectTests0_test(final ObservableList it) {
     
     boolean _acceptsElement = it.acceptsElement(Integer.valueOf(5));
     assertTrue("acceptsElement(5) failed", _acceptsElement);
@@ -149,12 +149,12 @@ public class ObservableListTest extends TestCase {
     
   }
   
-  private void _test__addElement_transitions0_effect_state() {
-    _test__addElement_transitions0_effect_state_objectTests0_test();
+  private void _test__addElement_transitions0_effects0_state() {
+    _test__addElement_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElement_transitions0_effect_state_objectTests0_test() {
+  private void _test__addElement_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -175,12 +175,12 @@ public class ObservableListTest extends TestCase {
     
   }
   
-  private void _test__addElement_transitions1_effect_state() {
-    _test__addElement_transitions1_effect_state_objectTests0_test();
+  private void _test__addElement_transitions1_effects0_state() {
+    _test__addElement_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElement_transitions1_effect_state_objectTests0_test() {
+  private void _test__addElement_transitions1_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -201,12 +201,12 @@ public class ObservableListTest extends TestCase {
     
   }
   
-  private void _test__addElement_transitions2_effect_state() {
-    _test__addElement_transitions2_effect_state_objectTests0_test();
+  private void _test__addElement_transitions2_effects0_state() {
+    _test__addElement_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElement_transitions2_effect_state_objectTests0_test() {
+  private void _test__addElement_transitions2_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -221,6 +221,7 @@ public class ObservableListTest extends TestCase {
     try {
       
       final ObservableListListener _function = new ObservableListListener() {
+        @Override
         public void listChanged(final ObservableList list, final int pos) {
           ObservableListTest.this.pos2 = pos;
         }
@@ -242,12 +243,12 @@ public class ObservableListTest extends TestCase {
     
   }
   
-  private void _test__listListener_transitions0_effect_state() {
-    _test__listListener_transitions0_effect_state_objectTests0_test();
+  private void _test__listListener_transitions0_effects0_state() {
+    _test__listListener_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListener_transitions0_effect_state_objectTests0_test() {
+  private void _test__listListener_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -268,12 +269,12 @@ public class ObservableListTest extends TestCase {
     
   }
   
-  private void _test__listListener_transitions1_effect_state() {
-    _test__listListener_transitions1_effect_state_objectTests0_test();
+  private void _test__listListener_transitions1_effects0_state() {
+    _test__listListener_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListener_transitions1_effect_state_objectTests0_test() {
+  private void _test__listListener_transitions1_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -294,12 +295,12 @@ public class ObservableListTest extends TestCase {
     
   }
   
-  private void _test__listListener_transitions2_effect_state() {
-    _test__listListener_transitions2_effect_state_objectTests0_test();
+  private void _test__listListener_transitions2_effects0_state() {
+    _test__listListener_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListener_transitions2_effect_state_objectTests0_test() {
+  private void _test__listListener_transitions2_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -308,9 +309,5 @@ public class ObservableListTest extends TestCase {
       fail("observableList ?= #[2, 5, 6] failed after addElement(0, 2): " + error.getMessage());
     }
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(ObservableListTest.class);
   }
 }

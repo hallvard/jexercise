@@ -19,6 +19,8 @@ import no.hal.learning.exercise.workspace.LaunchEvent;
 import no.hal.learning.exercise.workspace.LaunchProposal;
 import no.hal.learning.exercise.workspace.SourceFileEditEvent;
 
+import no.hal.learning.fv.EFeatureObject;
+import no.hal.learning.fv.FeatureValued;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -105,6 +107,8 @@ public class PydevSwitch<T1> extends Switch<T1> {
 				if (result == null) result = caseSourceFileEditEvent(pydevSourceEditEvent);
 				if (result == null) result = caseAbstractStringEditEvent(pydevSourceEditEvent);
 				if (result == null) result = caseTaskEvent(pydevSourceEditEvent);
+				if (result == null) result = caseEFeatureObject(pydevSourceEditEvent);
+				if (result == null) result = caseFeatureValued(pydevSourceEditEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,6 +142,8 @@ public class PydevSwitch<T1> extends Switch<T1> {
 				T1 result = casePydevLaunchEvent(pydevLaunchEvent);
 				if (result == null) result = caseLaunchEvent(pydevLaunchEvent);
 				if (result == null) result = caseTaskEvent(pydevLaunchEvent);
+				if (result == null) result = caseEFeatureObject(pydevLaunchEvent);
+				if (result == null) result = caseFeatureValued(pydevLaunchEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -337,6 +343,36 @@ public class PydevSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <A extends StringEditAnswer> T1 caseStringEditTaskProposal(StringEditTaskProposal<A> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Feature Valued</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Feature Valued</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseFeatureValued(FeatureValued object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EFeature Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EFeature Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEFeatureObject(EFeatureObject object) {
 		return null;
 	}
 

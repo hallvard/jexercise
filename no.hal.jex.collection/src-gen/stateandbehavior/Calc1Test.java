@@ -16,17 +16,12 @@ public class Calc1Test extends TestCase {
   }
   
   private boolean operator_equals(final double d1, final double d2) {
-    boolean _xblockexpression = false;
-    {
-      final double epsilon = 0.000001d;
-      _xblockexpression = ((d1 >= (d2 - epsilon)) && (d1 <= (d2 + epsilon)));
-    }
-    return _xblockexpression;
+    throw new UnsupportedOperationException("Test wouldn't compile, due to missing or erroneous code.");
   }
   
   @JExercise(tests = "Calc1()", description = "<h3>Konstrukt\u00F8r</h3>Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state(calc1);
+    _test__constructor_transitions0_effects0_state(calc1);
     
   }
   
@@ -34,7 +29,7 @@ public class Calc1Test extends TestCase {
   public void testSetValue() {
     double random = _init__setValue_random();
     _transition_exprAction__setValue_transitions0_actions0(calc1, random);
-    _test__setValue_transitions0_effect_state(calc1, random);
+    _test__setValue_transitions0_effects0_state(calc1, random);
     
   }
   
@@ -44,7 +39,7 @@ public class Calc1Test extends TestCase {
     double random2 = _init__add_random2();
     _transition_exprAction__add_transitions0_actions0(calc1, random1, random2);
     _transition_exprAction__add_transitions0_actions1(calc1, random1, random2);
-    _test__add_transitions0_effect_state(calc1, random1, random2);
+    _test__add_transitions0_effects0_state(calc1, random1, random2);
     
   }
   
@@ -54,7 +49,7 @@ public class Calc1Test extends TestCase {
     double random2 = _init__subtract_random2();
     _transition_exprAction__subtract_transitions0_actions0(calc1, random1, random2);
     _transition_exprAction__subtract_transitions0_actions1(calc1, random1, random2);
-    _test__subtract_transitions0_effect_state(calc1, random1, random2);
+    _test__subtract_transitions0_effects0_state(calc1, random1, random2);
     
   }
   
@@ -64,7 +59,7 @@ public class Calc1Test extends TestCase {
     double random2 = _init__multiply_random2();
     _transition_exprAction__multiply_transitions0_actions0(calc1, random1, random2);
     _transition_exprAction__multiply_transitions0_actions1(calc1, random1, random2);
-    _test__multiply_transitions0_effect_state(calc1, random1, random2);
+    _test__multiply_transitions0_effects0_state(calc1, random1, random2);
     
   }
   
@@ -74,7 +69,7 @@ public class Calc1Test extends TestCase {
     double random2 = _init__divide_random2();
     _transition_exprAction__divide_transitions0_actions0(calc1, random1, random2);
     _transition_exprAction__divide_transitions0_actions1(calc1, random1, random2);
-    _test__divide_transitions0_effect_state(calc1, random1, random2);
+    _test__divide_transitions0_effects0_state(calc1, random1, random2);
     
   }
   
@@ -84,7 +79,7 @@ public class Calc1Test extends TestCase {
     double random2 = _init__percent_random2();
     _transition_exprAction__percent_transitions0_actions0(calc1, random1, random2);
     _transition_exprAction__percent_transitions0_actions1(calc1, random1, random2);
-    _test__percent_transitions0_effect_state(calc1, random1, random2);
+    _test__percent_transitions0_effects0_state(calc1, random1, random2);
     
   }
   
@@ -93,23 +88,23 @@ public class Calc1Test extends TestCase {
     double random1 = _init__negate_random1();
     _transition_exprAction__negate_transitions0_actions0(calc1, random1);
     _transition_exprAction__negate_transitions0_actions1(calc1, random1);
-    _test__negate_transitions0_effect_state(calc1, random1);
+    _test__negate_transitions0_effects0_state(calc1, random1);
     
   }
   
   @JExercise(tests = "Calc1();void pi()", description = "<h3>Pi</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>pi</li>\n\t\t</ul>\n")
   public void testPi() {
     _transition_exprAction__pi_transitions0_actions0(calc1);
-    _test__pi_transitions0_effect_state(calc1);
+    _test__pi_transitions0_effects0_state(calc1);
     
   }
   
-  private void _test__constructor_transitions0_effect_state(final Calc1 it) {
-    _test__constructor_transitions0_effect_state_objectTests0_test(calc1);
+  private void _test__constructor_transitions0_effects0_state(final Calc1 it) {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(calc1);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final Calc1 it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final Calc1 it) {
     
     double _value = it.getValue();
     assertTrue("value == 0.0d failed", this.operator_equals(_value, 0.0d));
@@ -132,12 +127,12 @@ public class Calc1Test extends TestCase {
     
   }
   
-  private void _test__setValue_transitions0_effect_state(final Calc1 it, final double random) {
-    _test__setValue_transitions0_effect_state_objectTests0_test(calc1, random);
+  private void _test__setValue_transitions0_effects0_state(final Calc1 it, final double random) {
+    _test__setValue_transitions0_effects0_state_objectTests0_test(calc1, random);
     
   }
   
-  private void _test__setValue_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random) {
+  private void _test__setValue_transitions0_effects0_state_objectTests0_test(final Calc1 it, final double random) {
     
     double _value = it.getValue();
     assertTrue("value == random failed after value = random", this.operator_equals(_value, random));
@@ -176,12 +171,12 @@ public class Calc1Test extends TestCase {
     
   }
   
-  private void _test__add_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
-    _test__add_transitions0_effect_state_objectTests0_test(calc1, random1, random2);
+  private void _test__add_transitions0_effects0_state(final Calc1 it, final double random1, final double random2) {
+    _test__add_transitions0_effects0_state_objectTests0_test(calc1, random1, random2);
     
   }
   
-  private void _test__add_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
+  private void _test__add_transitions0_effects0_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
     assertTrue("value == random1 + random2 failed after value = random1 ,add(random2)", this.operator_equals(_value, (random1 + random2)));
@@ -220,12 +215,12 @@ public class Calc1Test extends TestCase {
     
   }
   
-  private void _test__subtract_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
-    _test__subtract_transitions0_effect_state_objectTests0_test(calc1, random1, random2);
+  private void _test__subtract_transitions0_effects0_state(final Calc1 it, final double random1, final double random2) {
+    _test__subtract_transitions0_effects0_state_objectTests0_test(calc1, random1, random2);
     
   }
   
-  private void _test__subtract_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
+  private void _test__subtract_transitions0_effects0_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
     assertTrue("value == random1 - random2 failed after value = random1 ,subtract(random2)", this.operator_equals(_value, (random1 - random2)));
@@ -264,12 +259,12 @@ public class Calc1Test extends TestCase {
     
   }
   
-  private void _test__multiply_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
-    _test__multiply_transitions0_effect_state_objectTests0_test(calc1, random1, random2);
+  private void _test__multiply_transitions0_effects0_state(final Calc1 it, final double random1, final double random2) {
+    _test__multiply_transitions0_effects0_state_objectTests0_test(calc1, random1, random2);
     
   }
   
-  private void _test__multiply_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
+  private void _test__multiply_transitions0_effects0_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
     assertTrue("value == random1 * random2 failed after value = random1 ,multiply(random2)", this.operator_equals(_value, (random1 * random2)));
@@ -309,12 +304,12 @@ public class Calc1Test extends TestCase {
     
   }
   
-  private void _test__divide_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
-    _test__divide_transitions0_effect_state_objectTests0_test(calc1, random1, random2);
+  private void _test__divide_transitions0_effects0_state(final Calc1 it, final double random1, final double random2) {
+    _test__divide_transitions0_effects0_state_objectTests0_test(calc1, random1, random2);
     
   }
   
-  private void _test__divide_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
+  private void _test__divide_transitions0_effects0_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
     assertTrue("value == random1 / random2 failed after value = random1 ,divide(random2)", this.operator_equals(_value, (random1 / random2)));
@@ -353,12 +348,12 @@ public class Calc1Test extends TestCase {
     
   }
   
-  private void _test__percent_transitions0_effect_state(final Calc1 it, final double random1, final double random2) {
-    _test__percent_transitions0_effect_state_objectTests0_test(calc1, random1, random2);
+  private void _test__percent_transitions0_effects0_state(final Calc1 it, final double random1, final double random2) {
+    _test__percent_transitions0_effects0_state_objectTests0_test(calc1, random1, random2);
     
   }
   
-  private void _test__percent_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
+  private void _test__percent_transitions0_effects0_state_objectTests0_test(final Calc1 it, final double random1, final double random2) {
     
     double _value = it.getValue();
     assertTrue("value == random1 * random2 / 100 failed after value = random1 ,percent(random2)", this.operator_equals(_value, ((random1 * random2) / 100)));
@@ -391,12 +386,12 @@ public class Calc1Test extends TestCase {
     
   }
   
-  private void _test__negate_transitions0_effect_state(final Calc1 it, final double random1) {
-    _test__negate_transitions0_effect_state_objectTests0_test(calc1, random1);
+  private void _test__negate_transitions0_effects0_state(final Calc1 it, final double random1) {
+    _test__negate_transitions0_effects0_state_objectTests0_test(calc1, random1);
     
   }
   
-  private void _test__negate_transitions0_effect_state_objectTests0_test(final Calc1 it, final double random1) {
+  private void _test__negate_transitions0_effects0_state_objectTests0_test(final Calc1 it, final double random1) {
     
     double _value = it.getValue();
     assertTrue("value == -random1 failed after value = random1 ,negate", this.operator_equals(_value, (-random1)));
@@ -413,19 +408,15 @@ public class Calc1Test extends TestCase {
     
   }
   
-  private void _test__pi_transitions0_effect_state(final Calc1 it) {
-    _test__pi_transitions0_effect_state_objectTests0_test(calc1);
+  private void _test__pi_transitions0_effects0_state(final Calc1 it) {
+    _test__pi_transitions0_effects0_state_objectTests0_test(calc1);
     
   }
   
-  private void _test__pi_transitions0_effect_state_objectTests0_test(final Calc1 it) {
+  private void _test__pi_transitions0_effects0_state_objectTests0_test(final Calc1 it) {
     
     double _value = it.getValue();
     assertTrue("value == Math.PI failed after pi", this.operator_equals(_value, Math.PI));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(Calc1Test.class);
   }
 }

@@ -39,46 +39,46 @@ public class ClerkTest extends TestCase {
   
   @JExercise(tests = "Clerk(delegation.office.Printer);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Gj\u00F8r en beregning: clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5</li>\n\t\t<li>Gj\u00F8r en beregning: clerk.doCalculations([double x, double y | x / y ], 2.0, 4.0) ?= 0.5</li>\n\t\t</ul>\n")
   public void testDoCalculations() {
-    _test__doCalculations_transitions0_effect_state();
+    _test__doCalculations_transitions0_effects0_state();
     _transition_exprAction__doCalculations_transitions1_actions0();
-    _test__doCalculations_transitions1_effect_state();
+    _test__doCalculations_transitions1_effects0_state();
     _transition_exprAction__doCalculations_transitions2_actions0();
-    _test__doCalculations_transitions2_effect_state();
+    _test__doCalculations_transitions2_effects0_state();
     
   }
   
   @JExercise(tests = "Clerk(delegation.office.Printer);void printDocument(String)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: clerk.printDocument(\"dokument1\")</li>\n\t\t<li>Printer et dokument: clerk.printDocument(\"dokument2\")</li>\n\t\t</ul>\n")
   public void testPrintDocuments() {
-    _test__printDocuments_transitions0_effect_state();
+    _test__printDocuments_transitions0_effects0_state();
     _transition_exprAction__printDocuments_transitions1_actions0();
-    _test__printDocuments_transitions1_effect_state();
+    _test__printDocuments_transitions1_effects0_state();
     _transition_exprAction__printDocuments_transitions2_actions0();
-    _test__printDocuments_transitions2_effect_state();
+    _test__printDocuments_transitions2_effects0_state();
     
   }
   
   @JExercise(tests = "Clerk(delegation.office.Printer);void printDocument(String);double doCalculations(java.util.function.BinaryOperator<Double>,double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Printer et dokument: clerk.printDocument(\"dokument1\")</li>\n\t\t<li>Gj\u00F8r en beregning: clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5)</li>\n\t\t</ul>\n")
   public void testTaskCount() {
-    _test__taskCount_transitions0_effect_state();
+    _test__taskCount_transitions0_effects0_state();
     _transition_exprAction__taskCount_transitions1_actions0();
-    _test__taskCount_transitions1_effect_state();
+    _test__taskCount_transitions1_effects0_state();
     _transition_exprAction__taskCount_transitions2_actions0();
-    _test__taskCount_transitions2_effect_state();
+    _test__taskCount_transitions2_effects0_state();
     
   }
   
   @JExercise(tests = "Clerk(delegation.office.Printer)", description = "Tests \n\t\tinitialization\n")
   public void testResourceCount() {
-    _test__resourceCount_transitions0_effect_state();
+    _test__resourceCount_transitions0_effects0_state();
     
   }
   
-  private void _test__doCalculations_transitions0_effect_state() {
-    _test__doCalculations_transitions0_effect_state_objectTests0_test();
+  private void _test__doCalculations_transitions0_effects0_state() {
+    _test__doCalculations_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__doCalculations_transitions0_effect_state_objectTests0_test() {
+  private void _test__doCalculations_transitions0_effects0_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
     assertEquals("clerk.taskCount == 0 failed", 0, _taskCount);
@@ -88,6 +88,7 @@ public class ClerkTest extends TestCase {
   private void _transition_exprAction__doCalculations_transitions1_actions0() {
     
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+      @Override
       public Double apply(final Double x, final Double y) {
         return Double.valueOf((x + y));
       }
@@ -98,12 +99,12 @@ public class ClerkTest extends TestCase {
     
   }
   
-  private void _test__doCalculations_transitions1_effect_state() {
-    _test__doCalculations_transitions1_effect_state_objectTests0_test();
+  private void _test__doCalculations_transitions1_effects0_state() {
+    _test__doCalculations_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__doCalculations_transitions1_effect_state_objectTests0_test() {
+  private void _test__doCalculations_transitions1_effects0_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
     assertEquals("clerk.taskCount == 1 failed after clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5) ?= 5.5", 1, _taskCount);
@@ -113,6 +114,7 @@ public class ClerkTest extends TestCase {
   private void _transition_exprAction__doCalculations_transitions2_actions0() {
     
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+      @Override
       public Double apply(final Double x, final Double y) {
         return Double.valueOf((x / y));
       }
@@ -123,24 +125,24 @@ public class ClerkTest extends TestCase {
     
   }
   
-  private void _test__doCalculations_transitions2_effect_state() {
-    _test__doCalculations_transitions2_effect_state_objectTests0_test();
+  private void _test__doCalculations_transitions2_effects0_state() {
+    _test__doCalculations_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__doCalculations_transitions2_effect_state_objectTests0_test() {
+  private void _test__doCalculations_transitions2_effects0_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
     assertEquals("clerk.taskCount == 2 failed after clerk.doCalculations([double x, double y | x / y ], 2.0, 4.0) ?= 0.5", 2, _taskCount);
     
   }
   
-  private void _test__printDocuments_transitions0_effect_state() {
-    _test__printDocuments_transitions0_effect_state_objectTests0_test();
+  private void _test__printDocuments_transitions0_effects0_state() {
+    _test__printDocuments_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__printDocuments_transitions0_effect_state_objectTests0_test() {
+  private void _test__printDocuments_transitions0_effects0_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
     assertEquals("clerk.taskCount == 0 failed", 0, _taskCount);
@@ -157,12 +159,12 @@ public class ClerkTest extends TestCase {
     
   }
   
-  private void _test__printDocuments_transitions1_effect_state() {
-    _test__printDocuments_transitions1_effect_state_objectTests0_test();
+  private void _test__printDocuments_transitions1_effects0_state() {
+    _test__printDocuments_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__printDocuments_transitions1_effect_state_objectTests0_test() {
+  private void _test__printDocuments_transitions1_effects0_state_objectTests0_test() {
     
     Collection<String> _printHistory = this.printer.getPrintHistory(this.clerk);
     String _get = ((String[])Conversions.unwrapArray(_printHistory, String.class))[0];
@@ -187,12 +189,12 @@ public class ClerkTest extends TestCase {
     
   }
   
-  private void _test__printDocuments_transitions2_effect_state() {
-    _test__printDocuments_transitions2_effect_state_objectTests0_test();
+  private void _test__printDocuments_transitions2_effects0_state() {
+    _test__printDocuments_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__printDocuments_transitions2_effect_state_objectTests0_test() {
+  private void _test__printDocuments_transitions2_effects0_state_objectTests0_test() {
     
     Collection<String> _printHistory = this.printer.getPrintHistory(this.clerk);
     String _get = ((String[])Conversions.unwrapArray(_printHistory, String.class))[1];
@@ -207,12 +209,12 @@ public class ClerkTest extends TestCase {
     
   }
   
-  private void _test__taskCount_transitions0_effect_state() {
-    _test__taskCount_transitions0_effect_state_objectTests0_test();
+  private void _test__taskCount_transitions0_effects0_state() {
+    _test__taskCount_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__taskCount_transitions0_effect_state_objectTests0_test() {
+  private void _test__taskCount_transitions0_effects0_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
     assertEquals("clerk.taskCount == 0 failed", 0, _taskCount);
@@ -229,12 +231,12 @@ public class ClerkTest extends TestCase {
     
   }
   
-  private void _test__taskCount_transitions1_effect_state() {
-    _test__taskCount_transitions1_effect_state_objectTests0_test();
+  private void _test__taskCount_transitions1_effects0_state() {
+    _test__taskCount_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__taskCount_transitions1_effect_state_objectTests0_test() {
+  private void _test__taskCount_transitions1_effects0_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
     assertEquals("clerk.taskCount == 1 failed after clerk.printDocument(\"dokument1\")", 1, _taskCount);
@@ -245,6 +247,7 @@ public class ClerkTest extends TestCase {
     try {
       
       final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+        @Override
         public Double apply(final Double x, final Double y) {
           return Double.valueOf((x + y));
         }
@@ -256,31 +259,27 @@ public class ClerkTest extends TestCase {
     
   }
   
-  private void _test__taskCount_transitions2_effect_state() {
-    _test__taskCount_transitions2_effect_state_objectTests0_test();
+  private void _test__taskCount_transitions2_effects0_state() {
+    _test__taskCount_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__taskCount_transitions2_effect_state_objectTests0_test() {
+  private void _test__taskCount_transitions2_effects0_state_objectTests0_test() {
     
     int _taskCount = this.clerk.getTaskCount();
     assertEquals("clerk.taskCount == 2 failed after clerk.doCalculations([double x, double y | x + y ], 2.0, 3.5)", 2, _taskCount);
     
   }
   
-  private void _test__resourceCount_transitions0_effect_state() {
-    _test__resourceCount_transitions0_effect_state_objectTests0_test();
+  private void _test__resourceCount_transitions0_effects0_state() {
+    _test__resourceCount_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__resourceCount_transitions0_effect_state_objectTests0_test() {
+  private void _test__resourceCount_transitions0_effects0_state_objectTests0_test() {
     
     int _resourceCount = this.clerk.getResourceCount();
     assertEquals("clerk.resourceCount == 1 failed", 1, _resourceCount);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(ClerkTest.class);
   }
 }

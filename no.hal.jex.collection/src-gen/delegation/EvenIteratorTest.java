@@ -52,40 +52,40 @@ public class EvenIteratorTest extends TestCase {
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCaseEmpty() {
-    _test__caseEmpty_transitions0_effect_state();
+    _test__caseEmpty_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase1() {
-    _test__case1_transitions0_effect_state();
+    _test__case1_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase12() {
-    _test__case12_transitions0_effect_state();
+    _test__case12_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase18() {
-    _test__case18_transitions0_effect_state();
+    _test__case18_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase19() {
-    _test__case19_transitions0_effect_state();
+    _test__case19_transitions0_effects0_state();
     
   }
   
-  private void _test__caseEmpty_transitions0_effect_state() {
-    _test__caseEmpty_transitions0_effect_state_objectTests0_test();
+  private void _test__caseEmpty_transitions0_effects0_state() {
+    _test__caseEmpty_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__caseEmpty_transitions0_effect_state_objectTests0_test() {
+  private void _test__caseEmpty_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList()));
@@ -95,12 +95,12 @@ public class EvenIteratorTest extends TestCase {
     
   }
   
-  private void _test__case1_transitions0_effect_state() {
-    _test__case1_transitions0_effect_state_objectTests0_test();
+  private void _test__case1_transitions0_effects0_state() {
+    _test__case1_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case1_transitions0_effect_state_objectTests0_test() {
+  private void _test__case1_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1))), 1);
@@ -110,12 +110,12 @@ public class EvenIteratorTest extends TestCase {
     
   }
   
-  private void _test__case12_transitions0_effect_state() {
-    _test__case12_transitions0_effect_state_objectTests0_test();
+  private void _test__case12_transitions0_effects0_state() {
+    _test__case12_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case12_transitions0_effect_state_objectTests0_test() {
+  private void _test__case12_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1), Integer.valueOf(2))), 1);
@@ -125,12 +125,12 @@ public class EvenIteratorTest extends TestCase {
     
   }
   
-  private void _test__case18_transitions0_effect_state() {
-    _test__case18_transitions0_effect_state_objectTests0_test();
+  private void _test__case18_transitions0_effects0_state() {
+    _test__case18_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case18_transitions0_effect_state_objectTests0_test() {
+  private void _test__case18_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(this.list18, 1, 3, 5, 7);
@@ -140,12 +140,12 @@ public class EvenIteratorTest extends TestCase {
     
   }
   
-  private void _test__case19_transitions0_effect_state() {
-    _test__case19_transitions0_effect_state_objectTests0_test();
+  private void _test__case19_transitions0_effects0_state() {
+    _test__case19_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case19_transitions0_effect_state_objectTests0_test() {
+  private void _test__case19_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(this.list19, 1, 3, 5, 7, 9);
@@ -153,9 +153,5 @@ public class EvenIteratorTest extends TestCase {
       fail("testIterator(list19, 1, 3, 5, 7, 9) failed: " + error.getMessage());
     }
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(EvenIteratorTest.class);
   }
 }

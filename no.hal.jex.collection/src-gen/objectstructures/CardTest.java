@@ -20,37 +20,27 @@ public class CardTest extends TestCase {
   }
   
   private boolean operator_equals(final Character c, final String s) {
-    boolean _and = false;
-    int _length = s.length();
-    boolean _equals = (_length == 1);
-    if (!_equals) {
-      _and = false;
-    } else {
-      char _charAt = s.charAt(0);
-      boolean _equals_1 = ((c).charValue() == _charAt);
-      _and = _equals_1;
-    }
-    return _and;
+    return ((s.length() == 1) && ((c).charValue() == s.charAt(0)));
   }
   
   @JExercise(tests = "Card(char,int)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>c = new Card(\'S\', 1)</li>\n\t\t<li>c = new Card(\'S\', 13)</li>\n\t\t<li>c = new Card(\'H\', 1)</li>\n\t\t<li>c = new Card(\'H\', 13)</li>\n\t\t<li>c = new Card(\'D\', 1)</li>\n\t\t<li>c = new Card(\'D\', 13)</li>\n\t\t<li>c = new Card(\'C\', 1)</li>\n\t\t<li>c = new Card(\'C\', 13)</li>\n\t\t<li>c = new Card(\'X\', 1)</li>\n\t\t<li>c = new Card(\'S\', 0)</li>\n\t\t<li>c = new Card(\'C\', 14)</li>\n\t\t</ul>\n")
   public void testConstructor() {
     _transition_exprAction__constructor_transitions0_actions0(c);
-    _test__constructor_transitions0_effect_state(c);
+    _test__constructor_transitions0_effects0_state(c);
     _transition_exprAction__constructor_transitions1_actions0(c);
-    _test__constructor_transitions1_effect_state(c);
+    _test__constructor_transitions1_effects0_state(c);
     _transition_exprAction__constructor_transitions2_actions0(c);
-    _test__constructor_transitions2_effect_state(c);
+    _test__constructor_transitions2_effects0_state(c);
     _transition_exprAction__constructor_transitions3_actions0(c);
-    _test__constructor_transitions3_effect_state(c);
+    _test__constructor_transitions3_effects0_state(c);
     _transition_exprAction__constructor_transitions4_actions0(c);
-    _test__constructor_transitions4_effect_state(c);
+    _test__constructor_transitions4_effects0_state(c);
     _transition_exprAction__constructor_transitions5_actions0(c);
-    _test__constructor_transitions5_effect_state(c);
+    _test__constructor_transitions5_effects0_state(c);
     _transition_exprAction__constructor_transitions6_actions0(c);
-    _test__constructor_transitions6_effect_state(c);
+    _test__constructor_transitions6_effects0_state(c);
     _transition_exprAction__constructor_transitions7_actions0(c);
-    _test__constructor_transitions7_effect_state(c);
+    _test__constructor_transitions7_effects0_state(c);
     try {
       _transition_exprAction__constructor_transitions8_actions0(c);
       fail("IllegalArgumentException should be thrown after c = new Card('X', 1)");
@@ -75,21 +65,21 @@ public class CardTest extends TestCase {
   @JExercise(tests = "Card(char,int)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>c = new Card(\'S\', 1)</li>\n\t\t<li>c = new Card(\'S\', 13)</li>\n\t\t<li>c = new Card(\'H\', 1)</li>\n\t\t<li>c = new Card(\'H\', 13)</li>\n\t\t<li>c = new Card(\'D\', 1)</li>\n\t\t<li>c = new Card(\'D\', 13)</li>\n\t\t<li>c = new Card(\'C\', 1)</li>\n\t\t<li>c = new Card(\'C\', 13)</li>\n\t\t</ul>\n")
   public void testToString() {
     _transition_exprAction__toString_transitions0_actions0(c);
-    _test__toString_transitions0_effect_state(c);
+    _test__toString_transitions0_effects0_state(c);
     _transition_exprAction__toString_transitions1_actions0(c);
-    _test__toString_transitions1_effect_state(c);
+    _test__toString_transitions1_effects0_state(c);
     _transition_exprAction__toString_transitions2_actions0(c);
-    _test__toString_transitions2_effect_state(c);
+    _test__toString_transitions2_effects0_state(c);
     _transition_exprAction__toString_transitions3_actions0(c);
-    _test__toString_transitions3_effect_state(c);
+    _test__toString_transitions3_effects0_state(c);
     _transition_exprAction__toString_transitions4_actions0(c);
-    _test__toString_transitions4_effect_state(c);
+    _test__toString_transitions4_effects0_state(c);
     _transition_exprAction__toString_transitions5_actions0(c);
-    _test__toString_transitions5_effect_state(c);
+    _test__toString_transitions5_effects0_state(c);
     _transition_exprAction__toString_transitions6_actions0(c);
-    _test__toString_transitions6_effect_state(c);
+    _test__toString_transitions6_effects0_state(c);
     _transition_exprAction__toString_transitions7_actions0(c);
-    _test__toString_transitions7_effect_state(c);
+    _test__toString_transitions7_effects0_state(c);
     
   }
   
@@ -104,12 +94,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions0_effect_state(final Card it) {
-    _test__constructor_transitions0_effect_state_objectTests0_test(c);
+  private void _test__constructor_transitions0_effects0_state(final Card it) {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final Card it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final Card it) {
     
     char _suit = it.getSuit();
     boolean _equals = this.operator_equals(Character.valueOf(_suit), "S");
@@ -131,12 +121,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions1_effect_state(final Card it) {
-    _test__constructor_transitions1_effect_state_objectTests0_test(c);
+  private void _test__constructor_transitions1_effects0_state(final Card it) {
+    _test__constructor_transitions1_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__constructor_transitions1_effect_state_objectTests0_test(final Card it) {
+  private void _test__constructor_transitions1_effects0_state_objectTests0_test(final Card it) {
     
     char _suit = it.getSuit();
     boolean _equals = this.operator_equals(Character.valueOf(_suit), "S");
@@ -158,12 +148,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions2_effect_state(final Card it) {
-    _test__constructor_transitions2_effect_state_objectTests0_test(c);
+  private void _test__constructor_transitions2_effects0_state(final Card it) {
+    _test__constructor_transitions2_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__constructor_transitions2_effect_state_objectTests0_test(final Card it) {
+  private void _test__constructor_transitions2_effects0_state_objectTests0_test(final Card it) {
     
     char _suit = it.getSuit();
     boolean _equals = this.operator_equals(Character.valueOf(_suit), "H");
@@ -185,12 +175,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions3_effect_state(final Card it) {
-    _test__constructor_transitions3_effect_state_objectTests0_test(c);
+  private void _test__constructor_transitions3_effects0_state(final Card it) {
+    _test__constructor_transitions3_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__constructor_transitions3_effect_state_objectTests0_test(final Card it) {
+  private void _test__constructor_transitions3_effects0_state_objectTests0_test(final Card it) {
     
     char _suit = it.getSuit();
     boolean _equals = this.operator_equals(Character.valueOf(_suit), "H");
@@ -212,12 +202,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions4_effect_state(final Card it) {
-    _test__constructor_transitions4_effect_state_objectTests0_test(c);
+  private void _test__constructor_transitions4_effects0_state(final Card it) {
+    _test__constructor_transitions4_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__constructor_transitions4_effect_state_objectTests0_test(final Card it) {
+  private void _test__constructor_transitions4_effects0_state_objectTests0_test(final Card it) {
     
     char _suit = it.getSuit();
     boolean _equals = this.operator_equals(Character.valueOf(_suit), "D");
@@ -239,12 +229,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions5_effect_state(final Card it) {
-    _test__constructor_transitions5_effect_state_objectTests0_test(c);
+  private void _test__constructor_transitions5_effects0_state(final Card it) {
+    _test__constructor_transitions5_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__constructor_transitions5_effect_state_objectTests0_test(final Card it) {
+  private void _test__constructor_transitions5_effects0_state_objectTests0_test(final Card it) {
     
     char _suit = it.getSuit();
     boolean _equals = this.operator_equals(Character.valueOf(_suit), "D");
@@ -266,12 +256,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions6_effect_state(final Card it) {
-    _test__constructor_transitions6_effect_state_objectTests0_test(c);
+  private void _test__constructor_transitions6_effects0_state(final Card it) {
+    _test__constructor_transitions6_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__constructor_transitions6_effect_state_objectTests0_test(final Card it) {
+  private void _test__constructor_transitions6_effects0_state_objectTests0_test(final Card it) {
     
     char _suit = it.getSuit();
     boolean _equals = this.operator_equals(Character.valueOf(_suit), "C");
@@ -293,12 +283,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions7_effect_state(final Card it) {
-    _test__constructor_transitions7_effect_state_objectTests0_test(c);
+  private void _test__constructor_transitions7_effects0_state(final Card it) {
+    _test__constructor_transitions7_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__constructor_transitions7_effect_state_objectTests0_test(final Card it) {
+  private void _test__constructor_transitions7_effects0_state_objectTests0_test(final Card it) {
     
     char _suit = it.getSuit();
     boolean _equals = this.operator_equals(Character.valueOf(_suit), "C");
@@ -353,12 +343,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__toString_transitions0_effect_state(final Card it) {
-    _test__toString_transitions0_effect_state_objectTests0_test(c);
+  private void _test__toString_transitions0_effects0_state(final Card it) {
+    _test__toString_transitions0_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__toString_transitions0_effect_state_objectTests0_test(final Card it) {
+  private void _test__toString_transitions0_effects0_state_objectTests0_test(final Card it) {
     
     String _string = it.toString();
     assertEquals("toString == 'S1' failed after c = new Card('S', 1)", "S1", _string);
@@ -376,12 +366,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__toString_transitions1_effect_state(final Card it) {
-    _test__toString_transitions1_effect_state_objectTests0_test(c);
+  private void _test__toString_transitions1_effects0_state(final Card it) {
+    _test__toString_transitions1_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__toString_transitions1_effect_state_objectTests0_test(final Card it) {
+  private void _test__toString_transitions1_effects0_state_objectTests0_test(final Card it) {
     
     String _string = it.toString();
     assertEquals("toString == 'S13' failed after c = new Card('S', 13)", "S13", _string);
@@ -399,12 +389,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__toString_transitions2_effect_state(final Card it) {
-    _test__toString_transitions2_effect_state_objectTests0_test(c);
+  private void _test__toString_transitions2_effects0_state(final Card it) {
+    _test__toString_transitions2_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__toString_transitions2_effect_state_objectTests0_test(final Card it) {
+  private void _test__toString_transitions2_effects0_state_objectTests0_test(final Card it) {
     
     String _string = it.toString();
     assertEquals("toString == 'H1' failed after c = new Card('H', 1)", "H1", _string);
@@ -422,12 +412,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__toString_transitions3_effect_state(final Card it) {
-    _test__toString_transitions3_effect_state_objectTests0_test(c);
+  private void _test__toString_transitions3_effects0_state(final Card it) {
+    _test__toString_transitions3_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__toString_transitions3_effect_state_objectTests0_test(final Card it) {
+  private void _test__toString_transitions3_effects0_state_objectTests0_test(final Card it) {
     
     String _string = it.toString();
     assertEquals("toString == 'H13' failed after c = new Card('H', 13)", "H13", _string);
@@ -445,12 +435,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__toString_transitions4_effect_state(final Card it) {
-    _test__toString_transitions4_effect_state_objectTests0_test(c);
+  private void _test__toString_transitions4_effects0_state(final Card it) {
+    _test__toString_transitions4_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__toString_transitions4_effect_state_objectTests0_test(final Card it) {
+  private void _test__toString_transitions4_effects0_state_objectTests0_test(final Card it) {
     
     String _string = it.toString();
     assertEquals("toString == 'D1' failed after c = new Card('D', 1)", "D1", _string);
@@ -468,12 +458,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__toString_transitions5_effect_state(final Card it) {
-    _test__toString_transitions5_effect_state_objectTests0_test(c);
+  private void _test__toString_transitions5_effects0_state(final Card it) {
+    _test__toString_transitions5_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__toString_transitions5_effect_state_objectTests0_test(final Card it) {
+  private void _test__toString_transitions5_effects0_state_objectTests0_test(final Card it) {
     
     String _string = it.toString();
     assertEquals("toString == 'D13' failed after c = new Card('D', 13)", "D13", _string);
@@ -491,12 +481,12 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__toString_transitions6_effect_state(final Card it) {
-    _test__toString_transitions6_effect_state_objectTests0_test(c);
+  private void _test__toString_transitions6_effects0_state(final Card it) {
+    _test__toString_transitions6_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__toString_transitions6_effect_state_objectTests0_test(final Card it) {
+  private void _test__toString_transitions6_effects0_state_objectTests0_test(final Card it) {
     
     String _string = it.toString();
     assertEquals("toString == 'C1' failed after c = new Card('C', 1)", "C1", _string);
@@ -514,19 +504,15 @@ public class CardTest extends TestCase {
     
   }
   
-  private void _test__toString_transitions7_effect_state(final Card it) {
-    _test__toString_transitions7_effect_state_objectTests0_test(c);
+  private void _test__toString_transitions7_effects0_state(final Card it) {
+    _test__toString_transitions7_effects0_state_objectTests0_test(c);
     
   }
   
-  private void _test__toString_transitions7_effect_state_objectTests0_test(final Card it) {
+  private void _test__toString_transitions7_effects0_state_objectTests0_test(final Card it) {
     
     String _string = it.toString();
     assertEquals("toString == 'C13' failed after c = new Card('C', 13)", "C13", _string);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(CardTest.class);
   }
 }

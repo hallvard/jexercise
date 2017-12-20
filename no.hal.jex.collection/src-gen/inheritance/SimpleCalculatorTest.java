@@ -15,24 +15,19 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private boolean operator_equals(final double d1, final double d2) {
-    boolean _xblockexpression = false;
-    {
-      final double epsilon = 0.000001d;
-      _xblockexpression = ((d1 >= (d2 - epsilon)) && (d1 <= (d2 + epsilon)));
-    }
-    return _xblockexpression;
+  private double operator_equals(final double d1, final double d2) {
+    throw new UnsupportedOperationException("Test wouldn't compile, due to missing or erroneous code.");
   }
   
   @JExercise(tests = "SimpleCalculator();void takeInputNumber(double);void takeInputOperator(char)", description = "<h3>Tester enkel addisjon</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Gir inn 3.5: takeInputNumber(3.5)</li>\n\t\t<li>Gir operator +: takeInputOperator(\'+\')</li>\n\t\t<li>Gir inn 4: takeInputNumber(4.0)</li>\n\t\t</ul>\n")
   public void testSimpleAddition() {
     _test__simpleAddition_transitions0_source_state(simpleCalculator);
     _transition_exprAction__simpleAddition_transitions0_actions0(simpleCalculator);
-    _test__simpleAddition_transitions0_effect_state(simpleCalculator);
+    _test__simpleAddition_transitions0_effects0_state(simpleCalculator);
     _transition_exprAction__simpleAddition_transitions1_actions0(simpleCalculator);
-    _test__simpleAddition_transitions1_effect_state(simpleCalculator);
+    _test__simpleAddition_transitions1_effects0_state(simpleCalculator);
     _transition_exprAction__simpleAddition_transitions2_actions0(simpleCalculator);
-    _test__simpleAddition_transitions2_effect_state(simpleCalculator);
+    _test__simpleAddition_transitions2_effects0_state(simpleCalculator);
     
   }
   
@@ -40,11 +35,11 @@ public class SimpleCalculatorTest extends TestCase {
   public void testSimpleSubtraction() {
     _test__simpleSubtraction_transitions0_source_state(simpleCalculator);
     _transition_exprAction__simpleSubtraction_transitions0_actions0(simpleCalculator);
-    _test__simpleSubtraction_transitions0_effect_state(simpleCalculator);
+    _test__simpleSubtraction_transitions0_effects0_state(simpleCalculator);
     _transition_exprAction__simpleSubtraction_transitions1_actions0(simpleCalculator);
-    _test__simpleSubtraction_transitions1_effect_state(simpleCalculator);
+    _test__simpleSubtraction_transitions1_effects0_state(simpleCalculator);
     _transition_exprAction__simpleSubtraction_transitions2_actions0(simpleCalculator);
-    _test__simpleSubtraction_transitions2_effect_state(simpleCalculator);
+    _test__simpleSubtraction_transitions2_effects0_state(simpleCalculator);
     
   }
   
@@ -52,11 +47,11 @@ public class SimpleCalculatorTest extends TestCase {
   public void testSimpleMultiplication() {
     _test__simpleMultiplication_transitions0_source_state(simpleCalculator);
     _transition_exprAction__simpleMultiplication_transitions0_actions0(simpleCalculator);
-    _test__simpleMultiplication_transitions0_effect_state(simpleCalculator);
+    _test__simpleMultiplication_transitions0_effects0_state(simpleCalculator);
     _transition_exprAction__simpleMultiplication_transitions1_actions0(simpleCalculator);
-    _test__simpleMultiplication_transitions1_effect_state(simpleCalculator);
+    _test__simpleMultiplication_transitions1_effects0_state(simpleCalculator);
     _transition_exprAction__simpleMultiplication_transitions2_actions0(simpleCalculator);
-    _test__simpleMultiplication_transitions2_effect_state(simpleCalculator);
+    _test__simpleMultiplication_transitions2_effects0_state(simpleCalculator);
     
   }
   
@@ -64,11 +59,11 @@ public class SimpleCalculatorTest extends TestCase {
   public void testSimpleDivision() {
     _test__simpleDivision_transitions0_source_state(simpleCalculator);
     _transition_exprAction__simpleDivision_transitions0_actions0(simpleCalculator);
-    _test__simpleDivision_transitions0_effect_state(simpleCalculator);
+    _test__simpleDivision_transitions0_effects0_state(simpleCalculator);
     _transition_exprAction__simpleDivision_transitions1_actions0(simpleCalculator);
-    _test__simpleDivision_transitions1_effect_state(simpleCalculator);
+    _test__simpleDivision_transitions1_effects0_state(simpleCalculator);
     _transition_exprAction__simpleDivision_transitions2_actions0(simpleCalculator);
-    _test__simpleDivision_transitions2_effect_state(simpleCalculator);
+    _test__simpleDivision_transitions2_effects0_state(simpleCalculator);
     
   }
   
@@ -81,7 +76,7 @@ public class SimpleCalculatorTest extends TestCase {
       assertTrue("IllegalStateException should be thrown after getOutput", e instanceof IllegalStateException);
     }
     _transition_exprAction__noResult_transitions1_actions0(simpleCalculator);
-    _test__noResult_transitions1_effect_state(simpleCalculator);
+    _test__noResult_transitions1_effects0_state(simpleCalculator);
     try {
       _transition_exprAction__noResult_transitions2_actions0(simpleCalculator);
       fail("IllegalStateException should be thrown after getOutput");
@@ -89,7 +84,7 @@ public class SimpleCalculatorTest extends TestCase {
       assertTrue("IllegalStateException should be thrown after getOutput", e_1 instanceof IllegalStateException);
     }
     _transition_exprAction__noResult_transitions3_actions0(simpleCalculator);
-    _test__noResult_transitions3_effect_state(simpleCalculator);
+    _test__noResult_transitions3_effects0_state(simpleCalculator);
     try {
       _transition_exprAction__noResult_transitions4_actions0(simpleCalculator);
       fail("IllegalStateException should be thrown after getOutput");
@@ -102,7 +97,7 @@ public class SimpleCalculatorTest extends TestCase {
   @JExercise(tests = "SimpleCalculator();void takeInputNumber(double);void setOperator(char)", description = "<h3>Tester riktig h\u00E5ndtering av udefinert operator</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>Gir inn 3: takeInputNumber(3.0)</li>\n\t\t<li>Gir operator $: setOperator(\'$\')</li>\n\t\t</ul>\n")
   public void testIllegalOperator() {
     _transition_exprAction__illegalOperator_transitions0_actions0(simpleCalculator);
-    _test__illegalOperator_transitions0_effect_state(simpleCalculator);
+    _test__illegalOperator_transitions0_effects0_state(simpleCalculator);
     try {
       _transition_exprAction__illegalOperator_transitions1_actions0(simpleCalculator);
       fail("IllegalArgumentException should be thrown after setOperator('$')");
@@ -129,9 +124,9 @@ public class SimpleCalculatorTest extends TestCase {
     _transition_exprAction__twoSeparateCalculations_transitions0_actions0(simpleCalculator);
     _transition_exprAction__twoSeparateCalculations_transitions0_actions1(simpleCalculator);
     _transition_exprAction__twoSeparateCalculations_transitions0_actions2(simpleCalculator);
-    _test__twoSeparateCalculations_transitions0_effect_state(simpleCalculator);
+    _test__twoSeparateCalculations_transitions0_effects0_state(simpleCalculator);
     _transition_exprAction__twoSeparateCalculations_transitions1_actions0(simpleCalculator);
-    _test__twoSeparateCalculations_transitions1_effect_state(simpleCalculator);
+    _test__twoSeparateCalculations_transitions1_effects0_state(simpleCalculator);
     try {
       _transition_exprAction__twoSeparateCalculations_transitions2_actions0(simpleCalculator);
       fail("IllegalStateException should be thrown after getOutput");
@@ -139,7 +134,7 @@ public class SimpleCalculatorTest extends TestCase {
       assertTrue("IllegalStateException should be thrown after getOutput", e instanceof IllegalStateException);
     }
     _transition_exprAction__twoSeparateCalculations_transitions3_actions0(simpleCalculator);
-    _test__twoSeparateCalculations_transitions3_effect_state(simpleCalculator);
+    _test__twoSeparateCalculations_transitions3_effects0_state(simpleCalculator);
     try {
       _transition_exprAction__twoSeparateCalculations_transitions4_actions0(simpleCalculator);
       fail("IllegalStateException should be thrown after getOutput");
@@ -147,7 +142,7 @@ public class SimpleCalculatorTest extends TestCase {
       assertTrue("IllegalStateException should be thrown after getOutput", e_1 instanceof IllegalStateException);
     }
     _transition_exprAction__twoSeparateCalculations_transitions5_actions0(simpleCalculator);
-    _test__twoSeparateCalculations_transitions5_effect_state(simpleCalculator);
+    _test__twoSeparateCalculations_transitions5_effects0_state(simpleCalculator);
     
   }
   
@@ -156,9 +151,9 @@ public class SimpleCalculatorTest extends TestCase {
     _transition_exprAction__chainedCalculation_transitions0_actions0(simpleCalculator);
     _transition_exprAction__chainedCalculation_transitions0_actions1(simpleCalculator);
     _transition_exprAction__chainedCalculation_transitions0_actions2(simpleCalculator);
-    _test__chainedCalculation_transitions0_effect_state(simpleCalculator);
+    _test__chainedCalculation_transitions0_effects0_state(simpleCalculator);
     _transition_exprAction__chainedCalculation_transitions1_actions0(simpleCalculator);
-    _test__chainedCalculation_transitions1_effect_state(simpleCalculator);
+    _test__chainedCalculation_transitions1_effects0_state(simpleCalculator);
     try {
       _transition_exprAction__chainedCalculation_transitions2_actions0(simpleCalculator);
       fail("IllegalStateException should be thrown after getOutput");
@@ -166,7 +161,7 @@ public class SimpleCalculatorTest extends TestCase {
       assertTrue("IllegalStateException should be thrown after getOutput", e instanceof IllegalStateException);
     }
     _transition_exprAction__chainedCalculation_transitions3_actions0(simpleCalculator);
-    _test__chainedCalculation_transitions3_effect_state(simpleCalculator);
+    _test__chainedCalculation_transitions3_effects0_state(simpleCalculator);
     
   }
   
@@ -192,12 +187,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleAddition_transitions0_effect_state(final SimpleCalculator it) {
-    _test__simpleAddition_transitions0_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleAddition_transitions0_effects0_state(final SimpleCalculator it) {
+    _test__simpleAddition_transitions0_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleAddition_transitions0_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleAddition_transitions0_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputNumber(3.5)", (!_hasOutput));
@@ -214,12 +209,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleAddition_transitions1_effect_state(final SimpleCalculator it) {
-    _test__simpleAddition_transitions1_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleAddition_transitions1_effects0_state(final SimpleCalculator it) {
+    _test__simpleAddition_transitions1_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleAddition_transitions1_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleAddition_transitions1_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputOperator('+')", (!_hasOutput));
@@ -236,18 +231,18 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleAddition_transitions2_effect_state(final SimpleCalculator it) {
-    _test__simpleAddition_transitions2_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleAddition_transitions2_effects0_state(final SimpleCalculator it) {
+    _test__simpleAddition_transitions2_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleAddition_transitions2_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleAddition_transitions2_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("hasOutput failed after takeInputNumber(4.0)", _hasOutput);
     
     double _output = it.getOutput();
-    assertTrue("output == 7.5 failed after takeInputNumber(4.0)", this.operator_equals(_output, 7.5));
+    assertNotNull("output == 7.5 failed after takeInputNumber(4.0)", this.operator_equals(_output, 7.5));
     
   }
   
@@ -273,12 +268,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleSubtraction_transitions0_effect_state(final SimpleCalculator it) {
-    _test__simpleSubtraction_transitions0_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleSubtraction_transitions0_effects0_state(final SimpleCalculator it) {
+    _test__simpleSubtraction_transitions0_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleSubtraction_transitions0_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleSubtraction_transitions0_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputNumber(4.7)", (!_hasOutput));
@@ -295,12 +290,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleSubtraction_transitions1_effect_state(final SimpleCalculator it) {
-    _test__simpleSubtraction_transitions1_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleSubtraction_transitions1_effects0_state(final SimpleCalculator it) {
+    _test__simpleSubtraction_transitions1_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleSubtraction_transitions1_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleSubtraction_transitions1_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputOperator('-')", (!_hasOutput));
@@ -317,18 +312,18 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleSubtraction_transitions2_effect_state(final SimpleCalculator it) {
-    _test__simpleSubtraction_transitions2_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleSubtraction_transitions2_effects0_state(final SimpleCalculator it) {
+    _test__simpleSubtraction_transitions2_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleSubtraction_transitions2_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleSubtraction_transitions2_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("hasOutput failed after takeInputNumber(8.1)", _hasOutput);
     
     double _output = it.getOutput();
-    assertTrue("output == -3.4 failed after takeInputNumber(8.1)", this.operator_equals(_output, (-3.4)));
+    assertNotNull("output == -3.4 failed after takeInputNumber(8.1)", this.operator_equals(_output, (-3.4)));
     
   }
   
@@ -354,12 +349,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleMultiplication_transitions0_effect_state(final SimpleCalculator it) {
-    _test__simpleMultiplication_transitions0_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleMultiplication_transitions0_effects0_state(final SimpleCalculator it) {
+    _test__simpleMultiplication_transitions0_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleMultiplication_transitions0_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleMultiplication_transitions0_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputNumber(1.5)", (!_hasOutput));
@@ -376,12 +371,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleMultiplication_transitions1_effect_state(final SimpleCalculator it) {
-    _test__simpleMultiplication_transitions1_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleMultiplication_transitions1_effects0_state(final SimpleCalculator it) {
+    _test__simpleMultiplication_transitions1_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleMultiplication_transitions1_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleMultiplication_transitions1_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputOperator('*')", (!_hasOutput));
@@ -398,18 +393,18 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleMultiplication_transitions2_effect_state(final SimpleCalculator it) {
-    _test__simpleMultiplication_transitions2_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleMultiplication_transitions2_effects0_state(final SimpleCalculator it) {
+    _test__simpleMultiplication_transitions2_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleMultiplication_transitions2_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleMultiplication_transitions2_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("hasOutput failed after takeInputNumber(2.0)", _hasOutput);
     
     double _output = it.getOutput();
-    assertTrue("output == 3.0 failed after takeInputNumber(2.0)", this.operator_equals(_output, 3.0));
+    assertNotNull("output == 3.0 failed after takeInputNumber(2.0)", this.operator_equals(_output, 3.0));
     
   }
   
@@ -435,12 +430,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleDivision_transitions0_effect_state(final SimpleCalculator it) {
-    _test__simpleDivision_transitions0_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleDivision_transitions0_effects0_state(final SimpleCalculator it) {
+    _test__simpleDivision_transitions0_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleDivision_transitions0_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleDivision_transitions0_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputNumber(10.5)", (!_hasOutput));
@@ -457,12 +452,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleDivision_transitions1_effect_state(final SimpleCalculator it) {
-    _test__simpleDivision_transitions1_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleDivision_transitions1_effects0_state(final SimpleCalculator it) {
+    _test__simpleDivision_transitions1_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleDivision_transitions1_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleDivision_transitions1_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputOperator('/')", (!_hasOutput));
@@ -479,18 +474,18 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__simpleDivision_transitions2_effect_state(final SimpleCalculator it) {
-    _test__simpleDivision_transitions2_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__simpleDivision_transitions2_effects0_state(final SimpleCalculator it) {
+    _test__simpleDivision_transitions2_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__simpleDivision_transitions2_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__simpleDivision_transitions2_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("hasOutput failed after takeInputNumber(3.0)", _hasOutput);
     
     double _output = it.getOutput();
-    assertTrue("output == 3.5 failed after takeInputNumber(3.0)", this.operator_equals(_output, 3.5));
+    assertNotNull("output == 3.5 failed after takeInputNumber(3.0)", this.operator_equals(_output, 3.5));
     
   }
   
@@ -514,12 +509,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__noResult_transitions1_effect_state(final SimpleCalculator it) {
-    _test__noResult_transitions1_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__noResult_transitions1_effects0_state(final SimpleCalculator it) {
+    _test__noResult_transitions1_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__noResult_transitions1_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__noResult_transitions1_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
   }
   
@@ -543,12 +538,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__noResult_transitions3_effect_state(final SimpleCalculator it) {
-    _test__noResult_transitions3_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__noResult_transitions3_effects0_state(final SimpleCalculator it) {
+    _test__noResult_transitions3_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__noResult_transitions3_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__noResult_transitions3_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
   }
   
@@ -572,12 +567,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__illegalOperator_transitions0_effect_state(final SimpleCalculator it) {
-    _test__illegalOperator_transitions0_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__illegalOperator_transitions0_effects0_state(final SimpleCalculator it) {
+    _test__illegalOperator_transitions0_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__illegalOperator_transitions0_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__illegalOperator_transitions0_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
   }
   
@@ -641,18 +636,18 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__twoSeparateCalculations_transitions0_effect_state(final SimpleCalculator it) {
-    _test__twoSeparateCalculations_transitions0_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__twoSeparateCalculations_transitions0_effects0_state(final SimpleCalculator it) {
+    _test__twoSeparateCalculations_transitions0_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__twoSeparateCalculations_transitions0_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__twoSeparateCalculations_transitions0_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("hasOutput failed after takeInputNumber(2.5) ,takeInputOperator('+') ,takeInputNumber(3.5)", _hasOutput);
     
     double _output = it.getOutput();
-    assertTrue("output == 6 failed after takeInputNumber(2.5) ,takeInputOperator('+') ,takeInputNumber(3.5)", this.operator_equals(_output, 6));
+    assertNotNull("output == 6 failed after takeInputNumber(2.5) ,takeInputOperator('+') ,takeInputNumber(3.5)", this.operator_equals(_output, 6));
     
   }
   
@@ -666,12 +661,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__twoSeparateCalculations_transitions1_effect_state(final SimpleCalculator it) {
-    _test__twoSeparateCalculations_transitions1_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__twoSeparateCalculations_transitions1_effects0_state(final SimpleCalculator it) {
+    _test__twoSeparateCalculations_transitions1_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__twoSeparateCalculations_transitions1_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__twoSeparateCalculations_transitions1_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputNumber(4.5)", (!_hasOutput));
@@ -698,12 +693,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__twoSeparateCalculations_transitions3_effect_state(final SimpleCalculator it) {
-    _test__twoSeparateCalculations_transitions3_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__twoSeparateCalculations_transitions3_effects0_state(final SimpleCalculator it) {
+    _test__twoSeparateCalculations_transitions3_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__twoSeparateCalculations_transitions3_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__twoSeparateCalculations_transitions3_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputOperator('*')", (!_hasOutput));
@@ -730,18 +725,18 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__twoSeparateCalculations_transitions5_effect_state(final SimpleCalculator it) {
-    _test__twoSeparateCalculations_transitions5_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__twoSeparateCalculations_transitions5_effects0_state(final SimpleCalculator it) {
+    _test__twoSeparateCalculations_transitions5_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__twoSeparateCalculations_transitions5_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__twoSeparateCalculations_transitions5_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("hasOutput failed after takeInputNumber(2)", _hasOutput);
     
     double _output = it.getOutput();
-    assertTrue("output == 9 failed after takeInputNumber(2)", this.operator_equals(_output, 9));
+    assertNotNull("output == 9 failed after takeInputNumber(2)", this.operator_equals(_output, 9));
     
   }
   
@@ -775,18 +770,18 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__chainedCalculation_transitions0_effect_state(final SimpleCalculator it) {
-    _test__chainedCalculation_transitions0_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__chainedCalculation_transitions0_effects0_state(final SimpleCalculator it) {
+    _test__chainedCalculation_transitions0_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__chainedCalculation_transitions0_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__chainedCalculation_transitions0_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("hasOutput failed after takeInputNumber(3.5) ,takeInputOperator('+') ,takeInputNumber(1.1)", _hasOutput);
     
     double _output = it.getOutput();
-    assertTrue("output == 4.6 failed after takeInputNumber(3.5) ,takeInputOperator('+') ,takeInputNumber(1.1)", this.operator_equals(_output, 4.6));
+    assertNotNull("output == 4.6 failed after takeInputNumber(3.5) ,takeInputOperator('+') ,takeInputNumber(1.1)", this.operator_equals(_output, 4.6));
     
   }
   
@@ -800,12 +795,12 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__chainedCalculation_transitions1_effect_state(final SimpleCalculator it) {
-    _test__chainedCalculation_transitions1_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__chainedCalculation_transitions1_effects0_state(final SimpleCalculator it) {
+    _test__chainedCalculation_transitions1_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__chainedCalculation_transitions1_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__chainedCalculation_transitions1_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("!hasOutput failed after takeInputOperator('*')", (!_hasOutput));
@@ -832,22 +827,18 @@ public class SimpleCalculatorTest extends TestCase {
     
   }
   
-  private void _test__chainedCalculation_transitions3_effect_state(final SimpleCalculator it) {
-    _test__chainedCalculation_transitions3_effect_state_objectTests0_test(simpleCalculator);
+  private void _test__chainedCalculation_transitions3_effects0_state(final SimpleCalculator it) {
+    _test__chainedCalculation_transitions3_effects0_state_objectTests0_test(simpleCalculator);
     
   }
   
-  private void _test__chainedCalculation_transitions3_effect_state_objectTests0_test(final SimpleCalculator it) {
+  private void _test__chainedCalculation_transitions3_effects0_state_objectTests0_test(final SimpleCalculator it) {
     
     boolean _hasOutput = it.hasOutput();
     assertTrue("hasOutput failed after takeInputNumber(2.5)", _hasOutput);
     
     double _output = it.getOutput();
-    assertTrue("output == 11.5 failed after takeInputNumber(2.5)", this.operator_equals(_output, 11.5));
+    assertNotNull("output == 11.5 failed after takeInputNumber(2.5)", this.operator_equals(_output, 11.5));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(SimpleCalculatorTest.class);
   }
 }

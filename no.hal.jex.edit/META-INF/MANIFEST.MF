@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: no.hal.jex.provider.JexEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: no.hal.jex.provider
 Require-Bundle: org.eclipse.core.runtime,
  no.hal.jex;visibility:=reexport,

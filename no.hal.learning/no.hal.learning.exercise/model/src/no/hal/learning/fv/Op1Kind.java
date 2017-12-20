@@ -21,6 +21,14 @@ import no.hal.learning.fv.util.Op1;
  */
 public enum Op1Kind implements Enumerator {
 	/**
+	 * The '<em><b>IDENTITY</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #IDENTITY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	IDENTITY(0, "IDENTITY", "IDENTITY"), /**
 	 * The '<em><b>NEG</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28,7 +36,7 @@ public enum Op1Kind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NEG(0, "NEG", "-"),
+	NEG(1, "NEG", "-"),
 
 	/**
 	 * The '<em><b>INV</b></em>' literal object.
@@ -38,7 +46,7 @@ public enum Op1Kind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INV(1, "INV", "!"),
+	INV(2, "INV", "!"),
 
 	/**
 	 * The '<em><b>ABS</b></em>' literal object.
@@ -48,7 +56,7 @@ public enum Op1Kind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ABS(2, "ABS", "ABS"),
+	ABS(3, "ABS", "ABS"),
 
 	/**
 	 * The '<em><b>SIGNUM</b></em>' literal object.
@@ -58,7 +66,46 @@ public enum Op1Kind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SIGNUM(3, "SIGNUM", "SIGNUM");
+	SIGNUM(4, "SIGNUM", "SIGNUM"), /**
+	 * The '<em><b>ZERO</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ZERO_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ZERO(-1, "ZERO", "0"), /**
+	 * The '<em><b>HALF</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #HALF_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	HALF(-2, "HALF", "0.5"), /**
+	 * The '<em><b>ONE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ONE(-3, "ONE", "1");
+
+	/**
+	 * The '<em><b>IDENTITY</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>IDENTITY</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #IDENTITY
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int IDENTITY_VALUE = 0;
 
 	/**
 	 * The '<em><b>NEG</b></em>' literal value.
@@ -73,7 +120,7 @@ public enum Op1Kind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NEG_VALUE = 0;
+	public static final int NEG_VALUE = 1;
 
 	/**
 	 * The '<em><b>INV</b></em>' literal value.
@@ -88,7 +135,7 @@ public enum Op1Kind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INV_VALUE = 1;
+	public static final int INV_VALUE = 2;
 
 	/**
 	 * The '<em><b>ABS</b></em>' literal value.
@@ -103,7 +150,7 @@ public enum Op1Kind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ABS_VALUE = 2;
+	public static final int ABS_VALUE = 3;
 
 	/**
 	 * The '<em><b>SIGNUM</b></em>' literal value.
@@ -118,7 +165,52 @@ public enum Op1Kind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SIGNUM_VALUE = 3;
+	public static final int SIGNUM_VALUE = 4;
+
+	/**
+	 * The '<em><b>ZERO</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ZERO</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ZERO
+	 * @model literal="0"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ZERO_VALUE = -1;
+
+	/**
+	 * The '<em><b>HALF</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>HALF</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #HALF
+	 * @model literal="0.5"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int HALF_VALUE = -2;
+
+	/**
+	 * The '<em><b>ONE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ONE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ONE
+	 * @model literal="1"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ONE_VALUE = -3;
 
 	/**
 	 * An array of all the '<em><b>Op1 Kind</b></em>' enumerators.
@@ -128,10 +220,14 @@ public enum Op1Kind implements Enumerator {
 	 */
 	private static final Op1Kind[] VALUES_ARRAY =
 		new Op1Kind[] {
+			IDENTITY,
 			NEG,
 			INV,
 			ABS,
 			SIGNUM,
+			ZERO,
+			HALF,
+			ONE,
 		};
 
 	/**
@@ -188,10 +284,14 @@ public enum Op1Kind implements Enumerator {
 	 */
 	public static Op1Kind get(int value) {
 		switch (value) {
+			case IDENTITY_VALUE: return IDENTITY;
 			case NEG_VALUE: return NEG;
 			case INV_VALUE: return INV;
 			case ABS_VALUE: return ABS;
 			case SIGNUM_VALUE: return SIGNUM;
+			case ZERO_VALUE: return ZERO;
+			case HALF_VALUE: return HALF;
+			case ONE_VALUE: return ONE;
 		}
 		return null;
 	}
@@ -280,8 +380,22 @@ public enum Op1Kind implements Enumerator {
 		}
 	}
 
-	Op1 getOp1() {
+	public Op1 getOp1() {
+		try {
+			return createConstantOp1(Double.valueOf(getLiteral()));
+		} catch (NumberFormatException e) {
+		}
 		return Op1Kind.getFunction(Op1.class, getName());
 	}
 	
+	
+	public static Op1 createConstantOp1(final double d) {
+		return new Op1() {
+			@Override
+			public double apply(double val) {
+				return d;
+			}
+		};
+	}
+
 } //Op1Kind

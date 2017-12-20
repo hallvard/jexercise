@@ -94,12 +94,7 @@ public class SpaceObjectTest extends TestCase {
   }
   
   private boolean operator_equals(final double n1, final double n2) {
-    boolean _xblockexpression = false;
-    {
-      final double epsilon = 0.000001d;
-      _xblockexpression = (((n1 + epsilon) >= n2) && ((n1 - epsilon) <= n2));
-    }
-    return _xblockexpression;
+    throw new UnsupportedOperationException("Test wouldn't compile, due to missing or erroneous code.");
   }
   
   private void testSpeed(final SpaceObject it, final double vx, final double vy) {
@@ -140,18 +135,18 @@ public class SpaceObjectTest extends TestCase {
   
   @JExercise(tests = "SpaceObject()", description = "Tests \n\t\tinitialization\n")
   public void testMass() {
-    _test__mass_transitions0_effect_state();
+    _test__mass_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "SpaceObject();void accelerate(double,double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>spaceObject.accelerate(2.3, 7.4)</li>\n\t\t<li>asteroid1.accelerate(3.2, 4.7)</li>\n\t\t<li>spaceShip.accelerate(3.3, 7.7)</li>\n\t\t</ul>\n")
   public void testAccelerate() {
     _transition_exprAction__accelerate_transitions0_actions0();
-    _test__accelerate_transitions0_effect_state();
+    _test__accelerate_transitions0_effects0_state();
     _transition_exprAction__accelerate_transitions1_actions0();
-    _test__accelerate_transitions1_effect_state();
+    _test__accelerate_transitions1_effects0_state();
     _transition_exprAction__accelerate_transitions2_actions0();
-    _test__accelerate_transitions2_effect_state();
+    _test__accelerate_transitions2_effects0_state();
     
   }
   
@@ -159,31 +154,31 @@ public class SpaceObjectTest extends TestCase {
   public void testTick() {
     _transition_exprAction__tick_transitions0_actions0();
     _transition_exprAction__tick_transitions0_actions1();
-    _test__tick_transitions0_effect_state();
+    _test__tick_transitions0_effects0_state();
     _transition_exprAction__tick_transitions1_actions0();
     _transition_exprAction__tick_transitions1_actions1();
-    _test__tick_transitions1_effect_state();
+    _test__tick_transitions1_effects0_state();
     _transition_exprAction__tick_transitions2_actions0();
     _transition_exprAction__tick_transitions2_actions1();
-    _test__tick_transitions2_effect_state();
+    _test__tick_transitions2_effects0_state();
     _transition_exprAction__tick_transitions3_actions0();
     _transition_exprAction__tick_transitions3_actions1();
-    _test__tick_transitions3_effect_state();
+    _test__tick_transitions3_effects0_state();
     _transition_exprAction__tick_transitions4_actions0();
     _transition_exprAction__tick_transitions4_actions1();
-    _test__tick_transitions4_effect_state();
+    _test__tick_transitions4_effects0_state();
     _transition_exprAction__tick_transitions5_actions0();
     _transition_exprAction__tick_transitions5_actions1();
-    _test__tick_transitions5_effect_state();
+    _test__tick_transitions5_effects0_state();
     _transition_exprAction__tick_transitions6_actions0();
     _transition_exprAction__tick_transitions6_actions1();
-    _test__tick_transitions6_effect_state();
+    _test__tick_transitions6_effects0_state();
     _transition_exprAction__tick_transitions7_actions0();
     _transition_exprAction__tick_transitions7_actions1();
-    _test__tick_transitions7_effect_state();
+    _test__tick_transitions7_effects0_state();
     _transition_exprAction__tick_transitions8_actions0();
     _transition_exprAction__tick_transitions8_actions1();
-    _test__tick_transitions8_effect_state();
+    _test__tick_transitions8_effects0_state();
     
   }
   
@@ -196,51 +191,51 @@ public class SpaceObjectTest extends TestCase {
       assertTrue("IllegalStateException should be thrown after spaceObject.applyForce(2.3, 7.4)", e instanceof IllegalStateException);
     }
     _transition_exprAction__applyForce_transitions1_actions0();
-    _test__applyForce_transitions1_effect_state();
+    _test__applyForce_transitions1_effects0_state();
     _transition_exprAction__applyForce_transitions2_actions0();
-    _test__applyForce_transitions2_effect_state();
+    _test__applyForce_transitions2_effects0_state();
     
   }
   
   @JExercise(tests = "SpaceObject()", description = "Tests \n\t\tinitialization\n")
   public void testIntersects1() {
-    _test__intersects1_transitions0_effect_state();
+    _test__intersects1_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "SpaceObject()", description = "Tests \n\t\tinitialization\n")
   public void testIntersects2() {
-    _test__intersects2_transitions0_effect_state();
+    _test__intersects2_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "SpaceObject()", description = "Tests \n\t\tinitialization\n")
   public void testIntersects3() {
-    _test__intersects3_transitions0_effect_state();
+    _test__intersects3_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "SpaceObject()", description = "Tests \n\t\tinitialization\n")
   public void testIntersects4() {
-    _test__intersects4_transitions0_effect_state();
+    _test__intersects4_transitions0_effects0_state();
     
   }
   
-  private void _test__mass_transitions0_effect_state() {
-    _test__mass_transitions0_effect_state_objectTests0_test(spaceObject);
-    _test__mass_transitions0_effect_state_objectTests1_test(asteroid1);
-    _test__mass_transitions0_effect_state_objectTests2_test(spaceShip);
+  private void _test__mass_transitions0_effects0_state() {
+    _test__mass_transitions0_effects0_state_objectTests0_test(spaceObject);
+    _test__mass_transitions0_effects0_state_objectTests1_test(asteroid1);
+    _test__mass_transitions0_effects0_state_objectTests2_test(spaceShip);
     
   }
   
-  private void _test__mass_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__mass_transitions0_effects0_state_objectTests0_test(final SpaceObject it) {
     
     double _mass = it.getMass();
     assertEquals("mass === 0.0 failed", 0.0, _mass);
     
   }
   
-  private void _test__mass_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
+  private void _test__mass_transitions0_effects0_state_objectTests1_test(final SpaceObject it) {
     
     double _mass = it.getMass();
     double _mass_1 = this.asteroid2.getMass();
@@ -250,7 +245,7 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__mass_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
+  private void _test__mass_transitions0_effects0_state_objectTests2_test(final SpaceObject it) {
     
     double _mass = it.getMass();
     assertEquals("mass === 1.0 failed", 1.0, _mass);
@@ -267,12 +262,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__accelerate_transitions0_effect_state() {
-    _test__accelerate_transitions0_effect_state_objectTests0_test(spaceObject);
+  private void _test__accelerate_transitions0_effects0_state() {
+    _test__accelerate_transitions0_effects0_state_objectTests0_test(spaceObject);
     
   }
   
-  private void _test__accelerate_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__accelerate_transitions0_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testSpeed(it, 2.3, 7.4);
@@ -292,12 +287,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__accelerate_transitions1_effect_state() {
-    _test__accelerate_transitions1_effect_state_objectTests0_test(asteroid1);
+  private void _test__accelerate_transitions1_effects0_state() {
+    _test__accelerate_transitions1_effects0_state_objectTests0_test(asteroid1);
     
   }
   
-  private void _test__accelerate_transitions1_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__accelerate_transitions1_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testSpeed(it, 3.2, 4.7);
@@ -317,12 +312,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__accelerate_transitions2_effect_state() {
-    _test__accelerate_transitions2_effect_state_objectTests0_test(spaceShip);
+  private void _test__accelerate_transitions2_effects0_state() {
+    _test__accelerate_transitions2_effects0_state_objectTests0_test(spaceShip);
     
   }
   
-  private void _test__accelerate_transitions2_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__accelerate_transitions2_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testSpeed(it, 3.3, 7.7);
@@ -352,12 +347,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__tick_transitions0_effect_state() {
-    _test__tick_transitions0_effect_state_objectTests0_test(spaceObject);
+  private void _test__tick_transitions0_effects0_state() {
+    _test__tick_transitions0_effects0_state_objectTests0_test(spaceObject);
     
   }
   
-  private void _test__tick_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__tick_transitions0_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testPosition(it, 2.3, 7.4);
@@ -387,12 +382,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__tick_transitions1_effect_state() {
-    _test__tick_transitions1_effect_state_objectTests0_test(spaceObject);
+  private void _test__tick_transitions1_effects0_state() {
+    _test__tick_transitions1_effects0_state_objectTests0_test(spaceObject);
     
   }
   
-  private void _test__tick_transitions1_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__tick_transitions1_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testPosition(it, 2.3, 7.4);
@@ -422,12 +417,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__tick_transitions2_effect_state() {
-    _test__tick_transitions2_effect_state_objectTests0_test(spaceObject);
+  private void _test__tick_transitions2_effects0_state() {
+    _test__tick_transitions2_effects0_state_objectTests0_test(spaceObject);
     
   }
   
-  private void _test__tick_transitions2_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__tick_transitions2_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testPosition(it, 0.0, 0.0);
@@ -457,12 +452,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__tick_transitions3_effect_state() {
-    _test__tick_transitions3_effect_state_objectTests0_test(asteroid1);
+  private void _test__tick_transitions3_effects0_state() {
+    _test__tick_transitions3_effects0_state_objectTests0_test(asteroid1);
     
   }
   
-  private void _test__tick_transitions3_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__tick_transitions3_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testPosition(it, 3.2, 4.7);
@@ -492,12 +487,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__tick_transitions4_effect_state() {
-    _test__tick_transitions4_effect_state_objectTests0_test(asteroid1);
+  private void _test__tick_transitions4_effects0_state() {
+    _test__tick_transitions4_effects0_state_objectTests0_test(asteroid1);
     
   }
   
-  private void _test__tick_transitions4_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__tick_transitions4_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testPosition(it, 3.2, 4.7);
@@ -527,12 +522,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__tick_transitions5_effect_state() {
-    _test__tick_transitions5_effect_state_objectTests0_test(spaceObject);
+  private void _test__tick_transitions5_effects0_state() {
+    _test__tick_transitions5_effects0_state_objectTests0_test(spaceObject);
     
   }
   
-  private void _test__tick_transitions5_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__tick_transitions5_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testPosition(it, 0.0, 0.0);
@@ -562,12 +557,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__tick_transitions6_effect_state() {
-    _test__tick_transitions6_effect_state_objectTests0_test(spaceShip);
+  private void _test__tick_transitions6_effects0_state() {
+    _test__tick_transitions6_effects0_state_objectTests0_test(spaceShip);
     
   }
   
-  private void _test__tick_transitions6_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__tick_transitions6_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testPosition(it, 3.3, 7.7);
@@ -597,12 +592,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__tick_transitions7_effect_state() {
-    _test__tick_transitions7_effect_state_objectTests0_test(spaceShip);
+  private void _test__tick_transitions7_effects0_state() {
+    _test__tick_transitions7_effects0_state_objectTests0_test(spaceShip);
     
   }
   
-  private void _test__tick_transitions7_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__tick_transitions7_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testPosition(it, 3.3, 7.7);
@@ -632,12 +627,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__tick_transitions8_effect_state() {
-    _test__tick_transitions8_effect_state_objectTests0_test(spaceShip);
+  private void _test__tick_transitions8_effects0_state() {
+    _test__tick_transitions8_effects0_state_objectTests0_test(spaceShip);
     
   }
   
-  private void _test__tick_transitions8_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__tick_transitions8_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       this.testPosition(it, 0.0, 0.0);
@@ -667,12 +662,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__applyForce_transitions1_effect_state() {
-    _test__applyForce_transitions1_effect_state_objectTests0_test(asteroid1);
+  private void _test__applyForce_transitions1_effects0_state() {
+    _test__applyForce_transitions1_effects0_state_objectTests0_test(asteroid1);
     
   }
   
-  private void _test__applyForce_transitions1_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__applyForce_transitions1_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       double _mass = it.getMass();
@@ -696,12 +691,12 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__applyForce_transitions2_effect_state() {
-    _test__applyForce_transitions2_effect_state_objectTests0_test(spaceShip);
+  private void _test__applyForce_transitions2_effects0_state() {
+    _test__applyForce_transitions2_effects0_state_objectTests0_test(spaceShip);
     
   }
   
-  private void _test__applyForce_transitions2_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__applyForce_transitions2_effects0_state_objectTests0_test(final SpaceObject it) {
     try {
       
       double _mass = it.getMass();
@@ -715,139 +710,135 @@ public class SpaceObjectTest extends TestCase {
     
   }
   
-  private void _test__intersects1_transitions0_effect_state() {
-    _test__intersects1_transitions0_effect_state_objectTests0_test(so1);
-    _test__intersects1_transitions0_effect_state_objectTests1_test(so1);
-    _test__intersects1_transitions0_effect_state_objectTests2_test(so1);
-    _test__intersects1_transitions0_effect_state_objectTests3_test(so1);
+  private void _test__intersects1_transitions0_effects0_state() {
+    _test__intersects1_transitions0_effects0_state_objectTests0_test(so1);
+    _test__intersects1_transitions0_effects0_state_objectTests1_test(so1);
+    _test__intersects1_transitions0_effects0_state_objectTests2_test(so1);
+    _test__intersects1_transitions0_effects0_state_objectTests3_test(so1);
     
   }
   
-  private void _test__intersects1_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__intersects1_transitions0_effects0_state_objectTests0_test(final SpaceObject it) {
     
     assertTrue("intersects(so1) failed", it.intersects(this.so1));
     
   }
   
-  private void _test__intersects1_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
+  private void _test__intersects1_transitions0_effects0_state_objectTests1_test(final SpaceObject it) {
     
     assertTrue("intersects(so2) failed", it.intersects(this.so2));
     
   }
   
-  private void _test__intersects1_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
+  private void _test__intersects1_transitions0_effects0_state_objectTests2_test(final SpaceObject it) {
     
     assertTrue("intersects(so3) failed", it.intersects(this.so3));
     
   }
   
-  private void _test__intersects1_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
+  private void _test__intersects1_transitions0_effects0_state_objectTests3_test(final SpaceObject it) {
     
     boolean _intersects = it.intersects(this.so4);
     assertTrue("! intersects(so4) failed", (!_intersects));
     
   }
   
-  private void _test__intersects2_transitions0_effect_state() {
-    _test__intersects2_transitions0_effect_state_objectTests0_test(so2);
-    _test__intersects2_transitions0_effect_state_objectTests1_test(so2);
-    _test__intersects2_transitions0_effect_state_objectTests2_test(so2);
-    _test__intersects2_transitions0_effect_state_objectTests3_test(so2);
+  private void _test__intersects2_transitions0_effects0_state() {
+    _test__intersects2_transitions0_effects0_state_objectTests0_test(so2);
+    _test__intersects2_transitions0_effects0_state_objectTests1_test(so2);
+    _test__intersects2_transitions0_effects0_state_objectTests2_test(so2);
+    _test__intersects2_transitions0_effects0_state_objectTests3_test(so2);
     
   }
   
-  private void _test__intersects2_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__intersects2_transitions0_effects0_state_objectTests0_test(final SpaceObject it) {
     
     assertTrue("intersects(so2) failed", it.intersects(this.so2));
     
   }
   
-  private void _test__intersects2_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
+  private void _test__intersects2_transitions0_effects0_state_objectTests1_test(final SpaceObject it) {
     
     assertTrue("intersects(so1) failed", it.intersects(this.so1));
     
   }
   
-  private void _test__intersects2_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
+  private void _test__intersects2_transitions0_effects0_state_objectTests2_test(final SpaceObject it) {
     
     assertTrue("intersects(so3) failed", it.intersects(this.so3));
     
   }
   
-  private void _test__intersects2_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
+  private void _test__intersects2_transitions0_effects0_state_objectTests3_test(final SpaceObject it) {
     
     assertTrue("intersects(so4) failed", it.intersects(this.so4));
     
   }
   
-  private void _test__intersects3_transitions0_effect_state() {
-    _test__intersects3_transitions0_effect_state_objectTests0_test(so3);
-    _test__intersects3_transitions0_effect_state_objectTests1_test(so3);
-    _test__intersects3_transitions0_effect_state_objectTests2_test(so3);
-    _test__intersects3_transitions0_effect_state_objectTests3_test(so3);
+  private void _test__intersects3_transitions0_effects0_state() {
+    _test__intersects3_transitions0_effects0_state_objectTests0_test(so3);
+    _test__intersects3_transitions0_effects0_state_objectTests1_test(so3);
+    _test__intersects3_transitions0_effects0_state_objectTests2_test(so3);
+    _test__intersects3_transitions0_effects0_state_objectTests3_test(so3);
     
   }
   
-  private void _test__intersects3_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__intersects3_transitions0_effects0_state_objectTests0_test(final SpaceObject it) {
     
     assertTrue("intersects(so3) failed", it.intersects(this.so3));
     
   }
   
-  private void _test__intersects3_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
+  private void _test__intersects3_transitions0_effects0_state_objectTests1_test(final SpaceObject it) {
     
     assertTrue("intersects(so1) failed", it.intersects(this.so1));
     
   }
   
-  private void _test__intersects3_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
+  private void _test__intersects3_transitions0_effects0_state_objectTests2_test(final SpaceObject it) {
     
     assertTrue("intersects(so2) failed", it.intersects(this.so2));
     
   }
   
-  private void _test__intersects3_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
+  private void _test__intersects3_transitions0_effects0_state_objectTests3_test(final SpaceObject it) {
     
     boolean _intersects = it.intersects(this.so4);
     assertTrue("! intersects(so4) failed", (!_intersects));
     
   }
   
-  private void _test__intersects4_transitions0_effect_state() {
-    _test__intersects4_transitions0_effect_state_objectTests0_test(so4);
-    _test__intersects4_transitions0_effect_state_objectTests1_test(so4);
-    _test__intersects4_transitions0_effect_state_objectTests2_test(so4);
-    _test__intersects4_transitions0_effect_state_objectTests3_test(so4);
+  private void _test__intersects4_transitions0_effects0_state() {
+    _test__intersects4_transitions0_effects0_state_objectTests0_test(so4);
+    _test__intersects4_transitions0_effects0_state_objectTests1_test(so4);
+    _test__intersects4_transitions0_effects0_state_objectTests2_test(so4);
+    _test__intersects4_transitions0_effects0_state_objectTests3_test(so4);
     
   }
   
-  private void _test__intersects4_transitions0_effect_state_objectTests0_test(final SpaceObject it) {
+  private void _test__intersects4_transitions0_effects0_state_objectTests0_test(final SpaceObject it) {
     
     assertTrue("intersects(so4) failed", it.intersects(this.so4));
     
   }
   
-  private void _test__intersects4_transitions0_effect_state_objectTests1_test(final SpaceObject it) {
+  private void _test__intersects4_transitions0_effects0_state_objectTests1_test(final SpaceObject it) {
     
     boolean _intersects = it.intersects(this.so1);
     assertTrue("! intersects(so1) failed", (!_intersects));
     
   }
   
-  private void _test__intersects4_transitions0_effect_state_objectTests2_test(final SpaceObject it) {
+  private void _test__intersects4_transitions0_effects0_state_objectTests2_test(final SpaceObject it) {
     
     assertTrue("intersects(so2) failed", it.intersects(this.so2));
     
   }
   
-  private void _test__intersects4_transitions0_effect_state_objectTests3_test(final SpaceObject it) {
+  private void _test__intersects4_transitions0_effects0_state_objectTests3_test(final SpaceObject it) {
     
     boolean _intersects = it.intersects(this.so3);
     assertTrue("! intersects(so3) failed", (!_intersects));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(SpaceObjectTest.class);
   }
 }

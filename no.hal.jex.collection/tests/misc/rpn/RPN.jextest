@@ -1,0 +1,111 @@
+test misc.rpn.RPN
+
+import java.util.Collection
+
+sequence constructor "Konstruktør" {
+	-->
+	state {
+		size == 0;
+	}
+}
+
+sequence push "Legger ett element på stacken og sjekker størrelsen" {
+	-- push(1.0) -->
+	state {
+		size == 1;
+	}
+}
+
+sequence pushPop "Legger et tilfeldig tall på stacken, tar det av og sjekker verdien" {
+	val double random = Math.random * 100
+	-- push(random) -->	state {
+		size == 1;
+	}
+	-- pop == random -->
+	state {
+		size == 0;
+	}
+}
+
+sequence pushPeek "Legger to tilfeldig tall på stacken, og sjekker dem med peek()" {
+	val double random1 = Math.random * 100, double random2 = Math.random * 100
+	-- push(random1) --> state { it == #[random1]; }
+	-- push(random2) --> state { it == #[random1, random2]; }
+}
+
+sequence performAdd "Legger to tilfeldig tall på stacken og utfører + (pluss)" {
+	val double random1 = Math.random * 100, double random2 = Math.random * 100
+	-- push(random1), push(random2), performOperation('+') -->
+	state {
+		it == #[random1 + random2];
+	}
+}
+
+sequence performSubtract "Legger to tilfeldig tall på stacken og utfører - (minus)" {
+	val double random1 = Math.random * 100, double random2 = Math.random * 100
+	-- push(random1), push(random2), performOperation('-') -->
+	state {
+		it == #[random1 - random2];
+	}
+}
+
+sequence performMultiply "Legger to tilfeldig tall på stacken og utfører * (multiplikasjon)" {
+	val double random1 = Math.random * 100, double random2 = Math.random * 100
+	-- push(random1), push(random2), performOperation('*') -->
+	state {
+		it == #[random1 * random2];
+	}
+}
+
+sequence performDivide "Legger to tilfeldig tall på stacken og utfører / (divisjon)" {
+	val double random1 = Math.random * 100, double random2 = Math.random * 100 + 1
+	-- push(random1), push(random2), performOperation('/') -->
+	state {
+		it == #[random1 / random2];
+	}
+}
+
+sequence performSwap "Legger to tilfeldig tall på stacken og utfører ~ (swap)" {
+	val double random1 = Math.random * 100, double random2 = Math.random * 100 + 1
+	-- push(random1), push(random2), performOperation('~') -->
+	state {
+		it == #[random2, random1];
+	}
+}
+
+sequence performPi "Utfører p (pi)" {
+	-- performOperation('p') -->
+	state {
+		it == #[Math.PI];
+	}
+}
+
+sequence performAbs "Utfører | (absoluttverdi)" {
+	val double random = Math.random * 100 - 50
+	-- push(random), performOperation('|') -->
+	state {
+		it == #[Math.abs(random)];
+	}
+}
+
+// helper methods
+
+method void performOperation(String s) {
+	rPN.performOperation(s.charAt(0))
+}
+
+method boolean == (RPN rpn, Collection<Double> ds) {
+	if (rpn.size != ds.size) {
+		return false
+	}
+	val epsilon = 0.000001d
+	var count = 0;
+	for (d : ds) {
+		val value = rpn.peek(ds.size - count - 1) 
+		if (d < value - epsilon || d > value + epsilon) {
+			return false
+		}
+		count = count + 1
+	}
+	true
+}

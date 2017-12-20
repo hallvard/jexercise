@@ -9,6 +9,8 @@ import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.junit.*;
 
+import no.hal.learning.fv.EFeatureObject;
+import no.hal.learning.fv.FeatureValued;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -91,6 +93,8 @@ public class JunitSwitch<T1> extends Switch<T1> {
 				JunitTestEvent junitTestEvent = (JunitTestEvent)theEObject;
 				T1 result = caseJunitTestEvent(junitTestEvent);
 				if (result == null) result = caseTaskEvent(junitTestEvent);
+				if (result == null) result = caseEFeatureObject(junitTestEvent);
+				if (result == null) result = caseFeatureValued(junitTestEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -200,6 +204,36 @@ public class JunitSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T extends TaskAnswer> T1 caseTaskProposal(TaskProposal<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Feature Valued</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Feature Valued</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseFeatureValued(FeatureValued object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EFeature Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EFeature Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEFeatureObject(EFeatureObject object) {
 		return null;
 	}
 

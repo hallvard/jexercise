@@ -183,6 +183,15 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getJdtSourceEditAnswer_Metrics() {
+		return (EReference)jdtSourceEditAnswerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJdtSourceEditProposal() {
 		return jdtSourceEditProposalEClass;
 	}
@@ -228,8 +237,17 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJdtSourceEditEvent_ClassName() {
+		return (EAttribute)jdtSourceEditEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getJdtSourceEditEvent_Metrics() {
-		return (EReference)jdtSourceEditEventEClass.getEStructuralFeatures().get(0);
+		return (EReference)jdtSourceEditEventEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -300,6 +318,15 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJdtLaunchEvent_ClassName() {
+		return (EAttribute)jdtLaunchEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JdtFactory getJdtFactory() {
 		return (JdtFactory)getEFactoryInstance();
 	}
@@ -326,6 +353,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		jdtSourceEditAnswerEClass = createEClass(JDT_SOURCE_EDIT_ANSWER);
 		createEAttribute(jdtSourceEditAnswerEClass, JDT_SOURCE_EDIT_ANSWER__CLASS_NAME);
 		createEAttribute(jdtSourceEditAnswerEClass, JDT_SOURCE_EDIT_ANSWER__METHOD_NAMES);
+		createEReference(jdtSourceEditAnswerEClass, JDT_SOURCE_EDIT_ANSWER__METRICS);
 
 		jdtSourceEditProposalEClass = createEClass(JDT_SOURCE_EDIT_PROPOSAL);
 
@@ -334,6 +362,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		createEReference(stringToFeatureValuedEClass, STRING_TO_FEATURE_VALUED__VALUE);
 
 		jdtSourceEditEventEClass = createEClass(JDT_SOURCE_EDIT_EVENT);
+		createEAttribute(jdtSourceEditEventEClass, JDT_SOURCE_EDIT_EVENT__CLASS_NAME);
 		createEReference(jdtSourceEditEventEClass, JDT_SOURCE_EDIT_EVENT__METRICS);
 
 		jdtMarkerInfoEClass = createEClass(JDT_MARKER_INFO);
@@ -346,6 +375,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		jdtLaunchProposalEClass = createEClass(JDT_LAUNCH_PROPOSAL);
 
 		jdtLaunchEventEClass = createEClass(JDT_LAUNCH_EVENT);
+		createEAttribute(jdtLaunchEventEClass, JDT_LAUNCH_EVENT__CLASS_NAME);
 	}
 
 	/**
@@ -372,16 +402,16 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		WorkspacePackage theWorkspacePackage = (WorkspacePackage)EPackage.Registry.INSTANCE.getEPackage(WorkspacePackage.eNS_URI);
 		ExercisePackage theExercisePackage = (ExercisePackage)EPackage.Registry.INSTANCE.getEPackage(ExercisePackage.eNS_URI);
 		FvPackage theFvPackage = (FvPackage)EPackage.Registry.INSTANCE.getEPackage(FvPackage.eNS_URI);
-		WorkspacePackage theWorkspacePackage = (WorkspacePackage)EPackage.Registry.INSTANCE.getEPackage(WorkspacePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		jdtSourceEditAnswerEClass.getESuperTypes().add(theExercisePackage.getStringEditAnswer());
+		jdtSourceEditAnswerEClass.getESuperTypes().add(theWorkspacePackage.getSourceFileEditAnswer());
 		EGenericType g1 = createEGenericType(theExercisePackage.getStringEditTaskProposal());
 		EGenericType g2 = createEGenericType(this.getJdtSourceEditAnswer());
 		g1.getETypeArguments().add(g2);
@@ -399,6 +429,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		initEClass(jdtSourceEditAnswerEClass, JdtSourceEditAnswer.class, "JdtSourceEditAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJdtSourceEditAnswer_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, JdtSourceEditAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJdtSourceEditAnswer_MethodNames(), ecorePackage.getEString(), "methodNames", null, 0, -1, JdtSourceEditAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJdtSourceEditAnswer_Metrics(), this.getStringToFeatureValued(), null, "metrics", null, 0, -1, JdtSourceEditAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jdtSourceEditProposalEClass, JdtSourceEditProposal.class, "JdtSourceEditProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -407,6 +438,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		initEReference(getStringToFeatureValued_Value(), theFvPackage.getFeatureValued(), null, "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jdtSourceEditEventEClass, JdtSourceEditEvent.class, "JdtSourceEditEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJdtSourceEditEvent_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJdtSourceEditEvent_Metrics(), this.getStringToFeatureValued(), null, "metrics", null, 0, -1, JdtSourceEditEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jdtMarkerInfoEClass, JdtMarkerInfo.class, "JdtMarkerInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -419,6 +451,7 @@ public class JdtPackageImpl extends EPackageImpl implements JdtPackage {
 		initEClass(jdtLaunchProposalEClass, JdtLaunchProposal.class, "JdtLaunchProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(jdtLaunchEventEClass, JdtLaunchEvent.class, "JdtLaunchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJdtLaunchEvent_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, JdtLaunchEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

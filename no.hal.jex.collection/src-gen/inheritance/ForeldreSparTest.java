@@ -21,33 +21,28 @@ public class ForeldreSparTest extends TestCase {
   }
   
   private boolean operator_equals(final double n1, final double n2) {
-    boolean _xblockexpression = false;
-    {
-      final double epsilon = 0.0000001;
-      _xblockexpression = (((n1 - epsilon) <= n2) && ((n1 + epsilon) >= n2));
-    }
-    return _xblockexpression;
+    throw new UnsupportedOperationException("Test wouldn't compile, due to missing or erroneous code.");
   }
   
   @JExercise(tests = "ForeldreSpar(double,int);void withdraw(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>foreldreSpar.deposit(10000.0), foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.withdraw(-1000.0)</li>\n\t\t<li>foreldreSpar.withdraw(10000.0)</li>\n\t\t<li>foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.endYearUpdate(), foreldreSpar.withdraw(1000.0)</li>\n\t\t</ul>\n")
   public void testWithdraw() {
     _transition_exprAction__withdraw_transitions0_actions0(foreldreSpar);
     _transition_exprAction__withdraw_transitions0_actions1(foreldreSpar);
-    _test__withdraw_transitions0_effect_state(foreldreSpar);
+    _test__withdraw_transitions0_effects0_state(foreldreSpar);
     try {
       _transition_exprAction__withdraw_transitions1_actions0(foreldreSpar);
       fail("IllegalArgumentException should be thrown after foreldreSpar.withdraw(-1000.0)");
     } catch (Exception e) {
       assertTrue("IllegalArgumentException should be thrown after foreldreSpar.withdraw(-1000.0)", e instanceof IllegalArgumentException);
     }
-    _test__withdraw_transitions2_effect_state(foreldreSpar);
+    _test__withdraw_transitions2_effects0_state(foreldreSpar);
     try {
       _transition_exprAction__withdraw_transitions3_actions0(foreldreSpar);
       fail("IllegalStateException should be thrown after foreldreSpar.withdraw(10000.0)");
     } catch (Exception e_1) {
       assertTrue("IllegalStateException should be thrown after foreldreSpar.withdraw(10000.0)", e_1 instanceof IllegalStateException);
     }
-    _test__withdraw_transitions4_effect_state(foreldreSpar);
+    _test__withdraw_transitions4_effects0_state(foreldreSpar);
     try {
       _transition_exprAction__withdraw_transitions5_actions0(foreldreSpar);
       _transition_exprAction__withdraw_transitions5_actions1(foreldreSpar);
@@ -56,10 +51,10 @@ public class ForeldreSparTest extends TestCase {
     } catch (Exception e_2) {
       assertTrue("IllegalStateException should be thrown after foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0)", e_2 instanceof IllegalStateException);
     }
-    _test__withdraw_transitions6_effect_state(foreldreSpar);
+    _test__withdraw_transitions6_effects0_state(foreldreSpar);
     _transition_exprAction__withdraw_transitions7_actions0(foreldreSpar);
     _transition_exprAction__withdraw_transitions7_actions1(foreldreSpar);
-    _test__withdraw_transitions7_effect_state(foreldreSpar);
+    _test__withdraw_transitions7_effects0_state(foreldreSpar);
     
   }
   
@@ -67,19 +62,19 @@ public class ForeldreSparTest extends TestCase {
   public void testGetRemainingWithdrawals() {
     _transition_exprAction__getRemainingWithdrawals_transitions0_actions0(foreldreSpar);
     _transition_exprAction__getRemainingWithdrawals_transitions0_actions1(foreldreSpar);
-    _test__getRemainingWithdrawals_transitions0_effect_state(foreldreSpar);
+    _test__getRemainingWithdrawals_transitions0_effects0_state(foreldreSpar);
     _transition_exprAction__getRemainingWithdrawals_transitions1_actions0(foreldreSpar);
     _transition_exprAction__getRemainingWithdrawals_transitions1_actions1(foreldreSpar);
-    _test__getRemainingWithdrawals_transitions1_effect_state(foreldreSpar);
+    _test__getRemainingWithdrawals_transitions1_effects0_state(foreldreSpar);
     try {
       _transition_exprAction__getRemainingWithdrawals_transitions2_actions0(foreldreSpar);
       fail("IllegalStateException should be thrown after foreldreSpar.withdraw(1000.0)");
     } catch (Exception e) {
       assertTrue("IllegalStateException should be thrown after foreldreSpar.withdraw(1000.0)", e instanceof IllegalStateException);
     }
-    _test__getRemainingWithdrawals_transitions3_effect_state(foreldreSpar);
+    _test__getRemainingWithdrawals_transitions3_effects0_state(foreldreSpar);
     _transition_exprAction__getRemainingWithdrawals_transitions4_actions0(foreldreSpar);
-    _test__getRemainingWithdrawals_transitions4_effect_state(foreldreSpar);
+    _test__getRemainingWithdrawals_transitions4_effects0_state(foreldreSpar);
     
   }
   
@@ -103,12 +98,12 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions0_effect_state(final ForeldreSpar it) {
-    _test__withdraw_transitions0_effect_state_objectTests0_test(foreldreSpar);
+  private void _test__withdraw_transitions0_effects0_state(final ForeldreSpar it) {
+    _test__withdraw_transitions0_effects0_state_objectTests0_test(foreldreSpar);
     
   }
   
-  private void _test__withdraw_transitions0_effect_state_objectTests0_test(final ForeldreSpar it) {
+  private void _test__withdraw_transitions0_effects0_state_objectTests0_test(final ForeldreSpar it) {
     
     double _balance = this.foreldreSpar.getBalance();
     assertTrue("foreldreSpar.getBalance() == 9000.0 failed after foreldreSpar.deposit(10000.0) ,foreldreSpar.withdraw(1000.0)", this.operator_equals(_balance, 9000.0));
@@ -125,12 +120,12 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions2_effect_state(final ForeldreSpar it) {
-    _test__withdraw_transitions2_effect_state_objectTests0_test(foreldreSpar);
+  private void _test__withdraw_transitions2_effects0_state(final ForeldreSpar it) {
+    _test__withdraw_transitions2_effects0_state_objectTests0_test(foreldreSpar);
     
   }
   
-  private void _test__withdraw_transitions2_effect_state_objectTests0_test(final ForeldreSpar it) {
+  private void _test__withdraw_transitions2_effects0_state_objectTests0_test(final ForeldreSpar it) {
     
     double _balance = this.foreldreSpar.getBalance();
     assertTrue("foreldreSpar.getBalance() == 9000.0 failed", this.operator_equals(_balance, 9000.0));
@@ -147,12 +142,12 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions4_effect_state(final ForeldreSpar it) {
-    _test__withdraw_transitions4_effect_state_objectTests0_test(foreldreSpar);
+  private void _test__withdraw_transitions4_effects0_state(final ForeldreSpar it) {
+    _test__withdraw_transitions4_effects0_state_objectTests0_test(foreldreSpar);
     
   }
   
-  private void _test__withdraw_transitions4_effect_state_objectTests0_test(final ForeldreSpar it) {
+  private void _test__withdraw_transitions4_effects0_state_objectTests0_test(final ForeldreSpar it) {
     
     double _balance = this.foreldreSpar.getBalance();
     assertTrue("foreldreSpar.getBalance() == 9000.0 failed", this.operator_equals(_balance, 9000.0));
@@ -189,12 +184,12 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions6_effect_state(final ForeldreSpar it) {
-    _test__withdraw_transitions6_effect_state_objectTests0_test(foreldreSpar);
+  private void _test__withdraw_transitions6_effects0_state(final ForeldreSpar it) {
+    _test__withdraw_transitions6_effects0_state_objectTests0_test(foreldreSpar);
     
   }
   
-  private void _test__withdraw_transitions6_effect_state_objectTests0_test(final ForeldreSpar it) {
+  private void _test__withdraw_transitions6_effects0_state_objectTests0_test(final ForeldreSpar it) {
     
     double _balance = this.foreldreSpar.getBalance();
     assertTrue("foreldreSpar.getBalance() == 7000.0 failed", this.operator_equals(_balance, 7000.0));
@@ -221,12 +216,12 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions7_effect_state(final ForeldreSpar it) {
-    _test__withdraw_transitions7_effect_state_objectTests0_test(foreldreSpar);
+  private void _test__withdraw_transitions7_effects0_state(final ForeldreSpar it) {
+    _test__withdraw_transitions7_effects0_state_objectTests0_test(foreldreSpar);
     
   }
   
-  private void _test__withdraw_transitions7_effect_state_objectTests0_test(final ForeldreSpar it) {
+  private void _test__withdraw_transitions7_effects0_state_objectTests0_test(final ForeldreSpar it) {
     
     double _balance = this.foreldreSpar.getBalance();
     assertTrue("foreldreSpar.getBalance() == 7000.0 * (1 + 0.04) - 1000.0 failed after foreldreSpar.endYearUpdate() ,foreldreSpar.withdraw(1000.0)", this.operator_equals(_balance, ((7000.0 * (1 + 0.04)) - 1000.0)));
@@ -253,12 +248,12 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  private void _test__getRemainingWithdrawals_transitions0_effect_state(final ForeldreSpar it) {
-    _test__getRemainingWithdrawals_transitions0_effect_state_objectTests0_test(foreldreSpar);
+  private void _test__getRemainingWithdrawals_transitions0_effects0_state(final ForeldreSpar it) {
+    _test__getRemainingWithdrawals_transitions0_effects0_state_objectTests0_test(foreldreSpar);
     
   }
   
-  private void _test__getRemainingWithdrawals_transitions0_effect_state_objectTests0_test(final ForeldreSpar it) {
+  private void _test__getRemainingWithdrawals_transitions0_effects0_state_objectTests0_test(final ForeldreSpar it) {
     
     int _remainingWithdrawals = this.foreldreSpar.getRemainingWithdrawals();
     assertTrue("foreldreSpar.getRemainingWithdrawals() == 2 failed after foreldreSpar.deposit(10000.0) ,foreldreSpar.withdraw(1000.0)", this.operator_equals(_remainingWithdrawals, 2));
@@ -285,12 +280,12 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  private void _test__getRemainingWithdrawals_transitions1_effect_state(final ForeldreSpar it) {
-    _test__getRemainingWithdrawals_transitions1_effect_state_objectTests0_test(foreldreSpar);
+  private void _test__getRemainingWithdrawals_transitions1_effects0_state(final ForeldreSpar it) {
+    _test__getRemainingWithdrawals_transitions1_effects0_state_objectTests0_test(foreldreSpar);
     
   }
   
-  private void _test__getRemainingWithdrawals_transitions1_effect_state_objectTests0_test(final ForeldreSpar it) {
+  private void _test__getRemainingWithdrawals_transitions1_effects0_state_objectTests0_test(final ForeldreSpar it) {
     
     int _remainingWithdrawals = this.foreldreSpar.getRemainingWithdrawals();
     assertTrue("foreldreSpar.getRemainingWithdrawals() == 0 failed after foreldreSpar.withdraw(1000.0) ,foreldreSpar.withdraw(1000.0)", this.operator_equals(_remainingWithdrawals, 0));
@@ -307,12 +302,12 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  private void _test__getRemainingWithdrawals_transitions3_effect_state(final ForeldreSpar it) {
-    _test__getRemainingWithdrawals_transitions3_effect_state_objectTests0_test(foreldreSpar);
+  private void _test__getRemainingWithdrawals_transitions3_effects0_state(final ForeldreSpar it) {
+    _test__getRemainingWithdrawals_transitions3_effects0_state_objectTests0_test(foreldreSpar);
     
   }
   
-  private void _test__getRemainingWithdrawals_transitions3_effect_state_objectTests0_test(final ForeldreSpar it) {
+  private void _test__getRemainingWithdrawals_transitions3_effects0_state_objectTests0_test(final ForeldreSpar it) {
     
     int _remainingWithdrawals = this.foreldreSpar.getRemainingWithdrawals();
     assertTrue("foreldreSpar.getRemainingWithdrawals() == 0 failed", this.operator_equals(_remainingWithdrawals, 0));
@@ -329,19 +324,15 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  private void _test__getRemainingWithdrawals_transitions4_effect_state(final ForeldreSpar it) {
-    _test__getRemainingWithdrawals_transitions4_effect_state_objectTests0_test(foreldreSpar);
+  private void _test__getRemainingWithdrawals_transitions4_effects0_state(final ForeldreSpar it) {
+    _test__getRemainingWithdrawals_transitions4_effects0_state_objectTests0_test(foreldreSpar);
     
   }
   
-  private void _test__getRemainingWithdrawals_transitions4_effect_state_objectTests0_test(final ForeldreSpar it) {
+  private void _test__getRemainingWithdrawals_transitions4_effects0_state_objectTests0_test(final ForeldreSpar it) {
     
     int _remainingWithdrawals = this.foreldreSpar.getRemainingWithdrawals();
     assertTrue("foreldreSpar.getRemainingWithdrawals() == 3 failed after foreldreSpar.endYearUpdate()", this.operator_equals(_remainingWithdrawals, 3));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(ForeldreSparTest.class);
   }
 }

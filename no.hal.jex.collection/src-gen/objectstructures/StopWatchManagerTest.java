@@ -28,37 +28,37 @@ public class StopWatchManagerTest extends TestCase {
     StopWatch sw1 = _init__ticks_sw1();
     StopWatch sw2 = _init__ticks_sw2();
     _transition_exprAction__ticks_transitions0_actions0(stopWatchManager, sw1, sw2);
-    _test__ticks_transitions0_effect_state(stopWatchManager, sw1, sw2);
+    _test__ticks_transitions0_effects0_state(stopWatchManager, sw1, sw2);
     _transition_exprAction__ticks_transitions1_actions0(stopWatchManager, sw1, sw2);
-    _test__ticks_transitions1_effect_state(stopWatchManager, sw1, sw2);
+    _test__ticks_transitions1_effects0_state(stopWatchManager, sw1, sw2);
     
   }
   
   @JExercise(tests = "null();objectstructures.StopWatch newStopWatch(String);void removeStopWatch(String)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>newStopWatch(\"SW 1\")</li>\n\t\t<li>newStopWatch(\"SW 2\")</li>\n\t\t<li>removeStopWatch(\"SW 1\")</li>\n\t\t<li>removeStopWatch(\"SW 2\")</li>\n\t\t</ul>\n")
   public void testNewRemoveStopWatches() {
-    _test__newRemoveStopWatches_transitions0_effect_state(stopWatchManager);
+    _test__newRemoveStopWatches_transitions0_effects0_state(stopWatchManager);
     _transition_exprAction__newRemoveStopWatches_transitions1_actions0(stopWatchManager);
-    _test__newRemoveStopWatches_transitions1_effect_state(stopWatchManager);
+    _test__newRemoveStopWatches_transitions1_effects0_state(stopWatchManager);
     _transition_exprAction__newRemoveStopWatches_transitions2_actions0(stopWatchManager);
-    _test__newRemoveStopWatches_transitions2_effect_state(stopWatchManager);
+    _test__newRemoveStopWatches_transitions2_effects0_state(stopWatchManager);
     _transition_exprAction__newRemoveStopWatches_transitions3_actions0(stopWatchManager);
-    _test__newRemoveStopWatches_transitions3_effect_state(stopWatchManager);
+    _test__newRemoveStopWatches_transitions3_effects0_state(stopWatchManager);
     _transition_exprAction__newRemoveStopWatches_transitions4_actions0(stopWatchManager);
-    _test__newRemoveStopWatches_transitions4_effect_state(stopWatchManager);
+    _test__newRemoveStopWatches_transitions4_effects0_state(stopWatchManager);
     
   }
   
   @JExercise(tests = "null();objectstructures.StopWatch newStopWatch(String);objectstructures.StopWatch getStopWatch(String)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>newStopWatch(\"SW 1\").start()</li>\n\t\t<li>newStopWatch(\"SW 2\").start()</li>\n\t\t<li>getStopWatch(\"SW 2\").stop()</li>\n\t\t<li>getStopWatch(\"SW 1\").stop()</li>\n\t\t</ul>\n")
   public void testStartedStoppedWatches() {
-    _test__startedStoppedWatches_transitions0_effect_state(stopWatchManager);
+    _test__startedStoppedWatches_transitions0_effects0_state(stopWatchManager);
     _transition_exprAction__startedStoppedWatches_transitions1_actions0(stopWatchManager);
-    _test__startedStoppedWatches_transitions1_effect_state(stopWatchManager);
+    _test__startedStoppedWatches_transitions1_effects0_state(stopWatchManager);
     _transition_exprAction__startedStoppedWatches_transitions2_actions0(stopWatchManager);
-    _test__startedStoppedWatches_transitions2_effect_state(stopWatchManager);
+    _test__startedStoppedWatches_transitions2_effects0_state(stopWatchManager);
     _transition_exprAction__startedStoppedWatches_transitions3_actions0(stopWatchManager);
-    _test__startedStoppedWatches_transitions3_effect_state(stopWatchManager);
+    _test__startedStoppedWatches_transitions3_effects0_state(stopWatchManager);
     _transition_exprAction__startedStoppedWatches_transitions4_actions0(stopWatchManager);
-    _test__startedStoppedWatches_transitions4_effect_state(stopWatchManager);
+    _test__startedStoppedWatches_transitions4_effects0_state(stopWatchManager);
     
   }
   
@@ -82,20 +82,20 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__ticks_transitions0_effect_state(final StopWatchManager it, final StopWatch sw1, final StopWatch sw2) {
-    _test__ticks_transitions0_effect_state_objectTests0_test(sw1, sw1, sw2);
-    _test__ticks_transitions0_effect_state_objectTests1_test(sw2, sw1, sw2);
+  private void _test__ticks_transitions0_effects0_state(final StopWatchManager it, final StopWatch sw1, final StopWatch sw2) {
+    _test__ticks_transitions0_effects0_state_objectTests0_test(sw1, sw1, sw2);
+    _test__ticks_transitions0_effects0_state_objectTests1_test(sw2, sw1, sw2);
     
   }
   
-  private void _test__ticks_transitions0_effect_state_objectTests0_test(final StopWatch it, final StopWatch sw1, final StopWatch sw2) {
+  private void _test__ticks_transitions0_effects0_state_objectTests0_test(final StopWatch it, final StopWatch sw1, final StopWatch sw2) {
     
     int _ticks = it.getTicks();
     assertEquals("ticks == 1 failed after tick(1)", 1, _ticks);
     
   }
   
-  private void _test__ticks_transitions0_effect_state_objectTests1_test(final StopWatch it, final StopWatch sw1, final StopWatch sw2) {
+  private void _test__ticks_transitions0_effects0_state_objectTests1_test(final StopWatch it, final StopWatch sw1, final StopWatch sw2) {
     
     int _ticks = it.getTicks();
     assertEquals("ticks == 1 failed after tick(1)", 1, _ticks);
@@ -112,32 +112,32 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__ticks_transitions1_effect_state(final StopWatchManager it, final StopWatch sw1, final StopWatch sw2) {
-    _test__ticks_transitions1_effect_state_objectTests0_test(sw1, sw1, sw2);
-    _test__ticks_transitions1_effect_state_objectTests1_test(sw2, sw1, sw2);
+  private void _test__ticks_transitions1_effects0_state(final StopWatchManager it, final StopWatch sw1, final StopWatch sw2) {
+    _test__ticks_transitions1_effects0_state_objectTests0_test(sw1, sw1, sw2);
+    _test__ticks_transitions1_effects0_state_objectTests1_test(sw2, sw1, sw2);
     
   }
   
-  private void _test__ticks_transitions1_effect_state_objectTests0_test(final StopWatch it, final StopWatch sw1, final StopWatch sw2) {
+  private void _test__ticks_transitions1_effects0_state_objectTests0_test(final StopWatch it, final StopWatch sw1, final StopWatch sw2) {
     
     int _ticks = it.getTicks();
     assertEquals("ticks == 5 failed after tick(4)", 5, _ticks);
     
   }
   
-  private void _test__ticks_transitions1_effect_state_objectTests1_test(final StopWatch it, final StopWatch sw1, final StopWatch sw2) {
+  private void _test__ticks_transitions1_effects0_state_objectTests1_test(final StopWatch it, final StopWatch sw1, final StopWatch sw2) {
     
     int _ticks = it.getTicks();
     assertEquals("ticks == 5 failed after tick(4)", 5, _ticks);
     
   }
   
-  private void _test__newRemoveStopWatches_transitions0_effect_state(final StopWatchManager it) {
-    _test__newRemoveStopWatches_transitions0_effect_state_objectTests0_test(stopWatchManager);
+  private void _test__newRemoveStopWatches_transitions0_effects0_state(final StopWatchManager it) {
+    _test__newRemoveStopWatches_transitions0_effects0_state_objectTests0_test(stopWatchManager);
     
   }
   
-  private void _test__newRemoveStopWatches_transitions0_effect_state_objectTests0_test(final StopWatchManager it) {
+  private void _test__newRemoveStopWatches_transitions0_effects0_state_objectTests0_test(final StopWatchManager it) {
     
     Collection<StopWatch> _allWatches = it.getAllWatches();
     int _size = _allWatches.size();
@@ -155,12 +155,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__newRemoveStopWatches_transitions1_effect_state(final StopWatchManager it) {
-    _test__newRemoveStopWatches_transitions1_effect_state_objectTests0_test(stopWatchManager);
+  private void _test__newRemoveStopWatches_transitions1_effects0_state(final StopWatchManager it) {
+    _test__newRemoveStopWatches_transitions1_effects0_state_objectTests0_test(stopWatchManager);
     
   }
   
-  private void _test__newRemoveStopWatches_transitions1_effect_state_objectTests0_test(final StopWatchManager it) {
+  private void _test__newRemoveStopWatches_transitions1_effects0_state_objectTests0_test(final StopWatchManager it) {
     
     Collection<StopWatch> _allWatches = it.getAllWatches();
     int _size = _allWatches.size();
@@ -181,12 +181,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__newRemoveStopWatches_transitions2_effect_state(final StopWatchManager it) {
-    _test__newRemoveStopWatches_transitions2_effect_state_objectTests0_test(stopWatchManager);
+  private void _test__newRemoveStopWatches_transitions2_effects0_state(final StopWatchManager it) {
+    _test__newRemoveStopWatches_transitions2_effects0_state_objectTests0_test(stopWatchManager);
     
   }
   
-  private void _test__newRemoveStopWatches_transitions2_effect_state_objectTests0_test(final StopWatchManager it) {
+  private void _test__newRemoveStopWatches_transitions2_effects0_state_objectTests0_test(final StopWatchManager it) {
     
     Collection<StopWatch> _allWatches = it.getAllWatches();
     int _size = _allWatches.size();
@@ -211,12 +211,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__newRemoveStopWatches_transitions3_effect_state(final StopWatchManager it) {
-    _test__newRemoveStopWatches_transitions3_effect_state_objectTests0_test(stopWatchManager);
+  private void _test__newRemoveStopWatches_transitions3_effects0_state(final StopWatchManager it) {
+    _test__newRemoveStopWatches_transitions3_effects0_state_objectTests0_test(stopWatchManager);
     
   }
   
-  private void _test__newRemoveStopWatches_transitions3_effect_state_objectTests0_test(final StopWatchManager it) {
+  private void _test__newRemoveStopWatches_transitions3_effects0_state_objectTests0_test(final StopWatchManager it) {
     
     Collection<StopWatch> _allWatches = it.getAllWatches();
     int _size = _allWatches.size();
@@ -240,12 +240,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__newRemoveStopWatches_transitions4_effect_state(final StopWatchManager it) {
-    _test__newRemoveStopWatches_transitions4_effect_state_objectTests0_test(stopWatchManager);
+  private void _test__newRemoveStopWatches_transitions4_effects0_state(final StopWatchManager it) {
+    _test__newRemoveStopWatches_transitions4_effects0_state_objectTests0_test(stopWatchManager);
     
   }
   
-  private void _test__newRemoveStopWatches_transitions4_effect_state_objectTests0_test(final StopWatchManager it) {
+  private void _test__newRemoveStopWatches_transitions4_effects0_state_objectTests0_test(final StopWatchManager it) {
     
     Collection<StopWatch> _allWatches = it.getAllWatches();
     int _size = _allWatches.size();
@@ -259,12 +259,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__startedStoppedWatches_transitions0_effect_state(final StopWatchManager it) {
-    _test__startedStoppedWatches_transitions0_effect_state_objectTests0_test(stopWatchManager);
+  private void _test__startedStoppedWatches_transitions0_effects0_state(final StopWatchManager it) {
+    _test__startedStoppedWatches_transitions0_effects0_state_objectTests0_test(stopWatchManager);
     
   }
   
-  private void _test__startedStoppedWatches_transitions0_effect_state_objectTests0_test(final StopWatchManager it) {
+  private void _test__startedStoppedWatches_transitions0_effects0_state_objectTests0_test(final StopWatchManager it) {
     
     Collection<StopWatch> _startedWatches = it.getStartedWatches();
     int _size = _startedWatches.size();
@@ -287,12 +287,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__startedStoppedWatches_transitions1_effect_state(final StopWatchManager it) {
-    _test__startedStoppedWatches_transitions1_effect_state_objectTests0_test(stopWatchManager);
+  private void _test__startedStoppedWatches_transitions1_effects0_state(final StopWatchManager it) {
+    _test__startedStoppedWatches_transitions1_effects0_state_objectTests0_test(stopWatchManager);
     
   }
   
-  private void _test__startedStoppedWatches_transitions1_effect_state_objectTests0_test(final StopWatchManager it) {
+  private void _test__startedStoppedWatches_transitions1_effects0_state_objectTests0_test(final StopWatchManager it) {
     
     Collection<StopWatch> _startedWatches = it.getStartedWatches();
     int _size = _startedWatches.size();
@@ -324,12 +324,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__startedStoppedWatches_transitions2_effect_state(final StopWatchManager it) {
-    _test__startedStoppedWatches_transitions2_effect_state_objectTests0_test(stopWatchManager);
+  private void _test__startedStoppedWatches_transitions2_effects0_state(final StopWatchManager it) {
+    _test__startedStoppedWatches_transitions2_effects0_state_objectTests0_test(stopWatchManager);
     
   }
   
-  private void _test__startedStoppedWatches_transitions2_effect_state_objectTests0_test(final StopWatchManager it) {
+  private void _test__startedStoppedWatches_transitions2_effects0_state_objectTests0_test(final StopWatchManager it) {
     
     Collection<StopWatch> _startedWatches = it.getStartedWatches();
     int _size = _startedWatches.size();
@@ -379,12 +379,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__startedStoppedWatches_transitions3_effect_state(final StopWatchManager it) {
-    _test__startedStoppedWatches_transitions3_effect_state_objectTests0_test(stopWatchManager);
+  private void _test__startedStoppedWatches_transitions3_effects0_state(final StopWatchManager it) {
+    _test__startedStoppedWatches_transitions3_effects0_state_objectTests0_test(stopWatchManager);
     
   }
   
-  private void _test__startedStoppedWatches_transitions3_effect_state_objectTests0_test(final StopWatchManager it) {
+  private void _test__startedStoppedWatches_transitions3_effects0_state_objectTests0_test(final StopWatchManager it) {
     
     Collection<StopWatch> _stoppedWatches = it.getStoppedWatches();
     int _size = _stoppedWatches.size();
@@ -422,12 +422,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__startedStoppedWatches_transitions4_effect_state(final StopWatchManager it) {
-    _test__startedStoppedWatches_transitions4_effect_state_objectTests0_test(stopWatchManager);
+  private void _test__startedStoppedWatches_transitions4_effects0_state(final StopWatchManager it) {
+    _test__startedStoppedWatches_transitions4_effects0_state_objectTests0_test(stopWatchManager);
     
   }
   
-  private void _test__startedStoppedWatches_transitions4_effect_state_objectTests0_test(final StopWatchManager it) {
+  private void _test__startedStoppedWatches_transitions4_effects0_state_objectTests0_test(final StopWatchManager it) {
     
     Collection<StopWatch> _stoppedWatches = it.getStoppedWatches();
     int _size = _stoppedWatches.size();
@@ -450,9 +450,5 @@ public class StopWatchManagerTest extends TestCase {
     StopWatch _stopWatch_3 = it.getStopWatch("SW 2");
     assertTrue("getStopWatch(\"SW 2\").isStopped failed after getStopWatch(\"SW 1\").stop()", _stopWatch_3.isStopped());
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(StopWatchManagerTest.class);
   }
 }

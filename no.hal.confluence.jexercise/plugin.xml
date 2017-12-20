@@ -9,15 +9,4 @@
 -->
 
 <plugin>
-     <extension
-           point="no.hal.confluence.ui.wikiAction">
-        <wikiAction
-        	id="no.hal.confluence.jexercise.actions.OpenTestInJExerciseViewAction"
-        	name="Open Test in JExercise View"
-            urlPattern="^\Qhttps://raw.github.com/\E.*\QTest.java\E$"
-            wikiActionClass="no.hal.confluence.jexercise.actions.OpenTestInJExerciseViewAction"
-        >
-        </wikiAction>
-     </extension>
-
 </plugin>

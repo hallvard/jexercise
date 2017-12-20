@@ -1,7 +1,0 @@
-test $namespaceName.$testClassName
-
-sequence test1 {
-}
-
-sequence test2 {
-}

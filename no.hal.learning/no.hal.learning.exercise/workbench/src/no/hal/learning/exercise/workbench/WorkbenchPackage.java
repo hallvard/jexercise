@@ -139,6 +139,15 @@ public interface WorkbenchPackage extends EPackage {
 	int WORKBENCH_TASK_ANSWER___CREATE_PROPOSAL = ExercisePackage.TASK_ANSWER___CREATE_PROPOSAL;
 
 	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_ANSWER___ACCEPT_EVENT__TASKEVENT = ExercisePackage.TASK_ANSWER___ACCEPT_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Task Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +157,124 @@ public interface WorkbenchPackage extends EPackage {
 	int WORKBENCH_TASK_ANSWER_OPERATION_COUNT = ExercisePackage.TASK_ANSWER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.workbench.impl.WorkbenchTaskEventImpl <em>Task Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchTaskEventImpl
+	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getWorkbenchTaskEvent()
+	 * @generated
+	 */
+	int WORKBENCH_TASK_EVENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Proposal</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT__PROPOSAL = ExercisePackage.TASK_EVENT__PROPOSAL;
+
+	/**
+	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT__TIMESTAMP = ExercisePackage.TASK_EVENT__TIMESTAMP;
+
+	/**
+	 * The feature id for the '<em><b>Completion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT__COMPLETION = ExercisePackage.TASK_EVENT__COMPLETION;
+
+	/**
+	 * The feature id for the '<em><b>Element Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT__ELEMENT_ID = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT__ACTION = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Task Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT___GET_FEATURE_NAMES = ExercisePackage.TASK_EVENT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT___GET_FEATURE_VALUE__STRING = ExercisePackage.TASK_EVENT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT___HAS_FEATURE__STRING = ExercisePackage.TASK_EVENT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT___TO_FEATURE_LIST = ExercisePackage.TASK_EVENT___TO_FEATURE_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT___GET_TEXT = ExercisePackage.TASK_EVENT___GET_TEXT;
+
+	/**
+	 * The number of operations of the '<em>Task Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKBENCH_TASK_EVENT_OPERATION_COUNT = ExercisePackage.TASK_EVENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.workbench.impl.PartTaskAnswerImpl <em>Part Task Answer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,7 +282,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getPartTaskAnswer()
 	 * @generated
 	 */
-	int PART_TASK_ANSWER = 1;
+	int PART_TASK_ANSWER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
@@ -194,13 +321,22 @@ public interface WorkbenchPackage extends EPackage {
 	int PART_TASK_ANSWER__TEXT = WORKBENCH_TASK_ANSWER__TEXT;
 
 	/**
+	 * The feature id for the '<em><b>Input Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_ANSWER__INPUT_URI = WORKBENCH_TASK_ANSWER_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Part Task Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PART_TASK_ANSWER_FEATURE_COUNT = WORKBENCH_TASK_ANSWER_FEATURE_COUNT + 0;
+	int PART_TASK_ANSWER_FEATURE_COUNT = WORKBENCH_TASK_ANSWER_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -230,6 +366,15 @@ public interface WorkbenchPackage extends EPackage {
 	int PART_TASK_ANSWER___CREATE_PROPOSAL = WORKBENCH_TASK_ANSWER___CREATE_PROPOSAL;
 
 	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_ANSWER___ACCEPT_EVENT__TASKEVENT = WORKBENCH_TASK_ANSWER___ACCEPT_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Part Task Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,7 +391,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getPartTaskProposal()
 	 * @generated
 	 */
-	int PART_TASK_PROPOSAL = 2;
+	int PART_TASK_PROPOSAL = 3;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' reference.
@@ -366,6 +511,133 @@ public interface WorkbenchPackage extends EPackage {
 	int PART_TASK_PROPOSAL_OPERATION_COUNT = ExercisePackage.TASK_PROPOSAL_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.workbench.impl.PartTaskEventImpl <em>Part Task Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.workbench.impl.PartTaskEventImpl
+	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getPartTaskEvent()
+	 * @generated
+	 */
+	int PART_TASK_EVENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Proposal</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT__PROPOSAL = WORKBENCH_TASK_EVENT__PROPOSAL;
+
+	/**
+	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT__TIMESTAMP = WORKBENCH_TASK_EVENT__TIMESTAMP;
+
+	/**
+	 * The feature id for the '<em><b>Completion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT__COMPLETION = WORKBENCH_TASK_EVENT__COMPLETION;
+
+	/**
+	 * The feature id for the '<em><b>Element Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT__ELEMENT_ID = WORKBENCH_TASK_EVENT__ELEMENT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT__ACTION = WORKBENCH_TASK_EVENT__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Input Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT__INPUT_URI = WORKBENCH_TASK_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Part Task Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT_FEATURE_COUNT = WORKBENCH_TASK_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Feature Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT___GET_FEATURE_NAMES = WORKBENCH_TASK_EVENT___GET_FEATURE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Feature Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT___GET_FEATURE_VALUE__STRING = WORKBENCH_TASK_EVENT___GET_FEATURE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Has Feature</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT___HAS_FEATURE__STRING = WORKBENCH_TASK_EVENT___HAS_FEATURE__STRING;
+
+	/**
+	 * The operation id for the '<em>To Feature List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT___TO_FEATURE_LIST = WORKBENCH_TASK_EVENT___TO_FEATURE_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT___GET_TEXT = WORKBENCH_TASK_EVENT___GET_TEXT;
+
+	/**
+	 * The number of operations of the '<em>Part Task Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_EVENT_OPERATION_COUNT = WORKBENCH_TASK_EVENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link no.hal.learning.exercise.workbench.impl.PerspectiveTaskAnswerImpl <em>Perspective Task Answer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -373,7 +645,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getPerspectiveTaskAnswer()
 	 * @generated
 	 */
-	int PERSPECTIVE_TASK_ANSWER = 3;
+	int PERSPECTIVE_TASK_ANSWER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
@@ -448,6 +720,15 @@ public interface WorkbenchPackage extends EPackage {
 	int PERSPECTIVE_TASK_ANSWER___CREATE_PROPOSAL = WORKBENCH_TASK_ANSWER___CREATE_PROPOSAL;
 
 	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE_TASK_ANSWER___ACCEPT_EVENT__TASKEVENT = WORKBENCH_TASK_ANSWER___ACCEPT_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Perspective Task Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -464,7 +745,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getPerspectiveTaskProposal()
 	 * @generated
 	 */
-	int PERSPECTIVE_TASK_PROPOSAL = 4;
+	int PERSPECTIVE_TASK_PROPOSAL = 6;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' reference.
@@ -591,7 +872,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getCommandExecutionAnswer()
 	 * @generated
 	 */
-	int COMMAND_EXECUTION_ANSWER = 5;
+	int COMMAND_EXECUTION_ANSWER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
@@ -666,6 +947,15 @@ public interface WorkbenchPackage extends EPackage {
 	int COMMAND_EXECUTION_ANSWER___CREATE_PROPOSAL = WORKBENCH_TASK_ANSWER___CREATE_PROPOSAL;
 
 	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXECUTION_ANSWER___ACCEPT_EVENT__TASKEVENT = WORKBENCH_TASK_ANSWER___ACCEPT_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Command Execution Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -682,7 +972,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getCommandExecutionProposal()
 	 * @generated
 	 */
-	int COMMAND_EXECUTION_PROPOSAL = 6;
+	int COMMAND_EXECUTION_PROPOSAL = 8;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' reference.
@@ -810,7 +1100,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getDebugEventAnswer()
 	 * @generated
 	 */
-	int DEBUG_EVENT_ANSWER = 7;
+	int DEBUG_EVENT_ANSWER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
@@ -885,6 +1175,15 @@ public interface WorkbenchPackage extends EPackage {
 	int DEBUG_EVENT_ANSWER___CREATE_PROPOSAL = WORKBENCH_TASK_ANSWER___CREATE_PROPOSAL;
 
 	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEBUG_EVENT_ANSWER___ACCEPT_EVENT__TASKEVENT = WORKBENCH_TASK_ANSWER___ACCEPT_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Debug Event Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -901,7 +1200,7 @@ public interface WorkbenchPackage extends EPackage {
 	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getDebugEventProposal()
 	 * @generated
 	 */
-	int DEBUG_EVENT_PROPOSAL = 8;
+	int DEBUG_EVENT_PROPOSAL = 10;
 
 	/**
 	 * The feature id for the '<em><b>Question</b></em>' reference.
@@ -1065,6 +1364,38 @@ public interface WorkbenchPackage extends EPackage {
 	EAttribute getWorkbenchTaskAnswer_Text();
 
 	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.workbench.WorkbenchTaskEvent <em>Task Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task Event</em>'.
+	 * @see no.hal.learning.exercise.workbench.WorkbenchTaskEvent
+	 * @generated
+	 */
+	EClass getWorkbenchTaskEvent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.workbench.WorkbenchTaskEvent#getElementId <em>Element Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Element Id</em>'.
+	 * @see no.hal.learning.exercise.workbench.WorkbenchTaskEvent#getElementId()
+	 * @see #getWorkbenchTaskEvent()
+	 * @generated
+	 */
+	EAttribute getWorkbenchTaskEvent_ElementId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.workbench.WorkbenchTaskEvent#getAction <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Action</em>'.
+	 * @see no.hal.learning.exercise.workbench.WorkbenchTaskEvent#getAction()
+	 * @see #getWorkbenchTaskEvent()
+	 * @generated
+	 */
+	EAttribute getWorkbenchTaskEvent_Action();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.workbench.PartTaskAnswer <em>Part Task Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1075,6 +1406,17 @@ public interface WorkbenchPackage extends EPackage {
 	EClass getPartTaskAnswer();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.workbench.PartTaskAnswer#getInputUri <em>Input Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Input Uri</em>'.
+	 * @see no.hal.learning.exercise.workbench.PartTaskAnswer#getInputUri()
+	 * @see #getPartTaskAnswer()
+	 * @generated
+	 */
+	EAttribute getPartTaskAnswer_InputUri();
+
+	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.workbench.PartTaskProposal <em>Part Task Proposal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1083,6 +1425,27 @@ public interface WorkbenchPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPartTaskProposal();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.workbench.PartTaskEvent <em>Part Task Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Part Task Event</em>'.
+	 * @see no.hal.learning.exercise.workbench.PartTaskEvent
+	 * @generated
+	 */
+	EClass getPartTaskEvent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.workbench.PartTaskEvent#getInputUri <em>Input Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Input Uri</em>'.
+	 * @see no.hal.learning.exercise.workbench.PartTaskEvent#getInputUri()
+	 * @see #getPartTaskEvent()
+	 * @generated
+	 */
+	EAttribute getPartTaskEvent_InputUri();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.exercise.workbench.PerspectiveTaskAnswer <em>Perspective Task Answer</em>}'.
@@ -1202,6 +1565,32 @@ public interface WorkbenchPackage extends EPackage {
 		EAttribute WORKBENCH_TASK_ANSWER__TEXT = eINSTANCE.getWorkbenchTaskAnswer_Text();
 
 		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.workbench.impl.WorkbenchTaskEventImpl <em>Task Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.workbench.impl.WorkbenchTaskEventImpl
+		 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getWorkbenchTaskEvent()
+		 * @generated
+		 */
+		EClass WORKBENCH_TASK_EVENT = eINSTANCE.getWorkbenchTaskEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Element Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WORKBENCH_TASK_EVENT__ELEMENT_ID = eINSTANCE.getWorkbenchTaskEvent_ElementId();
+
+		/**
+		 * The meta object literal for the '<em><b>Action</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WORKBENCH_TASK_EVENT__ACTION = eINSTANCE.getWorkbenchTaskEvent_Action();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.workbench.impl.PartTaskAnswerImpl <em>Part Task Answer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1212,6 +1601,14 @@ public interface WorkbenchPackage extends EPackage {
 		EClass PART_TASK_ANSWER = eINSTANCE.getPartTaskAnswer();
 
 		/**
+		 * The meta object literal for the '<em><b>Input Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PART_TASK_ANSWER__INPUT_URI = eINSTANCE.getPartTaskAnswer_InputUri();
+
+		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.workbench.impl.PartTaskProposalImpl <em>Part Task Proposal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1220,6 +1617,24 @@ public interface WorkbenchPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PART_TASK_PROPOSAL = eINSTANCE.getPartTaskProposal();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.workbench.impl.PartTaskEventImpl <em>Part Task Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.workbench.impl.PartTaskEventImpl
+		 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getPartTaskEvent()
+		 * @generated
+		 */
+		EClass PART_TASK_EVENT = eINSTANCE.getPartTaskEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PART_TASK_EVENT__INPUT_URI = eINSTANCE.getPartTaskEvent_InputUri();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.learning.exercise.workbench.impl.PerspectiveTaskAnswerImpl <em>Perspective Task Answer</em>}' class.

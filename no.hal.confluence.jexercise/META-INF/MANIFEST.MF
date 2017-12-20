@@ -5,8 +5,9 @@ Bundle-SymbolicName: no.hal.confluence.jexercise;singleton:=true
 Bundle-Version: 0.9.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- no.hal.jex.ui;bundle-version="1.1.1",
+ no.hal.jex.ui;bundle-version="1.1.0",
  no.hal.confluence.ui;bundle-version="0.9.0",
- org.eclipse.jdt.core;bundle-version="3.9.1"
+ org.eclipse.jdt.core;bundle-version="3.9.1",
+ no.hal.confluence.java.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

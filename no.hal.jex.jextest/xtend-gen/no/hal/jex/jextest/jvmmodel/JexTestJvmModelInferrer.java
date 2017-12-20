@@ -437,21 +437,10 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
               EList<Transition> _transitions = sequence_1.getTransitions();
               for (final Transition transition : _transitions) {
                 {
-                  boolean _and = false;
-                  TransitionSource _source = transition.getSource();
-                  boolean _notEquals_2 = (!Objects.equal(_source, null));
-                  if (!_notEquals_2) {
-                    _and = false;
-                  } else {
-                    TransitionSource _source_1 = transition.getSource();
-                    State _state = _source_1.getState();
-                    boolean _notEquals_3 = (!Objects.equal(_state, null));
-                    _and = _notEquals_3;
-                  }
-                  if (_and) {
-                    TransitionSource _source_2 = transition.getSource();
-                    State _state_1 = _source_2.getState();
-                    JexTestJvmModelInferrer.this.inferStateTestMethods(sequence_1, _state_1, jvmClass);
+                  if (((!Objects.equal(transition.getSource(), null)) && (!Objects.equal(transition.getSource().getState(), null)))) {
+                    TransitionSource _source = transition.getSource();
+                    State _state = _source.getState();
+                    JexTestJvmModelInferrer.this.inferStateTestMethods(sequence_1, _state, jvmClass);
                   }
                   EList<TransitionAction> _actions = transition.getActions();
                   Iterable<TransitionExpressionAction> _filter = Iterables.<TransitionExpressionAction>filter(_actions, TransitionExpressionAction.class);
@@ -461,8 +450,8 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
                       JvmOperation _inferActionMethod = JexTestJvmModelInferrer.this.inferActionMethod(sequence_1, action);
                       JexTestJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_6, _inferActionMethod);
                       XExpression _times = action.getTimes();
-                      boolean _notEquals_4 = (!Objects.equal(_times, null));
-                      if (_notEquals_4) {
+                      boolean _notEquals_2 = (!Objects.equal(_times, null));
+                      if (_notEquals_2) {
                         EList<JvmMember> _members_7 = it.getMembers();
                         XExpression _times_1 = action.getTimes();
                         JvmOperation _inferTestHelperMethod = JexTestJvmModelInferrer.this.inferTestHelperMethod(sequence_1, "_transition_exprAction_times_", action, _times_1, null);
@@ -476,11 +465,11 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
                     EList<TransitionEffect> _effects_1 = transition.getEffects();
                     TransitionEffect _head_1 = IterableExtensions.<TransitionEffect>head(_effects_1);
                     final TransitionTargetEffect targetEffect = ((TransitionTargetEffect) _head_1);
-                    State _state_2 = targetEffect.getState();
-                    boolean _notEquals_4 = (!Objects.equal(_state_2, null));
-                    if (_notEquals_4) {
-                      State _state_3 = targetEffect.getState();
-                      JexTestJvmModelInferrer.this.inferStateTestMethods(sequence_1, _state_3, jvmClass);
+                    State _state_1 = targetEffect.getState();
+                    boolean _notEquals_2 = (!Objects.equal(_state_1, null));
+                    if (_notEquals_2) {
+                      State _state_2 = targetEffect.getState();
+                      JexTestJvmModelInferrer.this.inferStateTestMethods(sequence_1, _state_2, jvmClass);
                     }
                   }
                 }
@@ -553,15 +542,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
               final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
                 @Override
                 public void apply(final JvmOperation it) {
-                  boolean _or = false;
-                  boolean _isAbstract = ((TestedMethod)op).isAbstract();
-                  if (_isAbstract) {
-                    _or = true;
-                  } else {
-                    boolean _isInterface = jvmTestedClass.isInterface();
-                    _or = _isInterface;
-                  }
-                  it.setAbstract(_or);
+                  it.setAbstract((((TestedMethod)op).isAbstract() || jvmTestedClass.isInterface()));
                 }
               };
               _xifexpression_1 = this._jvmTypesBuilder.toMethod(op, _name_1, _returnType, _function_2);
@@ -704,25 +685,9 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
   
   public void inferStateFunctionMethods(final StateFunction stateFunction, final JvmGenericType jvmClass, final boolean isSuite) {
     final TestMemberContext testMemberContext = this._util.<TestMemberContext>ancestor(stateFunction, TestMemberContext.class);
-    boolean _and = false;
-    String _name = stateFunction.getName();
-    boolean _notEquals = (!Objects.equal(_name, null));
-    if (!_notEquals) {
-      _and = false;
-    } else {
-      boolean _or = false;
-      JvmParameterizedTypeReference _type = stateFunction.getType();
-      boolean _notEquals_1 = (!Objects.equal(_type, null));
-      if (_notEquals_1) {
-        _or = true;
-      } else {
-        _or = (testMemberContext instanceof JexTestCase);
-      }
-      _and = _or;
-    }
-    if (_and) {
+    if (((!Objects.equal(stateFunction.getName(), null)) && ((!Objects.equal(stateFunction.getType(), null)) || (testMemberContext instanceof JexTestCase)))) {
       EList<JvmMember> _members = jvmClass.getMembers();
-      String _name_1 = stateFunction.getName();
+      String _name = stateFunction.getName();
       JvmTypeReference _typeRef = this._typeReferenceBuilder.typeRef(void.class);
       final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
         @Override
@@ -752,13 +717,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
             @Override
             public void apply(final ITreeAppendable it) {
-              boolean _and = false;
-              if (!(!isSuite)) {
-                _and = false;
-              } else {
-                _and = (testMemberContext instanceof JexTestSuite);
-              }
-              if (_and) {
+              if (((!isSuite) && (testMemberContext instanceof JexTestSuite))) {
                 JexTestJvmModelInferrer.this.generateSuiteMethodCall(((JexTestSuite) testMemberContext), method, it);
               } else {
                 XBlockExpression _test = stateFunction.getTest();
@@ -769,11 +728,11 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
           JexTestJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
         }
       };
-      JvmOperation _method = this._jvmTypesBuilder.toMethod(stateFunction, _name_1, _typeRef, _function);
+      JvmOperation _method = this._jvmTypesBuilder.toMethod(stateFunction, _name, _typeRef, _function);
       this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
       XBlockExpression _test = stateFunction.getTest();
-      boolean _notEquals_2 = (!Objects.equal(_test, null));
-      if (_notEquals_2) {
+      boolean _notEquals = (!Objects.equal(_test, null));
+      if (_notEquals) {
         XBlockExpression _test_1 = stateFunction.getTest();
         this.inferPropertiesTestMethods(((PropertiesTest) _test_1), jvmClass);
       }
@@ -1180,13 +1139,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
     final boolean isVoid = Objects.equal(_qualifiedName, "void");
     String _qualifiedName_1 = type.getQualifiedName();
     final boolean isLogical = Objects.equal(_qualifiedName_1, "boolean");
-    boolean _or = false;
-    if ((expr instanceof XUnaryOperation)) {
-      _or = true;
-    } else {
-      _or = (expr instanceof XBinaryOperation);
-    }
-    final boolean isOperator = _or;
+    final boolean isOperator = ((expr instanceof XUnaryOperation) || (expr instanceof XBinaryOperation));
     if (((!explicitBoolean) || (isOperator && isLogical))) {
       String _xifexpression = null;
       if (isLogical) {
@@ -1199,38 +1152,21 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
         _xifexpression = _xifexpression_1;
       }
       assertMethodName = _xifexpression;
-      boolean _and = false;
-      if (!(expr instanceof XBinaryOperation)) {
-        _and = false;
-      } else {
-        JvmIdentifiableElement _feature = ((XBinaryOperation) expr).getFeature();
-        _and = (_feature instanceof JvmOperation);
-      }
-      if (_and) {
+      if (((expr instanceof XBinaryOperation) && (((XBinaryOperation) expr).getFeature() instanceof JvmOperation))) {
         final XBinaryOperation binOp = ((XBinaryOperation) expr);
-        JvmIdentifiableElement _feature_1 = binOp.getFeature();
-        final JvmOperation feature = ((JvmOperation) _feature_1);
+        JvmIdentifiableElement _feature = binOp.getFeature();
+        final JvmOperation feature = ((JvmOperation) _feature);
         JvmDeclaredType _declaringType = feature.getDeclaringType();
         final String typeName = _declaringType.getQualifiedName();
-        boolean _and_1 = false;
-        boolean _startsWith = typeName.startsWith("org.eclipse.xtext.xbase.lib.");
-        if (!_startsWith) {
-          _and_1 = false;
-        } else {
-          boolean _endsWith = typeName.endsWith("Extensions");
-          _and_1 = _endsWith;
-        }
-        if (_and_1) {
+        if ((typeName.startsWith("org.eclipse.xtext.xbase.lib.") && typeName.endsWith("Extensions"))) {
           String _simpleName = feature.getSimpleName();
           boolean _matched = false;
-          if (!_matched) {
-            if (Objects.equal(_simpleName, "operator_equals")) {
-              _matched=true;
-              assertMethodName = "assertEquals";
-              XExpression _rightOperand = binOp.getRightOperand();
-              XExpression _leftOperand = binOp.getLeftOperand();
-              exprs = Collections.<XExpression>unmodifiableList(CollectionLiterals.<XExpression>newArrayList(_rightOperand, _leftOperand));
-            }
+          if (Objects.equal(_simpleName, "operator_equals")) {
+            _matched=true;
+            assertMethodName = "assertEquals";
+            XExpression _rightOperand = binOp.getRightOperand();
+            XExpression _leftOperand = binOp.getLeftOperand();
+            exprs = Collections.<XExpression>unmodifiableList(CollectionLiterals.<XExpression>newArrayList(_rightOperand, _leftOperand));
           }
           if (!_matched) {
             if (Objects.equal(_simpleName, "operator_tripleEquals")) {
@@ -1252,15 +1188,7 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
         _increaseIndentation.newLine();
       }
       for (final XExpression subExpr : exprs) {
-        boolean _or_1 = false;
-        boolean _notEquals = (!Objects.equal(subExpr, expr));
-        if (_notEquals) {
-          _or_1 = true;
-        } else {
-          boolean _notEquals_1 = (!Objects.equal(assertMethodName, null));
-          _or_1 = _notEquals_1;
-        }
-        this._xbaseCompiler.toJavaStatement(subExpr, appendable, _or_1);
+        this._xbaseCompiler.toJavaStatement(subExpr, appendable, ((!Objects.equal(subExpr, expr)) || (!Objects.equal(assertMethodName, null))));
       }
       appendable.newLine();
       StringConcatenation _builder = new StringConcatenation();
@@ -1270,25 +1198,15 @@ public class JexTestJvmModelInferrer extends AbstractModelInferrer {
       String message = _builder.toString();
       if ((!(owner instanceof TransitionAction))) {
         final Transition transition = this._util.<Transition>ancestor(expr, Transition.class);
-        boolean _and_2 = false;
-        boolean _notEquals_2 = (!Objects.equal(transition, null));
-        if (!_notEquals_2) {
-          _and_2 = false;
-        } else {
+        if (((!Objects.equal(transition, null)) && (!transition.getActions().isEmpty()))) {
           EList<TransitionAction> _actions = transition.getActions();
-          boolean _isEmpty = _actions.isEmpty();
-          boolean _not = (!_isEmpty);
-          _and_2 = _not;
-        }
-        if (_and_2) {
-          EList<TransitionAction> _actions_1 = transition.getActions();
-          String _asSourceText_1 = this._util.asSourceText(_actions_1, " ,");
+          String _asSourceText_1 = this._util.asSourceText(_actions, " ,");
           String _plus = ((message + " after ") + _asSourceText_1);
           message = _plus;
         }
       }
-      boolean _notEquals_3 = (!Objects.equal(assertMethodName, null));
-      if (_notEquals_3) {
+      boolean _notEquals = (!Objects.equal(assertMethodName, null));
+      if (_notEquals) {
         StringConcatenation _builder_1 = new StringConcatenation();
         _builder_1.append(assertMethodName, "");
         _builder_1.append("(\"");

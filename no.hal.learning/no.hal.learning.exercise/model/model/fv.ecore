@@ -13,6 +13,7 @@
     <eOperations name="toFeatureList" eType="#//FeatureList"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DelegatedFeatures" eSuperTypes="#//FeatureValued">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" eType="#//FeatureValued"
         containment="true"/>
   </eClassifiers>
@@ -38,6 +39,11 @@
       <eParameters name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eParameters name="swap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
+    <eOperations name="reduce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eParameters name="op" eType="#//Op2"/>
+      <eParameters name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="swap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
     <eOperations name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eParameters name="pred" eType="#//Pred1"/>
     </eOperations>
@@ -52,7 +58,6 @@
     <eOperations name="zero">
       <eParameters name="threshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
         eType="#//StringToDouble" containment="true"/>
   </eClassifiers>
@@ -72,6 +77,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="#//Op2Kind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="swap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op1" eType="#//Op1Kind"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DerivedFeatures1" eSuperTypes="#//OpDerivedFeatures">
     <eStructuralFeatures xsi:type="ecore:EReference" name="other" eType="#//FeatureValued"/>
@@ -104,10 +110,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Op1" instanceClassName="no.hal.learning.fv.util.Op1"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Op1Kind">
-    <eLiterals name="NEG" literal="-"/>
-    <eLiterals name="INV" value="1" literal="!"/>
-    <eLiterals name="ABS" value="2" literal="ABS"/>
-    <eLiterals name="SIGNUM" value="3" literal="SIGNUM"/>
+    <eLiterals name="IDENTITY"/>
+    <eLiterals name="NEG" value="1" literal="-"/>
+    <eLiterals name="INV" value="2" literal="!"/>
+    <eLiterals name="ABS" value="3" literal="ABS"/>
+    <eLiterals name="SIGNUM" value="4" literal="SIGNUM"/>
+    <eLiterals name="ZERO" value="-1" literal="0"/>
+    <eLiterals name="HALF" value="-2" literal="0.5"/>
+    <eLiterals name="ONE" value="-3" literal="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Op2" instanceClassName="no.hal.learning.fv.util.Op2"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Op2Kind">

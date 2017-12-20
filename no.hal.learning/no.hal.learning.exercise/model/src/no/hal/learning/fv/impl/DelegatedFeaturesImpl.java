@@ -26,12 +26,31 @@ import no.hal.learning.fv.FvPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.learning.fv.impl.DelegatedFeaturesImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.learning.fv.impl.DelegatedFeaturesImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DelegatedFeaturesImpl extends MinimalEObjectImpl.Container implements DelegatedFeatures {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -59,6 +78,27 @@ public class DelegatedFeaturesImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	protected EClass eStaticClass() {
 		return FvPackage.Literals.DELEGATED_FEATURES;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FvPackage.DELEGATED_FEATURES__NAME, oldName, name));
 	}
 
 	/**
@@ -180,6 +220,8 @@ public class DelegatedFeaturesImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case FvPackage.DELEGATED_FEATURES__NAME:
+				return getName();
 			case FvPackage.DELEGATED_FEATURES__FEATURES:
 				return getFeatures();
 		}
@@ -194,6 +236,9 @@ public class DelegatedFeaturesImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FvPackage.DELEGATED_FEATURES__NAME:
+				setName((String)newValue);
+				return;
 			case FvPackage.DELEGATED_FEATURES__FEATURES:
 				setFeatures((FeatureValued)newValue);
 				return;
@@ -209,6 +254,9 @@ public class DelegatedFeaturesImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case FvPackage.DELEGATED_FEATURES__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case FvPackage.DELEGATED_FEATURES__FEATURES:
 				setFeatures((FeatureValued)null);
 				return;
@@ -224,6 +272,8 @@ public class DelegatedFeaturesImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case FvPackage.DELEGATED_FEATURES__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case FvPackage.DELEGATED_FEATURES__FEATURES:
 				return features != null;
 		}
@@ -248,6 +298,22 @@ public class DelegatedFeaturesImpl extends MinimalEObjectImpl.Container implemen
 				return toFeatureList();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DelegatedFeaturesImpl

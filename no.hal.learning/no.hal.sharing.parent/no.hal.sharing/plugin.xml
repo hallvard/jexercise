@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sharing -->
+      <package
+            uri="platform:/plugin/no.hal.learning.sharing/model/sharing.model"
+            class="no.hal.sharing.SharingPackage"
+            genModel="model/sharing.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated sharing -->
+      <parser
+            type="sharing"
+            class="no.hal.learning.sharing.util.SharingResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

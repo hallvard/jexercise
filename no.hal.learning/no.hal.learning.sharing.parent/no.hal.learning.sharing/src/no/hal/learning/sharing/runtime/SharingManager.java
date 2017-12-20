@@ -395,6 +395,11 @@ public class SharingManager implements Iterable<ShareModel>, SharingTransport.Su
 				ShareGroup shareGroup = shares.get(delegate.next());
 				return shareGroup.mainShare;
 			}
+
+			@Override
+			public void remove() {
+				throw new UnsupportedOperationException("remove() not supported by " + this);
+			}
 		};
 	}
 
@@ -496,6 +501,11 @@ public class SharingManager implements Iterable<ShareModel>, SharingTransport.Su
 					ShareModel shareModel = getShareModel(pos);
 					pos++;
 					return shareModel;
+				}
+
+				@Override
+				public void remove() {
+					throw new UnsupportedOperationException("remove() not supported by " + this);
 				}
 			};
 		}

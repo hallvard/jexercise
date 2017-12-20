@@ -4,8 +4,8 @@
 	<classpathentry kind="src" path="tests"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="src" path="src-gen"/>
-	<classpathentry kind="lib" path="libs/jexercise-standalone.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/jexercise-runtime.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

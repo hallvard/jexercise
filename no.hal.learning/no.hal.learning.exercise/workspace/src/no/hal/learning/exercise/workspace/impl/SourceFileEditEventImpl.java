@@ -2,18 +2,17 @@
  */
 package no.hal.learning.exercise.workspace.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import no.hal.learning.exercise.ExerciseFactory;
 import no.hal.learning.exercise.StringEdit;
+import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.impl.AbstractStringEditEventImpl;
-
+import no.hal.learning.exercise.workspace.SourceFileEditAnswer;
 import no.hal.learning.exercise.workspace.SourceFileEditEvent;
 import no.hal.learning.exercise.workspace.WorkspacePackage;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.learning.exercise.workspace.impl.SourceFileEditEventImpl#getResourcePath <em>Resource Path</em>}</li>
  *   <li>{@link no.hal.learning.exercise.workspace.impl.SourceFileEditEventImpl#getSourceCode <em>Source Code</em>}</li>
  *   <li>{@link no.hal.learning.exercise.workspace.impl.SourceFileEditEventImpl#getSizeMeasure <em>Size Measure</em>}</li>
  *   <li>{@link no.hal.learning.exercise.workspace.impl.SourceFileEditEventImpl#getErrorCount <em>Error Count</em>}</li>
@@ -32,6 +32,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class SourceFileEditEventImpl extends AbstractStringEditEventImpl implements SourceFileEditEvent {
+	/**
+	 * The default value of the '{@link #getResourcePath() <em>Resource Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourcePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RESOURCE_PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getResourcePath() <em>Resource Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourcePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String resourcePath = RESOURCE_PATH_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getSourceCode() <em>Source Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -126,6 +146,33 @@ public class SourceFileEditEventImpl extends AbstractStringEditEventImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public String getResourcePath() {
+		if (resourcePath == null && getProposal() != null) {
+			TaskAnswer answer = getProposal().getAnswer();
+			if (answer instanceof SourceFileEditAnswer) {
+				return ((SourceFileEditAnswer) answer).getResourcePath();
+			}
+		}
+		return resourcePath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResourcePath(String newResourcePath) {
+		String oldResourcePath = resourcePath;
+		resourcePath = newResourcePath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkspacePackage.SOURCE_FILE_EDIT_EVENT__RESOURCE_PATH, oldResourcePath, resourcePath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public String getSourceCode() {
 		return getString();
 	}
@@ -212,6 +259,8 @@ public class SourceFileEditEventImpl extends AbstractStringEditEventImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT__RESOURCE_PATH:
+				return getResourcePath();
 			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT__SOURCE_CODE:
 				return getSourceCode();
 			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT__SIZE_MEASURE:
@@ -232,6 +281,9 @@ public class SourceFileEditEventImpl extends AbstractStringEditEventImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT__RESOURCE_PATH:
+				setResourcePath((String)newValue);
+				return;
 			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT__SOURCE_CODE:
 				setSourceCode((String)newValue);
 				return;
@@ -256,6 +308,9 @@ public class SourceFileEditEventImpl extends AbstractStringEditEventImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT__RESOURCE_PATH:
+				setResourcePath(RESOURCE_PATH_EDEFAULT);
+				return;
 			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT__SOURCE_CODE:
 				setSourceCode(SOURCE_CODE_EDEFAULT);
 				return;
@@ -280,6 +335,8 @@ public class SourceFileEditEventImpl extends AbstractStringEditEventImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT__RESOURCE_PATH:
+				return RESOURCE_PATH_EDEFAULT == null ? resourcePath != null : !RESOURCE_PATH_EDEFAULT.equals(resourcePath);
 			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT__SOURCE_CODE:
 				return SOURCE_CODE_EDEFAULT == null ? getSourceCode() != null : !SOURCE_CODE_EDEFAULT.equals(getSourceCode());
 			case WorkspacePackage.SOURCE_FILE_EDIT_EVENT__SIZE_MEASURE:
@@ -302,7 +359,9 @@ public class SourceFileEditEventImpl extends AbstractStringEditEventImpl impleme
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (sizeMeasure: ");
+		result.append(" (resourcePath: ");
+		result.append(resourcePath);
+		result.append(", sizeMeasure: ");
 		result.append(sizeMeasure);
 		result.append(", errorCount: ");
 		result.append(errorCount);

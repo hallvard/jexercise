@@ -59,14 +59,14 @@ public class CardDeckTest extends TestCase {
   
   @JExercise(tests = "CardDeck(int)", description = "Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state(deck);
+    _test__constructor_transitions0_effects0_state(deck);
     
   }
   
   @JExercise(tests = "CardDeck(int);void shufflePerfectly()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>shufflePerfectly</li>\n\t\t</ul>\n")
   public void testShufflePerfectly() {
     _transition_exprAction__shufflePerfectly_transitions0_actions0(deck);
-    _test__shufflePerfectly_transitions0_effect_state(deck);
+    _test__shufflePerfectly_transitions0_effects0_state(deck);
     
   }
   
@@ -74,16 +74,16 @@ public class CardDeckTest extends TestCase {
   public void testDeal() {
     CardHand hand = _init__deal_hand();
     _transition_exprAction__deal_transitions0_actions0(deck, hand);
-    _test__deal_transitions0_effect_state(deck, hand);
+    _test__deal_transitions0_effects0_state(deck, hand);
     
   }
   
-  private void _test__constructor_transitions0_effect_state(final CardDeck it) {
-    _test__constructor_transitions0_effect_state_objectTests0_test(deck);
+  private void _test__constructor_transitions0_effects0_state(final CardDeck it) {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(deck);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final CardDeck it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final CardDeck it) {
     
     assertTrue("deck ?= #[\"S1\", \"S2\", \"H1\", \"H2\", \"D1\", \"D2\", \"C1\", \"C2\"] failed", this.operator_assertEquals(
       this.deck, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("S1", "S2", "H1", "H2", "D1", "D2", "C1", "C2"))));
@@ -100,12 +100,12 @@ public class CardDeckTest extends TestCase {
     
   }
   
-  private void _test__shufflePerfectly_transitions0_effect_state(final CardDeck it) {
-    _test__shufflePerfectly_transitions0_effect_state_objectTests0_test(deck);
+  private void _test__shufflePerfectly_transitions0_effects0_state(final CardDeck it) {
+    _test__shufflePerfectly_transitions0_effects0_state_objectTests0_test(deck);
     
   }
   
-  private void _test__shufflePerfectly_transitions0_effect_state_objectTests0_test(final CardDeck it) {
+  private void _test__shufflePerfectly_transitions0_effects0_state_objectTests0_test(final CardDeck it) {
     
     assertTrue("deck ?= #[\"S1\", \"D1\", \"S2\", \"D2\", \"H1\", \"C1\", \"H2\", \"C2\"] failed after shufflePerfectly", this.operator_assertEquals(
       this.deck, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("S1", "D1", "S2", "D2", "H1", "C1", "H2", "C2"))));
@@ -127,19 +127,15 @@ public class CardDeckTest extends TestCase {
     
   }
   
-  private void _test__deal_transitions0_effect_state(final CardDeck it, final CardHand hand) {
-    _test__deal_transitions0_effect_state_objectTests0_test(deck, hand);
+  private void _test__deal_transitions0_effects0_state(final CardDeck it, final CardHand hand) {
+    _test__deal_transitions0_effects0_state_objectTests0_test(deck, hand);
     
   }
   
-  private void _test__deal_transitions0_effect_state_objectTests0_test(final CardDeck it, final CardHand hand) {
+  private void _test__deal_transitions0_effects0_state_objectTests0_test(final CardDeck it, final CardHand hand) {
     
     assertTrue("deck ?= #[\"S1\", \"S2\", \"H1\", \"H2\", \"D1\"] failed after deal(hand, 3)", this.operator_assertEquals(
       this.deck, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("S1", "S2", "H1", "H2", "D1"))));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(CardDeckTest.class);
   }
 }

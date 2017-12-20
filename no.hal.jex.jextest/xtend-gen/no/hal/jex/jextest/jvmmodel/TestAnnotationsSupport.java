@@ -23,9 +23,7 @@ import org.eclipse.xtext.common.types.JvmAnnotationReference;
 import org.eclipse.xtext.common.types.JvmAnnotationType;
 import org.eclipse.xtext.common.types.JvmAnnotationValue;
 import org.eclipse.xtext.common.types.JvmConstructor;
-import org.eclipse.xtext.common.types.JvmDeclaredType;
 import org.eclipse.xtext.common.types.JvmExecutable;
-import org.eclipse.xtext.common.types.JvmFormalParameter;
 import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmIdentifiableElement;
 import org.eclipse.xtext.common.types.JvmMember;
@@ -285,15 +283,7 @@ public class TestAnnotationsSupport {
     if ((type instanceof JvmGenericType)) {
       EList<JvmMember> _members = ((JvmGenericType)type).getMembers();
       for (final JvmMember member : _members) {
-        boolean _and = false;
-        if (!(member instanceof JvmConstructor)) {
-          _and = false;
-        } else {
-          EList<JvmFormalParameter> _parameters = ((JvmExecutable) member).getParameters();
-          boolean _isEmpty = _parameters.isEmpty();
-          _and = _isEmpty;
-        }
-        if (_and) {
+        if (((member instanceof JvmConstructor) && ((JvmExecutable) member).getParameters().isEmpty())) {
           this.addUsedMember(((JvmExecutable) member), type, testedMembers);
           return;
         }
@@ -339,24 +329,7 @@ public class TestAnnotationsSupport {
   }
   
   private void addUsedMember(final JvmExecutable op, final JvmType type, final Collection<JvmExecutable> testedMembers) {
-    boolean _and = false;
-    boolean _and_1 = false;
-    boolean _notEquals = (!Objects.equal(op, null));
-    if (!_notEquals) {
-      _and_1 = false;
-    } else {
-      JvmDeclaredType _declaringType = op.getDeclaringType();
-      boolean _equals = Objects.equal(_declaringType, type);
-      _and_1 = _equals;
-    }
-    if (!_and_1) {
-      _and = false;
-    } else {
-      boolean _contains = testedMembers.contains(op);
-      boolean _not = (!_contains);
-      _and = _not;
-    }
-    if (_and) {
+    if ((((!Objects.equal(op, null)) && Objects.equal(op.getDeclaringType(), type)) && (!testedMembers.contains(op)))) {
       testedMembers.add(op);
     }
   }

@@ -10,6 +10,8 @@ import no.hal.learning.exercise.pydev.PydevLaunchAnswer;
 import no.hal.learning.exercise.pydev.PydevLaunchProposal;
 import no.hal.learning.exercise.pydev.PydevSourceEditAnswer;
 import no.hal.learning.exercise.pydev.PydevSourceEditProposal;
+import no.hal.learning.exercise.workspace.adapter.LaunchTaskProposalAdapter;
+import no.hal.learning.exercise.workspace.adapter.SourceFileEditTaskProposalAdapter;
 
 public class PydevUIAdapterFactory extends AdapterFactoryImpl {
 
@@ -22,9 +24,9 @@ public class PydevUIAdapterFactory extends AdapterFactoryImpl {
 	@SuppressWarnings("unchecked")
 	protected Adapter createAdapter(Notifier target) {
 		if (target instanceof PydevSourceEditProposal) {
-			return new PydevSourceEditTaskProposalAdapter((TaskProposal<PydevSourceEditAnswer>) target);
+			return new SourceFileEditTaskProposalAdapter<PydevSourceEditAnswer>((TaskProposal<PydevSourceEditAnswer>) target);
 		} else if (target instanceof PydevLaunchProposal) {
-			return new PydevLaunchTaskProposalAdapter((TaskProposal<PydevLaunchAnswer>) target);
+			return new LaunchTaskProposalAdapter<PydevLaunchAnswer>((TaskProposal<PydevLaunchAnswer>) target);
 		}
 		return null;
 	}

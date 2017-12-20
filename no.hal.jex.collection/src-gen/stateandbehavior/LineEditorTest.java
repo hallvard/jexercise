@@ -39,93 +39,86 @@ public class LineEditorTest extends TestCase {
         _xifexpression = "";
       }
       final String tail = _xifexpression;
-      boolean _and = false;
-      boolean _equals = Objects.equal(lineEditor.text, (head + tail));
-      if (!_equals) {
-        _and = false;
-      } else {
-        _and = (lineEditor.insertionIndex == pos);
-      }
-      _xblockexpression = _and;
+      _xblockexpression = (Objects.equal(lineEditor.text, (head + tail)) && (lineEditor.insertionIndex == pos));
     }
     return _xblockexpression;
   }
   
   @JExercise(tests = "LineEditor()", description = "<h3>Konstrukt\u00F8r</h3>Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state(lineEditor);
+    _test__constructor_transitions0_effects0_state(lineEditor);
     
   }
   
   @JExercise(tests = "LineEditor();void left()", description = "<h3>Venstre</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>left</li>\n\t\t<li>set(\"J|\"), left</li>\n\t\t</ul>\n")
   public void testLeft() {
     _transition_exprAction__left_transitions0_actions0(lineEditor);
-    _test__left_transitions0_effect_state(lineEditor);
+    _test__left_transitions0_effects0_state(lineEditor);
     _transition_exprAction__left_transitions1_actions0(lineEditor);
     _transition_exprAction__left_transitions1_actions1(lineEditor);
-    _test__left_transitions1_effect_state(lineEditor);
+    _test__left_transitions1_effects0_state(lineEditor);
     
   }
   
   @JExercise(tests = "LineEditor();void right()", description = "<h3>H\u00F8yre</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>right</li>\n\t\t<li>set(\"|J\"), right</li>\n\t\t</ul>\n")
   public void testRight() {
     _transition_exprAction__right_transitions0_actions0(lineEditor);
-    _test__right_transitions0_effect_state(lineEditor);
+    _test__right_transitions0_effects0_state(lineEditor);
     _transition_exprAction__right_transitions1_actions0(lineEditor);
     _transition_exprAction__right_transitions1_actions1(lineEditor);
-    _test__right_transitions1_effect_state(lineEditor);
+    _test__right_transitions1_effects0_state(lineEditor);
     
   }
   
   @JExercise(tests = "LineEditor();void deleteLeft()", description = "<h3>Slett mot venstre</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>deleteLeft</li>\n\t\t<li>set(\"J|\"), deleteLeft</li>\n\t\t<li>set(\"Ja|va\"), deleteLeft</li>\n\t\t</ul>\n")
   public void testDeleteLeft() {
     _transition_exprAction__deleteLeft_transitions0_actions0(lineEditor);
-    _test__deleteLeft_transitions0_effect_state(lineEditor);
+    _test__deleteLeft_transitions0_effects0_state(lineEditor);
     _transition_exprAction__deleteLeft_transitions1_actions0(lineEditor);
     _transition_exprAction__deleteLeft_transitions1_actions1(lineEditor);
-    _test__deleteLeft_transitions1_effect_state(lineEditor);
+    _test__deleteLeft_transitions1_effects0_state(lineEditor);
     _transition_exprAction__deleteLeft_transitions2_actions0(lineEditor);
     _transition_exprAction__deleteLeft_transitions2_actions1(lineEditor);
-    _test__deleteLeft_transitions2_effect_state(lineEditor);
+    _test__deleteLeft_transitions2_effects0_state(lineEditor);
     
   }
   
   @JExercise(tests = "LineEditor();void deleteRight()", description = "<h3>Slett mot h\u00F8yre</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>deleteRight</li>\n\t\t<li>set(\"|J\"), deleteRight</li>\n\t\t<li>set(\"J|ava\"), deleteRight</li>\n\t\t</ul>\n")
   public void testDeleteRight() {
     _transition_exprAction__deleteRight_transitions0_actions0(lineEditor);
-    _test__deleteRight_transitions0_effect_state(lineEditor);
+    _test__deleteRight_transitions0_effects0_state(lineEditor);
     _transition_exprAction__deleteRight_transitions1_actions0(lineEditor);
     _transition_exprAction__deleteRight_transitions1_actions1(lineEditor);
-    _test__deleteRight_transitions1_effect_state(lineEditor);
+    _test__deleteRight_transitions1_effects0_state(lineEditor);
     _transition_exprAction__deleteRight_transitions2_actions0(lineEditor);
     _transition_exprAction__deleteRight_transitions2_actions1(lineEditor);
-    _test__deleteRight_transitions2_effect_state(lineEditor);
+    _test__deleteRight_transitions2_effects0_state(lineEditor);
     
   }
   
   @JExercise(tests = "LineEditor();void insertString(String)", description = "<h3>Sett inn tekst</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>insertString(\"\")</li>\n\t\t<li>insertString(\"Java\")</li>\n\t\t<li>insertString(\" er g\u00F8y!\")</li>\n\t\t<li>set(\"Java|g\u00F8y!\"), insertString(\" er \")</li>\n\t\t<li>set(\"|er g\u00F8y!\"), insertString(\"Java \")</li>\n\t\t</ul>\n")
   public void testInsertString() {
     _transition_exprAction__insertString_transitions0_actions0(lineEditor);
-    _test__insertString_transitions0_effect_state(lineEditor);
+    _test__insertString_transitions0_effects0_state(lineEditor);
     _transition_exprAction__insertString_transitions1_actions0(lineEditor);
-    _test__insertString_transitions1_effect_state(lineEditor);
+    _test__insertString_transitions1_effects0_state(lineEditor);
     _transition_exprAction__insertString_transitions2_actions0(lineEditor);
-    _test__insertString_transitions2_effect_state(lineEditor);
+    _test__insertString_transitions2_effects0_state(lineEditor);
     _transition_exprAction__insertString_transitions3_actions0(lineEditor);
     _transition_exprAction__insertString_transitions3_actions1(lineEditor);
-    _test__insertString_transitions3_effect_state(lineEditor);
+    _test__insertString_transitions3_effects0_state(lineEditor);
     _transition_exprAction__insertString_transitions4_actions0(lineEditor);
     _transition_exprAction__insertString_transitions4_actions1(lineEditor);
-    _test__insertString_transitions4_effect_state(lineEditor);
+    _test__insertString_transitions4_effects0_state(lineEditor);
     
   }
   
-  private void _test__constructor_transitions0_effect_state(final LineEditor it) {
-    _test__constructor_transitions0_effect_state_objectTests0_test(lineEditor);
+  private void _test__constructor_transitions0_effects0_state(final LineEditor it) {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it ==\"|\" failed", this.operator_equals(it, "|"));
     
@@ -141,12 +134,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__left_transitions0_effect_state(final LineEditor it) {
-    _test__left_transitions0_effect_state_objectTests0_test(lineEditor);
+  private void _test__left_transitions0_effects0_state(final LineEditor it) {
+    _test__left_transitions0_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__left_transitions0_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__left_transitions0_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"|\" failed after left", this.operator_equals(it, "|"));
     
@@ -172,12 +165,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__left_transitions1_effect_state(final LineEditor it) {
-    _test__left_transitions1_effect_state_objectTests0_test(lineEditor);
+  private void _test__left_transitions1_effects0_state(final LineEditor it) {
+    _test__left_transitions1_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__left_transitions1_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__left_transitions1_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"|J\" failed after set(\"J|\") ,left", this.operator_equals(it, "|J"));
     
@@ -193,12 +186,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__right_transitions0_effect_state(final LineEditor it) {
-    _test__right_transitions0_effect_state_objectTests0_test(lineEditor);
+  private void _test__right_transitions0_effects0_state(final LineEditor it) {
+    _test__right_transitions0_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__right_transitions0_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__right_transitions0_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"|\" failed after right", this.operator_equals(it, "|"));
     
@@ -224,12 +217,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__right_transitions1_effect_state(final LineEditor it) {
-    _test__right_transitions1_effect_state_objectTests0_test(lineEditor);
+  private void _test__right_transitions1_effects0_state(final LineEditor it) {
+    _test__right_transitions1_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__right_transitions1_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__right_transitions1_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"J|\" failed after set(\"|J\") ,right", this.operator_equals(it, "J|"));
     
@@ -245,12 +238,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__deleteLeft_transitions0_effect_state(final LineEditor it) {
-    _test__deleteLeft_transitions0_effect_state_objectTests0_test(lineEditor);
+  private void _test__deleteLeft_transitions0_effects0_state(final LineEditor it) {
+    _test__deleteLeft_transitions0_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__deleteLeft_transitions0_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__deleteLeft_transitions0_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"|\" failed after deleteLeft", this.operator_equals(it, "|"));
     
@@ -276,12 +269,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__deleteLeft_transitions1_effect_state(final LineEditor it) {
-    _test__deleteLeft_transitions1_effect_state_objectTests0_test(lineEditor);
+  private void _test__deleteLeft_transitions1_effects0_state(final LineEditor it) {
+    _test__deleteLeft_transitions1_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__deleteLeft_transitions1_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__deleteLeft_transitions1_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"|\" failed after set(\"J|\") ,deleteLeft", this.operator_equals(it, "|"));
     
@@ -307,12 +300,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__deleteLeft_transitions2_effect_state(final LineEditor it) {
-    _test__deleteLeft_transitions2_effect_state_objectTests0_test(lineEditor);
+  private void _test__deleteLeft_transitions2_effects0_state(final LineEditor it) {
+    _test__deleteLeft_transitions2_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__deleteLeft_transitions2_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__deleteLeft_transitions2_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"J|va\" failed after set(\"Ja|va\") ,deleteLeft", this.operator_equals(it, "J|va"));
     
@@ -328,12 +321,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__deleteRight_transitions0_effect_state(final LineEditor it) {
-    _test__deleteRight_transitions0_effect_state_objectTests0_test(lineEditor);
+  private void _test__deleteRight_transitions0_effects0_state(final LineEditor it) {
+    _test__deleteRight_transitions0_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__deleteRight_transitions0_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__deleteRight_transitions0_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"|\" failed after deleteRight", this.operator_equals(it, "|"));
     
@@ -359,12 +352,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__deleteRight_transitions1_effect_state(final LineEditor it) {
-    _test__deleteRight_transitions1_effect_state_objectTests0_test(lineEditor);
+  private void _test__deleteRight_transitions1_effects0_state(final LineEditor it) {
+    _test__deleteRight_transitions1_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__deleteRight_transitions1_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__deleteRight_transitions1_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"|\" failed after set(\"|J\") ,deleteRight", this.operator_equals(it, "|"));
     
@@ -390,12 +383,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__deleteRight_transitions2_effect_state(final LineEditor it) {
-    _test__deleteRight_transitions2_effect_state_objectTests0_test(lineEditor);
+  private void _test__deleteRight_transitions2_effects0_state(final LineEditor it) {
+    _test__deleteRight_transitions2_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__deleteRight_transitions2_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__deleteRight_transitions2_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"J|va\" failed after set(\"J|ava\") ,deleteRight", this.operator_equals(it, "J|va"));
     
@@ -411,12 +404,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__insertString_transitions0_effect_state(final LineEditor it) {
-    _test__insertString_transitions0_effect_state_objectTests0_test(lineEditor);
+  private void _test__insertString_transitions0_effects0_state(final LineEditor it) {
+    _test__insertString_transitions0_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__insertString_transitions0_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__insertString_transitions0_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"|\" failed after insertString(\"\")", this.operator_equals(it, "|"));
     
@@ -432,12 +425,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__insertString_transitions1_effect_state(final LineEditor it) {
-    _test__insertString_transitions1_effect_state_objectTests0_test(lineEditor);
+  private void _test__insertString_transitions1_effects0_state(final LineEditor it) {
+    _test__insertString_transitions1_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__insertString_transitions1_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__insertString_transitions1_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"Java|\" failed after insertString(\"Java\")", this.operator_equals(it, "Java|"));
     
@@ -453,12 +446,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__insertString_transitions2_effect_state(final LineEditor it) {
-    _test__insertString_transitions2_effect_state_objectTests0_test(lineEditor);
+  private void _test__insertString_transitions2_effects0_state(final LineEditor it) {
+    _test__insertString_transitions2_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__insertString_transitions2_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__insertString_transitions2_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"Java er gøy!|\" failed after insertString(\" er gøy!\")", this.operator_equals(it, "Java er g\u00F8y!|"));
     
@@ -484,12 +477,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__insertString_transitions3_effect_state(final LineEditor it) {
-    _test__insertString_transitions3_effect_state_objectTests0_test(lineEditor);
+  private void _test__insertString_transitions3_effects0_state(final LineEditor it) {
+    _test__insertString_transitions3_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__insertString_transitions3_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__insertString_transitions3_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"Java er |gøy!\" failed after set(\"Java|gøy!\") ,insertString(\" er \")", this.operator_equals(it, "Java er |g\u00F8y!"));
     
@@ -515,18 +508,14 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__insertString_transitions4_effect_state(final LineEditor it) {
-    _test__insertString_transitions4_effect_state_objectTests0_test(lineEditor);
+  private void _test__insertString_transitions4_effects0_state(final LineEditor it) {
+    _test__insertString_transitions4_effects0_state_objectTests0_test(lineEditor);
     
   }
   
-  private void _test__insertString_transitions4_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__insertString_transitions4_effects0_state_objectTests0_test(final LineEditor it) {
     
     assertTrue("it == \"Java |er gøy!\" failed after set(\"|er gøy!\") ,insertString(\"Java \")", this.operator_equals(it, "Java |er g\u00F8y!"));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(LineEditorTest.class);
   }
 }

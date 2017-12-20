@@ -23,6 +23,7 @@ import no.hal.learning.fv.FilteredFeatures;
 import no.hal.learning.fv.FilteredFeatures1;
 import no.hal.learning.fv.FilteredFeatures2;
 import no.hal.learning.fv.FvFactory;
+import no.hal.learning.fv.Op1Kind;
 import no.hal.learning.fv.Op2Kind;
 import no.hal.learning.fv.OpDerivedFeatures;
 import no.hal.learning.fv.Pred1Kind;
@@ -103,8 +104,10 @@ public class Activator implements BundleActivator {
 		} else if ("list".equals(ces.getName())) {
 			FeatureList fl = FeatureListImpl.valueOf(ces.getAttribute("values"));
 			String name = ces.getAttribute("name");
-			fl.setName(name);
-			return fl;
+			DelegatedFeatures df = FvFactory.eINSTANCE.createDelegatedFeatures();
+			df.setName(name);
+			df.setFeatures(fl);
+			return df;
 		} else if ("derived".equals(ces.getName())) {
 			OpDerivedFeatures df = null;
 			Collection<FeatureValued> childFeatures = parseChildFeatures(ces);
@@ -124,6 +127,12 @@ public class Activator implements BundleActivator {
 				op = Op2Kind.getByName(opAttr);
 			}
 			df.setOp(op);
+			String op1Attr = getAttribute(ces, "operation1", "+");
+			Op1Kind op1 = Op1Kind.get(op1Attr);
+			if (op1 == null) {
+				op1 = Op1Kind.getByName(op1Attr);
+			}
+			df.setOp1(op1);
 			df.setVal(Double.valueOf(getAttribute(ces, "val", "0.0")));
 			boolean swap = Boolean.valueOf(ces.getAttribute("swap"));
 			df.setSwap(swap);
@@ -160,9 +169,8 @@ public class Activator implements BundleActivator {
 			return ff;
 		} else if ("features".equals(ces.getName())) {
 			DelegatedFeatures df = FvFactory.eINSTANCE.createDelegatedFeatures();
-			FeatureList fl = FvFactory.eINSTANCE.createFeatureList();
-			fl.setName(ces.getAttribute("ref"));
-			df.setFeatures(fl);
+			df.setName(ces.getAttribute("ref"));
+			df.setFeatures(FvFactory.eINSTANCE.createFeatureList());
 			return df;
 		} else if ("expressions".equals(ces.getName())) {
 			ExpressionFeatures ef = FvFactory.eINSTANCE.createExpressionFeatures();

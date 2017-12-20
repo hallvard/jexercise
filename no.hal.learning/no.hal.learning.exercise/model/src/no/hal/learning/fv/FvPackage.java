@@ -134,13 +134,22 @@ public interface FvPackage extends EPackage {
 	int DELEGATED_FEATURES = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATED_FEATURES__NAME = FEATURE_VALUED_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATED_FEATURES__FEATURES = FEATURE_VALUED_FEATURE_COUNT + 0;
+	int DELEGATED_FEATURES__FEATURES = FEATURE_VALUED_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Delegated Features</em>' class.
@@ -149,7 +158,7 @@ public interface FvPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATED_FEATURES_FEATURE_COUNT = FEATURE_VALUED_FEATURE_COUNT + 1;
+	int DELEGATED_FEATURES_FEATURE_COUNT = FEATURE_VALUED_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Feature Names</em>' operation.
@@ -253,22 +262,13 @@ public interface FvPackage extends EPackage {
 	int FEATURE_LIST = 3;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_LIST__NAME = FEATURE_VALUED_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Features</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_LIST__FEATURES = FEATURE_VALUED_FEATURE_COUNT + 1;
+	int FEATURE_LIST__FEATURES = FEATURE_VALUED_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Feature List</em>' class.
@@ -277,7 +277,7 @@ public interface FvPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_LIST_FEATURE_COUNT = FEATURE_VALUED_FEATURE_COUNT + 2;
+	int FEATURE_LIST_FEATURE_COUNT = FEATURE_VALUED_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Feature Names</em>' operation.
@@ -352,13 +352,13 @@ public interface FvPackage extends EPackage {
 	int FEATURE_LIST___APPLY__OP2_DOUBLE_BOOLEAN = FEATURE_VALUED_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Count</em>' operation.
+	 * The operation id for the '<em>Reduce</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_LIST___COUNT__PRED1 = FEATURE_VALUED_OPERATION_COUNT + 4;
+	int FEATURE_LIST___REDUCE__OP2_DOUBLE_BOOLEAN = FEATURE_VALUED_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Count</em>' operation.
@@ -367,7 +367,7 @@ public interface FvPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_LIST___COUNT__PRED2_FEATUREVALUED_BOOLEAN = FEATURE_VALUED_OPERATION_COUNT + 5;
+	int FEATURE_LIST___COUNT__PRED1 = FEATURE_VALUED_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Count</em>' operation.
@@ -376,7 +376,16 @@ public interface FvPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_LIST___COUNT__FEATUREVALUED = FEATURE_VALUED_OPERATION_COUNT + 6;
+	int FEATURE_LIST___COUNT__PRED2_FEATUREVALUED_BOOLEAN = FEATURE_VALUED_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Count</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_LIST___COUNT__FEATUREVALUED = FEATURE_VALUED_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Zero</em>' operation.
@@ -385,7 +394,7 @@ public interface FvPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_LIST___ZERO__DOUBLE = FEATURE_VALUED_OPERATION_COUNT + 7;
+	int FEATURE_LIST___ZERO__DOUBLE = FEATURE_VALUED_OPERATION_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Feature List</em>' class.
@@ -394,7 +403,7 @@ public interface FvPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_LIST_OPERATION_COUNT = FEATURE_VALUED_OPERATION_COUNT + 8;
+	int FEATURE_LIST_OPERATION_COUNT = FEATURE_VALUED_OPERATION_COUNT + 9;
 
 
 	/**
@@ -673,13 +682,22 @@ public interface FvPackage extends EPackage {
 	int OP_DERIVED_FEATURES__SWAP = DERIVED_FEATURES_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Op1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_DERIVED_FEATURES__OP1 = DERIVED_FEATURES_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Op Derived Features</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OP_DERIVED_FEATURES_FEATURE_COUNT = DERIVED_FEATURES_FEATURE_COUNT + 3;
+	int OP_DERIVED_FEATURES_FEATURE_COUNT = DERIVED_FEATURES_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Feature Names</em>' operation.
@@ -771,6 +789,15 @@ public interface FvPackage extends EPackage {
 	 * @ordered
 	 */
 	int DERIVED_FEATURES1__SWAP = OP_DERIVED_FEATURES__SWAP;
+
+	/**
+	 * The feature id for the '<em><b>Op1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_FEATURES1__OP1 = OP_DERIVED_FEATURES__OP1;
 
 	/**
 	 * The feature id for the '<em><b>Other</b></em>' reference.
@@ -880,6 +907,15 @@ public interface FvPackage extends EPackage {
 	 * @ordered
 	 */
 	int DERIVED_FEATURES_N__SWAP = OP_DERIVED_FEATURES__SWAP;
+
+	/**
+	 * The feature id for the '<em><b>Op1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DERIVED_FEATURES_N__OP1 = OP_DERIVED_FEATURES__OP1;
 
 	/**
 	 * The feature id for the '<em><b>Others</b></em>' reference list.
@@ -1540,6 +1576,17 @@ public interface FvPackage extends EPackage {
 	EClass getDelegatedFeatures();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.fv.DelegatedFeatures#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.hal.learning.fv.DelegatedFeatures#getName()
+	 * @see #getDelegatedFeatures()
+	 * @generated
+	 */
+	EAttribute getDelegatedFeatures_Name();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link no.hal.learning.fv.DelegatedFeatures#getFeatures <em>Features</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1595,17 +1642,6 @@ public interface FvPackage extends EPackage {
 	EClass getFeatureList();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.hal.learning.fv.FeatureList#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see no.hal.learning.fv.FeatureList#getName()
-	 * @see #getFeatureList()
-	 * @generated
-	 */
-	EAttribute getFeatureList_Name();
-
-	/**
 	 * Returns the meta object for the map '{@link no.hal.learning.fv.FeatureList#getFeatures <em>Features</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1655,6 +1691,16 @@ public interface FvPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getFeatureList__Apply__Op2_double_boolean();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.learning.fv.FeatureList#reduce(no.hal.learning.fv.util.Op2, double, boolean) <em>Reduce</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Reduce</em>' operation.
+	 * @see no.hal.learning.fv.FeatureList#reduce(no.hal.learning.fv.util.Op2, double, boolean)
+	 * @generated
+	 */
+	EOperation getFeatureList__Reduce__Op2_double_boolean();
 
 	/**
 	 * Returns the meta object for the '{@link no.hal.learning.fv.FeatureList#count(no.hal.learning.fv.util.Pred1) <em>Count</em>}' operation.
@@ -1812,6 +1858,17 @@ public interface FvPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOpDerivedFeatures_Swap();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.fv.OpDerivedFeatures#getOp1 <em>Op1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Op1</em>'.
+	 * @see no.hal.learning.fv.OpDerivedFeatures#getOp1()
+	 * @see #getOpDerivedFeatures()
+	 * @generated
+	 */
+	EAttribute getOpDerivedFeatures_Op1();
 
 	/**
 	 * Returns the meta object for class '{@link no.hal.learning.fv.DerivedFeatures1 <em>Derived Features1</em>}'.
@@ -2188,6 +2245,14 @@ public interface FvPackage extends EPackage {
 		EClass DELEGATED_FEATURES = eINSTANCE.getDelegatedFeatures();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DELEGATED_FEATURES__NAME = eINSTANCE.getDelegatedFeatures_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Features</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2232,14 +2297,6 @@ public interface FvPackage extends EPackage {
 		EClass FEATURE_LIST = eINSTANCE.getFeatureList();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FEATURE_LIST__NAME = eINSTANCE.getFeatureList_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Features</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2278,6 +2335,14 @@ public interface FvPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation FEATURE_LIST___APPLY__OP2_DOUBLE_BOOLEAN = eINSTANCE.getFeatureList__Apply__Op2_double_boolean();
+
+		/**
+		 * The meta object literal for the '<em><b>Reduce</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FEATURE_LIST___REDUCE__OP2_DOUBLE_BOOLEAN = eINSTANCE.getFeatureList__Reduce__Op2_double_boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Count</b></em>' operation.
@@ -2406,6 +2471,14 @@ public interface FvPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OP_DERIVED_FEATURES__SWAP = eINSTANCE.getOpDerivedFeatures_Swap();
+
+		/**
+		 * The meta object literal for the '<em><b>Op1</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OP_DERIVED_FEATURES__OP1 = eINSTANCE.getOpDerivedFeatures_Op1();
 
 		/**
 		 * The meta object literal for the '{@link no.hal.learning.fv.impl.DerivedFeatures1Impl <em>Derived Features1</em>}' class.

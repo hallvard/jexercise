@@ -1,5 +1,6 @@
 package interfaces;
 
+import interfaces.BinaryComputingIterator;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.function.BinaryOperator;
@@ -8,9 +9,7 @@ import no.hal.jex.runtime.JExercise;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.DoubleExtensions;
 
-import interfaces.BinaryComputingIterator;
-
-@JExercise(description = "Tests delegation.BinaryComputingIterator")
+@JExercise(description = "Tests interfaces.BinaryComputingIterator")
 @SuppressWarnings("all")
 public class BinaryComputingIteratorTest extends TestCase {
   private Iterator<Double> iterator1;
@@ -51,9 +50,9 @@ public class BinaryComputingIteratorTest extends TestCase {
   public void testComputeResultsMultiplication() {
     BinaryComputingIterator binaryIterator = _init__computeResultsMultiplication_binaryIterator();
     _transition_exprAction__computeResultsMultiplication_transitions0_actions0(binaryIterator);
-    _test__computeResultsMultiplication_transitions0_effect_state(binaryIterator);
+    _test__computeResultsMultiplication_transitions0_effects0_state(binaryIterator);
     _transition_exprAction__computeResultsMultiplication_transitions1_actions0(binaryIterator);
-    _test__computeResultsMultiplication_transitions1_effect_state(binaryIterator);
+    _test__computeResultsMultiplication_transitions1_effects0_state(binaryIterator);
     
   }
   
@@ -61,9 +60,9 @@ public class BinaryComputingIteratorTest extends TestCase {
   public void testComputeResultsAddition() {
     BinaryComputingIterator binaryIterator = _init__computeResultsAddition_binaryIterator();
     _transition_exprAction__computeResultsAddition_transitions0_actions0(binaryIterator);
-    _test__computeResultsAddition_transitions0_effect_state(binaryIterator);
+    _test__computeResultsAddition_transitions0_effects0_state(binaryIterator);
     _transition_exprAction__computeResultsAddition_transitions1_actions0(binaryIterator);
-    _test__computeResultsAddition_transitions1_effect_state(binaryIterator);
+    _test__computeResultsAddition_transitions1_effects0_state(binaryIterator);
     
   }
   
@@ -71,7 +70,7 @@ public class BinaryComputingIteratorTest extends TestCase {
   public void testComputeResultsWithShortIterator() {
     BinaryComputingIterator binaryIterator = _init__computeResultsWithShortIterator_binaryIterator();
     _transition_exprAction__computeResultsWithShortIterator_transitions0_actions0(binaryIterator);
-    _test__computeResultsWithShortIterator_transitions0_effect_state(binaryIterator);
+    _test__computeResultsWithShortIterator_transitions0_effects0_state(binaryIterator);
     
   }
   
@@ -79,28 +78,29 @@ public class BinaryComputingIteratorTest extends TestCase {
   public void testComputeResultsWithShortIteratorAndDefault() {
     BinaryComputingIterator binaryIterator = _init__computeResultsWithShortIteratorAndDefault_binaryIterator();
     _transition_exprAction__computeResultsWithShortIteratorAndDefault_transitions0_actions0(binaryIterator);
-    _test__computeResultsWithShortIteratorAndDefault_transitions0_effect_state(binaryIterator);
+    _test__computeResultsWithShortIteratorAndDefault_transitions0_effects0_state(binaryIterator);
     _transition_exprAction__computeResultsWithShortIteratorAndDefault_transitions1_actions0(binaryIterator);
-    _test__computeResultsWithShortIteratorAndDefault_transitions1_effect_state(binaryIterator);
+    _test__computeResultsWithShortIteratorAndDefault_transitions1_effects0_state(binaryIterator);
     
   }
   
   @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,java.util.function.BinaryOperator<Double>)", description = "<h3>Multiplisering med tomme interne iteratorer</h3>Tests \n\t\tinitialization\n")
   public void testComputeResultsWithEmptyIterator() {
     BinaryComputingIterator binaryIterator = _init__computeResultsWithEmptyIterator_binaryIterator();
-    _test__computeResultsWithEmptyIterator_transitions0_effect_state(binaryIterator);
+    _test__computeResultsWithEmptyIterator_transitions0_effects0_state(binaryIterator);
     
   }
   
   @JExercise(tests = "BinaryComputingIterator(java.util.Iterator<Double>,java.util.Iterator<Double>,Double,Double,java.util.function.BinaryOperator<Double>)", description = "<h3>Multiplisering med tomme interne iteratorer og default</h3>Tests \n\t\tinitialization\n")
   public void testComputeResultsWithEmptyIteratorAndDefault() {
     BinaryComputingIterator binaryIterator = _init__computeResultsWithEmptyIteratorAndDefault_binaryIterator();
-    _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effect_state(binaryIterator);
+    _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effects0_state(binaryIterator);
     
   }
   
   private BinaryComputingIterator _init__computeResultsMultiplication_binaryIterator() {
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+      @Override
       public Double apply(final Double x, final Double y) {
         return Double.valueOf(DoubleExtensions.operator_multiply(x, y));
       }
@@ -117,12 +117,12 @@ public class BinaryComputingIteratorTest extends TestCase {
     
   }
   
-  private void _test__computeResultsMultiplication_transitions0_effect_state(final BinaryComputingIterator binaryIterator) {
-    _test__computeResultsMultiplication_transitions0_effect_state_objectTests0_test(binaryIterator);
+  private void _test__computeResultsMultiplication_transitions0_effects0_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsMultiplication_transitions0_effects0_state_objectTests0_test(binaryIterator);
     
   }
   
-  private void _test__computeResultsMultiplication_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+  private void _test__computeResultsMultiplication_transitions0_effects0_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     assertTrue("binaryIterator.hasNext failed after binaryIterator.next ?= 2.5", binaryIterator.hasNext());
     
@@ -136,12 +136,12 @@ public class BinaryComputingIteratorTest extends TestCase {
     
   }
   
-  private void _test__computeResultsMultiplication_transitions1_effect_state(final BinaryComputingIterator binaryIterator) {
-    _test__computeResultsMultiplication_transitions1_effect_state_objectTests0_test(binaryIterator);
+  private void _test__computeResultsMultiplication_transitions1_effects0_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsMultiplication_transitions1_effects0_state_objectTests0_test(binaryIterator);
     
   }
   
-  private void _test__computeResultsMultiplication_transitions1_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+  private void _test__computeResultsMultiplication_transitions1_effects0_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     boolean _hasNext = binaryIterator.hasNext();
     assertTrue("! binaryIterator.hasNext failed after binaryIterator.next ?= -6.0", (!_hasNext));
@@ -150,6 +150,7 @@ public class BinaryComputingIteratorTest extends TestCase {
   
   private BinaryComputingIterator _init__computeResultsAddition_binaryIterator() {
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+      @Override
       public Double apply(final Double x, final Double y) {
         return Double.valueOf(DoubleExtensions.operator_plus(x, y));
       }
@@ -166,12 +167,12 @@ public class BinaryComputingIteratorTest extends TestCase {
     
   }
   
-  private void _test__computeResultsAddition_transitions0_effect_state(final BinaryComputingIterator binaryIterator) {
-    _test__computeResultsAddition_transitions0_effect_state_objectTests0_test(binaryIterator);
+  private void _test__computeResultsAddition_transitions0_effects0_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsAddition_transitions0_effects0_state_objectTests0_test(binaryIterator);
     
   }
   
-  private void _test__computeResultsAddition_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+  private void _test__computeResultsAddition_transitions0_effects0_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     assertTrue("binaryIterator.hasNext failed after binaryIterator.next ?= 5.5", binaryIterator.hasNext());
     
@@ -185,12 +186,12 @@ public class BinaryComputingIteratorTest extends TestCase {
     
   }
   
-  private void _test__computeResultsAddition_transitions1_effect_state(final BinaryComputingIterator binaryIterator) {
-    _test__computeResultsAddition_transitions1_effect_state_objectTests0_test(binaryIterator);
+  private void _test__computeResultsAddition_transitions1_effects0_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsAddition_transitions1_effects0_state_objectTests0_test(binaryIterator);
     
   }
   
-  private void _test__computeResultsAddition_transitions1_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+  private void _test__computeResultsAddition_transitions1_effects0_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     boolean _hasNext = binaryIterator.hasNext();
     assertTrue("! binaryIterator.hasNext failed after binaryIterator.next ?= 1.0", (!_hasNext));
@@ -199,6 +200,7 @@ public class BinaryComputingIteratorTest extends TestCase {
   
   private BinaryComputingIterator _init__computeResultsWithShortIterator_binaryIterator() {
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+      @Override
       public Double apply(final Double x, final Double y) {
         return Double.valueOf(DoubleExtensions.operator_multiply(x, y));
       }
@@ -215,12 +217,12 @@ public class BinaryComputingIteratorTest extends TestCase {
     
   }
   
-  private void _test__computeResultsWithShortIterator_transitions0_effect_state(final BinaryComputingIterator binaryIterator) {
-    _test__computeResultsWithShortIterator_transitions0_effect_state_objectTests0_test(binaryIterator);
+  private void _test__computeResultsWithShortIterator_transitions0_effects0_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsWithShortIterator_transitions0_effects0_state_objectTests0_test(binaryIterator);
     
   }
   
-  private void _test__computeResultsWithShortIterator_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+  private void _test__computeResultsWithShortIterator_transitions0_effects0_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     boolean _hasNext = binaryIterator.hasNext();
     assertTrue("! binaryIterator.hasNext failed after binaryIterator.next ?= 2.5", (!_hasNext));
@@ -229,6 +231,7 @@ public class BinaryComputingIteratorTest extends TestCase {
   
   private BinaryComputingIterator _init__computeResultsWithShortIteratorAndDefault_binaryIterator() {
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+      @Override
       public Double apply(final Double x, final Double y) {
         return Double.valueOf(DoubleExtensions.operator_multiply(x, y));
       }
@@ -245,12 +248,12 @@ public class BinaryComputingIteratorTest extends TestCase {
     
   }
   
-  private void _test__computeResultsWithShortIteratorAndDefault_transitions0_effect_state(final BinaryComputingIterator binaryIterator) {
-    _test__computeResultsWithShortIteratorAndDefault_transitions0_effect_state_objectTests0_test(binaryIterator);
+  private void _test__computeResultsWithShortIteratorAndDefault_transitions0_effects0_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsWithShortIteratorAndDefault_transitions0_effects0_state_objectTests0_test(binaryIterator);
     
   }
   
-  private void _test__computeResultsWithShortIteratorAndDefault_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+  private void _test__computeResultsWithShortIteratorAndDefault_transitions0_effects0_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     assertTrue("binaryIterator.hasNext failed after binaryIterator.next ?= 2.5", binaryIterator.hasNext());
     
@@ -264,12 +267,12 @@ public class BinaryComputingIteratorTest extends TestCase {
     
   }
   
-  private void _test__computeResultsWithShortIteratorAndDefault_transitions1_effect_state(final BinaryComputingIterator binaryIterator) {
-    _test__computeResultsWithShortIteratorAndDefault_transitions1_effect_state_objectTests0_test(binaryIterator);
+  private void _test__computeResultsWithShortIteratorAndDefault_transitions1_effects0_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsWithShortIteratorAndDefault_transitions1_effects0_state_objectTests0_test(binaryIterator);
     
   }
   
-  private void _test__computeResultsWithShortIteratorAndDefault_transitions1_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+  private void _test__computeResultsWithShortIteratorAndDefault_transitions1_effects0_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     boolean _hasNext = binaryIterator.hasNext();
     assertTrue("! binaryIterator.hasNext failed after binaryIterator.next ?= -4.0", (!_hasNext));
@@ -280,6 +283,7 @@ public class BinaryComputingIteratorTest extends TestCase {
     Iterator<Double> _iterator = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()).iterator();
     Iterator<Double> _iterator_1 = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()).iterator();
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+      @Override
       public Double apply(final Double x, final Double y) {
         return Double.valueOf(DoubleExtensions.operator_multiply(x, y));
       }
@@ -288,12 +292,12 @@ public class BinaryComputingIteratorTest extends TestCase {
     return _binaryComputingIterator;
   }
   
-  private void _test__computeResultsWithEmptyIterator_transitions0_effect_state(final BinaryComputingIterator binaryIterator) {
-    _test__computeResultsWithEmptyIterator_transitions0_effect_state_objectTests0_test(binaryIterator);
+  private void _test__computeResultsWithEmptyIterator_transitions0_effects0_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsWithEmptyIterator_transitions0_effects0_state_objectTests0_test(binaryIterator);
     
   }
   
-  private void _test__computeResultsWithEmptyIterator_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+  private void _test__computeResultsWithEmptyIterator_transitions0_effects0_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     boolean _hasNext = binaryIterator.hasNext();
     assertTrue("! binaryIterator.hasNext failed", (!_hasNext));
@@ -304,6 +308,7 @@ public class BinaryComputingIteratorTest extends TestCase {
     Iterator<Double> _iterator = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()).iterator();
     Iterator<Double> _iterator_1 = Collections.<Double>unmodifiableList(CollectionLiterals.<Double>newArrayList()).iterator();
     final BinaryOperator<Double> _function = new BinaryOperator<Double>() {
+      @Override
       public Double apply(final Double x, final Double y) {
         return Double.valueOf(DoubleExtensions.operator_multiply(x, y));
       }
@@ -312,19 +317,15 @@ public class BinaryComputingIteratorTest extends TestCase {
     return _binaryComputingIterator;
   }
   
-  private void _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effect_state(final BinaryComputingIterator binaryIterator) {
-    _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effect_state_objectTests0_test(binaryIterator);
+  private void _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effects0_state(final BinaryComputingIterator binaryIterator) {
+    _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effects0_state_objectTests0_test(binaryIterator);
     
   }
   
-  private void _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effect_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
+  private void _test__computeResultsWithEmptyIteratorAndDefault_transitions0_effects0_state_objectTests0_test(final BinaryComputingIterator binaryIterator) {
     
     boolean _hasNext = binaryIterator.hasNext();
     assertTrue("! binaryIterator.hasNext failed", (!_hasNext));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(BinaryComputingIteratorTest.class);
   }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension-point id="consoleOutputView" name="Console Output View" schema="schema/consoleOutputView.exsd"/>
+   
+   	<extension
+         point="org.eclipse.ui.console.consolePatternMatchListeners">
+      <consolePatternMatchListener
+            class="no.hal.consoleoutputview.ConsoleOutputViewPatternMatcher"
+            id="no.hal.consoleoutputview.ConsoleOutputViewPatternMatcher"
+            qualifier="-view:"
+            regex="(\w+)-view:(#\w+)?(\+?)(.*)">
+			<enablement>
+			<!--
+            	<test property="org.eclipse.ui.console.consoleTypeTest" value="exampleConsole"/>
+            	-->
+         	</enablement>
+         </consolePatternMatchListener>
+   </extension>
+
+</plugin>

@@ -31,6 +31,15 @@ public interface WorkbenchFactory extends EFactory {
 	WorkbenchTaskAnswer createWorkbenchTaskAnswer();
 
 	/**
+	 * Returns a new object of class '<em>Task Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Event</em>'.
+	 * @generated
+	 */
+	WorkbenchTaskEvent createWorkbenchTaskEvent();
+
+	/**
 	 * Returns a new object of class '<em>Part Task Answer</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,6 +56,15 @@ public interface WorkbenchFactory extends EFactory {
 	 * @generated
 	 */
 	PartTaskProposal createPartTaskProposal();
+
+	/**
+	 * Returns a new object of class '<em>Part Task Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Part Task Event</em>'.
+	 * @generated
+	 */
+	PartTaskEvent createPartTaskEvent();
 
 	/**
 	 * Returns a new object of class '<em>Perspective Task Answer</em>'.

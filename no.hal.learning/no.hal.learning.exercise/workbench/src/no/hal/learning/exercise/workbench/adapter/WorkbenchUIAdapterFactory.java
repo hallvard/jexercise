@@ -19,20 +19,20 @@ public class WorkbenchUIAdapterFactory extends AdapterFactoryImpl {
 
 	@Override
 	public boolean isFactoryForType(Object type) {
-		return EObjectUIAdapter.class.equals(type);
+		return EObjectUIAdapter.class == type;
 	}
 	
 	@Override
 	@SuppressWarnings("unchecked")
 	protected Adapter createAdapter(Notifier target) {
 		if (target instanceof PartTaskProposal) {
-			return new PartTaskProposalAdapter((TaskProposal<PartTaskAnswer>) target);
+			return new WorkbenchTaskProposalAdapter<PartTaskAnswer>((TaskProposal<PartTaskAnswer>) target);
 		} else if (target instanceof PerspectiveTaskProposal) {
-			return new PerspectiveTaskProposalAdapter((TaskProposal<PerspectiveTaskAnswer>) target);
+			return new WorkbenchTaskProposalAdapter<PerspectiveTaskAnswer>((TaskProposal<PerspectiveTaskAnswer>) target);
 		} else if (target instanceof CommandExecutionProposal) {
-			return new CommandExecutionProposalAdapter((TaskProposal<CommandExecutionAnswer>) target);
+			return new WorkbenchTaskProposalAdapter<CommandExecutionAnswer>((TaskProposal<CommandExecutionAnswer>) target);
 		} else if (target instanceof DebugEventProposal) {
-			return new DebugEventProposalAdapter((TaskProposal<DebugEventAnswer>) target);
+			return new WorkbenchTaskProposalAdapter<DebugEventAnswer>((TaskProposal<DebugEventAnswer>) target);
 		}
 		return null;
 	}

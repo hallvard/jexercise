@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EMap;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.hal.learning.fv.FeatureList#getName <em>Name</em>}</li>
  *   <li>{@link no.hal.learning.fv.FeatureList#getFeatures <em>Features</em>}</li>
  * </ul>
  *
@@ -26,32 +25,6 @@ import org.eclipse.emf.common.util.EMap;
  * @generated
  */
 public interface FeatureList extends FeatureValued {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see no.hal.learning.fv.FvPackage#getFeatureList_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link no.hal.learning.fv.FeatureList#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Features</b></em>' map.
 	 * The key is of type {@link java.lang.String},
@@ -100,6 +73,14 @@ public interface FeatureList extends FeatureValued {
 	 * @generated
 	 */
 	void apply(Op2 op, double val, boolean swap);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model opDataType="no.hal.learning.fv.Op2"
+	 * @generated
+	 */
+	double reduce(Op2 op, double val, boolean swap);
 
 	/**
 	 * <!-- begin-user-doc -->

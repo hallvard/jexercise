@@ -157,4 +157,12 @@ public interface TaskProposal<T extends TaskAnswer> extends Proposal<T> {
 	 */
 	String getText();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean addTaskEvent(TaskEvent taskEvent);
+
 } // TaskProposal

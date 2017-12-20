@@ -6,12 +6,17 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.jdt.JdtPackage;
+import no.hal.learning.exercise.jdt.JdtSourceEditAnswer;
 import no.hal.learning.exercise.jdt.JdtSourceEditEvent;
 import no.hal.learning.exercise.workspace.impl.SourceFileEditEventImpl;
 import no.hal.learning.fv.FeatureValued;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EMap;
 
@@ -23,12 +28,31 @@ import org.eclipse.emf.common.util.EMap;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditEventImpl#getClassName <em>Class Name</em>}</li>
  *   <li>{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditEventImpl#getMetrics <em>Metrics</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class JdtSourceEditEventImpl extends SourceFileEditEventImpl implements JdtSourceEditEvent {
+	/**
+	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CLASS_NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String className = CLASS_NAME_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getMetrics() <em>Metrics</em>}' map.
 	 * <!-- begin-user-doc -->
@@ -55,6 +79,33 @@ public class JdtSourceEditEventImpl extends SourceFileEditEventImpl implements J
 	@Override
 	protected EClass eStaticClass() {
 		return JdtPackage.Literals.JDT_SOURCE_EDIT_EVENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getClassName() {
+		if (className == null && getProposal() != null) {
+			TaskAnswer answer = getProposal().getAnswer();
+			if (answer instanceof JdtSourceEditAnswer) {
+				return ((JdtSourceEditAnswer) answer).getClassName();
+			}
+		}
+		return className;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClassName(String newClassName) {
+		String oldClassName = className;
+		className = newClassName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JdtPackage.JDT_SOURCE_EDIT_EVENT__CLASS_NAME, oldClassName, className));
 	}
 
 	/**
@@ -91,6 +142,8 @@ public class JdtSourceEditEventImpl extends SourceFileEditEventImpl implements J
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case JdtPackage.JDT_SOURCE_EDIT_EVENT__CLASS_NAME:
+				return getClassName();
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT__METRICS:
 				if (coreType) return getMetrics();
 				else return getMetrics().map();
@@ -106,6 +159,9 @@ public class JdtSourceEditEventImpl extends SourceFileEditEventImpl implements J
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case JdtPackage.JDT_SOURCE_EDIT_EVENT__CLASS_NAME:
+				setClassName((String)newValue);
+				return;
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT__METRICS:
 				((EStructuralFeature.Setting)getMetrics()).set(newValue);
 				return;
@@ -121,6 +177,9 @@ public class JdtSourceEditEventImpl extends SourceFileEditEventImpl implements J
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case JdtPackage.JDT_SOURCE_EDIT_EVENT__CLASS_NAME:
+				setClassName(CLASS_NAME_EDEFAULT);
+				return;
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT__METRICS:
 				getMetrics().clear();
 				return;
@@ -136,10 +195,28 @@ public class JdtSourceEditEventImpl extends SourceFileEditEventImpl implements J
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case JdtPackage.JDT_SOURCE_EDIT_EVENT__CLASS_NAME:
+				return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
 			case JdtPackage.JDT_SOURCE_EDIT_EVENT__METRICS:
 				return metrics != null && !metrics.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (className: ");
+		result.append(className);
+		result.append(')');
+		return result.toString();
 	}
 
 	//

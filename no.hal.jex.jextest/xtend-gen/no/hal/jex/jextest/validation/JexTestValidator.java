@@ -39,16 +39,7 @@ public class JexTestValidator extends AbstractJexTestValidator {
     {
       final Iterator<Parameter> iterator = parameters.iterator();
       while (iterator.hasNext()) {
-        boolean _and = false;
-        Parameter _next = iterator.next();
-        boolean _isVararg = _next.isVararg();
-        if (!_isVararg) {
-          _and = false;
-        } else {
-          boolean _hasNext = iterator.hasNext();
-          _and = _hasNext;
-        }
-        if (_and) {
+        if ((iterator.next().isVararg() && iterator.hasNext())) {
           this.error("Only the last paramter can be a vararg", feature);
         }
       }

@@ -42,6 +42,13 @@
             icon="icons/full/book.gif"
             >
       </view>
+      <view
+            id="no.hal.confluence.ui.views.ConfluenceWikiOverView"
+            category="no.hal.confluence.ui.ConfluenceWiki"
+            class="no.hal.confluence.ui.views.ConfluenceWikiOverView"
+            name="Wiki Overview"
+            >
+      </view>
    </extension>
 
      <extension

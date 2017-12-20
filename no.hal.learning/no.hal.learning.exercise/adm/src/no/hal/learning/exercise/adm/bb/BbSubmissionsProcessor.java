@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
@@ -61,7 +62,7 @@ public class BbSubmissionsProcessor {
 					stringEquals(userName, other.userName);
 		}
 
-		private static int stringHash(String s) {
+		static int stringHash(String s) {
 			return (s == null ? 0 : s.hashCode());
 		}
 		
@@ -267,4 +268,40 @@ public class BbSubmissionsProcessor {
 		packageRegistry.put(JunitPackage.eNS_URI, JunitPackage.eINSTANCE);
 		packageRegistry.put(WorkbenchPackage.eNS_URI, WorkbenchPackage.eINSTANCE);
 	}
+	
+	public static class GradeUserProcessor {
+
+		public static void main(String[] args) {
+			File file = new File(args[0]);
+			if (file.exists()) {
+				try {
+					Scanner scanner = new Scanner(file);
+					while (scanner.hasNextLine()) {
+						String line = scanner.nextLine(), fields[] = line.split(";");
+						if (fields.length != 2 || fields[0].length() > 1) {
+							continue;
+						}
+						char grade = fields[0].charAt(0);
+						String userName = fields[1];
+						long hashCode = userName.hashCode();
+						if (hashCode < 0) {
+							hashCode = ((long) Integer.MAX_VALUE) - hashCode;
+						}
+						String hash = String.valueOf(hashCode);
+						String padding = "0000000000"; // 10 zeros
+						if (padding.length() > hash.length()) {
+							hash = padding.substring(hash.length()) + hash;
+						}
+						System.out.println(hash + "," + grade);
+					}
+					scanner.close();
+				} catch (FileNotFoundException e) {
+					System.err.println(e);
+				}
+			} else {
+				System.err.println(file + " does not exist");
+			}
+		}
+	}
+
 }

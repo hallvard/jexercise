@@ -3,10 +3,13 @@ package no.hal.learning.exercise.util;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -15,16 +18,40 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import no.hal.learning.diff.PatchStringEdit;
+import no.hal.learning.exercise.AbstractExercisePart;
 import no.hal.learning.exercise.AbstractStringEdit;
 import no.hal.learning.exercise.AbstractStringEditEvent;
+import no.hal.learning.exercise.Exercise;
+import no.hal.learning.exercise.ExerciseFactory;
+import no.hal.learning.exercise.ExercisePartProposals;
+import no.hal.learning.exercise.ExerciseProposals;
 import no.hal.learning.exercise.MarkerInfo;
 import no.hal.learning.exercise.StringEdit;
 import no.hal.learning.exercise.TaskEvent;
+import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.quiz.Option;
 import no.hal.learning.quiz.OptionsAnswer;
 
 public class Util {
 
+	public static ExerciseProposals ensureExerciseProposals(Exercise ex, ExerciseProposals exerciseProposals) {
+		if (exerciseProposals == null) {
+			exerciseProposals = ExerciseFactory.eINSTANCE.createExerciseProposals();
+			exerciseProposals.setExercise(ex);
+		}
+		EList<ExercisePartProposals> proposals = exerciseProposals.getProposals();
+		// add missing ExerciseProposals
+		exercisePart: for (AbstractExercisePart exercisePart : ex.getParts()) {
+			for (ExercisePartProposals proposal : proposals) {
+				if (proposal.getExercisePart() == exercisePart) {
+					continue exercisePart;
+				}
+			}
+			proposals.add(exercisePart.createProposals());
+		}
+		return exerciseProposals;
+	}
+	
 	public static <T> String relativeName(EObject eObject, Class<T> c) {
 		String name = "";
    		EObject e = eObject;
@@ -103,6 +130,32 @@ public class Util {
 		return optionNums;
 	}
 	
+	public static List<TaskEvent> getEventsSince(long lastTimestamp, TaskProposal<?>... proposals) {
+		return getEventsSince(lastTimestamp, Arrays.asList(proposals));
+	}
+
+	public static List<TaskEvent> getEventsSince(long lastTimestamp, Iterable<TaskProposal<?>> proposals) {
+		List<TaskEvent> allTaskEvents = new ArrayList<TaskEvent>();
+		for (TaskProposal<?> taskProposal : proposals) {
+			EList<TaskEvent> taskAttempts = taskProposal.getAttempts();
+			int pos = taskAttempts.size() - 1;
+			while (pos >= 0) {
+				TaskEvent taskEvent = taskAttempts.get(pos);
+				if (taskEvent.getTimestamp() > lastTimestamp) {
+					allTaskEvents.add(taskEvent);
+				}
+				pos--;
+			}
+		}
+		Collections.sort(allTaskEvents, new Comparator<TaskEvent>() {
+			@Override
+			public int compare(TaskEvent ev1, TaskEvent ev2) {
+				return Long.compare(ev1.getTimestamp(), ev2.getTimestamp());
+			}
+		});
+		return allTaskEvents;
+	}
+
 	public static Field getMarkerInfoField(EObject eObject, EStructuralFeature feature, Class<?> context) {
 		String valueClassName = EcoreUtil.getAnnotation(feature, MarkerInfo.class.getName(), "valueClass");
 		Class<?> valueClass = null;
@@ -202,5 +255,88 @@ public class Util {
 			}
 		}
 		return result;
+	}
+	
+	// methods used by TaskAnswer subclasses for matching TaskEvents
+	
+	public static boolean isEmpty(String s) {
+		return s == null || "".equals(s);
+	}
+	
+	public static boolean accept(String pattern, String s) {
+		if (pattern == null) {
+			return true;
+		} else if (pattern.startsWith("*")) {
+			return s.endsWith(pattern.substring(1));
+		} else if (pattern.endsWith("*")) {
+			return s.startsWith(pattern.substring(0, pattern.length() - 1));
+		} else {
+			return pattern.equals("*") || pattern.equals(s);
+		}
+	}
+	
+	public static boolean acceptSegmented(String pattern, String segmented, String separator) {
+		if (isEmpty(pattern)) {
+			return true;
+		}
+		int pPos = 0, sPos = 0;
+		while (pPos < pattern.length()) {
+			int pEnd = pattern.indexOf(separator, pPos);
+			String pSub = pattern.substring(pPos, (pEnd < 0 ? pattern.length() : pEnd));
+//			System.out.println("pPos=" + pPos + ", pEnd=" + pEnd + ", " + pSub);
+			int sEnd = segmented.indexOf(separator, sPos);
+			String sSub = segmented.substring(sPos, (sEnd < 0 ? segmented.length() : sEnd));
+//			System.out.println("sPos=" + sPos + ", sEnd=" + sEnd + ", " + sSub);
+			if (! accept(pSub, sSub)) {
+				return false;
+			}
+			if (pEnd < 0 && (sEnd < 0 || pSub.equals("*"))) {
+				return true;
+			} else if (! (pEnd >= 0 && sEnd >= 0)) {
+				return false;
+			}
+			pPos = pEnd + separator.length();
+			sPos = sEnd + separator.length();
+		}
+		return true;
+	}
+
+	public static boolean acceptQName(String pattern, String qName) {
+		return acceptSegmented(pattern, qName, ".");
+	}
+
+	public static boolean acceptClass(String pattern, Class<?> c, boolean includeExtends, boolean includeImplements) {
+		List<Class<?>> classes = new ArrayList<Class<?>>();
+		classes.add(c);
+		int pos = 0;
+		while (pos < classes.size()) {
+			Class<?> next = classes.get(pos);
+			if (acceptQName(pattern, next.getName())) {
+				return true;
+			}
+			if (includeExtends) {
+				Class<?> extendsClass = next.getSuperclass();
+				if (extendsClass != null && extendsClass != Object.class && (! classes.contains(extendsClass))) {
+					classes.add(extendsClass);
+				}
+			}
+			if (includeImplements) {
+				for (Class<?> implementsClass : c.getInterfaces()) {
+					if (! classes.contains(implementsClass)) {
+						classes.add(implementsClass);
+					}
+				}
+			}
+			pos++;
+		}
+		return false;
+	}
+	
+	public static boolean acceptPath(String pattern, String path) {
+		return acceptSegmented(pattern, path, "/");
+	}
+
+	public static boolean acceptPath(String pattern, IPath path) {
+		return acceptPath(pattern, path.toString());
 	}
 }

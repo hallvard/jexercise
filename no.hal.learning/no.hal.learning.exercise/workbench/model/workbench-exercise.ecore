@@ -7,15 +7,23 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkbenchTaskEvent" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PartTaskAnswer" eSuperTypes="#//WorkbenchTaskAnswer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="knownPartId"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputUri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PartTaskProposal">
     <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskProposal">
       <eTypeArguments eClassifier="#//PartTaskAnswer"/>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PartTaskEvent" eSuperTypes="#//WorkbenchTaskEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputUri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PerspectiveTaskAnswer" eSuperTypes="#//WorkbenchTaskAnswer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">

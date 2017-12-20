@@ -2,10 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jdt" nsURI="platform:/plugin/no.hal.learning.exercise.jdt/model/jdt-exercise.ecore"
     nsPrefix="jdt">
-  <eClassifiers xsi:type="ecore:EClass" name="JdtSourceEditAnswer" eSuperTypes="../../no.hal.learning.exercise.model/model/exercise.ecore#//StringEditAnswer">
+  <eClassifiers xsi:type="ecore:EClass" name="JdtSourceEditAnswer" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//SourceFileEditAnswer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="methodNames" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metrics" upperBound="-1"
+        eType="#//StringToFeatureValued" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JdtSourceEditProposal">
     <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.model/model/exercise.ecore#//StringEditTaskProposal">
@@ -21,6 +23,7 @@
     <eAnnotations source="exp4j">
       <details key="codeIssues" value="errorCount * 5 + warningCount"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metrics" upperBound="-1"
         eType="#//StringToFeatureValued" containment="true"/>
   </eClassifiers>
@@ -45,5 +48,7 @@
       <eTypeArguments eClassifier="#//JdtLaunchAnswer"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JdtLaunchEvent" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//LaunchEvent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JdtLaunchEvent" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//LaunchEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

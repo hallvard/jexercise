@@ -87,10 +87,14 @@ public class WorkbenchValidator extends EObjectValidator {
 		switch (classifierID) {
 			case WorkbenchPackage.WORKBENCH_TASK_ANSWER:
 				return validateWorkbenchTaskAnswer((WorkbenchTaskAnswer)value, diagnostics, context);
+			case WorkbenchPackage.WORKBENCH_TASK_EVENT:
+				return validateWorkbenchTaskEvent((WorkbenchTaskEvent)value, diagnostics, context);
 			case WorkbenchPackage.PART_TASK_ANSWER:
 				return validatePartTaskAnswer((PartTaskAnswer)value, diagnostics, context);
 			case WorkbenchPackage.PART_TASK_PROPOSAL:
 				return validatePartTaskProposal((PartTaskProposal)value, diagnostics, context);
+			case WorkbenchPackage.PART_TASK_EVENT:
+				return validatePartTaskEvent((PartTaskEvent)value, diagnostics, context);
 			case WorkbenchPackage.PERSPECTIVE_TASK_ANSWER:
 				return validatePerspectiveTaskAnswer((PerspectiveTaskAnswer)value, diagnostics, context);
 			case WorkbenchPackage.PERSPECTIVE_TASK_PROPOSAL:
@@ -115,6 +119,15 @@ public class WorkbenchValidator extends EObjectValidator {
 	 */
 	public boolean validateWorkbenchTaskAnswer(WorkbenchTaskAnswer workbenchTaskAnswer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(workbenchTaskAnswer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateWorkbenchTaskEvent(WorkbenchTaskEvent workbenchTaskEvent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(workbenchTaskEvent, diagnostics, context);
 	}
 
 	/**
@@ -167,6 +180,15 @@ public class WorkbenchValidator extends EObjectValidator {
 	 */
 	public boolean validatePartTaskProposal(PartTaskProposal partTaskProposal, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(partTaskProposal, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePartTaskEvent(PartTaskEvent partTaskEvent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(partTaskEvent, diagnostics, context);
 	}
 
 	/**

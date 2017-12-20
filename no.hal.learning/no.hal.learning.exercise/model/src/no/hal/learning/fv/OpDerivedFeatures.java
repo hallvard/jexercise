@@ -14,6 +14,7 @@ package no.hal.learning.fv;
  *   <li>{@link no.hal.learning.fv.OpDerivedFeatures#getOp <em>Op</em>}</li>
  *   <li>{@link no.hal.learning.fv.OpDerivedFeatures#getVal <em>Val</em>}</li>
  *   <li>{@link no.hal.learning.fv.OpDerivedFeatures#isSwap <em>Swap</em>}</li>
+ *   <li>{@link no.hal.learning.fv.OpDerivedFeatures#getOp1 <em>Op1</em>}</li>
  * </ul>
  *
  * @see no.hal.learning.fv.FvPackage#getOpDerivedFeatures()
@@ -101,5 +102,34 @@ public interface OpDerivedFeatures extends DerivedFeatures {
 	 * @generated
 	 */
 	void setSwap(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Op1</b></em>' attribute.
+	 * The literals are from the enumeration {@link no.hal.learning.fv.Op1Kind}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Op1</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Op1</em>' attribute.
+	 * @see no.hal.learning.fv.Op1Kind
+	 * @see #setOp1(Op1Kind)
+	 * @see no.hal.learning.fv.FvPackage#getOpDerivedFeatures_Op1()
+	 * @model
+	 * @generated
+	 */
+	Op1Kind getOp1();
+
+	/**
+	 * Sets the value of the '{@link no.hal.learning.fv.OpDerivedFeatures#getOp1 <em>Op1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Op1</em>' attribute.
+	 * @see no.hal.learning.fv.Op1Kind
+	 * @see #getOp1()
+	 * @generated
+	 */
+	void setOp1(Op1Kind value);
 
 } // OpDerivedFeatures

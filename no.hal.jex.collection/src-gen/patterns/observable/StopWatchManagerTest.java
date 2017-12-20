@@ -39,6 +39,7 @@ public class StopWatchManagerTest extends TestCase {
   
   private StopWatchListener _init_stopWatchListener() {
     final StopWatchListener _function = new StopWatchListener() {
+      @Override
       public void stopWatchChanged(final StopWatch stopWatch, final int what) {
         StopWatchManagerTest.this.changedCount++;
         StopWatchManagerTest.this.changedStopWatch = stopWatch;
@@ -62,9 +63,9 @@ public class StopWatchManagerTest extends TestCase {
   public void testTickedListener() {
     _transition_exprAction__tickedListener_transitions0_actions0();
     _transition_exprAction__tickedListener_transitions0_actions1();
-    _test__tickedListener_transitions0_effect_state();
+    _test__tickedListener_transitions0_effects0_state();
     _transition_exprAction__tickedListener_transitions1_actions0();
-    _test__tickedListener_transitions1_effect_state();
+    _test__tickedListener_transitions1_effects0_state();
     
   }
   
@@ -72,15 +73,15 @@ public class StopWatchManagerTest extends TestCase {
   public void testStartedLappedStoppedListener() {
     _transition_exprAction__startedLappedStoppedListener_transitions0_actions0();
     _transition_exprAction__startedLappedStoppedListener_transitions0_actions1();
-    _test__startedLappedStoppedListener_transitions0_effect_state();
+    _test__startedLappedStoppedListener_transitions0_effects0_state();
     _transition_exprAction__startedLappedStoppedListener_transitions1_actions0();
-    _test__startedLappedStoppedListener_transitions1_effect_state();
+    _test__startedLappedStoppedListener_transitions1_effects0_state();
     _transition_exprAction__startedLappedStoppedListener_transitions2_actions0();
     _transition_exprAction__startedLappedStoppedListener_transitions2_actions1();
-    _test__startedLappedStoppedListener_transitions2_effect_state();
+    _test__startedLappedStoppedListener_transitions2_effects0_state();
     _transition_exprAction__startedLappedStoppedListener_transitions3_actions0();
     _transition_exprAction__startedLappedStoppedListener_transitions3_actions1();
-    _test__startedLappedStoppedListener_transitions3_effect_state();
+    _test__startedLappedStoppedListener_transitions3_effects0_state();
     
   }
   
@@ -104,12 +105,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__tickedListener_transitions0_effect_state() {
-    _test__tickedListener_transitions0_effect_state_objectTests0_test();
+  private void _test__tickedListener_transitions0_effects0_state() {
+    _test__tickedListener_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__tickedListener_transitions0_effect_state_objectTests0_test() {
+  private void _test__tickedListener_transitions0_effects0_state_objectTests0_test() {
     
   }
   
@@ -123,12 +124,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__tickedListener_transitions1_effect_state() {
-    _test__tickedListener_transitions1_effect_state_objectTests0_test();
+  private void _test__tickedListener_transitions1_effects0_state() {
+    _test__tickedListener_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__tickedListener_transitions1_effect_state_objectTests0_test() {
+  private void _test__tickedListener_transitions1_effects0_state_objectTests0_test() {
     
     assertEquals("changedCount == 1 failed after stopWatchManager.tick(1)", 1, this.changedCount);
     
@@ -159,12 +160,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__startedLappedStoppedListener_transitions0_effect_state() {
-    _test__startedLappedStoppedListener_transitions0_effect_state_objectTests0_test();
+  private void _test__startedLappedStoppedListener_transitions0_effects0_state() {
+    _test__startedLappedStoppedListener_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__startedLappedStoppedListener_transitions0_effect_state_objectTests0_test() {
+  private void _test__startedLappedStoppedListener_transitions0_effects0_state_objectTests0_test() {
     
     StopWatch _stopWatch = this.stopWatchManager.getStopWatch("SW 1");
     boolean _isStarted = _stopWatch.isStarted();
@@ -183,12 +184,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__startedLappedStoppedListener_transitions1_effect_state() {
-    _test__startedLappedStoppedListener_transitions1_effect_state_objectTests0_test();
+  private void _test__startedLappedStoppedListener_transitions1_effects0_state() {
+    _test__startedLappedStoppedListener_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__startedLappedStoppedListener_transitions1_effect_state_objectTests0_test() {
+  private void _test__startedLappedStoppedListener_transitions1_effects0_state_objectTests0_test() {
     
     StopWatch _stopWatch = this.stopWatchManager.getStopWatch("SW 1");
     boolean _isStarted = _stopWatch.isStarted();
@@ -224,12 +225,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__startedLappedStoppedListener_transitions2_effect_state() {
-    _test__startedLappedStoppedListener_transitions2_effect_state_objectTests0_test();
+  private void _test__startedLappedStoppedListener_transitions2_effects0_state() {
+    _test__startedLappedStoppedListener_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__startedLappedStoppedListener_transitions2_effect_state_objectTests0_test() {
+  private void _test__startedLappedStoppedListener_transitions2_effects0_state_objectTests0_test() {
     
     assertEquals("changedCount == 2 failed after changedStopWatch = null ,stopWatchManager.getStopWatch(\"SW 1\").lap()", 2, this.changedCount);
     
@@ -261,12 +262,12 @@ public class StopWatchManagerTest extends TestCase {
     
   }
   
-  private void _test__startedLappedStoppedListener_transitions3_effect_state() {
-    _test__startedLappedStoppedListener_transitions3_effect_state_objectTests0_test();
+  private void _test__startedLappedStoppedListener_transitions3_effects0_state() {
+    _test__startedLappedStoppedListener_transitions3_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__startedLappedStoppedListener_transitions3_effect_state_objectTests0_test() {
+  private void _test__startedLappedStoppedListener_transitions3_effects0_state_objectTests0_test() {
     
     StopWatch _stopWatch = this.stopWatchManager.getStopWatch("SW 1");
     boolean _isStopped = _stopWatch.isStopped();
@@ -279,9 +280,5 @@ public class StopWatchManagerTest extends TestCase {
     
     assertEquals("whatChanged == 8 failed after changedStopWatch = null ,stopWatchManager.getStopWatch(\"SW 1\").stop()", 8, this.whatChanged);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(StopWatchManagerTest.class);
   }
 }

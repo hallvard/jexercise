@@ -10,11 +10,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import no.hal.learning.exercise.Proposal;
+import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.impl.TaskAnswerImpl;
 import no.hal.learning.exercise.junit.JunitFactory;
 import no.hal.learning.exercise.junit.JunitPackage;
 import no.hal.learning.exercise.junit.JunitTestAnswer;
+import no.hal.learning.exercise.junit.JunitTestEvent;
 import no.hal.learning.exercise.junit.JunitTestProposal;
+import no.hal.learning.exercise.util.Util;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -207,6 +210,15 @@ public class JunitTestAnswerImpl extends TaskAnswerImpl implements JunitTestAnsw
 		JunitTestProposal proposal = JunitFactory.eINSTANCE.createJunitTestProposal();
 		proposal.setAnswer(this);
 		return proposal;
+	}
+	
+	@Override
+	public boolean acceptEvent(TaskEvent event) {
+		if (! (event instanceof JunitTestEvent)) {
+			return false;
+		}
+		JunitTestEvent testEvent = (JunitTestEvent) event;
+		return Util.acceptQName(getTestRunName(), testEvent.getTestRunName());
 	}
 
 } //JunitTestAnswerImpl

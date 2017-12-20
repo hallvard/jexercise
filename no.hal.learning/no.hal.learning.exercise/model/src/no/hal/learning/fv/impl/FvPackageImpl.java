@@ -326,8 +326,17 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDelegatedFeatures_Name() {
+		return (EAttribute)delegatedFeaturesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getDelegatedFeatures_Features() {
-		return (EReference)delegatedFeaturesEClass.getEStructuralFeatures().get(0);
+		return (EReference)delegatedFeaturesEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -371,17 +380,8 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFeatureList_Name() {
-		return (EAttribute)featureListEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getFeatureList_Features() {
-		return (EReference)featureListEClass.getEStructuralFeatures().get(1);
+		return (EReference)featureListEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -425,7 +425,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFeatureList__Count__Pred1() {
+	public EOperation getFeatureList__Reduce__Op2_double_boolean() {
 		return featureListEClass.getEOperations().get(4);
 	}
 
@@ -434,7 +434,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFeatureList__Count__Pred2_FeatureValued_boolean() {
+	public EOperation getFeatureList__Count__Pred1() {
 		return featureListEClass.getEOperations().get(5);
 	}
 
@@ -443,7 +443,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFeatureList__Count__FeatureValued() {
+	public EOperation getFeatureList__Count__Pred2_FeatureValued_boolean() {
 		return featureListEClass.getEOperations().get(6);
 	}
 
@@ -452,8 +452,17 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFeatureList__Zero__double() {
+	public EOperation getFeatureList__Count__FeatureValued() {
 		return featureListEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getFeatureList__Zero__double() {
+		return featureListEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -553,6 +562,15 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 	 */
 	public EAttribute getOpDerivedFeatures_Swap() {
 		return (EAttribute)opDerivedFeaturesEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpDerivedFeatures_Op1() {
+		return (EAttribute)opDerivedFeaturesEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -842,6 +860,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		createEOperation(featureValuedEClass, FEATURE_VALUED___TO_FEATURE_LIST);
 
 		delegatedFeaturesEClass = createEClass(DELEGATED_FEATURES);
+		createEAttribute(delegatedFeaturesEClass, DELEGATED_FEATURES__NAME);
 		createEReference(delegatedFeaturesEClass, DELEGATED_FEATURES__FEATURES);
 
 		stringToDoubleEClass = createEClass(STRING_TO_DOUBLE);
@@ -849,12 +868,12 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		createEAttribute(stringToDoubleEClass, STRING_TO_DOUBLE__VALUE);
 
 		featureListEClass = createEClass(FEATURE_LIST);
-		createEAttribute(featureListEClass, FEATURE_LIST__NAME);
 		createEReference(featureListEClass, FEATURE_LIST__FEATURES);
 		createEOperation(featureListEClass, FEATURE_LIST___SET__FEATUREVALUED_BOOLEAN);
 		createEOperation(featureListEClass, FEATURE_LIST___APPLY__OP1);
 		createEOperation(featureListEClass, FEATURE_LIST___APPLY__OP2_FEATUREVALUED_BOOLEAN);
 		createEOperation(featureListEClass, FEATURE_LIST___APPLY__OP2_DOUBLE_BOOLEAN);
+		createEOperation(featureListEClass, FEATURE_LIST___REDUCE__OP2_DOUBLE_BOOLEAN);
 		createEOperation(featureListEClass, FEATURE_LIST___COUNT__PRED1);
 		createEOperation(featureListEClass, FEATURE_LIST___COUNT__PRED2_FEATUREVALUED_BOOLEAN);
 		createEOperation(featureListEClass, FEATURE_LIST___COUNT__FEATUREVALUED);
@@ -874,6 +893,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		createEAttribute(opDerivedFeaturesEClass, OP_DERIVED_FEATURES__OP);
 		createEAttribute(opDerivedFeaturesEClass, OP_DERIVED_FEATURES__VAL);
 		createEAttribute(opDerivedFeaturesEClass, OP_DERIVED_FEATURES__SWAP);
+		createEAttribute(opDerivedFeaturesEClass, OP_DERIVED_FEATURES__OP1);
 
 		derivedFeatures1EClass = createEClass(DERIVED_FEATURES1);
 		createEReference(derivedFeatures1EClass, DERIVED_FEATURES1__OTHER);
@@ -970,6 +990,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		initEOperation(getFeatureValued__ToFeatureList(), this.getFeatureList(), "toFeatureList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(delegatedFeaturesEClass, DelegatedFeatures.class, "DelegatedFeatures", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDelegatedFeatures_Name(), ecorePackage.getEString(), "name", null, 0, 1, DelegatedFeatures.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegatedFeatures_Features(), this.getFeatureValued(), null, "features", null, 0, 1, DelegatedFeatures.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringToDoubleEClass, Map.Entry.class, "StringToDouble", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -977,7 +998,6 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		initEAttribute(getStringToDouble_Value(), ecorePackage.getEDoubleObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(featureListEClass, FeatureList.class, "FeatureList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFeatureList_Name(), ecorePackage.getEString(), "name", null, 0, 1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFeatureList_Features(), this.getStringToDouble(), null, "features", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getFeatureList__Set__FeatureValued_boolean(), null, "set", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -993,6 +1013,11 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		addEParameter(op, ecorePackage.getEBoolean(), "swap", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getFeatureList__Apply__Op2_double_boolean(), null, "apply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getOp2(), "op", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDouble(), "val", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "swap", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getFeatureList__Reduce__Op2_double_boolean(), ecorePackage.getEDouble(), "reduce", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getOp2(), "op", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDouble(), "val", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "swap", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1025,6 +1050,7 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 		initEAttribute(getOpDerivedFeatures_Op(), this.getOp2Kind(), "op", null, 0, 1, OpDerivedFeatures.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOpDerivedFeatures_Val(), ecorePackage.getEDouble(), "val", null, 0, 1, OpDerivedFeatures.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOpDerivedFeatures_Swap(), ecorePackage.getEBoolean(), "swap", null, 0, 1, OpDerivedFeatures.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpDerivedFeatures_Op1(), this.getOp1Kind(), "op1", null, 0, 1, OpDerivedFeatures.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(derivedFeatures1EClass, DerivedFeatures1.class, "DerivedFeatures1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDerivedFeatures1_Other(), this.getFeatureValued(), null, "other", null, 0, 1, DerivedFeatures1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1055,10 +1081,14 @@ public class FvPackageImpl extends EPackageImpl implements FvPackage {
 
 		// Initialize enums and add enum literals
 		initEEnum(op1KindEEnum, Op1Kind.class, "Op1Kind");
+		addEEnumLiteral(op1KindEEnum, Op1Kind.IDENTITY);
 		addEEnumLiteral(op1KindEEnum, Op1Kind.NEG);
 		addEEnumLiteral(op1KindEEnum, Op1Kind.INV);
 		addEEnumLiteral(op1KindEEnum, Op1Kind.ABS);
 		addEEnumLiteral(op1KindEEnum, Op1Kind.SIGNUM);
+		addEEnumLiteral(op1KindEEnum, Op1Kind.ZERO);
+		addEEnumLiteral(op1KindEEnum, Op1Kind.HALF);
+		addEEnumLiteral(op1KindEEnum, Op1Kind.ONE);
 
 		initEEnum(op2KindEEnum, Op2Kind.class, "Op2Kind");
 		addEEnumLiteral(op2KindEEnum, Op2Kind.PLUS);

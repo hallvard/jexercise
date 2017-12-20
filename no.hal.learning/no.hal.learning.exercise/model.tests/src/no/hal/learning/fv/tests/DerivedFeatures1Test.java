@@ -6,6 +6,7 @@ import junit.textui.TestRunner;
 import no.hal.learning.fv.DerivedFeatures1;
 import no.hal.learning.fv.FeatureList;
 import no.hal.learning.fv.FvFactory;
+import no.hal.learning.fv.Op1Kind;
 import no.hal.learning.fv.Op2Kind;
 import no.hal.learning.fv.impl.FeatureListImpl;
 
@@ -58,6 +59,7 @@ public class DerivedFeatures1Test extends OpDerivedFeaturesTest {
 		DerivedFeatures1 derivedFeatures = FvFactory.eINSTANCE.createDerivedFeatures1();
 		FeatureList featureList1 = FeatureListImpl.valueOf("f1", 1.0, "f2", 2.0);
 		derivedFeatures.setOp(Op2Kind.PLUS);
+		derivedFeatures.setOp1(Op1Kind.NEG);
 		derivedFeatures.setVal(3.0);
 		derivedFeatures.setOther(featureList1);
 		setFixture(derivedFeatures);
@@ -81,7 +83,7 @@ public class DerivedFeatures1Test extends OpDerivedFeaturesTest {
 	
 	@Override
 	public void testGetFeatureValue__String() {
-		FeatureListTest.testFeatureValues(getFixture(), "f1", 4.0, "f2", 5.0);
+		FeatureListTest.testFeatureValues(getFixture(), "f1", -4.0, "f2", -5.0);
 	}
 	
 	@Override
@@ -92,7 +94,7 @@ public class DerivedFeatures1Test extends OpDerivedFeaturesTest {
 	@Override
 	public void testToFeatureList() {
 		FeatureListTest.testFeatureNames(getFixture().toFeatureList(), "f1", "f2");
-		FeatureListTest.testFeatureValues(getFixture().toFeatureList(), "f1", 4.0, "f2", 5.0);
+		FeatureListTest.testFeatureValues(getFixture().toFeatureList(), "f1", -4.0, "f2", -5.0);
 	}
 
 } //DerivedFeatures1Test

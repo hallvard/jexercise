@@ -170,7 +170,7 @@ public class DerivedFeatures1Impl extends OpDerivedFeaturesImpl implements Deriv
 	public double getFeatureValue(String featureName) {
 		double val1 = other.getFeatureValue(featureName);
 		double val2 = getVal();
-		return deriveValue(val1, val2);
+		return deriveValue(deriveValue(val1, val2));
 	}
 
 } //DerivedFeatures1Impl

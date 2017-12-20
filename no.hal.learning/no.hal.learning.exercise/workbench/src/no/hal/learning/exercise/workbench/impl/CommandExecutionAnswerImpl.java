@@ -38,7 +38,7 @@ public class CommandExecutionAnswerImpl extends WorkbenchTaskAnswerImpl implemen
 	}
 	
 	//
-	
+
 	@Override
 	public Proposal<?> createProposal() {
 		CommandExecutionProposal proposal = WorkbenchFactory.eINSTANCE.createCommandExecutionProposal();

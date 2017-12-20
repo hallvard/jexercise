@@ -24,5 +24,7 @@
       <eTypeArguments eClassifier="#//PydevLaunchAnswer"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PydevLaunchEvent" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//LaunchEvent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PydevLaunchEvent" eSuperTypes="../../no.hal.learning.exercise.workspace/model/workspace-exercise.ecore#//LaunchEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="moduleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

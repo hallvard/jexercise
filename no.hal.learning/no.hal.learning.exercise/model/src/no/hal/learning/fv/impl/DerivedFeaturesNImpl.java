@@ -148,8 +148,7 @@ public class DerivedFeaturesNImpl extends OpDerivedFeaturesImpl implements Deriv
 	@Override
 	public boolean hasFeature(String featureName) {
 		for (FeatureValued fv : getOthers()) {
-			String name = FeatureListImpl.getName(fv);
-			if (FeatureListImpl.hasFeature(fv, featureName, name)) {
+			if (fv.hasFeature(featureName)) {
 				return true;
 			}
 		}
@@ -172,7 +171,7 @@ public class DerivedFeaturesNImpl extends OpDerivedFeaturesImpl implements Deriv
 				first = false;
 			}
 		}
-		return val1;
+		return deriveValue(val1);
 	}
 
 } //DervivedFeaturesNImpl

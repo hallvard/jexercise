@@ -8,12 +8,14 @@ import no.hal.learning.exercise.workbench.CommandExecutionProposal;
 import no.hal.learning.exercise.workbench.DebugEventAnswer;
 import no.hal.learning.exercise.workbench.DebugEventProposal;
 import no.hal.learning.exercise.workbench.PartTaskAnswer;
+import no.hal.learning.exercise.workbench.PartTaskEvent;
 import no.hal.learning.exercise.workbench.PartTaskProposal;
 import no.hal.learning.exercise.workbench.PerspectiveTaskAnswer;
 import no.hal.learning.exercise.workbench.PerspectiveTaskProposal;
 import no.hal.learning.exercise.workbench.WorkbenchFactory;
 import no.hal.learning.exercise.workbench.WorkbenchPackage;
 import no.hal.learning.exercise.workbench.WorkbenchTaskAnswer;
+import no.hal.learning.exercise.workbench.WorkbenchTaskEvent;
 import no.hal.learning.exercise.workbench.util.WorkbenchValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -42,6 +44,13 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass workbenchTaskEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass partTaskAnswerEClass = null;
 
 	/**
@@ -50,6 +59,13 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * @generated
 	 */
 	private EClass partTaskProposalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass partTaskEventEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,6 +223,33 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getWorkbenchTaskEvent() {
+		return workbenchTaskEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWorkbenchTaskEvent_ElementId() {
+		return (EAttribute)workbenchTaskEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWorkbenchTaskEvent_Action() {
+		return (EAttribute)workbenchTaskEventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPartTaskAnswer() {
 		return partTaskAnswerEClass;
 	}
@@ -216,8 +259,35 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPartTaskAnswer_InputUri() {
+		return (EAttribute)partTaskAnswerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPartTaskProposal() {
 		return partTaskProposalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPartTaskEvent() {
+		return partTaskEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPartTaskEvent_InputUri() {
+		return (EAttribute)partTaskEventEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -307,9 +377,17 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		createEAttribute(workbenchTaskAnswerEClass, WORKBENCH_TASK_ANSWER__ACTION);
 		createEAttribute(workbenchTaskAnswerEClass, WORKBENCH_TASK_ANSWER__TEXT);
 
+		workbenchTaskEventEClass = createEClass(WORKBENCH_TASK_EVENT);
+		createEAttribute(workbenchTaskEventEClass, WORKBENCH_TASK_EVENT__ELEMENT_ID);
+		createEAttribute(workbenchTaskEventEClass, WORKBENCH_TASK_EVENT__ACTION);
+
 		partTaskAnswerEClass = createEClass(PART_TASK_ANSWER);
+		createEAttribute(partTaskAnswerEClass, PART_TASK_ANSWER__INPUT_URI);
 
 		partTaskProposalEClass = createEClass(PART_TASK_PROPOSAL);
+
+		partTaskEventEClass = createEClass(PART_TASK_EVENT);
+		createEAttribute(partTaskEventEClass, PART_TASK_EVENT__INPUT_URI);
 
 		perspectiveTaskAnswerEClass = createEClass(PERSPECTIVE_TASK_ANSWER);
 
@@ -356,11 +434,13 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 
 		// Add supertypes to classes
 		workbenchTaskAnswerEClass.getESuperTypes().add(theExercisePackage.getTaskAnswer());
+		workbenchTaskEventEClass.getESuperTypes().add(theExercisePackage.getTaskEvent());
 		partTaskAnswerEClass.getESuperTypes().add(this.getWorkbenchTaskAnswer());
 		EGenericType g1 = createEGenericType(theExercisePackage.getTaskProposal());
 		EGenericType g2 = createEGenericType(this.getPartTaskAnswer());
 		g1.getETypeArguments().add(g2);
 		partTaskProposalEClass.getEGenericSuperTypes().add(g1);
+		partTaskEventEClass.getESuperTypes().add(this.getWorkbenchTaskEvent());
 		perspectiveTaskAnswerEClass.getESuperTypes().add(this.getWorkbenchTaskAnswer());
 		g1 = createEGenericType(theExercisePackage.getTaskProposal());
 		g2 = createEGenericType(this.getPerspectiveTaskAnswer());
@@ -383,9 +463,17 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		initEAttribute(getWorkbenchTaskAnswer_Action(), ecorePackage.getEString(), "action", null, 0, 1, WorkbenchTaskAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWorkbenchTaskAnswer_Text(), ecorePackage.getEString(), "text", null, 0, 1, WorkbenchTaskAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(workbenchTaskEventEClass, WorkbenchTaskEvent.class, "WorkbenchTaskEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getWorkbenchTaskEvent_ElementId(), ecorePackage.getEString(), "elementId", null, 0, 1, WorkbenchTaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWorkbenchTaskEvent_Action(), ecorePackage.getEString(), "action", null, 0, 1, WorkbenchTaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(partTaskAnswerEClass, PartTaskAnswer.class, "PartTaskAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPartTaskAnswer_InputUri(), ecorePackage.getEString(), "inputUri", null, 0, 1, PartTaskAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(partTaskProposalEClass, PartTaskProposal.class, "PartTaskProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(partTaskEventEClass, PartTaskEvent.class, "PartTaskEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPartTaskEvent_InputUri(), ecorePackage.getEString(), "inputUri", null, 0, 1, PartTaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(perspectiveTaskAnswerEClass, PerspectiveTaskAnswer.class, "PerspectiveTaskAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -82,19 +82,7 @@ public class LineEditorTest extends TestCase {
     for (int i = 0; (i < lineEditor.getRegionCount()); i++) {
       {
         final Region it = lineEditor.getRegion(i);
-        boolean _and = false;
-        int _startPos = it.getStartPos();
-        Integer _get = regions.get((i * 2));
-        boolean _assertEquals = JextestExtensions.operator_assertEquals(_startPos, (_get).intValue());
-        if (!_assertEquals) {
-          _and = false;
-        } else {
-          int _endPos = it.getEndPos();
-          Integer _get_1 = regions.get(((i * 2) + 1));
-          boolean _assertEquals_1 = JextestExtensions.operator_assertEquals(_endPos, (_get_1).intValue());
-          _and = _assertEquals_1;
-        }
-        boolean _not = (!_and);
+        boolean _not = (!(JextestExtensions.operator_assertEquals(it.getStartPos(), (regions.get((i * 2))).intValue()) && JextestExtensions.operator_assertEquals(it.getEndPos(), (regions.get(((i * 2) + 1))).intValue())));
         if (_not) {
           return false;
         }
@@ -104,29 +92,18 @@ public class LineEditorTest extends TestCase {
   }
   
   private boolean operator_assertEquals(final LineEditor lineEditor, final Pair<String, List<Integer>> textRegions) {
-    boolean _and = false;
-    String _string = lineEditor.toString();
-    String _key = textRegions.getKey();
-    boolean _assertEquals = JextestExtensions.operator_assertEquals(_string, _key);
-    if (!_assertEquals) {
-      _and = false;
-    } else {
-      List<Integer> _value = textRegions.getValue();
-      boolean _assertEquals_1 = this.operator_assertEquals(lineEditor, _value);
-      _and = _assertEquals_1;
-    }
-    return _and;
+    return (JextestExtensions.operator_assertEquals(lineEditor.toString(), textRegions.getKey()) && this.operator_assertEquals(lineEditor, textRegions.getValue()));
   }
   
   @JExercise(tests = "LineEditor();LineEditor(String,int,int)", description = "<h3>Konstrukt\u00F8r</h3>Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state();
+    _test__constructor_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "LineEditor();LineEditor(String,int,int)", description = "<h3>toString</h3>Tests \n\t\tinitialization\n")
   public void testToString() {
-    _test__toString_transitions0_effect_state();
+    _test__toString_transitions0_effects0_state();
     
   }
   
@@ -138,7 +115,7 @@ public class LineEditorTest extends TestCase {
     _transition_exprAction__left_transitions0_actions3();
     _transition_exprAction__left_transitions0_actions4();
     _transition_exprAction__left_transitions0_actions5();
-    _test__left_transitions0_effect_state();
+    _test__left_transitions0_effects0_state();
     
   }
   
@@ -150,7 +127,7 @@ public class LineEditorTest extends TestCase {
     _transition_exprAction__right_transitions0_actions3();
     _transition_exprAction__right_transitions0_actions4();
     _transition_exprAction__right_transitions0_actions5();
-    _test__right_transitions0_effect_state();
+    _test__right_transitions0_effects0_state();
     
   }
   
@@ -162,7 +139,7 @@ public class LineEditorTest extends TestCase {
     _transition_exprAction__replaceRegion_transitions0_actions3();
     _transition_exprAction__replaceRegion_transitions0_actions4();
     _transition_exprAction__replaceRegion_transitions0_actions5();
-    _test__replaceRegion_transitions0_effect_state();
+    _test__replaceRegion_transitions0_effects0_state();
     
   }
   
@@ -174,7 +151,7 @@ public class LineEditorTest extends TestCase {
     _transition_exprAction__deleteLeft_transitions0_actions3();
     _transition_exprAction__deleteLeft_transitions0_actions4();
     _transition_exprAction__deleteLeft_transitions0_actions5();
-    _test__deleteLeft_transitions0_effect_state();
+    _test__deleteLeft_transitions0_effects0_state();
     
   }
   
@@ -186,7 +163,7 @@ public class LineEditorTest extends TestCase {
     _transition_exprAction__deleteRight_transitions0_actions3();
     _transition_exprAction__deleteRight_transitions0_actions4();
     _transition_exprAction__deleteRight_transitions0_actions5();
-    _test__deleteRight_transitions0_effect_state();
+    _test__deleteRight_transitions0_effects0_state();
     
   }
   
@@ -198,34 +175,34 @@ public class LineEditorTest extends TestCase {
     _transition_exprAction__insertTag_transitions0_actions3();
     _transition_exprAction__insertTag_transitions0_actions4();
     _transition_exprAction__insertTag_transitions0_actions5();
-    _test__insertTag_transitions0_effect_state();
+    _test__insertTag_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "LineEditor();LineEditor(String,int,int);void insertTag(String);void left(boolean);void replaceRegion(String);void deleteLeft()", description = "<h3>insertTagEdit</h3>Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>regionLeft.insertTag(\"?!\")</li>\n\t\t<li>regionLeft.left(false)</li>\n\t\t<li>regionLeft.replaceRegion(\"xy\")</li>\n\t\t<li>regionLeft.deleteLeft()</li>\n\t\t</ul>\n")
   public void testInsertTagEdit() {
     _transition_exprAction__insertTagEdit_transitions0_actions0();
-    _test__insertTagEdit_transitions0_effect_state();
+    _test__insertTagEdit_transitions0_effects0_state();
     _transition_exprAction__insertTagEdit_transitions1_actions0();
-    _test__insertTagEdit_transitions1_effect_state();
+    _test__insertTagEdit_transitions1_effects0_state();
     _transition_exprAction__insertTagEdit_transitions2_actions0();
-    _test__insertTagEdit_transitions2_effect_state();
+    _test__insertTagEdit_transitions2_effects0_state();
     _transition_exprAction__insertTagEdit_transitions3_actions0();
-    _test__insertTagEdit_transitions3_effect_state();
+    _test__insertTagEdit_transitions3_effects0_state();
     
   }
   
-  private void _test__constructor_transitions0_effect_state() {
-    _test__constructor_transitions0_effect_state_objectTests0_test(empty);
-    _test__constructor_transitions0_effect_state_objectTests1_test(left);
-    _test__constructor_transitions0_effect_state_objectTests2_test(middle);
-    _test__constructor_transitions0_effect_state_objectTests3_test(regionLeft);
-    _test__constructor_transitions0_effect_state_objectTests4_test(regionRight);
-    _test__constructor_transitions0_effect_state_objectTests5_test(right);
+  private void _test__constructor_transitions0_effects0_state() {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(empty);
+    _test__constructor_transitions0_effects0_state_objectTests1_test(left);
+    _test__constructor_transitions0_effects0_state_objectTests2_test(middle);
+    _test__constructor_transitions0_effects0_state_objectTests3_test(regionLeft);
+    _test__constructor_transitions0_effects0_state_objectTests4_test(regionRight);
+    _test__constructor_transitions0_effects0_state_objectTests5_test(right);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final LineEditor it) {
     
     String _text = it.getText();
     assertEquals("text == \"\" failed", "", _text);
@@ -238,7 +215,7 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests1_test(final LineEditor it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests1_test(final LineEditor it) {
     
     String _text = it.getText();
     assertEquals("text == \"Hallvard\" failed", "Hallvard", _text);
@@ -251,7 +228,7 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests2_test(final LineEditor it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests2_test(final LineEditor it) {
     
     String _text = it.getText();
     assertEquals("text == \"Hallvard\" failed", "Hallvard", _text);
@@ -264,7 +241,7 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests3_test(final LineEditor it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests3_test(final LineEditor it) {
     
     String _text = it.getText();
     assertEquals("text == \"Hallvard\" failed", "Hallvard", _text);
@@ -277,7 +254,7 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests4_test(final LineEditor it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests4_test(final LineEditor it) {
     
     String _text = it.getText();
     assertEquals("text == \"Hallvard\" failed", "Hallvard", _text);
@@ -290,7 +267,7 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests5_test(final LineEditor it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests5_test(final LineEditor it) {
     
     String _text = it.getText();
     assertEquals("text == \"Hallvard\" failed", "Hallvard", _text);
@@ -303,12 +280,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__toString_transitions0_effect_state() {
-    _test__toString_transitions0_effect_state_objectTests0_test();
+  private void _test__toString_transitions0_effects0_state() {
+    _test__toString_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__toString_transitions0_effect_state_objectTests0_test() {
+  private void _test__toString_transitions0_effects0_state_objectTests0_test() {
     
     boolean _assertEquals = this.operator_assertEquals(
       this.empty, "|>");
@@ -395,12 +372,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__left_transitions0_effect_state() {
-    _test__left_transitions0_effect_state_objectTests0_test();
+  private void _test__left_transitions0_effects0_state() {
+    _test__left_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__left_transitions0_effect_state_objectTests0_test() {
+  private void _test__left_transitions0_effects0_state_objectTests0_test() {
     
     boolean _assertEquals = this.operator_assertEquals(
       this.empty, "|>");
@@ -487,12 +464,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__right_transitions0_effect_state() {
-    _test__right_transitions0_effect_state_objectTests0_test();
+  private void _test__right_transitions0_effects0_state() {
+    _test__right_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__right_transitions0_effect_state_objectTests0_test() {
+  private void _test__right_transitions0_effects0_state_objectTests0_test() {
     
     boolean _assertEquals = this.operator_assertEquals(
       this.empty, "|>");
@@ -579,12 +556,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__replaceRegion_transitions0_effect_state() {
-    _test__replaceRegion_transitions0_effect_state_objectTests0_test();
+  private void _test__replaceRegion_transitions0_effects0_state() {
+    _test__replaceRegion_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__replaceRegion_transitions0_effect_state_objectTests0_test() {
+  private void _test__replaceRegion_transitions0_effects0_state_objectTests0_test() {
     
     boolean _assertEquals = this.operator_assertEquals(
       this.empty, "?!|>");
@@ -671,12 +648,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__deleteLeft_transitions0_effect_state() {
-    _test__deleteLeft_transitions0_effect_state_objectTests0_test();
+  private void _test__deleteLeft_transitions0_effects0_state() {
+    _test__deleteLeft_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__deleteLeft_transitions0_effect_state_objectTests0_test() {
+  private void _test__deleteLeft_transitions0_effects0_state_objectTests0_test() {
     
     boolean _assertEquals = this.operator_assertEquals(
       this.empty, "|>");
@@ -763,12 +740,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__deleteRight_transitions0_effect_state() {
-    _test__deleteRight_transitions0_effect_state_objectTests0_test();
+  private void _test__deleteRight_transitions0_effects0_state() {
+    _test__deleteRight_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__deleteRight_transitions0_effect_state_objectTests0_test() {
+  private void _test__deleteRight_transitions0_effects0_state_objectTests0_test() {
     
     boolean _assertEquals = this.operator_assertEquals(
       this.empty, "|>");
@@ -855,12 +832,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__insertTag_transitions0_effect_state() {
-    _test__insertTag_transitions0_effect_state_objectTests0_test();
+  private void _test__insertTag_transitions0_effects0_state() {
+    _test__insertTag_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__insertTag_transitions0_effect_state_objectTests0_test() {
+  private void _test__insertTag_transitions0_effects0_state_objectTests0_test() {
     
     Pair<String, List<Integer>> _mappedTo = Pair.<String, List<Integer>>of("|>[0,0:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(0), Integer.valueOf(0))));
     boolean _assertEquals = this.operator_assertEquals(
@@ -903,12 +880,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__insertTagEdit_transitions0_effect_state() {
-    _test__insertTagEdit_transitions0_effect_state_objectTests0_test(regionLeft);
+  private void _test__insertTagEdit_transitions0_effects0_state() {
+    _test__insertTagEdit_transitions0_effects0_state_objectTests0_test(regionLeft);
     
   }
   
-  private void _test__insertTagEdit_transitions0_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__insertTagEdit_transitions0_effects0_state_objectTests0_test(final LineEditor it) {
     
     Pair<String, List<Integer>> _mappedTo = Pair.<String, List<Integer>>of("Hal|lv>ard[3,5:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(5))));
     boolean _assertEquals = this.operator_assertEquals(it, _mappedTo);
@@ -932,12 +909,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__insertTagEdit_transitions1_effect_state() {
-    _test__insertTagEdit_transitions1_effect_state_objectTests0_test(regionLeft);
+  private void _test__insertTagEdit_transitions1_effects0_state() {
+    _test__insertTagEdit_transitions1_effects0_state_objectTests0_test(regionLeft);
     
   }
   
-  private void _test__insertTagEdit_transitions1_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__insertTagEdit_transitions1_effects0_state_objectTests0_test(final LineEditor it) {
     
     Pair<String, List<Integer>> _mappedTo = Pair.<String, List<Integer>>of("Hal|>lvard[3,5:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(5))));
     boolean _assertEquals = this.operator_assertEquals(it, _mappedTo);
@@ -958,12 +935,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__insertTagEdit_transitions2_effect_state() {
-    _test__insertTagEdit_transitions2_effect_state_objectTests0_test(regionLeft);
+  private void _test__insertTagEdit_transitions2_effects0_state() {
+    _test__insertTagEdit_transitions2_effects0_state_objectTests0_test(regionLeft);
     
   }
   
-  private void _test__insertTagEdit_transitions2_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__insertTagEdit_transitions2_effects0_state_objectTests0_test(final LineEditor it) {
     
     Pair<String, List<Integer>> _mappedTo = Pair.<String, List<Integer>>of("Halxy|>lvard[3,7:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(7))));
     boolean _assertEquals = this.operator_assertEquals(it, _mappedTo);
@@ -984,12 +961,12 @@ public class LineEditorTest extends TestCase {
     
   }
   
-  private void _test__insertTagEdit_transitions3_effect_state() {
-    _test__insertTagEdit_transitions3_effect_state_objectTests0_test(regionLeft);
+  private void _test__insertTagEdit_transitions3_effects0_state() {
+    _test__insertTagEdit_transitions3_effects0_state_objectTests0_test(regionLeft);
     
   }
   
-  private void _test__insertTagEdit_transitions3_effect_state_objectTests0_test(final LineEditor it) {
+  private void _test__insertTagEdit_transitions3_effects0_state_objectTests0_test(final LineEditor it) {
     
     Pair<String, List<Integer>> _mappedTo = Pair.<String, List<Integer>>of("Halx|>lvard[3,6:?!>", Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(3), Integer.valueOf(6))));
     boolean _assertEquals = this.operator_assertEquals(it, _mappedTo);
@@ -998,9 +975,5 @@ public class LineEditorTest extends TestCase {
     String _regionText = it.getRegionText(0);
     assertEquals("getRegionText(0) == \"xlv\" failed after regionLeft.deleteLeft()", "xlv", _regionText);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(LineEditorTest.class);
   }
 }

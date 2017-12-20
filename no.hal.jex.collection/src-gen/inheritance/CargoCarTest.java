@@ -24,7 +24,7 @@ public class CargoCarTest extends TestCase {
   public void testCheckWeight() {
     _test__checkWeight_transitions0_source_state(cc);
     _transition_exprAction__checkWeight_transitions0_actions0(cc);
-    _test__checkWeight_transitions0_effect_state(cc);
+    _test__checkWeight_transitions0_effects0_state(cc);
     
   }
   
@@ -50,12 +50,12 @@ public class CargoCarTest extends TestCase {
     
   }
   
-  private void _test__checkWeight_transitions0_effect_state(final CargoCar it) {
-    _test__checkWeight_transitions0_effect_state_objectTests0_test(cc);
+  private void _test__checkWeight_transitions0_effects0_state(final CargoCar it) {
+    _test__checkWeight_transitions0_effects0_state_objectTests0_test(cc);
     
   }
   
-  private void _test__checkWeight_transitions0_effect_state_objectTests0_test(final CargoCar it) {
+  private void _test__checkWeight_transitions0_effects0_state_objectTests0_test(final CargoCar it) {
     
     int _totalWeight = this.cc.getTotalWeight();
     assertEquals("cc.totalWeight == 7000 failed after cc.cargoWeight = 4000", 7000, _totalWeight);
@@ -63,9 +63,5 @@ public class CargoCarTest extends TestCase {
     int _cargoWeight = this.cc.getCargoWeight();
     assertEquals("cc.cargoWeight == 4000 failed after cc.cargoWeight = 4000", 4000, _cargoWeight);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(CargoCarTest.class);
   }
 }

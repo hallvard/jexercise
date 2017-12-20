@@ -104,7 +104,7 @@ public class CardHandTest extends TestCase {
     _transition_exprAction__cardContainer_transitions0_actions0();
     _transition_exprAction__cardContainer_transitions0_actions1();
     _transition_exprAction__cardContainer_transitions0_actions2();
-    _test__cardContainer_transitions0_effect_state();
+    _test__cardContainer_transitions0_effects0_state();
     
   }
   
@@ -113,7 +113,7 @@ public class CardHandTest extends TestCase {
     _transition_exprAction__handIterator_transitions0_actions0();
     _transition_exprAction__handIterator_transitions0_actions1();
     _transition_exprAction__handIterator_transitions0_actions2();
-    _test__handIterator_transitions0_effect_state();
+    _test__handIterator_transitions0_effects0_state();
     
   }
   
@@ -147,12 +147,12 @@ public class CardHandTest extends TestCase {
     
   }
   
-  private void _test__cardContainer_transitions0_effect_state() {
-    _test__cardContainer_transitions0_effect_state_objectTests0_test();
+  private void _test__cardContainer_transitions0_effects0_state() {
+    _test__cardContainer_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__cardContainer_transitions0_effect_state_objectTests0_test() {
+  private void _test__cardContainer_transitions0_effects0_state_objectTests0_test() {
     
     assertTrue("hand ?= expected failed after hand.addCard(s1) ,hand.addCard(c2) ,hand.iterator", this.operator_assertEquals(
       this.hand, this.expected));
@@ -189,20 +189,16 @@ public class CardHandTest extends TestCase {
     
   }
   
-  private void _test__handIterator_transitions0_effect_state() {
-    _test__handIterator_transitions0_effect_state_objectTests0_test();
+  private void _test__handIterator_transitions0_effects0_state() {
+    _test__handIterator_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__handIterator_transitions0_effect_state_objectTests0_test() {
+  private void _test__handIterator_transitions0_effects0_state_objectTests0_test() {
     
     Iterator<Card> _iterator = this.expected.iterator();
     assertTrue("hand ?= expected.iterator failed after hand.addCard(s1) ,hand.addCard(c2) ,hand.iterator", this.operator_assertEquals(
       this.hand, _iterator));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(CardHandTest.class);
   }
 }

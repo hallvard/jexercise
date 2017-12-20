@@ -53,28 +53,28 @@ public class SummingIteratorTest extends TestCase {
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCaseEmpty() {
-    _test__caseEmpty_transitions0_effect_state();
+    _test__caseEmpty_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase1122() {
-    _test__case1122_transitions0_effect_state();
+    _test__case1122_transitions0_effects0_state();
     
   }
   
   @JExercise(description = "Tests \n\t\tinitialization\n")
   public void testCase8613() {
-    _test__case8613_transitions0_effect_state();
+    _test__case8613_transitions0_effects0_state();
     
   }
   
-  private void _test__caseEmpty_transitions0_effect_state() {
-    _test__caseEmpty_transitions0_effect_state_objectTests0_test();
+  private void _test__caseEmpty_transitions0_effects0_state() {
+    _test__caseEmpty_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__caseEmpty_transitions0_effect_state_objectTests0_test() {
+  private void _test__caseEmpty_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList()), Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList()));
@@ -84,12 +84,12 @@ public class SummingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case1122_transitions0_effect_state() {
-    _test__case1122_transitions0_effect_state_objectTests0_test();
+  private void _test__case1122_transitions0_effects0_state() {
+    _test__case1122_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case1122_transitions0_effect_state_objectTests0_test() {
+  private void _test__case1122_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(1))), Collections.<Integer>unmodifiableList(CollectionLiterals.<Integer>newArrayList(Integer.valueOf(2))), 3);
@@ -99,12 +99,12 @@ public class SummingIteratorTest extends TestCase {
     
   }
   
-  private void _test__case8613_transitions0_effect_state() {
-    _test__case8613_transitions0_effect_state_objectTests0_test();
+  private void _test__case8613_transitions0_effects0_state() {
+    _test__case8613_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__case8613_transitions0_effect_state_objectTests0_test() {
+  private void _test__case8613_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.testIterator(this.list86, this.list13, 9, 9, 9);
@@ -112,9 +112,5 @@ public class SummingIteratorTest extends TestCase {
       fail("testIterator(list86, list13, 9, 9, 9) failed: " + error.getMessage());
     }
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(SummingIteratorTest.class);
   }
 }

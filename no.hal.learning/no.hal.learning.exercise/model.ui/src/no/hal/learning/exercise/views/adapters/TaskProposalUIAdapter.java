@@ -1,5 +1,6 @@
 package no.hal.learning.exercise.views.adapters;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.swt.SWT;
@@ -12,6 +13,7 @@ import no.hal.learning.exercise.ExercisePackage;
 import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
+import no.hal.learning.exercise.plugin.TaskEventsCopier;
 
 public abstract class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjectUIAdapterImpl<TaskProposal<A>, Composite> implements ProposalUIAdapter<TaskProposal<A>, Composite> {
 
@@ -48,6 +50,8 @@ public abstract class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjec
 	
 	protected abstract EObjectUIAdapter<?, ?>[] createSubAdapters();
 
+	private TaskEventsCopier adapter;
+	
 	@Override
 	public Composite initView(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
@@ -59,6 +63,10 @@ public abstract class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjec
 			uiAdapter.initView(composite);
 		}
 		setView(composite);
+		if (! getAdapterHelper().isReadOnly(this)) {
+			adapter = new TaskEventsCopier(getProposal());
+			adapter.startCopying(true);
+		}
 		return composite;
 	}
 
@@ -67,6 +75,14 @@ public abstract class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjec
 		for (int i = 0; i < subAdapters.length; i++) {
 			subAdapters[i].updateView();
 		}
+	}
+
+	@Override
+	public void dispose() {
+		if (adapter != null) {
+			adapter.stopCopying();			
+		}
+		super.dispose();
 	}
 
 	@Override
@@ -86,18 +102,29 @@ public abstract class TaskProposalUIAdapter<A extends TaskAnswer> extends EObjec
 		return acceptQName(answerElement, qName);
 	}
 
+	private boolean isPattern(String answerElement) {
+		return answerElement.contains("*");
+	}
+	
+	protected boolean acceptPath(String answerElement, IPath path) {
+		if (isPattern(answerElement)) {
+			return (path != null ? matchPathPattern(answerElement, path) : false);
+		}
+		return answerElement.equals(path);
+	}
+	
+	private boolean matchPathPattern(String answerElement, IPath path) {
+		return path.toString().matches(answerElement.replace(".", "\\.").replace("/", "\\/").replace("*", ".*"));
+	}
+
 	protected boolean acceptQName(String answerElement, String qName) {
 		if (isPattern(answerElement)) {
-			return (qName != null ? matchPattern(answerElement, qName) : false);
+			return (qName != null ? matchQNamePattern(answerElement, qName) : false);
 		}
 		return answerElement.equals(qName);
 	}
 	
-	private boolean isPattern(String answerElement) {
-		return answerElement.contains("*");
-	}
-
-	private boolean matchPattern(String answerElement, String qName) {
+	private boolean matchQNamePattern(String answerElement, String qName) {
 		return qName.matches(answerElement.replace(".", "\\.").replace("*", ".*"));
 	}
 }

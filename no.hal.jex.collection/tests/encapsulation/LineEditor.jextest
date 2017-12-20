@@ -1,0 +1,187 @@
+test class encapsulation.LineEditor {
+	String getText()
+	void setText(String s)
+	int getInsertionIndex()
+	void setInsertionIndex(int i)
+
+	void left()
+	void right()
+	
+	void deleteLeft()
+	void deleteRight()
+	
+	void insertString(String s)
+}
+
+sequence lineEditor {
+	-->
+	state {
+		text == ""
+		insertionIndex 0
+	}
+}
+
+sequence getSetText {
+	instance String s = "ABC"
+	-- text = "ABC" -->
+	state {
+		text = s
+		insertionIndex = s.length
+	}
+	-- text = "" -->
+	state {
+		text = ""
+		insertionIndex = 0
+	}
+}
+
+sequence getSetInsertionIndex {
+	instance String s = "ABC"
+	-- text = "ABC" -->
+	state {
+		text = s
+		insertionIndex = s.length
+	}
+	-- insertionIndex = 0 -->
+	state {
+		text = s
+		insertionIndex = 0
+	}
+	-- insertionIndex = 3 -->
+	state {
+		text = s
+		insertionIndex = 3
+	}
+	-- insertionIndex = -1 throws IllegalArgumentException
+	-- insertionIndex = 4 throws IllegalArgumentException
+}
+
+sequence left {
+	-- text = "Ja", insertionIndex = 2, left -->
+	state {
+		text = "Ja"
+		insertionIndex = 1
+	}
+	-- left -->
+	state {
+		text = "Ja"
+		insertionIndex = 0
+	}
+	-- left -->
+	state "Calling left() when the insertion index is at the beginning of the string should be ignored." {
+		text = "Ja"
+		insertionIndex = 0
+	}
+}
+
+sequence right {
+	-- text = "Ja", insertionIndex = 0, right -->
+	state {
+		text = "Ja"
+		insertionIndex = 1
+	}
+	-- right -->
+	state {
+		text = "Ja"
+		insertionIndex = 2
+	}
+	-- right -->
+	state "Calling right() when the insertion index is at the end of the string should be ignored." {
+		text = "Ja"
+		insertionIndex = 0
+	}
+}
+
+sequence deleteLeft {
+	-- text = "Ja", insertionIndex = 0, deleteLeft -->
+	state {
+		text = "Ja"
+		insertionIndex = 0
+	}
+	-- insertionIndex = 1, deleteLeft -->
+	state {
+		text = "a"
+		insertionIndex = 0
+	}
+	-- deleteLeft -->
+	state {
+		text = "a"
+		insertionIndex = 0
+	}
+	-- text = "Ja", insertionIndex = 2, deleteLeft -->
+	state {
+		text = "J"
+		insertionIndex = 1
+	}
+	-- deleteLeft -->
+	state {
+		text = ""
+		insertionIndex = 0
+	}
+	-- deleteLeft -->
+	state {
+		text = ""
+		insertionIndex = 0
+	}	
+}
+
+sequence deleteRight {
+	-- text = "Ja", insertionIndex = 2, deleteRight -->
+	state {
+		text = "Ja"
+		insertionIndex = 2
+	}
+	-- insertionIndex = 1, deleteRight -->
+	state {
+		text = "J"
+		insertionIndex = 1
+	}
+	-- deleteRight -->
+	state {
+		text = "J"
+		insertionIndex = 1
+	}
+	-- text = "Ja", insertionIndex = 0, deleteRight -->
+	state {
+		text = "a"
+		insertionIndex = 0
+	}
+	-- deleteRight -->
+	state {
+		text = ""
+		insertionIndex = 0
+	}
+	-- deleteRight -->
+	state {
+		text = ""
+		insertionIndex = 0
+	}
+}
+
+sequence insertString {
+	-- insertString("") -->
+	state {
+		text = ""
+		insertionIndex = 0
+	}
+	-- insertString("Java") -->
+	state {
+		text = "Java"
+		insertionIndex = 4
+	}
+	-- insertString(" er gøy!") -->
+	state {
+		text = "Java er gøy!"
+		insertionIndex = 12
+	}
+	-- text = "Javagøy!", insertionIndex = 4, insertString(" er ") -->
+	state {
+		text = "Java er gøy!"
+		insertionIndex = 8
+	}
+	-- text = "er gøy!", insertionIndex = 0, insertString("Java ") -->
+	state {
+		text = "Java er gøy!"
+		insertionIndex = 5
+	}
+}

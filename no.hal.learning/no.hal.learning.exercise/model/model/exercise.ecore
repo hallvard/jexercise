@@ -86,6 +86,9 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskAnswer" eSuperTypes="#//Answer">
+    <eOperations name="acceptEvent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="event" eType="#//TaskEvent"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskProposal">
@@ -93,6 +96,9 @@
       <eBounds eClassifier="#//TaskAnswer"/>
     </eTypeParameters>
     <eOperations name="getText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="addTaskEvent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="taskEvent" eType="#//TaskEvent"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="completion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="-1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="proof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

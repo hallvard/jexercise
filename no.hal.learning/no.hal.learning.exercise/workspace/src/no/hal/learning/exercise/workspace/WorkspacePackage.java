@@ -6,6 +6,7 @@ import no.hal.learning.exercise.ExercisePackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
 /**
@@ -120,6 +121,15 @@ public interface WorkspacePackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE_FILE_EDIT_ANSWER___CREATE_PROPOSAL = ExercisePackage.STRING_EDIT_ANSWER___CREATE_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FILE_EDIT_ANSWER___ACCEPT_EVENT__TASKEVENT = ExercisePackage.STRING_EDIT_ANSWER___ACCEPT_EVENT__TASKEVENT;
 
 	/**
 	 * The operation id for the '<em>Get Editor Path</em>' operation.
@@ -258,6 +268,15 @@ public interface WorkspacePackage extends EPackage {
 	int SOURCE_FILE_EDIT_PROPOSAL___GET_TEXT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL___GET_TEXT;
 
 	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FILE_EDIT_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = ExercisePackage.STRING_EDIT_TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Source File Edit Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,13 +341,22 @@ public interface WorkspacePackage extends EPackage {
 	int SOURCE_FILE_EDIT_EVENT__MARKERS = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT__MARKERS;
 
 	/**
+	 * The feature id for the '<em><b>Resource Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_FILE_EDIT_EVENT__RESOURCE_PATH = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Source Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FILE_EDIT_EVENT__SOURCE_CODE = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 0;
+	int SOURCE_FILE_EDIT_EVENT__SOURCE_CODE = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Size Measure</b></em>' attribute.
@@ -337,7 +365,7 @@ public interface WorkspacePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FILE_EDIT_EVENT__SIZE_MEASURE = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 1;
+	int SOURCE_FILE_EDIT_EVENT__SIZE_MEASURE = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Error Count</b></em>' attribute.
@@ -346,7 +374,7 @@ public interface WorkspacePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FILE_EDIT_EVENT__ERROR_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 2;
+	int SOURCE_FILE_EDIT_EVENT__ERROR_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Warning Count</b></em>' attribute.
@@ -355,7 +383,7 @@ public interface WorkspacePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FILE_EDIT_EVENT__WARNING_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 3;
+	int SOURCE_FILE_EDIT_EVENT__WARNING_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Source File Edit Event</em>' class.
@@ -364,7 +392,7 @@ public interface WorkspacePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 4;
+	int SOURCE_FILE_EDIT_EVENT_FEATURE_COUNT = ExercisePackage.ABSTRACT_STRING_EDIT_EVENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Feature Names</em>' operation.
@@ -522,6 +550,15 @@ public interface WorkspacePackage extends EPackage {
 	int LAUNCH_ANSWER___CREATE_PROPOSAL = ExercisePackage.TASK_ANSWER___CREATE_PROPOSAL;
 
 	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_ANSWER___ACCEPT_EVENT__TASKEVENT = ExercisePackage.TASK_ANSWER___ACCEPT_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Launch Answer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -649,6 +686,15 @@ public interface WorkspacePackage extends EPackage {
 	int LAUNCH_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
 
 	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = ExercisePackage.TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Launch Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -704,13 +750,49 @@ public interface WorkspacePackage extends EPackage {
 	int LAUNCH_EVENT__MODE = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Launch Attr Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT__LAUNCH_ATTR_NAMES = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Launch Attr Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT__LAUNCH_ATTR_VALUES = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Console Output</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT__CONSOLE_OUTPUT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Console Output Size Measure</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT__CONSOLE_OUTPUT_SIZE_MEASURE = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Launch Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LAUNCH_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 1;
+	int LAUNCH_EVENT_FEATURE_COUNT = ExercisePackage.TASK_EVENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Feature Names</em>' operation.
@@ -758,13 +840,22 @@ public interface WorkspacePackage extends EPackage {
 	int LAUNCH_EVENT___GET_TEXT = ExercisePackage.TASK_EVENT___GET_TEXT;
 
 	/**
+	 * The operation id for the '<em>Get All Console Output</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAUNCH_EVENT___GET_ALL_CONSOLE_OUTPUT = ExercisePackage.TASK_EVENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Launch Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LAUNCH_EVENT_OPERATION_COUNT = ExercisePackage.TASK_EVENT_OPERATION_COUNT + 0;
+	int LAUNCH_EVENT_OPERATION_COUNT = ExercisePackage.TASK_EVENT_OPERATION_COUNT + 1;
 
 
 	/**
@@ -807,6 +898,17 @@ public interface WorkspacePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSourceFileEditEvent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.workspace.SourceFileEditEvent#getResourcePath <em>Resource Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resource Path</em>'.
+	 * @see no.hal.learning.exercise.workspace.SourceFileEditEvent#getResourcePath()
+	 * @see #getSourceFileEditEvent()
+	 * @generated
+	 */
+	EAttribute getSourceFileEditEvent_ResourcePath();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.workspace.SourceFileEditEvent#getSourceCode <em>Source Code</em>}'.
@@ -927,6 +1029,60 @@ public interface WorkspacePackage extends EPackage {
 	EAttribute getLaunchEvent_Mode();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.workspace.LaunchEvent#getLaunchAttrNames <em>Launch Attr Names</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Launch Attr Names</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchEvent#getLaunchAttrNames()
+	 * @see #getLaunchEvent()
+	 * @generated
+	 */
+	EAttribute getLaunchEvent_LaunchAttrNames();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.workspace.LaunchEvent#getLaunchAttrValues <em>Launch Attr Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Launch Attr Values</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchEvent#getLaunchAttrValues()
+	 * @see #getLaunchEvent()
+	 * @generated
+	 */
+	EAttribute getLaunchEvent_LaunchAttrValues();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link no.hal.learning.exercise.workspace.LaunchEvent#getConsoleOutput <em>Console Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Console Output</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchEvent#getConsoleOutput()
+	 * @see #getLaunchEvent()
+	 * @generated
+	 */
+	EAttribute getLaunchEvent_ConsoleOutput();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.hal.learning.exercise.workspace.LaunchEvent#getConsoleOutputSizeMeasure <em>Console Output Size Measure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Console Output Size Measure</em>'.
+	 * @see no.hal.learning.exercise.workspace.LaunchEvent#getConsoleOutputSizeMeasure()
+	 * @see #getLaunchEvent()
+	 * @generated
+	 */
+	EAttribute getLaunchEvent_ConsoleOutputSizeMeasure();
+
+	/**
+	 * Returns the meta object for the '{@link no.hal.learning.exercise.workspace.LaunchEvent#getAllConsoleOutput() <em>Get All Console Output</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Console Output</em>' operation.
+	 * @see no.hal.learning.exercise.workspace.LaunchEvent#getAllConsoleOutput()
+	 * @generated
+	 */
+	EOperation getLaunchEvent__GetAllConsoleOutput();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -986,6 +1142,14 @@ public interface WorkspacePackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOURCE_FILE_EDIT_EVENT = eINSTANCE.getSourceFileEditEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOURCE_FILE_EDIT_EVENT__RESOURCE_PATH = eINSTANCE.getSourceFileEditEvent_ResourcePath();
 
 		/**
 		 * The meta object literal for the '<em><b>Source Code</b></em>' attribute feature.
@@ -1080,6 +1244,46 @@ public interface WorkspacePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LAUNCH_EVENT__MODE = eINSTANCE.getLaunchEvent_Mode();
+
+		/**
+		 * The meta object literal for the '<em><b>Launch Attr Names</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAUNCH_EVENT__LAUNCH_ATTR_NAMES = eINSTANCE.getLaunchEvent_LaunchAttrNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Launch Attr Values</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAUNCH_EVENT__LAUNCH_ATTR_VALUES = eINSTANCE.getLaunchEvent_LaunchAttrValues();
+
+		/**
+		 * The meta object literal for the '<em><b>Console Output</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAUNCH_EVENT__CONSOLE_OUTPUT = eINSTANCE.getLaunchEvent_ConsoleOutput();
+
+		/**
+		 * The meta object literal for the '<em><b>Console Output Size Measure</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LAUNCH_EVENT__CONSOLE_OUTPUT_SIZE_MEASURE = eINSTANCE.getLaunchEvent_ConsoleOutputSizeMeasure();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Console Output</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation LAUNCH_EVENT___GET_ALL_CONSOLE_OUTPUT = eINSTANCE.getLaunchEvent__GetAllConsoleOutput();
 
 	}
 

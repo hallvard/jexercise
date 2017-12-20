@@ -75,6 +75,19 @@
          		</derived>
          	</expressions>
          </metricsViewProvider>
+         <metricsViewProvider name="Member declarations">
+         	<expressions
+         		expressions="PrivateFields=FieldDeclaration_private
+         					PublicFields=FieldDeclaration_public
+         					PublicMethods=MethodDeclaration_public
+         					PrivateMethods=MethodDeclaration_private">
+         		<derived>
+         			<constant names="FieldDeclaration_private FieldDeclaration_public
+         							MethodDeclaration_public MethodDeclaration_private"/>
+	                <features ref="tokenCounters"/>
+         		</derived>
+         	</expressions>
+         </metricsViewProvider>
    </extension>
 
 </plugin>

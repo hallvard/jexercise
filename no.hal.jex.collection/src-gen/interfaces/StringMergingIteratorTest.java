@@ -56,16 +56,16 @@ public class StringMergingIteratorTest extends TestCase {
     StringMergingIterator mergingIterator = _init__mergeLists_mergingIterator();
     _transition_exprAction__mergeLists_transitions0_actions0(mergingIterator);
     _transition_exprAction__mergeLists_transitions0_actions1(mergingIterator);
-    _test__mergeLists_transitions0_effect_state(mergingIterator);
+    _test__mergeLists_transitions0_effects0_state(mergingIterator);
     _transition_exprAction__mergeLists_transitions1_actions0(mergingIterator);
     _transition_exprAction__mergeLists_transitions1_actions1(mergingIterator);
-    _test__mergeLists_transitions1_effect_state(mergingIterator);
+    _test__mergeLists_transitions1_effects0_state(mergingIterator);
     _transition_exprAction__mergeLists_transitions2_actions0(mergingIterator);
     _transition_exprAction__mergeLists_transitions2_actions1(mergingIterator);
-    _test__mergeLists_transitions2_effect_state(mergingIterator);
+    _test__mergeLists_transitions2_effects0_state(mergingIterator);
     _transition_exprAction__mergeLists_transitions3_actions0(mergingIterator);
     _transition_exprAction__mergeLists_transitions3_actions1(mergingIterator);
-    _test__mergeLists_transitions3_effect_state(mergingIterator);
+    _test__mergeLists_transitions3_effects0_state(mergingIterator);
     
   }
   
@@ -74,17 +74,17 @@ public class StringMergingIteratorTest extends TestCase {
     StringMergingIterator mergingIterator = _init__mergeOneEmpty_mergingIterator();
     _transition_exprAction__mergeOneEmpty_transitions0_actions0(mergingIterator);
     _transition_exprAction__mergeOneEmpty_transitions0_actions1(mergingIterator);
-    _test__mergeOneEmpty_transitions0_effect_state(mergingIterator);
+    _test__mergeOneEmpty_transitions0_effects0_state(mergingIterator);
     _transition_exprAction__mergeOneEmpty_transitions1_actions0(mergingIterator);
     _transition_exprAction__mergeOneEmpty_transitions1_actions1(mergingIterator);
-    _test__mergeOneEmpty_transitions1_effect_state(mergingIterator);
+    _test__mergeOneEmpty_transitions1_effects0_state(mergingIterator);
     
   }
   
   @JExercise(tests = "StringMergingIterator(java.util.Iterator<String>,java.util.Iterator<String>)", description = "Tests \n\t\tinitialization\n")
   public void testMergeBothEmpty() {
     StringMergingIterator mergingIterator = _init__mergeBothEmpty_mergingIterator();
-    _test__mergeBothEmpty_transitions0_effect_state(mergingIterator);
+    _test__mergeBothEmpty_transitions0_effects0_state(mergingIterator);
     
   }
   
@@ -110,12 +110,12 @@ public class StringMergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__mergeLists_transitions0_effect_state(final StringMergingIterator mergingIterator) {
-    _test__mergeLists_transitions0_effect_state_objectTests0_test(mergingIterator);
+  private void _test__mergeLists_transitions0_effects0_state(final StringMergingIterator mergingIterator) {
+    _test__mergeLists_transitions0_effects0_state_objectTests0_test(mergingIterator);
     
   }
   
-  private void _test__mergeLists_transitions0_effect_state_objectTests0_test(final StringMergingIterator mergingIterator) {
+  private void _test__mergeLists_transitions0_effects0_state_objectTests0_test(final StringMergingIterator mergingIterator) {
     
     assertTrue("mergingIterator.hasNext failed after mergingIterator.hasNext ,mergingIterator.next==\"a\"", mergingIterator.hasNext());
     
@@ -138,12 +138,12 @@ public class StringMergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__mergeLists_transitions1_effect_state(final StringMergingIterator mergingIterator) {
-    _test__mergeLists_transitions1_effect_state_objectTests0_test(mergingIterator);
+  private void _test__mergeLists_transitions1_effects0_state(final StringMergingIterator mergingIterator) {
+    _test__mergeLists_transitions1_effects0_state_objectTests0_test(mergingIterator);
     
   }
   
-  private void _test__mergeLists_transitions1_effect_state_objectTests0_test(final StringMergingIterator mergingIterator) {
+  private void _test__mergeLists_transitions1_effects0_state_objectTests0_test(final StringMergingIterator mergingIterator) {
     
     assertTrue("mergingIterator.hasNext failed after mergingIterator.hasNext ,mergingIterator.next==\"c\"", mergingIterator.hasNext());
     
@@ -166,12 +166,12 @@ public class StringMergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__mergeLists_transitions2_effect_state(final StringMergingIterator mergingIterator) {
-    _test__mergeLists_transitions2_effect_state_objectTests0_test(mergingIterator);
+  private void _test__mergeLists_transitions2_effects0_state(final StringMergingIterator mergingIterator) {
+    _test__mergeLists_transitions2_effects0_state_objectTests0_test(mergingIterator);
     
   }
   
-  private void _test__mergeLists_transitions2_effect_state_objectTests0_test(final StringMergingIterator mergingIterator) {
+  private void _test__mergeLists_transitions2_effects0_state_objectTests0_test(final StringMergingIterator mergingIterator) {
     
     assertTrue("mergingIterator.hasNext failed after mergingIterator.hasNext ,mergingIterator.next==\"b\"", mergingIterator.hasNext());
     
@@ -194,12 +194,12 @@ public class StringMergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__mergeLists_transitions3_effect_state(final StringMergingIterator mergingIterator) {
-    _test__mergeLists_transitions3_effect_state_objectTests0_test(mergingIterator);
+  private void _test__mergeLists_transitions3_effects0_state(final StringMergingIterator mergingIterator) {
+    _test__mergeLists_transitions3_effects0_state_objectTests0_test(mergingIterator);
     
   }
   
-  private void _test__mergeLists_transitions3_effect_state_objectTests0_test(final StringMergingIterator mergingIterator) {
+  private void _test__mergeLists_transitions3_effects0_state_objectTests0_test(final StringMergingIterator mergingIterator) {
     
     boolean _hasNext = mergingIterator.hasNext();
     assertTrue("! mergingIterator.hasNext failed after mergingIterator.hasNext ,mergingIterator.next==\"d\"", (!_hasNext));
@@ -228,12 +228,12 @@ public class StringMergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__mergeOneEmpty_transitions0_effect_state(final StringMergingIterator mergingIterator) {
-    _test__mergeOneEmpty_transitions0_effect_state_objectTests0_test(mergingIterator);
+  private void _test__mergeOneEmpty_transitions0_effects0_state(final StringMergingIterator mergingIterator) {
+    _test__mergeOneEmpty_transitions0_effects0_state_objectTests0_test(mergingIterator);
     
   }
   
-  private void _test__mergeOneEmpty_transitions0_effect_state_objectTests0_test(final StringMergingIterator mergingIterator) {
+  private void _test__mergeOneEmpty_transitions0_effects0_state_objectTests0_test(final StringMergingIterator mergingIterator) {
     
     assertTrue("mergingIterator.hasNext failed after mergingIterator.hasNext ,mergingIterator.next==\"a\"", mergingIterator.hasNext());
     
@@ -256,12 +256,12 @@ public class StringMergingIteratorTest extends TestCase {
     
   }
   
-  private void _test__mergeOneEmpty_transitions1_effect_state(final StringMergingIterator mergingIterator) {
-    _test__mergeOneEmpty_transitions1_effect_state_objectTests0_test(mergingIterator);
+  private void _test__mergeOneEmpty_transitions1_effects0_state(final StringMergingIterator mergingIterator) {
+    _test__mergeOneEmpty_transitions1_effects0_state_objectTests0_test(mergingIterator);
     
   }
   
-  private void _test__mergeOneEmpty_transitions1_effect_state_objectTests0_test(final StringMergingIterator mergingIterator) {
+  private void _test__mergeOneEmpty_transitions1_effects0_state_objectTests0_test(final StringMergingIterator mergingIterator) {
     
     boolean _hasNext = mergingIterator.hasNext();
     assertTrue("! mergingIterator.hasNext failed after mergingIterator.hasNext ,mergingIterator.next==\"b\"", (!_hasNext));
@@ -273,19 +273,15 @@ public class StringMergingIteratorTest extends TestCase {
     return _stringMergingIterator;
   }
   
-  private void _test__mergeBothEmpty_transitions0_effect_state(final StringMergingIterator mergingIterator) {
-    _test__mergeBothEmpty_transitions0_effect_state_objectTests0_test(mergingIterator);
+  private void _test__mergeBothEmpty_transitions0_effects0_state(final StringMergingIterator mergingIterator) {
+    _test__mergeBothEmpty_transitions0_effects0_state_objectTests0_test(mergingIterator);
     
   }
   
-  private void _test__mergeBothEmpty_transitions0_effect_state_objectTests0_test(final StringMergingIterator mergingIterator) {
+  private void _test__mergeBothEmpty_transitions0_effects0_state_objectTests0_test(final StringMergingIterator mergingIterator) {
     
     boolean _hasNext = mergingIterator.hasNext();
     assertTrue("! mergingIterator.hasNext failed", (!_hasNext));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(StringMergingIteratorTest.class);
   }
 }

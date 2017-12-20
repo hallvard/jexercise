@@ -14,16 +14,21 @@ Export-Package: difflib,
  no.hal.learning.diff.util,
  no.hal.learning.exercise,
  no.hal.learning.exercise.impl,
+ no.hal.learning.exercise.plugin,
  no.hal.learning.exercise.util,
- no.hal.learning.quiz,
- no.hal.learning.quiz.impl,
- no.hal.learning.quiz.util,
  no.hal.learning.fv,
  no.hal.learning.fv.impl,
- no.hal.learning.fv.util
+ no.hal.learning.fv.util,
+ no.hal.learning.quiz,
+ no.hal.learning.quiz.impl,
+ no.hal.learning.quiz.util
 Require-Bundle: org.eclipse.core.runtime;resolution:=optional,
+ org.eclipse.core.resources;bundle-version="3.11.0",
  org.eclipse.emf.ecore;visibility:=reexport,
  no.hal.learning.exercise.model;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- exp4j;bundle-version="0.4.6"
+ org.eclipse.emf.edit;bundle-version="2.12.0",
+ exp4j;bundle-version="0.4.6",
+ org.eclipse.equinox.util;bundle-version="1.0.500"
 Bundle-ActivationPolicy: lazy
+Bundle-Activator: no.hal.learning.exercise.plugin.Activator

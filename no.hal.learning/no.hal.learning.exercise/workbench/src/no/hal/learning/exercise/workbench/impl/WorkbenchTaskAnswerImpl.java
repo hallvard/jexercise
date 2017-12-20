@@ -2,9 +2,12 @@
  */
 package no.hal.learning.exercise.workbench.impl;
 
+import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.impl.TaskAnswerImpl;
+import no.hal.learning.exercise.util.Util;
 import no.hal.learning.exercise.workbench.WorkbenchPackage;
 import no.hal.learning.exercise.workbench.WorkbenchTaskAnswer;
+import no.hal.learning.exercise.workbench.WorkbenchTaskEvent;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -266,6 +269,18 @@ public class WorkbenchTaskAnswerImpl extends TaskAnswerImpl implements Workbench
 		result.append(text);
 		result.append(')');
 		return result.toString();
+	}
+
+	//
+
+	@Override
+	public boolean acceptEvent(TaskEvent event) {
+		if (! (event instanceof WorkbenchTaskEvent)) {
+			return false;
+		}
+		WorkbenchTaskEvent taskEvent = (WorkbenchTaskEvent) event;
+		return Util.acceptQName(getElementId(), taskEvent.getElementId())
+				&& Util.acceptQName(getAction(), taskEvent.getAction());
 	}
 
 } //WorkbenchElementAnswerImpl

@@ -49,6 +49,11 @@ public abstract class AbstractEObjectView extends ViewPart {
 	protected abstract EObject getCurrentEObject();
 	protected abstract Composite getCurrentComposite();
 
+	@Override
+	public void setFocus() {
+		getCurrentComposite().setFocus();
+	}
+
 	private Collection<IAction> viewerActions = null;
 	
 	private class SwitchViewerAction extends Action {
@@ -97,7 +102,7 @@ public abstract class AbstractEObjectView extends ViewPart {
 			getViewSite().getActionBars().getToolBarManager().add(action);
 		}
 	}
-	
+
 	protected Composite createEObjectComposite(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		composite.setLayout(new StackLayout());

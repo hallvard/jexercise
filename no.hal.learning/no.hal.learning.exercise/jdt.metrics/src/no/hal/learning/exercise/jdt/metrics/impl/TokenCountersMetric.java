@@ -9,11 +9,13 @@ import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.BodyDeclaration;
 import org.eclipse.jdt.core.dom.InfixExpression;
+import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.PostfixExpression;
 import org.eclipse.jdt.core.dom.PrefixExpression;
 
 import no.hal.learning.exercise.jdt.metrics.AbstractASTMetricsProvider;
 import no.hal.learning.fv.FeatureList;
+import no.hal.learning.fv.FeatureValued;
 
 public class TokenCountersMetric extends AbstractASTMetricsProvider {
 
@@ -66,14 +68,20 @@ public class TokenCountersMetric extends AbstractASTMetricsProvider {
 		this.counting = counting;
 	}
 	
-	private boolean countingOperators = true;
+	private boolean countingOperators = true, countingModifiers = true;
 	
 	public boolean isCountingOperators() {
 		return countingOperators;
 	}
-	
 	public void setCountingOperators(boolean countingOperators) {
 		this.countingOperators = countingOperators;
+	}
+
+	public boolean isCountingModifiers() {
+		return countingModifiers;
+	}
+	public void setCountingModifiers(boolean countingModifiers) {
+		this.countingModifiers = countingModifiers;
 	}
 
 	protected class TokenVisitor extends ASTVisitor {
@@ -85,13 +93,21 @@ public class TokenCountersMetric extends AbstractASTMetricsProvider {
 		}
 		@Override
 		public void postVisit(ASTNode node) {
+			if (shouldCount(node)) {
+				count(node);
+			}
 			if (node instanceof BodyDeclaration) {
 				setCounting(false);
-			} else if (shouldCount(node)) {
-				count(node);
 			}
 		}
 
+		@Override
+		public boolean visit(Modifier modifier) {
+			if (isCountingModifiers() && shouldCount(modifier)) {
+				count(getNodeKey(modifier.getParent()) + "." + modifier.getKeyword());
+			}
+			return true;
+		}
 		@Override
 		public boolean visit(PrefixExpression expr) {
 			if (isCountingOperators() && shouldCount(expr)) {
@@ -145,7 +161,7 @@ public class TokenCountersMetric extends AbstractASTMetricsProvider {
 	}
 
 	@Override
-	protected FeatureList computeMetricsUsingAST(ASTNode ast) {
+	protected FeatureValued computeMetricsUsingAST(ASTNode ast) {
 		if (this.counters == null) {
 			this.counters = new HashMap<String, Integer>();
 		} else {
@@ -155,11 +171,11 @@ public class TokenCountersMetric extends AbstractASTMetricsProvider {
 		return createFeatureList(counters);
 	}
 
-	private FeatureList createFeatureList(Map<String, Integer> counters) {
-		FeatureList fv = createFeatureList("tokens");
+	private FeatureValued createFeatureList(Map<String, Integer> counters) {
+		FeatureList fv = createFeatureList();
 		for (Map.Entry<String, Integer> counter : counters.entrySet()) {
 			fv.getFeatures().put(counter.getKey(), counter.getValue().doubleValue());
 		}
-		return fv;
+		return createNamedFeatures("tokens", fv);
 	}
 }

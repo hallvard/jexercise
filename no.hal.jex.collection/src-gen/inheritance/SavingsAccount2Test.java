@@ -24,14 +24,14 @@ public class SavingsAccount2Test extends TestCase {
   public void testDeposit() {
     _test__deposit_transitions0_source_state(sub);
     _transition_exprAction__deposit_transitions0_actions0(sub);
-    _test__deposit_transitions0_effect_state(sub);
+    _test__deposit_transitions0_effects0_state(sub);
     try {
       _transition_exprAction__deposit_transitions1_actions0(sub);
       fail("IllegalArgumentException should be thrown after deposit(-10000.0)");
     } catch (Exception e) {
       assertTrue("IllegalArgumentException should be thrown after deposit(-10000.0)", e instanceof IllegalArgumentException);
     }
-    _test__deposit_transitions2_effect_state(sub);
+    _test__deposit_transitions2_effects0_state(sub);
     
   }
   
@@ -39,30 +39,30 @@ public class SavingsAccount2Test extends TestCase {
   public void testWithdraw() {
     _transition_exprAction__withdraw_transitions0_actions0(sub);
     _transition_exprAction__withdraw_transitions0_actions1(sub);
-    _test__withdraw_transitions0_effect_state(sub);
+    _test__withdraw_transitions0_effects0_state(sub);
     try {
       _transition_exprAction__withdraw_transitions1_actions0(sub);
       fail("IllegalArgumentException should be thrown after withdraw(-10000.0)");
     } catch (Exception e) {
       assertTrue("IllegalArgumentException should be thrown after withdraw(-10000.0)", e instanceof IllegalArgumentException);
     }
-    _test__withdraw_transitions2_effect_state(sub);
+    _test__withdraw_transitions2_effects0_state(sub);
     try {
       _transition_exprAction__withdraw_transitions3_actions0(sub);
       fail("IllegalStateException should be thrown after withdraw(20000.0)");
     } catch (Exception e_1) {
       assertTrue("IllegalStateException should be thrown after withdraw(20000.0)", e_1 instanceof IllegalStateException);
     }
-    _test__withdraw_transitions4_effect_state(sub);
+    _test__withdraw_transitions4_effects0_state(sub);
     _transition_exprAction__withdraw_transitions5_actions0(sub);
-    _test__withdraw_transitions5_effect_state(sub);
+    _test__withdraw_transitions5_effects0_state(sub);
     try {
       _transition_exprAction__withdraw_transitions6_actions0(sub);
       fail("IllegalStateException should be thrown after withdraw(4930.0)");
     } catch (Exception e_2) {
       assertTrue("IllegalStateException should be thrown after withdraw(4930.0)", e_2 instanceof IllegalStateException);
     }
-    _test__withdraw_transitions7_effect_state(sub);
+    _test__withdraw_transitions7_effects0_state(sub);
     
   }
   
@@ -88,12 +88,12 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__deposit_transitions0_effect_state(final SavingsAccount2 it) {
-    _test__deposit_transitions0_effect_state_objectTests0_test(sub);
+  private void _test__deposit_transitions0_effects0_state(final SavingsAccount2 it) {
+    _test__deposit_transitions0_effects0_state_objectTests0_test(sub);
     
   }
   
-  private void _test__deposit_transitions0_effect_state_objectTests0_test(final SavingsAccount2 it) {
+  private void _test__deposit_transitions0_effects0_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 10000.0 failed after deposit(10000.0)", 10000.0, _balance);
@@ -110,12 +110,12 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__deposit_transitions2_effect_state(final SavingsAccount2 it) {
-    _test__deposit_transitions2_effect_state_objectTests0_test(sub);
+  private void _test__deposit_transitions2_effects0_state(final SavingsAccount2 it) {
+    _test__deposit_transitions2_effects0_state_objectTests0_test(sub);
     
   }
   
-  private void _test__deposit_transitions2_effect_state_objectTests0_test(final SavingsAccount2 it) {
+  private void _test__deposit_transitions2_effects0_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 10000.0 failed", 10000.0, _balance);
@@ -142,12 +142,12 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions0_effect_state(final SavingsAccount2 it) {
-    _test__withdraw_transitions0_effect_state_objectTests0_test(sub);
+  private void _test__withdraw_transitions0_effects0_state(final SavingsAccount2 it) {
+    _test__withdraw_transitions0_effects0_state_objectTests0_test(sub);
     
   }
   
-  private void _test__withdraw_transitions0_effect_state_objectTests0_test(final SavingsAccount2 it) {
+  private void _test__withdraw_transitions0_effects0_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 15000.0 failed after deposit(20000.0) ,withdraw(5000.0)", 15000.0, _balance);
@@ -164,12 +164,12 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions2_effect_state(final SavingsAccount2 it) {
-    _test__withdraw_transitions2_effect_state_objectTests0_test(sub);
+  private void _test__withdraw_transitions2_effects0_state(final SavingsAccount2 it) {
+    _test__withdraw_transitions2_effects0_state_objectTests0_test(sub);
     
   }
   
-  private void _test__withdraw_transitions2_effect_state_objectTests0_test(final SavingsAccount2 it) {
+  private void _test__withdraw_transitions2_effects0_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 15000.0 failed", 15000.0, _balance);
@@ -186,12 +186,12 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions4_effect_state(final SavingsAccount2 it) {
-    _test__withdraw_transitions4_effect_state_objectTests0_test(sub);
+  private void _test__withdraw_transitions4_effects0_state(final SavingsAccount2 it) {
+    _test__withdraw_transitions4_effects0_state_objectTests0_test(sub);
     
   }
   
-  private void _test__withdraw_transitions4_effect_state_objectTests0_test(final SavingsAccount2 it) {
+  private void _test__withdraw_transitions4_effects0_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 15000.0 failed", 15000.0, _balance);
@@ -208,12 +208,12 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions5_effect_state(final SavingsAccount2 it) {
-    _test__withdraw_transitions5_effect_state_objectTests0_test(sub);
+  private void _test__withdraw_transitions5_effects0_state(final SavingsAccount2 it) {
+    _test__withdraw_transitions5_effects0_state_objectTests0_test(sub);
     
   }
   
-  private void _test__withdraw_transitions5_effect_state_objectTests0_test(final SavingsAccount2 it) {
+  private void _test__withdraw_transitions5_effects0_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 4950.0 failed after withdraw(10000.0)", 4950.0, _balance);
@@ -230,19 +230,15 @@ public class SavingsAccount2Test extends TestCase {
     
   }
   
-  private void _test__withdraw_transitions7_effect_state(final SavingsAccount2 it) {
-    _test__withdraw_transitions7_effect_state_objectTests0_test(sub);
+  private void _test__withdraw_transitions7_effects0_state(final SavingsAccount2 it) {
+    _test__withdraw_transitions7_effects0_state_objectTests0_test(sub);
     
   }
   
-  private void _test__withdraw_transitions7_effect_state_objectTests0_test(final SavingsAccount2 it) {
+  private void _test__withdraw_transitions7_effects0_state_objectTests0_test(final SavingsAccount2 it) {
     
     double _balance = it.getBalance();
     assertEquals("getBalance() == 4950.0 failed", 4950.0, _balance);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(SavingsAccount2Test.class);
   }
 }

@@ -6,15 +6,25 @@ import java.util.Collection;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import org.eclipse.emf.ecore.util.EcoreEMap;
+import org.eclipse.emf.ecore.util.InternalEList;
 import no.hal.learning.exercise.Proposal;
-import no.hal.learning.exercise.impl.StringEditAnswerImpl;
+import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.jdt.JdtSourceEditAnswer;
+import no.hal.learning.exercise.jdt.JdtSourceEditEvent;
 import no.hal.learning.exercise.jdt.JdtSourceEditProposal;
+import no.hal.learning.exercise.util.Util;
+import no.hal.learning.exercise.workspace.impl.SourceFileEditAnswerImpl;
+import no.hal.learning.fv.FeatureValued;
 import no.hal.learning.exercise.jdt.JdtFactory;
 import no.hal.learning.exercise.jdt.JdtPackage;
 
@@ -28,11 +38,12 @@ import no.hal.learning.exercise.jdt.JdtPackage;
  * <ul>
  *   <li>{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditAnswerImpl#getClassName <em>Class Name</em>}</li>
  *   <li>{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditAnswerImpl#getMethodNames <em>Method Names</em>}</li>
+ *   <li>{@link no.hal.learning.exercise.jdt.impl.JdtSourceEditAnswerImpl#getMetrics <em>Metrics</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class JdtSourceEditAnswerImpl extends StringEditAnswerImpl implements JdtSourceEditAnswer {
+public class JdtSourceEditAnswerImpl extends SourceFileEditAnswerImpl implements JdtSourceEditAnswer {
 	/**
 	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,6 +73,16 @@ public class JdtSourceEditAnswerImpl extends StringEditAnswerImpl implements Jdt
 	 * @ordered
 	 */
 	protected EList<String> methodNames;
+
+	/**
+	 * The cached value of the '{@link #getMetrics() <em>Metrics</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMetrics()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, FeatureValued> metrics;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,6 +141,32 @@ public class JdtSourceEditAnswerImpl extends StringEditAnswerImpl implements Jdt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EMap<String, FeatureValued> getMetrics() {
+		if (metrics == null) {
+			metrics = new EcoreEMap<String,FeatureValued>(JdtPackage.Literals.STRING_TO_FEATURE_VALUED, StringToFeatureValuedImpl.class, this, JdtPackage.JDT_SOURCE_EDIT_ANSWER__METRICS);
+		}
+		return metrics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JdtPackage.JDT_SOURCE_EDIT_ANSWER__METRICS:
+				return ((InternalEList<?>)getMetrics()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -127,6 +174,9 @@ public class JdtSourceEditAnswerImpl extends StringEditAnswerImpl implements Jdt
 				return getClassName();
 			case JdtPackage.JDT_SOURCE_EDIT_ANSWER__METHOD_NAMES:
 				return getMethodNames();
+			case JdtPackage.JDT_SOURCE_EDIT_ANSWER__METRICS:
+				if (coreType) return getMetrics();
+				else return getMetrics().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,6 +197,9 @@ public class JdtSourceEditAnswerImpl extends StringEditAnswerImpl implements Jdt
 				getMethodNames().clear();
 				getMethodNames().addAll((Collection<? extends String>)newValue);
 				return;
+			case JdtPackage.JDT_SOURCE_EDIT_ANSWER__METRICS:
+				((EStructuralFeature.Setting)getMetrics()).set(newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -165,6 +218,9 @@ public class JdtSourceEditAnswerImpl extends StringEditAnswerImpl implements Jdt
 			case JdtPackage.JDT_SOURCE_EDIT_ANSWER__METHOD_NAMES:
 				getMethodNames().clear();
 				return;
+			case JdtPackage.JDT_SOURCE_EDIT_ANSWER__METRICS:
+				getMetrics().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -181,6 +237,8 @@ public class JdtSourceEditAnswerImpl extends StringEditAnswerImpl implements Jdt
 				return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
 			case JdtPackage.JDT_SOURCE_EDIT_ANSWER__METHOD_NAMES:
 				return methodNames != null && !methodNames.isEmpty();
+			case JdtPackage.JDT_SOURCE_EDIT_ANSWER__METRICS:
+				return metrics != null && !metrics.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,6 +268,15 @@ public class JdtSourceEditAnswerImpl extends StringEditAnswerImpl implements Jdt
 		JdtSourceEditProposal proposal = JdtFactory.eINSTANCE.createJdtSourceEditProposal();
 		proposal.setAnswer(this);
 		return proposal;
+	}
+
+	@Override
+	public boolean acceptEvent(TaskEvent event) {
+		if ((! super.acceptEvent(event)) || (! (event instanceof JdtSourceEditEvent))) {
+			return false;
+		}
+		JdtSourceEditEvent editEvent = (JdtSourceEditEvent) event;
+		return Util.acceptQName(getClassName(), editEvent.getClassName());
 	}
 
 	@Override

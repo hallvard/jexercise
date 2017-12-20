@@ -238,7 +238,7 @@ public class FeatureListTest extends TestCase {
 	public void testCount__Pred1() {
 		FeatureList featureList1 = getFixture();
 		// test
-		assertEquals(1, featureList1.count(new Pred1() {
+		assertEquals(1, featureList1.count(new Pred1.Impl() {
 			@Override
 			public boolean test(double val) {
 				return val == 1.0;

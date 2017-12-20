@@ -49,23 +49,23 @@ public class FilteringLoggerTest extends TestCase {
   @JExercise(tests = "FilteringLogger(delegation.ILogger,String[])", description = "Tests \n\t\tinitialization\n")
   public void testFilteringLoggerNoSeverities() {
     FilteringLogger logger = _init__FilteringLoggerNoSeverities_logger();
-    _test__FilteringLoggerNoSeverities_transitions0_effect_state(logger);
+    _test__FilteringLoggerNoSeverities_transitions0_effects0_state(logger);
     
   }
   
   @JExercise(tests = "FilteringLogger(delegation.ILogger,String[])", description = "Tests \n\t\tinitialization\n")
   public void testFilteringLoggerErrorAndInfo() {
     FilteringLogger logger = _init__FilteringLoggerErrorAndInfo_logger();
-    _test__FilteringLoggerErrorAndInfo_transitions0_effect_state(logger);
+    _test__FilteringLoggerErrorAndInfo_transitions0_effects0_state(logger);
     
   }
   
   @JExercise(tests = "FilteringLogger(delegation.ILogger,String[]);void setIsLogging(String,boolean)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>logger.setIsLogging(ILogger.ERROR, true)</li>\n\t\t</ul>\n")
   public void testFilteringLoggerWarningSetIsLoggingError() {
     FilteringLogger logger = _init__FilteringLoggerWarningSetIsLoggingError_logger();
-    _test__FilteringLoggerWarningSetIsLoggingError_transitions0_effect_state(logger);
+    _test__FilteringLoggerWarningSetIsLoggingError_transitions0_effects0_state(logger);
     _transition_exprAction__FilteringLoggerWarningSetIsLoggingError_transitions1_actions0(logger);
-    _test__FilteringLoggerWarningSetIsLoggingError_transitions1_effect_state(logger);
+    _test__FilteringLoggerWarningSetIsLoggingError_transitions1_effects0_state(logger);
     
   }
   
@@ -75,7 +75,7 @@ public class FilteringLoggerTest extends TestCase {
     FilteringLogger logger = _init__errorLogging_logger();
     _transition_exprAction__errorLogging_transitions0_actions0(exception, logger);
     _transition_exprAction__errorLogging_transitions0_actions1(exception, logger);
-    _test__errorLogging_transitions0_effect_state(exception, logger);
+    _test__errorLogging_transitions0_effects0_state(exception, logger);
     
   }
   
@@ -85,7 +85,7 @@ public class FilteringLoggerTest extends TestCase {
     FilteringLogger logger = _init__infoToErrorLogger_logger();
     _transition_exprAction__infoToErrorLogger_transitions0_actions0(exception, logger);
     _transition_exprAction__infoToErrorLogger_transitions0_actions1(exception, logger);
-    _test__infoToErrorLogger_transitions0_effect_state(exception, logger);
+    _test__infoToErrorLogger_transitions0_effects0_state(exception, logger);
     
   }
   
@@ -94,12 +94,12 @@ public class FilteringLoggerTest extends TestCase {
     return _filteringLogger;
   }
   
-  private void _test__FilteringLoggerNoSeverities_transitions0_effect_state(final FilteringLogger logger) {
-    _test__FilteringLoggerNoSeverities_transitions0_effect_state_objectTests0_test(logger);
+  private void _test__FilteringLoggerNoSeverities_transitions0_effects0_state(final FilteringLogger logger) {
+    _test__FilteringLoggerNoSeverities_transitions0_effects0_state_objectTests0_test(logger);
     
   }
   
-  private void _test__FilteringLoggerNoSeverities_transitions0_effect_state_objectTests0_test(final FilteringLogger logger) {
+  private void _test__FilteringLoggerNoSeverities_transitions0_effects0_state_objectTests0_test(final FilteringLogger logger) {
     
     boolean _isLogging = logger.isLogging(ILogger.INFO);
     boolean _not = (!_isLogging);
@@ -119,12 +119,12 @@ public class FilteringLoggerTest extends TestCase {
     return _filteringLogger;
   }
   
-  private void _test__FilteringLoggerErrorAndInfo_transitions0_effect_state(final FilteringLogger logger) {
-    _test__FilteringLoggerErrorAndInfo_transitions0_effect_state_objectTests0_test(logger);
+  private void _test__FilteringLoggerErrorAndInfo_transitions0_effects0_state(final FilteringLogger logger) {
+    _test__FilteringLoggerErrorAndInfo_transitions0_effects0_state_objectTests0_test(logger);
     
   }
   
-  private void _test__FilteringLoggerErrorAndInfo_transitions0_effect_state_objectTests0_test(final FilteringLogger logger) {
+  private void _test__FilteringLoggerErrorAndInfo_transitions0_effects0_state_objectTests0_test(final FilteringLogger logger) {
     
     boolean _isLogging = logger.isLogging(ILogger.INFO);
     assertTrue("logger.isLogging(ILogger.INFO) failed", _isLogging);
@@ -142,12 +142,12 @@ public class FilteringLoggerTest extends TestCase {
     return _filteringLogger;
   }
   
-  private void _test__FilteringLoggerWarningSetIsLoggingError_transitions0_effect_state(final FilteringLogger logger) {
-    _test__FilteringLoggerWarningSetIsLoggingError_transitions0_effect_state_objectTests0_test(logger);
+  private void _test__FilteringLoggerWarningSetIsLoggingError_transitions0_effects0_state(final FilteringLogger logger) {
+    _test__FilteringLoggerWarningSetIsLoggingError_transitions0_effects0_state_objectTests0_test(logger);
     
   }
   
-  private void _test__FilteringLoggerWarningSetIsLoggingError_transitions0_effect_state_objectTests0_test(final FilteringLogger logger) {
+  private void _test__FilteringLoggerWarningSetIsLoggingError_transitions0_effects0_state_objectTests0_test(final FilteringLogger logger) {
     
     boolean _isLogging = logger.isLogging(ILogger.INFO);
     boolean _not = (!_isLogging);
@@ -171,12 +171,12 @@ public class FilteringLoggerTest extends TestCase {
     
   }
   
-  private void _test__FilteringLoggerWarningSetIsLoggingError_transitions1_effect_state(final FilteringLogger logger) {
-    _test__FilteringLoggerWarningSetIsLoggingError_transitions1_effect_state_objectTests0_test(logger);
+  private void _test__FilteringLoggerWarningSetIsLoggingError_transitions1_effects0_state(final FilteringLogger logger) {
+    _test__FilteringLoggerWarningSetIsLoggingError_transitions1_effects0_state_objectTests0_test(logger);
     
   }
   
-  private void _test__FilteringLoggerWarningSetIsLoggingError_transitions1_effect_state_objectTests0_test(final FilteringLogger logger) {
+  private void _test__FilteringLoggerWarningSetIsLoggingError_transitions1_effects0_state_objectTests0_test(final FilteringLogger logger) {
     
     boolean _isLogging = logger.isLogging(ILogger.INFO);
     boolean _not = (!_isLogging);
@@ -219,12 +219,12 @@ public class FilteringLoggerTest extends TestCase {
     
   }
   
-  private void _test__errorLogging_transitions0_effect_state(final IllegalStateException exception, final FilteringLogger logger) {
-    _test__errorLogging_transitions0_effect_state_objectTests0_test(exception, logger);
+  private void _test__errorLogging_transitions0_effects0_state(final IllegalStateException exception, final FilteringLogger logger) {
+    _test__errorLogging_transitions0_effects0_state_objectTests0_test(exception, logger);
     
   }
   
-  private void _test__errorLogging_transitions0_effect_state_objectTests0_test(final IllegalStateException exception, final FilteringLogger logger) {
+  private void _test__errorLogging_transitions0_effects0_state_objectTests0_test(final IllegalStateException exception, final FilteringLogger logger) {
     
     String _format = String.format(this.formatString, ILogger.ERROR, "Noe er feil!", exception);
     assertTrue("stream == String.format(formatString, ILogger.ERROR, \"Noe er feil!\", exception) failed after subLogger.setFormatString(formatString) ,logger.log(ILogger.ERROR, \"Noe er feil!\", exception)", this.operator_equals(
@@ -262,19 +262,15 @@ public class FilteringLoggerTest extends TestCase {
     
   }
   
-  private void _test__infoToErrorLogger_transitions0_effect_state(final IllegalStateException exception, final FilteringLogger logger) {
-    _test__infoToErrorLogger_transitions0_effect_state_objectTests0_test(exception, logger);
+  private void _test__infoToErrorLogger_transitions0_effects0_state(final IllegalStateException exception, final FilteringLogger logger) {
+    _test__infoToErrorLogger_transitions0_effects0_state_objectTests0_test(exception, logger);
     
   }
   
-  private void _test__infoToErrorLogger_transitions0_effect_state_objectTests0_test(final IllegalStateException exception, final FilteringLogger logger) {
+  private void _test__infoToErrorLogger_transitions0_effects0_state_objectTests0_test(final IllegalStateException exception, final FilteringLogger logger) {
     
     assertTrue("stream == \"\" failed after subLogger.setFormatString(formatString) ,logger.log(ILogger.INFO, \"Noe er feil!\", exception)", this.operator_equals(
       this.stream, ""));
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(FilteringLoggerTest.class);
   }
 }

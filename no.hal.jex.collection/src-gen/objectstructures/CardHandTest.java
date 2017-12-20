@@ -46,7 +46,7 @@ public class CardHandTest extends TestCase {
   
   @JExercise(tests = "CardHand()", description = "Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state(cardHand);
+    _test__constructor_transitions0_effects0_state(cardHand);
     
   }
   
@@ -54,7 +54,7 @@ public class CardHandTest extends TestCase {
   public void testDeal() {
     CardDeck deck = _init__deal_deck();
     _transition_exprAction__deal_transitions0_actions0(cardHand, deck);
-    _test__deal_transitions0_effect_state(cardHand, deck);
+    _test__deal_transitions0_effects0_state(cardHand, deck);
     
   }
   
@@ -62,22 +62,22 @@ public class CardHandTest extends TestCase {
   public void testDealPlay() {
     CardDeck deck = _init__dealPlay_deck();
     _transition_exprAction__dealPlay_transitions0_actions0(cardHand, deck);
-    _test__dealPlay_transitions0_effect_state(cardHand, deck);
+    _test__dealPlay_transitions0_effects0_state(cardHand, deck);
     _transition_exprAction__dealPlay_transitions1_actions0(cardHand, deck);
-    _test__dealPlay_transitions1_effect_state(cardHand, deck);
+    _test__dealPlay_transitions1_effects0_state(cardHand, deck);
     _transition_exprAction__dealPlay_transitions2_actions0(cardHand, deck);
-    _test__dealPlay_transitions2_effect_state(cardHand, deck);
+    _test__dealPlay_transitions2_effects0_state(cardHand, deck);
     _transition_exprAction__dealPlay_transitions3_actions0(cardHand, deck);
-    _test__dealPlay_transitions3_effect_state(cardHand, deck);
+    _test__dealPlay_transitions3_effects0_state(cardHand, deck);
     
   }
   
-  private void _test__constructor_transitions0_effect_state(final CardHand it) {
-    _test__constructor_transitions0_effect_state_objectTests0_test(cardHand);
+  private void _test__constructor_transitions0_effects0_state(final CardHand it) {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(cardHand);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final CardHand it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final CardHand it) {
     
     int _cardCount = it.getCardCount();
     assertEquals("cardCount == 0 failed", 0, _cardCount);
@@ -99,12 +99,12 @@ public class CardHandTest extends TestCase {
     
   }
   
-  private void _test__deal_transitions0_effect_state(final CardHand it, final CardDeck deck) {
-    _test__deal_transitions0_effect_state_objectTests0_test(cardHand, deck);
+  private void _test__deal_transitions0_effects0_state(final CardHand it, final CardDeck deck) {
+    _test__deal_transitions0_effects0_state_objectTests0_test(cardHand, deck);
     
   }
   
-  private void _test__deal_transitions0_effect_state_objectTests0_test(final CardHand it, final CardDeck deck) {
+  private void _test__deal_transitions0_effects0_state_objectTests0_test(final CardHand it, final CardDeck deck) {
     
     assertTrue("it ?= #[\"C2\", \"C1\", \"D2\"] failed after deck.deal(cardHand, 3)", this.operator_assertEquals(it, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("C2", "C1", "D2"))));
     
@@ -125,12 +125,12 @@ public class CardHandTest extends TestCase {
     
   }
   
-  private void _test__dealPlay_transitions0_effect_state(final CardHand it, final CardDeck deck) {
-    _test__dealPlay_transitions0_effect_state_objectTests0_test(cardHand, deck);
+  private void _test__dealPlay_transitions0_effects0_state(final CardHand it, final CardDeck deck) {
+    _test__dealPlay_transitions0_effects0_state_objectTests0_test(cardHand, deck);
     
   }
   
-  private void _test__dealPlay_transitions0_effect_state_objectTests0_test(final CardHand it, final CardDeck deck) {
+  private void _test__dealPlay_transitions0_effects0_state_objectTests0_test(final CardHand it, final CardDeck deck) {
     
     assertTrue("it ?= #[\"C2\", \"C1\", \"D2\"] failed after deck.deal(cardHand, 3)", this.operator_assertEquals(it, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("C2", "C1", "D2"))));
     
@@ -146,12 +146,12 @@ public class CardHandTest extends TestCase {
     
   }
   
-  private void _test__dealPlay_transitions1_effect_state(final CardHand it, final CardDeck deck) {
-    _test__dealPlay_transitions1_effect_state_objectTests0_test(cardHand, deck);
+  private void _test__dealPlay_transitions1_effects0_state(final CardHand it, final CardDeck deck) {
+    _test__dealPlay_transitions1_effects0_state_objectTests0_test(cardHand, deck);
     
   }
   
-  private void _test__dealPlay_transitions1_effect_state_objectTests0_test(final CardHand it, final CardDeck deck) {
+  private void _test__dealPlay_transitions1_effects0_state_objectTests0_test(final CardHand it, final CardDeck deck) {
     
     assertTrue("it ?= #[\"C2\", \"D2\"] failed after play(1)", this.operator_assertEquals(it, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("C2", "D2"))));
     
@@ -167,12 +167,12 @@ public class CardHandTest extends TestCase {
     
   }
   
-  private void _test__dealPlay_transitions2_effect_state(final CardHand it, final CardDeck deck) {
-    _test__dealPlay_transitions2_effect_state_objectTests0_test(cardHand, deck);
+  private void _test__dealPlay_transitions2_effects0_state(final CardHand it, final CardDeck deck) {
+    _test__dealPlay_transitions2_effects0_state_objectTests0_test(cardHand, deck);
     
   }
   
-  private void _test__dealPlay_transitions2_effect_state_objectTests0_test(final CardHand it, final CardDeck deck) {
+  private void _test__dealPlay_transitions2_effects0_state_objectTests0_test(final CardHand it, final CardDeck deck) {
     
     assertTrue("it ?= #[\"D2\"] failed after play(0)", this.operator_assertEquals(it, Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("D2"))));
     
@@ -188,19 +188,15 @@ public class CardHandTest extends TestCase {
     
   }
   
-  private void _test__dealPlay_transitions3_effect_state(final CardHand it, final CardDeck deck) {
-    _test__dealPlay_transitions3_effect_state_objectTests0_test(cardHand, deck);
+  private void _test__dealPlay_transitions3_effects0_state(final CardHand it, final CardDeck deck) {
+    _test__dealPlay_transitions3_effects0_state_objectTests0_test(cardHand, deck);
     
   }
   
-  private void _test__dealPlay_transitions3_effect_state_objectTests0_test(final CardHand it, final CardDeck deck) {
+  private void _test__dealPlay_transitions3_effects0_state_objectTests0_test(final CardHand it, final CardDeck deck) {
     
     int _cardCount = it.getCardCount();
     assertEquals("cardCount == 0 failed after play(0)", 0, _cardCount);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(CardHandTest.class);
   }
 }

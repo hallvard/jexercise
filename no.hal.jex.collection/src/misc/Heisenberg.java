@@ -36,7 +36,7 @@ public class Heisenberg {
 		return longest;
 	}
 	
-	private String removeNonAlphabetiCharacters(String s, Collection<Integer> removedIndices) {
+	private String removeNonAlphabeticCharacters(String s, Collection<Integer> removedIndices) {
 		String result = "";
 		for (int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
@@ -53,7 +53,7 @@ public class Heisenberg {
 		Collection<Integer> removedIndices = new ArrayList<Integer>();
 		String s = original;
 		if (! wholeWordsOnly) {
-			s = removeNonAlphabetiCharacters(s, removedIndices);
+			s = removeNonAlphabeticCharacters(s, removedIndices);
 		}
 		String result = "";
 		while (s.length() > 0) {

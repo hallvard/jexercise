@@ -13,7 +13,7 @@ public class JunitUIAdapterFactory extends AdapterFactoryImpl {
 
 	@Override
 	public boolean isFactoryForType(Object type) {
-		return EObjectUIAdapter.class.equals(type);
+		return EObjectUIAdapter.class == type;
 	}
 	
 	@Override

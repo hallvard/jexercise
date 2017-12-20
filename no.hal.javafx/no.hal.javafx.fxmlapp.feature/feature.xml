@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="no.hal.javafx.fxmlapp.feature"
-      label="JavaFX Fxml feature"
+      label="JavaFX Fxml Application Support"
       version="0.0.1.qualifier">
 
    <description url="http://www.example.com/description">

@@ -24,7 +24,7 @@ public class TrainCarTest extends TestCase {
   public void testCheckWeight() {
     _test__checkWeight_transitions0_source_state(tc);
     _transition_exprAction__checkWeight_transitions0_actions0(tc);
-    _test__checkWeight_transitions0_effect_state(tc);
+    _test__checkWeight_transitions0_effects0_state(tc);
     
   }
   
@@ -50,19 +50,15 @@ public class TrainCarTest extends TestCase {
     
   }
   
-  private void _test__checkWeight_transitions0_effect_state(final TrainCar it) {
-    _test__checkWeight_transitions0_effect_state_objectTests0_test(tc);
+  private void _test__checkWeight_transitions0_effects0_state(final TrainCar it) {
+    _test__checkWeight_transitions0_effects0_state_objectTests0_test(tc);
     
   }
   
-  private void _test__checkWeight_transitions0_effect_state_objectTests0_test(final TrainCar it) {
+  private void _test__checkWeight_transitions0_effects0_state_objectTests0_test(final TrainCar it) {
     
     int _deadWeight = this.tc.getDeadWeight();
     assertEquals("tc.deadWeight == 5000 failed after tc.deadWeight = 5000", 5000, _deadWeight);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(TrainCarTest.class);
   }
 }

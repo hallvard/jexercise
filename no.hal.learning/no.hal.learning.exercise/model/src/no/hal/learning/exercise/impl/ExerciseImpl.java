@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import no.hal.learning.exercise.AbstractExercisePart;
 import no.hal.learning.exercise.Exercise;
 import no.hal.learning.exercise.ExerciseProposals;
-import no.hal.learning.exercise.ExerciseFactory;
+import no.hal.learning.exercise.util.Util;
 import no.hal.learning.exercise.ExercisePackage;
 
 /**
@@ -172,12 +172,7 @@ public class ExerciseImpl extends MinimalEObjectImpl.Container implements Exerci
 	 */
 	@Override
 	public ExerciseProposals createProposals() {
-		ExerciseProposals exerciseProposal = ExerciseFactory.eINSTANCE.createExerciseProposals();
-		exerciseProposal.setExercise(this);
-		for (AbstractExercisePart exercisePart : getParts()) {
-			exerciseProposal.getProposals().add(exercisePart.createProposals());
-		}
-		return exerciseProposal;
+		return Util.ensureExerciseProposals(this, null);
 	}
 
 	/**

@@ -20,6 +20,7 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/${xtext-version}/</url>
 		</repository>
+
 		<repository>
 			<id>Eclipse Paho Repo</id>
 			<layout>p2</layout>

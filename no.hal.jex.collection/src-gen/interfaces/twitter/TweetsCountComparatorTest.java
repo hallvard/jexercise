@@ -51,7 +51,7 @@ public class TweetsCountComparatorTest extends TestCase {
     _transition_exprAction__compare_transitions0_actions1();
     _transition_exprAction__compare_transitions0_actions2();
     _transition_exprAction__compare_transitions0_actions3();
-    _test__compare_transitions0_effect_state();
+    _test__compare_transitions0_effects0_state();
     
   }
   
@@ -95,12 +95,12 @@ public class TweetsCountComparatorTest extends TestCase {
     
   }
   
-  private void _test__compare_transitions0_effect_state() {
-    _test__compare_transitions0_effect_state_objectTests0_test();
+  private void _test__compare_transitions0_effects0_state() {
+    _test__compare_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__compare_transitions0_effect_state_objectTests0_test() {
+  private void _test__compare_transitions0_effects0_state_objectTests0_test() {
     
     int _compare = this.comparator.compare(this.mostTweet, this.lessTweet1);
     boolean _lessThan = (_compare < 0);
@@ -113,9 +113,5 @@ public class TweetsCountComparatorTest extends TestCase {
     int _compare_2 = this.comparator.compare(this.lessTweet1, this.lessTweet2);
     assertEquals("comparator.compare(lessTweet1, lessTweet2) == 0 failed after mostTweet.tweet(\"tweet\") ,mostTweet.tweet(\"tweet\") ,lessTweet1.tweet(\"tweet\") ,lessTweet2.tweet(\"tweet\")", 0, _compare_2);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(TweetsCountComparatorTest.class);
   }
 }

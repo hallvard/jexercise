@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eval
 Bundle-SymbolicName: no.hal.jex.java
 Bundle-Version: 1.1.0.qualifier
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: no.hal.jex;bundle-version="1.1.0",
  no.hal.jex.runtime;bundle-version="0.9.0"
 Export-Package: no.hal.jex.java

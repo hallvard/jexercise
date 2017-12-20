@@ -69,7 +69,7 @@ public class SmartStockTest extends TestCase {
   
   @JExercise(tests = "SmartStock(String,double)", description = "Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state();
+    _test__constructor_transitions0_effects0_state();
     
   }
   
@@ -77,9 +77,9 @@ public class SmartStockTest extends TestCase {
   public void testStockListener() {
     _transition_exprAction__stockListener_transitions0_actions0();
     _transition_exprAction__stockListener_transitions0_actions1();
-    _test__stockListener_transitions0_effect_state();
+    _test__stockListener_transitions0_effects0_state();
     _transition_exprAction__stockListener_transitions1_actions0();
-    _test__stockListener_transitions1_effect_state();
+    _test__stockListener_transitions1_effects0_state();
     
   }
   
@@ -87,9 +87,9 @@ public class SmartStockTest extends TestCase {
   public void testIntervalListener1() {
     _transition_exprAction__intervalListener1_transitions0_actions0();
     _transition_exprAction__intervalListener1_transitions0_actions1();
-    _test__intervalListener1_transitions0_effect_state();
+    _test__intervalListener1_transitions0_effects0_state();
     _transition_exprAction__intervalListener1_transitions1_actions0();
-    _test__intervalListener1_transitions1_effect_state();
+    _test__intervalListener1_transitions1_effects0_state();
     
   }
   
@@ -97,9 +97,9 @@ public class SmartStockTest extends TestCase {
   public void testIntervalListener2() {
     _transition_exprAction__intervalListener2_transitions0_actions0();
     _transition_exprAction__intervalListener2_transitions0_actions1();
-    _test__intervalListener2_transitions0_effect_state();
+    _test__intervalListener2_transitions0_effects0_state();
     _transition_exprAction__intervalListener2_transitions1_actions0();
-    _test__intervalListener2_transitions1_effect_state();
+    _test__intervalListener2_transitions1_effects0_state();
     
   }
   
@@ -107,9 +107,9 @@ public class SmartStockTest extends TestCase {
   public void testDifferenceListener1() {
     _transition_exprAction__differenceListener1_transitions0_actions0();
     _transition_exprAction__differenceListener1_transitions0_actions1();
-    _test__differenceListener1_transitions0_effect_state();
+    _test__differenceListener1_transitions0_effects0_state();
     _transition_exprAction__differenceListener1_transitions1_actions0();
-    _test__differenceListener1_transitions1_effect_state();
+    _test__differenceListener1_transitions1_effects0_state();
     
   }
   
@@ -117,18 +117,18 @@ public class SmartStockTest extends TestCase {
   public void testDifferenceListener2() {
     _transition_exprAction__differenceListener2_transitions0_actions0();
     _transition_exprAction__differenceListener2_transitions0_actions1();
-    _test__differenceListener2_transitions0_effect_state();
+    _test__differenceListener2_transitions0_effects0_state();
     _transition_exprAction__differenceListener2_transitions1_actions0();
-    _test__differenceListener2_transitions1_effect_state();
+    _test__differenceListener2_transitions1_effects0_state();
     
   }
   
-  private void _test__constructor_transitions0_effect_state() {
-    _test__constructor_transitions0_effect_state_objectTests0_test(stock);
+  private void _test__constructor_transitions0_effects0_state() {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final SmartStock it) {
     
     String _ticker = it.getTicker();
     assertEquals("ticker == \"APPL\" failed", "APPL", _ticker);
@@ -142,6 +142,7 @@ public class SmartStockTest extends TestCase {
     try {
       
       final StockListener _function = new StockListener() {
+        @Override
         public void stockPriceChanged(final Stock stock, final double oldPrice, final double newPrice) {
           SmartStockTest.this.setPrice2(oldPrice, newPrice);
         }
@@ -163,12 +164,12 @@ public class SmartStockTest extends TestCase {
     
   }
   
-  private void _test__stockListener_transitions0_effect_state() {
-    _test__stockListener_transitions0_effect_state_objectTests0_test(stock);
+  private void _test__stockListener_transitions0_effects0_state() {
+    _test__stockListener_transitions0_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__stockListener_transitions0_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__stockListener_transitions0_effects0_state_objectTests0_test(final SmartStock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 118.0d failed after stock.addStockListener([Stock stock, double oldPrice, double newPrice | setPrice2(oldPrice, newPrice) ]) ,setPrice1(118.0d, 110.0d, 118.0d)", 118.0d, _price);
@@ -185,12 +186,12 @@ public class SmartStockTest extends TestCase {
     
   }
   
-  private void _test__stockListener_transitions1_effect_state() {
-    _test__stockListener_transitions1_effect_state_objectTests0_test(stock);
+  private void _test__stockListener_transitions1_effects0_state() {
+    _test__stockListener_transitions1_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__stockListener_transitions1_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__stockListener_transitions1_effects0_state_objectTests0_test(final SmartStock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 121.0d failed after setPrice1(121.0d, 118.0d, 121.0d)", 121.0d, _price);
@@ -201,6 +202,7 @@ public class SmartStockTest extends TestCase {
     try {
       
       final StockListener _function = new StockListener() {
+        @Override
         public void stockPriceChanged(final Stock stock, final double oldPrice, final double newPrice) {
           SmartStockTest.this.setPrice2(oldPrice, newPrice);
         }
@@ -222,12 +224,12 @@ public class SmartStockTest extends TestCase {
     
   }
   
-  private void _test__intervalListener1_transitions0_effect_state() {
-    _test__intervalListener1_transitions0_effect_state_objectTests0_test(stock);
+  private void _test__intervalListener1_transitions0_effects0_state() {
+    _test__intervalListener1_transitions0_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__intervalListener1_transitions0_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__intervalListener1_transitions0_effects0_state_objectTests0_test(final SmartStock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 118.0d failed after stock.addStockListener([Stock stock, double oldPrice, double newPrice | setPrice2(oldPrice, newPrice) ], 110.0d, 120.0d) ,setPrice1(118.0d, 0.0d, 0.0d)", 118.0d, _price);
@@ -244,12 +246,12 @@ public class SmartStockTest extends TestCase {
     
   }
   
-  private void _test__intervalListener1_transitions1_effect_state() {
-    _test__intervalListener1_transitions1_effect_state_objectTests0_test(stock);
+  private void _test__intervalListener1_transitions1_effects0_state() {
+    _test__intervalListener1_transitions1_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__intervalListener1_transitions1_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__intervalListener1_transitions1_effects0_state_objectTests0_test(final SmartStock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 121.0d failed after setPrice1(121.0d, 118.0d, 121.0d)", 121.0d, _price);
@@ -260,6 +262,7 @@ public class SmartStockTest extends TestCase {
     try {
       
       final StockListener _function = new StockListener() {
+        @Override
         public void stockPriceChanged(final Stock stock, final double oldPrice, final double newPrice) {
           SmartStockTest.this.setPrice2(oldPrice, newPrice);
         }
@@ -281,12 +284,12 @@ public class SmartStockTest extends TestCase {
     
   }
   
-  private void _test__intervalListener2_transitions0_effect_state() {
-    _test__intervalListener2_transitions0_effect_state_objectTests0_test(stock);
+  private void _test__intervalListener2_transitions0_effects0_state() {
+    _test__intervalListener2_transitions0_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__intervalListener2_transitions0_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__intervalListener2_transitions0_effects0_state_objectTests0_test(final SmartStock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 108.0d failed after stock.addStockListener([Stock stock, double oldPrice, double newPrice | setPrice2(oldPrice, newPrice) ], 110.0d, 120.0d) ,setPrice1(108.0d, 110.0d, 108.0d)", 108.0d, _price);
@@ -303,12 +306,12 @@ public class SmartStockTest extends TestCase {
     
   }
   
-  private void _test__intervalListener2_transitions1_effect_state() {
-    _test__intervalListener2_transitions1_effect_state_objectTests0_test(stock);
+  private void _test__intervalListener2_transitions1_effects0_state() {
+    _test__intervalListener2_transitions1_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__intervalListener2_transitions1_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__intervalListener2_transitions1_effects0_state_objectTests0_test(final SmartStock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 115.0d failed after setPrice1(115.0d, 110.0d, 108.0d)", 115.0d, _price);
@@ -319,6 +322,7 @@ public class SmartStockTest extends TestCase {
     try {
       
       final StockListener _function = new StockListener() {
+        @Override
         public void stockPriceChanged(final Stock stock, final double oldPrice, final double newPrice) {
           SmartStockTest.this.setPrice2(oldPrice, newPrice);
         }
@@ -340,12 +344,12 @@ public class SmartStockTest extends TestCase {
     
   }
   
-  private void _test__differenceListener1_transitions0_effect_state() {
-    _test__differenceListener1_transitions0_effect_state_objectTests0_test(stock);
+  private void _test__differenceListener1_transitions0_effects0_state() {
+    _test__differenceListener1_transitions0_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__differenceListener1_transitions0_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__differenceListener1_transitions0_effects0_state_objectTests0_test(final SmartStock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 118.0d failed after stock.addStockListener([Stock stock, double oldPrice, double newPrice | setPrice2(oldPrice, newPrice) ], 10.0d) ,setPrice1(118.0d, 0.0d, 0.0d)", 118.0d, _price);
@@ -362,12 +366,12 @@ public class SmartStockTest extends TestCase {
     
   }
   
-  private void _test__differenceListener1_transitions1_effect_state() {
-    _test__differenceListener1_transitions1_effect_state_objectTests0_test(stock);
+  private void _test__differenceListener1_transitions1_effects0_state() {
+    _test__differenceListener1_transitions1_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__differenceListener1_transitions1_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__differenceListener1_transitions1_effects0_state_objectTests0_test(final SmartStock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 121.0d failed after setPrice1(121.0d, 110.0d, 121.0d)", 121.0d, _price);
@@ -378,6 +382,7 @@ public class SmartStockTest extends TestCase {
     try {
       
       final StockListener _function = new StockListener() {
+        @Override
         public void stockPriceChanged(final Stock stock, final double oldPrice, final double newPrice) {
           SmartStockTest.this.setPrice2(oldPrice, newPrice);
         }
@@ -399,12 +404,12 @@ public class SmartStockTest extends TestCase {
     
   }
   
-  private void _test__differenceListener2_transitions0_effect_state() {
-    _test__differenceListener2_transitions0_effect_state_objectTests0_test(stock);
+  private void _test__differenceListener2_transitions0_effects0_state() {
+    _test__differenceListener2_transitions0_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__differenceListener2_transitions0_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__differenceListener2_transitions0_effects0_state_objectTests0_test(final SmartStock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 118.0d failed after stock.addStockListener([Stock stock, double oldPrice, double newPrice | setPrice2(oldPrice, newPrice) ], 5.0d) ,setPrice1(118.0d, 110.0d, 118.0d)", 118.0d, _price);
@@ -421,19 +426,15 @@ public class SmartStockTest extends TestCase {
     
   }
   
-  private void _test__differenceListener2_transitions1_effect_state() {
-    _test__differenceListener2_transitions1_effect_state_objectTests0_test(stock);
+  private void _test__differenceListener2_transitions1_effects0_state() {
+    _test__differenceListener2_transitions1_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__differenceListener2_transitions1_effect_state_objectTests0_test(final SmartStock it) {
+  private void _test__differenceListener2_transitions1_effects0_state_objectTests0_test(final SmartStock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 121.0d failed after setPrice1(121.0d, 110.0d, 118.0d)", 121.0d, _price);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(SmartStockTest.class);
   }
 }

@@ -85,7 +85,11 @@ public abstract class EObjectViewerAdapterImpl<E extends EObject, V extends Cont
 		if ((! notification.isTouch()) && isChangeNotification(notification)) {
 			V view = getView();
 			if (view != null && (! isDisposed())) {
-				updateView();
+				asyncExec(new Runnable() {
+					public void run() {
+						updateView();						
+					}
+				});
 			}
 		}
 	}

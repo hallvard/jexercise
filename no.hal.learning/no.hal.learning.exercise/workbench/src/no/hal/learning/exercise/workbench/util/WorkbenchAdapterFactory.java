@@ -5,9 +5,12 @@ package no.hal.learning.exercise.workbench.util;
 import no.hal.learning.exercise.Answer;
 import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.TaskAnswer;
+import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.exercise.workbench.*;
 
+import no.hal.learning.fv.EFeatureObject;
+import no.hal.learning.fv.FeatureValued;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -76,12 +79,20 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 				return createWorkbenchTaskAnswerAdapter();
 			}
 			@Override
+			public Adapter caseWorkbenchTaskEvent(WorkbenchTaskEvent object) {
+				return createWorkbenchTaskEventAdapter();
+			}
+			@Override
 			public Adapter casePartTaskAnswer(PartTaskAnswer object) {
 				return createPartTaskAnswerAdapter();
 			}
 			@Override
 			public Adapter casePartTaskProposal(PartTaskProposal object) {
 				return createPartTaskProposalAdapter();
+			}
+			@Override
+			public Adapter casePartTaskEvent(PartTaskEvent object) {
+				return createPartTaskEventAdapter();
 			}
 			@Override
 			public Adapter casePerspectiveTaskAnswer(PerspectiveTaskAnswer object) {
@@ -114,6 +125,18 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTaskAnswer(TaskAnswer object) {
 				return createTaskAnswerAdapter();
+			}
+			@Override
+			public Adapter caseFeatureValued(FeatureValued object) {
+				return createFeatureValuedAdapter();
+			}
+			@Override
+			public Adapter caseEFeatureObject(EFeatureObject object) {
+				return createEFeatureObjectAdapter();
+			}
+			@Override
+			public Adapter caseTaskEvent(TaskEvent object) {
+				return createTaskEventAdapter();
 			}
 			@Override
 			public <A extends Answer> Adapter caseProposal(Proposal<A> object) {
@@ -158,6 +181,20 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workbench.WorkbenchTaskEvent <em>Task Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.workbench.WorkbenchTaskEvent
+	 * @generated
+	 */
+	public Adapter createWorkbenchTaskEventAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workbench.PartTaskAnswer <em>Part Task Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -182,6 +219,20 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPartTaskProposalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workbench.PartTaskEvent <em>Part Task Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.workbench.PartTaskEvent
+	 * @generated
+	 */
+	public Adapter createPartTaskEventAdapter() {
 		return null;
 	}
 
@@ -294,6 +345,48 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTaskAnswerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.fv.FeatureValued <em>Feature Valued</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.fv.FeatureValued
+	 * @generated
+	 */
+	public Adapter createFeatureValuedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.fv.EFeatureObject <em>EFeature Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.fv.EFeatureObject
+	 * @generated
+	 */
+	public Adapter createEFeatureObjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.TaskEvent <em>Task Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.TaskEvent
+	 * @generated
+	 */
+	public Adapter createTaskEventAdapter() {
 		return null;
 	}
 

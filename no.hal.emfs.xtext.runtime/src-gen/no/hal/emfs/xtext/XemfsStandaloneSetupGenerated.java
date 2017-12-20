@@ -4,11 +4,13 @@
 package no.hal.emfs.xtext;
 
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.xtext.ISetup;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.ISetup;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+
+import no.hal.emfs.EmfsPackage;
 
 /**
  * Generated from StandaloneSetup.xpt!
@@ -30,6 +32,10 @@ public class XemfsStandaloneSetupGenerated implements ISetup {
 		if (!EPackage.Registry.INSTANCE.containsKey(org.eclipse.xtext.XtextPackage.eNS_URI))
 			EPackage.Registry.INSTANCE.put(org.eclipse.xtext.XtextPackage.eNS_URI, org.eclipse.xtext.XtextPackage.eINSTANCE);
 
+		// register emfs package
+		if (!EPackage.Registry.INSTANCE.containsKey(EmfsPackage.eNS_URI))
+			EPackage.Registry.INSTANCE.put(EmfsPackage.eNS_URI, EmfsPackage.eINSTANCE);
+		
 		Injector injector = createInjector();
 		register(injector);
 		return injector;

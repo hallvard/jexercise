@@ -22,6 +22,7 @@ import no.hal.learning.exercise.Exercise;
 import no.hal.learning.exercise.ExerciseProposals;
 import no.hal.learning.exercise.logging.ExLogger;
 import no.hal.learning.exercise.logging.LogUtil;
+import no.hal.learning.exercise.util.Util;
 import no.hal.learning.exercise.views.adapters.ExerciseProposalsUIAdapter;
 import no.hal.learning.exercise.views.plot.TaskPlotViewerAdapter;
 import no.hal.learning.exercise.views.stringeditors.EditorViewerAdapter;
@@ -52,7 +53,7 @@ public class ExerciseView extends EObjectsView {
 			}
 			ExerciseProposals proposals = findProposals(ex);
 			if (proposals == null) {
-				proposals = ex.createProposals();
+				proposals = Util.ensureExerciseProposals(ex, null);
 				resource.getContents().add(proposals);
 			}
 			return proposals;
@@ -70,8 +71,7 @@ public class ExerciseView extends EObjectsView {
 	}
 
 	protected ExerciseProposals findProposals(Exercise ex) {
-		Resource resource = ex.eResource();
-		for (EObject eObject : resource.getContents()) {
+		for (EObject eObject : ex.eResource().getContents()) {
 			if (eObject instanceof ExerciseProposals) {
 				ExerciseProposals proposals = (ExerciseProposals) eObject;
 				if (proposals.getExercise() == ex) {

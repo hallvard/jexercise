@@ -5,6 +5,12 @@ public interface Op1 {
 	public double apply(double val);
 	
 	public static Op1
+		IDENTITY = new Op1() {
+			@Override
+			public double apply(double val) {
+				return val;
+			}
+		},
 		NEG = new Op1() {
 			@Override
 			public double apply(double val) {

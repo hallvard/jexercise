@@ -33,11 +33,12 @@ public class DefaultMetricsViewProvider implements IMetricsViewProvider {
 		while (tree.hasNext()) {
 			EObject next = tree.next();
 			if (next instanceof FeatureList && next.eContainer() instanceof DelegatedFeatures) {
+				DelegatedFeatures df = (DelegatedFeatures) next.eContainer();
 				FeatureList fl = (FeatureList) next;
 				fl.getFeatures().clear();
-				FeatureValued fv = featuresMap.get(fl.getName());
+				FeatureValued fv = featuresMap.get(df.getName());
 				if (fv != null) {
-					fl.set(fv.toFeatureList(), false);
+					fl.set(fv, false);
 				}
 				tree.prune();
 			}

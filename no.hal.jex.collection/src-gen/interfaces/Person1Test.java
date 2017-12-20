@@ -43,18 +43,18 @@ public class Person1Test extends TestCase {
   
   @JExercise(tests = "Person1(String,String);void setGivenName(String)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>person1.givenName = j</li>\n\t\t</ul>\n")
   public void testPerson1() {
-    _test__Person1_transitions0_effect_state();
+    _test__Person1_transitions0_effects0_state();
     _transition_exprAction__Person1_transitions1_actions0();
-    _test__Person1_transitions1_effect_state();
+    _test__Person1_transitions1_effects0_state();
     
   }
   
-  private void _test__Person1_transitions0_effect_state() {
-    _test__Person1_transitions0_effect_state_objectTests0_test(person1);
+  private void _test__Person1_transitions0_effects0_state() {
+    _test__Person1_transitions0_effects0_state_objectTests0_test(person1);
     
   }
   
-  private void _test__Person1_transitions0_effect_state_objectTests0_test(final Person1 it) {
+  private void _test__Person1_transitions0_effects0_state_objectTests0_test(final Person1 it) {
     
     String _givenName = it.getGivenName();
     assertEquals("givenName == h failed", this.h, _givenName);
@@ -77,12 +77,12 @@ public class Person1Test extends TestCase {
     
   }
   
-  private void _test__Person1_transitions1_effect_state() {
-    _test__Person1_transitions1_effect_state_objectTests0_test(person1);
+  private void _test__Person1_transitions1_effects0_state() {
+    _test__Person1_transitions1_effects0_state_objectTests0_test(person1);
     
   }
   
-  private void _test__Person1_transitions1_effect_state_objectTests0_test(final Person1 it) {
+  private void _test__Person1_transitions1_effects0_state_objectTests0_test(final Person1 it) {
     
     String _givenName = it.getGivenName();
     assertEquals("givenName == j failed after person1.givenName = j", this.j, _givenName);
@@ -93,9 +93,5 @@ public class Person1Test extends TestCase {
     String _fullName = it.getFullName();
     assertEquals("fullName == j + \" \" + t failed after person1.givenName = j", ((this.j + " ") + this.t), _fullName);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(Person1Test.class);
   }
 }

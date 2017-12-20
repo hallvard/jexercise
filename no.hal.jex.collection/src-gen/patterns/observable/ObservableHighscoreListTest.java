@@ -59,18 +59,18 @@ public class ObservableHighscoreListTest extends TestCase {
   
   @JExercise(tests = "ObservableHighscoreList(int)", description = "Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state();
+    _test__constructor_transitions0_effects0_state();
     
   }
   
   @JExercise(tests = "ObservableHighscoreList(int);void addResult(Integer)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>highscoreList.addResult(5)</li>\n\t\t<li>highscoreList.addResult(6)</li>\n\t\t<li>highscoreList.addResult(2)</li>\n\t\t</ul>\n")
   public void testAddElementSimple() {
     _transition_exprAction__addElementSimple_transitions0_actions0();
-    _test__addElementSimple_transitions0_effect_state();
+    _test__addElementSimple_transitions0_effects0_state();
     _transition_exprAction__addElementSimple_transitions1_actions0();
-    _test__addElementSimple_transitions1_effect_state();
+    _test__addElementSimple_transitions1_effects0_state();
     _transition_exprAction__addElementSimple_transitions2_actions0();
-    _test__addElementSimple_transitions2_effect_state();
+    _test__addElementSimple_transitions2_effects0_state();
     
   }
   
@@ -79,11 +79,11 @@ public class ObservableHighscoreListTest extends TestCase {
     _transition_exprAction__addElementMoreThanMax_transitions0_actions0();
     _transition_exprAction__addElementMoreThanMax_transitions0_actions1();
     _transition_exprAction__addElementMoreThanMax_transitions0_actions2();
-    _test__addElementMoreThanMax_transitions0_effect_state();
+    _test__addElementMoreThanMax_transitions0_effects0_state();
     _transition_exprAction__addElementMoreThanMax_transitions1_actions0();
-    _test__addElementMoreThanMax_transitions1_effect_state();
+    _test__addElementMoreThanMax_transitions1_effects0_state();
     _transition_exprAction__addElementMoreThanMax_transitions2_actions0();
-    _test__addElementMoreThanMax_transitions2_effect_state();
+    _test__addElementMoreThanMax_transitions2_effects0_state();
     
   }
   
@@ -92,9 +92,9 @@ public class ObservableHighscoreListTest extends TestCase {
     _transition_exprAction__addElementDuplicate_transitions0_actions0();
     _transition_exprAction__addElementDuplicate_transitions0_actions1();
     _transition_exprAction__addElementDuplicate_transitions0_actions2();
-    _test__addElementDuplicate_transitions0_effect_state();
+    _test__addElementDuplicate_transitions0_effects0_state();
     _transition_exprAction__addElementDuplicate_transitions1_actions0();
-    _test__addElementDuplicate_transitions1_effect_state();
+    _test__addElementDuplicate_transitions1_effects0_state();
     
   }
   
@@ -102,11 +102,11 @@ public class ObservableHighscoreListTest extends TestCase {
   public void testListListenerSimple() {
     _transition_exprAction__listListenerSimple_transitions0_actions0();
     _transition_exprAction__listListenerSimple_transitions0_actions1();
-    _test__listListenerSimple_transitions0_effect_state();
+    _test__listListenerSimple_transitions0_effects0_state();
     _transition_exprAction__listListenerSimple_transitions1_actions0();
-    _test__listListenerSimple_transitions1_effect_state();
+    _test__listListenerSimple_transitions1_effects0_state();
     _transition_exprAction__listListenerSimple_transitions2_actions0();
-    _test__listListenerSimple_transitions2_effect_state();
+    _test__listListenerSimple_transitions2_effects0_state();
     
   }
   
@@ -116,12 +116,12 @@ public class ObservableHighscoreListTest extends TestCase {
     _transition_exprAction__listListenerMoreThanMax_transitions0_actions1();
     _transition_exprAction__listListenerMoreThanMax_transitions0_actions2();
     _transition_exprAction__listListenerMoreThanMax_transitions0_actions3();
-    _test__listListenerMoreThanMax_transitions0_effect_state();
+    _test__listListenerMoreThanMax_transitions0_effects0_state();
     _transition_exprAction__listListenerMoreThanMax_transitions1_actions0();
-    _test__listListenerMoreThanMax_transitions1_effect_state();
+    _test__listListenerMoreThanMax_transitions1_effects0_state();
     _transition_exprAction__listListenerMoreThanMax_transitions2_actions0();
     _transition_exprAction__listListenerMoreThanMax_transitions2_actions1();
-    _test__listListenerMoreThanMax_transitions2_effect_state();
+    _test__listListenerMoreThanMax_transitions2_effects0_state();
     
   }
   
@@ -131,18 +131,18 @@ public class ObservableHighscoreListTest extends TestCase {
     _transition_exprAction__listListenerDuplicate_transitions0_actions1();
     _transition_exprAction__listListenerDuplicate_transitions0_actions2();
     _transition_exprAction__listListenerDuplicate_transitions0_actions3();
-    _test__listListenerDuplicate_transitions0_effect_state();
+    _test__listListenerDuplicate_transitions0_effects0_state();
     _transition_exprAction__listListenerDuplicate_transitions1_actions0();
-    _test__listListenerDuplicate_transitions1_effect_state();
+    _test__listListenerDuplicate_transitions1_effects0_state();
     
   }
   
-  private void _test__constructor_transitions0_effect_state() {
-    _test__constructor_transitions0_effect_state_objectTests0_test(highscoreList);
+  private void _test__constructor_transitions0_effects0_state() {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(highscoreList);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final ObservableHighscoreList it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final ObservableHighscoreList it) {
     
     int _size = it.size();
     assertEquals("size() == 0 failed", 0, _size);
@@ -159,12 +159,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__addElementSimple_transitions0_effect_state() {
-    _test__addElementSimple_transitions0_effect_state_objectTests0_test();
+  private void _test__addElementSimple_transitions0_effects0_state() {
+    _test__addElementSimple_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElementSimple_transitions0_effect_state_objectTests0_test() {
+  private void _test__addElementSimple_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -185,12 +185,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__addElementSimple_transitions1_effect_state() {
-    _test__addElementSimple_transitions1_effect_state_objectTests0_test();
+  private void _test__addElementSimple_transitions1_effects0_state() {
+    _test__addElementSimple_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElementSimple_transitions1_effect_state_objectTests0_test() {
+  private void _test__addElementSimple_transitions1_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -211,12 +211,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__addElementSimple_transitions2_effect_state() {
-    _test__addElementSimple_transitions2_effect_state_objectTests0_test();
+  private void _test__addElementSimple_transitions2_effects0_state() {
+    _test__addElementSimple_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElementSimple_transitions2_effect_state_objectTests0_test() {
+  private void _test__addElementSimple_transitions2_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -257,12 +257,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__addElementMoreThanMax_transitions0_effect_state() {
-    _test__addElementMoreThanMax_transitions0_effect_state_objectTests0_test();
+  private void _test__addElementMoreThanMax_transitions0_effects0_state() {
+    _test__addElementMoreThanMax_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElementMoreThanMax_transitions0_effect_state_objectTests0_test() {
+  private void _test__addElementMoreThanMax_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -283,12 +283,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__addElementMoreThanMax_transitions1_effect_state() {
-    _test__addElementMoreThanMax_transitions1_effect_state_objectTests0_test();
+  private void _test__addElementMoreThanMax_transitions1_effects0_state() {
+    _test__addElementMoreThanMax_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElementMoreThanMax_transitions1_effect_state_objectTests0_test() {
+  private void _test__addElementMoreThanMax_transitions1_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -309,12 +309,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__addElementMoreThanMax_transitions2_effect_state() {
-    _test__addElementMoreThanMax_transitions2_effect_state_objectTests0_test();
+  private void _test__addElementMoreThanMax_transitions2_effects0_state() {
+    _test__addElementMoreThanMax_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElementMoreThanMax_transitions2_effect_state_objectTests0_test() {
+  private void _test__addElementMoreThanMax_transitions2_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -355,12 +355,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__addElementDuplicate_transitions0_effect_state() {
-    _test__addElementDuplicate_transitions0_effect_state_objectTests0_test();
+  private void _test__addElementDuplicate_transitions0_effects0_state() {
+    _test__addElementDuplicate_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElementDuplicate_transitions0_effect_state_objectTests0_test() {
+  private void _test__addElementDuplicate_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -381,12 +381,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__addElementDuplicate_transitions1_effect_state() {
-    _test__addElementDuplicate_transitions1_effect_state_objectTests0_test();
+  private void _test__addElementDuplicate_transitions1_effects0_state() {
+    _test__addElementDuplicate_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__addElementDuplicate_transitions1_effect_state_objectTests0_test() {
+  private void _test__addElementDuplicate_transitions1_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -401,6 +401,7 @@ public class ObservableHighscoreListTest extends TestCase {
     try {
       
       final ObservableListListener _function = new ObservableListListener() {
+        @Override
         public void listChanged(final ObservableList list, final int pos) {
           ObservableHighscoreListTest.this.pos2 = pos;
         }
@@ -422,12 +423,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__listListenerSimple_transitions0_effect_state() {
-    _test__listListenerSimple_transitions0_effect_state_objectTests0_test();
+  private void _test__listListenerSimple_transitions0_effects0_state() {
+    _test__listListenerSimple_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListenerSimple_transitions0_effect_state_objectTests0_test() {
+  private void _test__listListenerSimple_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -448,12 +449,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__listListenerSimple_transitions1_effect_state() {
-    _test__listListenerSimple_transitions1_effect_state_objectTests0_test();
+  private void _test__listListenerSimple_transitions1_effects0_state() {
+    _test__listListenerSimple_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListenerSimple_transitions1_effect_state_objectTests0_test() {
+  private void _test__listListenerSimple_transitions1_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -474,12 +475,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__listListenerSimple_transitions2_effect_state() {
-    _test__listListenerSimple_transitions2_effect_state_objectTests0_test();
+  private void _test__listListenerSimple_transitions2_effects0_state() {
+    _test__listListenerSimple_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListenerSimple_transitions2_effect_state_objectTests0_test() {
+  private void _test__listListenerSimple_transitions2_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -494,6 +495,7 @@ public class ObservableHighscoreListTest extends TestCase {
     try {
       
       final ObservableListListener _function = new ObservableListListener() {
+        @Override
         public void listChanged(final ObservableList list, final int pos) {
           ObservableHighscoreListTest.this.pos2 = pos;
         }
@@ -535,12 +537,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__listListenerMoreThanMax_transitions0_effect_state() {
-    _test__listListenerMoreThanMax_transitions0_effect_state_objectTests0_test();
+  private void _test__listListenerMoreThanMax_transitions0_effects0_state() {
+    _test__listListenerMoreThanMax_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListenerMoreThanMax_transitions0_effect_state_objectTests0_test() {
+  private void _test__listListenerMoreThanMax_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -561,12 +563,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__listListenerMoreThanMax_transitions1_effect_state() {
-    _test__listListenerMoreThanMax_transitions1_effect_state_objectTests0_test();
+  private void _test__listListenerMoreThanMax_transitions1_effects0_state() {
+    _test__listListenerMoreThanMax_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListenerMoreThanMax_transitions1_effect_state_objectTests0_test() {
+  private void _test__listListenerMoreThanMax_transitions1_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -597,12 +599,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__listListenerMoreThanMax_transitions2_effect_state() {
-    _test__listListenerMoreThanMax_transitions2_effect_state_objectTests0_test();
+  private void _test__listListenerMoreThanMax_transitions2_effects0_state() {
+    _test__listListenerMoreThanMax_transitions2_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListenerMoreThanMax_transitions2_effect_state_objectTests0_test() {
+  private void _test__listListenerMoreThanMax_transitions2_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -617,6 +619,7 @@ public class ObservableHighscoreListTest extends TestCase {
     try {
       
       final ObservableListListener _function = new ObservableListListener() {
+        @Override
         public void listChanged(final ObservableList list, final int pos) {
           ObservableHighscoreListTest.this.pos2 = pos;
         }
@@ -658,12 +661,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__listListenerDuplicate_transitions0_effect_state() {
-    _test__listListenerDuplicate_transitions0_effect_state_objectTests0_test();
+  private void _test__listListenerDuplicate_transitions0_effects0_state() {
+    _test__listListenerDuplicate_transitions0_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListenerDuplicate_transitions0_effect_state_objectTests0_test() {
+  private void _test__listListenerDuplicate_transitions0_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -684,12 +687,12 @@ public class ObservableHighscoreListTest extends TestCase {
     
   }
   
-  private void _test__listListenerDuplicate_transitions1_effect_state() {
-    _test__listListenerDuplicate_transitions1_effect_state_objectTests0_test();
+  private void _test__listListenerDuplicate_transitions1_effects0_state() {
+    _test__listListenerDuplicate_transitions1_effects0_state_objectTests0_test();
     
   }
   
-  private void _test__listListenerDuplicate_transitions1_effect_state_objectTests0_test() {
+  private void _test__listListenerDuplicate_transitions1_effects0_state_objectTests0_test() {
     try {
       
       this.operator_assertEquals(
@@ -698,9 +701,5 @@ public class ObservableHighscoreListTest extends TestCase {
       fail("highscoreList ?= #[2, 2, 5] failed after addResult(1, 2): " + error.getMessage());
     }
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(ObservableHighscoreListTest.class);
   }
 }

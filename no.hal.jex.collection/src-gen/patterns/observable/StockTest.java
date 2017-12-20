@@ -68,7 +68,7 @@ public class StockTest extends TestCase {
   
   @JExercise(tests = "Stock(String,double)", description = "Tests \n\t\tinitialization\n")
   public void testConstructor() {
-    _test__constructor_transitions0_effect_state();
+    _test__constructor_transitions0_effects0_state();
     
   }
   
@@ -76,18 +76,18 @@ public class StockTest extends TestCase {
   public void testStockListener() {
     _transition_exprAction__stockListener_transitions0_actions0();
     _transition_exprAction__stockListener_transitions0_actions1();
-    _test__stockListener_transitions0_effect_state();
+    _test__stockListener_transitions0_effects0_state();
     _transition_exprAction__stockListener_transitions1_actions0();
-    _test__stockListener_transitions1_effect_state();
+    _test__stockListener_transitions1_effects0_state();
     
   }
   
-  private void _test__constructor_transitions0_effect_state() {
-    _test__constructor_transitions0_effect_state_objectTests0_test(stock);
+  private void _test__constructor_transitions0_effects0_state() {
+    _test__constructor_transitions0_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__constructor_transitions0_effect_state_objectTests0_test(final Stock it) {
+  private void _test__constructor_transitions0_effects0_state_objectTests0_test(final Stock it) {
     
     String _ticker = it.getTicker();
     assertEquals("ticker == \"APPL\" failed", "APPL", _ticker);
@@ -101,6 +101,7 @@ public class StockTest extends TestCase {
     try {
       
       final StockListener _function = new StockListener() {
+        @Override
         public void stockPriceChanged(final Stock stock, final double oldPrice, final double newPrice) {
           StockTest.this.setPrice2(oldPrice, newPrice);
         }
@@ -122,12 +123,12 @@ public class StockTest extends TestCase {
     
   }
   
-  private void _test__stockListener_transitions0_effect_state() {
-    _test__stockListener_transitions0_effect_state_objectTests0_test(stock);
+  private void _test__stockListener_transitions0_effects0_state() {
+    _test__stockListener_transitions0_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__stockListener_transitions0_effect_state_objectTests0_test(final Stock it) {
+  private void _test__stockListener_transitions0_effects0_state_objectTests0_test(final Stock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 118.0d failed after stock.addStockListener([Stock stock, double oldPrice, double newPrice | setPrice2(oldPrice, newPrice) ]) ,setPrice1(118.0d, 110.0d, 118.0d)", 118.0d, _price);
@@ -144,19 +145,15 @@ public class StockTest extends TestCase {
     
   }
   
-  private void _test__stockListener_transitions1_effect_state() {
-    _test__stockListener_transitions1_effect_state_objectTests0_test(stock);
+  private void _test__stockListener_transitions1_effects0_state() {
+    _test__stockListener_transitions1_effects0_state_objectTests0_test(stock);
     
   }
   
-  private void _test__stockListener_transitions1_effect_state_objectTests0_test(final Stock it) {
+  private void _test__stockListener_transitions1_effects0_state_objectTests0_test(final Stock it) {
     
     double _price = it.getPrice();
     assertEquals("price == 121.0d failed after setPrice1(121.0d, 118.0d, 121.0d)", 121.0d, _price);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(StockTest.class);
   }
 }

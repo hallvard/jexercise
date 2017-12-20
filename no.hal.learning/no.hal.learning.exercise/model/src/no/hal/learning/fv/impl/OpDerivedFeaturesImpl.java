@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import no.hal.learning.fv.FvPackage;
+import no.hal.learning.fv.Op1Kind;
 import no.hal.learning.fv.Op2Kind;
 import no.hal.learning.fv.OpDerivedFeatures;
 
@@ -21,6 +22,7 @@ import no.hal.learning.fv.OpDerivedFeatures;
  *   <li>{@link no.hal.learning.fv.impl.OpDerivedFeaturesImpl#getOp <em>Op</em>}</li>
  *   <li>{@link no.hal.learning.fv.impl.OpDerivedFeaturesImpl#getVal <em>Val</em>}</li>
  *   <li>{@link no.hal.learning.fv.impl.OpDerivedFeaturesImpl#isSwap <em>Swap</em>}</li>
+ *   <li>{@link no.hal.learning.fv.impl.OpDerivedFeaturesImpl#getOp1 <em>Op1</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,6 +87,26 @@ public abstract class OpDerivedFeaturesImpl extends DerivedFeaturesImpl implemen
 	 * @ordered
 	 */
 	protected boolean swap = SWAP_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOp1() <em>Op1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOp1()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Op1Kind OP1_EDEFAULT = Op1Kind.IDENTITY;
+
+	/**
+	 * The cached value of the '{@link #getOp1() <em>Op1</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOp1()
+	 * @generated
+	 * @ordered
+	 */
+	protected Op1Kind op1 = OP1_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,6 +201,27 @@ public abstract class OpDerivedFeaturesImpl extends DerivedFeaturesImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Op1Kind getOp1() {
+		return op1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOp1(Op1Kind newOp1) {
+		Op1Kind oldOp1 = op1;
+		op1 = newOp1 == null ? OP1_EDEFAULT : newOp1;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FvPackage.OP_DERIVED_FEATURES__OP1, oldOp1, op1));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -188,6 +231,8 @@ public abstract class OpDerivedFeaturesImpl extends DerivedFeaturesImpl implemen
 				return getVal();
 			case FvPackage.OP_DERIVED_FEATURES__SWAP:
 				return isSwap();
+			case FvPackage.OP_DERIVED_FEATURES__OP1:
+				return getOp1();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,6 +253,9 @@ public abstract class OpDerivedFeaturesImpl extends DerivedFeaturesImpl implemen
 				return;
 			case FvPackage.OP_DERIVED_FEATURES__SWAP:
 				setSwap((Boolean)newValue);
+				return;
+			case FvPackage.OP_DERIVED_FEATURES__OP1:
+				setOp1((Op1Kind)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -230,6 +278,9 @@ public abstract class OpDerivedFeaturesImpl extends DerivedFeaturesImpl implemen
 			case FvPackage.OP_DERIVED_FEATURES__SWAP:
 				setSwap(SWAP_EDEFAULT);
 				return;
+			case FvPackage.OP_DERIVED_FEATURES__OP1:
+				setOp1(OP1_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -248,6 +299,8 @@ public abstract class OpDerivedFeaturesImpl extends DerivedFeaturesImpl implemen
 				return val != VAL_EDEFAULT;
 			case FvPackage.OP_DERIVED_FEATURES__SWAP:
 				return swap != SWAP_EDEFAULT;
+			case FvPackage.OP_DERIVED_FEATURES__OP1:
+				return op1 != OP1_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -268,6 +321,8 @@ public abstract class OpDerivedFeaturesImpl extends DerivedFeaturesImpl implemen
 		result.append(val);
 		result.append(", swap: ");
 		result.append(swap);
+		result.append(", op1: ");
+		result.append(op1);
 		result.append(')');
 		return result.toString();
 	}
@@ -277,5 +332,8 @@ public abstract class OpDerivedFeaturesImpl extends DerivedFeaturesImpl implemen
 	protected double deriveValue(double val1, double val2) {
 		return FeatureListImpl.apply(val1, getOp().getOp2(), val2, isSwap());
 	}
-
+	
+	protected double deriveValue(double val) {
+		return (getOp1() != null ? getOp1().getOp1().apply(val) : val);
+	}
 } //OpDerivedFeaturesImpl

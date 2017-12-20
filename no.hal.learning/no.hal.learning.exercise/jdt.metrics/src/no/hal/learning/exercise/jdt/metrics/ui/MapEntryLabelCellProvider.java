@@ -55,7 +55,7 @@ public class MapEntryLabelCellProvider extends CellLabelProvider {
 	
 	//
 	
-	protected String wordify(String text, Boolean casify) {
+	public static String wordify(String text, Boolean casify) {
 		StringBuilder buffer = new StringBuilder();
 		for (int i = 0; i < text.length(); i++) {
 			char c = text.charAt(i);

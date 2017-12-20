@@ -7,10 +7,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import no.hal.learning.exercise.Proposal;
+import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.pydev.PydevFactory;
 import no.hal.learning.exercise.pydev.PydevLaunchAnswer;
+import no.hal.learning.exercise.pydev.PydevLaunchEvent;
 import no.hal.learning.exercise.pydev.PydevLaunchProposal;
 import no.hal.learning.exercise.pydev.PydevPackage;
+import no.hal.learning.exercise.util.Util;
 import no.hal.learning.exercise.workspace.impl.LaunchAnswerImpl;
 
 /**
@@ -170,5 +173,13 @@ public class PydevLaunchAnswerImpl extends LaunchAnswerImpl implements PydevLaun
 		return proposal;
 	}
 
+	@Override
+	public boolean acceptEvent(TaskEvent event) {
+		if (! (super.acceptEvent(event) || (event instanceof PydevLaunchEvent))) {
+			return false;
+		}
+		PydevLaunchEvent launchEvent = (PydevLaunchEvent) event;
+		return Util.acceptQName(getModuleName(), launchEvent.getModuleName());
+	}
 
 } //PydevLaunchAnswerImpl

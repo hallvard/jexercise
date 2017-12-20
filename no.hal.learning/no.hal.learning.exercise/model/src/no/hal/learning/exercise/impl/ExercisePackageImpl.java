@@ -705,6 +705,15 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTaskAnswer__AcceptEvent__TaskEvent() {
+		return taskAnswerEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTaskProposal() {
 		return taskProposalEClass;
 	}
@@ -761,6 +770,15 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 */
 	public EOperation getTaskProposal__GetText() {
 		return taskProposalEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTaskProposal__AddTaskEvent__TaskEvent() {
+		return taskProposalEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1111,6 +1129,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 
 		taskAnswerEClass = createEClass(TASK_ANSWER);
 		createEAttribute(taskAnswerEClass, TASK_ANSWER__REQUIRED_COUNT);
+		createEOperation(taskAnswerEClass, TASK_ANSWER___ACCEPT_EVENT__TASKEVENT);
 
 		taskProposalEClass = createEClass(TASK_PROPOSAL);
 		createEAttribute(taskProposalEClass, TASK_PROPOSAL__COMPLETION);
@@ -1119,6 +1138,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		createEReference(taskProposalEClass, TASK_PROPOSAL__ATTEMPTS);
 		createEAttribute(taskProposalEClass, TASK_PROPOSAL__PERFORMED_COUNT);
 		createEOperation(taskProposalEClass, TASK_PROPOSAL___GET_TEXT);
+		createEOperation(taskProposalEClass, TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT);
 
 		taskEventEClass = createEClass(TASK_EVENT);
 		createEReference(taskEventEClass, TASK_EVENT__PROPOSAL);
@@ -1309,6 +1329,9 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		initEClass(taskAnswerEClass, TaskAnswer.class, "TaskAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskAnswer_RequiredCount(), ecorePackage.getEInt(), "requiredCount", null, 0, 1, TaskAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getTaskAnswer__AcceptEvent__TaskEvent(), ecorePackage.getEBoolean(), "acceptEvent", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTaskEvent(), "event", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(taskProposalEClass, TaskProposal.class, "TaskProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskProposal_Completion(), ecorePackage.getEDouble(), "completion", "-1", 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskProposal_Proof(), ecorePackage.getEString(), "proof", null, 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1317,6 +1340,9 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		initEAttribute(getTaskProposal_PerformedCount(), ecorePackage.getEInt(), "performedCount", null, 0, 1, TaskProposal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getTaskProposal__GetText(), ecorePackage.getEString(), "getText", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTaskProposal__AddTaskEvent__TaskEvent(), ecorePackage.getEBoolean(), "addTaskEvent", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTaskEvent(), "taskEvent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(taskEventEClass, TaskEvent.class, "TaskEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getTaskProposal());

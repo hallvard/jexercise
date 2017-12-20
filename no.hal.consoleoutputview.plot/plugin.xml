@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+     <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Plot View"
+            class="no.hal.consoleoutputview.plot.PlotView"
+            id="no.hal.consoleoutputview.plot.PlotView">
+      </view>
+   </extension>
+      
+   <extension
+       point="no.hal.consoleoutputview.consoleOutputView">
+	    <consoleOutputView key="plot" viewId="no.hal.consoleoutputview.plot.PlotView"/>
+    </extension>
+
+</plugin>

@@ -29,7 +29,7 @@ public class GridTest extends TestCase {
     _transition_exprAction__grid_transitions0_actions3(gridImpl);
     _transition_exprAction__grid_transitions0_actions4(gridImpl);
     _transition_exprAction__grid_transitions0_actions5(gridImpl);
-    _test__grid_transitions0_effect_state(gridImpl);
+    _test__grid_transitions0_effects0_state(gridImpl);
     
   }
   
@@ -42,19 +42,19 @@ public class GridTest extends TestCase {
     _transition_exprAction__gridIteratorRowMajor_transitions0_actions3(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorRowMajor_transitions0_actions4(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorRowMajor_transitions0_actions5(gridImpl, gridIterator);
-    _test__gridIteratorRowMajor_transitions0_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorRowMajor_transitions0_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorRowMajor_transitions1_actions0(gridImpl, gridIterator);
-    _test__gridIteratorRowMajor_transitions1_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorRowMajor_transitions1_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorRowMajor_transitions2_actions0(gridImpl, gridIterator);
-    _test__gridIteratorRowMajor_transitions2_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorRowMajor_transitions2_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorRowMajor_transitions3_actions0(gridImpl, gridIterator);
-    _test__gridIteratorRowMajor_transitions3_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorRowMajor_transitions3_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorRowMajor_transitions4_actions0(gridImpl, gridIterator);
-    _test__gridIteratorRowMajor_transitions4_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorRowMajor_transitions4_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorRowMajor_transitions5_actions0(gridImpl, gridIterator);
-    _test__gridIteratorRowMajor_transitions5_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorRowMajor_transitions5_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorRowMajor_transitions6_actions0(gridImpl, gridIterator);
-    _test__gridIteratorRowMajor_transitions6_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorRowMajor_transitions6_effects0_state(gridImpl, gridIterator);
     
   }
   
@@ -67,19 +67,19 @@ public class GridTest extends TestCase {
     _transition_exprAction__gridIteratorColumnMajor_transitions0_actions3(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorColumnMajor_transitions0_actions4(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorColumnMajor_transitions0_actions5(gridImpl, gridIterator);
-    _test__gridIteratorColumnMajor_transitions0_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorColumnMajor_transitions0_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorColumnMajor_transitions1_actions0(gridImpl, gridIterator);
-    _test__gridIteratorColumnMajor_transitions1_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorColumnMajor_transitions1_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorColumnMajor_transitions2_actions0(gridImpl, gridIterator);
-    _test__gridIteratorColumnMajor_transitions2_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorColumnMajor_transitions2_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorColumnMajor_transitions3_actions0(gridImpl, gridIterator);
-    _test__gridIteratorColumnMajor_transitions3_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorColumnMajor_transitions3_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorColumnMajor_transitions4_actions0(gridImpl, gridIterator);
-    _test__gridIteratorColumnMajor_transitions4_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorColumnMajor_transitions4_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorColumnMajor_transitions5_actions0(gridImpl, gridIterator);
-    _test__gridIteratorColumnMajor_transitions5_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorColumnMajor_transitions5_effects0_state(gridImpl, gridIterator);
     _transition_exprAction__gridIteratorColumnMajor_transitions6_actions0(gridImpl, gridIterator);
-    _test__gridIteratorColumnMajor_transitions6_effect_state(gridImpl, gridIterator);
+    _test__gridIteratorColumnMajor_transitions6_effects0_state(gridImpl, gridIterator);
     
   }
   
@@ -143,12 +143,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__grid_transitions0_effect_state(final GridImpl<String> it) {
-    _test__grid_transitions0_effect_state_objectTests0_test(gridImpl);
+  private void _test__grid_transitions0_effects0_state(final GridImpl<String> it) {
+    _test__grid_transitions0_effects0_state_objectTests0_test(gridImpl);
     
   }
   
-  private void _test__grid_transitions0_effect_state_objectTests0_test(final GridImpl<String> it) {
+  private void _test__grid_transitions0_effects0_state_objectTests0_test(final GridImpl<String> it) {
     
     String _element = it.getElement(0, 0);
     assertEquals("getElement(0, 0) == \"0, 0\" failed after gridImpl.setElement(0, 0, \"0, 0\") ,gridImpl.setElement(0, 1, \"0, 1\") ,gridImpl.setElement(0, 2, \"0, 2\") ,gridImpl.setElement(1, 0, \"1, 0\") ,gridImpl.setElement(1, 1, \"1, 1\") ,gridImpl.setElement(1, 2, \"1, 2\")", "0, 0", _element);
@@ -235,12 +235,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions0_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorRowMajor_transitions0_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorRowMajor_transitions0_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorRowMajor_transitions0_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions0_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorRowMajor_transitions0_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridImpl.setElement(0, 0, \"0, 0\") ,gridImpl.setElement(0, 1, \"0, 1\") ,gridImpl.setElement(0, 2, \"0, 2\") ,gridImpl.setElement(1, 0, \"1, 0\") ,gridImpl.setElement(1, 1, \"1, 1\") ,gridImpl.setElement(1, 2, \"1, 2\")", true, _hasNext);
@@ -254,12 +254,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions1_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorRowMajor_transitions1_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorRowMajor_transitions1_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorRowMajor_transitions1_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions1_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorRowMajor_transitions1_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridIterator.next == \"0, 0\"", true, _hasNext);
@@ -273,12 +273,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions2_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorRowMajor_transitions2_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorRowMajor_transitions2_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorRowMajor_transitions2_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions2_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorRowMajor_transitions2_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridIterator.next == \"0, 1\"", true, _hasNext);
@@ -292,12 +292,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions3_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorRowMajor_transitions3_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorRowMajor_transitions3_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorRowMajor_transitions3_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions3_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorRowMajor_transitions3_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridIterator.next == \"0, 2\"", true, _hasNext);
@@ -311,12 +311,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions4_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorRowMajor_transitions4_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorRowMajor_transitions4_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorRowMajor_transitions4_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions4_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorRowMajor_transitions4_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridIterator.next == \"1, 0\"", true, _hasNext);
@@ -330,12 +330,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions5_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorRowMajor_transitions5_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorRowMajor_transitions5_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorRowMajor_transitions5_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions5_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorRowMajor_transitions5_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridIterator.next == \"1, 1\"", true, _hasNext);
@@ -349,12 +349,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions6_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorRowMajor_transitions6_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorRowMajor_transitions6_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorRowMajor_transitions6_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorRowMajor_transitions6_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorRowMajor_transitions6_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == false failed after gridIterator.next == \"1, 2\"", false, _hasNext);
@@ -426,12 +426,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions0_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorColumnMajor_transitions0_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorColumnMajor_transitions0_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorColumnMajor_transitions0_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions0_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorColumnMajor_transitions0_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridImpl.setElement(0, 0, \"0, 0\") ,gridImpl.setElement(0, 1, \"0, 1\") ,gridImpl.setElement(0, 2, \"0, 2\") ,gridImpl.setElement(1, 0, \"1, 0\") ,gridImpl.setElement(1, 1, \"1, 1\") ,gridImpl.setElement(1, 2, \"1, 2\")", true, _hasNext);
@@ -445,12 +445,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions1_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorColumnMajor_transitions1_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorColumnMajor_transitions1_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorColumnMajor_transitions1_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions1_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorColumnMajor_transitions1_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridIterator.next == \"0, 0\"", true, _hasNext);
@@ -464,12 +464,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions2_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorColumnMajor_transitions2_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorColumnMajor_transitions2_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorColumnMajor_transitions2_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions2_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorColumnMajor_transitions2_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridIterator.next == \"1, 0\"", true, _hasNext);
@@ -483,12 +483,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions3_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorColumnMajor_transitions3_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorColumnMajor_transitions3_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorColumnMajor_transitions3_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions3_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorColumnMajor_transitions3_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridIterator.next == \"0, 1\"", true, _hasNext);
@@ -502,12 +502,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions4_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorColumnMajor_transitions4_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorColumnMajor_transitions4_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorColumnMajor_transitions4_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions4_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorColumnMajor_transitions4_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridIterator.next == \"1, 1\"", true, _hasNext);
@@ -521,12 +521,12 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions5_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorColumnMajor_transitions5_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorColumnMajor_transitions5_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorColumnMajor_transitions5_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions5_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorColumnMajor_transitions5_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == true failed after gridIterator.next == \"0, 2\"", true, _hasNext);
@@ -540,19 +540,15 @@ public class GridTest extends TestCase {
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions6_effect_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
-    _test__gridIteratorColumnMajor_transitions6_effect_state_objectTests0_test(gridIterator, gridIterator);
+  private void _test__gridIteratorColumnMajor_transitions6_effects0_state(final GridImpl<String> it, final GridIterator<String> gridIterator) {
+    _test__gridIteratorColumnMajor_transitions6_effects0_state_objectTests0_test(gridIterator, gridIterator);
     
   }
   
-  private void _test__gridIteratorColumnMajor_transitions6_effect_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
+  private void _test__gridIteratorColumnMajor_transitions6_effects0_state_objectTests0_test(final GridIterator<String> it, final GridIterator<String> gridIterator) {
     
     boolean _hasNext = it.hasNext();
     assertEquals("hasNext == false failed after gridIterator.next == \"1, 2\"", false, _hasNext);
     
-  }
-  
-  public static void main(final String[] args) {
-    no.hal.jex.standalone.JexStandalone.main(GridTest.class);
   }
 }

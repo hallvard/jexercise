@@ -1,8 +1,8 @@
 package stateandbehavior;
 
+import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 import no.hal.jex.standalone.JexStandalone;
-import junit.framework.TestCase;
 
 @JExercise(
 		tests="", // We don't want to test this element as a whole, since we can test the parts.
