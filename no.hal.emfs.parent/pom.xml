@@ -14,7 +14,7 @@
 		<maven-version>3.3</maven-version>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-		<tycho-version>0.24.0</tycho-version>
+		<tycho-version>1.0.0</tycho-version>
 		<xtext-version>2.9.1</xtext-version>
 		<xtend-maven-plugin-version>2.9.1</xtend-maven-plugin-version>
 	</properties>
