@@ -24,6 +24,11 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/oxygen</url>
 		</repository>
+		<repository>
+			<id>emfjson</id>
+			<layout>p2</layout>
+			<url>http://ghillairet.github.io/p2</url>
+		</repository>
 	</repositories>
 
 	<build>

@@ -8,7 +8,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  no.hal.emfs;bundle-version="0.1.0",
  no.hal.emfs.ui;bundle-version="0.1.0",
- org.eclipse.ui.browser;bundle-version="3.4.200"
+ org.eclipse.ui.browser;bundle-version="3.4.200",
+ com.fasterxml.jackson.core.jackson-core;bundle-version="2.9.0.pr3-20170401100809",
+ com.fasterxml.jackson.core.jackson-databind;bundle-version="2.9.0.pr3-20170401100809",
+ com.fasterxml.jackson.core.jackson-annotations;bundle-version="2.9.0.pr3-20170401100809"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: no.hal.confluence.ui,
@@ -19,9 +22,9 @@ Export-Package: no.hal.confluence.ui,
  no.hal.confluence.ui.resources.util,
  no.hal.confluence.ui.resources.util.xml,
  no.hal.confluence.ui.views
-Import-Package: com.fasterxml.jackson.core;version="2.9.0.pr3-SNAPSHOT",
- com.fasterxml.jackson.databind;version="2.9.0.pr3-SNAPSHOT",
- com.fasterxml.jackson.databind.node;version="2.9.0.pr3-SNAPSHOT",
+Import-Package: com.fasterxml.jackson.core,
+ com.fasterxml.jackson.databind,
+ com.fasterxml.jackson.databind.node,
  no.hal.emfs.ui.provider,
  org.eclipse.emf.edit.ui.provider,
  org.eclipse.jface.text,
