@@ -58,11 +58,11 @@ public class ImporterTrigger extends AbstractPorterTrigger<Importer> {
 			IResource resource = delta.getResource();
 			if (resource instanceof IFile && isEnabled()) {
 				importResource(resource);
+				return;
 			}
-		} else {
-			for (IResourceDelta childDelta : delta.getAffectedChildren()) {
-				resourceChanged(childDelta);
-			}
+		}
+		for (IResourceDelta childDelta : delta.getAffectedChildren()) {
+			resourceChanged(childDelta);
 		}
 	}
 
