@@ -36,8 +36,8 @@
   	<module>junit</module>
   	<module>jdt.ecore</module>
   	<module>jdt</module>
-  	<module>pydev</module>
   	<!-- 
+  	<module>pydev</module>
   	<module>checkstyle</module>
   	 -->
   	<module>workbench</module>
