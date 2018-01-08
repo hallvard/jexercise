@@ -224,14 +224,16 @@ public class MetricsView extends ViewPart {
 		for (int i = 0; i < seqs.size(); i++) {
 			legend.addItem(entries.get(i).getKey(), getColorName(i));			
 		}
-		SpiderChartPlotter plotter = new SpiderChartPlotter();
-		plotter.setSeq(seqs);
-		plotter.use(acb.build());
-
-		SpiderChart chart = new SpiderChart(title, plotter);
-		chart.setLegend(legend);
-		spider.setChart(chart);
-		spider.redraw();
+		if (acb != null && (! seqs.isEmpty())) {
+			SpiderChartPlotter plotter = new SpiderChartPlotter();
+			plotter.setSeq(seqs);
+			plotter.use(acb.build());
+	
+			SpiderChart chart = new SpiderChart(title, plotter);
+			chart.setLegend(legend);
+			spider.setChart(chart);
+			spider.redraw();
+		}
 	}
 
 	@Override

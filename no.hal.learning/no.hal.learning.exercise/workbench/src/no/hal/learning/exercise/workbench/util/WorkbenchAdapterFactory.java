@@ -119,6 +119,14 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 				return createDebugEventProposalAdapter();
 			}
 			@Override
+			public Adapter caseBrowserEventAnswer(BrowserEventAnswer object) {
+				return createBrowserEventAnswerAdapter();
+			}
+			@Override
+			public Adapter caseBrowserEventProposal(BrowserEventProposal object) {
+				return createBrowserEventProposalAdapter();
+			}
+			@Override
 			public Adapter caseAnswer(Answer object) {
 				return createAnswerAdapter();
 			}
@@ -317,6 +325,34 @@ public class WorkbenchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDebugEventProposalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workbench.BrowserEventAnswer <em>Browser Event Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.workbench.BrowserEventAnswer
+	 * @generated
+	 */
+	public Adapter createBrowserEventAnswerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.hal.learning.exercise.workbench.BrowserEventProposal <em>Browser Event Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.hal.learning.exercise.workbench.BrowserEventProposal
+	 * @generated
+	 */
+	public Adapter createBrowserEventProposalAdapter() {
 		return null;
 	}
 

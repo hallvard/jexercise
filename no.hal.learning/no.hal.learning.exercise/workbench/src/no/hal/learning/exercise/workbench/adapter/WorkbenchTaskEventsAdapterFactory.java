@@ -4,6 +4,8 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
 import no.hal.learning.exercise.plugin.AbstractTaskEventsAdapterFactory;
+import no.hal.learning.exercise.workbench.BrowserEventAnswer;
+import no.hal.learning.exercise.workbench.BrowserEventProposal;
 import no.hal.learning.exercise.workbench.CommandExecutionAnswer;
 import no.hal.learning.exercise.workbench.CommandExecutionProposal;
 import no.hal.learning.exercise.workbench.DebugEventAnswer;
@@ -17,7 +19,7 @@ public class WorkbenchTaskEventsAdapterFactory extends AbstractTaskEventsAdapter
 
 	@Override
 	public boolean isFactoryForType(Object type) {
-		return isFactoryForType(type, PartTaskAnswer.class, PerspectiveTaskAnswer.class, CommandExecutionAnswer.class, DebugEventAnswer.class);
+		return isFactoryForType(type, PartTaskAnswer.class, PerspectiveTaskAnswer.class, CommandExecutionAnswer.class, DebugEventAnswer.class, BrowserEventAnswer.class);
 	}
 	
 	@Override
@@ -31,6 +33,8 @@ public class WorkbenchTaskEventsAdapterFactory extends AbstractTaskEventsAdapter
 			return new CommandExecutionEventsAdapter();
 		} else if (target instanceof DebugEventProposal) {
 			return new DebugEventsAdapter();
+		} else if (target instanceof BrowserEventProposal) {
+			return new BrowserEventsAdapter();
 		}
 		return null;
 	}

@@ -9,11 +9,11 @@
 <booleanAttribute key="clearConfig" value="false"/>
 <booleanAttribute key="clearws" value="false"/>
 <booleanAttribute key="clearwslog" value="false"/>
-<stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/jex"/>
+<stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/sharing-publish"/>
 <booleanAttribute key="default" value="false"/>
 <stringAttribute key="deselected_workspace_plugins" value="no.hal.emfs.tests,no.hal.emfs.xtext.tests,no.hal.learning.exercise.checkstyle,no.hal.learning.exercise.model.tests,no.hal.learning.exercise.xtext.tests,no.hal.learning.exercise.xtext.ui.tests,no.hal.learning.sharing,no.hal.learning.sharing.tests,no.hal.learning.sharing.ui"/>
 <booleanAttribute key="includeOptional" value="true"/>
-<stringAttribute key="location" value="${workspace_loc}/../runtime-jex"/>
+<stringAttribute key="location" value="${workspace_loc}/../runtime-sharing-publish"/>
 <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog"/>

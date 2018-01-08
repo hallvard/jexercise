@@ -51,4 +51,10 @@
       <eTypeArguments eClassifier="#//DebugEventAnswer"/>
     </eGenericSuperTypes>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BrowserEventAnswer" eSuperTypes="#//WorkbenchTaskAnswer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BrowserEventProposal">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../no.hal.learning.exercise.model/model/exercise.ecore#//TaskProposal">
+      <eTypeArguments eClassifier="#//BrowserEventAnswer"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
 </ecore:EPackage>

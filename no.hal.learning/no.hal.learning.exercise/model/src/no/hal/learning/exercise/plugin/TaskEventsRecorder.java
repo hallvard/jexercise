@@ -40,9 +40,11 @@ public class TaskEventsRecorder {
 				resourceSet.getResource(uri, true);
 			}
 		}
-		for (Resource resource : resourceSet.getResources()) {
-			if ("ex".equals(resource.getURI().fileExtension())) {
-				startRecording(resource);
+		if (resourceSet != null) {
+			for (Resource resource : resourceSet.getResources()) {
+				if ("ex".equals(resource.getURI().fileExtension())) {
+					startRecording(resource);
+				}
 			}
 		}
 	}
@@ -104,12 +106,14 @@ public class TaskEventsRecorder {
 	}
 
 	public void stopRecording() {
-		for (Resource resource : resourceSet.getResources()) {
-			try {
-				resource.save(null);
-			} catch (IOException e) {
+		if (resourceSet != null) {
+			for (Resource resource : resourceSet.getResources()) {
+				try {
+					resource.save(null);
+				} catch (IOException e) {
+				}
+				resource.unload();
 			}
-			resource.unload();
 		}
 	}
 }

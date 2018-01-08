@@ -22,7 +22,10 @@ public class PartTaskEventsAdapter extends AbstractWorkbenchTaskEventAdapter<Par
 
 	@Override
 	protected void registerListeners() {
-		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPartService().addPartListener(this);
+		IWorkbenchWindow activeWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		if (activeWindow != null) {
+			activeWindow.getPartService().addPartListener(this);
+		}
 	}
 
 	@Override

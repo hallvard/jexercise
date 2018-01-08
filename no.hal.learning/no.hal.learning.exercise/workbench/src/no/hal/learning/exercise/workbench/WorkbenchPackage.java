@@ -502,6 +502,15 @@ public interface WorkbenchPackage extends EPackage {
 	int PART_TASK_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
 
 	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = ExercisePackage.TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Part Task Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -856,6 +865,15 @@ public interface WorkbenchPackage extends EPackage {
 	int PERSPECTIVE_TASK_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
 
 	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSPECTIVE_TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = ExercisePackage.TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Perspective Task Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1081,6 +1099,15 @@ public interface WorkbenchPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMAND_EXECUTION_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
+
+	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXECUTION_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = ExercisePackage.TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT;
 
 	/**
 	 * The number of operations of the '<em>Command Execution Proposal</em>' class.
@@ -1311,6 +1338,15 @@ public interface WorkbenchPackage extends EPackage {
 	int DEBUG_EVENT_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
 
 	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEBUG_EVENT_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = ExercisePackage.TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT;
+
+	/**
 	 * The number of operations of the '<em>Debug Event Proposal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1318,6 +1354,243 @@ public interface WorkbenchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DEBUG_EVENT_PROPOSAL_OPERATION_COUNT = ExercisePackage.TASK_PROPOSAL_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.workbench.impl.BrowserEventAnswerImpl <em>Browser Event Answer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.workbench.impl.BrowserEventAnswerImpl
+	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getBrowserEventAnswer()
+	 * @generated
+	 */
+	int BROWSER_EVENT_ANSWER = 11;
+
+	/**
+	 * The feature id for the '<em><b>Required Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_ANSWER__REQUIRED_COUNT = WORKBENCH_TASK_ANSWER__REQUIRED_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Element Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_ANSWER__ELEMENT_ID = WORKBENCH_TASK_ANSWER__ELEMENT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_ANSWER__ACTION = WORKBENCH_TASK_ANSWER__ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_ANSWER__TEXT = WORKBENCH_TASK_ANSWER__TEXT;
+
+	/**
+	 * The number of structural features of the '<em>Browser Event Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_ANSWER_FEATURE_COUNT = WORKBENCH_TASK_ANSWER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_ANSWER___ACCEPT__OBJECT = WORKBENCH_TASK_ANSWER___ACCEPT__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_ANSWER___VALIDATE__OBJECT = WORKBENCH_TASK_ANSWER___VALIDATE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Create Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_ANSWER___CREATE_PROPOSAL = WORKBENCH_TASK_ANSWER___CREATE_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Accept Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_ANSWER___ACCEPT_EVENT__TASKEVENT = WORKBENCH_TASK_ANSWER___ACCEPT_EVENT__TASKEVENT;
+
+	/**
+	 * The number of operations of the '<em>Browser Event Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_ANSWER_OPERATION_COUNT = WORKBENCH_TASK_ANSWER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link no.hal.learning.exercise.workbench.impl.BrowserEventProposalImpl <em>Browser Event Proposal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.hal.learning.exercise.workbench.impl.BrowserEventProposalImpl
+	 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getBrowserEventProposal()
+	 * @generated
+	 */
+	int BROWSER_EVENT_PROPOSAL = 12;
+
+	/**
+	 * The feature id for the '<em><b>Question</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL__QUESTION = ExercisePackage.TASK_PROPOSAL__QUESTION;
+
+	/**
+	 * The feature id for the '<em><b>Answer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL__ANSWER = ExercisePackage.TASK_PROPOSAL__ANSWER;
+
+	/**
+	 * The feature id for the '<em><b>Completion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL__COMPLETION = ExercisePackage.TASK_PROPOSAL__COMPLETION;
+
+	/**
+	 * The feature id for the '<em><b>Proof</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL__PROOF = ExercisePackage.TASK_PROPOSAL__PROOF;
+
+	/**
+	 * The feature id for the '<em><b>Attempt Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL__ATTEMPT_COUNT = ExercisePackage.TASK_PROPOSAL__ATTEMPT_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Attempts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL__ATTEMPTS = ExercisePackage.TASK_PROPOSAL__ATTEMPTS;
+
+	/**
+	 * The feature id for the '<em><b>Performed Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL__PERFORMED_COUNT = ExercisePackage.TASK_PROPOSAL__PERFORMED_COUNT;
+
+	/**
+	 * The number of structural features of the '<em>Browser Event Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL_FEATURE_COUNT = ExercisePackage.TASK_PROPOSAL_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Proposal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL___GET_PROPOSAL = ExercisePackage.TASK_PROPOSAL___GET_PROPOSAL;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL___ACCEPT = ExercisePackage.TASK_PROPOSAL___ACCEPT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL___VALIDATE = ExercisePackage.TASK_PROPOSAL___VALIDATE;
+
+	/**
+	 * The operation id for the '<em>Get Text</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL___GET_TEXT = ExercisePackage.TASK_PROPOSAL___GET_TEXT;
+
+	/**
+	 * The operation id for the '<em>Add Task Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL___ADD_TASK_EVENT__TASKEVENT = ExercisePackage.TASK_PROPOSAL___ADD_TASK_EVENT__TASKEVENT;
+
+	/**
+	 * The number of operations of the '<em>Browser Event Proposal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROWSER_EVENT_PROPOSAL_OPERATION_COUNT = ExercisePackage.TASK_PROPOSAL_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1508,6 +1781,26 @@ public interface WorkbenchPackage extends EPackage {
 	EClass getDebugEventProposal();
 
 	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.workbench.BrowserEventAnswer <em>Browser Event Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Browser Event Answer</em>'.
+	 * @see no.hal.learning.exercise.workbench.BrowserEventAnswer
+	 * @generated
+	 */
+	EClass getBrowserEventAnswer();
+
+	/**
+	 * Returns the meta object for class '{@link no.hal.learning.exercise.workbench.BrowserEventProposal <em>Browser Event Proposal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Browser Event Proposal</em>'.
+	 * @see no.hal.learning.exercise.workbench.BrowserEventProposal
+	 * @generated
+	 */
+	EClass getBrowserEventProposal();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1695,6 +1988,26 @@ public interface WorkbenchPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DEBUG_EVENT_PROPOSAL = eINSTANCE.getDebugEventProposal();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.workbench.impl.BrowserEventAnswerImpl <em>Browser Event Answer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.workbench.impl.BrowserEventAnswerImpl
+		 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getBrowserEventAnswer()
+		 * @generated
+		 */
+		EClass BROWSER_EVENT_ANSWER = eINSTANCE.getBrowserEventAnswer();
+
+		/**
+		 * The meta object literal for the '{@link no.hal.learning.exercise.workbench.impl.BrowserEventProposalImpl <em>Browser Event Proposal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.hal.learning.exercise.workbench.impl.BrowserEventProposalImpl
+		 * @see no.hal.learning.exercise.workbench.impl.WorkbenchPackageImpl#getBrowserEventProposal()
+		 * @generated
+		 */
+		EClass BROWSER_EVENT_PROPOSAL = eINSTANCE.getBrowserEventProposal();
 
 	}
 

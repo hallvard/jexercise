@@ -168,6 +168,23 @@ public class WorkbenchSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WorkbenchPackage.BROWSER_EVENT_ANSWER: {
+				BrowserEventAnswer browserEventAnswer = (BrowserEventAnswer)theEObject;
+				T1 result = caseBrowserEventAnswer(browserEventAnswer);
+				if (result == null) result = caseWorkbenchTaskAnswer(browserEventAnswer);
+				if (result == null) result = caseTaskAnswer(browserEventAnswer);
+				if (result == null) result = caseAnswer(browserEventAnswer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkbenchPackage.BROWSER_EVENT_PROPOSAL: {
+				BrowserEventProposal browserEventProposal = (BrowserEventProposal)theEObject;
+				T1 result = caseBrowserEventProposal(browserEventProposal);
+				if (result == null) result = caseTaskProposal(browserEventProposal);
+				if (result == null) result = caseProposal(browserEventProposal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -334,6 +351,36 @@ public class WorkbenchSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseDebugEventProposal(DebugEventProposal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Browser Event Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Browser Event Answer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBrowserEventAnswer(BrowserEventAnswer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Browser Event Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Browser Event Proposal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBrowserEventProposal(BrowserEventProposal object) {
 		return null;
 	}
 

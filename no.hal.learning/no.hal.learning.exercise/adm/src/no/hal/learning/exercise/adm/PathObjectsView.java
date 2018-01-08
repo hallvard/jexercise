@@ -106,7 +106,7 @@ public abstract class PathObjectsView<T> extends ViewPart {
 		pathFilterText = new Text(parent, SWT.SEARCH | SWT.ICON_SEARCH | SWT.ICON_CANCEL);
 		pathFilterText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
-		pathViewer = new TreeViewer(parent, SWT.BORDER);
+		pathViewer = new TreeViewer(parent);
 		ViewerFilter pathFilter = new ViewerFilter() {
 			@Override
 			public boolean select(Viewer viewer, Object parentElement, Object element) {

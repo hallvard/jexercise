@@ -67,6 +67,8 @@ public class WorkbenchFactoryImpl extends EFactoryImpl implements WorkbenchFacto
 			case WorkbenchPackage.COMMAND_EXECUTION_PROPOSAL: return createCommandExecutionProposal();
 			case WorkbenchPackage.DEBUG_EVENT_ANSWER: return createDebugEventAnswer();
 			case WorkbenchPackage.DEBUG_EVENT_PROPOSAL: return createDebugEventProposal();
+			case WorkbenchPackage.BROWSER_EVENT_ANSWER: return createBrowserEventAnswer();
+			case WorkbenchPackage.BROWSER_EVENT_PROPOSAL: return createBrowserEventProposal();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -180,6 +182,26 @@ public class WorkbenchFactoryImpl extends EFactoryImpl implements WorkbenchFacto
 	public DebugEventProposal createDebugEventProposal() {
 		DebugEventProposalImpl debugEventProposal = new DebugEventProposalImpl();
 		return debugEventProposal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BrowserEventAnswer createBrowserEventAnswer() {
+		BrowserEventAnswerImpl browserEventAnswer = new BrowserEventAnswerImpl();
+		return browserEventAnswer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BrowserEventProposal createBrowserEventProposal() {
+		BrowserEventProposalImpl browserEventProposal = new BrowserEventProposalImpl();
+		return browserEventProposal;
 	}
 
 	/**

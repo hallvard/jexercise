@@ -121,6 +121,24 @@ public interface WorkbenchFactory extends EFactory {
 	DebugEventProposal createDebugEventProposal();
 
 	/**
+	 * Returns a new object of class '<em>Browser Event Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Browser Event Answer</em>'.
+	 * @generated
+	 */
+	BrowserEventAnswer createBrowserEventAnswer();
+
+	/**
+	 * Returns a new object of class '<em>Browser Event Proposal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Browser Event Proposal</em>'.
+	 * @generated
+	 */
+	BrowserEventProposal createBrowserEventProposal();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -107,6 +107,10 @@ public class WorkbenchValidator extends EObjectValidator {
 				return validateDebugEventAnswer((DebugEventAnswer)value, diagnostics, context);
 			case WorkbenchPackage.DEBUG_EVENT_PROPOSAL:
 				return validateDebugEventProposal((DebugEventProposal)value, diagnostics, context);
+			case WorkbenchPackage.BROWSER_EVENT_ANSWER:
+				return validateBrowserEventAnswer((BrowserEventAnswer)value, diagnostics, context);
+			case WorkbenchPackage.BROWSER_EVENT_PROPOSAL:
+				return validateBrowserEventProposal((BrowserEventProposal)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -311,6 +315,24 @@ public class WorkbenchValidator extends EObjectValidator {
 	 */
 	public boolean validateDebugEventProposal(DebugEventProposal debugEventProposal, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(debugEventProposal, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBrowserEventAnswer(BrowserEventAnswer browserEventAnswer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(browserEventAnswer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBrowserEventProposal(BrowserEventProposal browserEventProposal, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(browserEventProposal, diagnostics, context);
 	}
 
 	/**

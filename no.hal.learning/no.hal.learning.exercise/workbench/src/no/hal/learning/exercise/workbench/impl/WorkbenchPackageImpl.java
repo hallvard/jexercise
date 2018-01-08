@@ -3,6 +3,8 @@
 package no.hal.learning.exercise.workbench.impl;
 
 import no.hal.learning.exercise.ExercisePackage;
+import no.hal.learning.exercise.workbench.BrowserEventAnswer;
+import no.hal.learning.exercise.workbench.BrowserEventProposal;
 import no.hal.learning.exercise.workbench.CommandExecutionAnswer;
 import no.hal.learning.exercise.workbench.CommandExecutionProposal;
 import no.hal.learning.exercise.workbench.DebugEventAnswer;
@@ -108,6 +110,20 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * @generated
 	 */
 	private EClass debugEventProposalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass browserEventAnswerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass browserEventProposalEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -349,6 +365,24 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBrowserEventAnswer() {
+		return browserEventAnswerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBrowserEventProposal() {
+		return browserEventProposalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WorkbenchFactory getWorkbenchFactory() {
 		return (WorkbenchFactory)getEFactoryInstance();
 	}
@@ -400,6 +434,10 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		debugEventAnswerEClass = createEClass(DEBUG_EVENT_ANSWER);
 
 		debugEventProposalEClass = createEClass(DEBUG_EVENT_PROPOSAL);
+
+		browserEventAnswerEClass = createEClass(BROWSER_EVENT_ANSWER);
+
+		browserEventProposalEClass = createEClass(BROWSER_EVENT_PROPOSAL);
 	}
 
 	/**
@@ -456,6 +494,11 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		g2 = createEGenericType(this.getDebugEventAnswer());
 		g1.getETypeArguments().add(g2);
 		debugEventProposalEClass.getEGenericSuperTypes().add(g1);
+		browserEventAnswerEClass.getESuperTypes().add(this.getWorkbenchTaskAnswer());
+		g1 = createEGenericType(theExercisePackage.getTaskProposal());
+		g2 = createEGenericType(this.getBrowserEventAnswer());
+		g1.getETypeArguments().add(g2);
+		browserEventProposalEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workbenchTaskAnswerEClass, WorkbenchTaskAnswer.class, "WorkbenchTaskAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -486,6 +529,10 @@ public class WorkbenchPackageImpl extends EPackageImpl implements WorkbenchPacka
 		initEClass(debugEventAnswerEClass, DebugEventAnswer.class, "DebugEventAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(debugEventProposalEClass, DebugEventProposal.class, "DebugEventProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(browserEventAnswerEClass, BrowserEventAnswer.class, "BrowserEventAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(browserEventProposalEClass, BrowserEventProposal.class, "BrowserEventProposal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
