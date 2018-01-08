@@ -68,9 +68,7 @@
 		<profile>
 			<id>all</id>
 			<modules>
-			<!-- 
 				<module>../no.hal.jex.jextest.parent</module>
-			 -->
 		
 				<module>../no.hal.emf.ui.utils</module>
 				<module>../no.hal.emf.ui.utils.feature</module>
