@@ -162,9 +162,6 @@
       <requirement
           name="no.hal.javafx.fxmlapp.feature.feature.group"/>
       <requirement
-          name="org.python.pydev.feature.feature.group"
-          optional="true"/>
-      <requirement
           name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
       <requirement
           name="no.hal.emfs.feature.feature.group"/>
@@ -187,11 +184,11 @@
       <repository
           url="http://files.idi.ntnu.no/publish/no.hal.javafx/repository/"/>
       <repository
-          url="http://www.pydev.org/updates/"/>
-      <repository
           url="http://files.idi.ntnu.no/publish/no.hal.learning.exercise/repository/"/>
       <repository
           url="http://eclipse.cubussapiens.hu/"/>
+      <repository
+          url="http://ghillairet.github.io/p2"/>
     </setupTask>
     <description>TDT4100 for Oxygen.</description>
   </version>
