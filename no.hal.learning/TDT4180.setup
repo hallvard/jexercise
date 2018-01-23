@@ -56,7 +56,7 @@
       <repository
           url="http://download.eclipse.org/releases/oxygen"/>
       <repository
-          url="http://download.eclipse.org/efxclipse/updates-released/3.0.0/site"/>
+          url="http://download.eclipse.org/efxclipse/updates-released/3.1.0/site"/>
       <repository
           url="http://files.idi.ntnu.no/publish/plantuml/repository/"/>
       <repository
