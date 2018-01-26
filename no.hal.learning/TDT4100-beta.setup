@@ -175,6 +175,9 @@
       <requirement
           name="hu.cubussapiens.debugvisualisation.javafilter.feature.group"
           optional="true"/>
+      <requirement
+          name="name.njbartlett.eclipse.macbadge.feature.feature.group"
+          optional="true"/>
       <repository
           url="http://download.eclipse.org/releases/oxygen"/>
       <repository
@@ -189,6 +192,8 @@
           url="http://eclipse.cubussapiens.hu/"/>
       <repository
           url="http://ghillairet.github.io/p2"/>
+      <repository
+          url="http://macbadge-updates.s3.amazonaws.com/"/>
     </setupTask>
     <description>TDT4100 for Oxygen.</description>
   </version>
