@@ -74,9 +74,9 @@ public class SharingManagerContentProvider implements ITreeContentProvider, Shar
 	@Override
 	public boolean hasChildren(Object element) {
 		if (element instanceof SharedResource) {
-			String key = sharingManager.getSharedResourceKey((SharedResource) element);
-			SharedResource sharedResource = sharingManager.getSharedResource(key);
-			return sharedResource == element;
+//			String key = sharingManager.getSharedResourceKey((SharedResource) element);
+//			SharedResource sharedResource = sharingManager.getSharedResource(key);
+//			return sharedResource == element;
 		}
 		return false;
 	}
