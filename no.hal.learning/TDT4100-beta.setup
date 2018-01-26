@@ -170,13 +170,16 @@
       <requirement
           name="no.hal.learning.exercise.feature.feature.group"/>
       <requirement
+          name="no.hal.sharing.feature.feature.group"/>
+      <requirement
           name="hu.cubussapiens.debugvisualisation.feature.feature.group"
           optional="true"/>
       <requirement
           name="hu.cubussapiens.debugvisualisation.javafilter.feature.group"
           optional="true"/>
       <requirement
-          name="name.njbartlett.eclipse.macbadge.feature.feature.group"/>
+          name="name.njbartlett.eclipse.macbadge.feature.feature.group"
+          optional="true"/>
       <repository
           url="http://download.eclipse.org/releases/oxygen"/>
       <repository
