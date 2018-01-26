@@ -169,7 +169,7 @@ public class SharingManager implements SharedResource.Listener, SharingTransport
 						synchronized (shareGroup) {
 							shareGroup.publisher = null;
 						}
-						return null;
+						return Status.OK_STATUS;
 					}
 				};
 			}
