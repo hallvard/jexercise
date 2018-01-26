@@ -52,15 +52,16 @@ public class SharedResourceReceiver {
 				emfsResource = emfsFile;
 			}
 			receivedCount = receiveEmfResource(resource, emfsResource);
-		}
-		ResourceSet resourceSet = Util.fromByteArray(path.lastSegment(), bytes);
-		if (resourceSet != null) {
-			Collection<EObject> emfsResources = new ArrayList<EObject>();
-			for (Resource emfResource : resourceSet.getResources()) {
-				emfsResources.addAll(emfResource.getContents());
-			}
-			if (emfsResources.size() > 0) {
-				receivedCount = receiveEmfResource(resource, emfsResources);			
+		} else {
+			ResourceSet resourceSet = Util.fromByteArray(path.lastSegment(), bytes);
+			if (resourceSet != null) {
+				Collection<EObject> emfsResources = new ArrayList<EObject>();
+				for (Resource emfResource : resourceSet.getResources()) {
+					emfsResources.addAll(emfResource.getContents());
+				}
+				if (emfsResources.size() > 0) {
+					receivedCount = receiveEmfResource(resource, emfsResources);			
+				}
 			}
 		}
 		return receivedCount > 0;

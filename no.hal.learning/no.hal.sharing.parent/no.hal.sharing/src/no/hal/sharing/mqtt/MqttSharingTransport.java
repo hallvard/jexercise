@@ -107,6 +107,8 @@ public class MqttSharingTransport extends AbstractSharingTransport implements Mq
 	@Override
 	public void connectionLost(Throwable e) {
 		Util.log(this, null, Status.WARNING, "Disconnected", e);
+		// try one reconnect
+		getMqttClient();
 	}
 
 	@Override

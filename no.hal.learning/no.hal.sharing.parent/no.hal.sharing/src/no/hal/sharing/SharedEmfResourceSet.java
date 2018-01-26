@@ -13,7 +13,6 @@ import no.hal.sharing.util.Util;
 
 public class SharedEmfResourceSet extends SharedEmfNotifier<ResourceSet> {
 
-	
 	public SharedEmfResourceSet(String key, String from, String to, IPath path, ResourceSet resourceSet) {
 		super(key, from, to, path, resourceSet);
 	}

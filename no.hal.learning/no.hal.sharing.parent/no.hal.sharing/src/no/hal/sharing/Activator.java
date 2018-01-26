@@ -45,10 +45,16 @@ public class Activator implements BundleActivator {
 	 */
 	@Override
 	public void stop(BundleContext bundleContext) throws Exception {
+		if (publisingManager != null) {
+			publisingManager.dispose();
+		}
+		if (subscribingManager != null) {
+			subscribingManager.dispose();
+		}
 		this.context = null;
 		Activator.activator = null;
 	}
-	
+
 	public String getSharingOwner() {
 		IPath path = Platform.getStateLocation(Activator.getActivator().getContext().getBundle());
 		return getSharingOwner(path);

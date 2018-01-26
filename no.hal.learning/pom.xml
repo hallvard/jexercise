@@ -66,8 +66,11 @@
 			<modules>
 				<module>../no.hal.emf.ui.utils</module>
 				<module>../no.hal.emf.ui.utils.feature</module>
+				<module>../no.hal.emfs.parent</module>
 				<module>org.eclipse.paho.client.mqttv3</module>
 				<module>no.hal.learning.exercise</module>
+				<module>no.hal.sharing.parent</module>
+				<module>no.hal.learning.updatesite</module>
 			</modules>
 		</profile>
 		<profile>
@@ -86,6 +89,8 @@
 		
 				<module>org.eclipse.paho.client.mqttv3</module>
 				<module>no.hal.learning.exercise</module>
+
+				<module>no.hal.sharing.parent</module>
 
 				<module>no.hal.learning.updatesite</module>
 			</modules>

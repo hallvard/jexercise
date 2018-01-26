@@ -97,6 +97,7 @@ public class SharedResourceStyledLabelProvider extends StyledCellLabelProvider i
 				cell.setStyleRanges(styledString.getStyleRanges());
 			}
 			cell.setText(text);
+			cell.setImage(getImage(element));
 		}
 		cell.setBackground(getBackground(element));
 		super.update(cell);

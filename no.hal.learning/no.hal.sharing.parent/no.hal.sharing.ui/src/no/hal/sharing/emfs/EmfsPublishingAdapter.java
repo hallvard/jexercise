@@ -1,5 +1,6 @@
 package no.hal.sharing.emfs;
 
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -14,6 +15,8 @@ import no.hal.sharing.SelfPublishingAdapter;
 
 public class EmfsPublishingAdapter extends SelfPublishingAdapter {
 
+	private ImporterTrigger importerTrigger = null; 
+	
 	@Override
 	public Resource getSharedResource(EObject eObject) {
 		EmfsResource emfsResource = null;
@@ -26,6 +29,12 @@ public class EmfsPublishingAdapter extends SelfPublishingAdapter {
 			if (importSpec == null) {
 				importSpec = SyncFactory.eINSTANCE.createImportSpec();
 				importSpec.getResourceRefs().add(emfsResource);
+//				ImportRule rootRule = SyncFactory.eINSTANCE.createImportRule();
+//				ResourcePath rootPath = SyncFactory.eINSTANCE.createRelativePath();
+//				String path = emfsResource.getFullPath();
+//				rootPath.getPath().addAll(Arrays.asList(path.split("/")));
+//				rootRule.setPath(rootPath);
+//				importSpec.getRules().add(rootRule);
 			}
 		} else if (eObject instanceof ImportSpec) {
 			importSpec = (ImportSpec) eObject;
@@ -38,7 +47,15 @@ public class EmfsPublishingAdapter extends SelfPublishingAdapter {
 			return null;
 		}
 		Importer importer = new Importer(importSpec);
-		new ImporterTrigger(importer);
+		importerTrigger = new ImporterTrigger(importer);
 		return super.getSharedResource(emfsResource);
+	}
+	
+	@Override
+	public void unsetTarget(Notifier oldTarget) {
+		super.unsetTarget(oldTarget);
+		if (importerTrigger != null) {
+			importerTrigger.setEnabled(false);
+		}
 	}
 }

@@ -1,11 +1,14 @@
 package no.hal.sharing.ui.views;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.command.BasicCommandStack;
@@ -39,7 +42,9 @@ import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.TreeViewerColumn;
@@ -73,7 +78,10 @@ import no.hal.emf.ui.parts.adapters.EObjectViewerAdapterHelper;
 import no.hal.emf.ui.utils.FileExtensionLabelProvider;
 import no.hal.emf.ui.utils.FilteringContentProvider;
 import no.hal.emf.ui.utils.Util;
+import no.hal.emfs.importer.Importer;
+import no.hal.emfs.sync.ImportRule;
 import no.hal.emfs.sync.ImportSpec;
+import no.hal.emfs.sync.RelativePath;
 import no.hal.emfs.sync.SyncFactory;
 import no.hal.emfs.sync.SyncPackage;
 import no.hal.emfs.sync.provider.SyncItemProviderAdapterFactory;
@@ -226,48 +234,77 @@ public abstract class SharingView extends ViewPart implements SharingManager.Lis
 				LocalSelectionTransfer.getTransfer(),
 //				FileTransfer.getInstance()
 		};
-		sharingManagerViewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(sharingManagerViewer));
-		sharingManagerViewer.addDropSupport(dndOperations, transfers, new ViewerDropAdapter(sharingManagerViewer) {
-			@Override
-			public void dragEnter(DropTargetEvent event) {
-				super.dragEnter(event);
-				event.detail = DND.DROP_COPY;
-			}
-			@Override
-			public boolean validateDrop(Object target, int operation, TransferData transfer) {
-				return true;
-			}
-			@Override
-			public boolean performDrop(Object data) {
-				Collection<IResource> resources = null;
-				if (data instanceof IStructuredSelection) {
-					IStructuredSelection selection = (IStructuredSelection) data;
-					resources = Util.getResources(selection.iterator());
-				} else if (data instanceof IResource[]) {
-					resources = Arrays.asList((IResource[]) data);
+		if (publishing != null) {
+			sharingManagerViewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(sharingManagerViewer));
+			sharingManagerViewer.addDropSupport(dndOperations, transfers, new ViewerDropAdapter(sharingManagerViewer) {
+				@Override
+				public void dragEnter(DropTargetEvent event) {
+					super.dragEnter(event);
+					event.detail = DND.DROP_COPY;
 				}
-				int resourceCount = 0;
-				for (IResource resource: resources) {
-					SharedResource sharedResource = createSharedResource(resource.getFullPath());
-					if (resource != null) {
-						getSharingManager().putSharedResource(sharedResource);
-						resourceCount++;
+				@Override
+				public boolean validateDrop(Object target, int operation, TransferData transfer) {
+					return true;
+				}
+				@Override
+				public boolean performDrop(Object data) {
+					Collection<IResource> resources = null;
+					if (data instanceof IStructuredSelection) {
+						IStructuredSelection selection = (IStructuredSelection) data;
+						resources = Util.getResources(selection.iterator());
+					} else if (data instanceof IResource[]) {
+						resources = Arrays.asList((IResource[]) data);
 					}
+					final Collection<SharedResource> sharedResources = new ArrayList<SharedResource>();
+					for (IResource resource: resources) {
+						SharedResource sharedResource = createSharedResource(resource);
+						if (resource != null) {
+							sharedResources.add(sharedResource);
+							getSharingManager().putSharedResource(sharedResource);
+						}
+					}
+					if (sharedResources != null && (! sharedResources.isEmpty())) {
+						selectSharedResource(sharedResources.iterator().next(), true);
+						return true;
+					}
+					return false;
 				}
-				return resourceCount > 0;
-			}
-		});
-		
+			});
+		}
 		sharingManagerViewer.getControl().addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.keyCode == SWT.DEL) {
 					removeAction.run();
+				} else if (e.keyCode == '\n' || e.keyCode == '\r') {
+					if (Boolean.TRUE.equals(publishing)) {
+						exportAction.run();
+					} else if (Boolean.TRUE.equals(subscribing)) {
+						importAction.run();
+					}
 				}
 			}
 		});
 	}
 
+	@Override
+	public void dispose() {
+		super.dispose();
+	}
+	
+	protected void selectSharedResource(final SharedResource sharedResource, boolean async) {
+		if (async) {
+			asyncExec(new Runnable() {
+				@Override
+				public void run() {
+					selectSharedResource(sharedResource, false);
+				}
+			});
+		} else {
+			sharingManagerViewer.setSelection(new StructuredSelection(sharedResource), true);			
+		}
+	}
+	
 	protected void addSharingManagerViewerColumns() {
 		addSharingManagerViewerColumn("Name", createSharedResourceLabelProvider(SharedResourceLabelProvider.KEY_COLUMN), 100);
 		if (Boolean.TRUE.equals(subscribing)) {
@@ -292,16 +329,37 @@ public abstract class SharingView extends ViewPart implements SharingManager.Lis
 		return new SharedResourceStyledLabelProvider(getSharingManager(), column);
 	}
 
-	protected SharedResource createSharedResource(IPath path) {
-		try {
-			URI uri = URI.createPlatformResourceURI(path.toPortableString(), true);
-			Resource resource = new ResourceSetImpl().getResource(uri, true);
-			if (resource.getContents().size() > 0) {
-				return new SharedEmfResource(path.lastSegment(), getOwnerForNewResource(), null, resource);
+	protected SharedResource createSharedResource(IResource resource) {
+		IPath path = resource.getFullPath();
+		SharedResource sharedResource = null;
+		if (resource instanceof IFile) {
+			try {
+				URI uri = URI.createPlatformResourceURI(path.toPortableString(), true);
+				Resource emfResource = new ResourceSetImpl().getResource(uri, true);
+				if (emfResource.getContents().size() > 0) {
+					sharedResource = new SharedEmfResource(path.lastSegment(), getOwnerForNewResource(), null, emfResource);
+				}
+			} catch (Exception e) {
+				sharedResource = new SharedIResource(path.lastSegment(), getOwnerForNewResource(), null, path);
 			}
-		} catch (Exception e) {
+		} else if (resource instanceof IFolder) {
+			ImportSpec importSpec = SyncFactory.eINSTANCE.createImportSpec();
+			Importer importer = new Importer(importSpec);
+			ImportRule folderRule = SyncFactory.eINSTANCE.createImportRule();
+			RelativePath folderPath = SyncFactory.eINSTANCE.createRelativePath();
+			folderPath.getSegments().addAll(Arrays.asList(resource.getFullPath().segments()));
+			folderRule.setPath(folderPath);
+			importer.getRules().add(folderRule);
+			importer.importResources(resource);
+			ResourceSetImpl resourceSet = new ResourceSetImpl();
+			IPath emfsPath = path.addFileExtension("emfs");
+			Resource emfsResource = resourceSet.createResource(URI.createURI(emfsPath.toString()));
+			importSpec.getResourceRefs().addAll(importSpec.getResources());
+			emfsResource.getContents().addAll(importSpec.getResourceRefs());
+			emfsResource.getContents().add(importSpec);
+ 			sharedResource = new SharedEmfResourceSet(path.lastSegment(), getOwnerForNewResource(), null, emfsPath, resourceSet);
 		}
-		return new SharedIResource(path.lastSegment(), getOwnerForNewResource(), null, path);
+		return sharedResource;
 	}
 
 	protected void asyncExec(Runnable runnable) {
@@ -566,6 +624,12 @@ public abstract class SharingView extends ViewPart implements SharingManager.Lis
 		CTabItem tab = tabFolder.getSelection();
 		if (tab == tabFolder.getItem(0)) {
 			Object selection = sharingManagerViewer.getStructuredSelection().getFirstElement();
+			if (selection == null) {
+				Object[] elements = ((IStructuredContentProvider) sharingManagerViewer.getContentProvider()).getElements(sharingManagerViewer.getInput());
+				if (elements.length == 1) {
+					selection = elements[0];
+				}
+			}
 			return (selection instanceof SharedResource ? (SharedResource) selection : null);
 		} else {
 			return getSharedResource(tab);
@@ -626,6 +690,7 @@ public abstract class SharingView extends ViewPart implements SharingManager.Lis
 			if (tabItem != null) {
 				tabFolder.setSelection(tabItem);
 			}
+			selectSharedResource(resource, true);
 		}
 	}
 
@@ -718,14 +783,13 @@ public abstract class SharingView extends ViewPart implements SharingManager.Lis
 		if (! getSharingManager().acceptSharedResource(key)) {
 			IPath path = resource.getPath();
 			if (path == null || path.segmentCount() <= 1) {
-				ContainerSelectionDialog selectionDialog = new ContainerSelectionDialog(tabFolder.getShell(), null, false, "Select the container to import into");
-				if (selectionDialog.open() == Window.OK) {
-					Object[] result = selectionDialog.getResult();
-					if (result != null && result.length >= 1 && result[0] instanceof IContainer) {
-						path = ((IContainer) result[0]).getFullPath();
-						System.out.println(path);
-					}
-				}
+//				ContainerSelectionDialog selectionDialog = new ContainerSelectionDialog(tabFolder.getShell(), null, false, "Select the container to import into");
+//				if (selectionDialog.open() == Window.OK) {
+//					Object[] result = selectionDialog.getResult();
+//					if (result != null && result.length >= 1 && result[0] instanceof IContainer) {
+//						path = ((IContainer) result[0]).getFullPath();
+//					}
+//				}
 			}
 		}
 		updateTabItem(resource, null);

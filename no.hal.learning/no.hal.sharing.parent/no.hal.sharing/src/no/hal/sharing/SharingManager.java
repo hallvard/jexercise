@@ -9,7 +9,10 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 
 import no.hal.sharing.util.Util;
 
@@ -100,6 +103,8 @@ public class SharingManager implements SharedResource.Listener, SharingTransport
 		fireShareChanged(key, Listener.SHARED);
 	}
 
+	
+	
 	// from SharedResource.Listener
 
 	@Override
@@ -133,20 +138,44 @@ public class SharingManager implements SharedResource.Listener, SharingTransport
 		ShareGroup shareGroup = getShareGroup(key);
 		Queue<SharedResource> outQueue = shareGroup.getOutQueue();
 		synchronized (outQueue) {
-			outQueue.add(shareGroup.mainResource);
-			if (publish) {
-				processOutQueue(key);
+			if (! outQueue.contains(shareGroup.mainResource)) {
+				outQueue.add(shareGroup.mainResource);
 			}
+		}
+		if (publish) {
+			processOutQueue(key);
 		}
 	}
 
 	public void processOutQueue(String key) {
-		ShareGroup shareGroup = getShareGroup(key);
-		Queue<SharedResource> outQueue = shareGroup.getOutQueue();
-		if (shareGroup.isEnabled()) {
-			while (! outQueue.isEmpty()) {
-				getSharingTransport().publishResource(outQueue.remove());
+		final ShareGroup shareGroup = getShareGroup(key);
+		Job job = null;
+		synchronized (shareGroup) {
+			if (shareGroup.isEnabled() && shareGroup.publisher == null) {
+				job = shareGroup.publisher = new Job("Publish shared resource") {
+					@Override
+					protected IStatus run(IProgressMonitor monitor) {
+						final Queue<SharedResource> outQueue = shareGroup.getOutQueue();
+						while (true) {
+							SharedResource resource = null;
+							synchronized (outQueue) {
+								if (outQueue.isEmpty()) {
+									break;
+								}
+								resource = outQueue.remove();
+							}
+							getSharingTransport().publishResource(resource);
+						}
+						synchronized (shareGroup) {
+							shareGroup.publisher = null;
+						}
+						return null;
+					}
+				};
 			}
+		}
+		if (job != null) {
+			job.schedule();
 		}
 	}
 
@@ -162,9 +191,24 @@ public class SharingManager implements SharedResource.Listener, SharingTransport
 	}
 
 	public void removeResource(String key) {
-		unshareResource(key);
-		shares.remove(key);
+		SharedResource resource = getSharedResource(key);
+		if (resource != null) {
+			if (isSharing(key)) {
+				unshareResource(key);
+			}
+			shares.remove(key);
+			resource.dispose();
+		}
 		fireShareChanged(key, Listener.REMOVED);
+	}
+	
+	public void dispose() {
+		for (String key : getShareKeys()) {
+			try {
+				removeResource(key);
+			} catch (Exception e) {
+			}
+		}
 	}
 
 	// from SharingTransport.Subscriber
@@ -295,6 +339,7 @@ public class SharingManager implements SharedResource.Listener, SharingTransport
 
 		private Queue<SharedResource> inQueue;
 		private Queue<SharedResource> outQueue;
+		private Job publisher = null;
 		
 		private Queue<SharedResource> getInQueue() {
 			if (inQueue == null) {

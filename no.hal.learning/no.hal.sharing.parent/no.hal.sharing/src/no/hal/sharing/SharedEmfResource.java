@@ -3,6 +3,7 @@ package no.hal.sharing;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
@@ -12,10 +13,22 @@ public class SharedEmfResource extends SharedEmfNotifier<Resource> {
 
 	public SharedEmfResource(String key, String from, String to, IPath path, Resource resource) {
 		super(key, from, to, path, resource);
+		registerResourceChangeListener();
 	}
 
 	public SharedEmfResource(String key, String from, String to, Resource resource) {
 		super(key, from, to, resource);
+		registerResourceChangeListener();
+	}
+
+	private SharedIResourceChangeListener resourceChangeListener = new SharedIResourceChangeListener(this);
+	
+	private void registerResourceChangeListener() {
+		IPath path = getPath();
+		if (path != null) {
+			resourceChangeListener.setFullPath(path);
+			ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener);
+		}
 	}
 
 	@Override
@@ -25,6 +38,8 @@ public class SharedEmfResource extends SharedEmfNotifier<Resource> {
 
 	@Override
 	public void dispose() {
+		resourceChangeListener.setFullPath(null);
+		ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
 		Resource resource = getResource();
 		super.dispose();
 		resource.unload();

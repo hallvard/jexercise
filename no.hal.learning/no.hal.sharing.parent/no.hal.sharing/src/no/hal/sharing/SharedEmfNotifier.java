@@ -5,6 +5,8 @@ import java.util.Map;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 
 public abstract class SharedEmfNotifier<T extends Notifier> extends AbstractSharedResource<T> {
@@ -30,7 +32,15 @@ public abstract class SharedEmfNotifier<T extends Notifier> extends AbstractShar
 			if (changeListener == null) {
 				changeListener = new EContentAdapter() {
 					public void notifyChanged(Notification notification) {
-						notifierChanged();
+						Object notifier = notification.getNotifier();
+						// every change in a contained object represents a change 
+						if (notifier instanceof EObject) {
+							notifierChanged();
+						} else
+							// every change in the Resource's contents list represents a change
+							if (notifier instanceof Resource && notification.getFeatureID(Resource.class) == Resource.RESOURCE__CONTENTS) {
+								notifierChanged();
+						}
 					}
 				};
 			}
