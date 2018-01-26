@@ -176,8 +176,7 @@
           name="hu.cubussapiens.debugvisualisation.javafilter.feature.group"
           optional="true"/>
       <requirement
-          name="name.njbartlett.eclipse.macbadge.feature.feature.group"
-          optional="true"/>
+          name="name.njbartlett.eclipse.macbadge.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/oxygen"/>
       <repository
