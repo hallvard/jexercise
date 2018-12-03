@@ -127,13 +127,9 @@
   <setupTask
       xsi:type="setup:InstallationTask"
       id="installation"/>
-  <setupTask
-      xsi:type="setup:EclipseIniTask"
-      option="-perspective"
-      value="org.eclipse.jdt.ui.JavaPerspective.TDT4100"/>
-  <version name="oxygen"
-      label="Oxygen"
-      requiredJavaVersion="1.8">
+  <version name="2018-12"
+      label="2018-12"
+      requiredJavaVersion="11">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="${scope.product.label} (${scope.product.version.label})">
@@ -160,9 +156,9 @@
       <requirement
           name="net.sourceforge.plantuml.feature.feature.group"/>
       <requirement
-          name="no.hal.javafx.fxmlapp.feature.feature.group"/>
-      <requirement
           name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
           name="no.hal.emfs.feature.feature.group"/>
       <requirement
@@ -170,21 +166,19 @@
       <requirement
           name="no.hal.learning.exercise.feature.feature.group"/>
       <requirement
-          name="no.hal.sharing.feature.feature.group"/>
+          name="jdt-codemining-feature.feature.group"/>
       <repository
-          url="http://download.eclipse.org/releases/oxygen"/>
+          url="http://download.eclipse.org/releases/2018-12"/>
       <repository
-          url="http://download.eclipse.org/efxclipse/updates-released/3.1.0/site/"/>
+          url="http://download.eclipse.org/efxclipse/updates-released/3.4.0/site/"/>
       <repository
-          url="http://files.idi.ntnu.no/publish/plantuml/repository/"/>
-      <repository
-          url="http://files.idi.ntnu.no/publish/no.hal.javafx/repository/"/>
+          url="http://hallvard.github.io/plantuml/"/>
       <repository
           url="http://files.idi.ntnu.no/publish/no.hal.learning.exercise/repository/"/>
       <repository
-          url="http://ghillairet.github.io/p2"/>
+          url="http://oss.opensagres.fr/jdt-codemining/snapshot/"/>
     </setupTask>
-    <description>TDT4100 for Oxygen.</description>
+    <description>TDT4100 for 2018-12.</description>
   </version>
   <description>Setup for the TDT4100 course, Spring 2018</description>
 </setup:Product>
