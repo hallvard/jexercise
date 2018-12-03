@@ -14,7 +14,7 @@
         xsi:type="git:GitCloneTask"
         id="tdt4100.clone"
         location="${installation.location/git/tdt4100-2018}"
-        remoteURI="https://gitlab.stud.iie.idi.no/tdt4100/v2019/studenter.git"
+        remoteURI="https://gitlab.stud.idi.ntnu.no/tdt4100/v2019/students.git"
         checkoutBranch="master"/>
     <setupTask
         xsi:type="projects:ProjectsImportTask">
