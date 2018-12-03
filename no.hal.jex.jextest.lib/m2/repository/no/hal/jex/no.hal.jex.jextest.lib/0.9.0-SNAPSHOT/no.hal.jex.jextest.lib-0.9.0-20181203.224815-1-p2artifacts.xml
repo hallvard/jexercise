@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<artifacts size='1'>
+  <artifact classifier='osgi.bundle' id='no.hal.jex.jextest.lib' version='0.9.0.201812032247'>
+    <properties size='5'>
+      <property name='artifact.size' value='5093'/>
+      <property name='download.size' value='5093'/>
+      <property name='maven-groupId' value='no.hal.jex'/>
+      <property name='maven-artifactId' value='no.hal.jex.jextest.lib'/>
+      <property name='maven-version' value='0.9.0-SNAPSHOT'/>
+    </properties>
+  </artifact>
+</artifacts>

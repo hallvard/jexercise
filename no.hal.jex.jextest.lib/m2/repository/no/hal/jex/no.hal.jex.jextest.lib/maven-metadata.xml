@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>no.hal.jex</groupId>
+  <artifactId>no.hal.jex.jextest.lib</artifactId>
+  <versioning>
+    <versions>
+      <version>0.9.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20181203224815</lastUpdated>
+  </versioning>
+</metadata>

@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>no.hal.jex.jextest.lib</artifactId>
+  <version>0.9.0-SNAPSHOT</version>
+  <packaging>eclipse-plugin</packaging>
+
+  <parent>
+  	<groupId>no.hal.jex</groupId>
+  	<artifactId>no.hal.jex.parent</artifactId>
+  	<version>1.1.0-SNAPSHOT</version>
+  	<relativePath>../no.hal.jex.parent</relativePath>
+  </parent>
+  
+	<distributionManagement>
+	    <repository>
+	        <id>internal.repo</id>
+	        <name>Temporary Staging Repository</name>
+	        <url>file://${project.build.directory}/m2/repository</url>
+	    </repository>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+		    <plugin>
+		        <artifactId>maven-deploy-plugin</artifactId>
+		        <version>2.8.1</version>
+		        <configuration>
+		            <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/m2/repository</altDeploymentRepository>
+		        </configuration>
+		    </plugin>
+		</plugins>
+
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+  </build>
+</project>
