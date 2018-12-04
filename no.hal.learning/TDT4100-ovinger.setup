@@ -13,7 +13,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         id="tdt4100.clone"
-        location="${installation.location/git/tdt4100-2018}"
+        location="${installation.location/git/tdt4100-v2019-students}"
         remoteURI="https://gitlab.stud.idi.ntnu.no/tdt4100/v2019/students.git"
         checkoutBranch="master"/>
     <setupTask
