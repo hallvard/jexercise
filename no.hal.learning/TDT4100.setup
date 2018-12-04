@@ -170,7 +170,7 @@
       <repository
           url="http://download.eclipse.org/releases/2018-12"/>
       <repository
-          url="http://download.eclipse.org/efxclipse/updates-released/3.4.0/site/"/>
+          url="http://download.eclipse.org/efxclipse/updates-released/3.4.1/site/"/>
       <repository
           url="http://hallvard.github.io/plantuml/"/>
       <repository
@@ -180,5 +180,5 @@
     </setupTask>
     <description>TDT4100 for 2018-12.</description>
   </version>
-  <description>Setup for the TDT4100 course, Spring 2018</description>
+  <description>Setup for the TDT4100 course, Spring 2019</description>
 </setup:Product>
