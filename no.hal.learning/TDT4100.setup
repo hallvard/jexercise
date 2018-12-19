@@ -167,6 +167,8 @@
           name="no.hal.learning.exercise.feature.feature.group"/>
       <requirement
           name="jdt-codemining-feature.feature.group"/>
+      <requirement
+          name="org.eclipse.tm.terminal.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/2018-12"/>
       <repository
