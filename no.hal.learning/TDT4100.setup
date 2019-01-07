@@ -160,12 +160,6 @@
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
-          name="no.hal.emfs.feature.feature.group"/>
-      <requirement
-          name="no.hal.confluence.feature.feature.group"/>
-      <requirement
-          name="no.hal.learning.exercise.feature.feature.group"/>
-      <requirement
           name="jdt-codemining-feature.feature.group"/>
       <requirement
           name="org.eclipse.tm.terminal.feature.feature.group"/>
@@ -175,8 +169,6 @@
           url="http://download.eclipse.org/efxclipse/updates-released/3.4.1/site/"/>
       <repository
           url="http://hallvard.github.io/plantuml/"/>
-      <repository
-          url="http://files.idi.ntnu.no/publish/no.hal.learning.exercise/repository/"/>
       <repository
           url="http://oss.opensagres.fr/jdt-codemining/snapshot/"/>
     </setupTask>
