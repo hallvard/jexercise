@@ -56,12 +56,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.paho.client.mqttv3"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
          id="no.hal.learning.exercise.workspace"
          download-size="0"
          install-size="0"

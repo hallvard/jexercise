@@ -3,21 +3,9 @@
    <feature url="features/no.hal.learning.exercise.feature_0.1.0.qualifier.jar" id="no.hal.learning.exercise.feature" version="0.1.0.qualifier">
       <category name="no.hal.learning"/>
    </feature>
-   <feature url="features/no.hal.emfs.feature_0.1.0.qualifier.jar" id="no.hal.emfs.feature" version="0.1.0.qualifier">
-      <category name="no.hal.emfs.feature"/>
-   </feature>
-   <feature url="features/no.hal.confluence.feature_0.1.0.qualifier.jar" id="no.hal.confluence.feature" version="0.1.0.qualifier">
-      <category name="no.hal.confluence"/>
-   </feature>
    <feature url="features/no.hal.emf.ui.utils.feature_0.1.1.qualifier.jar" id="no.hal.emf.ui.utils.feature" version="0.1.1.qualifier">
       <category name="no.hal.emf.ui.utils"/>
    </feature>
-   <feature url="features/no.hal.sharing.feature_0.1.0.qualifier.jar" id="no.hal.sharing.feature" version="0.1.0.qualifier">
-      <category name="no.hal.sharing"/>
-   </feature>
    <category-def name="no.hal.learning" label="Learning"/>
    <category-def name="no.hal.emf.ui.utils" label="UI utilities for EMF"/>
-   <category-def name="no.hal.confluence" label="Digital Compendium"/>
-   <category-def name="no.hal.emfs.feature" label="EMFS"/>
-   <category-def name="no.hal.sharing" label="Sharing"/>
 </site>

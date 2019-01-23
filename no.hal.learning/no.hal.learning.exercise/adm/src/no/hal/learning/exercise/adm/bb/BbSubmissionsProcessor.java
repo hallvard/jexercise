@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
@@ -30,12 +31,12 @@ import no.hal.learning.exercise.workbench.WorkbenchPackage;
 
 public class BbSubmissionsProcessor {
 
-	private Map<SubmissionData, Resource> submissions = new HashMap<SubmissionData, Resource>();
-	
+	private final Map<SubmissionData, Resource> submissions = new HashMap<SubmissionData, Resource>();
+
 	public Map<SubmissionData, Resource> getSubmissions() {
 		return submissions;
 	}
-	
+
 	public static class SubmissionData {
 
 		public String exerciseName, userName, fileName;
@@ -44,28 +45,28 @@ public class BbSubmissionsProcessor {
 		public String toString() {
 			return getSubmissionPath(exerciseName, userName, fileName);
 		}
-		
-		private static boolean stringEquals(String s1, String s2) {
+
+		private static boolean stringEquals(final String s1, final String s2) {
 			return (s1 == null ? s2 == null : s1.equals(s2));
 		}
 
 		@Override
-		public boolean equals(Object obj) {
+		public boolean equals(final Object obj) {
 			if (this == obj) {
 				return true;
 			} else if (obj == null || (obj.getClass() != this.getClass())) {
 				return false;
 			}
-			SubmissionData other = (SubmissionData) obj;
+			final SubmissionData other = (SubmissionData) obj;
 			return stringEquals(exerciseName, other.exerciseName) &&
 					stringEquals(fileName, other.fileName) &&
 					stringEquals(userName, other.userName);
 		}
 
-		static int stringHash(String s) {
+		static int stringHash(final String s) {
 			return (s == null ? 0 : s.hashCode());
 		}
-		
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -76,73 +77,74 @@ public class BbSubmissionsProcessor {
 		}
 	}
 
-	public void readSubmissionsFromDirectory(File dir, boolean anon) {
-		for (String fileName : dir.list()) {
-			String[] segments = fileName.split("_");
-			File submission = new File(dir, fileName);
-			String exName = segments[0], userName = userName(segments[1], anon), subFileName = segments[segments.length - 1];
+	public void readSubmissionsFromDirectory(final File dir, final boolean anon) {
+		for (final String fileName : dir.list()) {
+			final String[] segments = fileName.split("_");
+			final File submission = new File(dir, fileName);
+			final String exName = segments[0], userName = userName(segments[1], anon);
+			String subFileName = segments[segments.length - 1];
 			if (acceptSubmission(subFileName)) {
 				try {
-					SubmissionData sub = createSubmission(exName, userName, subFileName);
+					final SubmissionData sub = createSubmission(exName, userName, subFileName);
 					addSubmissionResource(sub, new FileInputStream(submission));
-				} catch (FileNotFoundException e) {
+				} catch (final FileNotFoundException e) {
 				}
 			} else if (subFileName.endsWith(".zip")) {
 				try {
-					ZipFile zipFile = new ZipFile(submission);
-					Enumeration<? extends ZipEntry> entries = zipFile.entries();
-				    while (entries.hasMoreElements()) {
-				        try {
-				        	ZipEntry zipEntry = entries.nextElement();
-							String entryName = zipEntry.getName();
+					final ZipFile zipFile = new ZipFile(submission);
+					final Enumeration<? extends ZipEntry> entries = zipFile.entries();
+					while (entries.hasMoreElements()) {
+						try {
+							final ZipEntry zipEntry = entries.nextElement();
+							final String entryName = zipEntry.getName();
 							if (acceptSubmission(entryName)) {
-								int pos = entryName.lastIndexOf('/');
+								final int pos = entryName.lastIndexOf('/');
 								subFileName = (pos >= 0 ? entryName.substring(pos + 1) : entryName);
-								SubmissionData sub = createSubmission(exName, userName, subFileName);
+								final SubmissionData sub = createSubmission(exName, userName, subFileName);
 								addSubmissionResource(sub, zipFile.getInputStream(zipEntry));
 							}
-						} catch (Exception e) {
+						} catch (final Exception e) {
 							System.err.println("Exception when reading from " + submission + ": " + e);
 						}
-				    }
-				    zipFile.close();
-				} catch (IOException e) {
+					}
+					zipFile.close();
+				} catch (final IOException e) {
 				}
 			}
 		}
 	}
 
-	public void readSubmissionsFromZip(File file, boolean anon) throws IOException {
-		ZipFile zipFile = new ZipFile(file);
-		Enumeration<? extends ZipEntry> entries = zipFile.entries();
+	public void readSubmissionsFromZip(final File file, final boolean anon) throws IOException {
+		final ZipFile zipFile = new ZipFile(file);
+		final Enumeration<? extends ZipEntry> entries = zipFile.entries();
 		while (entries.hasMoreElements()) {
 			try {
-				ZipEntry zipEntry = entries.nextElement();
-				String entryName = zipEntry.getName();
+				final ZipEntry zipEntry = entries.nextElement();
+				final String entryName = zipEntry.getName();
 				if (acceptSubmission(entryName)) {
-					SubmissionData sub = createSubmission(entryName);
+					final SubmissionData sub = createSubmission(entryName);
 					addSubmissionResource(sub, zipFile.getInputStream(zipEntry));
 				}
-			} catch (Exception e) {
+			} catch (final Exception e) {
 				System.err.println("Exception when reading from " + file + ": " + e);
 			}
 		}
 		zipFile.close();
 	}
 
-	public SubmissionData createSubmission(String exName, String userName, String subFileName) {
-		SubmissionData sub = new SubmissionData();
+	public SubmissionData createSubmission(final String exName, final String userName, final String subFileName) {
+		final SubmissionData sub = new SubmissionData();
 		sub.exerciseName = exName;
 		sub.userName = userName;
 		sub.fileName = subFileName;
 		return sub;
 	}
 
-	public SubmissionData createSubmission(String path) {
+	public SubmissionData createSubmission(final String path) {
 		SubmissionData sub = null;
-		String[] segments = path.split("/");
+		final String[] segments = path.split("/");
 		if (segments.length >= 3) {
-			String exName = segments[0], userName = userName(segments[1], false), subFileName = segments[2];
+			final String exName = segments[0], userName = userName(segments[1], false), subFileName = segments[2];
 			sub = new SubmissionData();
 			sub.exerciseName = exName;
 			sub.userName = userName;
@@ -150,27 +152,27 @@ public class BbSubmissionsProcessor {
 		}
 		return sub;
 	}
-	
-	public String getSubmissionPath(SubmissionData sub, boolean anon) {
+
+	public String getSubmissionPath(final SubmissionData sub, final boolean anon) {
 		return getSubmissionPath(sub.exerciseName, userName(sub.userName, anon), sub.fileName);
 	}
 
-	public static String getSubmissionPath(String exerciseName, String userName, String subFileName) {
+	public static String getSubmissionPath(final String exerciseName, final String userName, final String subFileName) {
 		return exerciseName + "/" + userName + "/" + subFileName;
 	}
 
-	public String userName(String userName, boolean anon) {
+	public String userName(final String userName, final boolean anon) {
 		if (anon) {
 			try {
 				Long.valueOf(userName);
 			}
-			catch (Exception e) {
+			catch (final Exception e) {
 				long hashCode = userName.hashCode();
 				if (hashCode < 0) {
-					hashCode = ((long) Integer.MAX_VALUE) - hashCode;
+					hashCode = (Integer.MAX_VALUE) - hashCode;
 				}
 				String hash = String.valueOf(hashCode);
-				String padding = "0000000000"; // 10 zeros
+				final String padding = "0000000000"; // 10 zeros
 				if (padding.length() > hash.length()) {
 					hash = padding.substring(hash.length()) + hash;
 				}
@@ -180,33 +182,33 @@ public class BbSubmissionsProcessor {
 		return userName;
 	}
 
-	protected boolean acceptSubmission(String subFileName) {
+	protected boolean acceptSubmission(final String subFileName) {
 		return subFileName.endsWith(".ex");
 	}
 
-	private Resource.Factory factory = new ExerciseResourceFactoryImpl();
+	private final Resource.Factory factory = new ExerciseResourceFactoryImpl();
 
-	protected boolean addSubmissionResource(SubmissionData sub, InputStream input) {
+	protected boolean addSubmissionResource(final SubmissionData sub, final InputStream input) {
 		Resource resource = null;
 		try {
 			resource = factory.createResource(URI.createURI(getSubmissionPath(sub, false)));
 			resource.load(input, null);
 			submissions.put(sub, resource);
 			input.close();
-		} catch (IOException e) {
+		} catch (final IOException e) {
 		}
 		return resource != null && resource.getErrors().isEmpty();
 	}
-	
-	public void writeSubmissionsToZip(File zipFile, boolean anon) throws IOException {
-		ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(zipFile));
-		for (SubmissionData sub : submissions.keySet()) {
-			ZipEntry zipEntry = new ZipEntry(getSubmissionPath(sub, anon));
-			Resource resource = submissions.get(sub);
-			ByteArrayOutputStream resourceOut = new ByteArrayOutputStream();
+
+	public void writeSubmissionsToZip(final File zipFile, final boolean anon) throws IOException {
+		final ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(zipFile));
+		for (final SubmissionData sub : submissions.keySet()) {
+			final ZipEntry zipEntry = new ZipEntry(getSubmissionPath(sub, anon));
+			final Resource resource = submissions.get(sub);
+			final ByteArrayOutputStream resourceOut = new ByteArrayOutputStream();
 			resource.save(resourceOut, null);
 			resourceOut.close();
-			byte[] data = resourceOut.toByteArray();
+			final byte[] data = resourceOut.toByteArray();
 			if (data != null) {
 				zipOut.putNextEntry(zipEntry);
 				zipOut.write(data, 0, data.length);
@@ -215,43 +217,43 @@ public class BbSubmissionsProcessor {
 		}
 		zipOut.close();
 	}
-	
+
 	// standalone converter
-	
-	public static void main(String[] args) {
+
+	public static void main(final String[] args) {
 		registerEPackages();
 		// program arguments example: baseDir=/Downloads/ovinger-bb/ dirIn=oving%s-bb zipOut=oving%s-anon.zip arg1=5
-		String base = getOption("baseDir", args, "");
-		Collection<String> formatArgs = new ArrayList<String>();
+		final String base = getOption("baseDir", args, "");
+		final Collection<String> formatArgs = new ArrayList<String>();
 		for (int i = 1; i < 10; i++) {
-			String arg = getOption("arg" + i, args, null);
+			final String arg = getOption("arg" + i, args, null);
 			if (arg == null) {
 				break;
 			}
 			formatArgs.add(arg);
 		}
-		String dir = getOption("dirIn", args, null);
-		String zip = getOption("zipOut", args, null);
-		Boolean anon = Boolean.valueOf(getOption("anon", args, "true"));
+		final String dir = getOption("dirIn", args, null);
+		final String zip = getOption("zipOut", args, null);
+		final Boolean anon = Boolean.valueOf(getOption("anon", args, "true"));
 		if (dir != null && zip != null) {
-			BbSubmissionsProcessor bbSubmissionsProcessor = new BbSubmissionsProcessor();
-			Object[] formatArgsArray = formatArgs.toArray();
-			File dirFile = new File(String.format(base + dir, formatArgsArray));
-			File zipFile = new File(String.format(base + zip, formatArgsArray));
+			final BbSubmissionsProcessor bbSubmissionsProcessor = new BbSubmissionsProcessor();
+			final Object[] formatArgsArray = formatArgs.toArray();
+			final File dirFile = new File(String.format(base + dir, formatArgsArray));
+			final File zipFile = new File(String.format(base + zip, formatArgsArray));
 			bbSubmissionsProcessor.readSubmissionsFromDirectory(dirFile, anon);
 			try {
 				bbSubmissionsProcessor.writeSubmissionsToZip(zipFile, anon);
-			} catch (IOException e) {
+			} catch (final IOException e) {
 				System.err.println("Exception when writing to " + zipFile);
 			}
 		}
 	}
 
-	private static String getOption(String name, String[] args, String def) {
-		String option1 = "-" + name + "=";
-		String option2 = name + "=";
+	private static String getOption(final String name, final String[] args, final String def) {
+		final String option1 = "-" + name + "=";
+		final String option2 = name + "=";
 		for (int i = 0; i < args.length; i++) {
-			String arg = args[i];
+			final String arg = args[i];
 			if (arg.equals(option1) && args.length > i + 1) {
 				return args[i + 1];
 			} else if (arg.startsWith(option2)) {
@@ -260,46 +262,70 @@ public class BbSubmissionsProcessor {
 		}
 		return def;
 	}
-	
+
 	private static void registerEPackages() {
-		Registry packageRegistry = EPackage.Registry.INSTANCE;
+		final Registry packageRegistry = EPackage.Registry.INSTANCE;
 		packageRegistry.put(ExercisePackage.eNS_URI, ExercisePackage.eINSTANCE);
 		packageRegistry.put(JdtPackage.eNS_URI, JdtPackage.eINSTANCE);
 		packageRegistry.put(JunitPackage.eNS_URI, JunitPackage.eINSTANCE);
 		packageRegistry.put(WorkbenchPackage.eNS_URI, WorkbenchPackage.eINSTANCE);
 	}
-	
+
 	public static class GradeUserProcessor {
 
-		public static void main(String[] args) {
-			File file = new File(args[0]);
-			if (file.exists()) {
+		/**
+		 * @param args the command line args, with the following format: <input file name> [<username field num>] [<output file name>]
+		 */
+		public static void main(final String[] args) {
+			final File inFile = new File(args[0]);
+			File outFile = (args.length >= 3 ? new File(args[2]) : null);
+			int userNameFieldNum = 0;
+			if (args.length >= 2) {
 				try {
-					Scanner scanner = new Scanner(file);
+					userNameFieldNum = Integer.valueOf(args[1]);
+				} catch (final NumberFormatException e) {
+					if (outFile == null) {
+						outFile = new File(args[1]);
+					}
+				}
+			}
+			final String inSeparator = ";", outSeparator = inSeparator;
+			if (inFile.exists()) {
+				try {
+					final Scanner scanner = new Scanner(inFile);
+					final PrintStream out = (outFile != null ? new PrintStream(outFile) : System.out);
 					while (scanner.hasNextLine()) {
-						String line = scanner.nextLine(), fields[] = line.split(";");
-						if (fields.length != 2 || fields[0].length() > 1) {
+						final String line = scanner.nextLine(), fields[] = line.split(inSeparator);
+						if (fields.length < 1 || fields[1].length() > 1) {
 							continue;
 						}
-						char grade = fields[0].charAt(0);
-						String userName = fields[1];
+						final String userName = fields[userNameFieldNum];
 						long hashCode = userName.hashCode();
 						if (hashCode < 0) {
-							hashCode = ((long) Integer.MAX_VALUE) - hashCode;
+							hashCode = (Integer.MAX_VALUE) - hashCode;
 						}
 						String hash = String.valueOf(hashCode);
-						String padding = "0000000000"; // 10 zeros
+						final String padding = "0000000000"; // 10 zeros
 						if (padding.length() > hash.length()) {
 							hash = padding.substring(hash.length()) + hash;
 						}
-						System.out.println(hash + "," + grade);
+						out.print(hash);
+						for (int i = 0; i < fields.length; i++) {
+							if (i != userNameFieldNum) {
+								out.print(outSeparator);
+								out.print(fields[i]);
+							}
+						}
+						//						out.print(outSeparator);
+						//						out.print(userName);
+						out.println();
 					}
 					scanner.close();
-				} catch (FileNotFoundException e) {
+				} catch (final FileNotFoundException e) {
 					System.err.println(e);
 				}
 			} else {
-				System.err.println(file + " does not exist");
+				System.err.println(inFile + " does not exist");
 			}
 		}
 	}

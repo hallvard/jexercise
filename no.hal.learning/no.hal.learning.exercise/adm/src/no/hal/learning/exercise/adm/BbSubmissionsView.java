@@ -27,37 +27,38 @@ public class BbSubmissionsView extends ExResourcesChartView {
 
 	private Text submissionPathText;
 
+	@Override
 	protected void createPathViewerControl(final Composite composite) {
-		Composite row = new Composite(composite, SWT.NONE);
+		final Composite row = new Composite(composite, SWT.NONE);
 		row.setLayout(new GridLayout(4, false));
-		Label label = new Label(row, SWT.NONE);
+		final Label label = new Label(row, SWT.NONE);
 		label.setText("Submissions");
 		label.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
 		submissionPathText = new Text(row, SWT.BORDER);
 		submissionPathText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-		Button dirButton = new Button(row, SWT.NONE);
+		final Button dirButton = new Button(row, SWT.NONE);
 		dirButton.setText("Folder...");
 		dirButton.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
 		dirButton.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent e) {
-				DirectoryDialog dialog = new DirectoryDialog(composite.getShell(), SWT.OPEN);
-				String result = dialog.open();
+			public void widgetSelected(final SelectionEvent e) {
+				final DirectoryDialog dialog = new DirectoryDialog(composite.getShell(), SWT.OPEN);
+				final String result = dialog.open();
 				if (result != null) {
 					submissionPathText.setText(result);
 					asyncUpdatePane();
 				}
 			}
 		});
-		Button zipButton = new Button(row, SWT.NONE);
+		final Button zipButton = new Button(row, SWT.NONE);
 		zipButton.setText("Zip...");
 		zipButton.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false));
 		zipButton.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent e) {
-				FileDialog dialog = new FileDialog(composite.getShell(), SWT.OPEN);
+			public void widgetSelected(final SelectionEvent e) {
+				final FileDialog dialog = new FileDialog(composite.getShell(), SWT.OPEN);
 				dialog.setFilterExtensions(new String[] { "*.zip" });
-				String result = dialog.open();
+				final String result = dialog.open();
 				if (result != null) {
 					submissionPathText.setText(result);
 					asyncUpdatePane();
@@ -73,24 +74,26 @@ public class BbSubmissionsView extends ExResourcesChartView {
 		super.updatePathViewer();
 		final File file = new File(submissionPathText.getText());
 		final Job job = new Job("Load " + file) {
-			protected IStatus run(IProgressMonitor monitor) {
-				boolean processed = processFile(file, monitor);
+			@Override
+			protected IStatus run(final IProgressMonitor monitor) {
+				final boolean processed = processFile(file, monitor);
 				return (processed ? Status.OK_STATUS : Status.CANCEL_STATUS);
 			}
 		};
 		job.schedule();
 	}
-	
-	protected boolean processFile(File file, final IProgressMonitor monitor) {
+
+	protected boolean processFile(final File file, final IProgressMonitor monitor) {
 		if (monitor != null) {
 			monitor.beginTask(file.toString(), IProgressMonitor.UNKNOWN);
 		}
-		BbSubmissionsProcessor bbSubmissionsProcessor = new BbSubmissionsProcessor() {
-			protected boolean addSubmissionResource(SubmissionData sub, java.io.InputStream input) {
-				if (monitor != null) {
+		final BbSubmissionsProcessor bbSubmissionsProcessor = new BbSubmissionsProcessor() {
+			@Override
+			protected boolean addSubmissionResource(final SubmissionData sub, final java.io.InputStream input) {
+				if (monitor != null && sub != null) {
 					monitor.subTask(sub.toString());
 				}
-				boolean success = super.addSubmissionResource(sub, input);
+				final boolean success = super.addSubmissionResource(sub, input);
 				if (monitor != null) {
 					monitor.worked(1);
 				}
@@ -100,19 +103,19 @@ public class BbSubmissionsView extends ExResourcesChartView {
 		if (file.getName().endsWith(".zip")) {
 			try {
 				bbSubmissionsProcessor.readSubmissionsFromZip(file, true);
-			} catch (IOException e) {
+			} catch (final IOException e) {
 				System.err.println("Exception when reading " + file + ": " + e);
-//				MessageBox errorDialog = new MessageBox(submissionPathText.getShell(), SWT.ICON_ERROR);
-//				errorDialog.setMessage("Exception when reading " + file + ": " + e);
-//				errorDialog.open();
+				//				MessageBox errorDialog = new MessageBox(submissionPathText.getShell(), SWT.ICON_ERROR);
+				//				errorDialog.setMessage("Exception when reading " + file + ": " + e);
+				//				errorDialog.open();
 			}
 		} else if (file.isDirectory()) {
 			bbSubmissionsProcessor.readSubmissionsFromDirectory(file, true);
 		}
-		for (Map.Entry<BbSubmissionsProcessor.SubmissionData, Resource> entry : bbSubmissionsProcessor
+		for (final Map.Entry<BbSubmissionsProcessor.SubmissionData, Resource> entry : bbSubmissionsProcessor
 				.getSubmissions().entrySet()) {
-			BbSubmissionsProcessor.SubmissionData sub = entry.getKey();
-			String path = sub.exerciseName + "/" + sub.fileName + "/" + sub.userName;
+			final BbSubmissionsProcessor.SubmissionData sub = entry.getKey();
+			final String path = sub.exerciseName + "/" + sub.fileName + "/" + sub.userName;
 			pathMap.put(path, entry.getValue());
 		}
 		if (monitor != null) {

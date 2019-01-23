@@ -12,7 +12,7 @@
   <properties>
 	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-version>3.3</maven-version>
-		<tycho-version>1.0.0</tycho-version>
+		<tycho-version>1.2.0</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
        <maven.compiler.source>1.6</maven.compiler.source>
        <maven.compiler.target>1.6</maven.compiler.target>
@@ -20,15 +20,17 @@
 
 	<repositories>
 		<repository>
-			<id>eclipse-oxygen</id>
+			<id>eclipse-2018-12</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/oxygen</url>
+			<url>http://download.eclipse.org/releases/2018-12</url>
 		</repository>
+		<!-- 
 		<repository>
 			<id>emfjson</id>
 			<layout>p2</layout>
 			<url>http://ghillairet.github.io/p2</url>
 		</repository>
+		 -->
 	</repositories>
 
 	<build>
@@ -66,10 +68,12 @@
 			<modules>
 				<module>../no.hal.emf.ui.utils</module>
 				<module>../no.hal.emf.ui.utils.feature</module>
+				<!-- 
 				<module>../no.hal.emfs.parent</module>
 				<module>org.eclipse.paho.client.mqttv3</module>
-				<module>no.hal.learning.exercise</module>
 				<module>no.hal.sharing.parent</module>
+				 -->
+				<module>no.hal.learning.exercise</module>
 				<module>no.hal.learning.updatesite</module>
 			</modules>
 		</profile>

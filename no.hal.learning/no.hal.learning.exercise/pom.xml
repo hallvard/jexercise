@@ -15,6 +15,7 @@
   </properties>
 
 	<repositories>
+	<!-- 
 		<repository>
 			<id>pydev</id>
 			<layout>p2</layout>
@@ -25,6 +26,7 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/${xtextVersion}/</url>
 		</repository>
+	 -->
 	</repositories>	
 
   <modules>
@@ -36,15 +38,13 @@
   	<module>junit</module>
   	<module>jdt.ecore</module>
   	<module>jdt</module>
+  	<module>workbench</module>
+  	<module>mqttlogger</module>
   	<!-- 
   	<module>pydev</module>
   	<module>checkstyle</module>
-  	 -->
-  	<module>workbench</module>
-  	<!-- 
   	<module>xtext</module>
   	 -->
-
   	<module>adm</module>
   	<module>adm.plots</module>
 

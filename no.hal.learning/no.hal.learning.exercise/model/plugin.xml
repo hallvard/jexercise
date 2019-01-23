@@ -5,6 +5,8 @@
 -->
 
 <plugin>
+   <extension-point id="taskEventFeaturesProvider" name="taskEventFeaturesProvider" schema="schema/taskEventFeaturesProvider.exsd"/>
+   <extension-point id="taskEventFeaturesViewProvider" name="taskEventFeaturesViewProvider" schema="schema/taskEventFeaturesViewProvider.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated exercise -->

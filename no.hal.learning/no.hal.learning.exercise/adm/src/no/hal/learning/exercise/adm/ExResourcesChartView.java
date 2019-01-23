@@ -1,5 +1,6 @@
 package no.hal.learning.exercise.adm;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -18,6 +19,8 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.Viewer;
@@ -30,6 +33,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
@@ -41,11 +45,11 @@ import no.hal.learning.exercise.views.ExerciseView;
 
 public abstract class ExResourcesChartView extends PathObjectsView<Resource> implements ITaskEventsProvider {
 
-	public static String getExerciseId(Resource resource) {
-		URI uri = resource.getURI();
-		String[] segments = uri.segments();
+	public static String getExerciseId(final Resource resource) {
+		final URI uri = resource.getURI();
+		final String[] segments = uri.segments();
 		for (int i = segments.length - 1; i >= 0; i--) {
-			String segment = segments[i];
+			final String segment = segments[i];
 			if (segment.endsWith(".ex")) {
 				return segment.substring(0, segment.lastIndexOf('.'));
 			}
@@ -53,11 +57,11 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 		return null;
 	}
 
-	public static String getStudentId(Resource resource) {
-		URI uri = resource.getURI();
-		String[] segments = uri.segments();
+	public static String getStudentId(final Resource resource) {
+		final URI uri = resource.getURI();
+		final String[] segments = uri.segments();
 		for (int i = segments.length - 1; i >= 0; i--) {
-			String segment = segments[i];
+			final String segment = segments[i];
 			if (segment.lastIndexOf('.') < 0) {
 				return segment;
 			}
@@ -75,44 +79,45 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 	private CTabFolder tabFolder;
 
 	@Override
-	public void createPartControl(Composite parent) {
+	public void createPartControl(final Composite parent) {
 		tabFolder = new CTabFolder(parent, SWT.BOTTOM);
-		CTabItem resourcesTab = new CTabItem(tabFolder, SWT.NONE);
+		final CTabItem resourcesTab = new CTabItem(tabFolder, SWT.NONE);
 		resourcesTab.setText("Resources");
-		Composite resourcesComposite = createTabComposite(tabFolder);
+		final Composite resourcesComposite = createTabComposite(tabFolder);
 		resourcesTab.setControl(resourcesComposite);
 		createPathViewerControl(resourcesComposite);
 		addChartPaneTabs();
 	}
 
+	@Override
 	protected ILabelProvider createPathLabelProvider() {
 		return new ExResourceChartLabelProvider();
 	}
 
-	protected void createPathViewerControl(Composite composite) {
+	protected void createPathViewerControl(final Composite composite) {
 		super.createPartControl(composite);
 	}
 
 	@Override
-	protected void openPathObject(Resource resource) {
+	protected void openPathObject(final Resource resource) {
 		try {
-			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-			ExerciseView view = (ExerciseView) page.showView(ExerciseView.class.getName());
-			EObject accepted = view.addAcceptedEObject(resource);
+			final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+			final ExerciseView view = (ExerciseView) page.showView(ExerciseView.class.getName());
+			final EObject accepted = view.addAcceptedEObject(resource);
 			view.selectEObjectTab(accepted);
 			page.activate(view);
-		} catch (PartInitException pie) {
+		} catch (final PartInitException pie) {
 			pie.printStackTrace();
 		}
 	}
-	
+
 	protected final Runnable updatePaneRunnable = new Runnable() {
 		@Override
 		public void run() {
 			updatePane();
 		}
 	};
-	
+
 	protected void asyncUpdatePane() {
 		tabFolder.getDisplay().asyncExec(updatePaneRunnable);
 	}
@@ -123,7 +128,7 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 		if (chartPanes.containsKey(tab.getText())) {
 			updatePane(tab);
 		} else {
-			updatePathViewer();			
+			updatePathViewer();
 		}
 	}
 
@@ -136,8 +141,8 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 		tabFolder.getDisplay().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				Collection<Resource> resources = new ArrayList<Resource>();
-				Iterator<String> paths = getFilteredPaths();
+				final Collection<Resource> resources = new ArrayList<Resource>();
+				final Iterator<String> paths = getFilteredPaths();
 				while (paths.hasNext()) {
 					resources.add(getPathObject(paths.next()));
 				}
@@ -148,20 +153,20 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 	}
 
 	private Map<String, AbstractChartPane> chartPanes = null;
-	
+
 	private void addChartPaneTabs() {
 		if (chartPanes == null) {
 			chartPanes = new HashMap<String, AbstractChartPane>();
 			processChartPaneExtension();
 		}
-		for (String chartPaneName : chartPanes.keySet()) {
-			CTabItem chartTab = new CTabItem(tabFolder, SWT.NONE);
+		for (final String chartPaneName : chartPanes.keySet()) {
+			final CTabItem chartTab = new CTabItem(tabFolder, SWT.NONE);
 			chartTab.setText(chartPaneName);
 			chartTab.setControl(createTabComposite(tabFolder));
 		}
 		tabFolder.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(final SelectionEvent e) {
 				if (e.widget instanceof CTabFolder) {
 					final CTabItem tab = ((CTabFolder) e.widget).getSelection();
 					final AbstractChartPane chartPane = chartPanes.get(tab.getText());
@@ -169,7 +174,8 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 						return;
 					}
 					final Composite chartParent = (Composite) tab.getControl();
-					if (chartPane != null && tab.getControl() instanceof Composite && chartParent.getChildren().length == 0) {
+					if (chartPane != null && tab.getControl() instanceof Composite
+							&& chartParent.getChildren().length == 0) {
 						chartPane.createControls(chartParent);
 					}
 					updatePane(tab);
@@ -178,23 +184,25 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 		});
 	}
 
-	protected Composite createTabComposite(Composite parent) {
-		Composite composite = new Composite(parent, SWT.NONE);
+	protected Composite createTabComposite(final Composite parent) {
+		final Composite composite = new Composite(parent, SWT.NONE);
 		composite.setLayout(new GridLayout(1, true));
 		return composite;
 	}
 
 	protected void processChartPaneExtension() {
-		IExtensionPoint ep = Platform.getExtensionRegistry().getExtensionPoint("no.hal.learning.exercise.adm.chartpane");
-		IExtension[] extensions = ep.getExtensions();
+		final IExtensionPoint ep = Platform.getExtensionRegistry()
+				.getExtensionPoint("no.hal.learning.exercise.adm.chartpane");
+		final IExtension[] extensions = ep.getExtensions();
 		for (int i = 0; i < extensions.length; i++) {
-			for (IConfigurationElement ces: extensions[i].getConfigurationElements()) {
-				String name = ces.getName();
+			for (final IConfigurationElement ces : extensions[i].getConfigurationElements()) {
+				final String name = ces.getName();
 				if ("chartpane".equals(name)) {
 					try {
-						AbstractChartPane plotPane = (AbstractChartPane) ces.createExecutableExtension("chartPaneClass");
+						final AbstractChartPane plotPane = (AbstractChartPane) ces
+								.createExecutableExtension("chartPaneClass");
 						chartPanes.put(ces.getAttribute("name"), plotPane);
-					} catch (Exception e) {
+					} catch (final Exception e) {
 						System.err.println(e);
 					}
 				}
@@ -202,24 +210,24 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 		}
 	}
 
-	private static class ExViewerColumnData {
+	static class ExViewerColumnData {
 		int columnNum;
 		String columnName;
 		CellLabelProvider cellLabelProvider;
 		String columnLabel;
 		int columnWidth;
 	}
-	
+
 	private List<ExViewerColumnData> exViewerColumns;
-	
+
 	public Collection<ExViewerColumnData> getExViewerColumns() {
 		if (exViewerColumns == null) {
 			exViewerColumns = new ArrayList<ExViewerColumnData>();
 			processExViewerColumns();
 			Collections.sort(exViewerColumns, new Comparator<ExViewerColumnData>() {
 				@Override
-				public int compare(ExViewerColumnData cd1, ExViewerColumnData cd2) {
-					int max = Math.max(cd1.columnNum, cd2.columnNum) + 1;
+				public int compare(final ExViewerColumnData cd1, final ExViewerColumnData cd2) {
+					final int max = Math.max(cd1.columnNum, cd2.columnNum) + 1;
 					return (cd1.columnNum > 0 ? cd1.columnNum : max) - (cd2.columnNum > 0 ? cd2.columnNum : max);
 				}
 			});
@@ -230,7 +238,7 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 	@Override
 	protected void addViewerColumns() {
 		super.addViewerColumns();
-		for (ExViewerColumnData columnData : getExViewerColumns()) {
+		for (final ExViewerColumnData columnData : getExViewerColumns()) {
 			if (columnData.cellLabelProvider instanceof AbstractTaskEventsCellLabel) {
 				((AbstractTaskEventsCellLabel<?>) columnData.cellLabelProvider).setTaskEventsProvider(this);
 			}
@@ -239,62 +247,70 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 	}
 
 	@Override
-	public List<? extends TaskEvent> getTaskEvents(Object o) {
-		Resource resource = (o instanceof Resource ? (Resource) o : getPathObject(String.valueOf(o)));
+	public List<? extends TaskEvent> getTaskEvents(final Object o) {
+		final Resource resource = (o instanceof Resource ? (Resource) o : getPathObject(String.valueOf(o)));
 		return (resource != null ? Util.getAllEObjects(resource.getAllContents(), TaskEvent.class) : null);
 	}
 
-	private <T> T getAttributeValue(IConfigurationElement ces, String attrName, Class<T> clazz, T def) {
+	private <T> T getAttributeValue(final IConfigurationElement ces, final String attrName, final Class<T> clazz,
+			final T def) {
 		try {
-			String attribute = ces.getAttribute(attrName);
+			final String attribute = ces.getAttribute(attrName);
 			if (attribute != null) {
-				return (T) clazz.getMethod("valueOf", new Class[]{String.class}).invoke(null, new Object[]{attribute});
+				return (T) clazz.getMethod("valueOf", new Class[] { String.class }).invoke(null,
+						new Object[] { attribute });
 			}
-		} catch (Exception e) {
+		} catch (final Exception e) {
 		}
 		return def;
 	}
-	
+
 	private void processExViewerColumns() {
-		IExtensionPoint ep = Platform.getExtensionRegistry().getExtensionPoint("no.hal.learning.exercise.adm.exviewercolumn");
-		IExtension[] extensions = ep.getExtensions();
+		final IExtensionPoint ep = Platform.getExtensionRegistry()
+				.getExtensionPoint("no.hal.learning.exercise.adm.exviewercolumn");
+		final IExtension[] extensions = ep.getExtensions();
 		for (int i = 0; i < extensions.length; i++) {
-			for (IConfigurationElement ces: extensions[i].getConfigurationElements()) {
-				String name = ces.getName();
+			for (final IConfigurationElement ces : extensions[i].getConfigurationElements()) {
+				final String name = ces.getName();
 				if ("exviewercolumn".equals(name)) {
-					ExViewerColumnData columnData = new ExViewerColumnData();
+					final ExViewerColumnData columnData = new ExViewerColumnData();
 					try {
 						columnData.columnNum = getAttributeValue(ces, "columnNum", Integer.class, 0);
 						columnData.columnName = ces.getAttribute("columnName");
-						columnData.cellLabelProvider = (CellLabelProvider) ces.createExecutableExtension("cellLabelProviderClass");
+						columnData.cellLabelProvider = (CellLabelProvider) ces
+								.createExecutableExtension("cellLabelProviderClass");
 						columnData.columnLabel = ces.getAttribute("columnLabel");
 						columnData.columnWidth = getAttributeValue(ces, "columnWidth", Integer.class, 50);
 						if (columnData.cellLabelProvider instanceof AbstractTaskEventsCellLabel<?>) {
-							AbstractTaskEventsCellLabel<?> taskEventsCellLabel = (AbstractTaskEventsCellLabel<?>) columnData.cellLabelProvider;
-							taskEventsCellLabel.setLabelFormat(getAttributeValue(ces, "columnLabelFormat", String.class, taskEventsCellLabel.getLabelFormat()));
+							final AbstractTaskEventsCellLabel<?> taskEventsCellLabel = (AbstractTaskEventsCellLabel<?>) columnData.cellLabelProvider;
+							taskEventsCellLabel.setLabelFormat(getAttributeValue(ces, "columnLabelFormat", String.class,
+									taskEventsCellLabel.getLabelFormat()));
 						}
 						if (columnData.cellLabelProvider instanceof TaskEventsValueCellLabel) {
-							TaskEventsValueCellLabel taskEventsValueCellLabel = (TaskEventsValueCellLabel) columnData.cellLabelProvider;
+							final TaskEventsValueCellLabel taskEventsValueCellLabel = (TaskEventsValueCellLabel) columnData.cellLabelProvider;
 							if (ces.getAttribute("taskEventsValueClass") != null) {
-								AbstractTaskEventsValueProvider<?> taskEventsValue = (AbstractTaskEventsValueProvider<?>) ces.createExecutableExtension("taskEventsValueClass");
+								final AbstractTaskEventsValueProvider<?> taskEventsValue = (AbstractTaskEventsValueProvider<?>) ces
+										.createExecutableExtension("taskEventsValueClass");
 								taskEventsValueCellLabel.setTaskEventsValue(taskEventsValue);
 							}
 						}
 						exViewerColumns.add(columnData);
-					} catch (InvalidRegistryObjectException e) {
+					} catch (final InvalidRegistryObjectException e) {
 						System.err.println("Exception processing exviewercolumn extension: " + e);
-					} catch (CoreException e) {
+					} catch (final CoreException e) {
 						System.err.println("Exception processing exviewercolumn extension: " + e);
 					}
 				}
 			}
 		}
 	}
-	
-	protected void addTopicViewerColumnSelectionListener(TreeColumn treeColumn, final CellLabelProvider labelProvider) {
+
+	@Override
+	protected void addTopicViewerColumnSelectionListener(final TreeColumn treeColumn,
+			final CellLabelProvider labelProvider) {
 		treeColumn.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent event) {
+			public void widgetSelected(final SelectionEvent event) {
 				if (labelProvider instanceof AbstractTaskEventsCellLabel) {
 					final AbstractTaskEventsCellLabel taskEventsCellLabel = (AbstractTaskEventsCellLabel) labelProvider;
 					if (viewerComparator == null) {
@@ -309,39 +325,39 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 						pathViewer.refresh();
 					}
 				} else {
-					pathViewer.setComparator(null);					
+					pathViewer.setComparator(null);
 				}
 			}
 		});
 	}
-	
+
 	private TaskEventsCellLabelComparator viewerComparator;
-	
+
 	private final class TaskEventsCellLabelComparator extends ViewerComparator {
-		
+
 		private AbstractTaskEventsCellLabel<?> taskEventsCellLabel;
-		
+
 		public AbstractTaskEventsCellLabel<?> getTaskEventsCellLabel() {
 			return taskEventsCellLabel;
 		}
-		
-		public void setTaskEventsCellLabel(AbstractTaskEventsCellLabel<?> taskEventsCellLabel) {
+
+		public void setTaskEventsCellLabel(final AbstractTaskEventsCellLabel<?> taskEventsCellLabel) {
 			this.taskEventsCellLabel = taskEventsCellLabel;
 			this.toggler = 1;
 		}
-		
+
 		private int toggler = 1;
 
 		public void toggle() {
 			toggler = -toggler;
 		}
-		
-		private TaskEventsCellLabelComparator(AbstractTaskEventsCellLabel<?> taskEventsCellLabel) {
+
+		private TaskEventsCellLabelComparator(final AbstractTaskEventsCellLabel<?> taskEventsCellLabel) {
 			setTaskEventsCellLabel(taskEventsCellLabel);
 		}
 
 		@Override
-		public int compare(Viewer viewer, Object e1, Object e2) {
+		public int compare(final Viewer viewer, final Object e1, final Object e2) {
 			return taskEventsCellLabel.compareTaskEventsValues(e1, e2) * toggler;
 		}
 	}
@@ -349,12 +365,60 @@ public abstract class ExResourcesChartView extends PathObjectsView<Resource> imp
 	protected void addContentsColumn() {
 		addViewerColumn("Contents", new CellLabelProvider() {
 			@Override
-			public void update(ViewerCell cell) {
-				Resource resource = getPathObject(String.valueOf(cell.getElement()));
+			public void update(final ViewerCell cell) {
+				final Resource resource = getPathObject(String.valueOf(cell.getElement()));
 				if (resource != null) {
 					cell.setText(resource.getContents().size() + " object(s): " + resource.getContents());
 				}
 			}
 		}, 500);
+	}
+
+	//
+
+	private final TaskEventCsvsExporter taskEventCsvsExporter = new TaskEventCsvsExporter();
+	private final ExTableCsvExporter exTableCsvExporter = new ExTableCsvExporter();
+
+	@Override
+	protected void addActions() {
+		super.addActions();
+		final IMenuManager menuManager = getViewSite().getActionBars().getMenuManager();
+		menuManager.add(new Action("Export table as CSV") {
+			@Override
+			public void run() {
+				exTableCsvExporter.setResources(getSelectedResources());
+				exTableCsvExporter.setExViewerColumns(getExViewerColumns());
+				tabFolder.getDisplay().asyncExec(exTableCsvExporter);
+			}
+		});
+		menuManager.add(new Action("Export events as CSVs") {
+			@Override
+			public void run() {
+				final DirectoryDialog directoryDialog = new DirectoryDialog(tabFolder.getShell(), SWT.OPEN);
+				directoryDialog.setMessage("Select directory for CSV files");
+				directoryDialog.setText("CSV files directory");
+				final String directoryPath = directoryDialog.open();
+				if (directoryPath != null) {
+					final File dir = new File(directoryPath);
+					if (dir.exists()) {
+						taskEventCsvsExporter.setResources(getSelectedResources());
+						taskEventCsvsExporter.setDirectory(dir);
+						tabFolder.getDisplay().asyncExec(taskEventCsvsExporter);
+					}
+				}
+			}
+		});
+	}
+
+	protected Collection<Resource> getSelectedResources() {
+		final Collection<Resource> selection = new ArrayList<Resource>();
+		final Iterator<?> it = pathViewer.getStructuredSelection().iterator();
+		while (it.hasNext()) {
+			final Object next = it.next();
+			if (next instanceof Resource) {
+				selection.add((Resource) next);
+			}
+		}
+		return selection;
 	}
 }

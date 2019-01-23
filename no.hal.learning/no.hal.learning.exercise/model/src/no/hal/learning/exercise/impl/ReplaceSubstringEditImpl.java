@@ -112,9 +112,14 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 				if (end < 0) {
 					end = last.length() + end + 1;
 				}
-				transientStringCache = (start > 0 ? last.substring(0, start) : "")
-						+ (getStoredString() != null ? getStoredString() : "")
-						+ (end < last.length() ? last.substring(end) : "");
+				if (end < start) {
+					// fix due to bug when there is no difference between last and current
+					transientStringCache = last;
+				} else {
+					transientStringCache = (start > 0 ? last.substring(0, start) : "")
+							+ (getStoredString() != null ? getStoredString() : "")
+							+ (end < last.length() ? last.substring(end) : "");
+				}
 			}
 			return transientStringCache;
 		}
@@ -129,7 +134,7 @@ public class ReplaceSubstringEditImpl extends StringEditImpl implements ReplaceS
 			start++;
 		}
 		int end = -1;
-		while (string.length() + end > start && lastString.length() + end >= 0 && string.charAt(string.length() + end) == lastString.charAt(lastString.length() + end)) {
+		while (string.length() + end > start && lastString.length() + end >= start && string.charAt(string.length() + end) == lastString.charAt(lastString.length() + end)) {
 			end--;
 		}
 		if (start != 0 || end != -1) {

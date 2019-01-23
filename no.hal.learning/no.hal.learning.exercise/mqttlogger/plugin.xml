@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+   <extension
+         point="no.hal.learning.exercise.model.ui.exChangeHandler">
+      <exChangeHandler
+            handlerClass="no.hal.learning.exercise.model.mqttlogger.LoggingExChangeHandler">
+      </exChangeHandler>
+   </extension>
+
+   <extension point="org.eclipse.ui.views">
+     <view id="no.hal.learning.exercise.model.mqttlogger.LoggedExView"
+     	name="Logged Exercises"
+     	allowMultiple="false"
+     	class="no.hal.learning.exercise.model.mqttlogger.LoggedExView">
+     </view>
+   </extension>
+
+</plugin>

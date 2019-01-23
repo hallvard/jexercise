@@ -1,14 +1,18 @@
 package no.hal.learning.exercise.views;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtension;
+import org.eclipse.core.runtime.IExtensionPoint;
+import org.eclipse.core.runtime.InvalidRegistryObjectException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -20,8 +24,9 @@ import no.hal.emf.ui.parts.EObjectsView;
 import no.hal.emf.ui.parts.adapters.EObjectViewerAdapter;
 import no.hal.learning.exercise.Exercise;
 import no.hal.learning.exercise.ExerciseProposals;
-import no.hal.learning.exercise.logging.ExLogger;
+import no.hal.learning.exercise.logging.IExChangeHandler;
 import no.hal.learning.exercise.logging.LogUtil;
+import no.hal.learning.exercise.provider.ExerciseEditPlugin;
 import no.hal.learning.exercise.util.Util;
 import no.hal.learning.exercise.views.adapters.ExerciseProposalsUIAdapter;
 import no.hal.learning.exercise.views.plot.TaskPlotViewerAdapter;
@@ -92,19 +97,23 @@ public class ExerciseView extends EObjectsView {
 		}
 	};
 	
-	private ExLogger exLogger;
+	private Collection<IExChangeHandler> exChangeHandlers = null;
 	
-	private static Map<String, Object> logOptions = new HashMap<String, Object>();
-	static {
-		logOptions.put(Resource.OPTION_ZIP, Boolean.TRUE);
-	}
-	
-	public static Map<String, Object> getLogOptions() {
-		return logOptions;
-	}
-
-	protected String getClientId() {
-		return ResourcesPlugin.getWorkspace().getRoot().getLocation().toString().replace("/", "_");
+	private void processExChangeHandlersExtensionPoint() {
+		exChangeHandlers = new ArrayList<IExChangeHandler>();
+		IExtensionPoint ep = Platform.getExtensionRegistry().getExtensionPoint(ExerciseEditPlugin.getPlugin().getBundle().getSymbolicName() + ".exChangeHandler");
+		for (IExtension extension : ep.getExtensions()) {
+			for (IConfigurationElement ces: extension.getConfigurationElements()) {
+				try {
+					if ("exChangeHandler".equals(ces.getName())) {
+						IExChangeHandler exChangeHandler = (IExChangeHandler) ces.createExecutableExtension("handlerClass");
+						exChangeHandlers.add(exChangeHandler);
+					}
+				} catch (InvalidRegistryObjectException e) {
+				} catch (CoreException e) {
+				}
+			}
+		}
 	}
 	
 	private FileChangeHandler exFileChangeHandler = new FileChangeHandler("ex") {
@@ -112,14 +121,11 @@ public class ExerciseView extends EObjectsView {
 		protected void fileChanged(IFile file) {
 			Resource resource = getEObjectResource(file.getFullPath());
 			if (resource != null) {
-				ByteArrayOutputStream output = new ByteArrayOutputStream();
-				try {
-					resource.save(output, logOptions);
-					if (exLogger == null) {
-						exLogger = new ExLogger(getClientId(), ExerciseView.class.getName());
-					}
-					exLogger.enqueue(resource.getURI(), output.toByteArray());
-				} catch (IOException e) {
+				if (exChangeHandlers == null) {
+					processExChangeHandlersExtensionPoint();
+				}
+				for (IExChangeHandler exChangeHandler : exChangeHandlers) {
+					exChangeHandler.exResourceChanged(resource);
 				}
 			}
 		}

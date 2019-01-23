@@ -13,9 +13,9 @@ import no.hal.learning.fv.FeatureValued;
 import no.hal.learning.fv.FvFactory;
 
 public abstract class AbstractMetricsProvider implements IMetricsProvider {
-	
-	protected FeatureValued createNamedFeatures(String name, FeatureValued fv) {
-		DelegatedFeatures df = FvFactory.eINSTANCE.createDelegatedFeatures();
+
+	protected FeatureValued createNamedFeatures(final String name, final FeatureValued fv) {
+		final DelegatedFeatures df = FvFactory.eINSTANCE.createDelegatedFeatures();
 		df.setName(name);
 		df.setFeatures(fv);
 		return df;
@@ -24,42 +24,42 @@ public abstract class AbstractMetricsProvider implements IMetricsProvider {
 	protected FeatureList createFeatureList() {
 		return FvFactory.eINSTANCE.createFeatureList();
 	}
-	
-	protected void addFeature(FeatureList fv, String name, double value) {
+
+	protected void addFeature(final FeatureList fv, final String name, final double value) {
 		fv.getFeatures().put(name, value);
 	}
 
-	protected FeatureValued createFeatureList(String name, String featureName, double value) {
-		FeatureList fl = createFeatureList();
+	protected FeatureValued createFeatureList(final String name, final String featureName, final double value) {
+		final FeatureList fl = createFeatureList();
 		addFeature(fl, name, value);
 		return createNamedFeatures(name, fl);
 	}
 
 	//
 
-	public static String getFileContents(IFile file) {
+	public static String getFileContents(final IFile file) {
 		try {
-			Scanner scanner = new Scanner(file.getContents());
-			StringBuilder buffer = new StringBuilder();
+			final Scanner scanner = new Scanner(file.getContents());
+			final StringBuilder buffer = new StringBuilder();
 			while (scanner.hasNextLine()) {
 				buffer.append(scanner.nextLine());
 				buffer.append("\n");
 			}
 			scanner.close();
 			return buffer.toString();
-		} catch (CoreException e) {
+		} catch (final CoreException e) {
 			return null;
 		}
 	}
-	
-	public static void addMetrics(ICompilationUnit cu, EMap<String, FeatureValued> featuresMap) {
+
+	public static void addMetrics(final ICompilationUnit cu, final EMap<String, FeatureValued> featuresMap) {
 		addMetrics(getFileContents((IFile) cu.getResource()), cu, featuresMap);
 	}
 
-	public static void addMetrics(String source, ICompilationUnit cu, EMap<String, FeatureValued> featuresMap) {
-		for (String metricsName : Activator.getInstance().getMetricsProviderNames()) {
-			IMetricsProvider metricsProvider = Activator.getInstance().getMetricsProvider(metricsName);
-			FeatureValued metricsFeatures = metricsProvider.computeMetrics(source);
+	public static void addMetrics(final String source, final ICompilationUnit cu, final EMap<String, FeatureValued> featuresMap) {
+		for (final String metricsName : Activator.getInstance().getMetricsProviderNames()) {
+			final IMetricsProvider metricsProvider = Activator.getInstance().getMetricsProvider(metricsName);
+			final FeatureValued metricsFeatures = metricsProvider.computeMetrics(source);
 			featuresMap.put(metricsName, metricsFeatures);
 		}
 	}

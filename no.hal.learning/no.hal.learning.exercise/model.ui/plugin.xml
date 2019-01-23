@@ -5,6 +5,7 @@
 -->
 
 <plugin>
+   <extension-point id="exChangeHandler" name="Ex change handler" schema="schema/exChangeHandler.exsd"/>
 
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated exercise -->

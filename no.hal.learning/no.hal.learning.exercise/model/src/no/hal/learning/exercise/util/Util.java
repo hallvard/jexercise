@@ -26,7 +26,9 @@ import no.hal.learning.exercise.ExerciseFactory;
 import no.hal.learning.exercise.ExercisePartProposals;
 import no.hal.learning.exercise.ExerciseProposals;
 import no.hal.learning.exercise.MarkerInfo;
+import no.hal.learning.exercise.Proposal;
 import no.hal.learning.exercise.StringEdit;
+import no.hal.learning.exercise.TaskAnswer;
 import no.hal.learning.exercise.TaskEvent;
 import no.hal.learning.exercise.TaskProposal;
 import no.hal.learning.quiz.Option;
@@ -51,7 +53,36 @@ public class Util {
 		}
 		return exerciseProposals;
 	}
-	
+
+	public static void migrateExerciseProposals(ExerciseProposals source, ExerciseProposals target) {
+		Collection<Proposal<?>> targetProposals = target.getAllProposals();
+		for (Proposal<?> sourceProposal : source.getAllProposals()) {
+			if (sourceProposal instanceof TaskProposal<?>) {
+				TaskProposal<?> currentProposal = null;
+				for (TaskEvent taskEvent : ((TaskProposal<?>) sourceProposal).getAttempts()) {
+					if (currentProposal == null || (! currentProposal.getAnswer().acceptEvent(taskEvent))) {
+						currentProposal = findProposal(taskEvent, targetProposals);
+					}
+					if (currentProposal != null) {
+						currentProposal.addTaskEvent(taskEvent);
+					}
+				}
+			}
+		}
+	}
+
+	private static TaskProposal<?> findProposal(TaskEvent taskEvent, Collection<Proposal<?>> proposals) {
+		for (Proposal<?> proposal : proposals) {
+			if (proposal instanceof TaskProposal<?>) {
+				TaskAnswer targetAnswer = ((TaskProposal<?>) proposal).getAnswer();
+				if (targetAnswer.acceptEvent(taskEvent)) {
+					return (TaskProposal<?>) proposal; 
+				}
+			}
+		}
+		return null;
+	}
+
 	public static <T> String relativeName(EObject eObject, Class<T> c) {
 		String name = "";
    		EObject e = eObject;

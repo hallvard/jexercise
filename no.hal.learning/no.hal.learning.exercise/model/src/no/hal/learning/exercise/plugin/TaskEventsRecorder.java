@@ -29,9 +29,11 @@ public class TaskEventsRecorder {
 
 	private ResourceSet resourceSet;
 	
+	private static String ANSWERS_PATH = ".ex2", PROPOSALS_PATH = ".ex";
+
 	public void startRecording() {
 		for (IProject project : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-			IResource member = project.findMember(".ex");
+			IResource member = project.findMember(project.getName() + PROPOSALS_PATH);
 			if (member instanceof IFile && member.exists()) {
 				if (resourceSet == null) {
 					resourceSet = new ResourceSetImpl();
