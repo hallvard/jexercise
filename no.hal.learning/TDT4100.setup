@@ -25,22 +25,6 @@
         source="http://www.eclipse.org/oomph/setup/UserPreferences"/>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="no.hal.confluence.ui">
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/no.hal.confluence.ui/wikiPathPreference_library_.jar"
-          value="ovinger/libs"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/no.hal.confluence.ui/wikiPathPreference_source_.java_#java"
-          value="ovinger/src"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/no.hal.confluence.ui/wikiPathPreference_tests_Test.java_#java_#test"
-          value="ovinger/tests"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
         name="org.eclipse.debug.ui">
       <setupTask
           xsi:type="setup:PreferenceTask"
@@ -163,6 +147,9 @@
           name="jdt-codemining-feature.feature.group"/>
       <requirement
           name="org.eclipse.tm.terminal.feature.feature.group"/>
+      <requirement
+          name="no.hal.learning.exercise.feature.feature.group"
+          versionRange="[0.1.0.201901231317,0.1.0.201901231317]"/>
       <repository
           url="http://download.eclipse.org/releases/2018-12"/>
       <repository
@@ -171,6 +158,8 @@
           url="http://hallvard.github.io/plantuml/"/>
       <repository
           url="http://oss.opensagres.fr/jdt-codemining/snapshot/"/>
+      <repository
+          url="https://raw.githubusercontent.com/hallvard/jexercise/master/no.hal.learning/no.hal.learning.updatesite/repository"/>
     </setupTask>
     <description>TDT4100 for 2018-12.</description>
   </version>
