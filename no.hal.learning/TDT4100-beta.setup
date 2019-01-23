@@ -25,22 +25,6 @@
         source="http://www.eclipse.org/oomph/setup/UserPreferences"/>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="no.hal.confluence.ui">
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/no.hal.confluence.ui/wikiPathPreference_library_.jar"
-          value="ovinger/libs"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/no.hal.confluence.ui/wikiPathPreference_source_.java_#java"
-          value="ovinger/src"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/no.hal.confluence.ui/wikiPathPreference_tests_Test.java_#java_#test"
-          value="ovinger/tests"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
         name="org.eclipse.debug.ui">
       <setupTask
           xsi:type="setup:PreferenceTask"
@@ -127,13 +111,9 @@
   <setupTask
       xsi:type="setup:InstallationTask"
       id="installation"/>
-  <setupTask
-      xsi:type="setup:EclipseIniTask"
-      option="-perspective"
-      value="org.eclipse.jdt.ui.JavaPerspective.TDT4100"/>
-  <version name="oxygen"
-      label="Oxygen"
-      requiredJavaVersion="1.8">
+  <version name="2018-12"
+      label="2018-12"
+      requiredJavaVersion="11">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="${scope.product.label} (${scope.product.version.label})">
@@ -160,45 +140,28 @@
       <requirement
           name="net.sourceforge.plantuml.feature.feature.group"/>
       <requirement
-          name="no.hal.javafx.fxmlapp.feature.feature.group"/>
-      <requirement
           name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
       <requirement
-          name="no.hal.emfs.feature.feature.group"/>
+          name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
-          name="no.hal.confluence.feature.feature.group"/>
+          name="jdt-codemining-feature.feature.group"/>
       <requirement
-          name="no.hal.learning.exercise.feature.feature.group"/>
+          name="org.eclipse.tm.terminal.feature.feature.group"/>
       <requirement
-          name="no.hal.sharing.feature.feature.group"
-          versionRange="[0.1.0.201801261142,0.1.0.201801261142]"/>
-      <requirement
-          name="hu.cubussapiens.debugvisualisation.feature.feature.group"
-          optional="true"/>
-      <requirement
-          name="hu.cubussapiens.debugvisualisation.javafilter.feature.group"
-          optional="true"/>
-      <requirement
-          name="name.njbartlett.eclipse.macbadge.feature.feature.group"
-          optional="true"/>
+          name="no.hal.learning.exercise.feature.feature.group"
+          versionRange="[0.1.0.201901231317,0.1.0.201901231317]"/>
       <repository
-          url="http://download.eclipse.org/releases/oxygen"/>
+          url="http://download.eclipse.org/releases/2018-12"/>
       <repository
-          url="http://download.eclipse.org/efxclipse/updates-released/3.1.0/site/"/>
+          url="http://download.eclipse.org/efxclipse/updates-released/3.4.1/site/"/>
       <repository
-          url="http://files.idi.ntnu.no/publish/plantuml/repository/"/>
+          url="http://hallvard.github.io/plantuml/"/>
       <repository
-          url="http://files.idi.ntnu.no/publish/no.hal.javafx/repository/"/>
+          url="http://oss.opensagres.fr/jdt-codemining/snapshot/"/>
       <repository
-          url="http://files.idi.ntnu.no/publish/no.hal.learning.exercise/repository/"/>
-      <repository
-          url="http://eclipse.cubussapiens.hu/"/>
-      <repository
-          url="http://ghillairet.github.io/p2"/>
-      <repository
-          url="http://macbadge-updates.s3.amazonaws.com/"/>
+          url="https://raw.githubusercontent.com/hallvard/jexercise/master/no.hal.learning/no.hal.learning.updatesite/repository"/>
     </setupTask>
-    <description>TDT4100 for Oxygen.</description>
+    <description>TDT4100 for 2018-12.</description>
   </version>
-  <description>Setup for the TDT4100 course, Spring 2018</description>
+  <description>Setup for the TDT4100 course, Spring 2019</description>
 </setup:Product>
