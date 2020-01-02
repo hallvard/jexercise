@@ -7,15 +7,15 @@
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
-    name="tdt4100-v2019"
-    label="TDT4100, våren 2019">
+    name="tdt4100-v2020"
+    label="TDT4100, våren 2020">
   <stream name="master">
     <setupTask
         xsi:type="git:GitCloneTask"
         id="tdt4100.2019.clone"
         location="${installation.location/git/tdt4100-v2019-students}"
         remoteURI="https://gitlab.stud.idi.ntnu.no/tdt4100/v2019/students.git"
-        checkoutBranch="master"/>
+        checkoutBranch="tdt4100-v2020"/>
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
@@ -26,5 +26,5 @@
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
-  <description>Kodingsprosjekter for TDT4100, våren 2019</description>
+  <description>Kodingsprosjekter for TDT4100, våren 2020</description>
 </setup:Project>
