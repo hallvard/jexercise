@@ -57,7 +57,7 @@
           name="org.eclipse.tm.terminal.feature.feature.group"/>
       <requirement
           name="no.hal.learning.exercise.feature.feature.group"
-          versionRange="[0.1.0.201901231317,0.1.0.201901231317]"/>
+          versionRange="[0.1.0.202001020956,0.1.0.202001020956]"/>
       <repository
           url="http://download.eclipse.org/releases/2019-12"/>
       <repository
