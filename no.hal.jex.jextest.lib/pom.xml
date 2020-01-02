@@ -11,7 +11,25 @@
   	<relativePath>../no.hal.jex.parent</relativePath>
   </parent>
   
-  <build>
+	<distributionManagement>
+	    <repository>
+	        <id>internal.repo</id>
+	        <name>Temporary Staging Repository</name>
+	        <url>file://${project.build.directory}/m2/repository</url>
+	    </repository>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+		    <plugin>
+		        <artifactId>maven-deploy-plugin</artifactId>
+		        <version>2.8.1</version>
+		        <configuration>
+		            <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/m2/repository</altDeploymentRepository>
+		        </configuration>
+		    </plugin>
+		</plugins>
+
     <sourceDirectory>src</sourceDirectory>
     <resources>
       <resource>
@@ -21,16 +39,5 @@
         </excludes>
       </resource>
     </resources>
-
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
-        <configuration>
-          <source/>
-          <target/>
-        </configuration>
-      </plugin>
-    </plugins>
   </build>
 </project>

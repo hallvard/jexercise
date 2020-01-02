@@ -7,18 +7,25 @@
   
     <properties>
 		<maven-version>3.3</maven-version>
-		<tycho-version>1.0.0</tycho-version>
+		<tycho-version>1.2.0</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<repositories>
+		<repository>
+			<id>eclipse-2018-12</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/2019-12</url>
+		</repository>
+		<!-- 
 		<repository>
 			<id>eclipse-oxygen</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/oxygen</url>
 		</repository>
+		 -->
 	</repositories>
   
   <build>

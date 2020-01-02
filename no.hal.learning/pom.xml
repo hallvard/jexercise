@@ -20,9 +20,9 @@
 
 	<repositories>
 		<repository>
-			<id>eclipse-2018-12</id>
+			<id>eclipse-2019-12</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/2018-12</url>
+			<url>http://download.eclipse.org/releases/2019-12</url>
 		</repository>
 		<!-- 
 		<repository>
@@ -85,16 +85,20 @@
 				<module>../no.hal.emf.ui.utils</module>
 				<module>../no.hal.emf.ui.utils.feature</module>
 		
+				<!-- 
 				<module>../no.hal.emfs.parent</module>
 				<module>../no.hal.confluence.ui</module>
 				<module>../no.hal.confluence.java.ui</module>
 				<module>../no.hal.confluence.pydev.ui</module>
-				<module>../no.hal.confluence.feature</module>
-		
+				<module>../no.hal.confluence.feature</module>		
+				 -->
+		<!-- 
 				<module>org.eclipse.paho.client.mqttv3</module>
+		 -->
 				<module>no.hal.learning.exercise</module>
-
+<!-- 
 				<module>no.hal.sharing.parent</module>
+ -->
 
 				<module>no.hal.learning.updatesite</module>
 			</modules>

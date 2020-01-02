@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  no.hal.learning.exercise.model;visibility:=reexport,
@@ -17,7 +17,6 @@ Require-Bundle: org.eclipse.core.runtime,
  no.hal.learning.exercise.jdt;bundle-version="0.1.0",
  no.hal.learning.exercise.workbench;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
-Import-Package: no.hal.emf.ui.parts,
- org.eclipse.paho.client.mqttv3;version="[1.0.0,1.2.0)"
+Import-Package: no.hal.emf.ui.parts
 Export-Package: no.hal.learning.exercise.adm,
  no.hal.learning.exercise.adm.util

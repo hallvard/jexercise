@@ -7,7 +7,7 @@ Bundle-ClassPath: .,
  libs/diffutils-1.3.0.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: difflib,
  no.hal.learning.diff,
  no.hal.learning.diff.impl,
@@ -29,7 +29,6 @@ Require-Bundle: org.eclipse.core.runtime;resolution:=optional,
  no.hal.learning.exercise.model;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit;bundle-version="2.12.0",
- exp4j;bundle-version="0.4.6",
- org.eclipse.equinox.util;bundle-version="1.0.500"
+ exp4j;bundle-version="0.4.6"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: no.hal.learning.exercise.plugin.Activator

@@ -14,7 +14,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit;bundle-version="2.11.1",
  no.hal.emfs.ui;bundle-version="0.1.0",
  no.hal.learning.exercise.model;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: no.hal.learning.sharing.emfs,
  no.hal.learning.sharing.exercise,

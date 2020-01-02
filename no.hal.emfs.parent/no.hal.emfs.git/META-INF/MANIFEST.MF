@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: EMFS Git Import support
 Bundle-SymbolicName: no.hal.emfs.git
 Bundle-Version: 0.1.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
 Export-Package: no.hal.emfs.git

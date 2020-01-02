@@ -39,8 +39,8 @@
   	<module>jdt.ecore</module>
   	<module>jdt</module>
   	<module>workbench</module>
-  	<module>mqttlogger</module>
   	<!-- 
+  	<module>mqttlogger</module>
   	<module>pydev</module>
   	<module>checkstyle</module>
   	<module>xtext</module>

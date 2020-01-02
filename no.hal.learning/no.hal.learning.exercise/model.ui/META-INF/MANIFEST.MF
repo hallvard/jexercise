@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: no.hal.learning.exercise.provider.ExerciseEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: no.hal.learning.exercise.logging,
  no.hal.learning.exercise.presentation,
  no.hal.learning.exercise.provider,
