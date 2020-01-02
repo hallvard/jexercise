@@ -67,7 +67,7 @@
       <repository
           url="http://oss.opensagres.fr/jdt-codemining/snapshot/"/>
       <repository
-          url="https://raw.github.com/hallvard/jexercise/tdt4100-v2020/no.hal.learning/no.hal.learning.updatesite/repository"/>
+          url="https://raw.github.com/hallvard/jexercise/tdt4100-2020/no.hal.learning/no.hal.learning.updatesite/repository"/>
     </setupTask>
     <description>TDT4100 for Spring 2020, based on 2019-12</description>
   </version>
