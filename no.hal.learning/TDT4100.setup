@@ -21,9 +21,39 @@
   <setupTask
       xsi:type="setup:InstallationTask"
       id="installation"/>
-  <version name="2019-12"
-      label="2019-12"
-      requiredJavaVersion="11">
+  <version name="2020-12"
+      label="TDT4100-v2021 (2020-12)"
+      requiredJavaVersion="15">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="User Preferences">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/UserPreferences"/>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="org.eclipse.jdt.core">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.targetPlatform"
+            value="15"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.compliance"
+            value="15"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.enablePreviewFeatures"
+            value="enabled"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.reportPreviewFeatures"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.source"
+            value="15"/>
+      </setupTask>
+    </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="${scope.product.label} (${scope.product.version.label})">
@@ -61,9 +91,9 @@
       <requirement
           name="jdt-codemining-feature.feature.group"/>
       <repository
-          url="http://download.eclipse.org/releases/2019-12"/>
+          url="http://download.eclipse.org/releases/2020-12"/>
       <repository
-          url="http://download.eclipse.org/efxclipse/updates-released/3.6.0/site/"/>
+          url="http://download.eclipse.org/efxclipse/updates-released/3.7.0/site/"/>
       <repository
           url="http://hallvard.github.io/plantuml/"/>
       <repository
@@ -71,7 +101,7 @@
       <repository
           url="https://raw.github.com/hallvard/jexercise/master/no.hal.learning/no.hal.learning.updatesite/repository"/>
     </setupTask>
-    <description>TDT4100 for Spring 2020, based on 2019-12</description>
+    <description>TDT4100 for Spring 2021, based on 2020-12</description>
   </version>
   <description>Setup for the TDT4100 course, Spring 2020</description>
 </setup:Product>
