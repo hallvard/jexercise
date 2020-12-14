@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>no.hal.jex</groupId>
+	<artifactId>no.hal.jex.jextest.parent</artifactId>
+	<version>0.9.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>no.hal.jex.jextest parent project</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven-version>3.3</maven-version>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+		<tycho-version>1.0.0</tycho-version>
+		<xtextVersion>2.9.1</xtextVersion>
+		<xtend-maven-plugin-version>2.9.1</xtend-maven-plugin-version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>xtext</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/${xtextVersion}/</url>
+		</repository>
+		<repository>
+			<id>eclipse-oxygen</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/oxygen</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+		
+		<pluginManagement>
+		  <plugins>
+		    <plugin>
+		      <groupId>org.apache.maven.plugins</groupId>
+		      <artifactId>maven-compiler-plugin</artifactId>
+		      <version>${maven-version}</version>
+		      <configuration>
+		        <source>1.6</source>
+		        <target>1.6</target>
+		        <encoding>UTF-8</encoding>
+		      </configuration>
+		    </plugin>
+		  </plugins>
+		</pluginManagement>
+	</build>
+
+	<modules>
+		<module>../no.hal.jex.runtime</module>
+		<module>../no.hal.jex.runtime.feature</module>
+		<module>../no.hal.jex.runtime.repository</module>
+
+		<module>../no.hal.jex.jextest.lib</module>
+		<module>../no.hal.jex.jextest</module>
+		<module>../no.hal.jex.jextest.ui</module>
+		<module>../no.hal.jex.jextest.feature</module>
+		<module>../no.hal.jex.jextest.repository</module>
+	</modules>
+</project>
