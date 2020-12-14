@@ -4,9 +4,6 @@
   <artifactId>no.hal.jex.jextest.parent</artifactId>
   <versioning>
     <versions>
-      <version>0.9.0-SNAPSHOT</version>
-    </versions>
-    <versions>
       <version>1.1.0-SNAPSHOT</version>
     </versions>
     <lastUpdated>20180108221947</lastUpdated>
